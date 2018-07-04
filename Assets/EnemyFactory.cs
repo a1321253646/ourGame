@@ -38,7 +38,7 @@ public class EnemyFactory : MonoBehaviour {
 		mLevel = level;
 	}
 	void creatEnemy(){	
-		GameObject newobj =  GameObject.Instantiate (_game, new Vector2 (transform.position.x, transform.position.y),Quaternion.Euler(0.0f,-180f,0.0f));
+		GameObject newobj =  GameObject.Instantiate (_game, new Vector2 (transform.position.x, transform.position.y),Quaternion.Euler(0.0f,0f,0.0f));
 		EnemyBase enmey = newobj.GetComponent<EnemyBase> ();
 		enmey.init (data);
 //		enmey.dieCrystal = enmey.g

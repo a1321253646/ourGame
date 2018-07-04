@@ -16,7 +16,7 @@ public class EnemyBase : Attacker {
 	}
 	public void run(){
 		if (mBackManager.isRun) {
-			transform.Translate (Vector2.right *( mBackManager.moveSpeed+mRunSpeed) * Time.deltaTime);
+			transform.Translate (Vector2.left *( mBackManager.moveSpeed+mRunSpeed) * Time.deltaTime);
 		}
 	}
 	private void OnTriggerEnter2D(Collider2D collision){
