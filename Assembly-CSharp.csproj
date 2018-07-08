@@ -51,21 +51,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Attacker.cs" />
-     <Compile Include="Assets\BackgroundManager.cs" />
-     <Compile Include="Assets\BackgroundTransform.cs" />
-     <Compile Include="Assets\Enemy.cs" />
-     <Compile Include="Assets\EnemyBase.cs" />
-     <Compile Include="Assets\EnemyFactory.cs" />
-     <Compile Include="Assets\FightManager.cs" />
-     <Compile Include="Assets\GameManager.cs" />
-     <Compile Include="Assets\Hero.cs" />
-     <Compile Include="Assets\JsonUtils.cs" />
-     <Compile Include="Assets\Level.cs" />
-     <Compile Include="Assets\LevelEnemy.cs" />
-     <Compile Include="Assets\LevelEnemyWellen.cs" />
-     <Compile Include="Assets\LevelManager.cs" />
-     <Compile Include="Assets\PlayControl.cs" />
+     <Compile Include="Assets\Scripe\Attack\Attacker.cs" />
+     <Compile Include="Assets\Scripe\Attack\EnemyBase.cs" />
+     <Compile Include="Assets\Scripe\Attack\EnemyFactory.cs" />
+     <Compile Include="Assets\Scripe\Attack\PlayControl.cs" />
+     <Compile Include="Assets\Scripe\BackgroundTransform.cs" />
+     <Compile Include="Assets\Scripe\Bean\Enemy.cs" />
+     <Compile Include="Assets\Scripe\Bean\Hero.cs" />
+     <Compile Include="Assets\Scripe\Bean\Level.cs" />
+     <Compile Include="Assets\Scripe\Bean\LevelEnemy.cs" />
+     <Compile Include="Assets\Scripe\Bean\LevelEnemyWellen.cs" />
+     <Compile Include="Assets\Scripe\Bean\LocalBean.cs" />
+     <Compile Include="Assets\Scripe\Bean\LocalMultiple.cs" />
+     <Compile Include="Assets\Scripe\Bean\LocalNote.cs" />
+     <Compile Include="Assets\Scripe\Manager\BackgroundManager.cs" />
+     <Compile Include="Assets\Scripe\Manager\FightManager.cs" />
+     <Compile Include="Assets\Scripe\Manager\GameManager.cs" />
+     <Compile Include="Assets\Scripe\Manager\LevelManager.cs" />
+     <Compile Include="Assets\Scripe\Manager\LocalManager.cs" />
+     <Compile Include="Assets\Scripe\Manager\UiManager.cs" />
+     <Compile Include="Assets\Scripe\testdongzuo.cs" />
+     <Compile Include="Assets\Scripe\testmanager.cs" />
+     <Compile Include="Assets\Scripe\Utils\JsonUtils.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

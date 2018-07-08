@@ -1,16 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\JsonUtils.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\EnemyBase.cs">
     <Files>
       <File FileName="Assets\EnemyFactory.cs" Line="1" Column="1" />
       <File FileName="Assets\BackgroundTransform.cs" Line="1" Column="1" />
-      <File FileName="Assets\EnemyBase.cs" Line="1" Column="1" />
+      <File FileName="Assets\EnemyBase.cs" Line="18" Column="1" />
       <File FileName="Assets\FightManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Attacker.cs" Line="1" Column="1" />
       <File FileName="Assets\LevelManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\BackgroundManager.cs" Line="36" Column="42" />
+      <File FileName="Assets\BackgroundManager.cs" Line="1" Column="1" />
       <File FileName="Assets\PlayControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\GameManager.cs" Line="29" Column="40" />
+      <File FileName="Assets\GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets\JsonUtils.cs" Line="114" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

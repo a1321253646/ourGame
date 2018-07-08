@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/dongzuotest.unity
+- path: Assets/Scense/dongzuotest.unity
   isLoaded: 1
   isActive: 1
