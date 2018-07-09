@@ -36,7 +36,6 @@ public class LocalMultiple :LocalBean
 	}
 
 	public bool dealHeroActtack(Attacker acttacker , float leng ){
-		Debug.Log ("leng = " + leng);
 		LocalNote[] targetNotes;
 		for (int i = 0; i < mList.Count; i++) {
 			targetNotes = (LocalNote[])mList [i];
@@ -44,9 +43,9 @@ public class LocalMultiple :LocalBean
 				if (targetNotes [ii] == null) {
 					continue;
 				}
-				Debug.Log ("targetNotes ["+i+"]["+ii+"].mLocal.mCurrentX " + targetNotes [ii].mLocal.mCurrentX);
+			//	Debug.Log ("targetNotes ["+i+"]["+ii+"].mLocal.mCurrentX " + targetNotes [ii].mLocal.mCurrentX);
 				if (targetNotes [ii].mLocal.mCurrentX < leng) {
-					Debug.Log ("isIn  ");
+			//		Debug.Log ("isIn  ");
 					if (acttacker.mAttackerTargets == null) {
 						acttacker.mAttackerTargets = new List<Attacker> ();
 					}
@@ -54,7 +53,7 @@ public class LocalMultiple :LocalBean
 					foreach (Attacker a in acttacker.mAttackerTargets) {
 						if (a == targetNotes [ii].mLocal.mAttacker) {
 							isHave = true;
-							Debug.Log ("isHave = " + isHave);
+					//		Debug.Log ("isHave = " + isHave);
 							break;
 						}
 					}
@@ -62,7 +61,7 @@ public class LocalMultiple :LocalBean
 						continue;
 					}
 					acttacker.mAttackerTargets.Add (targetNotes [ii].mLocal.mAttacker);
-					Debug.Log ("acttacker.mAttackerTargets " +acttacker.mAttackerTargets.Count);
+			//		Debug.Log ("acttacker.mAttackerTargets " +acttacker.mAttackerTargets.Count);
 				}
 			}
 		}
@@ -137,7 +136,7 @@ public class LocalMultiple :LocalBean
 
 	}
 	public bool removeLoacal(LocalBean bean){
-		Debug.Log ("removeLoacal");
+		//Debug.Log ("removeLoacal");
 		LocalNote[] targetNotes = null;
 		int  targetNotesIndex =-1;
 		int  targetindex =-1;
@@ -148,7 +147,7 @@ public class LocalMultiple :LocalBean
 			for (int ii = 0; ii <targetNotes.Length; ii++) {
 				if (targetNotes [ii]!=null &&targetNotes [ii].mLocal == bean) {
 					targetindex = ii;
-					Debug.Log ("removeLoacal i= "+i+" targetindex= "+ii);
+			//		Debug.Log ("removeLoacal i= "+i+" targetindex= "+ii);
 					break;
 				}
 			}
@@ -167,14 +166,17 @@ public class LocalMultiple :LocalBean
 			int leng = tmp.Length;
 			for (int i = leng - 1; i >= 0; i--) {
 				if (tmp [i] != null) {
-					Debug.Log ("moveLoacal notesIndex= "+notesIndex+" i= "+i);
+				//	Debug.Log ("moveLoacal notesIndex= "+notesIndex+" i= "+i);
 					targetNotes [targetindex].mLocal = tmp [i].mLocal;
 					targetNotes [targetindex].mLocal.mTargetX = targetNotes [targetindex].x;
 					targetNotes [targetindex].mLocal.mTargetY = targetNotes [targetindex].y;
 					tmp [i] = null;
 					if (i == 0) {
 						mList.Remove (tmp);
-						Debug.Log ("*mList.Count= "+mList.Count);
+						if (mList.Count == 0) {
+							mManager.removeMultiple (this);
+						}
+			//			Debug.Log ("*mList.Count= "+mList.Count);
 						mDistance = ENEMY_X_DISTANCE*mList.Count;
 					}
 					return true;

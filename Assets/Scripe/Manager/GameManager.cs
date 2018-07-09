@@ -10,6 +10,12 @@ public class GameManager
 	public int mCurrentCrystal = 0;
 	public int maxBlood = 0;
 	public int mCurrentBlood = 0;
+	public bool mStartBoss = false;
+	public int startBossGas = 0;
+	public int upLevelCrystal = 0;
+	public int mBossId;
+	UiManager uiManager;
+	public bool isLvUp = false;
 
 	private GameManager(){
 	}
@@ -18,28 +24,45 @@ public class GameManager
 		return mIntance;
 	}
 	public void getLevelData(){
-		JsonUtils.getIntance ().init ();
 		Hero hero = JsonUtils.getIntance ().getHeroData ();
 		mHeroLv = hero.getRoleLv ();
-		mCurrentBlood = hero.getRoleLv () - maxBlood +mCurrentBlood;
+		Debug.Log ("hero.getRoleHp () = " + hero.getRoleHp () + "  maxBlood=" + maxBlood + " mCurrentBlood =" + mCurrentBlood);
+		mCurrentBlood = hero.getRoleHp () - maxBlood +mCurrentBlood;
 		maxBlood = hero.getRoleHp ();
+		upLevelCrystal = hero.getLvupCrystal ();
+
 	}
+	public void init(){
+		Level level = JsonUtils.getIntance ().getLevelData ();
+		startBossGas = int.Parse (level.boss_gas);
+		mBossId = int.Parse (level.boss_DI);
+	}
+
+	public void initUi(){
+		uiManager = new UiManager ();
+		uiManager.init ();
+	}
+
 	public void setBlood(int blood){
 		mCurrentBlood = blood;
+		uiManager.changeHeroBlood ();
 	}
 	public void heroUp(){
 		mHeroLv += 1;
+		mCurrentCrystal = mCurrentCrystal - upLevelCrystal ;
 		getLevelData ();
+		uiManager.refreshData ();
+		//修改数据到英雄
+		isLvUp = true;
 	}
 	public void startBoss(){
-	
+		mStartBoss = true;
 	}
 
 	public void enemyDeal(Attacker enemy){
-		
-	}
-	private void changeUi(){
-	
+		mCurrentGas += enemy.mDieGas;
+		mCurrentCrystal += enemy.mDieCrysta;
+		uiManager.addGasAndCrystal ();
 	}
 }
 

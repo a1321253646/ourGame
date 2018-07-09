@@ -11,39 +11,64 @@ public class EnemyBase : Attacker {
 		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager (); 
 		mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,false,this);
 		mFightManager.registerAttacker (this);
+		RuntimeAnimatorController rc = _anim.runtimeAnimatorController;
+		AnimationClip[] cls = rc.animationClips;
+		foreach(AnimationClip cl in cls){
+			if (cl.name.Equals ("Dead")) {
+				//isAddEvent = true;
+				AnimationEvent event1 = new AnimationEvent ();
+				event1.functionName = "deadEvent";
+				event1.time = cl.length-0.1f;
+				cl.AddEvent (event1);
+			} else if (cl.name.Equals ("Attack")) {
+				//isAddEvent = true;
+				AnimationEvent event1 = new AnimationEvent ();
+				event1.functionName = "standyEvent";
+				event1.time = cl.length-0.1f;
+				cl.AddEvent (event1);
+			} 
+		}
 		Run ();
 	}
 	public void deadEvent(){
 		Destroy (gameObject, 1);
 	}
+	public void standyEvent(){
+		if (status == Attacker.PLAY_STATUS_DIE) {
+			return;
+		}
 
+	//	Debug.Log ("standyEvent");
+		Standy ();
+	}
 	private bool isAddEvent = false;
+	private bool isAddFightEvent = false;
 	void Update () {
 		run ();
-		if (!isAddEvent && status == Attacker.PLAY_STATUS_DIE) {
-			AnimatorClipInfo[] infos = _anim.GetCurrentAnimatorClipInfo (0);
-			foreach (AnimatorClipInfo info in infos) {
-				if (info.clip.name.Equals ("Dead")) {
-					isAddEvent = true;
-					AnimationEvent event1 = new AnimationEvent();
-					event1.functionName = "deadEvent";
-					event1.time = info.clip.length;
-					info.clip.AddEvent (event1);
-				}
-			}
-
+		mAttackTime += Time.deltaTime;
+		if (status == Attacker.PLAY_STATUS_STANDY) {
+			if (mAttackTime >= mAttackSpeed) {
+				Debug.Log("hurt");
+				Fight ();
+				mFightManager.attackerAction (id);
+			}	
 		}
 	}
 	private float xy = 0;
 	public void run(){
+		mLocalBean.mCurrentX = transform.position.x;
+		mLocalBean.mCurrentY = transform.position.y;
+		if (status == Attacker.PLAY_STATUS_DIE && mBackManager.isRun) {
+			transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
+			return;
+		}
 		if (status != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999) {
 			return;
 		}
 		float x;
 		float y = 0;
 		float bgx= 0;
-		mLocalBean.mCurrentX = transform.position.x;
-		mLocalBean.mCurrentY = transform.position.y;
+
 
 		if(mLocalBean.mTargetX != -9999){
 			if(mLocalBean.mCurrentX < mLocalBean.mTargetX){
@@ -86,6 +111,9 @@ public class EnemyBase : Attacker {
 		this.mBloodVolume = data.getMonsterHp();
 		this.mRunSpeed = data.getMonsterSpeed();
 		this.mAttackSpeed = 3;
+		mAttackLeng = data.getAttackRange ();
+		mDieGas = data.getDieGas ();
+		mDieCrysta = data.getDieCrystal ();
 		toString ("enemy");
 	}
 
@@ -93,12 +121,11 @@ public class EnemyBase : Attacker {
 	public int dieCrystal = 0;
 
 	public override int BeAttack(int blood){
-		Debug.Log("Behurt");
 		mBloodVolume = mBloodVolume - blood;
 		if (mBloodVolume <= 0) {
 			Die ();
 			mFightManager.unRegisterAttacker (this);
 		}
-		return 0;
+		return blood;
 	}
 }

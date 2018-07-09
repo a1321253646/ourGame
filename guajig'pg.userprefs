@@ -1,17 +1,27 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\EnemyBase.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripe\Manager\LevelManager.cs">
     <Files>
-      <File FileName="Assets\EnemyFactory.cs" Line="1" Column="1" />
-      <File FileName="Assets\BackgroundTransform.cs" Line="1" Column="1" />
-      <File FileName="Assets\EnemyBase.cs" Line="18" Column="1" />
-      <File FileName="Assets\FightManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Attacker.cs" Line="1" Column="1" />
-      <File FileName="Assets\LevelManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\BackgroundManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\PlayControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\JsonUtils.cs" Line="114" Column="1" />
+      <File FileName="Assets\Scripe\Attack\Attacker.cs" Line="79" Column="1" />
+      <File FileName="Assets\Scripe\Attack\PlayControl.cs" Line="63" Column="19" />
+      <File FileName="Assets\Scripe\Attack\EnemyBase.cs" Line="50" Column="38" />
+      <File FileName="Assets\Scripe\Manager\FightManager.cs" Line="98" Column="2" />
+      <File FileName="Assets\Scripe\Manager\LocalManager.cs" Line="29" Column="4" />
+      <File FileName="Assets\Scripe\Bean\LocalBean.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Bean\LocalMultiple.cs" Line="56" Column="8" />
+      <File FileName="Assets\Scripe\Manager\LevelManager.cs" Line="19" Column="39" />
+      <File FileName="Assets\Scripe\Manager\BackgroundManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Bean\LocalNote.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Utils\JsonUtils.cs" Line="101" Column="18" />
+      <File FileName="Assets\Scripe\Manager\GameManager.cs" Line="26" Column="29" />
+      <File FileName="Assets\Scripe\Attack\EnemyFactory.cs" Line="58" Column="51" />
+      <File FileName="Assets\Resources\level.json" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Bean\Enemy.cs" Line="11" Column="27" />
+      <File FileName="Assets\Scripe\Bean\Level.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Bean\LevelEnemy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Bean\Hero.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Manager\UiManager.cs" Line="96" Column="10" />
+      <File FileName="Assets\Scripe\BackgroundTransform.cs" Line="14" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

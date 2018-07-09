@@ -26,7 +26,7 @@ public class LocalManager{
 		local.previous = tmp;
 	}
 	public void removeAttack(LocalBean local){
-		Debug.Log ("removeAttack");
+	//	Debug.Log ("removeAttack");
 		if (mLocalLink == null)
 			return;
 		LocalBean tmp = mLocalLink;
@@ -43,7 +43,7 @@ public class LocalManager{
 	}
 
 	public void EnemyDeal(Attacker attacker){
-		Debug.Log ("EnemyDeal");
+		//Debug.Log ("EnemyDeal");
 		LocalBean enemyLoacl = attacker.mLocalBean;
 		LocalBean tmp = mLocalLink.next;
 		while (tmp != null) {
@@ -61,6 +61,7 @@ public class LocalManager{
 	}
 
 	public void removeMultiple(LocalMultiple multiple){
+		//Debug.Log ("removeMultiple");
 		if (mFirstMin != null && mFirstMin == multiple) {
 			mFirstMin.previous.next = mFirstMin.next;
 			if (mFirstMin.next != null) {
@@ -69,6 +70,7 @@ public class LocalManager{
 			mFirstMin = null;
 			mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
 		}
+
 	}
 
 	private void heroAttackTarget(){
@@ -78,7 +80,6 @@ public class LocalManager{
 		}
 		LocalBean tmp = mLocalLink;
 		float leng = tmp.mCurrentX + tmp.mAttackLeng;
-		Debug.Log ("mCurrentX = " +  tmp.mCurrentX+" tmp.mAttackLeng "+tmp.mAttackLeng+" leng= "+leng);
 		tmp = mLocalLink.next;
 		while (tmp != null) {
 			if (tmp is LocalMultiple) {
@@ -97,7 +98,6 @@ public class LocalManager{
 					}
 					if (!isHave) {
 						mLocalLink.mAttacker.mAttackerTargets.Add (tmp.mAttacker);
-						Debug.Log ("mLocalLink.mAttacker.mAttackerTargets.Count ="+mLocalLink.mAttacker.mAttackerTargets.Count);
 					}
 				} else {
 					return;

@@ -10,7 +10,14 @@ public class FightManager{
 	public int mHeroStatus = Attacker.PLAY_STATUS_RUN;
 
 	Dictionary<int,Attacker> mAliveActtackers = new Dictionary<int,Attacker>();
-
+	public bool isEmptyEnemy(){
+		//Debug.Log ("mAliveActtackers.Count =" + mAliveActtackers.Count);
+		if (mAliveActtackers.Count < 3) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	public void setLoaclManager(LocalManager local){
 		mLocalManager = local;
 	}
@@ -30,6 +37,11 @@ public class FightManager{
 		}
 	}
 	public void unRegisterAttacker(Attacker attcker){
+		if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS) {
+			//通关
+		}else if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
+			//hero die
+		}
 		if (attcker.id == -1 || mAliveActtackers.Count < 1) {
 			Debug.Log ("unRegisterAttacker:this attcker is not register");
 			return;
@@ -42,6 +54,9 @@ public class FightManager{
 					tmp.mAttackerTargets.RemoveAt (index);
 				}
 			}
+		}
+		if (attcker is EnemyBase) {
+			GameManager.getIntance ().enemyDeal (attcker);
 		}
 		mLocalManager.EnemyDeal (attcker);
 		mAliveActtackers.Remove (attcker.id);
@@ -80,6 +95,7 @@ public class FightManager{
 		return mAliveActtackers [id];
 	}
 	private int attackBllod(Attacker attacker,Attacker beAttacker){
+		Debug.Log (" attacker.mAggressivity  =" + attacker.mAggressivity + " beAttacker.mDefense=" + beAttacker.mDefense);
 		int hurt= attacker.mAggressivity - beAttacker.mDefense;
 		if (hurt <= 0) {
 			hurt = 0;

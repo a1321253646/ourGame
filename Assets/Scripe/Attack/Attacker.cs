@@ -14,6 +14,12 @@ public abstract class Attacker : MonoBehaviour
 	public static  int PLAY_STATUS_DIE = 4;
 	public static  int PLAY_STATUS_HURT= 5;
 	public static  int PLAY_STATUS_WIN = 6;
+
+	public static  int ATTACK_TYPE_DEFAULT = 1	;
+	public static  int ATTACK_TYPE_HERO = 2;
+	public static  int ATTACK_TYPE_ENEMY= 3;
+	public static  int ATTACK_TYPE_BOSS = 4;
+
 	public bool isBeAttacker = false;
 	public int status = PLAY_STATUS_STANDY;
 	public int id = -1;
@@ -24,6 +30,10 @@ public abstract class Attacker : MonoBehaviour
 	public float mAttackSpeed;
 	public float mRunSpeed;
 	public float mAttackLeng = 1;
+	public int mDieGas = 0;
+	public int mDieCrysta = 0;
+	public int mAttackType =ATTACK_TYPE_DEFAULT;
+
 	public LocalBean mLocalBean;
 	public List<Attacker> mAttackerTargets;
 
@@ -58,8 +68,11 @@ public abstract class Attacker : MonoBehaviour
 		_anim.SetInteger ("status", status);
 	}
 	public void Fight(){
+		mAttackTime = 0;
 		status = PLAY_STATUS_FIGHT;
 		_anim.SetInteger ("status", status);
+		AnimatorClipInfo[] infos = _anim.GetCurrentAnimatorClipInfo (0);
+
 	}
 	public void Die(){
 		status = PLAY_STATUS_DIE;
@@ -77,5 +90,6 @@ public abstract class Attacker : MonoBehaviour
 		status = PLAY_STATUS_WIN;
 		_anim.SetInteger ("status", status);
 	}
+	public float mAttackTime = 0;
 }
 

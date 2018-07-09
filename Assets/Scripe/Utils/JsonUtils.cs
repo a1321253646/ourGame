@@ -135,6 +135,18 @@ public class JsonUtils
 			List<Enemy> enemydata = readEnemyData ();
 			List<LevelEnemy> levelList = readLevelEnemyData ();
 			mWellentList = new Dictionary<int, List<LevelEnemyWellen>> ();
+
+
+			foreach (Enemy tmp3 in  enemydata) {
+				Debug.Log ("enemydata id="+tmp3.getId() +" bossId="+bossId );
+
+				if (tmp3.getId() == bossId) {
+					mEnemys.Add ( bossId, tmp3);
+					break;
+				}
+			}
+
+
 			foreach(int tmp in mCurrentLevelWellent){
 				foreach(LevelEnemy wellen in levelList){
 					if (wellen.wellen.Equals ("" + tmp)) {
@@ -158,10 +170,7 @@ public class JsonUtils
 								foreach (Enemy tmp3 in  enemydata) {
 									if (tmp3.id.Equals (array2 [0])) {
 										mEnemys.Add (enemy.id, tmp3);
-										continue;
-									}
-									if (enemy.id == bossId) {
-										mEnemys.Add ( bossId, tmp3);
+										break;
 									}
 								}
 							}
