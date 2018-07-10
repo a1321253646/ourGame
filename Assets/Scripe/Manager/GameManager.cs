@@ -14,6 +14,7 @@ public class GameManager
 	public int startBossGas = 0;
 	public int upLevelCrystal = 0;
 	public int mBossId;
+	public bool mHeroIsAlive;
 	UiManager uiManager;
 	public bool isLvUp = false;
 

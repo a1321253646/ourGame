@@ -8,10 +8,12 @@ public class JsonUtils
 	private  string heroFile = "hero";
 	private  string enemyFile = "enemy";
 	private  string levelEnemyFile = "levelenemy";
+	private  string resourceFile = "resource";
 	private static JsonUtils mInance= new JsonUtils();
 
 	List<Hero> heroData;
 	List<Level> levelData;
+	List<ResourceBean> resourceData;
 	private JsonUtils(){
 		readAllFile ();
 	}
@@ -19,6 +21,7 @@ public class JsonUtils
 	public void readAllFile(){
 		readHeroData ();
 		readLevelData ();
+		readResource ();
 	}
 
 	public static JsonUtils getIntance(){
@@ -34,6 +37,11 @@ public class JsonUtils
 //		}
 		return jsonText.text;
 //		Hero jsonObj = JsonUtility.FromJson<Hero>(jsonText.text);
+	}
+
+	private void readResource(){
+		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (resourceFile));
+		resourceData = arrdata.ToObject<List<ResourceBean>> ();
 	}
 
 	private void readHeroData(){
@@ -69,6 +77,14 @@ public class JsonUtils
 		return arrdata.ToObject<List<Enemy>> ();
 	}
 
+	public  ResourceBean getEnemyResourceData(int resourceId){
+		foreach (ResourceBean resource in resourceData) {
+			if (resource.getId() == resourceId) {
+				return resource;
+			}
+		}
+		return null;
+	}
 
 	public  Level getLevelData(){
 		return getLevelData (

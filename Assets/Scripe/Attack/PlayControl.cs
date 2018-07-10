@@ -11,14 +11,11 @@ public class PlayControl : Attacker
 		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
 		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager (); 
 		_anim = gameObject.GetComponent<Animator> ();
-		mBackManager.setBackground ("map/map_03");
-
-
+		//mBackManager.setBackground ("map/map_03");
 		toString ("Play");
-		mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
-		mFightManager.registerAttacker (this);
 		mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
 		setHeroData ();
+		mFightManager.registerAttacker (this);
 		RuntimeAnimatorController rc = _anim.runtimeAnimatorController;
 		AnimationClip[] cls = rc.animationClips;
 		foreach(AnimationClip cl in cls){
@@ -49,10 +46,11 @@ public class PlayControl : Attacker
 		Hero hero = JsonUtils.getIntance ().getHeroData ();
 		mAggressivity = hero.getRoleAttack ();
 		mDefense = hero.getRoleDefense ();
-		mAttackSpeed = 2;
-		mAttackLeng = 1;
+		mAttackSpeed = hero.getAttackSpeed();
+		mAttackLeng =hero.getAttackRange();
 		mBloodVolume = GameManager.getIntance ().mCurrentBlood;
 		mMaxBloodVolume = hero.getRoleHp ();
+		mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 	}
 
 
@@ -90,10 +88,10 @@ public class PlayControl : Attacker
 		mBloodVolume = mBloodVolume - blood;
 	//	Debug.Log("Behurt: mBloodVolume= "+mBloodVolume+" blood="+blood);
 		GameManager.getIntance ().setBlood (mBloodVolume);
-	//	if (mBloodVolume <= 0) {
-	//		Die ();
-	//		mFightManager.unRegisterAttacker (this);
-	//	}
+		if (mBloodVolume <= 0) {
+			Die ();
+			mFightManager.unRegisterAttacker (this);
+		}
 		return blood;
 	}
 }

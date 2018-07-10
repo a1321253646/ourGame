@@ -58,17 +58,14 @@ public class EnemyBase : Attacker {
 	public void run(){
 		mLocalBean.mCurrentX = transform.position.x;
 		mLocalBean.mCurrentY = transform.position.y;
-		if (status == Attacker.PLAY_STATUS_DIE && mBackManager.isRun) {
+		if ( mBackManager.isRun) {
 			transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
-			return;
 		}
 		if (status != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999) {
 			return;
 		}
 		float x;
 		float y = 0;
-		float bgx= 0;
-
 
 		if(mLocalBean.mTargetX != -9999){
 			if(mLocalBean.mCurrentX < mLocalBean.mTargetX){
@@ -89,10 +86,7 @@ public class EnemyBase : Attacker {
 			xy = (mLocalBean.mCurrentX - mLocalBean.mTargetX) / (mLocalBean.mCurrentY - mLocalBean.mTargetY);
 		}
 
-		if (mBackManager.isRun) {
-			bgx = mBackManager.moveSpeed * Time.deltaTime;
-			//transform.Translate (Vector2.left *);
-		}
+
 		x = mRunSpeed * Time.deltaTime;
 		if (xy != 0) {
 			y = x * xy ;
@@ -100,18 +94,19 @@ public class EnemyBase : Attacker {
 
 
 
-		transform.Translate (Vector2.left *(x+bgx));
+		transform.Translate (Vector2.left *(x));
 		if (y != 0) {
 			//transform.Translate (Vector2.down *y);
 		}
 	}
 	public void init(Enemy data){
-		this.mAggressivity = data.getMonsterAttack();
+		//this.mAggressivity = data.getMonsterAttack();
+		mAggressivity = 1000;
 		this.mDefense = data.getMonsterDefense();
 		this.mBloodVolume = data.getMonsterHp();
 		this.mRunSpeed = data.getMonsterSpeed();
-		this.mAttackSpeed = 3;
-		mAttackLeng = data.getAttackRange ();
+		this.mAttackSpeed = data.getAttackSpeed();
+		mAttackLeng = data.getAttackRange();
 		mDieGas = data.getDieGas ();
 		mDieCrysta = data.getDieCrystal ();
 		toString ("enemy");

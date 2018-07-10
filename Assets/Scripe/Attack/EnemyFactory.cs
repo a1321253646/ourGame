@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyFactory : MonoBehaviour {
 	private int mLevel;
-	public GameObject _game;
+	public GameObject[] _game;
 	double timeCost = 0;
 	public BackgroundManager mBackManager;
 	public FightManager mFight;
@@ -67,7 +67,9 @@ public class EnemyFactory : MonoBehaviour {
 	}
 	void creatEnemy(bool isBoss){	
 		Debug.Log ("creatEnemy id ="+data.id);
-		GameObject newobj =  GameObject.Instantiate (_game, new Vector2 (transform.position.x, transform.position.y),Quaternion.Euler(0.0f,0f,0.0f));
+		string res = JsonUtils.getIntance ().getEnemyResourceData (data.getResource ()).role;
+		getEnemyPrefab(res);
+		GameObject newobj =  GameObject.Instantiate (getEnemyPrefab(res), new Vector2 (transform.position.x, transform.position.y),Quaternion.Euler(0.0f,0f,0.0f));
 		EnemyBase enmey = newobj.GetComponent<EnemyBase> ();
 		enmey.init (data);
 		if (isBoss) {
@@ -77,5 +79,14 @@ public class EnemyFactory : MonoBehaviour {
 		}
 //		enmey.dieCrystal = enmey.g
 		//newobj.transform.rotation.y
+	}
+	private GameObject getEnemyPrefab(string name){
+		string[] strs = name.Split ('_');
+		if (strs.Length == 2) {
+			int id = int.Parse (strs[1]);
+			return _game [id - 1];
+		}
+
+		return null;
 	}
 }

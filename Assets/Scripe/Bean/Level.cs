@@ -9,5 +9,7 @@ public class Level
 	public string boss_DI;
 	public string boss_gas;
 	public string map;
+	public string boss_bg;
+	public string abc;
 }
 

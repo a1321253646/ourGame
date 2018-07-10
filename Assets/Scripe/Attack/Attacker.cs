@@ -71,7 +71,6 @@ public abstract class Attacker : MonoBehaviour
 		mAttackTime = 0;
 		status = PLAY_STATUS_FIGHT;
 		_anim.SetInteger ("status", status);
-		AnimatorClipInfo[] infos = _anim.GetCurrentAnimatorClipInfo (0);
 
 	}
 	public void Die(){

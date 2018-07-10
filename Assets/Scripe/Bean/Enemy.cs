@@ -11,7 +11,9 @@ public class Enemy
 	public string die_crystal;
 	public string monster_speed;
 	public string attack_range;
+	public string attack_speed;
 	public string resource;
+	public string abc;
 
 	public int getMonsterHp(){
 		
@@ -35,11 +37,14 @@ public class Enemy
 	public int getMonsterSpeed(){
 		return  int.Parse (monster_speed);
 	}
-	public int getAttackRange(){
-		return  int.Parse (attack_range);
+	public float getAttackRange(){
+		return  float.Parse (attack_range);
 	}
-	public string getResource(){
-		return resource;
+	public float getAttackSpeed(){
+		return float.Parse(attack_speed);
+	}
+	public int getResource(){
+		return int.Parse (resource);
 	}
 
 }

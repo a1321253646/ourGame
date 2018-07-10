@@ -12,15 +12,16 @@ public class LocalMultiple :LocalBean
 	public  void initLocalMultiple(LocalBean bean ,LocalManager mamager){
 		mCurrentX = bean.mCurrentX;
 		mCurrentY = bean.mCurrentY;
+		mIsHero = bean.mIsHero;
+		mAttacker = bean.mAttacker;
+		mAttackLeng = bean.mAttackLeng;
 		mDistance = ENEMY_X_DISTANCE;
 		mManager = mamager;
-		mAttackType = bean.mAttackType;
 		addLocal (bean);
-		mDistance = ENEMY_X_DISTANCE;
 	}
 
 	public void updataLocal(){
-	/*	if (mList != null && mList.Count > 0 ) {
+		if (mList != null && mList.Count > 0 ) {
 			LocalNote[] notes = (LocalNote[])mList [0];
 			if(notes != null && notes.Length > 0){
 				LocalNote note= notes [0];
@@ -29,52 +30,30 @@ public class LocalMultiple :LocalBean
 					mCurrentY = note.mLocal.mCurrentY;			
 				}				
 			}
-
-
 		}
-		mMaxPointX = mDistance + mCurrentX;*/
+		mMaxPointX = mDistance + mCurrentX;
 	}
 
-	public bool dealHeroActtack(Attacker acttacker , float leng ){
-		LocalNote[] targetNotes;
-		for (int i = 0; i < mList.Count; i++) {
-			targetNotes = (LocalNote[])mList [i];
-			for (int ii = 0; ii < targetNotes.Length; ii++) {
-				if (targetNotes [ii] == null) {
-					continue;
-				}
-			//	Debug.Log ("targetNotes ["+i+"]["+ii+"].mLocal.mCurrentX " + targetNotes [ii].mLocal.mCurrentX);
-				if (targetNotes [ii].mLocal.mCurrentX < leng) {
-			//		Debug.Log ("isIn  ");
-					if (acttacker.mAttackerTargets == null) {
-						acttacker.mAttackerTargets = new List<Attacker> ();
-					}
-					bool isHave = false;
-					foreach (Attacker a in acttacker.mAttackerTargets) {
-						if (a == targetNotes [ii].mLocal.mAttacker) {
-							isHave = true;
-					//		Debug.Log ("isHave = " + isHave);
-							break;
-						}
-					}
-					if (isHave) {
-						continue;
-					}
-					acttacker.mAttackerTargets.Add (targetNotes [ii].mLocal.mAttacker);
-			//		Debug.Log ("acttacker.mAttackerTargets " +acttacker.mAttackerTargets.Count);
-				}
-			}
+	public bool addLocal(LocalBean bean){
+		
+		if (bean.isInMultiple) {
+			return true;
 		}
-		return true;
-	}
 
-	public void addLocal(LocalBean bean){
+		if (bean.mAttackLeng != mAttackLeng || bean.mCurrentX > mDistance+mCurrentX) {
+			return false;
+		}
+
+		bean.isInMultiple = true;
+
+
 		LocalNote note= new LocalNote();
 		note.mLocal = bean;
 		note.mLocal.mAttacker.mAttackerTargets.Add (mManager.mLocalLink.mAttacker);
 		if (mList == null) {
 			mList = new ArrayList ();
 		}
+
 		if (mList.Count == 0) {
 			LocalNote[] notes = new LocalNote[1];
 			note.x = mCurrentX;
@@ -84,10 +63,11 @@ public class LocalMultiple :LocalBean
 			mDistance =ENEMY_X_DISTANCE*mList.Count;
 			bean.mTargetX = note.x;
 			bean.mTargetY = note.y;
-			return;
+			return true;
 		}
+
 		int leng = mList.Count;
-		LocalNote[] tagerNotes=(LocalNote[]) mList[leng-1];
+		LocalNote[] tagerNotes =(LocalNote[]) mList[leng-1];
 		for(int i = 0; i< leng ;i++){
 			if (tagerNotes [i] == null) {
 				tagerNotes [i] = note;
@@ -117,7 +97,7 @@ public class LocalMultiple :LocalBean
 				bean.mTargetX = note.x;
 				bean.mTargetY = note.y;
 
-				return;
+				return true;
 			}
 		}
 
@@ -133,10 +113,15 @@ public class LocalMultiple :LocalBean
 		mDistance = ENEMY_X_DISTANCE*mList.Count;
 		bean.mTargetX = note.x;
 		bean.mTargetY = note.y;
-
+		return true;
 	}
+
 	public bool removeLoacal(LocalBean bean){
 		//Debug.Log ("removeLoacal");
+		if(bean.mAttackLeng != mAttackLeng ){
+			return false;
+		}
+
 		LocalNote[] targetNotes = null;
 		int  targetNotesIndex =-1;
 		int  targetindex =-1;

@@ -16,6 +16,7 @@ public class BackgroundManager{
 		BgType = type;
 		mPath = path;
 		creatBackgroup ();
+
 		setBackground (mPath);
 	}
 	public void stop(){
@@ -42,7 +43,11 @@ public class BackgroundManager{
 		sp2 = newobj.GetComponent<BackgroundTransform> ();
 	}
 	public void setBackground(string path){ 
-		sp1.setNewBg (path);
-		sp2.setNewBg (path);
+		if (path == null || path.Length < 1) {
+			return;
+		}
+		Debug.Log ("setBackground path= map/" + path);
+		sp1.setNewBg ("map/"+path);
+		sp2.setNewBg ("map/"+path);
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FightManager{
 
@@ -37,10 +38,16 @@ public class FightManager{
 		}
 	}
 	public void unRegisterAttacker(Attacker attcker){
-		if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS) {
-			//通关
+		if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS ) {
+			GameManager.getIntance ().mHeroIsAlive = true;
+			GameManager.getIntance ().mCurrentLevel += 1;
+			//SceneManager.UnloadSceneAsync (0);
+			SceneManager.LoadScene(1);
+
 		}else if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
-			//hero die
+			GameManager.getIntance ().mHeroIsAlive = false;
+			//SceneManager.UnloadSceneAsync (0);
+			SceneManager.LoadScene(1);
 		}
 		if (attcker.id == -1 || mAliveActtackers.Count < 1) {
 			Debug.Log ("unRegisterAttacker:this attcker is not register");
