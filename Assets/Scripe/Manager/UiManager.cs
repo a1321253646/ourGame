@@ -22,7 +22,7 @@ public class UiManager
 
 		mGameLevelTv.text = "当前关卡:第" + GameManager.getIntance ().mCurrentLevel+"关";
 		mGasTv.text =
-			GameManager.getIntance().mCurrentCrystal+ 
+			GameManager.getIntance().mCurrentGas+ 
 			"/"+
 			GameManager.getIntance ().startBossGas;
 

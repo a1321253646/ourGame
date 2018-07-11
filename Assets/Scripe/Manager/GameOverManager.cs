@@ -21,7 +21,6 @@ public class GameOverManager : MonoBehaviour {
 		} else {
 			mWin.SetActive (false);
 		}
-			
 	}
 	bool isThisSceneDie = false;
 	// Update is called once per frame
@@ -29,8 +28,8 @@ public class GameOverManager : MonoBehaviour {
 		time += Time.deltaTime;
 		if (!isThisSceneDie && time > END_SCENE_TIME) {
 			isThisSceneDie = true;
-			//SceneManager.UnloadSceneAsync (1);
-			Application.LoadLevelAdditive(0);
+			SceneManager.LoadScene (0);
 		}
 	}
+
 }

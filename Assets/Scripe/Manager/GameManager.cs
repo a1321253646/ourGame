@@ -24,6 +24,8 @@ public class GameManager
 	public static GameManager getIntance(){
 		return mIntance;
 	}
+		
+
 	public void getLevelData(){
 		Hero hero = JsonUtils.getIntance ().getHeroData ();
 		mHeroLv = hero.getRoleLv ();
@@ -37,6 +39,8 @@ public class GameManager
 		Level level = JsonUtils.getIntance ().getLevelData ();
 		startBossGas = int.Parse (level.boss_gas);
 		mBossId = int.Parse (level.boss_DI);
+		mCurrentGas = 0;
+		mCurrentBlood = maxBlood;
 	}
 
 	public void initUi(){

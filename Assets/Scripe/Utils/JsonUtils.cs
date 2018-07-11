@@ -89,8 +89,7 @@ public class JsonUtils
 	public  Level getLevelData(){
 		return getLevelData (
 			GameManager.
-			getIntance ().
-			mHeroLv);
+			getIntance ().mCurrentLevel);
 	}
 	public  Level getLevelData(int id){
 		foreach (Level level in levelData) {
@@ -115,6 +114,7 @@ public class JsonUtils
 		return null;
 	}
 	public void init (){
+		Debug.Log ("JsonUtils init");
 		mCurrentLevelWellent = null;
 		mWellentList = null;
 		mEnemys = null;

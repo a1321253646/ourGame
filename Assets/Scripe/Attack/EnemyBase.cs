@@ -100,8 +100,7 @@ public class EnemyBase : Attacker {
 		}
 	}
 	public void init(Enemy data){
-		//this.mAggressivity = data.getMonsterAttack();
-		mAggressivity = 1000;
+		this.mAggressivity = data.getMonsterAttack();
 		this.mDefense = data.getMonsterDefense();
 		this.mBloodVolume = data.getMonsterHp();
 		this.mRunSpeed = data.getMonsterSpeed();

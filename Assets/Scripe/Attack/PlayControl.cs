@@ -84,7 +84,7 @@ public class PlayControl : Attacker
 		transform.Translate (new Vector2 (1, 0)*(mRunSpeed-mBackManager.moveSpeed)*Time.deltaTime);
 	}
 	public override int BeAttack(int blood){
-		Debug.Log("hero Behurt blood = "+blood+" mBloodVolume="+mBloodVolume);
+		//Debug.Log("hero Behurt blood = "+blood+" mBloodVolume="+mBloodVolume);
 		mBloodVolume = mBloodVolume - blood;
 	//	Debug.Log("Behurt: mBloodVolume= "+mBloodVolume+" blood="+blood);
 		GameManager.getIntance ().setBlood (mBloodVolume);

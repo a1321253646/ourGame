@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour {
 	public FightManager mFightManager;
 	public LocalManager mLocalManager;
 	void Start () {
+		Debug.Log ("LevelManager Start");
 		GameManager.getIntance ();
 		JsonUtils.getIntance ().init ();
 		GameManager.getIntance ().getLevelData ();

@@ -37,7 +37,7 @@ public class LocalManager{
 	}
 
 	public void EnemyDeal(Attacker attacker){
-		//Debug.Log ("EnemyDeal");
+		
 		if(attacker.mLocalBean.isInMultiple){
 			for (int i = 0; i < mMultiple.Count; i++) {
 				LocalMultiple multiple = mMultiple [i];
