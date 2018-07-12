@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class EnemyBase : Attacker {	
 	// Update is called once per frame
-	private GameObject mBlood;
-	public void setBloodObject(GameObject obj){
-		mBlood = obj;
-	}
-
+	private EnemyState mState;
 	void Start () {
 		_anim = gameObject.GetComponent<Animator> ();
 		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
@@ -32,6 +28,7 @@ public class EnemyBase : Attacker {
 				cl.AddEvent (event1);
 			} 
 		}
+		mState = new EnemyState (this);
 		Run ();
 	}
 	public void deadEvent(){
@@ -66,7 +63,7 @@ public class EnemyBase : Attacker {
 
 		if ( mBackManager.isRun) {
 			transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
-			mBlood.transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
+			mState.Update ();
 		}
 		if (status != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999) {
 			return;
@@ -102,7 +99,7 @@ public class EnemyBase : Attacker {
 
 
 		transform.Translate (Vector2.left *(x));
-		mBlood.transform.Translate (Vector2.left *(x));
+		mState.Update ();
 		if (y != 0) {
 			//transform.Translate (Vector2.down *y);
 		}
