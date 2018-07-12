@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyBase : Attacker {	
 	// Update is called once per frame
+	private GameObject mBlood;
+	public void setBloodObject(GameObject obj){
+		mBlood = obj;
+	}
 
 	void Start () {
 		_anim = gameObject.GetComponent<Animator> ();
@@ -56,10 +60,13 @@ public class EnemyBase : Attacker {
 	}
 	private float xy = 0;
 	public void run(){
+		
 		mLocalBean.mCurrentX = transform.position.x;
 		mLocalBean.mCurrentY = transform.position.y;
+
 		if ( mBackManager.isRun) {
 			transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
+			mBlood.transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
 		}
 		if (status != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999) {
 			return;
@@ -95,6 +102,7 @@ public class EnemyBase : Attacker {
 
 
 		transform.Translate (Vector2.left *(x));
+		mBlood.transform.Translate (Vector2.left *(x));
 		if (y != 0) {
 			//transform.Translate (Vector2.down *y);
 		}

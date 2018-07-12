@@ -5,16 +5,19 @@ using UnityEngine;
 public class EnemyFactory : MonoBehaviour {
 	private int mLevel;
 	public GameObject[] _game;
+	public GameObject blood;
 	double timeCost = 0;
 	public BackgroundManager mBackManager;
 	public FightManager mFight;
 	private Enemy data;
 	private bool isCreat = true;
 	private bool startBoss = false;
+	private GameObject canvas;
 	// Use this for initialization
 	void Start () {
 		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
 		mFight = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager ();
+		canvas = GameObject.Find ("Canvas");
 		mList = JsonUtils.getIntance ().getWellenEnemy ();
 	}
 	
@@ -77,6 +80,9 @@ public class EnemyFactory : MonoBehaviour {
 		} else {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_ENEMY;
 		}
+		GameObject bewBlood = GameObject.Instantiate (blood, new Vector2 (transform.position.x, transform.position.y), Quaternion.Euler (0.0f, 0f, 0.0f));
+		bewBlood.transform.SetParent (canvas.transform,false);
+		enmey.setBloodObject (bewBlood);
 //		enmey.dieCrystal = enmey.g
 		//newobj.transform.rotation.y
 	}
