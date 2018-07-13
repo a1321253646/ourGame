@@ -6,6 +6,7 @@ public class PlayControl : Attacker
 {
 
 	// Use this for initialization
+	private HeroState mState;
 	void Start () {
 		mAttackType = Attacker.ATTACK_TYPE_HERO;
 		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
@@ -45,12 +46,13 @@ public class PlayControl : Attacker
 	public void setHeroData(){
 		Hero hero = JsonUtils.getIntance ().getHeroData ();
 		mAggressivity = hero.getRoleAttack ();
-		mDefense = hero.getRoleDefense ();
+		mDefense = 10000;//hero.getRoleDefense ();
 		mAttackSpeed = hero.getAttackSpeed();
 		mAttackLeng =hero.getAttackRange();
 		mBloodVolume = GameManager.getIntance ().mCurrentBlood;
 		mMaxBloodVolume = hero.getRoleHp ();
 		mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
+		mState = new HeroState (this);
 	}
 
 
@@ -92,6 +94,7 @@ public class PlayControl : Attacker
 			Die ();
 			mFightManager.unRegisterAttacker (this);
 		}
+		mState.hurt (blood);
 		return blood;
 	}
 }

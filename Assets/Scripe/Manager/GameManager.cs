@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 
 public class GameManager
 {
@@ -15,7 +15,7 @@ public class GameManager
 	public int upLevelCrystal = 0;
 	public int mBossId;
 	public bool mHeroIsAlive;
-	UiManager uiManager;
+	public UiManager uiManager;
 	public bool isLvUp = false;
 
 	private GameManager(){
@@ -56,6 +56,11 @@ public class GameManager
 		mHeroLv += 1;
 		mCurrentCrystal = mCurrentCrystal - upLevelCrystal ;
 		getLevelData ();
+		if (mCurrentCrystal >= upLevelCrystal) {
+			uiManager.showLevelUp (true);
+		} else {
+			uiManager.showLevelUp (false);
+		}
 		uiManager.refreshData ();
 		//修改数据到英雄
 		isLvUp = true;

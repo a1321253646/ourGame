@@ -28,7 +28,6 @@ public class EnemyBase : Attacker {
 				cl.AddEvent (event1);
 			} 
 		}
-		mState = new EnemyState (this);
 		Run ();
 	}
 	public void deadEvent(){
@@ -108,12 +107,14 @@ public class EnemyBase : Attacker {
 		this.mAggressivity = data.getMonsterAttack();
 		this.mDefense = data.getMonsterDefense();
 		this.mBloodVolume = data.getMonsterHp();
+		mMaxBloodVolume = mBloodVolume;
 		this.mRunSpeed = data.getMonsterSpeed();
 		this.mAttackSpeed = data.getAttackSpeed();
 		mAttackLeng = data.getAttackRange();
 		mDieGas = data.getDieGas ();
-		mDieCrysta = data.getDieCrystal ();
+		mDieCrysta = 100;//data.getDieCrystal ();
 		toString ("enemy");
+		mState = new EnemyState (this);
 	}
 
 	public int dieGas = 0;
@@ -125,6 +126,7 @@ public class EnemyBase : Attacker {
 			Die ();
 			mFightManager.unRegisterAttacker (this);
 		}
+		mState.hurt (blood);
 		return blood;
 	}
 }

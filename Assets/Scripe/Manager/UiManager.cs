@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening;
 public class UiManager 
 {	
 	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv;
@@ -41,7 +42,7 @@ public class UiManager
 		refreshData ();
 	}
 	public void refreshData(){
-		mHeroLvTv.text = "英雄等级:" + GameManager.getIntance ().mCurrentLevel+"级";
+		mHeroLvTv.text = "英雄等级:" + GameManager.getIntance ().mHeroLv +"级";
 		mLvUpCrystalTv.text = "升级消耗：魔晶" + GameManager.getIntance ().upLevelCrystal;
 		mCurrentCrystalTv.text = "拥有魔晶：" + GameManager.getIntance ().mCurrentCrystal;
 		mHpTv.text = GameManager.getIntance ().mCurrentBlood + "/" + GameManager.getIntance ().maxBlood;
@@ -56,7 +57,12 @@ public class UiManager
 
 	public void changeHeroBlood(){
 		mHpSl.value = GameManager.getIntance ().mCurrentBlood;
-		mHpTv.text = GameManager.getIntance ().mCurrentBlood + "/" + GameManager.getIntance ().maxBlood;
+		if (GameManager.getIntance ().mCurrentBlood < 0) {
+			mHpTv.text =0 + "/" + GameManager.getIntance ().maxBlood;
+		} else {
+			mHpTv.text = GameManager.getIntance ().mCurrentBlood + "/" + GameManager.getIntance ().maxBlood;
+		}
+
 	}
 
 	public void addGasAndCrystal(){
@@ -78,10 +84,26 @@ public class UiManager
 	}
 
 
+	public static void FlyTo(Graphic graphic)
+	{
+		RectTransform rt = graphic.rectTransform;
+		Color c = graphic.color;
+		//c.a = 0;
+		graphic.color = c;
+		Sequence mySequence = DOTween.Sequence ();
+
+		Tweener move1 = rt.DOMoveY(rt.position.y + 150, 2f);
+		//		Tweener alpha1 = graphic.DOColor(new Color(c.r, c.g, c.b, 1), 0.5f);
+		//		Tweener alpha2 = graphic.DOColor(new Color(c.r, c.g, c.b, 0), 0.5f);
+		mySequence.Append(move1);
+		//		mySequence.Join(alpha1);
+	//	mySequence.AppendInterval(1);
+		//		mySequence.Join(alpha2);
+	}
 	public void showStarBoss(){
 		mStartBossBt.interactable = true;
 	}
-	public void showLevelUp(){
+	public void showLevelUp(bool isEnable){
 		mLvUpBt.interactable = true;
 	}
 
@@ -93,9 +115,8 @@ public class UiManager
 	}
 	private void levelUp(){
 		GameManager.getIntance ().heroUp ();
-		mLvUpBt.interactable = false;
+	//	mLvUpBt.interactable = false;
 		Debug.Log ("levelUp");
 	}
-
 }
 

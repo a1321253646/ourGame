@@ -28,9 +28,11 @@ public class LevelManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
+	bool starBoss = false;
 	void Update () {
 		mLocalManager.upData ();
-		if (GameManager.getIntance ().mStartBoss) {
+		if (!starBoss && GameManager.getIntance ().mStartBoss) {
+			starBoss = true;
 			mBackManager.setBackground (JsonUtils.getIntance ().getLevelData ().boss_bg);
 		}
 	}
