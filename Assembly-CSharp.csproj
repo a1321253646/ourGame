@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripe\Bean\LocalBean.cs" />
      <Compile Include="Assets\Scripe\Bean\LocalMultiple.cs" />
      <Compile Include="Assets\Scripe\Bean\LocalNote.cs" />
+     <Compile Include="Assets\Scripe\Bean\Point.cs" />
      <Compile Include="Assets\Scripe\Bean\ResourceBean.cs" />
      <Compile Include="Assets\Scripe\EnemyState.cs" />
      <Compile Include="Assets\Scripe\HeroState.cs" />
@@ -109,6 +110,9 @@
  <Reference Include="Newtonsoft.Json">
  <HintPath>E:/unityProject/guajig'pg/Assets/Plugin/Newtonsoft.Json.dll</HintPath>
  </Reference>
+ <Reference Include="DOTween">
+ <HintPath>E:/unityProject/guajig'pg/Assets/Plugin/DOTween/DOTween.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
@@ -120,9 +124,6 @@
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
- </Reference>
- <Reference Include="DOTween">
- <HintPath>E:/unityProject/guajig'pg/Assets/Plugin/DOTween/DOTween.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

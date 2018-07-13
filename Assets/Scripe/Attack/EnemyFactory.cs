@@ -69,11 +69,13 @@ public class EnemyFactory : MonoBehaviour {
 	}
 	void creatEnemy(bool isBoss){	
 		Debug.Log ("creatEnemy id ="+data.id);
-		string res = JsonUtils.getIntance ().getEnemyResourceData (data.getResource ()).role;
+		ResourceBean bean = JsonUtils.getIntance ().getEnemyResourceData (data.getResource ());
+		string res = bean.name;
 		getEnemyPrefab(res);
-		GameObject newobj =  GameObject.Instantiate (getEnemyPrefab(res), new Vector2 (transform.position.x, transform.position.y),Quaternion.Euler(0.0f,0f,0.0f));
+		GameObject newobj =  GameObject.Instantiate (
+			getEnemyPrefab(res), new Vector2 (transform.position.x, transform.position.y),Quaternion.Euler(0.0f,0f,0.0f));
 		EnemyBase enmey = newobj.GetComponent<EnemyBase> ();
-		enmey.init (data);
+		enmey.init (data,bean);
 		if (isBoss) {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_BOSS;
 		} else {

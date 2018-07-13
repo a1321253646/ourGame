@@ -99,11 +99,12 @@ public class EnemyBase : Attacker {
 
 		transform.Translate (Vector2.left *(x));
 		mState.Update ();
-		if (y != 0) {
+		//if (y != 0) {
 			//transform.Translate (Vector2.down *y);
-		}
+		//}
 	}
-	public void init(Enemy data){
+	public void init(Enemy data,ResourceBean resource){
+		resourceData= resource;
 		this.mAggressivity = data.getMonsterAttack();
 		this.mDefense = data.getMonsterDefense();
 		this.mBloodVolume = data.getMonsterHp();

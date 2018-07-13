@@ -36,6 +36,7 @@ public abstract class Attacker : MonoBehaviour
 
 	public LocalBean mLocalBean;
 	public List<Attacker> mAttackerTargets;
+	public ResourceBean resourceData;
 
 	public abstract int BeAttack (int blood);
 
