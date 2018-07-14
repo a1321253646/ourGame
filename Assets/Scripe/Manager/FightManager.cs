@@ -87,6 +87,10 @@ public class FightManager{
 		int hurtBlood = 0;
 		Attacker attacker = getAttackerById (id);
 		if (attacker.mAttackerTargets != null && attacker.mAttackerTargets.Count > 0) {
+			if (attacker is EnemyBase) {//enemy only one target
+				FightResource resouce = new FightResource (attacker);
+				return resouce.hurt (hurtBlood);
+			}
 			for (int i = 0; i < attacker.mAttackerTargets.Count; i++) {
 				Attacker tager = attacker.mAttackerTargets [i];
 				hurtBlood = attackBllod (attacker, tager);

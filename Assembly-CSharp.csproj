@@ -54,8 +54,9 @@
      <Compile Include="Assets\Scripe\Attack\Attacker.cs" />
      <Compile Include="Assets\Scripe\Attack\EnemyBase.cs" />
      <Compile Include="Assets\Scripe\Attack\EnemyFactory.cs" />
+     <Compile Include="Assets\Scripe\Attack\EnemyState.cs" />
+     <Compile Include="Assets\Scripe\Attack\HeroState.cs" />
      <Compile Include="Assets\Scripe\Attack\PlayControl.cs" />
-     <Compile Include="Assets\Scripe\BackgroundTransform.cs" />
      <Compile Include="Assets\Scripe\Bean\Enemy.cs" />
      <Compile Include="Assets\Scripe\Bean\Hero.cs" />
      <Compile Include="Assets\Scripe\Bean\Level.cs" />
@@ -66,9 +67,6 @@
      <Compile Include="Assets\Scripe\Bean\LocalNote.cs" />
      <Compile Include="Assets\Scripe\Bean\Point.cs" />
      <Compile Include="Assets\Scripe\Bean\ResourceBean.cs" />
-     <Compile Include="Assets\Scripe\EnemyState.cs" />
-     <Compile Include="Assets\Scripe\HeroState.cs" />
-     <Compile Include="Assets\Scripe\HurtText.cs" />
      <Compile Include="Assets\Scripe\Manager\BackgroundManager.cs" />
      <Compile Include="Assets\Scripe\Manager\FightManager.cs" />
      <Compile Include="Assets\Scripe\Manager\GameManager.cs" />
@@ -76,6 +74,11 @@
      <Compile Include="Assets\Scripe\Manager\LevelManager.cs" />
      <Compile Include="Assets\Scripe\Manager\LocalManager.cs" />
      <Compile Include="Assets\Scripe\Manager\UiManager.cs" />
+     <Compile Include="Assets\Scripe\Resource\BackgroundTransform.cs" />
+     <Compile Include="Assets\Scripe\Resource\FightResource.cs" />
+     <Compile Include="Assets\Scripe\Resource\HitBase.cs" />
+     <Compile Include="Assets\Scripe\Resource\HurtText.cs" />
+     <Compile Include="Assets\Scripe\Resource\TrajectoryBase.cs" />
      <Compile Include="Assets\Scripe\testdongzuo.cs" />
      <Compile Include="Assets\Scripe\testmanager.cs" />
      <Compile Include="Assets\Scripe\Utils\JsonUtils.cs" />

@@ -14,6 +14,8 @@ public class Enemy
 	public string attack_speed;
 	public string resource;
 	public string abc;
+	public string trajectory_resource;
+	public string hit_resource; 
 
 	public int getMonsterHp(){
 		
@@ -46,6 +48,17 @@ public class Enemy
 	public int getResource(){
 		return int.Parse (resource);
 	}
-
+	public int getTrajectoryResource(){
+		if (trajectory_resource == null) {
+			return -1;
+		}
+		return int.Parse (trajectory_resource);
+	}
+	public int getHitResource(){
+		if (hit_resource == null) {
+			return -1;
+		}
+		return int.Parse (hit_resource);
+	}
 }
 

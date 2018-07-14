@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Resources\hero.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripe\Attack\EnemyBase.cs">
     <Files>
       <File FileName="Assets\Scripe\Attack\Attacker.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripe\Attack\PlayControl.cs" Line="1" Column="1" />
@@ -24,7 +24,7 @@
       <File FileName="Assets\Scripe\BackgroundTransform.cs" Line="1" Column="1" />
       <File FileName="Assets\Resources\hero.json" Line="1" Column="1" />
       <File FileName="Assets\Scripe\Bean\ResourceBean.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\EnemyState.cs" Line="43" Column="83" />
+      <File FileName="Assets\Scripe\EnemyState.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripe\HurtText.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripe\Manager\GameOverManager.cs" Line="1" Column="1" />
     </Files>

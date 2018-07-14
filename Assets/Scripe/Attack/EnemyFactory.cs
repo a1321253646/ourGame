@@ -84,6 +84,7 @@ public class EnemyFactory : MonoBehaviour {
 //		enmey.dieCrystal = enmey.g
 		//newobj.transform.rotation.y
 	}
+	private Dictionary<string,GameObject> mOGameOjecList = new Dictionary<string, GameObject>(); 
 	private GameObject getEnemyPrefab(string name){
 		string[] strs = name.Split ('_');
 		if (strs.Length == 2) {

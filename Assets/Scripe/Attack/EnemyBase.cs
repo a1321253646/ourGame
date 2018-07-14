@@ -103,8 +103,10 @@ public class EnemyBase : Attacker {
 			//transform.Translate (Vector2.down *y);
 		//}
 	}
+	public Enemy mData;
 	public void init(Enemy data,ResourceBean resource){
 		resourceData= resource;
+		mData = data;
 		this.mAggressivity = data.getMonsterAttack();
 		this.mDefense = data.getMonsterDefense();
 		this.mBloodVolume = data.getMonsterHp();
@@ -113,7 +115,7 @@ public class EnemyBase : Attacker {
 		this.mAttackSpeed = data.getAttackSpeed();
 		mAttackLeng = data.getAttackRange();
 		mDieGas = data.getDieGas ();
-		mDieCrysta = 100;//data.getDieCrystal ();
+		mDieCrysta = data.getDieCrystal ();
 		toString ("enemy");
 		mState = new EnemyState (this);
 	}

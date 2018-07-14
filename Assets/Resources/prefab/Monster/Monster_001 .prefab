@@ -80,7 +80,12 @@ MonoBehaviour:
   mMaxBloodVolume: 0
   mAttackSpeed: 0
   mRunSpeed: 0
+  mAttackLeng: 1
+  mDieGas: 0
+  mDieCrysta: 0
+  mAttackType: 1
   mAttackerTargets: []
+  mAttackTime: 0
   dieGas: 0
   dieCrystal: 0
 --- !u!212 &212392599992241258

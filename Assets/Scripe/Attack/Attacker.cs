@@ -59,6 +59,9 @@ public abstract class Attacker : MonoBehaviour
 	public void attack(){
 		int attackeBlood = mFightManager.attackerAction (id);
 	}
+	public void attackSync(int blood){
+		
+	}
 	public void changeAnim(){
 		Debug.Log ("OnTriggerEnter2D enemyStatus= "+status);
 		_anim.SetInteger ("status", status);

@@ -46,7 +46,7 @@ public class PlayControl : Attacker
 	public void setHeroData(){
 		Hero hero = JsonUtils.getIntance ().getHeroData ();
 		mAggressivity = hero.getRoleAttack ();
-		mDefense = 10000;//hero.getRoleDefense ();
+		mDefense = hero.getRoleDefense ();
 		mAttackSpeed = hero.getAttackSpeed();
 		mAttackLeng =hero.getAttackRange();
 		mBloodVolume = GameManager.getIntance ().mCurrentBlood;
