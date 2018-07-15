@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyFactory : MonoBehaviour {
 	private int mLevel;
 	public GameObject[] _game;
-	double timeCost = 0;
+    public GameObject[] Effect;
+    double timeCost = 0;
 	public BackgroundManager mBackManager;
 	public FightManager mFight;
 	private Enemy data;
@@ -29,8 +30,8 @@ public class EnemyFactory : MonoBehaviour {
 			GameManager.getIntance ().mStartBoss = false;
 			startBoss = true;
 
-			string bossId = JsonUtils.getIntance ().getLevelData ().boss_DI;
-			Debug.Log ("start creat boss id ="+bossId);
+			//int bossId = JsonUtils.getIntance ().getLevelData ().boss_DI;
+			//Debug.Log ("start creat boss id ="+bossId);
 			data = JsonUtils.getIntance ().getEnemyById (GameManager.getIntance().mBossId);
 			creatEnemy (true);
 			return;
@@ -51,7 +52,7 @@ public class EnemyFactory : MonoBehaviour {
 
 		if (timeCost > mList[currentCount].time) {
 			long id = mList [currentCount].id;
-			Debug.Log ("creat enemey id =" + id);
+		//	Debug.Log ("creat enemey id =" + id);
 			data = JsonUtils.getIntance ().getEnemyById (id);
 			creatEnemy (false);
 			currentCount++;
@@ -68,8 +69,8 @@ public class EnemyFactory : MonoBehaviour {
 		mLevel = level;
 	}
 	void creatEnemy(bool isBoss){	
-		Debug.Log ("creatEnemy id ="+data.id);
-		ResourceBean bean = JsonUtils.getIntance ().getEnemyResourceData (data.getResource ());
+//		Debug.Log ("creatEnemy id ="+data.id);
+		ResourceBean bean = JsonUtils.getIntance ().getEnemyResourceData (data.resource);
 		string res = bean.name;
 		getEnemyPrefab(res);
 		GameObject newobj =  GameObject.Instantiate (

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LevelEnemy
 {
-	public string wellen;
+	public long wellen;
 	public string collocation;
 }
 

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4818674795961506}
-  - component: {fileID: 114376485609494372}
+  - component: {fileID: 114894097040869322}
   m_Layer: 0
   m_Name: enemyfactory
   m_TagString: Untagged
@@ -34,13 +34,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220025670914754}
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 7.44, y: -2.41, z: 0.14751454}
+  m_LocalPosition: {x: -5.0897846, y: 0.48115683, z: 0.14751454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!114 &114376485609494372
+--- !u!114 &114894097040869322
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -92,3 +92,6 @@ MonoBehaviour:
   - {fileID: 1146296482521990, guid: f3dbe6abf5171a7438da7c77f1536a75, type: 2}
   - {fileID: 1128500596405162, guid: 1ebaf4f4f42a4f8438c48c363c65bcf4, type: 2}
   - {fileID: 1072545068518518, guid: 8014554e4e95b644a8ce92e52ef46231, type: 2}
+  Effect:
+  - {fileID: 1267193466152708, guid: eef565599eac3f243a1235b187a03948, type: 2}
+  - {fileID: 1815311383339422, guid: bb1cf2e8b62ce684593ca684944e8663, type: 2}

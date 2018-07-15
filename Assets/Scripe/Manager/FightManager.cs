@@ -7,8 +7,8 @@ public class FightManager{
 
 	private int id = 0;
 	private LocalManager mLocalManager;
-
-	public int mHeroStatus = Attacker.PLAY_STATUS_RUN;
+    public EnemyFactory mEnemyFactory;
+    public int mHeroStatus = Attacker.PLAY_STATUS_RUN;
 
 	Dictionary<int,Attacker> mAliveActtackers = new Dictionary<int,Attacker>();
 	public bool isEmptyEnemy(){
@@ -82,15 +82,20 @@ public class FightManager{
 		}
 		my.mAttackerTargets.Add (beAttacker);
 	}*/
-	public int attackerAction(int id){
-		int hurtBloodAll = 0;
-		int hurtBlood = 0;
+	public float attackerAction(int id){
+		float hurtBloodAll = 0;
+		float hurtBlood = 0;
 		Attacker attacker = getAttackerById (id);
 		if (attacker.mAttackerTargets != null && attacker.mAttackerTargets.Count > 0) {
 			if (attacker is EnemyBase) {//enemy only one target
-				FightResource resouce = new FightResource (attacker);
-				return resouce.hurt (hurtBlood);
-			}
+				FightResource resouce = new FightResource (attacker, mEnemyFactory);
+                hurtBlood = attackBllod(attacker, attacker.mAttackerTargets[0]);
+                hurtBlood = resouce.hurt(hurtBlood);
+                if (hurtBlood != 0) {
+                    attacker.mAttackerTargets[0].BeAttack(hurtBlood);
+                }
+                return hurtBlood;
+            }
 			for (int i = 0; i < attacker.mAttackerTargets.Count; i++) {
 				Attacker tager = attacker.mAttackerTargets [i];
 				hurtBlood = attackBllod (attacker, tager);
@@ -105,9 +110,9 @@ public class FightManager{
 	private Attacker getAttackerById(int id){
 		return mAliveActtackers [id];
 	}
-	private int attackBllod(Attacker attacker,Attacker beAttacker){
-		Debug.Log (" attacker.mAggressivity  =" + attacker.mAggressivity + " beAttacker.mDefense=" + beAttacker.mDefense);
-		int hurt= attacker.mAggressivity - beAttacker.mDefense;
+	private float attackBllod(Attacker attacker,Attacker beAttacker){
+		//Debug.Log (" attacker.mAggressivity  =" + attacker.mAggressivity + " beAttacker.mDefense=" + beAttacker.mDefense);
+		float hurt= attacker.mAggressivity - beAttacker.mDefense;
 		if (hurt <= 0) {
 			hurt = 0;
 		}

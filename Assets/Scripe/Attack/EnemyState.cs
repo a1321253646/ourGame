@@ -15,15 +15,15 @@ public class EnemyState{
 	public EnemyState ( EnemyBase enemy){
 		mEnemy = enemy;
 		mResourceData = mEnemy.resourceData;
-		Debug.Log ("BloodOffset.x = "+mResourceData.getBloodOffset().x+
-			"BloodOffset.y="+mResourceData.getBloodOffset().y);
+	//	Debug.Log ("BloodOffset.x = "+mResourceData.getBloodOffset().x+
+	//		"BloodOffset.y="+mResourceData.getBloodOffset().y);
 		bloodOffet = new Vector3 (mResourceData.getBloodOffset().x, mResourceData.getBloodOffset().y, 0);
 		HP_imageGameobject = Resources.Load<GameObject> ("prefab/enemyblood") ;		 
 		HP_Parent = GameObject.Find("enemyStatePlane").transform;  
 		EnemySceenPosition=Camera.main.WorldToScreenPoint(mEnemy.transform.position);  
 		HP_imageGameObjectClone = GameObject.Instantiate(HP_imageGameobject,
 			new Vector2 (EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);  
-		HP_imageGameObjectClone.transform.localScale = new Vector3 (  mResourceData.getBloodWitch(),1f,0);
+		HP_imageGameObjectClone.transform.localScale = new Vector3 (  mResourceData.blood_witch,1f,0);
 		HP_imageGameObjectClone.transform.SetParent(HP_Parent); 
 		mHpSl = HP_imageGameObjectClone.GetComponent<Slider> ();
 		mHpSl.maxValue = mEnemy.mMaxBloodVolume;
@@ -37,7 +37,7 @@ public class EnemyState{
 		PHFollowEnemy();  
 	}  
  
-	public void hurt(int blood){
+	public void hurt(float blood){
 		mHpSl.value = mEnemy.mBloodVolume;
 		if (mEnemy.mBloodVolume <= 0) {
 			GameObject.Destroy (HP_imageGameObjectClone);

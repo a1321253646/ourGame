@@ -4,16 +4,16 @@ using UnityEngine.UI;
 
 public class GameManager
 {
-	public int mCurrentLevel = 1;
-	public int mHeroLv = 1;
-	public int mCurrentGas = 0;
-	public int mCurrentCrystal = 0;
-	public int maxBlood = 0;
-	public int mCurrentBlood = 0;
+	public long mCurrentLevel = 1;
+	public long mHeroLv = 1;
+	public float mCurrentGas = 0;
+	public float mCurrentCrystal = 0;
+	public float maxBlood = 0;
+	public float mCurrentBlood = 0;
 	public bool mStartBoss = false;
-	public int startBossGas = 0;
-	public int upLevelCrystal = 0;
-	public int mBossId;
+	public float startBossGas = 0;
+	public float upLevelCrystal = 0;
+	public long mBossId;
 	public bool mHeroIsAlive;
 	public UiManager uiManager;
 	public bool isLvUp = false;
@@ -28,17 +28,17 @@ public class GameManager
 
 	public void getLevelData(){
 		Hero hero = JsonUtils.getIntance ().getHeroData ();
-		mHeroLv = hero.getRoleLv ();
-		Debug.Log ("hero.getRoleHp () = " + hero.getRoleHp () + "  maxBlood=" + maxBlood + " mCurrentBlood =" + mCurrentBlood);
-		mCurrentBlood = hero.getRoleHp () - maxBlood +mCurrentBlood;
-		maxBlood = hero.getRoleHp ();
-		upLevelCrystal = hero.getLvupCrystal ();
+		mHeroLv = hero.role_lv;
+		Debug.Log ("hero.getRoleHp () = " + hero.role_hp + "  maxBlood=" + maxBlood + " mCurrentBlood =" + mCurrentBlood);
+		mCurrentBlood = hero.role_hp - maxBlood +mCurrentBlood;
+		maxBlood = hero.role_hp;
+		upLevelCrystal = hero.lvup_crystal;
 
 	}
 	public void init(){
 		Level level = JsonUtils.getIntance ().getLevelData ();
-		startBossGas = int.Parse (level.boss_gas);
-		mBossId = int.Parse (level.boss_DI);
+		startBossGas = level.boss_gas;
+		mBossId = level.boss_DI;
 		mCurrentGas = 0;
 		mCurrentBlood = maxBlood;
 	}
@@ -48,7 +48,7 @@ public class GameManager
 		uiManager.init ();
 	}
 
-	public void setBlood(int blood){
+	public void setBlood(float blood){
 		mCurrentBlood = blood;
 		uiManager.changeHeroBlood ();
 	}
@@ -70,9 +70,9 @@ public class GameManager
 	}
 
 	public void enemyDeal(Attacker enemy){
-		mCurrentGas += enemy.mDieGas;
-		mCurrentCrystal += enemy.mDieCrysta;
-		uiManager.addGasAndCrystal ();
+		mCurrentGas += enemy.mDieGas*JsonUtils.getIntance().getConfigValueForId(100009);
+		mCurrentCrystal += enemy.mDieCrysta * JsonUtils.getIntance().getConfigValueForId(100008);
+        uiManager.addGasAndCrystal ();
 	}
 }
 

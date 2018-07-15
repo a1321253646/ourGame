@@ -11,7 +11,7 @@ public class HeroState : MonoBehaviour
 		HP_Parent = GameObject.Find("enemyStatePlane").transform;  
 		EnemySceenPosition=Camera.main.WorldToScreenPoint(mHero.transform.position);  
 	} 
-	public void hurt(int blood){
+	public void hurt(float blood){
 		GameObject obj = Resources.Load<GameObject> ("prefab/hurt") ;
 		EnemySceenPosition = Camera.main.WorldToScreenPoint (mHero.transform.position);
 		GameObject text = GameObject.Instantiate(obj,

@@ -23,22 +23,22 @@ public abstract class Attacker : MonoBehaviour
 	public bool isBeAttacker = false;
 	public int status = PLAY_STATUS_STANDY;
 	public int id = -1;
-	public int mAggressivity;
-	public int mDefense;
-	public int mBloodVolume;
-	public int mMaxBloodVolume;
+	public float mAggressivity;
+	public float mDefense;
+	public float mBloodVolume;
+	public float mMaxBloodVolume;
 	public float mAttackSpeed;
 	public float mRunSpeed;
 	public float mAttackLeng = 1;
-	public int mDieGas = 0;
-	public int mDieCrysta = 0;
+	public float mDieGas = 0;
+	public float mDieCrysta = 0;
 	public int mAttackType =ATTACK_TYPE_DEFAULT;
 
 	public LocalBean mLocalBean;
 	public List<Attacker> mAttackerTargets;
 	public ResourceBean resourceData;
 
-	public abstract int BeAttack (int blood);
+	public abstract float BeAttack (float blood);
 
 	public BackgroundManager mBackManager;
 	public FightManager mFightManager;
@@ -57,9 +57,9 @@ public abstract class Attacker : MonoBehaviour
 
 
 	public void attack(){
-		int attackeBlood = mFightManager.attackerAction (id);
+		float attackeBlood = mFightManager.attackerAction (id);
 	}
-	public void attackSync(int blood){
+	public void attackSync(float blood){
 		
 	}
 	public void changeAnim(){

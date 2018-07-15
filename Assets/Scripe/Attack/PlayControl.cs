@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayControl : Attacker 
 {
 
-	// Use this for initialization
-	private HeroState mState;
+    // Use this for initialization
+
+    private HeroState mState;
 	void Start () {
 		mAttackType = Attacker.ATTACK_TYPE_HERO;
 		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
@@ -14,8 +15,8 @@ public class PlayControl : Attacker
 		_anim = gameObject.GetComponent<Animator> ();
 		//mBackManager.setBackground ("map/map_03");
 		toString ("Play");
-		mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
-		setHeroData ();
+		mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;       
+        setHeroData ();
 		mFightManager.registerAttacker (this);
 		RuntimeAnimatorController rc = _anim.runtimeAnimatorController;
 		AnimationClip[] cls = rc.animationClips;
@@ -40,19 +41,21 @@ public class PlayControl : Attacker
 		if (status == Attacker.PLAY_STATUS_DIE) {
 			return;
 		}
-		Debug.Log ("standyEvent");
+	//	Debug.Log ("standyEvent");
 		Standy ();
 	}
 	public void setHeroData(){
-		Hero hero = JsonUtils.getIntance ().getHeroData ();
-		mAggressivity = hero.getRoleAttack ();
-		mDefense = hero.getRoleDefense ();
-		mAttackSpeed = hero.getAttackSpeed();
-		mAttackLeng =hero.getAttackRange();
+        Hero mHero = JsonUtils.getIntance().getHeroData(); 
+        resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
+        mAggressivity = mHero.role_attack;
+		mDefense = mHero.role_defense;
+		mAttackSpeed = mHero.attack_speed;
+		mAttackLeng = mHero.attack_range;
 		mBloodVolume = GameManager.getIntance ().mCurrentBlood;
-		mMaxBloodVolume = hero.getRoleHp ();
+		mMaxBloodVolume = mHero.role_hp;
 		mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);
+
 	}
 
 
@@ -76,7 +79,7 @@ public class PlayControl : Attacker
 		mAttackTime += Time.deltaTime;
 		if (status == Attacker.PLAY_STATUS_STANDY) {
 			if (mAttackTime >= mAttackSpeed) {
-				Debug.Log("hurt");
+		//		Debug.Log("hurt");
 				Fight ();
 				mFightManager.attackerAction (id);
 			}	
@@ -85,15 +88,19 @@ public class PlayControl : Attacker
 	void run(){
 		transform.Translate (new Vector2 (1, 0)*(mRunSpeed-mBackManager.moveSpeed)*Time.deltaTime);
 	}
-	public override int BeAttack(int blood){
-		//Debug.Log("hero Behurt blood = "+blood+" mBloodVolume="+mBloodVolume);
-		mBloodVolume = mBloodVolume - blood;
-	//	Debug.Log("Behurt: mBloodVolume= "+mBloodVolume+" blood="+blood);
-		GameManager.getIntance ().setBlood (mBloodVolume);
-		if (mBloodVolume <= 0) {
-			Die ();
-			mFightManager.unRegisterAttacker (this);
-		}
+	public override float BeAttack(float blood){
+        if (JsonUtils.getIntance().getConfigValueForId(100007) != 1) {
+ //           Debug.Log("hero Behurt blood = " + blood + " mBloodVolume=" + mBloodVolume);
+            mBloodVolume = mBloodVolume - blood;
+            //	Debug.Log("Behurt: mBloodVolume= "+mBloodVolume+" blood="+blood);
+            GameManager.getIntance().setBlood(mBloodVolume);
+            if (mBloodVolume <= 0)
+            {
+                Die();
+                mFightManager.unRegisterAttacker(this);
+            }
+        }
+		
 		mState.hurt (blood);
 		return blood;
 	}

@@ -62,11 +62,11 @@ public class LocalManager{
 	}
 
 	public void removeMultiple(LocalMultiple multiple){
-		Debug.Log ("removeMultiple");
+	//	Debug.Log ("removeMultiple");
 		for(int i = 0; i< mMultiple.Count ;i++){
 			if (mMultiple [i] == multiple) {
 				mMultiple.RemoveAt (i);
-				Debug.Log ("removeMultiple mMultiple size =" + mMultiple.Count);
+			//	Debug.Log ("removeMultiple mMultiple size =" + mMultiple.Count);
 				mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
 			}
 		}

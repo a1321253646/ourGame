@@ -1,32 +1,37 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripe\Attack\EnemyBase.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripe\Bean\Enemy.cs">
     <Files>
-      <File FileName="Assets\Scripe\Attack\Attacker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Attack\PlayControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Attack\EnemyBase.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Manager\FightManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Attack\Attacker.cs" Line="41" Column="39" />
+      <File FileName="Assets\Scripe\Attack\PlayControl.cs" Line="88" Column="23" />
+      <File FileName="Assets\Scripe\Attack\EnemyBase.cs" Line="126" Column="38" />
+      <File FileName="Assets\Scripe\Manager\FightManager.cs" Line="85" Column="34" />
       <File FileName="Assets\Scripe\Manager\LocalManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripe\Bean\LocalBean.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Bean\LocalMultiple.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Manager\LevelManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Bean\LocalMultiple.cs" Line="60" Column="64" />
+      <File FileName="Assets\Scripe\Manager\LevelManager.cs" Line="36" Column="1" />
       <File FileName="Assets\Scripe\Manager\BackgroundManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripe\Bean\LocalNote.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Utils\JsonUtils.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Manager\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Attack\EnemyFactory.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Utils\JsonUtils.cs" Line="92" Column="31" />
+      <File FileName="Assets\Scripe\Manager\GameManager.cs" Line="16" Column="13" />
+      <File FileName="Assets\Scripe\Attack\EnemyFactory.cs" Line="72" Column="1" />
       <File FileName="Assets\Resources\level.json" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Bean\Enemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Bean\Level.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Bean\LevelEnemy.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Bean\Hero.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Bean\Enemy.cs" Line="15" Column="13" />
+      <File FileName="Assets\Scripe\Bean\Level.cs" Line="8" Column="15" />
+      <File FileName="Assets\Scripe\Bean\LevelEnemy.cs" Line="6" Column="13" />
+      <File FileName="Assets\Scripe\Bean\Hero.cs" Line="6" Column="13" />
       <File FileName="Assets\Scripe\Manager\UiManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\BackgroundTransform.cs" Line="1" Column="1" />
       <File FileName="Assets\Resources\hero.json" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\Bean\ResourceBean.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\EnemyState.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripe\HurtText.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Bean\ResourceBean.cs" Line="36" Column="3" />
       <File FileName="Assets\Scripe\Manager\GameOverManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Resource\TrajectoryBase.cs" Line="26" Column="13" />
+      <File FileName="Assets\Scripe\Resource\FightResource.cs" Line="45" Column="19" />
+      <File FileName="Assets\Scripe\Resource\HitBase.cs" Line="38" Column="26" />
+      <File FileName="Assets\Scripe\testmanager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Resource\HurtText.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Attack\EnemyState.cs" Line="26" Column="90" />
+      <File FileName="Assets\Scripe\Attack\HeroState.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripe\Bean\LevelEnemyWellen.cs" Line="7" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

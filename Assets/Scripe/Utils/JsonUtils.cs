@@ -4,22 +4,25 @@ using System.Collections.Generic;
 
 public class JsonUtils
 {
-	private  string levelFile =  "level";
-	private  string heroFile = "hero";
-	private  string enemyFile = "enemy";
-	private  string levelEnemyFile = "levelenemy";
-	private  string resourceFile = "resource";
-	private static JsonUtils mInance= new JsonUtils();
+	private  string levelFile =  "config/level";
+	private  string heroFile = "config/hero";
+	private  string enemyFile = "config/enemy";
+	private  string levelEnemyFile = "config/levelenemy";
+	private  string resourceFile = "config/resource";
+    private string configeFile = "config/config";
+    private static JsonUtils mInance= new JsonUtils();
 
 	List<Hero> heroData;
 	List<Level> levelData;
 	List<ResourceBean> resourceData;
+    List<ConfigNote> mConfig;
 	private JsonUtils(){
 		readAllFile ();
 	}
 
 	public void readAllFile(){
-		readHeroData ();
+        readConfig();
+        readHeroData ();
 		readLevelData ();
 		readResource ();
 	}
@@ -43,8 +46,13 @@ public class JsonUtils
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (resourceFile));
 		resourceData = arrdata.ToObject<List<ResourceBean>> ();
 	}
+    private void readConfig()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(configeFile));
+        mConfig = arrdata.ToObject<List<ConfigNote>>();
+    }
 
-	private void readHeroData(){
+    private void readHeroData(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (heroFile));
 		heroData = arrdata.ToObject<List<Hero>> ();
 /*		Debug.Log ("readHeroData:");
@@ -77,9 +85,19 @@ public class JsonUtils
 		return arrdata.ToObject<List<Enemy>> ();
 	}
 
-	public  ResourceBean getEnemyResourceData(int resourceId){
+    public float getConfigValueForId(long id) {
+        foreach (ConfigNote note in mConfig) {
+            if (note.id == id) {
+                return note.value;
+            }
+        }
+        return -1;
+    }
+
+
+	public  ResourceBean getEnemyResourceData(long resourceId){
 		foreach (ResourceBean resource in resourceData) {
-			if (resource.getId() == resourceId) {
+			if (resource.id == resourceId) {
 				return resource;
 			}
 		}
@@ -91,9 +109,9 @@ public class JsonUtils
 			GameManager.
 			getIntance ().mCurrentLevel);
 	}
-	public  Level getLevelData(int id){
+	public  Level getLevelData(long id){
 		foreach (Level level in levelData) {
-			if (int.Parse(level.id) == id) {
+			if (level.id == id) {
 				return level;
 			}
 		}
@@ -105,9 +123,9 @@ public class JsonUtils
 			getIntance ().
 			mHeroLv);
 	}
-	public Hero getHeroData(int lv){
+	public Hero getHeroData(long lv){
 		foreach (Hero hero in heroData) {
-			if (hero.getRoleLv() == lv) {
+			if (hero.role_lv == lv) {
 				return hero;
 			}
 		}
@@ -122,19 +140,19 @@ public class JsonUtils
 		bossId = 0;
 		bossGas = 0;
 	}
-	public int mCurrentLevel = 0;
-	public List<int> mCurrentLevelWellent;
-	Dictionary<int,List<LevelEnemyWellen>> mWellentList;
+	public long mCurrentLevel = 0;
+	public List<long> mCurrentLevelWellent;
+	Dictionary<long,List<LevelEnemyWellen>> mWellentList;
 	Dictionary<long,Enemy> mEnemys;
 	long bossId;
-	int bossGas;
+	float bossGas;
 	public List<LevelEnemyWellen> getWellenEnemy(){
 		
 		if (mCurrentLevelWellent == null || mCurrentLevelWellent.Count == 0) {
-			mCurrentLevelWellent = new List<int>();
+			mCurrentLevelWellent = new List<long>();
 			Level level = getLevelData ();
-			bossId = long.Parse(level.boss_DI);
-			bossGas = int.Parse(level.boss_gas);
+			bossId = level.boss_DI;
+			bossGas = level.boss_gas;
 			string[] wellenStr = level.wellen.Split ('#');
 			foreach (string str in wellenStr) {
 				mCurrentLevelWellent.Add ( int.Parse (str));
@@ -143,29 +161,29 @@ public class JsonUtils
 		if (mCurrentLevel >= mCurrentLevelWellent.Count) {
 			mCurrentLevel = 0;
 		}
-		int wellent = mCurrentLevelWellent [mCurrentLevel];
-		Debug.Log ("getWellenEnemy :wellent="+wellent);
+		long wellent = mCurrentLevelWellent [(int)mCurrentLevel];
+	//	Debug.Log ("getWellenEnemy :wellent="+wellent);
 		if (mWellentList == null || mWellentList.Count == 0) {
-			mWellentList = new Dictionary<int,List<LevelEnemyWellen>> ();
+			mWellentList = new Dictionary<long,List<LevelEnemyWellen>> ();
 			mEnemys = new Dictionary<long,Enemy> ();
 			List<Enemy> enemydata = readEnemyData ();
 			List<LevelEnemy> levelList = readLevelEnemyData ();
-			mWellentList = new Dictionary<int, List<LevelEnemyWellen>> ();
+			mWellentList = new Dictionary<long, List<LevelEnemyWellen>> ();
 
 
 			foreach (Enemy tmp3 in  enemydata) {
-				Debug.Log ("enemydata id="+tmp3.getId() +" bossId="+bossId );
+			//	Debug.Log ("enemydata id="+tmp3.id +" bossId="+bossId );
 
-				if (tmp3.getId() == bossId) {
+				if (tmp3.id == bossId) {
 					mEnemys.Add ( bossId, tmp3);
 					break;
 				}
 			}
 
 
-			foreach(int tmp in mCurrentLevelWellent){
+			foreach(long tmp in mCurrentLevelWellent){
 				foreach(LevelEnemy wellen in levelList){
-					if (wellen.wellen.Equals ("" + tmp)) {
+					if (wellen.wellen== tmp) {
 						List<LevelEnemyWellen> list = new List<LevelEnemyWellen> ();
 						string str = wellen.collocation;
 						string[] array = str.Split('}');
@@ -184,21 +202,23 @@ public class JsonUtils
 							list.Add (enemy);
 							if (!mEnemys.ContainsKey (enemy.id)) {
 								foreach (Enemy tmp3 in  enemydata) {
-									if (tmp3.id.Equals (array2 [0])) {
+									if (tmp3.id == enemy.id) {
 										mEnemys.Add (enemy.id, tmp3);
 										break;
 									}
 								}
 							}
 						}
-						mWellentList.Add (tmp, list);
+                        Debug.Log("getWellenEnemy add :wellent=" + wellent);
+                        mWellentList.Add (tmp, list);
 						break;
 					}
 				}
 			}
 		}
-		List<LevelEnemyWellen> back = mWellentList [wellent];
-		Debug.Log ("getWellenEnemy :back size="+back.Count);
+       // Debug.Log("getWellenEnemy :wellent=" + wellent);
+        List<LevelEnemyWellen> back = mWellentList [wellent];
+		//Debug.Log ("getWellenEnemy :back size="+back.Count);
 		mCurrentLevel++;
 		if (mCurrentLevel > mCurrentLevelWellent.Count) {
 			mCurrentLevel = 0;

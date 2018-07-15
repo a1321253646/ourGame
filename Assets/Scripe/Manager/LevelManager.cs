@@ -7,8 +7,7 @@ public class LevelManager : MonoBehaviour {
 	public GameObject BackgroupObject;
 	public GameObject Player;
 	public GameObject enemyFactory;
-
-	public BackgroundManager mBackManager;
+    public BackgroundManager mBackManager;
 	public FightManager mFightManager;
 	public LocalManager mLocalManager;
 	void Start () {
@@ -45,13 +44,21 @@ public class LevelManager : MonoBehaviour {
 
 
 	private void creaPlay(){
-		GameObject newobj =  GameObject.Instantiate (Player, new Vector2 (-5.23f,-1.738f),
+
+        Hero mHero;
+        ResourceBean mBean;
+        Hero hero = JsonUtils.getIntance().getHeroData();
+        ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(hero.resource);
+        Debug.Log("hero.resource idel_y= " + bean.idel_y);
+
+        GameObject newobj =  GameObject.Instantiate (Player, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100003), JsonUtils.getIntance().getConfigValueForId(100002)+bean.idel_y),
 			Quaternion.Euler(0.0f,0.0f,0.0f));
-		newobj.transform.localScale.Set (0.3703687f, 0.3703687f, 1);
+		newobj.transform.localScale.Set (JsonUtils.getIntance().getConfigValueForId(100005), JsonUtils.getIntance().getConfigValueForId(100005), 1);
 	}
 	private void creatEnemyFactory(){
-		GameObject newobj =  GameObject.Instantiate (enemyFactory, new Vector2 (7.44f,-1.738f),
+		GameObject newobj =  GameObject.Instantiate (enemyFactory, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100004), JsonUtils.getIntance().getConfigValueForId(100002)),
 			Quaternion.Euler(0.0f,0f,0.0f));
-	}
+        mFightManager.mEnemyFactory = newobj.GetComponent<EnemyFactory>();
+    }
 
 }

@@ -48,7 +48,7 @@ public class EnemyBase : Attacker {
 		mAttackTime += Time.deltaTime;
 		if (status == Attacker.PLAY_STATUS_STANDY) {
 			if (mAttackTime >= mAttackSpeed) {
-				Debug.Log("hurt");
+				//Debug.Log("hurt");
 				Fight ();
 				mFightManager.attackerAction (id);
 			}	
@@ -107,23 +107,23 @@ public class EnemyBase : Attacker {
 	public void init(Enemy data,ResourceBean resource){
 		resourceData= resource;
 		mData = data;
-		this.mAggressivity = data.getMonsterAttack();
-		this.mDefense = data.getMonsterDefense();
-		this.mBloodVolume = data.getMonsterHp();
+		this.mAggressivity = data.monster_attack;
+		this.mDefense = data.monster_defense;
+		this.mBloodVolume = data.monster_hp;
 		mMaxBloodVolume = mBloodVolume;
-		this.mRunSpeed = data.getMonsterSpeed();
-		this.mAttackSpeed = data.getAttackSpeed();
-		mAttackLeng = data.getAttackRange();
-		mDieGas = data.getDieGas ();
-		mDieCrysta = data.getDieCrystal ();
-		toString ("enemy");
+		this.mRunSpeed = data.monster_speed;
+		this.mAttackSpeed = data.attack_speed;
+		mAttackLeng = data.attack_range;
+		mDieGas = data.die_gas;
+		mDieCrysta = data.die_crystal;
+		//toString ("enemy");
 		mState = new EnemyState (this);
 	}
 
 	public int dieGas = 0;
 	public int dieCrystal = 0;
 
-	public override int BeAttack(int blood){
+	public override float BeAttack(float blood){
 		mBloodVolume = mBloodVolume - blood;
 		if (mBloodVolume <= 0) {
 			Die ();

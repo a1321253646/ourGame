@@ -10,7 +10,8 @@ public class LocalMultiple :LocalBean
 	ArrayList mList; 
 	LocalManager mManager;
 	public  void initLocalMultiple(LocalBean bean ,LocalManager mamager){
-		mCurrentX = bean.mCurrentX;
+        ENEMY_X_DISTANCE = JsonUtils.getIntance().getConfigValueForId(100006);
+        mCurrentX = bean.mCurrentX;
 		mCurrentY = bean.mCurrentY;
 		mIsHero = bean.mIsHero;
 		mAttacker = bean.mAttacker;
@@ -57,7 +58,7 @@ public class LocalMultiple :LocalBean
 		if (mList.Count == 0) {
 			LocalNote[] notes = new LocalNote[1];
 			note.x = mCurrentX;
-			note.y = mCurrentY+note.mLocal.mAttacker.resourceData.getIdelY();
+			note.y = mCurrentY+note.mLocal.mAttacker.resourceData.idel_y;
 			notes [0] = note;
 			mList.Add (notes);
 			mDistance =ENEMY_X_DISTANCE*mList.Count;
@@ -93,7 +94,7 @@ public class LocalMultiple :LocalBean
 						a += 1;
 					}
 				}
-				note.y =mCurrentY+ d + c * ENEMY_X_DISTANCE * a+c*+note.mLocal.mAttacker.resourceData.getIdelY();
+				note.y =mCurrentY+ d + c * ENEMY_X_DISTANCE * a+c*+note.mLocal.mAttacker.resourceData.idel_y;
 				bean.mTargetX = note.x;
 				bean.mTargetY = note.y;
 
@@ -104,9 +105,9 @@ public class LocalMultiple :LocalBean
 		LocalNote[] notes2 = new LocalNote[leng+1];
 		note.x = mCurrentX + leng * ENEMY_X_DISTANCE;
 		if ((leng + 1) % 2 == 1) {
-			note.y = mCurrentY+note.mLocal.mAttacker.resourceData.getIdelY();
+			note.y = mCurrentY+note.mLocal.mAttacker.resourceData.idel_y;
 		} else {
-			note.y = mCurrentY + ENEMY_X_DISTANCE / 2+note.mLocal.mAttacker.resourceData.getIdelY();
+			note.y = mCurrentY + ENEMY_X_DISTANCE / 2+note.mLocal.mAttacker.resourceData.idel_y;
 		}
 		notes2 [0] = note;
 		mList.Add (notes2);

@@ -18,7 +18,7 @@ public class HitBase : MonoBehaviour
 		RuntimeAnimatorController rc = _anim.runtimeAnimatorController;
 		AnimationClip[] cls = rc.animationClips;
 		foreach(AnimationClip cl in cls){
-			if (cl.name.Equals ("Dead")) {
+			if (cl.name.Equals ("effet")) {
 				//isAddEvent = true;
 				AnimationEvent event1 = new AnimationEvent ();
 				event1.functionName = "runEnd";
@@ -36,7 +36,7 @@ public class HitBase : MonoBehaviour
 	}
 	public void runEnd(){
 		mFightResource.hurt ();
-		Destroy (this);
+		Destroy (gameObject);
 	}
 }
 

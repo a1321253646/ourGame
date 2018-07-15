@@ -3,11 +3,11 @@ using System.Collections;
 
 public class Level
 {
-	public string id;
+	public long id;
 	public string name;
 	public string wellen;
-	public string boss_DI;
-	public string boss_gas;
+	public long boss_DI;
+	public float boss_gas;
 	public string map;
 	public string boss_bg;
 	public string abc;
