@@ -17,7 +17,8 @@ public class HitBase : MonoBehaviour
 		_anim = gameObject.GetComponent<Animator> ();
 		RuntimeAnimatorController rc = _anim.runtimeAnimatorController;
 		AnimationClip[] cls = rc.animationClips;
-		foreach(AnimationClip cl in cls){
+        mFightResource.hurt();
+        foreach (AnimationClip cl in cls){
 			if (cl.name.Equals ("effet")) {
 				//isAddEvent = true;
 				AnimationEvent event1 = new AnimationEvent ();
@@ -35,7 +36,6 @@ public class HitBase : MonoBehaviour
 		}
 	}
 	public void runEnd(){
-		mFightResource.hurt ();
 		Destroy (gameObject);
 	}
 }
