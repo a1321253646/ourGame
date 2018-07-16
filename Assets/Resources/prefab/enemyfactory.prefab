@@ -93,5 +93,5 @@ MonoBehaviour:
   - {fileID: 1128500596405162, guid: 1ebaf4f4f42a4f8438c48c363c65bcf4, type: 2}
   - {fileID: 1072545068518518, guid: 8014554e4e95b644a8ce92e52ef46231, type: 2}
   Effect:
-  - {fileID: 1267193466152708, guid: eef565599eac3f243a1235b187a03948, type: 2}
+  - {fileID: 1161253110895174, guid: eef565599eac3f243a1235b187a03948, type: 2}
   - {fileID: 1815311383339422, guid: bb1cf2e8b62ce684593ca684944e8663, type: 2}
