@@ -1,0 +1,10 @@
+在场景中命名为Backpack的物品就是背包系统
+	其下有连个panel：标题栏（Title）和物品栏(Inventory)
+
+物品栏下面的Goods是用来存放里面又来存放物品槽的，其中控制每个物品槽的大小和轴的间距都是有GridLayouGruop中的参数来控制
+	CellSize是每个物品槽的大小，要和物品槽的prefab一样
+	Spacing对应的是间距
+	通过调整物品栏的大小和对应的cellsize和spacing还有物品槽的大小来放置多少个物品槽
+	需要进行调整UI时直接将物品的prefab拖到这个下面就会按照网格布局分布
+
+物品槽的prefab为good，下面有一个image和textView，用来显示物品图片和物品数目
