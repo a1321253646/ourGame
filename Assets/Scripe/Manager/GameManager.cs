@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class GameManager
 {
-	public long mCurrentLevel = 1;
-	public long mHeroLv = 1;
+	public long mCurrentLevel = 8;
+	public long mHeroLv = 18;
 	public float mCurrentGas = 0;
 	public float mCurrentCrystal = 0;
 	public float maxBlood = 0;

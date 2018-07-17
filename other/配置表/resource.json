@@ -257,7 +257,7 @@
     "name": "Monster_023",
     "zoom": 1,
     "attack_framce": 3,
-    "blood_offset": "-0.22，0",
+    "blood_offset": "-0.22,0",
     "blood_witch": 1,
     "hurt_offset": "-0.27,-0.64",
     "fight_offset": "0,0",
@@ -458,7 +458,7 @@
     "blood_offset": 0,
     "blood_witch": 0,
     "hurt_offset": "-1.61,-0.1",
-    "fight_offset": "0,0",
+    "fight_offset": "-1.61,-0.1",
     "idel_y": 0
   },
   {
@@ -469,6 +469,83 @@
     "blood_offset": 0,
     "blood_witch": 0,
     "hurt_offset": "0,0",
+    "fight_offset": "0,0",
+    "idel_y": 0
+  },
+  {
+    "id": 30003,
+    "name": "Effect_003",
+    "zoom": 1,
+    "attack_framce": 0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "-0.24,-0.001",
+    "fight_offset": "0.27,-0.001",
+    "idel_y": 0
+  },
+  {
+    "id": 30004,
+    "name": "Effect_004",
+    "zoom": 1,
+    "attack_framce": 0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "-1.74,-0.15",
+    "fight_offset": "-1.74,-0.15",
+    "idel_y": 0
+  },
+  {
+    "id": 30005,
+    "name": "Effect_005",
+    "zoom": 1,
+    "attack_framce": 0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "-1.76,-0.14",
+    "fight_offset": "-1.76,-0.14",
+    "idel_y": 0
+  },
+  {
+    "id": 30006,
+    "name": "Effect_006",
+    "zoom": 1,
+    "attack_framce": 0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "0,0.21",
+    "fight_offset": "0,0",
+    "idel_y": 0
+  },
+  {
+    "id": 30007,
+    "name": "Effect_007",
+    "zoom": 1,
+    "attack_framce": 0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "-0.91,-0.36",
+    "fight_offset": "0,0",
+    "idel_y": 0
+  },
+  {
+    "id": 30008,
+    "name": "Effect_008",
+    "zoom": 1,
+    "attack_framce": 0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "-1.11,0.15",
+    "fight_offset": "0,0",
+    "idel_y": 0
+  },
+  {
+    "id": 30009,
+    "name": "Effect_009",
+    "zoom": 1,
+    "attack_framce": 0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "0.51,-0.93",
     "fight_offset": "0,0",
     "idel_y": 0
   }

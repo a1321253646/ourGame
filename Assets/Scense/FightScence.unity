@@ -163,22 +163,22 @@ Prefab:
     - target: {fileID: 224983237637070550, guid: 3395cd4b0615a924ba2e0581d05b8d27,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 224983237637070550, guid: 3395cd4b0615a924ba2e0581d05b8d27,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 224983237637070550, guid: 3395cd4b0615a924ba2e0581d05b8d27,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224983237637070550, guid: 3395cd4b0615a924ba2e0581d05b8d27,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224983237637070550, guid: 3395cd4b0615a924ba2e0581d05b8d27,
         type: 2}
@@ -188,7 +188,7 @@ Prefab:
     - target: {fileID: 224983237637070550, guid: 3395cd4b0615a924ba2e0581d05b8d27,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224983237637070550, guid: 3395cd4b0615a924ba2e0581d05b8d27,
         type: 2}
@@ -198,7 +198,7 @@ Prefab:
     - target: {fileID: 224983237637070550, guid: 3395cd4b0615a924ba2e0581d05b8d27,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224983237637070550, guid: 3395cd4b0615a924ba2e0581d05b8d27,
         type: 2}
@@ -2465,6 +2465,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895082876129830, guid: cf64db5f5b5b6144fac9a6e8a8996c38, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf64db5f5b5b6144fac9a6e8a8996c38, type: 2}
