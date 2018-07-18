@@ -113,8 +113,9 @@ public class FightManager{
 	private float attackBllod(Attacker attacker,Attacker beAttacker){
 		//Debug.Log (" attacker.mAggressivity  =" + attacker.mAggressivity + " beAttacker.mDefense=" + beAttacker.mDefense);
 		float hurt= attacker.mAggressivity - beAttacker.mDefense;
-		if (hurt <= 0) {
-			hurt = 0;
+		if (hurt <= attacker.mAggressivity/10) {
+            int tmp = attacker.mAggressivity % 10 == 0 ? 0 : 1;
+            hurt = ((int)attacker.mAggressivity )/ 10+ tmp;
 		}
 		return hurt;
 	}

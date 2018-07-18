@@ -58,7 +58,8 @@ public class LocalMultiple :LocalBean
 		if (mList.Count == 0) {
 			LocalNote[] notes = new LocalNote[1];
 			note.x = mCurrentX;
-			note.y = mCurrentY-note.mLocal.mAttacker.resourceData.idel_y;
+            Debug.Log("LocalNote[0] x= " + note.x);
+            note.y = mCurrentY-note.mLocal.mAttacker.resourceData.idel_y;
 			notes [0] = note;
 			mList.Add (notes);
 			mDistance =ENEMY_X_DISTANCE*mList.Count;
@@ -73,7 +74,7 @@ public class LocalMultiple :LocalBean
 			if (tagerNotes [i] == null) {
 				tagerNotes [i] = note;
 				note.x = mCurrentX + (leng-1) * ENEMY_X_DISTANCE;
-				int a = i / 2;
+                int a = i / 2;
 				int b = i % 2;
 				int c = 1;
 				float d = 0;
@@ -94,7 +95,7 @@ public class LocalMultiple :LocalBean
 						a += 1;
 					}
 				}
-				note.y =mCurrentY+ d + c * ENEMY_X_DISTANCE * a-c*note.mLocal.mAttacker.resourceData.idel_y;
+				note.y =mCurrentY+ d + c * ENEMY_X_DISTANCE * a/*-c*note.mLocal.mAttacker.resourceData.idel_y*/;
 				bean.mTargetX = note.x;
 				bean.mTargetY = note.y;
 
@@ -105,9 +106,9 @@ public class LocalMultiple :LocalBean
 		LocalNote[] notes2 = new LocalNote[leng+1];
 		note.x = mCurrentX + leng * ENEMY_X_DISTANCE;
 		if ((leng + 1) % 2 == 1) {
-			note.y = mCurrentY-note.mLocal.mAttacker.resourceData.idel_y;
+			note.y = mCurrentY/*-note.mLocal.mAttacker.resourceData.idel_y*/;
 		} else {
-			note.y = mCurrentY + ENEMY_X_DISTANCE / 2-note.mLocal.mAttacker.resourceData.idel_y;
+			note.y = mCurrentY + ENEMY_X_DISTANCE / 2/*-note.mLocal.mAttacker.resourceData.idel_y*/;
 		}
 		notes2 [0] = note;
 		mList.Add (notes2);
@@ -133,8 +134,14 @@ public class LocalMultiple :LocalBean
 			for (int ii = 0; ii <targetNotes.Length; ii++) {
 				if (targetNotes [ii]!=null &&targetNotes [ii].mLocal == bean) {
 					targetindex = ii;
-			//		Debug.Log ("removeLoacal i= "+i+" targetindex= "+ii);
-					break;
+
+                    targetNotes[ii].x = bean.mAttacker.transform.position.x;
+                    targetNotes[ii].y = bean.mAttacker.transform.position.y;
+                    //		Debug.Log ("removeLoacal i= "+i+" targetindex= "+ii);
+                    Debug.Log("remove targetNotes [ii] x= " + targetNotes[ii].x);
+
+
+                    break;
 				}
 			}
 			if (targetindex != -1) {
@@ -156,7 +163,8 @@ public class LocalMultiple :LocalBean
 					targetNotes [targetindex].mLocal = tmp [i].mLocal;
 					targetNotes [targetindex].mLocal.mTargetX = targetNotes [targetindex].x;
 					targetNotes [targetindex].mLocal.mTargetY = targetNotes [targetindex].y;
-					tmp [i] = null;
+                    Debug.Log("mTargetY targetNotes [ii] x= " + targetNotes[targetindex].mLocal.mTargetX);
+                    tmp [i] = null;
 					if (i == 0) {
 						mList.Remove (tmp);
 						if (mList.Count == 0) {

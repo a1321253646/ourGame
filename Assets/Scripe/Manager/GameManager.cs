@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class GameManager
 {
-	public long mCurrentLevel = 8;
-	public long mHeroLv = 18;
+	public long mCurrentLevel = 1;
+	public long mHeroLv = 1;
 	public float mCurrentGas = 0;
 	public float mCurrentCrystal = 0;
 	public float maxBlood = 0;
@@ -27,7 +27,10 @@ public class GameManager
 		
 
 	public void getLevelData(){
-		Hero hero = JsonUtils.getIntance ().getHeroData ();
+        mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100010);
+        mHeroLv = (long)JsonUtils.getIntance().getConfigValueForId(100011);
+        mCurrentCrystal = (long)JsonUtils.getIntance().getConfigValueForId(100012);
+        Hero hero = JsonUtils.getIntance ().getHeroData ();
 		mHeroLv = hero.role_lv;
 		Debug.Log ("hero.getRoleHp () = " + hero.role_hp + "  maxBlood=" + maxBlood + " mCurrentBlood =" + mCurrentBlood);
 		mCurrentBlood = hero.role_hp - maxBlood +mCurrentBlood;

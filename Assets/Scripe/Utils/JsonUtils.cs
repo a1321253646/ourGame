@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 public class JsonUtils
 {
-	private  string levelFile =  "config/level";
-	private  string heroFile = "config/hero";
-	private  string enemyFile = "config/enemy";
-	private  string levelEnemyFile = "config/levelenemy";
-	private  string resourceFile = "config/resource";
-    private string configeFile = "config/config";
+    //	private  string levelFile =  "config/level";
+    //	private  string heroFile = "config/hero";
+    //	private  string enemyFile = "config/enemy";
+    //	private  string levelEnemyFile = "config/levelenemy";
+    //	private  string resourceFile = "config/resource";
+    //   private string configeFile = "config/config";
+    private string levelFile = "level.json";
+    private string heroFile = "hero.json";
+    private string enemyFile = "enemy.json";
+    private string levelEnemyFile = "levelenemy.json";
+    private string resourceFile = "resource.json";
+    private string configeFile = "config.json";
+
     private static JsonUtils mInance= new JsonUtils();
 
 	List<Hero> heroData;
@@ -30,17 +38,39 @@ public class JsonUtils
 	public static JsonUtils getIntance(){
 		return mInance;
 	}
-	private string readFile(string fileName){
-		TextAsset jsonText = Resources.Load(fileName) as TextAsset;
+    public string loadFile(string path, string fileName)
+    {
+        StreamReader sr = null;
+        Debug.Log("file = " + path + "//" + fileName);
+        try
+        {
+            sr = File.OpenText(path + "//" + fileName);
+            Debug.Log("配置加载完成");
+        }
+        catch
+        {
+            Debug.Log("配置加载失败");
+            return null;
+        }
+        string line;
+        string str = sr.ReadToEnd();
+        Debug.Log(fileName + ":\n" + str);
+        sr.Close();
+        sr.Dispose();
+        return str;
+    }
 
-		Debug.Log ("readFile :" + fileName + "\n " + jsonText.text);
-
-//		foreach (Hero hero in heros) {
-//			Debug.Log ("hero:id=" + hero.role_lv + " hp=" + hero.role_hp + " attack=" + hero.role_attack + " defense=" + hero.role_defense + " crystal=" + hero.lvup_crystal);
-//		}
-		return jsonText.text;
-//		Hero jsonObj = JsonUtility.FromJson<Hero>(jsonText.text);
-	}
+    private string readFile(string fileName){
+        //TextAsset jsonText = Resources.Load(fileName) as TextAsset;
+        string str = loadFile(Application.dataPath + "/Resources", fileName);
+        Debug.Log("readFile :" + fileName + "\n " + str);
+        return str;
+        //		foreach (Hero hero in heros) {
+        //			Debug.Log ("hero:id=" + hero.role_lv + " hp=" + hero.role_hp + " attack=" + hero.role_attack + " defense=" + hero.role_defense + " crystal=" + hero.lvup_crystal);
+        //		}
+        //return jsonText.text;
+        //		Hero jsonObj = JsonUtility.FromJson<Hero>(jsonText.text);
+    }
 
 	private void readResource(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (resourceFile));
