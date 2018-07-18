@@ -1,902 +1,1002 @@
 [
   {
     "role_lv": 1,
-    "role_hp": 100,
-    "role_attack": 50,
-    "role_defense": 10,
+    "role_hp": 30,
+    "role_attack": 10,
+    "role_defense": 5,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 100
+    "lvup_crystal": 20,
+    "resource": 10001
   },
   {
     "role_lv": 2,
-    "role_hp": 150,
-    "role_attack": 75,
-    "role_defense": 15,
+    "role_hp": 36,
+    "role_attack": 15,
+    "role_defense": 8,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 150
+    "lvup_crystal": 55,
+    "resource": 10001
   },
   {
     "role_lv": 3,
-    "role_hp": 200,
-    "role_attack": 100,
-    "role_defense": 20,
+    "role_hp": 42,
+    "role_attack": 20,
+    "role_defense": 11,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 200
+    "lvup_crystal": 120,
+    "resource": 10001
   },
   {
     "role_lv": 4,
-    "role_hp": 250,
-    "role_attack": 125,
-    "role_defense": 25,
+    "role_hp": 48,
+    "role_attack": 25,
+    "role_defense": 14,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 250
+    "lvup_crystal": 230,
+    "resource": 10001
   },
   {
     "role_lv": 5,
-    "role_hp": 300,
-    "role_attack": 150,
-    "role_defense": 30,
+    "role_hp": 54,
+    "role_attack": 30,
+    "role_defense": 17,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 300
+    "lvup_crystal": 400,
+    "resource": 10001
   },
   {
     "role_lv": 6,
-    "role_hp": 350,
-    "role_attack": 175,
-    "role_defense": 35,
+    "role_hp": 60,
+    "role_attack": 35,
+    "role_defense": 20,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 350
+    "lvup_crystal": 100,
+    "resource": 10001
   },
   {
     "role_lv": 7,
-    "role_hp": 400,
-    "role_attack": 200,
-    "role_defense": 40,
+    "role_hp": 66,
+    "role_attack": 40,
+    "role_defense": 23,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 400
+    "lvup_crystal": 230,
+    "resource": 10001
   },
   {
     "role_lv": 8,
-    "role_hp": 450,
-    "role_attack": 225,
-    "role_defense": 45,
+    "role_hp": 72,
+    "role_attack": 45,
+    "role_defense": 26,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 450
+    "lvup_crystal": 420,
+    "resource": 10001
   },
   {
     "role_lv": 9,
-    "role_hp": 500,
-    "role_attack": 250,
-    "role_defense": 50,
+    "role_hp": 78,
+    "role_attack": 50,
+    "role_defense": 29,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 500
+    "lvup_crystal": 700,
+    "resource": 10001
   },
   {
     "role_lv": 10,
-    "role_hp": 550,
-    "role_attack": 275,
-    "role_defense": 55,
+    "role_hp": 84,
+    "role_attack": 55,
+    "role_defense": 32,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 550
+    "lvup_crystal": 1100,
+    "resource": 10001
   },
   {
     "role_lv": 11,
-    "role_hp": 600,
-    "role_attack": 300,
-    "role_defense": 60,
+    "role_hp": 90,
+    "role_attack": 60,
+    "role_defense": 35,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 600
+    "lvup_crystal": 1500,
+    "resource": 10001
   },
   {
     "role_lv": 12,
-    "role_hp": 650,
-    "role_attack": 325,
-    "role_defense": 65,
+    "role_hp": 96,
+    "role_attack": 65,
+    "role_defense": 38,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 650
+    "lvup_crystal": 1900,
+    "resource": 10001
   },
   {
     "role_lv": 13,
-    "role_hp": 700,
-    "role_attack": 350,
-    "role_defense": 70,
+    "role_hp": 102,
+    "role_attack": 70,
+    "role_defense": 41,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 700
+    "lvup_crystal": 2300,
+    "resource": 10001
   },
   {
     "role_lv": 14,
-    "role_hp": 750,
-    "role_attack": 375,
-    "role_defense": 75,
+    "role_hp": 108,
+    "role_attack": 75,
+    "role_defense": 44,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 750
+    "lvup_crystal": 2700,
+    "resource": 10001
   },
   {
     "role_lv": 15,
-    "role_hp": 800,
-    "role_attack": 400,
-    "role_defense": 80,
+    "role_hp": 114,
+    "role_attack": 80,
+    "role_defense": 47,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 800
+    "lvup_crystal": 3100,
+    "resource": 10001
   },
   {
     "role_lv": 16,
-    "role_hp": 850,
-    "role_attack": 425,
-    "role_defense": 85,
+    "role_hp": 120,
+    "role_attack": 85,
+    "role_defense": 50,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 850
+    "lvup_crystal": 3500,
+    "resource": 10001
   },
   {
     "role_lv": 17,
-    "role_hp": 900,
-    "role_attack": 450,
-    "role_defense": 90,
+    "role_hp": 126,
+    "role_attack": 90,
+    "role_defense": 53,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 900
+    "lvup_crystal": 3900,
+    "resource": 10001
   },
   {
     "role_lv": 18,
-    "role_hp": 950,
-    "role_attack": 475,
-    "role_defense": 95,
+    "role_hp": 132,
+    "role_attack": 95,
+    "role_defense": 56,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 950
+    "lvup_crystal": 4300,
+    "resource": 10001
   },
   {
     "role_lv": 19,
-    "role_hp": 1000,
-    "role_attack": 500,
-    "role_defense": 100,
+    "role_hp": 138,
+    "role_attack": 100,
+    "role_defense": 59,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1000
+    "lvup_crystal": 4700,
+    "resource": 10001
   },
   {
     "role_lv": 20,
-    "role_hp": 1050,
-    "role_attack": 525,
-    "role_defense": 105,
+    "role_hp": 144,
+    "role_attack": 105,
+    "role_defense": 62,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1050
+    "lvup_crystal": 5100,
+    "resource": 10001
   },
   {
     "role_lv": 21,
-    "role_hp": 1100,
-    "role_attack": 550,
-    "role_defense": 110,
+    "role_hp": 150,
+    "role_attack": 110,
+    "role_defense": 65,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1100
+    "lvup_crystal": 5500,
+    "resource": 10001
   },
   {
     "role_lv": 22,
-    "role_hp": 1150,
-    "role_attack": 575,
-    "role_defense": 115,
+    "role_hp": 156,
+    "role_attack": 115,
+    "role_defense": 68,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1150
+    "lvup_crystal": 5900,
+    "resource": 10001
   },
   {
     "role_lv": 23,
-    "role_hp": 1200,
-    "role_attack": 600,
-    "role_defense": 120,
+    "role_hp": 162,
+    "role_attack": 120,
+    "role_defense": 71,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1200
+    "lvup_crystal": 6300,
+    "resource": 10001
   },
   {
     "role_lv": 24,
-    "role_hp": 1250,
-    "role_attack": 625,
-    "role_defense": 125,
+    "role_hp": 168,
+    "role_attack": 125,
+    "role_defense": 74,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1250
+    "lvup_crystal": 6700,
+    "resource": 10001
   },
   {
     "role_lv": 25,
-    "role_hp": 1300,
-    "role_attack": 650,
-    "role_defense": 130,
+    "role_hp": 174,
+    "role_attack": 130,
+    "role_defense": 77,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1300
+    "lvup_crystal": 7100,
+    "resource": 10001
   },
   {
     "role_lv": 26,
-    "role_hp": 1350,
-    "role_attack": 675,
-    "role_defense": 135,
+    "role_hp": 180,
+    "role_attack": 135,
+    "role_defense": 80,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1350
+    "lvup_crystal": 7500,
+    "resource": 10001
   },
   {
     "role_lv": 27,
-    "role_hp": 1400,
-    "role_attack": 700,
-    "role_defense": 140,
+    "role_hp": 186,
+    "role_attack": 140,
+    "role_defense": 83,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1400
+    "lvup_crystal": 7900,
+    "resource": 10001
   },
   {
     "role_lv": 28,
-    "role_hp": 1450,
-    "role_attack": 725,
-    "role_defense": 145,
+    "role_hp": 192,
+    "role_attack": 145,
+    "role_defense": 86,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1450
+    "lvup_crystal": 8300,
+    "resource": 10001
   },
   {
     "role_lv": 29,
-    "role_hp": 1500,
-    "role_attack": 750,
-    "role_defense": 150,
+    "role_hp": 198,
+    "role_attack": 150,
+    "role_defense": 89,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1500
+    "lvup_crystal": 8700,
+    "resource": 10001
   },
   {
     "role_lv": 30,
-    "role_hp": 1550,
-    "role_attack": 775,
-    "role_defense": 155,
+    "role_hp": 204,
+    "role_attack": 155,
+    "role_defense": 92,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1550
+    "lvup_crystal": 9100,
+    "resource": 10001
   },
   {
     "role_lv": 31,
-    "role_hp": 1600,
-    "role_attack": 800,
-    "role_defense": 160,
+    "role_hp": 210,
+    "role_attack": 160,
+    "role_defense": 95,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1600
+    "lvup_crystal": 9500,
+    "resource": 10001
   },
   {
     "role_lv": 32,
-    "role_hp": 1650,
-    "role_attack": 825,
-    "role_defense": 165,
+    "role_hp": 216,
+    "role_attack": 165,
+    "role_defense": 98,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1650
+    "lvup_crystal": 9900,
+    "resource": 10001
   },
   {
     "role_lv": 33,
-    "role_hp": 1700,
-    "role_attack": 850,
-    "role_defense": 170,
+    "role_hp": 222,
+    "role_attack": 170,
+    "role_defense": 101,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1700
+    "lvup_crystal": 10300,
+    "resource": 10001
   },
   {
     "role_lv": 34,
-    "role_hp": 1750,
-    "role_attack": 875,
-    "role_defense": 175,
+    "role_hp": 228,
+    "role_attack": 175,
+    "role_defense": 104,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1750
+    "lvup_crystal": 10700,
+    "resource": 10001
   },
   {
     "role_lv": 35,
-    "role_hp": 1800,
-    "role_attack": 900,
-    "role_defense": 180,
+    "role_hp": 234,
+    "role_attack": 180,
+    "role_defense": 107,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1800
+    "lvup_crystal": 11100,
+    "resource": 10001
   },
   {
     "role_lv": 36,
-    "role_hp": 1850,
-    "role_attack": 925,
-    "role_defense": 185,
+    "role_hp": 240,
+    "role_attack": 185,
+    "role_defense": 110,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1850
+    "lvup_crystal": 11500,
+    "resource": 10001
   },
   {
     "role_lv": 37,
-    "role_hp": 1900,
-    "role_attack": 950,
-    "role_defense": 190,
+    "role_hp": 246,
+    "role_attack": 190,
+    "role_defense": 113,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1900
+    "lvup_crystal": 11900,
+    "resource": 10001
   },
   {
     "role_lv": 38,
-    "role_hp": 1950,
-    "role_attack": 975,
-    "role_defense": 195,
+    "role_hp": 252,
+    "role_attack": 195,
+    "role_defense": 116,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 1950
+    "lvup_crystal": 12300,
+    "resource": 10001
   },
   {
     "role_lv": 39,
-    "role_hp": 2000,
-    "role_attack": 1000,
-    "role_defense": 200,
+    "role_hp": 258,
+    "role_attack": 200,
+    "role_defense": 119,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2000
+    "lvup_crystal": 12700,
+    "resource": 10001
   },
   {
     "role_lv": 40,
-    "role_hp": 2050,
-    "role_attack": 1025,
-    "role_defense": 205,
+    "role_hp": 264,
+    "role_attack": 205,
+    "role_defense": 122,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2050
+    "lvup_crystal": 13100,
+    "resource": 10001
   },
   {
     "role_lv": 41,
-    "role_hp": 2100,
-    "role_attack": 1050,
-    "role_defense": 210,
+    "role_hp": 270,
+    "role_attack": 210,
+    "role_defense": 125,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2100
+    "lvup_crystal": 13500,
+    "resource": 10001
   },
   {
     "role_lv": 42,
-    "role_hp": 2150,
-    "role_attack": 1075,
-    "role_defense": 215,
+    "role_hp": 276,
+    "role_attack": 215,
+    "role_defense": 128,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2150
+    "lvup_crystal": 13900,
+    "resource": 10001
   },
   {
     "role_lv": 43,
-    "role_hp": 2200,
-    "role_attack": 1100,
-    "role_defense": 220,
+    "role_hp": 282,
+    "role_attack": 220,
+    "role_defense": 131,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2200
+    "lvup_crystal": 14300,
+    "resource": 10001
   },
   {
     "role_lv": 44,
-    "role_hp": 2250,
-    "role_attack": 1125,
-    "role_defense": 225,
+    "role_hp": 288,
+    "role_attack": 225,
+    "role_defense": 134,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2250
+    "lvup_crystal": 14700,
+    "resource": 10001
   },
   {
     "role_lv": 45,
-    "role_hp": 2300,
-    "role_attack": 1150,
-    "role_defense": 230,
+    "role_hp": 294,
+    "role_attack": 230,
+    "role_defense": 137,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2300
+    "lvup_crystal": 15100,
+    "resource": 10001
   },
   {
     "role_lv": 46,
-    "role_hp": 2350,
-    "role_attack": 1175,
-    "role_defense": 235,
+    "role_hp": 300,
+    "role_attack": 235,
+    "role_defense": 140,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2350
+    "lvup_crystal": 15500,
+    "resource": 10001
   },
   {
     "role_lv": 47,
-    "role_hp": 2400,
-    "role_attack": 1200,
-    "role_defense": 240,
+    "role_hp": 306,
+    "role_attack": 240,
+    "role_defense": 143,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2400
+    "lvup_crystal": 15900,
+    "resource": 10001
   },
   {
     "role_lv": 48,
-    "role_hp": 2450,
-    "role_attack": 1225,
-    "role_defense": 245,
+    "role_hp": 312,
+    "role_attack": 245,
+    "role_defense": 146,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2450
+    "lvup_crystal": 16300,
+    "resource": 10001
   },
   {
     "role_lv": 49,
-    "role_hp": 2500,
-    "role_attack": 1250,
-    "role_defense": 250,
+    "role_hp": 318,
+    "role_attack": 250,
+    "role_defense": 149,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2500
+    "lvup_crystal": 16700,
+    "resource": 10001
   },
   {
     "role_lv": 50,
-    "role_hp": 2550,
-    "role_attack": 1275,
-    "role_defense": 255,
+    "role_hp": 324,
+    "role_attack": 255,
+    "role_defense": 152,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2550
+    "lvup_crystal": 17100,
+    "resource": 10001
   },
   {
     "role_lv": 51,
-    "role_hp": 2600,
-    "role_attack": 1300,
-    "role_defense": 260,
+    "role_hp": 330,
+    "role_attack": 260,
+    "role_defense": 155,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2600
+    "lvup_crystal": 17500,
+    "resource": 10001
   },
   {
     "role_lv": 52,
-    "role_hp": 2650,
-    "role_attack": 1325,
-    "role_defense": 265,
+    "role_hp": 336,
+    "role_attack": 265,
+    "role_defense": 158,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2650
+    "lvup_crystal": 17900,
+    "resource": 10001
   },
   {
     "role_lv": 53,
-    "role_hp": 2700,
-    "role_attack": 1350,
-    "role_defense": 270,
+    "role_hp": 342,
+    "role_attack": 270,
+    "role_defense": 161,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2700
+    "lvup_crystal": 18300,
+    "resource": 10001
   },
   {
     "role_lv": 54,
-    "role_hp": 2750,
-    "role_attack": 1375,
-    "role_defense": 275,
+    "role_hp": 348,
+    "role_attack": 275,
+    "role_defense": 164,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2750
+    "lvup_crystal": 18700,
+    "resource": 10001
   },
   {
     "role_lv": 55,
-    "role_hp": 2800,
-    "role_attack": 1400,
-    "role_defense": 280,
+    "role_hp": 354,
+    "role_attack": 280,
+    "role_defense": 167,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2800
+    "lvup_crystal": 19100,
+    "resource": 10001
   },
   {
     "role_lv": 56,
-    "role_hp": 2850,
-    "role_attack": 1425,
-    "role_defense": 285,
+    "role_hp": 360,
+    "role_attack": 285,
+    "role_defense": 170,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2850
+    "lvup_crystal": 19500,
+    "resource": 10001
   },
   {
     "role_lv": 57,
-    "role_hp": 2900,
-    "role_attack": 1450,
-    "role_defense": 290,
+    "role_hp": 366,
+    "role_attack": 290,
+    "role_defense": 173,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2900
+    "lvup_crystal": 19900,
+    "resource": 10001
   },
   {
     "role_lv": 58,
-    "role_hp": 2950,
-    "role_attack": 1475,
-    "role_defense": 295,
+    "role_hp": 372,
+    "role_attack": 295,
+    "role_defense": 176,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 2950
+    "lvup_crystal": 20300,
+    "resource": 10001
   },
   {
     "role_lv": 59,
-    "role_hp": 3000,
-    "role_attack": 1500,
-    "role_defense": 300,
+    "role_hp": 378,
+    "role_attack": 300,
+    "role_defense": 179,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3000
+    "lvup_crystal": 20700,
+    "resource": 10001
   },
   {
     "role_lv": 60,
-    "role_hp": 3050,
-    "role_attack": 1525,
-    "role_defense": 305,
+    "role_hp": 384,
+    "role_attack": 305,
+    "role_defense": 182,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3050
+    "lvup_crystal": 21100,
+    "resource": 10001
   },
   {
     "role_lv": 61,
-    "role_hp": 3100,
-    "role_attack": 1550,
-    "role_defense": 310,
+    "role_hp": 390,
+    "role_attack": 310,
+    "role_defense": 185,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3100
+    "lvup_crystal": 21500,
+    "resource": 10001
   },
   {
     "role_lv": 62,
-    "role_hp": 3150,
-    "role_attack": 1575,
-    "role_defense": 315,
+    "role_hp": 396,
+    "role_attack": 315,
+    "role_defense": 188,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3150
+    "lvup_crystal": 21900,
+    "resource": 10001
   },
   {
     "role_lv": 63,
-    "role_hp": 3200,
-    "role_attack": 1600,
-    "role_defense": 320,
+    "role_hp": 402,
+    "role_attack": 320,
+    "role_defense": 191,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3200
+    "lvup_crystal": 22300,
+    "resource": 10001
   },
   {
     "role_lv": 64,
-    "role_hp": 3250,
-    "role_attack": 1625,
-    "role_defense": 325,
+    "role_hp": 408,
+    "role_attack": 325,
+    "role_defense": 194,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3250
+    "lvup_crystal": 22700,
+    "resource": 10001
   },
   {
     "role_lv": 65,
-    "role_hp": 3300,
-    "role_attack": 1650,
-    "role_defense": 330,
+    "role_hp": 414,
+    "role_attack": 330,
+    "role_defense": 197,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3300
+    "lvup_crystal": 23100,
+    "resource": 10001
   },
   {
     "role_lv": 66,
-    "role_hp": 3350,
-    "role_attack": 1675,
-    "role_defense": 335,
+    "role_hp": 420,
+    "role_attack": 335,
+    "role_defense": 200,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3350
+    "lvup_crystal": 23500,
+    "resource": 10001
   },
   {
     "role_lv": 67,
-    "role_hp": 3400,
-    "role_attack": 1700,
-    "role_defense": 340,
+    "role_hp": 426,
+    "role_attack": 340,
+    "role_defense": 203,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3400
+    "lvup_crystal": 23900,
+    "resource": 10001
   },
   {
     "role_lv": 68,
-    "role_hp": 3450,
-    "role_attack": 1725,
-    "role_defense": 345,
+    "role_hp": 432,
+    "role_attack": 345,
+    "role_defense": 206,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3450
+    "lvup_crystal": 24300,
+    "resource": 10001
   },
   {
     "role_lv": 69,
-    "role_hp": 3500,
-    "role_attack": 1750,
-    "role_defense": 350,
+    "role_hp": 438,
+    "role_attack": 350,
+    "role_defense": 209,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3500
+    "lvup_crystal": 24700,
+    "resource": 10001
   },
   {
     "role_lv": 70,
-    "role_hp": 3550,
-    "role_attack": 1775,
-    "role_defense": 355,
+    "role_hp": 444,
+    "role_attack": 355,
+    "role_defense": 212,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3550
+    "lvup_crystal": 25100,
+    "resource": 10001
   },
   {
     "role_lv": 71,
-    "role_hp": 3600,
-    "role_attack": 1800,
-    "role_defense": 360,
+    "role_hp": 450,
+    "role_attack": 360,
+    "role_defense": 215,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3600
+    "lvup_crystal": 25500,
+    "resource": 10001
   },
   {
     "role_lv": 72,
-    "role_hp": 3650,
-    "role_attack": 1825,
-    "role_defense": 365,
+    "role_hp": 456,
+    "role_attack": 365,
+    "role_defense": 218,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3650
+    "lvup_crystal": 25900,
+    "resource": 10001
   },
   {
     "role_lv": 73,
-    "role_hp": 3700,
-    "role_attack": 1850,
-    "role_defense": 370,
+    "role_hp": 462,
+    "role_attack": 370,
+    "role_defense": 221,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3700
+    "lvup_crystal": 26300,
+    "resource": 10001
   },
   {
     "role_lv": 74,
-    "role_hp": 3750,
-    "role_attack": 1875,
-    "role_defense": 375,
+    "role_hp": 468,
+    "role_attack": 375,
+    "role_defense": 224,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3750
+    "lvup_crystal": 26700,
+    "resource": 10001
   },
   {
     "role_lv": 75,
-    "role_hp": 3800,
-    "role_attack": 1900,
-    "role_defense": 380,
+    "role_hp": 474,
+    "role_attack": 380,
+    "role_defense": 227,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3800
+    "lvup_crystal": 27100,
+    "resource": 10001
   },
   {
     "role_lv": 76,
-    "role_hp": 3850,
-    "role_attack": 1925,
-    "role_defense": 385,
+    "role_hp": 480,
+    "role_attack": 385,
+    "role_defense": 230,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3850
+    "lvup_crystal": 27500,
+    "resource": 10001
   },
   {
     "role_lv": 77,
-    "role_hp": 3900,
-    "role_attack": 1950,
-    "role_defense": 390,
+    "role_hp": 486,
+    "role_attack": 390,
+    "role_defense": 233,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3900
+    "lvup_crystal": 27900,
+    "resource": 10001
   },
   {
     "role_lv": 78,
-    "role_hp": 3950,
-    "role_attack": 1975,
-    "role_defense": 395,
+    "role_hp": 492,
+    "role_attack": 395,
+    "role_defense": 236,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 3950
+    "lvup_crystal": 28300,
+    "resource": 10001
   },
   {
     "role_lv": 79,
-    "role_hp": 4000,
-    "role_attack": 2000,
-    "role_defense": 400,
+    "role_hp": 498,
+    "role_attack": 400,
+    "role_defense": 239,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4000
+    "lvup_crystal": 28700,
+    "resource": 10001
   },
   {
     "role_lv": 80,
-    "role_hp": 4050,
-    "role_attack": 2025,
-    "role_defense": 405,
+    "role_hp": 504,
+    "role_attack": 405,
+    "role_defense": 242,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4050
+    "lvup_crystal": 29100,
+    "resource": 10001
   },
   {
     "role_lv": 81,
-    "role_hp": 4100,
-    "role_attack": 2050,
-    "role_defense": 410,
+    "role_hp": 510,
+    "role_attack": 410,
+    "role_defense": 245,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4100
+    "lvup_crystal": 29500,
+    "resource": 10001
   },
   {
     "role_lv": 82,
-    "role_hp": 4150,
-    "role_attack": 2075,
-    "role_defense": 415,
+    "role_hp": 516,
+    "role_attack": 415,
+    "role_defense": 248,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4150
+    "lvup_crystal": 29900,
+    "resource": 10001
   },
   {
     "role_lv": 83,
-    "role_hp": 4200,
-    "role_attack": 2100,
-    "role_defense": 420,
+    "role_hp": 522,
+    "role_attack": 420,
+    "role_defense": 251,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4200
+    "lvup_crystal": 30300,
+    "resource": 10001
   },
   {
     "role_lv": 84,
-    "role_hp": 4250,
-    "role_attack": 2125,
-    "role_defense": 425,
+    "role_hp": 528,
+    "role_attack": 425,
+    "role_defense": 254,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4250
+    "lvup_crystal": 30700,
+    "resource": 10001
   },
   {
     "role_lv": 85,
-    "role_hp": 4300,
-    "role_attack": 2150,
-    "role_defense": 430,
+    "role_hp": 534,
+    "role_attack": 430,
+    "role_defense": 257,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4300
+    "lvup_crystal": 31100,
+    "resource": 10001
   },
   {
     "role_lv": 86,
-    "role_hp": 4350,
-    "role_attack": 2175,
-    "role_defense": 435,
+    "role_hp": 540,
+    "role_attack": 435,
+    "role_defense": 260,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4350
+    "lvup_crystal": 31500,
+    "resource": 10001
   },
   {
     "role_lv": 87,
-    "role_hp": 4400,
-    "role_attack": 2200,
-    "role_defense": 440,
+    "role_hp": 546,
+    "role_attack": 440,
+    "role_defense": 263,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4400
+    "lvup_crystal": 31900,
+    "resource": 10001
   },
   {
     "role_lv": 88,
-    "role_hp": 4450,
-    "role_attack": 2225,
-    "role_defense": 445,
+    "role_hp": 552,
+    "role_attack": 445,
+    "role_defense": 266,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4450
+    "lvup_crystal": 32300,
+    "resource": 10001
   },
   {
     "role_lv": 89,
-    "role_hp": 4500,
-    "role_attack": 2250,
-    "role_defense": 450,
+    "role_hp": 558,
+    "role_attack": 450,
+    "role_defense": 269,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4500
+    "lvup_crystal": 32700,
+    "resource": 10001
   },
   {
     "role_lv": 90,
-    "role_hp": 4550,
-    "role_attack": 2275,
-    "role_defense": 455,
+    "role_hp": 564,
+    "role_attack": 455,
+    "role_defense": 272,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4550
+    "lvup_crystal": 33100,
+    "resource": 10001
   },
   {
     "role_lv": 91,
-    "role_hp": 4600,
-    "role_attack": 2300,
-    "role_defense": 460,
+    "role_hp": 570,
+    "role_attack": 460,
+    "role_defense": 275,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4600
+    "lvup_crystal": 33500,
+    "resource": 10001
   },
   {
     "role_lv": 92,
-    "role_hp": 4650,
-    "role_attack": 2325,
-    "role_defense": 465,
+    "role_hp": 576,
+    "role_attack": 465,
+    "role_defense": 278,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4650
+    "lvup_crystal": 33900,
+    "resource": 10001
   },
   {
     "role_lv": 93,
-    "role_hp": 4700,
-    "role_attack": 2350,
-    "role_defense": 470,
+    "role_hp": 582,
+    "role_attack": 470,
+    "role_defense": 281,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4700
+    "lvup_crystal": 34300,
+    "resource": 10001
   },
   {
     "role_lv": 94,
-    "role_hp": 4750,
-    "role_attack": 2375,
-    "role_defense": 475,
+    "role_hp": 588,
+    "role_attack": 475,
+    "role_defense": 284,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4750
+    "lvup_crystal": 34700,
+    "resource": 10001
   },
   {
     "role_lv": 95,
-    "role_hp": 4800,
-    "role_attack": 2400,
-    "role_defense": 480,
+    "role_hp": 594,
+    "role_attack": 480,
+    "role_defense": 287,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4800
+    "lvup_crystal": 35100,
+    "resource": 10001
   },
   {
     "role_lv": 96,
-    "role_hp": 4850,
-    "role_attack": 2425,
-    "role_defense": 485,
+    "role_hp": 600,
+    "role_attack": 485,
+    "role_defense": 290,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4850
+    "lvup_crystal": 35500,
+    "resource": 10001
   },
   {
     "role_lv": 97,
-    "role_hp": 4900,
-    "role_attack": 2450,
-    "role_defense": 490,
+    "role_hp": 606,
+    "role_attack": 490,
+    "role_defense": 293,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4900
+    "lvup_crystal": 35900,
+    "resource": 10001
   },
   {
     "role_lv": 98,
-    "role_hp": 4950,
-    "role_attack": 2475,
-    "role_defense": 495,
+    "role_hp": 612,
+    "role_attack": 495,
+    "role_defense": 296,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 4950
+    "lvup_crystal": 36300,
+    "resource": 10001
   },
   {
     "role_lv": 99,
-    "role_hp": 5000,
-    "role_attack": 2500,
-    "role_defense": 500,
+    "role_hp": 618,
+    "role_attack": 500,
+    "role_defense": 299,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 5000
+    "lvup_crystal": 36700,
+    "resource": 10001
   },
   {
     "role_lv": 100,
-    "role_hp": 5050,
-    "role_attack": 2525,
-    "role_defense": 505,
+    "role_hp": 624,
+    "role_attack": 505,
+    "role_defense": 302,
     "attack_speed": 1,
     "attack_range": 1.45,
-    "lvup_crystal": 5050
+    "lvup_crystal": 37100,
+    "resource": 10001
   }
 ]
