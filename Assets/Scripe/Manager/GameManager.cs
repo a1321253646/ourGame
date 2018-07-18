@@ -17,7 +17,7 @@ public class GameManager
 	public bool mHeroIsAlive;
 	public UiManager uiManager;
 	public bool isLvUp = false;
-
+    public bool isInit = false;
 	private GameManager(){
 	}
 	private static GameManager mIntance = new GameManager();
@@ -27,9 +27,13 @@ public class GameManager
 		
 
 	public void getLevelData(){
-        mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100010);
-        mHeroLv = (long)JsonUtils.getIntance().getConfigValueForId(100011);
-        mCurrentCrystal = (long)JsonUtils.getIntance().getConfigValueForId(100012);
+        if (!isInit) {
+            isInit = true;
+            mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100010);
+            mHeroLv = (long)JsonUtils.getIntance().getConfigValueForId(100011);
+            mCurrentCrystal = (long)JsonUtils.getIntance().getConfigValueForId(100012);
+        }
+
         Hero hero = JsonUtils.getIntance ().getHeroData ();
 		mHeroLv = hero.role_lv;
 		Debug.Log ("hero.getRoleHp () = " + hero.role_hp + "  maxBlood=" + maxBlood + " mCurrentBlood =" + mCurrentBlood);
