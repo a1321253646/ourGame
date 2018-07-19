@@ -34,7 +34,28 @@ public class LevelManager : MonoBehaviour {
 			starBoss = true;
 			mBackManager.setBackground (JsonUtils.getIntance ().getLevelData ().boss_bg);
 		}
-	}
+        if (Input.GetKeyDown(KeyCode.F6))
+        {
+            BackpackManager.getIntance().addGoods(10001, 10);
+            Debug.Log("Input.GetKeyDown(KeyCode.F6)");
+        }
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            BackpackManager.getIntance().deleteGoods(10001, 10);
+            Debug.Log("Input.GetKeyDown(KeyCode.F5");
+        }
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            Debug.Log("Input.GetKeyDown(KeyCode.F4)");
+            BackpackManager.getIntance().showBackpackUi();
+        }
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            Debug.Log("Input.GetKeyDown(KeyCode.F3)");
+            BackpackManager.getIntance().removeUi();
+        }
+
+    }
 	public BackgroundManager getBackManager(){
 		return mBackManager;
 	}

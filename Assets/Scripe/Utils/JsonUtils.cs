@@ -8,23 +8,26 @@ public class JsonUtils
     //	private  string levelFile =  "config/level";
     //	private  string heroFile = "config/hero";
     //	private  string enemyFile = "config/enemy";
-    //	private  string levelEnemyFile = "config/levelenemy";
-    //	private  string resourceFile = "config/resource";
-    //   private string configeFile = "config/config";
+    //private  string levelEnemyFile = "config/levelenemy";
+    //private  string resourceFile = "config/resource";
+    //private string configeFile = "config/config";
+    //private string goodsFile = "config/goods";
     private string levelFile = "level.json";
     private string heroFile = "hero.json";
     private string enemyFile = "enemy.json";
     private string levelEnemyFile = "levelenemy.json";
     private string resourceFile = "resource.json";
     private string configeFile = "config.json";
-
+    private string goodsFile = "backpack.json";
     private static JsonUtils mInance= new JsonUtils();
 
 	List<Hero> heroData;
 	List<Level> levelData;
 	List<ResourceBean> resourceData;
     List<ConfigNote> mConfig;
-	private JsonUtils(){
+    List<GoodJsonBean> mGoods;
+
+    private JsonUtils(){
 		readAllFile ();
 	}
 
@@ -33,11 +36,14 @@ public class JsonUtils
         readHeroData ();
 		readLevelData ();
 		readResource ();
-	}
+        readGoodInfo();
+
+    }
 
 	public static JsonUtils getIntance(){
 		return mInance;
-	}
+    }
+
     public string loadFile(string path, string fileName)
     {
         StreamReader sr = null;
@@ -58,18 +64,25 @@ public class JsonUtils
         sr.Close();
         sr.Dispose();
         return str;
-    }
+}
+
 
     private string readFile(string fileName){
-        //TextAsset jsonText = Resources.Load(fileName) as TextAsset;
+		//TextAsset jsonText = Resources.Load(fileName) as TextAsset;
         string str = loadFile(Application.dataPath + "/Resources", fileName);
-        Debug.Log("readFile :" + fileName + "\n " + str);
-        return str;
-        //		foreach (Hero hero in heros) {
-        //			Debug.Log ("hero:id=" + hero.role_lv + " hp=" + hero.role_hp + " attack=" + hero.role_attack + " defense=" + hero.role_defense + " crystal=" + hero.lvup_crystal);
-        //		}
-        //return jsonText.text;
-        //		Hero jsonObj = JsonUtility.FromJson<Hero>(jsonText.text);
+
+        Debug.Log ("readFile :" + fileName + "\n " + str);
+
+//		foreach (Hero hero in heros) {
+//			Debug.Log ("hero:id=" + hero.role_lv + " hp=" + hero.role_hp + " attack=" + hero.role_attack + " defense=" + hero.role_defense + " crystal=" + hero.lvup_crystal);
+//		}
+		return str;
+//		Hero jsonObj = JsonUtility.FromJson<Hero>(jsonText.text);
+	}
+
+    private void readGoodInfo() {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(goodsFile));
+        mGoods = arrdata.ToObject<List<GoodJsonBean>>();
     }
 
 	private void readResource(){
@@ -114,6 +127,10 @@ public class JsonUtils
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (enemyFile));
 		return arrdata.ToObject<List<Enemy>> ();
 	}
+
+    public List<GoodJsonBean> getGoodInfoList() {
+        return mGoods;
+    }
 
     public float getConfigValueForId(long id) {
         foreach (ConfigNote note in mConfig) {
