@@ -36,12 +36,12 @@ public class LevelManager : MonoBehaviour {
 		}
         if (Input.GetKeyDown(KeyCode.F6))
         {
-            BackpackManager.getIntance().addGoods(10001, 10);
+            BackpackManager.getIntance().addGoods(10001, 300);
             Debug.Log("Input.GetKeyDown(KeyCode.F6)");
         }
         if (Input.GetKeyDown(KeyCode.F5))
         {
-            BackpackManager.getIntance().deleteGoods(10001, 10);
+            BackpackManager.getIntance().deleteGoods(10001, 300);
             Debug.Log("Input.GetKeyDown(KeyCode.F5");
         }
         if (Input.GetKeyDown(KeyCode.F4))

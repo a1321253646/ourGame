@@ -1,4 +1,4 @@
-﻿
+﻿using UnityEngine;
 using System.Collections.Generic;
 public class InventoryHalper 
 {
@@ -35,6 +35,7 @@ public class InventoryHalper
         else {
             //添加数据
         }
+        Debug.Log("InventoryHalper list size  " + mList.Count);
     }
 
     public void deleteIventory(long id, int count) {
@@ -60,6 +61,6 @@ public class InventoryHalper
         }
     }
     public List<PlayerBackpackBean> getInventorys() {
-        return null;
+        return mList;
     }
 }

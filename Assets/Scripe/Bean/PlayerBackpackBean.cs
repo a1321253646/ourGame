@@ -7,4 +7,8 @@ public class PlayerBackpackBean : ScriptableObject
     public long goodId;
     public int count;
     public long tabId;
+
+    public string toString() {
+        return "sortID = " + sortID + " goodId=" + goodId + " count" + count + " tabId=" + tabId;
+    }
 }

@@ -7,13 +7,16 @@ public class GoodControl : MonoBehaviour {
     // Use this for initialization
     private Image mImage;
     private Text mText;
-    public long id;
+    public long id = -1;
     private long count;
     GoodJsonBean mGoodInfo;
     void Start()
     {
-        mImage = GetComponentInChildren<Image>();
+        mImage = GetComponentsInChildren<Image>()[1];
         mText = GetComponentInChildren<Text>();
+        mImage.sprite = null;
+        mText.text = "";
+        Debug.Log("mText = " + mText + "mImage = " + mImage);
     }
     public bool isFull() {
         return count == mGoodInfo.stacking;
@@ -23,8 +26,11 @@ public class GoodControl : MonoBehaviour {
     {
         this.id = id;
         mGoodInfo = BackpackManager.getIntance().getGoodInfoById(id);
-        SpriteRenderer sp1 = mImage.GetComponent<SpriteRenderer>();
-        sp1.sprite = Resources.Load("backpackIcon/"+mGoodInfo.icon, typeof(Sprite)) as Sprite;
+       // SpriteRenderer sp1 = mImage.GetComponent<SpriteRenderer>();
+        Debug.Log("icon = " + mGoodInfo.icon+ "mImage = "+ mImage);
+        mImage.sprite = Resources.
+            Load("backpackIcon/" + mGoodInfo.icon, typeof(Sprite)) as Sprite;
+        mImage.color = Color.white;
         return setCount(count);
 
     }
@@ -70,7 +76,6 @@ public class GoodControl : MonoBehaviour {
         {
             this.count = count;
             mText.text = "" + this.count;
-            return count - mGoodInfo.stacking;
             return 0;
         }
     }
