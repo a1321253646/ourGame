@@ -12,10 +12,22 @@ public class GoodControl : MonoBehaviour {
     GoodJsonBean mGoodInfo;
     void Start()
     {
+        Debug.Log("GoodControl Start id = " + id );
         mImage = GetComponentsInChildren<Image>()[1];
         mText = GetComponentInChildren<Text>();
-        mImage.sprite = null;
-        mText.text = "";
+        if (mImage != null)
+        {
+            if (id == -1)
+            {
+                mImage.sprite = null;
+                mText.text = "";
+            }
+            else
+            {
+                updateUi(id, count);
+            }
+        }
+
         Debug.Log("mText = " + mText + "mImage = " + mImage);
     }
     public bool isFull() {
@@ -24,13 +36,18 @@ public class GoodControl : MonoBehaviour {
 
     public long updateUi(long id, long count)
     {
+        Debug.Log("GoodControl updateUi id = " + id);
         this.id = id;
-        mGoodInfo = BackpackManager.getIntance().getGoodInfoById(id);
-       // SpriteRenderer sp1 = mImage.GetComponent<SpriteRenderer>();
-        Debug.Log("icon = " + mGoodInfo.icon+ "mImage = "+ mImage);
-        mImage.sprite = Resources.
-            Load("backpackIcon/" + mGoodInfo.icon, typeof(Sprite)) as Sprite;
-        mImage.color = Color.white;
+        if (mImage != null)
+        {
+            mGoodInfo = BackpackManager.getIntance().getGoodInfoById(id);
+            // SpriteRenderer sp1 = mImage.GetComponent<SpriteRenderer>();
+            Debug.Log("icon = " + mGoodInfo.icon + "mImage = " + mImage);
+            mImage.sprite = Resources.
+                Load("backpackIcon/" + mGoodInfo.icon, typeof(Sprite)) as Sprite;
+            mImage.color = Color.white;
+        }
+
         return setCount(count);
 
     }
@@ -66,17 +83,23 @@ public class GoodControl : MonoBehaviour {
 
     public long setCount(long count)
     {
-        if (count > mGoodInfo.stacking)
+        string text;
+        long value ;
+        if (mGoodInfo != null && count > mGoodInfo.stacking)
         {
             this.count = mGoodInfo.stacking;
-            mText.text = "" + this.count;
-            return count - mGoodInfo.stacking;
+            text  = "" + this.count;
+            value =  count - mGoodInfo.stacking;
         }
         else
         {
             this.count = count;
-            mText.text = "" + this.count;
-            return 0;
+            text = "" + this.count;
+            value =  0;
         }
+        if (mText != null) {
+            mText.text = text;
+        }
+        return value;
     }
 }

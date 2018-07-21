@@ -12,7 +12,7 @@ public class IvertoryControl : MonoBehaviour {
     private int MinCount = 5;
     private int LinCount = 7;
     GoodControl[] mGoodsControl;
-    private bool isShow = false;
+    private bool isShow = true;
     Dictionary<long, List<PlayerBackpackBean>> mGoodDic = new Dictionary<long, List<PlayerBackpackBean>>();
     // Use this for initialization
     bool isInit = false;
@@ -24,9 +24,7 @@ public class IvertoryControl : MonoBehaviour {
         Debug.Log("------------------------------------IvertoryControl isInit " + isInit);
         mGoods = GameObject.Find("Goods");
         mGrilLayout = mGoods.GetComponentInChildren<GridLayoutGroup>();
-        for (int i = 0; i < MinCount; i++) {
-            addGoodUi();
-        }
+        addGoodUi(MinCount* LinCount);
         update();
     }
     public void showTypeUi(long type)
@@ -95,38 +93,56 @@ public class IvertoryControl : MonoBehaviour {
             addCount = bean.count;
             while (addCount != 0) {
                 if (mGoodIndex >= mGoodsControl.Length) {
-                    addGoodUi();
+                    addGoodUi(LinCount);
                 }
                 GoodControl good = mGoodsControl[mGoodIndex];
                 addCount = good.updateUi(bean.goodId, addCount);
                 mGoodIndex++;
             }
         }
-        if (mGoodIndex < mGoodsControl.Length - 1 ) {
-            for (int i = mGoodsControl.Length - 1; i > mGoodIndex; i--) {
+        if (mGoodIndex < mGoodsControl.Length ) {
+            for (int i = mGoodsControl.Length - 1; i >= mGoodIndex; i--) {
                 GameObject goj = mGoodsGameObject[i];
+                mGoodUiCount--;
                 mGoodsGameObject.Remove(goj);
                 Destroy(goj);   
             }
+            mGoodsControl = GetComponentsInChildren<GoodControl>();
         }
-        if (mGoodIndex < MinCount -1) {
-            int count = MinCount - 1 - mGoodIndex;
-            for (int i = 0; i < count; i++) {
-                addGoodUi();
+        if (mGoodIndex < MinCount * LinCount)
+        {
+            addGoodUi(MinCount * LinCount - mGoodIndex);
+        }
+        else {
+            if ( mGoodIndex % LinCount != 0) {
+                addGoodUi(LinCount - mGoodIndex % LinCount);
             }
+
         }
     }
-    private void SetGridHeight(int num)     //每行Cell的个数
+    private void SetGridHeight()     //每行Cell的个数
     {
+        int line = 0;
+        if (mGoodUiCount % LinCount != 0) {
+            line = 1;
+        }
+        Debug.Log("  gridLyout childCount = " + mGoodUiCount);
+        Debug.Log("  gridLyout num = " + LinCount);
 
-        float childCount = this.transform.childCount;  //获得Layout Group子物体个数
+        Debug.Log("  gridLyout line = " + line);
 
-        float height = ((childCount + num - 1) / num) * mGrilLayout.cellSize.y + 3.0f;  //行数乘以Cell的高度，3.0f是微调
-        height += (((childCount + num - 1) / num) - 1) * mGrilLayout.spacing.y;     //每行之间有间隔
+        line += mGoodUiCount / LinCount;
+        Debug.Log("  gridLyout line = " + line);
+        float height = line * mGrilLayout.cellSize.y ;  //行数乘以Cell的高度，3.0f是微调
+        height += (line -1)* mGrilLayout.spacing.y;     //每行之间有间隔
         mGrilLayout.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
     }
-    private void addGoodUi() {
-        for (int i = 0; i < LinCount; i++) {
+
+    private int mGoodUiCount = 0;
+
+    private void addGoodUi(int count) {
+        mGoodUiCount += count;
+        for (int i = 0; i < count; i++) {
             GameObject good = GameObject.Instantiate(mGood,
                 new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             good.transform.parent = mGoods.transform;
@@ -134,15 +150,15 @@ public class IvertoryControl : MonoBehaviour {
             mGoodsControl = GetComponentsInChildren<GoodControl>();
             mGoodsGameObject.Add(good);
         }
-      //  SetGridHeight(LinCount);
-
+        SetGridHeight();
     }
     public void showUi() {
         if (isShow) {
             return;
         }
         isShow = true;
-        gameObject.transform.TransformPoint(new Vector2(0,0));
+        //gameObject.transform.TransformPoint(new Vector2(0,0));
+        gameObject.transform.localPosition = new Vector2(0, 0);
     }
     public void removeUi() {
         if (!isShow)
@@ -150,7 +166,8 @@ public class IvertoryControl : MonoBehaviour {
             return;
         }
         isShow = false;
-        gameObject.transform.TransformPoint(new Vector2(-607, -31));
+        // gameObject.transform.TransformPoint(new Vector2(-607, -31));
+        gameObject.transform.localPosition = new Vector2(-607, -31);
     }
     public void addGood(long id, long count) {
         Debug.Log("IvertoryControl add id="+id+" count = "+count);
@@ -170,16 +187,23 @@ public class IvertoryControl : MonoBehaviour {
     }
     public void deleteGood(long id, long count)
     {
-        foreach (GoodControl good in mGoodsControl)
-        {
+        bool isSuccess = false;
+        for (int i = 0; i < mGoodsControl.Length; i++) {
+            GoodControl good = mGoodsControl[i];
             if (good.id == id)
             {
-                if (good.deleteCount(count))
+                while (i < mGoodsControl.Length && mGoodsControl[i].id == id)
                 {
-                    return;
+                    i++;
                 }
-                else
+                if (i >= mGoodsControl.Length)
                 {
+                    isSuccess = mGoodsControl[mGoodsControl.Length - 1].deleteCount(count);
+                }
+                else {
+                    isSuccess = mGoodsControl[i - 1].deleteCount(count);
+                }
+                if (!isSuccess) {
                     update();
                 }
             }
