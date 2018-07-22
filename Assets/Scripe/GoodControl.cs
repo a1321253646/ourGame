@@ -20,7 +20,10 @@ public class GoodControl : MonoBehaviour {
             if (id == -1)
             {
                 mImage.sprite = null;
-                mText.text = "";
+                if (mText != null) {
+                    mText.text = "";
+                }
+               
             }
             else
             {

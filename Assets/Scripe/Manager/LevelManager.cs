@@ -47,12 +47,14 @@ public class LevelManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F4))
         {
             Debug.Log("Input.GetKeyDown(KeyCode.F4)");
-            BackpackManager.getIntance().showBackpackUi();
+            //   BackpackManager.getIntance().showBackpackUi();
+            BackpackManager.getIntance().showTipUi(10001, 30);
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
             Debug.Log("Input.GetKeyDown(KeyCode.F3)");
-            BackpackManager.getIntance().removeUi();
+            //  BackpackManager.getIntance().removeUi();
+            BackpackManager.getIntance().removeTipUi();
         }
 
     }
