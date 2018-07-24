@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1000001,
+    "name": "水魔尘",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000001,
+    "icon": "item_1000001",
+    "describe": "蕴含水魔力的魔法尘埃"
+  },
+  {
+    "id": 1000002,
+    "name": "金魔尘",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000002,
+    "icon": "item_1000002",
+    "describe": "蕴含金魔力的魔法尘埃"
+  },
+  {
+    "id": 1000003,
+    "name": "木魔尘",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000003,
+    "icon": "item_1000003",
+    "describe": "蕴含木魔力的魔法尘埃"
+  },
+  {
+    "id": 1000004,
+    "name": "土魔尘",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000004,
+    "icon": "item_1000004",
+    "describe": "蕴含土魔力的魔法尘埃"
+  },
+  {
+    "id": 1000005,
+    "name": "火魔尘",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000005,
+    "icon": "item_1000005",
+    "describe": "蕴含火魔力的魔法尘埃"
+  },
+  {
+    "id": 1000006,
+    "name": "水魔锭",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000006,
+    "icon": "item_1000006",
+    "describe": "蕴含水魔力的魔法铁锭"
+  },
+  {
+    "id": 1000007,
+    "name": "金魔锭",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000007,
+    "icon": "item_1000007",
+    "describe": "蕴含金魔力的魔法铁锭"
+  },
+  {
+    "id": 1000008,
+    "name": "木魔锭",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000008,
+    "icon": "item_1000008",
+    "describe": "蕴含木魔力的魔法铁锭"
+  },
+  {
+    "id": 1000009,
+    "name": "土魔锭",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000009,
+    "icon": "item_1000009",
+    "describe": "蕴含土魔力的魔法铁锭"
+  },
+  {
+    "id": 1000010,
+    "name": "火魔锭",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000010,
+    "icon": "item_1000010",
+    "describe": "蕴含火魔力的魔法铁锭"
+  },
+  {
+    "id": 1000011,
+    "name": "水魔石",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000011,
+    "icon": "item_1000011",
+    "describe": "蕴含水魔力的魔法矿石"
+  },
+  {
+    "id": 1000012,
+    "name": "金魔石",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000012,
+    "icon": "item_1000012",
+    "describe": "蕴含金魔力的魔法矿石"
+  },
+  {
+    "id": 1000013,
+    "name": "木魔石",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000013,
+    "icon": "item_1000013",
+    "describe": "蕴含木魔力的魔法矿石"
+  },
+  {
+    "id": 1000014,
+    "name": "土魔石",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000014,
+    "icon": "item_1000014",
+    "describe": "蕴含土魔力的魔法矿石"
+  },
+  {
+    "id": 1000015,
+    "name": "火魔石",
+    "type": 1,
+    "stacking": 999,
+    "tabid": 1,
+    "sortID": 3000015,
+    "icon": "item_1000015",
+    "describe": "蕴含火魔力的魔法矿石"
+  }
+]

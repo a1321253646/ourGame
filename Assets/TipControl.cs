@@ -15,13 +15,13 @@ public class TipControl : MonoBehaviour {
     private Text nButtonTx;
     private Text nDepictTx;
     private DepictTextControl mDepoct;
-    public void setShowData(long id, long count) {
+    public void setShowData(PlayerBackpackBean bean,long count) {
         if (isShow)
         {
             return;
         }
         isShow = true;
-        this.id = id;
+        this.id = bean.goodId;
         this.count = count;
         showUi();
         updataUi();
@@ -31,46 +31,12 @@ public class TipControl : MonoBehaviour {
         
         mGoodInfo = BackpackManager.getIntance().getGoodInfoById(id);
         creatDepictText();
-        if (mGoodControl == null) {
-            mGoodControl = gameObject.GetComponentInChildren<GoodControl>();
-        }
-        mGoodControl.updateUi(id, count);
-        if (mName == null) {
-            mName = GameObject.Find("tipName").GetComponent<Text>();
-        }
-        mName.text = mGoodInfo.name;
-
-        if (nButtonTx == null) {
-            nButtonTx = GameObject.Find("tipButtonTx").GetComponent<Text>();
-        }
-        if (mGoodInfo.tabid == BackpackManager.ZHUANGBEI_TYPE)
-        {
-            nButtonTx.text = "装备";
-        }
-        else if (mGoodInfo.tabid == BackpackManager.CAILIAO_TYPE)
-        {
-            nButtonTx.text = "使用";
-        }
-
-
-
        
     }
 
     private void creatDepictText() {
         string str = "";
-        str = str + mGoodInfo.describe+"\n";
-        str = str + mGoodInfo.describe + "\n";
-        str = str + mGoodInfo.describe + "\n";
-
-        str = str + mGoodInfo.describe + "\n";
-        str = str + mGoodInfo.describe + "\n";
-        str = str + mGoodInfo.describe + "\n";
-        str = str + mGoodInfo.describe + "\n";
-        str = str + mGoodInfo.describe + "\n";
-        str = str + mGoodInfo.describe + "\n";
-        str = str + mGoodInfo.describe + "\n";
-        str = str + mGoodInfo.describe + "\n";
+        
         Debug.Log("mGoodInfo.describe= "+ mGoodInfo.describe);
         if (nDepictTx == null)
         {
@@ -81,7 +47,6 @@ public class TipControl : MonoBehaviour {
 
     private void showUi()
     {
-        //gameObject.transform.TransformPoint(new Vector2(0,0));
         gameObject.transform.localPosition = new Vector2(0, 0);
     }
     public void removeUi()
@@ -94,14 +59,4 @@ public class TipControl : MonoBehaviour {
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
         gameObject.transform.localPosition = new Vector2(500f, -386.46f);
     }
-
-    // Use this for initialization
-    void Start () {
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

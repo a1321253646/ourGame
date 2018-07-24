@@ -12,7 +12,7 @@ public class IvertoryControl : MonoBehaviour {
     private int MinCount = 5;
     private int LinCount = 7;
     GoodControl[] mGoodsControl;
-    private bool isShow = true;
+    private bool isShow = false;
     Dictionary<long, List<PlayerBackpackBean>> mGoodDic = new Dictionary<long, List<PlayerBackpackBean>>();
     // Use this for initialization
     bool isInit = false;
@@ -42,17 +42,18 @@ public class IvertoryControl : MonoBehaviour {
         List<PlayerBackpackBean> goodList;
         if (list == null)
             return;
+        mGoodDic.Clear();
         foreach (PlayerBackpackBean bean in list)
         {
-            Debug.Log("bean = " + bean.toString());
+ //           Debug.Log("bean = " + bean.toString());
             if (mGoodDic.ContainsKey(bean.tabId))
             {
-                Debug.Log("mGoodDic do have" + bean.tabId);
+ //               Debug.Log("mGoodDic do have" + bean.tabId);
                 goodList = mGoodDic[bean.tabId];
             }
             else
             {
-                Debug.Log("mGoodDic don't have" + bean.tabId);
+     //           Debug.Log("mGoodDic don't have" + bean.tabId);
                 goodList = new List<PlayerBackpackBean>();
                 mGoodDic.Add(bean.tabId, goodList);
             }
@@ -74,7 +75,7 @@ public class IvertoryControl : MonoBehaviour {
         }
     }
 
-    private void update()
+    public void update()
     {
         upDateData();
         int mGoodIndex = 0;
@@ -83,7 +84,7 @@ public class IvertoryControl : MonoBehaviour {
             return;
 
         }
-        Debug.Log("IvertoryControl mGoodDic containsKey " + mShowUiType);
+//        Debug.Log("IvertoryControl mGoodDic containsKey " + mShowUiType);
         List<PlayerBackpackBean> goodList = mGoodDic[mShowUiType];
         PlayerBackpackBean bean;
         long addCount = 0;
@@ -96,7 +97,7 @@ public class IvertoryControl : MonoBehaviour {
                     addGoodUi(LinCount);
                 }
                 GoodControl good = mGoodsControl[mGoodIndex];
-                addCount = good.updateUi(bean.goodId, addCount);
+                addCount = good.updateUi(bean.goodId, addCount, bean);
                 mGoodIndex++;
             }
         }
@@ -126,13 +127,13 @@ public class IvertoryControl : MonoBehaviour {
         if (mGoodUiCount % LinCount != 0) {
             line = 1;
         }
-        Debug.Log("  gridLyout childCount = " + mGoodUiCount);
-        Debug.Log("  gridLyout num = " + LinCount);
+ //       Debug.Log("  gridLyout childCount = " + mGoodUiCount);
+   //     Debug.Log("  gridLyout num = " + LinCount);
 
-        Debug.Log("  gridLyout line = " + line);
+    //    Debug.Log("  gridLyout line = " + line);
 
         line += mGoodUiCount / LinCount;
-        Debug.Log("  gridLyout line = " + line);
+     //   Debug.Log("  gridLyout line = " + line);
         float height = line * mGrilLayout.cellSize.y ;  //行数乘以Cell的高度，3.0f是微调
         height += (line -1)* mGrilLayout.spacing.y;     //每行之间有间隔
         mGrilLayout.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
@@ -167,7 +168,7 @@ public class IvertoryControl : MonoBehaviour {
         }
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
-        gameObject.transform.localPosition = new Vector2(-607, -31);
+        gameObject.transform.localPosition = new Vector2(162, -403);
     }
     public void addGood(long id, long count) {
         Debug.Log("IvertoryControl add id="+id+" count = "+count);

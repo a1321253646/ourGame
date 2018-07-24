@@ -58,7 +58,7 @@ public class LocalMultiple :LocalBean
 		if (mList.Count == 0) {
 			LocalNote[] notes = new LocalNote[1];
 			note.x = mCurrentX;
-            Debug.Log("LocalNote[0] x= " + note.x);
+//            Debug.Log("LocalNote[0] x= " + note.x);
             note.y = mCurrentY-note.mLocal.mAttacker.resourceData.idel_y;
 			notes [0] = note;
 			mList.Add (notes);
@@ -138,7 +138,7 @@ public class LocalMultiple :LocalBean
                     targetNotes[ii].x = bean.mAttacker.transform.position.x;
                     targetNotes[ii].y = bean.mAttacker.transform.position.y;
                     //		Debug.Log ("removeLoacal i= "+i+" targetindex= "+ii);
-                    Debug.Log("remove targetNotes [ii] x= " + targetNotes[ii].x);
+ //                   Debug.Log("remove targetNotes [ii] x= " + targetNotes[ii].x);
 
 
                     break;
@@ -163,7 +163,7 @@ public class LocalMultiple :LocalBean
 					targetNotes [targetindex].mLocal = tmp [i].mLocal;
 					targetNotes [targetindex].mLocal.mTargetX = targetNotes [targetindex].x;
 					targetNotes [targetindex].mLocal.mTargetY = targetNotes [targetindex].y;
-                    Debug.Log("mTargetY targetNotes [ii] x= " + targetNotes[targetindex].mLocal.mTargetX);
+//                    Debug.Log("mTargetY targetNotes [ii] x= " + targetNotes[targetindex].mLocal.mTargetX);
                     tmp [i] = null;
 					if (i == 0) {
 						mList.Remove (tmp);

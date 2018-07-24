@@ -6,19 +6,23 @@ public class UiManager
 {	
 	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv;
 	Slider mHpSl,mStartBossGasSl;
-	Button mStartBossBt,mLvUpBt;
+	Button mStartBossBt,mLvUpBt,mRoleUiShow,mPackUiShow,mHeChengUiShow;
 	public void init(){
 		mHeroLvTv = GameObject.Find ("lv_labe").GetComponent<Text> ();
 		mGameLevelTv = GameObject.Find ("wellen_labe").GetComponent<Text> ();
 		mCurrentCrystalTv = GameObject.Find ("god_labe").GetComponent<Text> ();
-		mLvUpCrystalTv = GameObject.Find ("cost_labe").GetComponent<Text> ();
+		mLvUpCrystalTv = GameObject.Find ("lvup_cost_labe").GetComponent<Text> ();
 		mHpTv = GameObject.Find ("hp_show").GetComponent<Text> ();
 		mGasTv = GameObject.Find ("moqi_show").GetComponent<Text> ();
 
 		mStartBossBt = GameObject.Find ("Button_boss").GetComponent<Button> ();
 		mLvUpBt = GameObject.Find ("Button_lvup").GetComponent<Button> ();
 
-		mHpSl = GameObject.Find ("blood").GetComponent<Slider> ();
+        mRoleUiShow = GameObject.Find("role_ui").GetComponent<Button>();
+        mPackUiShow = GameObject.Find("pack_ui").GetComponent<Button>();
+        mHeChengUiShow = GameObject.Find("hecheng_ui").GetComponent<Button>();
+
+        mHpSl = GameObject.Find ("blood").GetComponent<Slider> ();
 		mStartBossGasSl = GameObject.Find ("gas_sl").GetComponent<Slider> ();
 
 		mGameLevelTv.text = "当前关卡:第" + GameManager.getIntance ().mCurrentLevel+"关";
@@ -39,8 +43,20 @@ public class UiManager
 		mLvUpBt.onClick.AddListener (() => {
 			levelUp();
 		});
-		refreshData ();
+
+        mRoleUiShow.onClick.AddListener(() => {
+            BackpackManager.getIntance().heroUiShowClick();
+        });
+        mPackUiShow.onClick.AddListener(() => {
+            BackpackManager.getIntance().packUiShowClick();
+        });
+        mHeChengUiShow.onClick.AddListener(() => {
+            BackpackManager.getIntance().composeUiShowClick();
+        });
+
+        refreshData ();
 	}
+
 	public void refreshData(){
 		mHeroLvTv.text = "英雄等级:" + GameManager.getIntance ().mHeroLv +"级";
 		mLvUpCrystalTv.text = "升级消耗：魔晶" + GameManager.getIntance ().upLevelCrystal;

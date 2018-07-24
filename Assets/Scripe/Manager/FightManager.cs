@@ -43,7 +43,6 @@ public class FightManager{
 			GameManager.getIntance ().mCurrentLevel += 1;
 			//SceneManager.UnloadSceneAsync (0);
 			SceneManager.LoadScene(1);
-
 		}else if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
 			GameManager.getIntance ().mHeroIsAlive = false;
 			//SceneManager.UnloadSceneAsync (0);

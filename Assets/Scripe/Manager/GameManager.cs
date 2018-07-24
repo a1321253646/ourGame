@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class GameManager
 {
@@ -77,6 +78,19 @@ public class GameManager
 	}
 
 	public void enemyDeal(Attacker enemy){
+        if (enemy is EnemyBase) {
+            EnemyBase tmp = (EnemyBase)enemy;
+            List<FellObjectBean> list = tmp.mData.getFellList();
+            if (list != null && list.Count > 0) {
+                foreach (FellObjectBean bean in list) {
+                    bool isFell = bean.isFell();
+                    if (isFell) {
+                        BackpackManager.getIntance().addGoods(bean.getId(), 1);
+                    }
+                }
+            }
+            
+        }
 		mCurrentGas += enemy.mDieGas*JsonUtils.getIntance().getConfigValueForId(100009);
 		mCurrentCrystal += enemy.mDieCrysta * JsonUtils.getIntance().getConfigValueForId(100008);
         uiManager.addGasAndCrystal ();

@@ -10,9 +10,10 @@ public class GoodControl : MonoBehaviour {
     public long id = -1;
     private long count;
     GoodJsonBean mGoodInfo;
+    PlayerBackpackBean bean;
     void Start()
     {
-        Debug.Log("GoodControl Start id = " + id );
+ //       Debug.Log("GoodControl Start id = " + id );
         mImage = GetComponentsInChildren<Image>()[1];
         mText = GetComponentInChildren<Text>();
         if (mImage != null)
@@ -31,21 +32,20 @@ public class GoodControl : MonoBehaviour {
             }
         }
 
-        Debug.Log("mText = " + mText + "mImage = " + mImage);
+ //       Debug.Log("mText = " + mText + "mImage = " + mImage);
     }
     public bool isFull() {
         return count == mGoodInfo.stacking;
     }
-
-    public long updateUi(long id, long count)
+    private long updateUi(long id, long count)
     {
-        Debug.Log("GoodControl updateUi id = " + id);
+        //       Debug.Log("GoodControl updateUi id = " + id);
         this.id = id;
         if (mImage != null)
         {
             mGoodInfo = BackpackManager.getIntance().getGoodInfoById(id);
             // SpriteRenderer sp1 = mImage.GetComponent<SpriteRenderer>();
-            Debug.Log("icon = " + mGoodInfo.icon + "mImage = " + mImage);
+            //            Debug.Log("icon = " + mGoodInfo.icon + "mImage = " + mImage);
             mImage.sprite = Resources.
                 Load("backpackIcon/" + mGoodInfo.icon, typeof(Sprite)) as Sprite;
             mImage.color = Color.white;
@@ -53,6 +53,12 @@ public class GoodControl : MonoBehaviour {
 
         return setCount(count);
 
+    }
+    public long updateUi(long id, long count, PlayerBackpackBean bean)
+    {
+ //       Debug.Log("GoodControl updateUi id = " + id);
+        this.bean = bean;
+        return updateUi(id, count);
     }
 
     public bool deleteCount(long count) {

@@ -36,7 +36,7 @@ public class TrajectoryBase : MonoBehaviour
 	}
 	private void isReach(){
         //  Debug.Log("traject update isReach");
-        if (transform.position.x + mFightResource.mTrajectResource.getHurtOffset().x <=
+        if (mAttacker.mAttackerTargets.Count > 0 && transform.position.x + mFightResource.mTrajectResource.getHurtOffset().x <=
             mAttacker.mAttackerTargets[0].transform.position.x+ mAttacker.mAttackerTargets[0].resourceData.getHurtOffset().x) {
 			mFightResource.trajectoryActionIsEnd ();
 			Destroy (gameObject);

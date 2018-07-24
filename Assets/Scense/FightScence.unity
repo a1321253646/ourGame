@@ -443,12 +443,12 @@ Prefab:
     - target: {fileID: 224360981297063956, guid: d28f8dabb2a20f7409a49abe8927f818,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 732
+      value: 740
       objectReference: {fileID: 0}
     - target: {fileID: 224360981297063956, guid: d28f8dabb2a20f7409a49abe8927f818,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -49
+      value: -63.673
       objectReference: {fileID: 0}
     - target: {fileID: 224360981297063956, guid: d28f8dabb2a20f7409a49abe8927f818,
         type: 2}
@@ -509,6 +509,10 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917421120940202, guid: d28f8dabb2a20f7409a49abe8927f818, type: 2}
+      propertyPath: m_Name
+      value: compose_root
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d28f8dabb2a20f7409a49abe8927f818, type: 2}
@@ -1073,7 +1077,7 @@ GameObject:
   - component: {fileID: 948943404}
   - component: {fileID: 948943403}
   m_Layer: 5
-  m_Name: pack
+  m_Name: pack_ui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1557,6 +1561,7 @@ GameObject:
   - component: {fileID: 1050980243}
   - component: {fileID: 1050980245}
   - component: {fileID: 1050980244}
+  - component: {fileID: 1050980246}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1621,6 +1626,58 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1050980242}
+--- !u!114 &1050980246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050980242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1050980244}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1071959343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,6 +1916,22 @@ MonoBehaviour:
   Player: {fileID: 1454518952746240, guid: bc4c5f712384868449111da44101f8d6, type: 2}
   enemyFactory: {fileID: 1220025670914754, guid: 338ef63f739a5f24dbbb077fa9e9bf1d,
     type: 2}
+--- !u!1 &1247875176 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1881316495938316, guid: 957757d21a7f02c44a3d6df0eb40007f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1663140348}
+--- !u!114 &1247875177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247875176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae546b96a1825a4587cb64dad2df253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1365187467
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,7 +2054,7 @@ GameObject:
   - component: {fileID: 1394018264}
   - component: {fileID: 1394018263}
   m_Layer: 5
-  m_Name: cost_labe
+  m_Name: lvup_cost_labe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2274,7 +2347,7 @@ GameObject:
   - component: {fileID: 1535212045}
   - component: {fileID: 1535212044}
   m_Layer: 5
-  m_Name: hecheng
+  m_Name: hecheng_ui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2959,7 +3032,7 @@ Prefab:
     - target: {fileID: 224923328915038724, guid: cf64db5f5b5b6144fac9a6e8a8996c38,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 322.6
+      value: 322.59998
       objectReference: {fileID: 0}
     - target: {fileID: 224923328915038724, guid: cf64db5f5b5b6144fac9a6e8a8996c38,
         type: 2}
@@ -3307,7 +3380,7 @@ GameObject:
   - component: {fileID: 1856357225}
   - component: {fileID: 1856357224}
   m_Layer: 5
-  m_Name: role
+  m_Name: role_ui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3492,3 +3565,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1964110817 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1917421120940202, guid: d28f8dabb2a20f7409a49abe8927f818,
+    type: 2}
+  m_PrefabInternal: {fileID: 530902230}
+--- !u!114 &1964110820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964110817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a784e26d15e1b4b8f8e457e2d5470d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

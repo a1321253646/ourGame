@@ -1,0 +1,68 @@
+[
+  {
+    "id": 2000001,
+    "name": "魔界头盔",
+    "type": 1,
+    "stacking": 1,
+    "tabid": 2,
+    "sortID": 2100001,
+    "icon": "equip_2000001",
+    "attribute_type": 101102,
+    "attribute_value": "{100,120}{200,240}"
+  },
+  {
+    "id": 2000002,
+    "name": "魔界衣服",
+    "type": 2,
+    "stacking": 1,
+    "tabid": 2,
+    "sortID": 2200001,
+    "icon": "equip_2000002",
+    "attribute_type": 101102,
+    "attribute_value": "{100,120}{200,240}"
+  },
+  {
+    "id": 2000003,
+    "name": "魔界鞋子",
+    "type": 3,
+    "stacking": 1,
+    "tabid": 2,
+    "sortID": 2300001,
+    "icon": "equip_2000003",
+    "attribute_type": 101102,
+    "attribute_value": "{100,120}{200,240}"
+  },
+  {
+    "id": 2000004,
+    "name": "魔界武器",
+    "type": 4,
+    "stacking": 1,
+    "tabid": 2,
+    "sortID": 2400001,
+    "icon": "equip_2000004",
+    "attribute_type": 100,
+    "attribute_value": "{50,60}"
+  },
+  {
+    "id": 2000005,
+    "name": "魔界项链",
+    "type": 5,
+    "stacking": 1,
+    "tabid": 2,
+    "sortID": 2500001,
+    "icon": "equip_2000005",
+    "attribute_type": 100102,
+    "attribute_value": "{50,60}{200,240}"
+  },
+  {
+    "id": 2000006,
+    "name": "魔界魔戒",
+    "type": 6,
+    "stacking": 1,
+    "tabid": 2,
+    "sortID": 2600001,
+    "icon": "equip_2000006",
+    "attribute_type": 100101,
+    "attribute_value": "{50,60}{100,120}"
+  }
+]

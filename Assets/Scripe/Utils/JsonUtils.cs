@@ -18,7 +18,8 @@ public class JsonUtils
     private string levelEnemyFile = "levelenemy.json";
     private string resourceFile = "resource.json";
     private string configeFile = "config.json";
-    private string goodsFile = "backpack.json";
+    private string goodsFile = "item.json";
+    private string attributeFile = "equip.json";
     private static JsonUtils mInance= new JsonUtils();
 
 	List<Hero> heroData;
@@ -26,7 +27,7 @@ public class JsonUtils
 	List<ResourceBean> resourceData;
     List<ConfigNote> mConfig;
     List<GoodJsonBean> mGoods;
-
+    List<AccouterJsonBean> mAttribute;
     private JsonUtils(){
 		readAllFile ();
 	}
@@ -37,7 +38,7 @@ public class JsonUtils
 		readLevelData ();
 		readResource ();
         readGoodInfo();
-
+        readAttributeInfo();
     }
 
 	public static JsonUtils getIntance(){
@@ -79,6 +80,12 @@ public class JsonUtils
 		return str;
 //		Hero jsonObj = JsonUtility.FromJson<Hero>(jsonText.text);
 	}
+
+    private void readAttributeInfo()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(attributeFile));
+        mAttribute = arrdata.ToObject<List<AccouterJsonBean>>();
+    }
 
     private void readGoodInfo() {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(goodsFile));
@@ -128,6 +135,11 @@ public class JsonUtils
 		return arrdata.ToObject<List<Enemy>> ();
 	}
 
+    
+    public List<AccouterJsonBean> getAccouterInfoList()
+    {
+        return mAttribute;
+    }
     public List<GoodJsonBean> getGoodInfoList() {
         return mGoods;
     }
