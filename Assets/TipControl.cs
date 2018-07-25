@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,35 +10,101 @@ public class TipControl : MonoBehaviour {
 
     private long id;
     private long count;
-    private GoodJsonBean mGoodInfo;
     private GoodControl mGoodControl;
     private Text mName;
     private Text nButtonTx;
     private Text nDepictTx;
+    private Image mTipImage;
+    private Text mTipCount;
+    private Text mTipName;
+    PlayerBackpackBean mBean;
     private DepictTextControl mDepoct;
-    public void setShowData(PlayerBackpackBean bean,long count) {
-        if (isShow)
+    AccouterJsonBean mAccouter = null;
+    GoodJsonBean mGoodJson = null;
+    private Button mClose, mActionClick;
+
+    void Start()
+    {
+        mActionClick = GameObject.Find("tip_Button").GetComponent<Button>();
+        mClose = GameObject.Find("tip_cloase").GetComponent<Button>();
+
+        mActionClick.onClick.AddListener(() =>
         {
-            return;
-        }
+            use();
+        });
+        mActionClick.onClick.AddListener(() =>
+        {
+            removeUi();
+        });
+    }
+
+    private void use()
+    {
+        BackpackManager.getIntance().use(mBean, count);
+        removeUi();
+    }
+
+    public void setShowData(PlayerBackpackBean bean,long count) {
+        mBean = bean;
         isShow = true;
         this.id = bean.goodId;
         this.count = count;
         showUi();
+        updataTip();
         updataUi();
+    }
+
+    private void updataTip()
+    {
+        if (mTipImage == null) {
+            mTipImage = GameObject.Find("box_icon_tip").GetComponent<Image>();
+        }
+        if (mTipCount == null) {
+            mTipCount = GameObject.Find("box_text_tip").GetComponent<Text>();
+        }
+        if (mTipName == null)
+        {
+            mTipName = GameObject.Find("tipName").GetComponent<Text>();
+        }
+        string img = null;
+        string name = null;
+        if (mBean.tabId == GoodControl.TABID_EQUIP_TYPY)
+        {
+            mAccouter = BackpackManager.getIntance().getAccouterInfoById(id);
+            img = mAccouter.icon;
+            name = mAccouter.name;
+        }
+        else if (mBean.tabId == GoodControl.TABID_ITEM_TYPE)
+        {
+            mGoodJson = BackpackManager.getIntance().getGoodInfoById(id);
+            img = mGoodJson.icon;
+            name = mGoodJson.name;
+        }
+
+        mTipCount.text = "" + count;
+        mTipName.text = name;
+        mTipImage.sprite = Resources.
+                 Load("backpackIcon/" + img, typeof(Sprite)) as Sprite;
+        mTipImage.color = Color.white;
     }
 
     private void updataUi() {
         
-        mGoodInfo = BackpackManager.getIntance().getGoodInfoById(id);
+        
         creatDepictText();
        
     }
 
     private void creatDepictText() {
         string str = "";
-        
-        Debug.Log("mGoodInfo.describe= "+ mGoodInfo.describe);
+        if (mGoodJson != null) {
+            str = str + mGoodJson.describe + "\n";
+        }
+        if (mAccouter != null && mBean.attributeList != null && mBean.attributeList.Count > 0) {
+            foreach (PlayerAttributeBean b in mBean.attributeList) {
+                str = str+b.getTypeStr() + ":" + b.value+"\n";
+            }
+        }
         if (nDepictTx == null)
         {
             mDepoct = GameObject.Find("depict_text").GetComponent<DepictTextControl>();

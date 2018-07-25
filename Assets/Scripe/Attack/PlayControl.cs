@@ -37,7 +37,40 @@ public class PlayControl : Attacker
 		}
 		Run ();
 	}
-	public void standyEvent(){
+    public float mEquipAggressivity = 0;
+    public float mEquipDefense = 0;
+    public float mEquipMaxBloodVolume = 0;
+
+    public float mBaseAggressivity = 0;
+    public float mBaseDefense = 0;
+    public float mBaseMaxBloodVolume = 0;
+    public void ChangeEquip(Dictionary<long, PlayerBackpackBean> equips)
+    {
+        mEquipMaxBloodVolume = 0;
+        mEquipDefense = 0;
+        mEquipAggressivity = 0;
+        for (long i = 1; i < 7; i++) {
+            if (equips.ContainsKey(i)) {
+                PlayerBackpackBean bean = equips[i];
+                foreach (PlayerAttributeBean date in bean.attributeList) {
+                    if (date.type == 100)
+                    {
+                        mEquipAggressivity += date.value;
+                    }
+                    else if (date.type == 101)
+                    {
+                        mEquipDefense += date.value;
+                    }
+                    else if (date.type == 102)
+                    {
+                        mEquipMaxBloodVolume += date.value;
+                    }
+                }
+            }
+        }
+    }
+
+    public void standyEvent(){
 		if (status == Attacker.PLAY_STATUS_DIE) {
 			return;
 		}
@@ -47,12 +80,16 @@ public class PlayControl : Attacker
 	public void setHeroData(){
         Hero mHero = JsonUtils.getIntance().getHeroData(); 
         resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
-        mAggressivity = mHero.role_attack;
-		mDefense = mHero.role_defense;
-		mAttackSpeed = mHero.attack_speed;
+        mBaseAggressivity = mHero.role_attack;
+        mBaseDefense = mHero.role_defense;
+        mBaseMaxBloodVolume = mHero.role_hp;
+        mAggressivity = mBaseAggressivity + mEquipAggressivity;
+        mMaxBloodVolume = mBaseMaxBloodVolume + mEquipMaxBloodVolume;
+        mDefense = mBaseDefense + mEquipDefense;
+        mAttackSpeed = mHero.attack_speed;
 		mAttackLeng = mHero.attack_range;
 		mBloodVolume = GameManager.getIntance ().mCurrentBlood;
-		mMaxBloodVolume = mHero.role_hp;
+        
 		mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);
 

@@ -49,7 +49,7 @@ public class AccouterJsonBean
             }
             string[] type = attribute_type.Split(',');
             for (int i = 0; i < type.Length; i++) {
-                mAttribute[i].type = int.Parse(type[i]);
+                mAttribute[i].type = long.Parse(type[i]);
             }
         }
         return mAttribute;

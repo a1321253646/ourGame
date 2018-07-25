@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour {
     public BackgroundManager mBackManager;
 	public FightManager mFightManager;
 	public LocalManager mLocalManager;
+    private PlayControl mPlayerControl;
 	void Start () {
 		Debug.Log ("LevelManager Start");
 		GameManager.getIntance ();
@@ -24,7 +25,8 @@ public class LevelManager : MonoBehaviour {
 		mBackManager.init (BackgroupObject,JsonUtils.getIntance().getLevelData().map);
 		creaPlay ();
 		creatEnemyFactory ();
-	}
+        BackpackManager.getIntance().init(this);
+    }
 	
 	// Update is called once per frame
 	bool starBoss = false;
@@ -54,6 +56,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
 
+    public void ChangeEquip(Dictionary<long, PlayerBackpackBean> equips) {
+        mPlayerControl.ChangeEquip(equips);
+    }
+
 	private void creaPlay(){
 
         Hero mHero;
@@ -65,7 +71,9 @@ public class LevelManager : MonoBehaviour {
         GameObject newobj =  GameObject.Instantiate (Player, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100003), JsonUtils.getIntance().getConfigValueForId(100002)-bean.idel_y),
 			Quaternion.Euler(0.0f,0.0f,0.0f));
 		newobj.transform.localScale.Set (JsonUtils.getIntance().getConfigValueForId(100005), JsonUtils.getIntance().getConfigValueForId(100005), 1);
-	}
+        mPlayerControl = newobj.GetComponent<PlayControl>();
+
+    }
 	private void creatEnemyFactory(){
 		GameObject newobj =  GameObject.Instantiate (enemyFactory, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100004), JsonUtils.getIntance().getConfigValueForId(100002)),
 			Quaternion.Euler(0.0f,0f,0.0f));

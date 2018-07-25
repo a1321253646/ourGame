@@ -20,7 +20,7 @@ public class GameManager
 	public bool isLvUp = false;
     public bool isInit = false;
 	private GameManager(){
-	}
+    }
 	private static GameManager mIntance = new GameManager();
 	public static GameManager getIntance(){
 		return mIntance;

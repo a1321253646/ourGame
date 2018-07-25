@@ -18,9 +18,11 @@ public class GameOverManager : MonoBehaviour {
 		Debug.Log ("GameOverManager Level =" + GameManager.getIntance ().mCurrentLevel);
 		if (isPass) {
 			mLost.SetActive (false);
-		} else {
+
+        } else {
 			mWin.SetActive (false);
-		}
+            GameManager.getIntance().mCurrentLevel = 1;
+        }
 	}
 	bool isThisSceneDie = false;
 	// Update is called once per frame

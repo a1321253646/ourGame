@@ -41,8 +41,8 @@ public class FightManager{
 		if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS ) {
 			GameManager.getIntance ().mHeroIsAlive = true;
 			GameManager.getIntance ().mCurrentLevel += 1;
-			//SceneManager.UnloadSceneAsync (0);
-			SceneManager.LoadScene(1);
+			//SceneManager.UnloadSceneAsync (0);    
+			//SceneManager.LoadScene(1);
 		}else if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
 			GameManager.getIntance ().mHeroIsAlive = false;
 			//SceneManager.UnloadSceneAsync (0);
@@ -52,20 +52,27 @@ public class FightManager{
 			Debug.Log ("unRegisterAttacker:this attcker is not register");
 			return;
 		}
+        if (attcker.mAttackType != Attacker.ATTACK_TYPE_BOSS)
+        {
 
-		foreach (Attacker tmp in mAliveActtackers.Values) {
-			if (tmp.mAttackerTargets != null && tmp.mAttackerTargets.Count > 0) {
-				int index = tmp.mAttackerTargets.IndexOf (attcker);
-				if (index >= 0) {
-					tmp.mAttackerTargets.RemoveAt (index);
-				}
-			}
-		}
+            foreach (Attacker tmp in mAliveActtackers.Values)
+            {
+                if (tmp.mAttackerTargets != null && tmp.mAttackerTargets.Count > 0)
+                {
+                    int index = tmp.mAttackerTargets.IndexOf(attcker);
+                    if (index >= 0)
+                    {
+                        tmp.mAttackerTargets.RemoveAt(index);
+                    }
+                }
+            }
+            mLocalManager.EnemyDeal(attcker);
+            mAliveActtackers.Remove(attcker.id);
+        }
 		if (attcker is EnemyBase) {
 			GameManager.getIntance ().enemyDeal (attcker);
 		}
-		mLocalManager.EnemyDeal (attcker);
-		mAliveActtackers.Remove (attcker.id);
+
 	}
 
 /*	public void addAttacker(int myId,int beAttackerid){

@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
+
 public class InventoryHalper 
 {
     List<PlayerBackpackBean> mList = new List<PlayerBackpackBean>();
+    private Dictionary<long, PlayerBackpackBean> mRoleUseList = new Dictionary<long, PlayerBackpackBean>();
     public static InventoryHalper mIntance = new InventoryHalper();
     public static InventoryHalper getIntance() {
         return mIntance;
@@ -41,15 +44,24 @@ public class InventoryHalper
             }
             else if (id > TABID_2_START_ID && id < TABID_3_START_ID) {
                 AccouterJsonBean jb = BackpackManager.getIntance().getAccouterInfoById(id);
-                newBean.goodId = id;
+                
+                newBean.goodId = id;             
                 newBean.sortID = jb.sortID;
                 newBean.count = count;
                 newBean.tabId = jb.tabid;
+                Debug.Log("newBean.goodId  " + newBean.goodId);
+                Debug.Log("newBean.sortID  " + newBean.sortID);
+                Debug.Log("newBean.count  " + newBean.count);
+                Debug.Log("newBean.tabId  " + newBean.tabId);
                 newBean.attributeList = new List<PlayerAttributeBean>();
                 foreach (AttributeBean be in jb.getAttributeList()) {
                     PlayerAttributeBean p = new PlayerAttributeBean();
                     p.type = be.type;
-                    p.type = be.getCurrentValue();
+                    p.value = be.getCurrentValue();
+                    Debug.Log("newBean.tabId  be.min " +be.min);
+                    Debug.Log("newBean.tabId be.max " + be.max);
+                    Debug.Log("newBean.tabId  p.type " + p.type);
+                    Debug.Log("newBean.tabId p.value " + p.value);
                     newBean.attributeList.Add(p);
                 }
                 mList.Add(newBean);
@@ -65,6 +77,52 @@ public class InventoryHalper
 //        Debug.Log("InventoryHalper list size  " + mList.Count);
     }
 
+    public Dictionary<long, PlayerBackpackBean> getRoleUseList() {
+        return mRoleUseList;
+    }
+
+    public void use(PlayerBackpackBean bean, long count)
+    {
+        PlayerBackpackBean beanOld = null;
+        AccouterJsonBean acc = BackpackManager.getIntance().getAccouterInfoById(bean.goodId);
+
+        if (mRoleUseList.ContainsKey(acc.type))
+        {
+            beanOld = mRoleUseList[acc.id];
+            mRoleUseList.Remove(acc.id);
+            mRoleUseList.Add(acc.id, bean);
+        }
+        else
+        {
+            mRoleUseList.Add(acc.id, bean);
+        }
+        deleteIventory(bean);
+        if (beanOld != null) {
+            addIventory(bean);
+        }
+    }
+    private void deleteRoleUse(long type)
+    {
+        mRoleUseList.Remove(type);
+        //删除角色数据
+    }
+    private void addRoleUse(long type,PlayerBackpackBean bean)
+    {
+        mRoleUseList.Add(type,bean);
+        //添加角色数据
+    }
+
+
+    private void deleteIventory(PlayerBackpackBean bean)
+    {
+        mList.Remove(bean);
+        //删除数据
+    }
+    private void addIventory(PlayerBackpackBean bean)
+    {
+        mList.Add(bean);
+        //添加数据
+    }
     public void deleteIventory(long id, int count) {
         PlayerBackpackBean bean = null;
         foreach (PlayerBackpackBean tmp in mList)

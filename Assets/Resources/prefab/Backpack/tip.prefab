@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222503950149178694}
   - component: {fileID: 114313646558777110}
   - component: {fileID: 114431195634710334}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114752020924264610}
   - component: {fileID: 114284513780401494}
   - component: {fileID: 114012310722328088}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: depict_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,8 +58,8 @@ GameObject:
   - component: {fileID: 224867655076940004}
   - component: {fileID: 222796445732928178}
   - component: {fileID: 114284449289129272}
-  m_Layer: 5
-  m_Name: box_icon
+  m_Layer: 8
+  m_Name: box_icon_tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,8 +75,8 @@ GameObject:
   - component: {fileID: 224971175237408022}
   - component: {fileID: 222959829792084770}
   - component: {fileID: 114895803960791442}
-  m_Layer: 5
-  m_Name: Text
+  m_Layer: 8
+  m_Name: box_text_tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 222148522395650470}
   - component: {fileID: 114755443503836968}
   - component: {fileID: 114558844619870568}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: box_gride_tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 222168783620179580}
   - component: {fileID: 114687008415380276}
   - component: {fileID: 114118549926219562}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 224907888634061328}
   - component: {fileID: 222952826566121452}
   - component: {fileID: 114355840243627084}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: tipButtonTx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 114052686849013262}
   - component: {fileID: 114291703426133112}
   - component: {fileID: 114215129017371546}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ScroolRectUi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 224447806795375098}
   - component: {fileID: 222747065931730158}
   - component: {fileID: 114203096444848954}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: tipName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 222768206903316572}
   - component: {fileID: 114929023941184488}
   - component: {fileID: 114409571057664862}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 224824784220863254}
   - component: {fileID: 222730112923640086}
   - component: {fileID: 114942625577642596}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: depict
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,14 +584,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "        str = str + mGoodInfo.describe+\"\\n\";\r\n        str = str +
-    mGoodInfo.describe + \"\\n\";\r\n        str = str + mGoodInfo.describe + \"\\n\";\r\n\r\n
-    \       str = str + mGoodInfo.describe + \"\\n\";\r\n        str = str + mGoodInfo.describe
-    + \"\\n\";\r\n        str = str + mGoodInfo.describe + \"\\n\";\r\n        str
-    = str + mGoodInfo.describe + \"\\n\";\r\n        str = str + mGoodInfo.describe
-    + \"\\n\";\r\n        str = str + mGoodInfo.describe + \"\\n\";\r\n        str
-    = str + mGoodInfo.describe + \"\\n\";\r\n        str = str + mGoodInfo.describe
-    + \"\\n\";"
+  m_Text: 
 --- !u!114 &114755443503836968
 MonoBehaviour:
   m_ObjectHideFlags: 1

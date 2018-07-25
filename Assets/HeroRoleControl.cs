@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HeroRoleControl : MonoBehaviour {
-
     private bool isShow = false;
     public void showUi()
     {
@@ -24,5 +24,10 @@ public class HeroRoleControl : MonoBehaviour {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
         gameObject.transform.localPosition = new Vector2(-222, -411);
+    }
+
+    public void upDateUi()
+    {
+      
     }
 }

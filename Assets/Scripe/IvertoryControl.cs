@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class IvertoryControl : MonoBehaviour {
-    private long mShowUiType = 1;
+    private static int ALL_TYPE = 10;
+    private static int[] OTHER_TYPE = { 1,2,3};
+    private long mShowUiType = ALL_TYPE;
     public GameObject mGood;
     private GameObject mGoods;
     private GridLayoutGroup mGrilLayout;
     private List<GameObject> mGoodsGameObject = new List<GameObject>();
+    private Button mFirBt, mSecBt, mThiBt, mFouBt, mCloBt;
     private int MinCount = 5;
     private int LinCount = 7;
     GoodControl[] mGoodsControl;
@@ -24,9 +27,37 @@ public class IvertoryControl : MonoBehaviour {
         Debug.Log("------------------------------------IvertoryControl isInit " + isInit);
         mGoods = GameObject.Find("Goods");
         mGrilLayout = mGoods.GetComponentInChildren<GridLayoutGroup>();
+        mFirBt = GameObject.Find("pack_frist_bt").GetComponent<Button>();
+        mSecBt = GameObject.Find("pack_second_bt").GetComponent<Button>();
+        mThiBt = GameObject.Find("pack_third_bt").GetComponent<Button>();
+        mFouBt = GameObject.Find("pack_four_bt").GetComponent<Button>();
+        mCloBt = GameObject.Find("pack_close").GetComponent<Button>();
+
+        mFirBt.onClick.AddListener(() => {
+            changeType(ALL_TYPE);
+        });
+        mSecBt.onClick.AddListener(() => {
+            changeType(1);
+        });
+        mThiBt.onClick.AddListener(() => {
+            changeType(2);
+        });
+        mFouBt.onClick.AddListener(() => {
+            changeType(3);
+        });
+        mCloBt.onClick.AddListener(() =>
+        {
+            removeUi();
+        });
         addGoodUi(MinCount* LinCount);
         update();
     }
+
+    private void changeType(int type) {
+        mShowUiType = type;
+        update();
+    }
+
     public void showTypeUi(long type)
     {
         if (mShowUiType == type) {
@@ -79,13 +110,29 @@ public class IvertoryControl : MonoBehaviour {
     {
         upDateData();
         int mGoodIndex = 0;
-        if (!mGoodDic.ContainsKey(mShowUiType)) {
-            Debug.Log("IvertoryControl mGoodDic don't containsKey " + mShowUiType);
-            return;
-
+        //        Debug.Log("IvertoryControl mGoodDic containsKey " + mShowUiType);
+        List<PlayerBackpackBean> goodList = null;
+        if (mShowUiType == ALL_TYPE)
+        {
+            goodList = new List<PlayerBackpackBean>();
+            foreach (int i in OTHER_TYPE)
+            {
+           //     Debug.Log("ContainsKey" + i);
+                if (mGoodDic.ContainsKey(i)) {
+                    goodList.AddRange(mGoodDic[i]);
+             //       Debug.Log("goodList leng" + goodList.Count);
+                }
+                    
+            }
         }
-//        Debug.Log("IvertoryControl mGoodDic containsKey " + mShowUiType);
-        List<PlayerBackpackBean> goodList = mGoodDic[mShowUiType];
+        else if (mGoodDic.ContainsKey(mShowUiType))
+        {
+            goodList = mGoodDic[mShowUiType];
+        }
+        else {
+            goodList = new List<PlayerBackpackBean>();
+        }
+        
         PlayerBackpackBean bean;
         long addCount = 0;
         mGoodsControl = GetComponentsInChildren<GoodControl>();

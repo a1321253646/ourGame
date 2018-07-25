@@ -22,11 +22,18 @@ public class BackpackManager
     private TipControl mTipControl;
     private HeroRoleControl mHeroControl;
     private ComposeControl mComposeControl;
+
+    LevelManager mLevel;
     private BackpackManager()
     {
+
+    }
+
+    public void init(LevelManager manager) {
+        mLevel = manager;
         mInventoryList = InventoryHalper.getIntance().getInventorys();
         mGoodInfoList = JsonUtils.getIntance().getGoodInfoList();
-
+        mAccouterInfoList = JsonUtils.getIntance().getAccouterInfoList();
         mBackpack = GameObject.Find("Backpack").GetComponent<RectTransform>();
         mInvertoryControl = mBackpack.GetComponentInChildren<IvertoryControl>();
 
@@ -65,6 +72,13 @@ public class BackpackManager
         return mInventoryList;
     }
 
+
+    public void use(PlayerBackpackBean bean, long count) {
+        InventoryHalper.getIntance().use(bean, count);
+        mHeroControl.upDateUi();
+        mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
+    }
+
     public void addGoods(long id, int count) {
         bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count);
         if (isAddNiew)
@@ -89,9 +103,9 @@ public class BackpackManager
     }
 
 
-    private void showTipUi(long id, long count)
+    public void showTipUi(PlayerBackpackBean bean, long count)
     {
-        mTipControl.setShowData(id, count);
+        mTipControl.setShowData(bean, count);
 
     }
     private void removeTipUi()

@@ -7,7 +7,7 @@
     "tabid": 2,
     "sortID": 2100001,
     "icon": "equip_2000001",
-    "attribute_type": 101102,
+    "attribute_type": "101,102",
     "attribute_value": "{100,120}{200,240}"
   },
   {
@@ -18,7 +18,7 @@
     "tabid": 2,
     "sortID": 2200001,
     "icon": "equip_2000002",
-    "attribute_type": 101102,
+    "attribute_type": "101,102",
     "attribute_value": "{100,120}{200,240}"
   },
   {
@@ -29,7 +29,7 @@
     "tabid": 2,
     "sortID": 2300001,
     "icon": "equip_2000003",
-    "attribute_type": 101102,
+    "attribute_type": "101,102",
     "attribute_value": "{100,120}{200,240}"
   },
   {
@@ -40,7 +40,7 @@
     "tabid": 2,
     "sortID": 2400001,
     "icon": "equip_2000004",
-    "attribute_type": 100,
+    "attribute_type": "100",
     "attribute_value": "{50,60}"
   },
   {
@@ -51,7 +51,7 @@
     "tabid": 2,
     "sortID": 2500001,
     "icon": "equip_2000005",
-    "attribute_type": 100102,
+    "attribute_type": "100,102",
     "attribute_value": "{50,60}{200,240}"
   },
   {
@@ -62,7 +62,7 @@
     "tabid": 2,
     "sortID": 2600001,
     "icon": "equip_2000006",
-    "attribute_type": 100101,
+    "attribute_type": "100,101",
     "attribute_value": "{50,60}{100,120}"
   }
 ]
