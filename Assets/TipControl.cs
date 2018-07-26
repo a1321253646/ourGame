@@ -26,7 +26,7 @@ public class TipControl : MonoBehaviour {
     void Start()
     {
         mActionClick = GameObject.Find("tip_Button").GetComponent<Button>();
-        mClose = GameObject.Find("tip_cloase").GetComponent<Button>();
+        mClose = GameObject.Find("tip_close").GetComponent<Button>();
 
         mActionClick.onClick.AddListener(() =>
         {
@@ -101,6 +101,7 @@ public class TipControl : MonoBehaviour {
             str = str + mGoodJson.describe + "\n";
         }
         if (mAccouter != null && mBean.attributeList != null && mBean.attributeList.Count > 0) {
+            str = "";
             foreach (PlayerAttributeBean b in mBean.attributeList) {
                 str = str+b.getTypeStr() + ":" + b.value+"\n";
             }

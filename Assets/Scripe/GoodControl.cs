@@ -38,9 +38,12 @@ public class GoodControl : MonoBehaviour {
                 updateUi(id, count);
             }
         }
-        mBt.onClick.AddListener(() => {
-            showTip();
-        });
+        if (mBt != null) {
+            mBt.onClick.AddListener(() => {
+                showTip();
+            });
+        }
+
         //       Debug.Log("mText = " + mText + "mImage = " + mImage);
     }
     public void showTip() {
