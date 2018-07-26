@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114313646558777110}
   - component: {fileID: 114431195634710334}
   m_Layer: 8
-  m_Name: Button
+  m_Name: tip_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 114687008415380276}
   - component: {fileID: 114118549926219562}
   m_Layer: 8
-  m_Name: close
+  m_Name: tip_close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

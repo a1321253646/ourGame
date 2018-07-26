@@ -15,7 +15,7 @@ public class IvertoryControl : MonoBehaviour {
     private int MinCount = 5;
     private int LinCount = 7;
     GoodControl[] mGoodsControl;
-    private bool isShow = false;
+    public bool isShow = false;
     Dictionary<long, List<PlayerBackpackBean>> mGoodDic = new Dictionary<long, List<PlayerBackpackBean>>();
     // Use this for initialization
     bool isInit = false;
@@ -148,8 +148,8 @@ public class IvertoryControl : MonoBehaviour {
                 mGoodIndex++;
             }
         }
-        if (mGoodIndex < mGoodsControl.Length ) {
-            for (int i = mGoodsControl.Length - 1; i >= mGoodIndex; i--) {
+        if (mGoodIndex < mGoodsGameObject.Count ) {
+            for (int i = mGoodsGameObject.Count - 1; i >= mGoodIndex; i--) {
                 GameObject goj = mGoodsGameObject[i];
                 mGoodUiCount--;
                 mGoodsGameObject.Remove(goj);

@@ -72,7 +72,8 @@ public class UiManager
 	}
 
 	public void changeHeroBlood(){
-		mHpSl.value = GameManager.getIntance ().mCurrentBlood;
+        mHpSl.maxValue = GameManager.getIntance().maxBlood;
+        mHpSl.value = GameManager.getIntance ().mCurrentBlood;
 		if (GameManager.getIntance ().mCurrentBlood < 0) {
 			mHpTv.text =0 + "/" + GameManager.getIntance ().maxBlood;
 		} else {

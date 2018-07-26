@@ -10,6 +10,7 @@ public class BackpackManager
     public static long KAPAI_TYPE = 3;
 
     private List<PlayerBackpackBean> mInventoryList ;
+    private Dictionary<long, PlayerBackpackBean> mHeroEquip;
     private List<GoodJsonBean> mGoodInfoList;
     private List<AccouterJsonBean> mAccouterInfoList;
 
@@ -32,6 +33,7 @@ public class BackpackManager
     public void init(LevelManager manager) {
         mLevel = manager;
         mInventoryList = InventoryHalper.getIntance().getInventorys();
+        mHeroEquip = InventoryHalper.getIntance().getRoleUseList();
         mGoodInfoList = JsonUtils.getIntance().getGoodInfoList();
         mAccouterInfoList = JsonUtils.getIntance().getAccouterInfoList();
         mBackpack = GameObject.Find("Backpack").GetComponent<RectTransform>();
@@ -45,6 +47,7 @@ public class BackpackManager
 
         mComposeTranform = GameObject.Find("compose_root").GetComponent<RectTransform>();
         mComposeControl = mComposeTranform.GetComponent<ComposeControl>();
+        mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
     }
 
     public GoodJsonBean getGoodInfoById(long id) {
@@ -68,14 +71,21 @@ public class BackpackManager
         return null;
     }
 
+    public PlayControl getHero() {
+        return mLevel.mPlayerControl;
+    }
+
     public List<PlayerBackpackBean> getInventoryInfos() {
         return mInventoryList;
     }
-
+    public Dictionary<long, PlayerBackpackBean> getHeroEquipInfo() {
+        return mHeroEquip;
+    }
 
     public void use(PlayerBackpackBean bean, long count) {
         InventoryHalper.getIntance().use(bean, count);
         mHeroControl.upDateUi();
+        mInvertoryControl.update();
         mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
     }
 
@@ -113,17 +123,14 @@ public class BackpackManager
         mTipControl.removeUi();
     }
 
-    private bool isComposeUiShow = false;
     public void composeUiShowClick()
     {
-        if (isComposeUiShow)
+        if (mComposeControl.isShow)
         {
-            isComposeUiShow = false;
             removeComposeUi();
         }
         else
         {
-            isComposeUiShow = true;
             showComposeUi();
         }
     }
@@ -137,17 +144,14 @@ public class BackpackManager
         mComposeControl.removeUi();
     }
 
-    private bool isHeroUiShow = false;
     public void heroUiShowClick()
     {
-        if (isHeroUiShow)
+        if (mHeroControl.isShow)
         {
-            isHeroUiShow = false;
             removeHeroUi();
         }
         else
         {
-            isHeroUiShow = true;
             showHeroUi();
         }
     }
@@ -161,18 +165,14 @@ public class BackpackManager
         mHeroControl.removeUi();
     }
 
-
-    private bool isPackUiShow = false;
     public void packUiShowClick()
     {
-        if (isPackUiShow)
+        if (mInvertoryControl.isShow)
         {
-            isPackUiShow = false;
             removeBackpackUi();
         }
         else
         {
-            isPackUiShow = true;
             showBackpackUi();
         }
     }

@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ComposeControl : MonoBehaviour {
 
-    private bool isShow = false;
+    public bool isShow = false;
+    private Button mClose;
     public void showUi()
     {
         if (isShow)
@@ -14,6 +15,13 @@ public class ComposeControl : MonoBehaviour {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
         gameObject.transform.localPosition = new Vector2(0, 0);
+        if (mClose == null)
+        {
+            mClose = GameObject.Find("compose_close").GetComponent<Button>();
+            mClose.onClick.AddListener(() => {
+                removeUi();
+            });
+        }
     }
     public void removeUi()
     {

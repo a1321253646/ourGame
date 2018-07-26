@@ -44,12 +44,13 @@ public class FightManager{
             GameManager.getIntance().enemyDeal(attcker);
             //    SceneManager.UnloadSceneAsync (0);    
             SceneManager.LoadScene(1);
-            
+            return;
 		}else if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
 			GameManager.getIntance ().mHeroIsAlive = false;
 			//SceneManager.UnloadSceneAsync (0);
 			SceneManager.LoadScene(1);
-		}
+            return;
+        }
 		if (attcker.id == -1 || mAliveActtackers.Count < 1) {
 			Debug.Log ("unRegisterAttacker:this attcker is not register");
 			return;

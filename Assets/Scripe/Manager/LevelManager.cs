@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour {
     public BackgroundManager mBackManager;
 	public FightManager mFightManager;
 	public LocalManager mLocalManager;
-    private PlayControl mPlayerControl;
+    public PlayControl mPlayerControl;
 	void Start () {
 		Debug.Log ("LevelManager Start");
 		GameManager.getIntance ();

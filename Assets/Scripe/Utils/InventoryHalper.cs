@@ -88,13 +88,13 @@ public class InventoryHalper
 
         if (mRoleUseList.ContainsKey(acc.type))
         {
-            beanOld = mRoleUseList[acc.id];
-            mRoleUseList.Remove(acc.id);
-            mRoleUseList.Add(acc.id, bean);
+            beanOld = mRoleUseList[acc.type];
+            deleteRoleUse(acc.type);
+            addRoleUse(acc.type, bean);
         }
         else
         {
-            mRoleUseList.Add(acc.id, bean);
+            addRoleUse(acc.type, bean);
         }
         deleteIventory(bean);
         if (beanOld != null) {
@@ -115,7 +115,9 @@ public class InventoryHalper
 
     private void deleteIventory(PlayerBackpackBean bean)
     {
+        Debug.Log("mList size = " + mList.Count);
         mList.Remove(bean);
+        Debug.Log("mList size = " + mList.Count);
         //删除数据
     }
     private void addIventory(PlayerBackpackBean bean)

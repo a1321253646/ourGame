@@ -5,9 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TipControl : MonoBehaviour {
 
-
-    private bool isShow = false;
-
     private long id;
     private long count;
     private GoodControl mGoodControl;
@@ -32,7 +29,7 @@ public class TipControl : MonoBehaviour {
         {
             use();
         });
-        mActionClick.onClick.AddListener(() =>
+        mClose.onClick.AddListener(() =>
         {
             removeUi();
         });
@@ -46,7 +43,6 @@ public class TipControl : MonoBehaviour {
 
     public void setShowData(PlayerBackpackBean bean,long count) {
         mBean = bean;
-        isShow = true;
         this.id = bean.goodId;
         this.count = count;
         showUi();
@@ -119,11 +115,6 @@ public class TipControl : MonoBehaviour {
     }
     public void removeUi()
     {
-        if (!isShow)
-        {
-            return;
-        }
-        isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
         gameObject.transform.localPosition = new Vector2(500f, -386.46f);
     }

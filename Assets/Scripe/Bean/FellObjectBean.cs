@@ -15,8 +15,8 @@ public class FellObjectBean
 
     public bool isFell() {
        int rangeRadomNum = Random.Range(0, 1000000);
-        Debug.Log("id = " + id + " rangeRadomNum =" + rangeRadomNum + " probability = " + probability * 10000);
-        if (rangeRadomNum <= probability * 10000*5)
+//        Debug.Log("id = " + id + " rangeRadomNum =" + rangeRadomNum + " probability = " + probability * 10000);
+        if (rangeRadomNum <= probability * 10000)
         {
             return true;
         }

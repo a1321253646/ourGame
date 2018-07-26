@@ -60,6 +60,10 @@ public class GameManager
 		mCurrentBlood = blood;
 		uiManager.changeHeroBlood ();
 	}
+    public void setMaxBlood(float blood) {
+        maxBlood = blood;
+        uiManager.changeHeroBlood();
+    }
 	public void heroUp(){
 		mHeroLv += 1;
 		mCurrentCrystal = mCurrentCrystal - upLevelCrystal ;

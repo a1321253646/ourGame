@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 222677621317519796}
   - component: {fileID: 114933196906836016}
   m_Layer: 5
-  m_Name: information
+  m_Name: hero_information
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 114061258448856790}
   - component: {fileID: 114698480690500434}
   m_Layer: 5
-  m_Name: close
+  m_Name: hero_info_close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,6 +353,7 @@ GameObject:
   - component: {fileID: 224788456757176652}
   - component: {fileID: 222479023960129610}
   - component: {fileID: 114814381687782200}
+  - component: {fileID: 114286240708798988}
   m_Layer: 5
   m_Name: hero
   m_TagString: Untagged
@@ -502,6 +503,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114286240708798988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1881316495938316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae546b96a1825a4587cb64dad2df253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114376663846071084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1058,10 +1070,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0

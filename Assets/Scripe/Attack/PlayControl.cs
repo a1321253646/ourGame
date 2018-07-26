@@ -50,7 +50,7 @@ public class PlayControl : Attacker
         mEquipDefense = 0;
         mEquipAggressivity = 0;
         for (long i = 1; i < 7; i++) {
-            if (equips.ContainsKey(i)) {
+            if (equips != null && equips.ContainsKey(i)) {
                 PlayerBackpackBean bean = equips[i];
                 foreach (PlayerAttributeBean date in bean.attributeList) {
                     if (date.type == 100)
@@ -63,7 +63,12 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 102)
                     {
+                        float bili = mBloodVolume / (mMaxBloodVolume+ mEquipMaxBloodVolume);
                         mEquipMaxBloodVolume += date.value;
+                        mMaxBloodVolume = mBaseMaxBloodVolume + mEquipMaxBloodVolume;
+                        mBloodVolume = (int)(mMaxBloodVolume * bili);
+                        GameManager.getIntance().setBlood(mBloodVolume);
+                        GameManager.getIntance().setMaxBlood(mMaxBloodVolume);
                     }
                 }
             }
