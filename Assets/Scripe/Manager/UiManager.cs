@@ -61,9 +61,6 @@ public class UiManager
 		mHeroLvTv.text = "英雄等级:" + GameManager.getIntance ().mHeroLv +"级";
 		mLvUpCrystalTv.text = "升级消耗：魔晶" + GameManager.getIntance ().upLevelCrystal;
 		mCurrentCrystalTv.text = "拥有魔晶：" + GameManager.getIntance ().mCurrentCrystal;
-		mHpTv.text = GameManager.getIntance ().mCurrentBlood + "/" + GameManager.getIntance ().maxBlood;
-		mHpSl.maxValue = GameManager.getIntance ().maxBlood;
-		mHpSl.value = GameManager.getIntance ().mCurrentBlood;
 		if (GameManager.getIntance ().mCurrentCrystal >= GameManager.getIntance ().upLevelCrystal) {
 			mLvUpBt.interactable = true;
 		} else {
@@ -71,13 +68,13 @@ public class UiManager
 		}
 	}
 
-	public void changeHeroBlood(){
-        mHpSl.maxValue = GameManager.getIntance().maxBlood;
-        mHpSl.value = GameManager.getIntance ().mCurrentBlood;
-		if (GameManager.getIntance ().mCurrentBlood < 0) {
-			mHpTv.text =0 + "/" + GameManager.getIntance ().maxBlood;
+	public void changeHeroBlood(float current,float max){
+        mHpSl.maxValue = max;
+        mHpSl.value = current;
+		if (current < 0) {
+			mHpTv.text =0 + "/" + max;
 		} else {
-			mHpTv.text = GameManager.getIntance ().mCurrentBlood + "/" + GameManager.getIntance ().maxBlood;
+			mHpTv.text = current + "/" + max;
 		}
 
 	}

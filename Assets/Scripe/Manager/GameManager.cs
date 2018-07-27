@@ -9,8 +9,6 @@ public class GameManager
 	public long mHeroLv = 1;
 	public float mCurrentGas = 0;
 	public float mCurrentCrystal = 0;
-	public float maxBlood = 0;
-	public float mCurrentBlood = 0;
 	public bool mStartBoss = false;
 	public float startBossGas = 0;
 	public float upLevelCrystal = 0;
@@ -19,6 +17,7 @@ public class GameManager
 	public UiManager uiManager;
 	public bool isLvUp = false;
     public bool isInit = false;
+    public LevelManager mLevelManage= null;
 	private GameManager(){
     }
 	private static GameManager mIntance = new GameManager();
@@ -28,42 +27,32 @@ public class GameManager
 		
 
 	public void getLevelData(){
-        if (!isInit) {
+        Hero hero = JsonUtils.getIntance ().getHeroData ();
+        upLevelCrystal = hero.lvup_crystal;
+    }
+	public void init(LevelManager levelmanage){
+        if (!isInit)
+        {
             isInit = true;
             mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100010);
             mHeroLv = (long)JsonUtils.getIntance().getConfigValueForId(100011);
             mCurrentCrystal = (long)JsonUtils.getIntance().getConfigValueForId(100012);
         }
-
-        Hero hero = JsonUtils.getIntance ().getHeroData ();
-		mHeroLv = hero.role_lv;
-		Debug.Log ("hero.getRoleHp () = " + hero.role_hp + "  maxBlood=" + maxBlood + " mCurrentBlood =" + mCurrentBlood);
-		mCurrentBlood = hero.role_hp - maxBlood +mCurrentBlood;
-		maxBlood = hero.role_hp;
-		upLevelCrystal = hero.lvup_crystal;
-
-	}
-	public void init(){
-		Level level = JsonUtils.getIntance ().getLevelData ();
+        Level level = JsonUtils.getIntance ().getLevelData ();
 		startBossGas = level.boss_gas;
 		mBossId = level.boss_DI;
 		mCurrentGas = 0;
-		mCurrentBlood = maxBlood;
-	}
+        mLevelManage = levelmanage;    
+    }
 
 	public void initUi(){
 		uiManager = new UiManager ();
 		uiManager.init ();
 	}
 
-	public void setBlood(float blood){
-		mCurrentBlood = blood;
-		uiManager.changeHeroBlood ();
+	public void setBlood(float blood,float max){
+		uiManager.changeHeroBlood (blood,max);
 	}
-    public void setMaxBlood(float blood) {
-        maxBlood = blood;
-        uiManager.changeHeroBlood();
-    }
 	public void heroUp(){
 		mHeroLv += 1;
 		mCurrentCrystal = mCurrentCrystal - upLevelCrystal ;
@@ -74,9 +63,10 @@ public class GameManager
 			uiManager.showLevelUp (false);
 		}
 		uiManager.refreshData ();
-		//修改数据到英雄
-		isLvUp = true;
-	}
+        //修改数据到英雄
+        mLevelManage.heroUp();
+
+    }
 	public void startBoss(){
 		mStartBoss = true;
 	}

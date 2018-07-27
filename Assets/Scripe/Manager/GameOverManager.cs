@@ -23,7 +23,7 @@ public class GameOverManager : MonoBehaviour {
 
         } else {
 			mWin.SetActive (false);
-            GameManager.getIntance().mCurrentLevel = 1;
+           // GameManager.getIntance().mCurrentLevel = 1;
         }
         if (GameObject.Find("win_Button") != null)
         {

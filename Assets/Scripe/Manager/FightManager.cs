@@ -13,7 +13,7 @@ public class FightManager{
 	Dictionary<int,Attacker> mAliveActtackers = new Dictionary<int,Attacker>();
 	public bool isEmptyEnemy(){
 		//Debug.Log ("mAliveActtackers.Count =" + mAliveActtackers.Count);
-		if (mAliveActtackers.Count < 3) {
+		if (mAliveActtackers.Count < 2) {
 			return true;
 		} else {
 			return false;

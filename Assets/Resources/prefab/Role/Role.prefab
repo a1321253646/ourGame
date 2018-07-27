@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4118058155531970}
   - component: {fileID: 212410170998310332}
   - component: {fileID: 95562736870989056}
-  - component: {fileID: 114703920458747870}
   - component: {fileID: 114638851991356990}
   m_Layer: 0
   m_Name: Role
@@ -81,29 +80,18 @@ MonoBehaviour:
   mMaxBloodVolume: 0
   mAttackSpeed: 0
   mRunSpeed: 0
+  mAttackLeng: 1
+  mDieGas: 0
+  mDieCrysta: 0
+  mAttackType: 1
   mAttackerTargets: []
---- !u!114 &114703920458747870
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1454518952746240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1944ab8567efef342954205f718c7949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _anim: {fileID: 0}
-  isBeAttacker: 0
-  status: 1
-  id: -1
-  mAggressivity: 0
-  mDefense: 0
-  mBloodVolume: 0
-  mMaxBloodVolume: 0
-  mAttackSpeed: 0
-  mRunSpeed: 0
-  mAttackerTargets: []
+  mAttackTime: 0
+  mEquipAggressivity: 0
+  mEquipDefense: 0
+  mEquipMaxBloodVolume: 0
+  mBaseAggressivity: 0
+  mBaseDefense: 0
+  mBaseMaxBloodVolume: 0
 --- !u!212 &212410170998310332
 SpriteRenderer:
   m_ObjectHideFlags: 1

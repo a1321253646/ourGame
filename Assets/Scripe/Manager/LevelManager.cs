@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour {
 		GameManager.getIntance ();
 		JsonUtils.getIntance ().init ();
 		GameManager.getIntance ().getLevelData ();
-		GameManager.getIntance ().init ();
+		GameManager.getIntance ().init (this);
 		GameManager.getIntance ().initUi ();
 		mBackManager = new BackgroundManager ();
 		mFightManager =new FightManager ();
@@ -60,10 +60,12 @@ public class LevelManager : MonoBehaviour {
         mPlayerControl.ChangeEquip(equips);
     }
 
-	private void creaPlay(){
+    public void heroUp() {
+        mPlayerControl.heroUp();
+    }
 
-        Hero mHero;
-        ResourceBean mBean;
+
+    private void creaPlay(){
         Hero hero = JsonUtils.getIntance().getHeroData();
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(hero.resource);
         Debug.Log("hero.resource idel_y= " + bean.idel_y);

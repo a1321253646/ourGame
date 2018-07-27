@@ -21,13 +21,7 @@ public class PlayControl : Attacker
 		RuntimeAnimatorController rc = _anim.runtimeAnimatorController;
 		AnimationClip[] cls = rc.animationClips;
 		foreach(AnimationClip cl in cls){
-			/*if (cl.name.Equals ("Dead")) {
-				//isAddEvent = true;
-				AnimationEvent event1 = new AnimationEvent ();
-				event1.functionName = "deadEvent";
-				event1.time = cl.length-0.1f;
-				cl.AddEvent (event1);
-			} else */if (cl.name.Equals ("Attack")) {
+			if (cl.name.Equals ("Attack")) {
 				//isAddEvent = true;
 				AnimationEvent event1 = new AnimationEvent ();
 				event1.functionName = "standyEvent";
@@ -44,11 +38,16 @@ public class PlayControl : Attacker
     public float mBaseAggressivity = 0;
     public float mBaseDefense = 0;
     public float mBaseMaxBloodVolume = 0;
+    public void ChangeEquip() {
+        Dictionary<long, PlayerBackpackBean> equips =  InventoryHalper.getIntance().getRoleUseList();
+        ChangeEquip(equips);
+    }
     public void ChangeEquip(Dictionary<long, PlayerBackpackBean> equips)
     {
         mEquipMaxBloodVolume = 0;
         mEquipDefense = 0;
         mEquipAggressivity = 0;
+        float bili = mBloodVolume / mMaxBloodVolume;
         for (long i = 1; i < 7; i++) {
             if (equips != null && equips.ContainsKey(i)) {
                 PlayerBackpackBean bean = equips[i];
@@ -63,50 +62,61 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 102)
                     {
-                        float bili = mBloodVolume / (mMaxBloodVolume+ mEquipMaxBloodVolume);
                         mEquipMaxBloodVolume += date.value;
-                        mMaxBloodVolume = mBaseMaxBloodVolume + mEquipMaxBloodVolume;
-                        mBloodVolume = (int)(mMaxBloodVolume * bili);
-                        GameManager.getIntance().setBlood(mBloodVolume);
-                        GameManager.getIntance().setMaxBlood(mMaxBloodVolume);
                     }
                 }
             }
         }
+        mAggressivity = mBaseAggressivity + mEquipAggressivity;
+        mDefense = mBaseDefense + mEquipDefense;
+        mMaxBloodVolume = mBaseMaxBloodVolume + mEquipMaxBloodVolume;
+        mBloodVolume = (int)(mMaxBloodVolume * bili);
+        GameManager.getIntance().setBlood(mBloodVolume, mMaxBloodVolume);
     }
 
     public void standyEvent(){
 		if (status == Attacker.PLAY_STATUS_DIE) {
 			return;
 		}
-	//	Debug.Log ("standyEvent");
 		Standy ();
 	}
-	public void setHeroData(){
+    public void heroUp() {
+        Hero mHero = JsonUtils.getIntance().getHeroData();
+        mBaseAggressivity = mHero.role_attack;
+        mBaseDefense = mHero.role_defense;
+        float mMaxTmp = mBaseMaxBloodVolume;
+        mBaseMaxBloodVolume = mHero.role_hp;
+        mAggressivity = mBaseAggressivity + mEquipAggressivity;
+        mDefense = mBaseDefense + mEquipDefense;
+        mMaxBloodVolume = mBaseMaxBloodVolume + mEquipMaxBloodVolume;
+        mBloodVolume = mBloodVolume + mBaseMaxBloodVolume - mMaxTmp;
+        GameManager.getIntance().setBlood(mBloodVolume, mMaxBloodVolume);
+    }
+
+    public void setHeroData(){
         Hero mHero = JsonUtils.getIntance().getHeroData(); 
         resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
+
         mBaseAggressivity = mHero.role_attack;
         mBaseDefense = mHero.role_defense;
         mBaseMaxBloodVolume = mHero.role_hp;
-        mAggressivity = mBaseAggressivity + mEquipAggressivity;
-        mMaxBloodVolume = mBaseMaxBloodVolume + mEquipMaxBloodVolume;
-        mDefense = mBaseDefense + mEquipDefense;
+
+        mAggressivity = mBaseAggressivity ;
+        mMaxBloodVolume = mBaseMaxBloodVolume;
+        mDefense = mBaseDefense;
+
         mAttackSpeed = mHero.attack_speed;
 		mAttackLeng = mHero.attack_range;
-		mBloodVolume = GameManager.getIntance ().mCurrentBlood;
-        
+		mBloodVolume = mMaxBloodVolume;     
 		mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);
-
-	}
+        ChangeEquip();
+    }
 
 
 	// Update is called once per frame
 	private float mTime = 0; 
 	void Update () {
-		if (GameManager.getIntance ().isLvUp) {
-			setHeroData ();
-		}
 		if (status != mFightManager.mHeroStatus && status != Attacker.PLAY_STATUS_STANDY) {
 			status = mFightManager.mHeroStatus;
 			if (status == Attacker.PLAY_STATUS_FIGHT) {
@@ -132,10 +142,8 @@ public class PlayControl : Attacker
 	}
 	public override float BeAttack(float blood){
         if (JsonUtils.getIntance().getConfigValueForId(100007) != 1) {
- //           Debug.Log("hero Behurt blood = " + blood + " mBloodVolume=" + mBloodVolume);
             mBloodVolume = mBloodVolume - blood;
-            //	Debug.Log("Behurt: mBloodVolume= "+mBloodVolume+" blood="+blood);
-            GameManager.getIntance().setBlood(mBloodVolume);
+            GameManager.getIntance().setBlood(mBloodVolume, mMaxBloodVolume);
             if (mBloodVolume <= 0)
             {
                 Die();
