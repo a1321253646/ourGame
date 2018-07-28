@@ -38,6 +38,7 @@ public class GameManager
             mHeroLv = (long)JsonUtils.getIntance().getConfigValueForId(100011);
             mCurrentCrystal = (long)JsonUtils.getIntance().getConfigValueForId(100012);
         }
+        mCurrentLevel = 1;
         Level level = JsonUtils.getIntance ().getLevelData ();
 		startBossGas = level.boss_gas;
 		mBossId = level.boss_DI;
