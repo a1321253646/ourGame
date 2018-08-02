@@ -98,12 +98,15 @@ public class BackpackManager
         else {
             mInvertoryControl.addGood(id, count);
         }
-        
+        mComposeControl.updataUi();
+
+
     }
 
     public void deleteGoods(long id, int count) {
         InventoryHalper.getIntance().deleteIventory(id, count);
         mInvertoryControl.deleteGood(id, count);
+        mComposeControl.updataUi();
     }
 
     private static BackpackManager mIntance = new BackpackManager();

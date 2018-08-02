@@ -207,6 +207,7 @@ public class IvertoryControl : MonoBehaviour {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
         gameObject.transform.localPosition = new Vector2(0, 0);
+        update();
     }
     public void removeUi() {
         if (!isShow)
@@ -220,7 +221,7 @@ public class IvertoryControl : MonoBehaviour {
     public void addGood(long id, long count) {
         Debug.Log("IvertoryControl add id="+id+" count = "+count);
         foreach (GoodControl good in mGoodsControl) {
-            if (good.id == id && !good.isFull()) {
+            if (good.isActiveAndEnabled && good.id == id && !good.isFull()) {
                 if (good.addCount(count) != 0)
                 {
                     update();

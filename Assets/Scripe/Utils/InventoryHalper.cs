@@ -15,9 +15,9 @@ public class InventoryHalper
     }
 
    
-    private long TABID_1_START_ID = 1000000;
-    private long TABID_2_START_ID = 2000000;
-    private long TABID_3_START_ID = 3000000;
+    public long TABID_1_START_ID = 1000000;
+    public long TABID_2_START_ID = 2000000;
+    public long TABID_3_START_ID = 3000000;
     public bool addInventory(long id, int count)
     {
         bool isNew = true;

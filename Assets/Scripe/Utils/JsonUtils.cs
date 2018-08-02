@@ -20,6 +20,7 @@ public class JsonUtils
     private string configeFile = "config.json";
     private string goodsFile = "item.json";
     private string attributeFile = "equip.json";
+    private string composeFile = "compose.json";
     private static JsonUtils mInance= new JsonUtils();
 
 	List<Hero> heroData;
@@ -28,6 +29,7 @@ public class JsonUtils
     List<ConfigNote> mConfig;
     List<GoodJsonBean> mGoods;
     List<AccouterJsonBean> mAttribute;
+    List<ComposeJsonBen> mComposeData;
     private JsonUtils(){
 		readAllFile ();
 	}
@@ -39,6 +41,7 @@ public class JsonUtils
 		readResource ();
         readGoodInfo();
         readAttributeInfo();
+        readComposeInfo();
     }
 
 	public static JsonUtils getIntance(){
@@ -74,11 +77,7 @@ public class JsonUtils
 
         Debug.Log ("readFile :" + fileName + "\n " + str);
 
-//		foreach (Hero hero in heros) {
-//			Debug.Log ("hero:id=" + hero.role_lv + " hp=" + hero.role_hp + " attack=" + hero.role_attack + " defense=" + hero.role_defense + " crystal=" + hero.lvup_crystal);
-//		}
 		return str;
-//		Hero jsonObj = JsonUtility.FromJson<Hero>(jsonText.text);
 	}
 
     private void readAttributeInfo()
@@ -86,7 +85,11 @@ public class JsonUtils
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(attributeFile));
         mAttribute = arrdata.ToObject<List<AccouterJsonBean>>();
     }
-
+    private void readComposeInfo()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(composeFile));
+        mComposeData = arrdata.ToObject<List<ComposeJsonBen>>();
+    }
     private void readGoodInfo() {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(goodsFile));
         mGoods = arrdata.ToObject<List<GoodJsonBean>>();
@@ -140,8 +143,33 @@ public class JsonUtils
     {
         return mAttribute;
     }
+    public AccouterJsonBean getAccouterInfoById(long id)
+    {
+        foreach (AccouterJsonBean note in mAttribute)
+        {
+            if (note.id == id)
+            {
+                return note;
+            }
+        }
+        return null;
+    }
+    public GoodJsonBean getGoodInfoById(long id)
+    {
+        foreach (GoodJsonBean note in mGoods)
+        {
+            if (note.id == id)
+            {
+                return note;
+            }
+        }
+        return null;
+    }
     public List<GoodJsonBean> getGoodInfoList() {
         return mGoods;
+    }
+    public List<ComposeJsonBen> getComposeInfo() {
+        return mComposeData;
     }
 
     public float getConfigValueForId(long id) {
