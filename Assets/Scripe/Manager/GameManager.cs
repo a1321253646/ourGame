@@ -89,6 +89,10 @@ public class GameManager
 		mCurrentGas += enemy.mDieGas*JsonUtils.getIntance().getConfigValueForId(100009);
 		mCurrentCrystal += enemy.mDieCrysta * JsonUtils.getIntance().getConfigValueForId(100008);
         uiManager.addGasAndCrystal ();
+        BackpackManager.getIntance().upDataComposeControl();
 	}
+    public void updataGasAndCrystal() {
+        uiManager.addGasAndCrystal();
+    }
 }
 

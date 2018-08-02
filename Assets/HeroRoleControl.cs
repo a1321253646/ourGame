@@ -42,8 +42,10 @@ public class HeroRoleControl : MonoBehaviour {
     public void upDateUi()
     {
         mHeroEquipl = BackpackManager.getIntance().getHeroEquipInfo();
-        if (mHeroEquipl.Count > 0) {
-            foreach (KeyValuePair<long, PlayerBackpackBean> key in mHeroEquipl) {
+        if (mHeroEquipl.Count > 0)
+        {
+            foreach (KeyValuePair<long, PlayerBackpackBean> key in mHeroEquipl)
+            {
                 long keyType = key.Key;
                 PlayerBackpackBean keyValue = key.Value;
                 GoodControl goodIcon = null;
@@ -51,7 +53,8 @@ public class HeroRoleControl : MonoBehaviour {
                 {
                     goodIcon = mHeroGoodControl[keyType];
                 }
-                else {
+                else
+                {
                     string name = "equip_gride_" + keyType;
                     Debug.Log("hero equip type =" + name);
                     goodIcon = GameObject.Find(name).GetComponent<GoodControl>();
@@ -60,6 +63,12 @@ public class HeroRoleControl : MonoBehaviour {
                 goodIcon.updateUi(key.Value.goodId, key.Value.count, key.Value);
             }
         }
+        else if (mHeroGoodControl.Count > 0) {
+            foreach (GoodControl icom in mHeroGoodControl.Values) {
+                icom.updateUi(-1, 0, null);
+            }
+        }
+
         if (mText == null) {
             mText = GameObject.Find("hero_information").GetComponent<Text>();
         }

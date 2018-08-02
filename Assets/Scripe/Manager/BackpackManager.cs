@@ -82,31 +82,51 @@ public class BackpackManager
         return mHeroEquip;
     }
 
-    public void use(PlayerBackpackBean bean, long count) {
-        InventoryHalper.getIntance().use(bean, count);
-        mHeroControl.upDateUi();
-        mInvertoryControl.update();
-        mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
+    public void use(PlayerBackpackBean bean, long count,int type) {
+        if (type == TipControl.USE_TYPE)
+        {
+            InventoryHalper.getIntance().use(bean, count);
+            mHeroControl.upDateUi();
+            mInvertoryControl.update();
+            mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
+        }
+        else if (type == TipControl.UNUSE_TYPE)
+        {
+            InventoryHalper.getIntance().unUse(bean, count);
+            mHeroControl.upDateUi();
+            mInvertoryControl.update();
+            mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
+        }
+        else if (type == TipControl.COMPOSE_TYPE) {
+            showComposeUi();
+        }
+
     }
 
     public void addGoods(long id, int count) {
+        Debug.Log("addGoods id=" + id+ " count="+ count);
         bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count);
+        Debug.Log("isAddNiew ="+isAddNiew);
         if (isAddNiew)
         {
+            Debug.Log("update " );
             mInvertoryControl.update();
         }
         else {
+            Debug.Log("addGood ");
             mInvertoryControl.addGood(id, count);
         }
-        mComposeControl.updataUi();
-
-
+        upDataComposeControl();
     }
 
+    public void upDataComposeControl() {
+        mComposeControl.updataUi();
+    }
+    
     public void deleteGoods(long id, int count) {
         InventoryHalper.getIntance().deleteIventory(id, count);
         mInvertoryControl.deleteGood(id, count);
-        mComposeControl.updataUi();
+        upDataComposeControl();
     }
 
     private static BackpackManager mIntance = new BackpackManager();
@@ -116,10 +136,9 @@ public class BackpackManager
     }
 
 
-    public void showTipUi(PlayerBackpackBean bean, long count)
+    public void showTipUi(PlayerBackpackBean bean, long count,int type)
     {
-        mTipControl.setShowData(bean, count);
-
+        mTipControl.setShowData(bean, count, type);
     }
     private void removeTipUi()
     {

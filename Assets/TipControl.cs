@@ -19,12 +19,16 @@ public class TipControl : MonoBehaviour {
     AccouterJsonBean mAccouter = null;
     GoodJsonBean mGoodJson = null;
     private Button mClose, mActionClick;
-
+    private Text mClickText;
+    public static int COMPOSE_TYPE = 1;
+    public static int USE_TYPE = 2;
+    public static int UNUSE_TYPE = 3;
+    private int mCurrentType = 1;
     void Start()
     {
         mActionClick = GameObject.Find("tip_Button").GetComponent<Button>();
         mClose = GameObject.Find("tip_close").GetComponent<Button>();
-
+        mClickText = GameObject.Find("tipButtonTx").GetComponent<Text>();
         mActionClick.onClick.AddListener(() =>
         {
             use();
@@ -37,11 +41,23 @@ public class TipControl : MonoBehaviour {
 
     private void use()
     {
-        BackpackManager.getIntance().use(mBean, count);
+        BackpackManager.getIntance().use(mBean, count, mCurrentType);
         removeUi();
     }
 
-    public void setShowData(PlayerBackpackBean bean,long count) {
+    public void setShowData(PlayerBackpackBean bean,long count,int type) {
+        mCurrentType = type;
+        if (mCurrentType == COMPOSE_TYPE)
+        {
+            mClickText.text = "合成";
+        }
+        else if (mCurrentType == USE_TYPE) {
+            mClickText.text = "使用";
+        }
+        else if (mCurrentType == UNUSE_TYPE)
+        {
+            mClickText.text = "脱下";
+        }
         mBean = bean;
         this.id = bean.goodId;
         this.count = count;

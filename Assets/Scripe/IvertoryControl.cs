@@ -96,7 +96,7 @@ public class IvertoryControl : MonoBehaviour {
             {
                 for (int i = 0; i < goodList.Count; i++)
                 {
-                    if (bean.sortID > goodList[i].sortID)
+                    if (bean.sortID >= goodList[i].sortID)
                     {
                         goodList.Insert(i, bean);
                         break;

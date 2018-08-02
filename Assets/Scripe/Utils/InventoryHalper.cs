@@ -101,6 +101,12 @@ public class InventoryHalper
             addIventory(bean);
         }
     }
+    public void unUse(PlayerBackpackBean bean, long count) {
+        AccouterJsonBean acc = BackpackManager.getIntance().getAccouterInfoById(bean.goodId);
+        mRoleUseList.Remove(acc.type);
+        addIventory(bean);
+    }
+
     private void deleteRoleUse(long type)
     {
         mRoleUseList.Remove(type);

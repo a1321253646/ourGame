@@ -270,12 +270,12 @@ Prefab:
     - target: {fileID: 224767454772521698, guid: a506d3cf4c9969c4789d1725a74f4c61,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 98
+      value: -604
       objectReference: {fileID: 0}
     - target: {fileID: 224767454772521698, guid: a506d3cf4c9969c4789d1725a74f4c61,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -3
+      value: -411
       objectReference: {fileID: 0}
     - target: {fileID: 224767454772521698, guid: a506d3cf4c9969c4789d1725a74f4c61,
         type: 2}
@@ -949,7 +949,7 @@ GameObject:
   - component: {fileID: 651051787}
   - component: {fileID: 651051786}
   m_Layer: 5
-  m_Name: cost_labe
+  m_Name: compose_cost_labe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

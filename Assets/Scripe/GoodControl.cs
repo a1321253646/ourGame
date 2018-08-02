@@ -17,6 +17,7 @@ public class GoodControl : MonoBehaviour {
     private long mMaxCout = 1;
     PlayerBackpackBean bean;
     private Button mBt;
+    public bool isHero = false;
     void Start()
     {
  //       Debug.Log("GoodControl Start id = " + id );
@@ -46,8 +47,24 @@ public class GoodControl : MonoBehaviour {
 
         //       Debug.Log("mText = " + mText + "mImage = " + mImage);
     }
+
     public void showTip() {
-        BackpackManager.getIntance().showTipUi(bean, count);
+        if (bean == null) {
+            return;
+        }
+        int type = TipControl.COMPOSE_TYPE;
+        if (isHero)
+        {
+            type = TipControl.UNUSE_TYPE;
+        }
+        else if(bean.tabId == TABID_EQUIP_TYPY)
+        {
+            type = TipControl.USE_TYPE;
+        }      
+        else if (bean.tabId == TABID_ITEM_TYPE) {
+            type = TipControl.COMPOSE_TYPE;
+        }
+        BackpackManager.getIntance().showTipUi(bean, count, type);
     }
 
     public bool isFull() {
@@ -57,15 +74,17 @@ public class GoodControl : MonoBehaviour {
     {
         //       Debug.Log("GoodControl updateUi id = " + id);
         this.id = id;
-        if (mImage != null)
+        if (mImage != null && id != -1)
         {
-            string img = null ;
+
+            string img = null;
             if (bean.tabId == TABID_EQUIP_TYPY)
             {
                 img = BackpackManager.getIntance().getAccouterInfoById(id).icon;
                 mMaxCout = BackpackManager.getIntance().getAccouterInfoById(id).stacking;
             }
-            else if (bean.tabId == TABID_ITEM_TYPE) {
+            else if (bean.tabId == TABID_ITEM_TYPE)
+            {
                 img = BackpackManager.getIntance().getGoodInfoById(id).icon;
                 mMaxCout = BackpackManager.getIntance().getGoodInfoById(id).stacking;
             }
@@ -74,6 +93,11 @@ public class GoodControl : MonoBehaviour {
             mImage.sprite = Resources.
                 Load("backpackIcon/" + img, typeof(Sprite)) as Sprite;
             mImage.color = Color.white;
+        }
+        else if (mImage != null && id == -1) {
+            mImage.sprite = null;
+            mImage.color = Color.clear;
+
         }
 
         return setCount(count);
