@@ -37,7 +37,8 @@ public class EnemyState{
 		PHFollowEnemy();  
 	}  
  
-	public void hurt(float blood){
+	public void hurt(HurtStatus status)
+    {
 		mHpSl.value = mEnemy.mBloodVolume;
 		if (mEnemy.mBloodVolume <= 0) {
 			GameObject.Destroy (HP_imageGameObjectClone);
@@ -50,8 +51,22 @@ public class EnemyState{
 			new Vector2 (EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
 		text.transform.SetParent(HP_Parent); 
 		Text tv= text.GetComponent<Text> ();
-		tv.text = "" + blood;
-		EnemySceenPosition= Camera.main.WorldToScreenPoint(mEnemy.transform.position)+bloodOffet;  
+        if (!status.isRate)
+        {
+            tv.text = "闪避" ;
+        }
+        else {
+            tv.text = "" + status.blood;
+        }
+        if (status.isCrt)
+        {
+            tv.color = Color.red;
+        }
+        else
+        {
+            tv.color = Color.yellow;
+        }
+        EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position)+bloodOffet;  
 		text.transform.position = EnemySceenPosition;  
 		UiManager.FlyTo (tv);
 	}

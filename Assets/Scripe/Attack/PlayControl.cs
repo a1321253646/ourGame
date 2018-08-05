@@ -140,9 +140,9 @@ public class PlayControl : Attacker
 	void run(){
 		transform.Translate (new Vector2 (1, 0)*(mRunSpeed-mBackManager.moveSpeed)*Time.deltaTime);
 	}
-	public override float BeAttack(float blood){
+	public override float BeAttack(HurtStatus status){
         if (JsonUtils.getIntance().getConfigValueForId(100007) != 1) {
-            mBloodVolume = mBloodVolume - blood;
+            mBloodVolume = mBloodVolume - status.blood;
             GameManager.getIntance().setBlood(mBloodVolume, mMaxBloodVolume);
             if (mBloodVolume <= 0)
             {
@@ -151,7 +151,7 @@ public class PlayControl : Attacker
             }
         }
 		
-		mState.hurt (blood);
-		return blood;
+		mState.hurt (status);
+		return status.blood;
 	}
 }

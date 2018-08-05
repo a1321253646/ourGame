@@ -123,13 +123,13 @@ public class EnemyBase : Attacker {
 	public int dieGas = 0;
 	public int dieCrystal = 0;
 
-	public override float BeAttack(float blood){
-		mBloodVolume = mBloodVolume - blood;
+	public override float BeAttack(HurtStatus status){
+		mBloodVolume = mBloodVolume - status.blood;
 		if (mBloodVolume <= 0) {
 			Die ();
 			mFightManager.unRegisterAttacker (this);
 		}
-		mState.hurt (blood);
-		return blood;
+		mState.hurt (status);
+		return status.blood;
 	}
 }

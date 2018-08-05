@@ -11,14 +11,30 @@ public class HeroState : MonoBehaviour
 		HP_Parent = GameObject.Find("enemyStatePlane").transform;  
 		EnemySceenPosition=Camera.main.WorldToScreenPoint(mHero.transform.position);  
 	} 
-	public void hurt(float blood){
+	public void hurt(HurtStatus status)
+    {
 		GameObject obj = Resources.Load<GameObject> ("prefab/hurt") ;
 		EnemySceenPosition = Camera.main.WorldToScreenPoint (mHero.transform.position);
 		GameObject text = GameObject.Instantiate(obj,
 			new Vector2 (EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
 		text.transform.SetParent(HP_Parent); 
 		Text tv= text.GetComponent<Text> ();
-		tv.text = "" + blood;
+        if (!status.isRate)
+        {
+            tv.text = "闪避";
+        }
+        else
+        {
+            tv.text = "" + status.blood;
+        }
+        if (status.isCrt)
+        {
+            tv.color = Color.red;
+        }
+        else {
+            tv.color = Color.yellow;
+        }
+        
 		EnemySceenPosition= Camera.main.WorldToScreenPoint(mHero.transform.position)+new Vector3(0,0,0);  
 		text.transform.position = EnemySceenPosition;  
 		UiManager.FlyTo (tv);

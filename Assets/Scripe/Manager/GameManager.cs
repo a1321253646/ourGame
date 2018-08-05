@@ -30,6 +30,10 @@ public class GameManager
         Hero hero = JsonUtils.getIntance ().getHeroData ();
         upLevelCrystal = hero.lvup_crystal;
     }
+    private int uiLevel = 99;
+    public int getUiLevel() {
+        return uiLevel++;
+    }
 	public void init(LevelManager levelmanage){
         if (!isInit)
         {
@@ -43,7 +47,8 @@ public class GameManager
 		startBossGas = level.boss_gas;
 		mBossId = level.boss_DI;
 		mCurrentGas = 0;
-        mLevelManage = levelmanage;    
+        mLevelManage = levelmanage;
+        uiLevel = 99;
     }
 
 	public void initUi(){

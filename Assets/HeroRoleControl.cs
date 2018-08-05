@@ -26,7 +26,9 @@ public class HeroRoleControl : MonoBehaviour {
                 removeUi();
             });
         }
-        
+        int level = GameManager.getIntance().getUiLevel();
+        gameObject.transform.SetSiblingIndex(level);
+
     }
     public void removeUi()
     {

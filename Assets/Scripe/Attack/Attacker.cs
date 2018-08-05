@@ -30,6 +30,11 @@ public abstract class Attacker : MonoBehaviour
 	public float mAttackSpeed;
 	public float mRunSpeed;
 	public float mAttackLeng = 1;
+    public long mRate = 100;
+    public long mEvd = 0;
+    public long mCrt = 0;
+    public float mReadHurt = 0;
+    public float mCrtHurt = 0;
 	public float mDieGas = 0;
 	public float mDieCrysta = 0;
 	public int mAttackType =ATTACK_TYPE_DEFAULT;
@@ -38,7 +43,7 @@ public abstract class Attacker : MonoBehaviour
 	public List<Attacker> mAttackerTargets;
 	public ResourceBean resourceData;
 
-	public abstract float BeAttack (float blood);
+	public abstract float BeAttack (HurtStatus status);
 
 	public BackgroundManager mBackManager;
 	public FightManager mFightManager;

@@ -91,23 +91,24 @@ public class FightManager{
 	}*/
 	public float attackerAction(int id){
 		float hurtBloodAll = 0;
-		float hurtBlood = 0;
+		HurtStatus hurtBlood = null;
+        float hurt = 0;
 		Attacker attacker = getAttackerById (id);
 		if (attacker.mAttackerTargets != null && attacker.mAttackerTargets.Count > 0) {
 			if (attacker is EnemyBase) {//enemy only one target
 				FightResource resouce = new FightResource (attacker, mEnemyFactory);
                 hurtBlood = attackBllod(attacker, attacker.mAttackerTargets[0]);
-                hurtBlood = resouce.hurt(hurtBlood);
-                if (hurtBlood != 0) {
+                hurt = resouce.hurt(hurtBlood);
+                if (hurt != 0) {
                     attacker.mAttackerTargets[0].BeAttack(hurtBlood);
                 }
-                return hurtBlood;
+                return hurt;
             }
 			for (int i = 0; i < attacker.mAttackerTargets.Count; i++) {
 				Attacker tager = attacker.mAttackerTargets [i];
 				hurtBlood = attackBllod (attacker, tager);
 				tager.BeAttack (hurtBlood);
-				hurtBloodAll += hurtBlood;
+				hurtBloodAll += hurtBlood.blood;
 			}
 			return hurtBloodAll;
 		}
@@ -117,13 +118,36 @@ public class FightManager{
 	private Attacker getAttackerById(int id){
 		return mAliveActtackers [id];
 	}
-	private float attackBllod(Attacker attacker,Attacker beAttacker){
-		//Debug.Log (" attacker.mAggressivity  =" + attacker.mAggressivity + " beAttacker.mDefense=" + beAttacker.mDefense);
+	private HurtStatus attackBllod(Attacker attacker,Attacker beAttacker){
+        if (!isHurt(attacker, beAttacker)) {
+            return new HurtStatus(0, false, false);
+        }
+
 		float hurt= attacker.mAggressivity - beAttacker.mDefense;
 		if (hurt <= attacker.mAggressivity/10) {
             int tmp = attacker.mAggressivity % 10 == 0 ? 0 : 1;
             hurt = ((int)attacker.mAggressivity )/ 10+ tmp;
 		}
-		return hurt;
+        bool crt = isCrt(attacker);
+        if (crt)
+        {
+            hurt = hurt * 2 + attacker.mCrtHurt + attacker.mReadHurt;
+        }
+        else {
+            hurt = hurt + attacker.mReadHurt;
+        }
+		return new HurtStatus(hurt, crt,true);
 	}
+    private bool isCrt(Attacker attacker) {
+        return randomResult(10000, attacker.mCrt);
+    }
+    private bool isHurt(Attacker attacker, Attacker beAttacker) {
+        long max = attacker.mRate + beAttacker.mEvd;
+        return randomResult(max, attacker.mRate);
+    }
+    private bool randomResult(long max ,long value) {
+        int rangeRadomNum = Random.Range(0,(int) max);
+        return rangeRadomNum <= value;
+    }
+
 }

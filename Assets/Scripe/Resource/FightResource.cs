@@ -7,7 +7,7 @@ public class FightResource
 	private ResourceBean mFightResource;
 	long mTrajectoryId,mHitId;
 	private GameObject mTrajectObj, mHitObj;
-	private float mHurtBlood;
+	private HurtStatus mHurtBlood;
     public ResourceBean mHitResource, mTrajectResource;
     EnemyFactory mFactory;
     public FightResource(Attacker attacker,EnemyFactory factory){
@@ -22,11 +22,11 @@ public class FightResource
 
         }
 	}
-	public float hurt(float blood){
+	public float hurt(HurtStatus blood){
 		mHurtBlood = blood;
 		if (!creatTrajectObj ()) {
 			if (!creatHit ()) {
-				return mHurtBlood;
+				return mHurtBlood.blood;
 			}
 			return 0;
 		}
@@ -65,14 +65,14 @@ public class FightResource
 	public void trajectoryActionIsEnd(){
         if (!creatHit())
         {
-            mAttacker.attackSync(mHurtBlood);
+            mAttacker.attackSync(mHurtBlood.blood);
             mAttacker.mAttackerTargets[0].BeAttack(mHurtBlood);
         }
 	}
 	public void hurt(){
 		if (mAttacker.mAttackerTargets.Count > 0) {
 			mAttacker.mAttackerTargets [0].BeAttack (mHurtBlood);
-			mAttacker.attackSync (mHurtBlood);
+			mAttacker.attackSync (mHurtBlood.blood);
 		}
 	}
 }

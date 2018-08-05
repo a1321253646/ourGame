@@ -128,6 +128,8 @@ public class TipControl : MonoBehaviour {
     private void showUi()
     {
         gameObject.transform.localPosition = new Vector2(0, 0);
+        int level = GameManager.getIntance().getUiLevel();
+        gameObject.transform.SetSiblingIndex(level);
     }
     public void removeUi()
     {

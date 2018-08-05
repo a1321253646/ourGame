@@ -15,6 +15,8 @@ public class ComposeControl : MonoBehaviour {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
         gameObject.transform.localPosition = new Vector2(0, 0);
+        int level = GameManager.getIntance().getUiLevel();
+        gameObject.transform.SetSiblingIndex(level);
         if (mClose == null)
         {
             mClose = GameObject.Find("compose_close").GetComponent<Button>();
