@@ -11,5 +11,11 @@ public class Hero
 	public float attack_speed;
 	public float attack_range;
     public long resource;
+    public float hit;
+    public float dod;
+    public float cri;
+    public float cri_dam;
+    public float speed_up;
+    public float real_dam;
 }
 

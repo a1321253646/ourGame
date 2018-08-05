@@ -131,6 +131,7 @@ public class FightManager{
         bool crt = isCrt(attacker);
         if (crt)
         {
+    //        Debug.Log("hurt =" + hurt + " attacker.mCrtHurt=" + attacker.mCrtHurt + " attacker.mReadHurt=" + attacker.mReadHurt);
             hurt = hurt * 2 + attacker.mCrtHurt + attacker.mReadHurt;
         }
         else {
@@ -139,14 +140,14 @@ public class FightManager{
 		return new HurtStatus(hurt, crt,true);
 	}
     private bool isCrt(Attacker attacker) {
-        return randomResult(10000, attacker.mCrt);
+        return randomResult(10000,(int) attacker.mCrt);
     }
     private bool isHurt(Attacker attacker, Attacker beAttacker) {
-        long max = attacker.mRate + beAttacker.mEvd;
-        return randomResult(max, attacker.mRate);
+        int max =(int) (attacker.mRate + beAttacker.mEvd);
+        return randomResult(max,(int) attacker.mRate);
     }
-    private bool randomResult(long max ,long value) {
-        int rangeRadomNum = Random.Range(0,(int) max);
+    private bool randomResult(int max ,int value) {
+        int rangeRadomNum = Random.Range(0, max);
         return rangeRadomNum <= value;
     }
 

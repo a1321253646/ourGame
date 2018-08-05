@@ -31,13 +31,28 @@ public class PlayControl : Attacker
 		}
 		Run ();
 	}
+
     public float mEquipAggressivity = 0;
     public float mEquipDefense = 0;
     public float mEquipMaxBloodVolume = 0;
+    public float mEquipRate = 100;
+    public float mEquipEvd = 0;
+    public float mEquipCrt = 0;
+    public float mEquipReadHurt = 0;
+    public float mEquipCrtHurt = 0;
+
 
     public float mBaseAggressivity = 0;
     public float mBaseDefense = 0;
     public float mBaseMaxBloodVolume = 0;
+    public float mBaseRate = 100;
+    public float mBaseEvd = 0;
+    public float mBaseCrt = 0;
+    public float mBaseReadHurt = 0;
+    public float mBaseCrtHurt = 0;
+
+
+
     public void ChangeEquip() {
         Dictionary<long, PlayerBackpackBean> equips =  InventoryHalper.getIntance().getRoleUseList();
         ChangeEquip(equips);
@@ -64,6 +79,26 @@ public class PlayControl : Attacker
                     {
                         mEquipMaxBloodVolume += date.value;
                     }
+                    else if (date.type == 110)
+                    {
+                        mEquipRate += date.value;
+                    }
+                    else if (date.type == 111)
+                    {
+                        mEquipEvd += date.value;                 
+                    }
+                    else if (date.type == 112)
+                    {
+                        mEquipCrt += date.value;
+                    }
+                    else if (date.type == 113)
+                    {
+                        mEquipCrtHurt += date.value;
+                    }
+                    else if (date.type == 115)
+                    {
+                        mEquipReadHurt += date.value;
+                    }
                 }
             }
         }
@@ -71,6 +106,11 @@ public class PlayControl : Attacker
         mDefense = mBaseDefense + mEquipDefense;
         mMaxBloodVolume = mBaseMaxBloodVolume + mEquipMaxBloodVolume;
         mBloodVolume = (int)(mMaxBloodVolume * bili);
+        mRate = mBaseRate + mEquipRate;
+        mEvd = mBaseEvd + mEquipEvd;
+        mCrt = mBaseCrt + mEquipCrt;
+        mCrtHurt = mBaseCrtHurt + mEquipCrtHurt;
+        mReadHurt = mBaseReadHurt + mEquipReadHurt;
         GameManager.getIntance().setBlood(mBloodVolume, mMaxBloodVolume);
     }
 
@@ -100,6 +140,12 @@ public class PlayControl : Attacker
         mBaseAggressivity = mHero.role_attack;
         mBaseDefense = mHero.role_defense;
         mBaseMaxBloodVolume = mHero.role_hp;
+        mBaseCrt = mHero.cri;
+        mBaseCrtHurt = mHero.cri_dam;
+        mBaseRate = mHero.hit;
+        mBaseReadHurt = mHero.real_dam;
+        mBaseEvd = mHero.dod;
+
 
         mAggressivity = mBaseAggressivity ;
         mMaxBloodVolume = mBaseMaxBloodVolume;

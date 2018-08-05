@@ -22,8 +22,8 @@ public class ComposeJsonBen
             materials = materials.Replace("}", "");
             materials_number = materials_number.Replace("{", "");
             materials_number = materials_number.Replace("}", "");
-            string[] array = materials.Split(',');
-            string[] array2 = materials_number.Split(',');
+            string[] array = materials.Split('，');
+            string[] array2 = materials_number.Split('，');
             int count = array.Length > array2.Length ? array2.Length : array.Length;
             for (int i=0; i < count; i++) {
                 ComposeNeedItemBean bean = new ComposeNeedItemBean();

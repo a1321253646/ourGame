@@ -7,7 +7,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 100,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 2,
@@ -17,7 +23,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 201,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 3,
@@ -27,7 +39,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 304,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 4,
@@ -37,7 +55,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 409,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 5,
@@ -47,7 +71,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 516,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 6,
@@ -57,7 +87,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 625,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 7,
@@ -67,7 +103,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 736,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 8,
@@ -77,7 +119,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 849,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 9,
@@ -87,7 +135,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 964,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 10,
@@ -97,7 +151,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 1081,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 11,
@@ -107,7 +167,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 1200,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 12,
@@ -117,7 +183,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 1321,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 13,
@@ -127,7 +199,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 1444,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 14,
@@ -137,7 +215,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 1569,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 15,
@@ -147,7 +231,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 1696,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 16,
@@ -157,7 +247,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 1825,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 17,
@@ -167,7 +263,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 1956,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 18,
@@ -177,7 +279,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 2089,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 19,
@@ -187,7 +295,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 2224,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 20,
@@ -197,7 +311,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 2361,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 21,
@@ -207,7 +327,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 2500,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 22,
@@ -217,7 +343,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 2641,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 23,
@@ -227,7 +359,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 2784,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 24,
@@ -237,7 +375,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 2929,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 25,
@@ -247,7 +391,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 3076,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 26,
@@ -257,7 +407,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 3225,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 27,
@@ -267,7 +423,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 3376,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 28,
@@ -277,7 +439,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 3529,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 29,
@@ -287,7 +455,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 3684,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 30,
@@ -297,7 +471,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 3841,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 31,
@@ -307,7 +487,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 4000,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 32,
@@ -317,7 +503,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 4161,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 33,
@@ -327,7 +519,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 4324,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 34,
@@ -337,7 +535,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 4489,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 35,
@@ -347,7 +551,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 4656,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 36,
@@ -357,7 +567,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 4825,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 37,
@@ -367,7 +583,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 4996,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 38,
@@ -377,7 +599,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 5169,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 39,
@@ -387,7 +615,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 5344,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 40,
@@ -397,7 +631,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 5521,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 41,
@@ -407,7 +647,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 5700,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 42,
@@ -417,7 +663,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 5881,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 43,
@@ -427,7 +679,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 6064,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 44,
@@ -437,7 +695,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 6249,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 45,
@@ -447,7 +711,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 6436,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 46,
@@ -457,7 +727,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 6625,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 47,
@@ -467,7 +743,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 6816,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 48,
@@ -477,7 +759,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 7009,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 49,
@@ -487,7 +775,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 7204,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 50,
@@ -497,7 +791,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 7401,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 51,
@@ -507,7 +807,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 7600,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 52,
@@ -517,7 +823,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 7801,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 53,
@@ -527,7 +839,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 8004,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 54,
@@ -537,7 +855,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 8209,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 55,
@@ -547,7 +871,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 8416,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 56,
@@ -557,7 +887,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 8625,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 57,
@@ -567,7 +903,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 8836,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 58,
@@ -577,7 +919,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 9049,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 59,
@@ -587,7 +935,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 9264,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 60,
@@ -597,7 +951,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 9481,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 61,
@@ -607,7 +967,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 9700,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 62,
@@ -617,7 +983,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 9921,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 63,
@@ -627,7 +999,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 10144,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 64,
@@ -637,7 +1015,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 10369,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 65,
@@ -647,7 +1031,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 10596,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 66,
@@ -657,7 +1047,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 10825,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 67,
@@ -667,7 +1063,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 11056,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 68,
@@ -677,7 +1079,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 11289,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 69,
@@ -687,7 +1095,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 11524,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 70,
@@ -697,7 +1111,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 11761,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 71,
@@ -707,7 +1127,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 12000,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 72,
@@ -717,7 +1143,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 12241,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 73,
@@ -727,7 +1159,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 12484,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 74,
@@ -737,7 +1175,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 12729,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 75,
@@ -747,7 +1191,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 12976,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 76,
@@ -757,7 +1207,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 13225,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 77,
@@ -767,7 +1223,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 13476,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 78,
@@ -777,7 +1239,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 13729,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 79,
@@ -787,7 +1255,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 13984,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 80,
@@ -797,7 +1271,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 14241,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 81,
@@ -807,7 +1287,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 14500,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 82,
@@ -817,7 +1303,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 14761,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 83,
@@ -827,7 +1319,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 15024,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 84,
@@ -837,7 +1335,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 15289,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 85,
@@ -847,7 +1351,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 15556,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 86,
@@ -857,7 +1367,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 15825,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 87,
@@ -867,7 +1383,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 16096,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 88,
@@ -877,7 +1399,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 16369,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 89,
@@ -887,7 +1415,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 16644,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 90,
@@ -897,7 +1431,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 16921,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 91,
@@ -907,7 +1447,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 17200,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 92,
@@ -917,7 +1463,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 17481,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 93,
@@ -927,7 +1479,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 17764,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 94,
@@ -937,7 +1495,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 18049,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 95,
@@ -947,7 +1511,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 18336,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 96,
@@ -957,7 +1527,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 18625,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 97,
@@ -967,7 +1543,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 18916,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 98,
@@ -977,7 +1559,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 19209,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 99,
@@ -987,7 +1575,13 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 19504,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   },
   {
     "role_lv": 100,
@@ -997,6 +1591,12 @@
     "attack_speed": 1,
     "attack_range": 1.45,
     "lvup_crystal": 19801,
-    "resource": 10001
+    "resource": 10001,
+    "hit": 1000,
+    "dod": 500,
+    "cri": 5000,
+    "cri_dam": 10,
+    "speed_up": 1000,
+    "real_dam": 100
   }
 ]

@@ -30,9 +30,9 @@ public abstract class Attacker : MonoBehaviour
 	public float mAttackSpeed;
 	public float mRunSpeed;
 	public float mAttackLeng = 1;
-    public long mRate = 100;
-    public long mEvd = 0;
-    public long mCrt = 0;
+    public float mRate = 100;
+    public float mEvd = 0;
+    public float mCrt = 0;
     public float mReadHurt = 0;
     public float mCrtHurt = 0;
 	public float mDieGas = 0;
