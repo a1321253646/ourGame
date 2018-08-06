@@ -100,6 +100,20 @@ public class BackpackManager
         else if (type == TipControl.COMPOSE_TYPE) {
             showComposeUi();
         }
+        else if (type == TipControl.BOOK_TYPE)
+        {
+            bool isSuccess = InventoryHalper.getIntance().useBook(bean, count);
+            mInvertoryControl.update();
+            if (!isSuccess)
+            {
+                GameManager.getIntance().mCurrentCrystal += 5000;
+                GameManager.getIntance().updataGasAndCrystal();
+            }
+            else {
+                mComposeControl.updateListPart();
+            }
+          
+        }
 
     }
 

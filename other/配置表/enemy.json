@@ -107,7 +107,7 @@
     "attack_speed": 1,
     "die_gas": 10,
     "die_crystal": 40,
-    "death_fell": "{1000005,20}",
+    "death_fell": "{1999999,20}",
     "monster_speed": 1,
     "attack_range": 1.29,
     "resource": 20007,

@@ -27,7 +27,11 @@ public class ComposeEquipListControl : MonoBehaviour {
             mItems.Clear();
         }
         foreach(ComposeJsonBen bean in list) {
+            if (bean.isShow == 2 && !isHave(bean.id)) {
+                continue;
+            }
             if (!isInit) {
+                isInit = true;
                 GetComponentInParent<ComposeListPartControl>().listIsClick(bean.tid);
             }
             Debug.Log("ComposeEquipListControl id = " + bean.tid);
@@ -57,4 +61,14 @@ public class ComposeEquipListControl : MonoBehaviour {
         }
        
     }
+    private bool isHave(long id) {
+        List<long> idList = InventoryHalper.getIntance().getHaveBookId();
+        foreach (long bookid in idList) {
+            if (id == bookid) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

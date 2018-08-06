@@ -19,9 +19,9 @@ public class ComposeListPartControl : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	public void updateList () {
+        mListControl.setUiShow(mMap[mNowClickButton]);
+    }
 
     private void creatGameObjec()
     {
@@ -47,7 +47,7 @@ public class ComposeListPartControl : MonoBehaviour {
             mFri = GameObject.Instantiate(mButtonObject,
                 new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             mFri.GetComponentInChildren<Text>().text = "装备";
-            mFri.transform.localScale = Vector2.one;
+           // mFri.transform.localScale = Vector3.one;
             mFri.GetComponent<Button>().onClick.AddListener(() =>
             {
                 clockIndex(1);
@@ -58,7 +58,7 @@ public class ComposeListPartControl : MonoBehaviour {
             mSec = GameObject.Instantiate(mButtonObject,
                 new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             mSec.GetComponentInChildren<Text>().text = "卡牌";
-            mSec.transform.localScale = Vector2.one;
+            //mSec.transform.localScale = Vector3.one;
             mSec.GetComponent<Button>().onClick.AddListener(() =>
             {
                 clockIndex(2);
@@ -74,7 +74,7 @@ public class ComposeListPartControl : MonoBehaviour {
         {
             mList = GameObject.Instantiate(mListViewObject,
                 new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            mList.transform.localScale = Vector2.one;
+            //mList.transform.localScale = Vector3.one;
             mListControl = mList.GetComponentInChildren<ComposeEquipListControl>();
         }
         if (mMap == null || mMap.Count < 1) {

@@ -57,11 +57,15 @@ public class GoodControl : MonoBehaviour {
         {
             type = TipControl.UNUSE_TYPE;
         }
-        else if(bean.tabId == TABID_EQUIP_TYPY)
+        else if (bean.tabId == TABID_EQUIP_TYPY)
         {
             type = TipControl.USE_TYPE;
-        }      
-        else if (bean.tabId == TABID_ITEM_TYPE) {
+        }
+        else if (bean.tabId == TABID_ITEM_TYPE && bean.goodId > 1900000) {
+            type = TipControl.BOOK_TYPE;
+        }
+        else if (bean.tabId == TABID_ITEM_TYPE)
+        {
             type = TipControl.COMPOSE_TYPE;
         }
         BackpackManager.getIntance().showTipUi(bean, count, type);

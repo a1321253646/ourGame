@@ -6,6 +6,7 @@ public class InventoryHalper
 {
     List<PlayerBackpackBean> mList = new List<PlayerBackpackBean>();
     private Dictionary<long, PlayerBackpackBean> mRoleUseList = new Dictionary<long, PlayerBackpackBean>();
+    private List<long> mHaveBookId = new List<long>();
     public static InventoryHalper mIntance = new InventoryHalper();
     public static InventoryHalper getIntance() {
         return mIntance;
@@ -80,7 +81,9 @@ public class InventoryHalper
     public Dictionary<long, PlayerBackpackBean> getRoleUseList() {
         return mRoleUseList;
     }
-
+    public List<long> getHaveBookId() {
+        return mHaveBookId;
+    }
     public void use(PlayerBackpackBean bean, long count)
     {
         PlayerBackpackBean beanOld = null;
@@ -99,6 +102,30 @@ public class InventoryHalper
         deleteIventory(bean);
         if (beanOld != null) {
             addIventory(bean);
+        }
+    }
+
+    public bool useBook(PlayerBackpackBean bean,long count) {
+        deleteIventory(bean.goodId, (int)count);
+        GoodJsonBean good =  JsonUtils.getIntance().getGoodInfoById(bean.goodId);
+        long id = good.getBookId();
+        return addBookId(id);
+    }
+    private bool addBookId(long id) {
+        bool isHave = false;
+        foreach (int haveid in mHaveBookId) {
+            if (id == haveid) {
+                isHave = true;
+                break;
+            }
+        }
+        if (isHave)
+        {
+            return false;
+        }
+        else {
+            mHaveBookId.Add(id);
+            return true;
         }
     }
     public void unUse(PlayerBackpackBean bean, long count) {

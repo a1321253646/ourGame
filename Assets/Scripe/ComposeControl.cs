@@ -6,6 +6,7 @@ public class ComposeControl : MonoBehaviour {
 
     public bool isShow = false;
     private Button mClose;
+    private ComposeListPartControl mListPartControl;
     public void showUi()
     {
         if (isShow)
@@ -24,8 +25,17 @@ public class ComposeControl : MonoBehaviour {
                 removeUi();
             });
         }
+
         showCompose(mShowCompose);
     }
+    public void updateListPart() {
+        if (mListPartControl == null)
+        {
+            mListPartControl = GetComponentInChildren<ComposeListPartControl>();
+        }
+        mListPartControl.updateList();
+    }
+
     public void removeUi()
     {
         if (!isShow)

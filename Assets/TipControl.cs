@@ -23,6 +23,7 @@ public class TipControl : MonoBehaviour {
     public static int COMPOSE_TYPE = 1;
     public static int USE_TYPE = 2;
     public static int UNUSE_TYPE = 3;
+    public static int BOOK_TYPE = 4;
     private int mCurrentType = 1;
     void Start()
     {
@@ -51,12 +52,16 @@ public class TipControl : MonoBehaviour {
         {
             mClickText.text = "合成";
         }
-        else if (mCurrentType == USE_TYPE) {
-            mClickText.text = "使用";
+        else if (mCurrentType == USE_TYPE)
+        {
+            mClickText.text = "穿戴";
         }
         else if (mCurrentType == UNUSE_TYPE)
         {
             mClickText.text = "脱下";
+        }
+        else if (mCurrentType == BOOK_TYPE) {
+            mClickText.text = "使用";
         }
         mBean = bean;
         this.id = bean.goodId;

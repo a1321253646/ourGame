@@ -10,6 +10,7 @@ public class ComposeJsonBen
     public string materials_number;
     public long cost_crystal;
     public long classType;
+    public long isShow;
     List<ComposeNeedItemBean> mList;
     public List<ComposeNeedItemBean> getNeedList() {
         if (mList == null || mList.Count <1) {
