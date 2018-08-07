@@ -98,7 +98,7 @@ public class BackpackManager
             mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
         }
         else if (type == TipControl.COMPOSE_TYPE) {
-            showComposeUi();
+            composeUiShowClick();
         }
         else if (type == TipControl.BOOK_TYPE)
         {
@@ -161,65 +161,20 @@ public class BackpackManager
 
     public void composeUiShowClick()
     {
-        if (mComposeControl.isShow)
-        {
-            removeComposeUi();
-        }
-        else
-        {
-            showComposeUi();
-        }
-    }
-    private void showComposeUi()
-    {
-        mComposeControl.showUi();
-
-    }
-    private void removeComposeUi()
-    {
-        mComposeControl.removeUi();
+        mComposeControl.click();
+        removeTipUi();
     }
 
     public void heroUiShowClick()
     {
-        if (mHeroControl.isShow)
-        {
-            removeHeroUi();
-        }
-        else
-        {
-            showHeroUi();
-        }
-    }
-    private void showHeroUi()
-    {
-        mHeroControl.showUi();
-
-    }
-    private void removeHeroUi()
-    {
-        mHeroControl.removeUi();
+        mHeroControl.click();
+        removeTipUi();
     }
 
     public void packUiShowClick()
     {
-        if (mInvertoryControl.isShow)
-        {
-            removeBackpackUi();
-        }
-        else
-        {
-            showBackpackUi();
-        }
-    }
-    private void showBackpackUi()
-    {
-        mInvertoryControl.showUi();
-
-    }
-    private void removeBackpackUi()
-    {
-        mInvertoryControl.removeUi();
+        mInvertoryControl.click();
+        removeTipUi();
     }
 
 }

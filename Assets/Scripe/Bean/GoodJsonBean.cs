@@ -15,7 +15,7 @@ public class GoodJsonBean
     public string extra;
     List<long> bookList = new List<long>();
     public long getBookId() {
-        string[] spilts =  extra.Split('，');
+        string[] spilts =  extra.Split(',');
         foreach (string id in spilts) {
             bookList.Add(long.Parse(id));
         }

@@ -15,6 +15,7 @@ public class IvertoryControl : MonoBehaviour {
     private int MinCount = 5;
     private int LinCount = 7;
     GoodControl[] mGoodsControl;
+    private int mLevel;
     public bool isShow = false;
     Dictionary<long, List<PlayerBackpackBean>> mGoodDic = new Dictionary<long, List<PlayerBackpackBean>>();
     // Use this for initialization
@@ -200,10 +201,31 @@ public class IvertoryControl : MonoBehaviour {
         }
         SetGridHeight();
     }
-    public void showUi() {
-        if (isShow) {
-            return;
+
+    public void click()
+    {
+        if (isShow)
+        {
+            int level = GameManager.getIntance().getUiLevel();
+            if (mLevel < level)
+            {
+                gameObject.transform.SetSiblingIndex(level);
+                mLevel = level;
+                return;
+            }
+            else if (mLevel == level)
+            {
+                removeUi();
+            }
         }
+        else
+        {
+            showUi();
+        }
+    }
+
+    private void showUi() {
+
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
         gameObject.transform.localPosition = new Vector2(0, 0);
@@ -211,15 +233,12 @@ public class IvertoryControl : MonoBehaviour {
         gameObject.transform.SetSiblingIndex(level);
         update();
     }
-    public void removeUi() {
-        if (!isShow)
-        {
-            return;
-        }
+    private void removeUi() {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
         gameObject.transform.localPosition = new Vector2(162, -403);
     }
+
     public void addGood(long id, long count) {
         long tabid = -1;
         Debug.Log("IvertoryControl add id="+id+" count = "+count);

@@ -138,7 +138,6 @@ public class TipControl : MonoBehaviour {
     }
     public void removeUi()
     {
-        // gameObject.transform.TransformPoint(new Vector2(-607, -31));
         gameObject.transform.localPosition = new Vector2(500f, -386.46f);
     }
 }

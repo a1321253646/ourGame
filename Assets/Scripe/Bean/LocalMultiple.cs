@@ -59,7 +59,7 @@ public class LocalMultiple :LocalBean
 			LocalNote[] notes = new LocalNote[1];
 			note.x = mCurrentX;
 //            Debug.Log("LocalNote[0] x= " + note.x);
-            note.y = mCurrentY-note.mLocal.mAttacker.resourceData.idel_y;
+            note.y = mCurrentY/*-note.mLocal.mAttacker.resourceData.idel_y*/;
 			notes [0] = note;
 			mList.Add (notes);
 			mDistance =ENEMY_X_DISTANCE*mList.Count;

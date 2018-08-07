@@ -21,6 +21,8 @@ public class JsonUtils
     private string goodsFile = "item.json";
     private string attributeFile = "equip.json";
     private string composeFile = "compose.json";
+    private string dropDeviceDetailFile = "dropdevicedetail.json";
+    private string dropDeviceFile = "dropdevice.json";
     private static JsonUtils mInance= new JsonUtils();
 
 	List<Hero> heroData;
@@ -30,6 +32,8 @@ public class JsonUtils
     List<GoodJsonBean> mGoods;
     List<AccouterJsonBean> mAttribute;
     List<ComposeJsonBen> mComposeData;
+    List<DropDeviceDetail> mDropDeviceDetailData;
+    List<DropDevice> mDropDevoce;
     private JsonUtils(){
 		readAllFile ();
 	}
@@ -42,6 +46,8 @@ public class JsonUtils
         readGoodInfo();
         readAttributeInfo();
         readComposeInfo();
+        readdropDeviceInfo();
+        readdropDeviceDetailInfo();
     }
 
 	public static JsonUtils getIntance(){
@@ -87,9 +93,58 @@ public class JsonUtils
     }
     private void readComposeInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(composeFile));
-        mComposeData = arrdata.ToObject<List<ComposeJsonBen>>();
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(composeFile)); 
+         mComposeData = arrdata.ToObject<List<ComposeJsonBen>>();
     }
+    private void readdropDeviceInfo()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(composeFile));
+        mDropDevoce = arrdata.ToObject<List<DropDevice>>();
+    }
+    public DropDevice getDropDevoiceByID(long id) {
+        foreach (DropDevice detail in mDropDevoce)
+        {
+            if (id == detail.id)
+            {
+                return detail;
+            }
+        }
+        return null;
+    }
+    private void readdropDeviceDetailInfo()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(dropDeviceDetailFile));
+        List < DropDeviceDetailJson > detailJson = arrdata.ToObject<List<DropDeviceDetailJson>>();
+        DropDeviceDetail dropDeviceDetail;
+        mDropDeviceDetailData = new List<DropDeviceDetail>();
+        foreach (DropDeviceDetailJson json in detailJson) {
+            dropDeviceDetail = null;
+            foreach (DropDeviceDetail detail in mDropDeviceDetailData) {
+                if (detail.id == json.id) {
+                    dropDeviceDetail = detail;
+                    break;
+                }
+            }
+            if (dropDeviceDetail == null)
+            {
+                dropDeviceDetail = new DropDeviceDetail();
+                dropDeviceDetail.id = json.id;
+                dropDeviceDetail.dropCount = json.dropCount;
+                
+                mDropDeviceDetailData.Add(dropDeviceDetail);
+            }
+            dropDeviceDetail.addItem(json);
+        }
+    }
+    public DropDeviceDetail getDropDeviceDetailById(long id) {
+        foreach (DropDeviceDetail detail in mDropDeviceDetailData) {
+            if (id == detail.id) {
+                return detail;
+            }
+        }
+        return null;
+    }
+
     private void readGoodInfo() {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(goodsFile));
         mGoods = arrdata.ToObject<List<GoodJsonBean>>();

@@ -22,15 +22,15 @@ public class FightResource
 
         }
 	}
-	public float hurt(HurtStatus blood){
+	public HurtStatus hurt(HurtStatus blood){
 		mHurtBlood = blood;
 		if (!creatTrajectObj ()) {
 			if (!creatHit ()) {
-				return mHurtBlood.blood;
+				return mHurtBlood;
 			}
-			return 0;
+			return null;
 		}
-		return 0;
+		return null;
 	}
 
 	private bool creatTrajectObj(){

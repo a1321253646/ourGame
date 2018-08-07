@@ -7,12 +7,9 @@ public class ComposeControl : MonoBehaviour {
     public bool isShow = false;
     private Button mClose;
     private ComposeListPartControl mListPartControl;
-    public void showUi()
+    private int mLevel;
+    private void showUi()
     {
-        if (isShow)
-        {
-            return;
-        }
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
         gameObject.transform.localPosition = new Vector2(0, 0);
@@ -28,6 +25,26 @@ public class ComposeControl : MonoBehaviour {
 
         showCompose(mShowCompose);
     }
+    public void click() {
+        if (isShow)
+        {
+            int level = GameManager.getIntance().getUiLevel();
+            if (mLevel < level)
+            {
+                gameObject.transform.SetSiblingIndex(level);
+                mLevel = level;
+                return;
+            }
+            else if (mLevel == level)
+            {
+                removeUi();
+            }
+        }
+        else {
+            showUi();
+        }  
+    }
+
     public void updateListPart() {
         if (mListPartControl == null)
         {
@@ -36,12 +53,8 @@ public class ComposeControl : MonoBehaviour {
         mListPartControl.updateList();
     }
 
-    public void removeUi()
+    private void removeUi()
     {
-        if (!isShow)
-        {
-            return;
-        }
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
         gameObject.transform.localPosition = new Vector2(740, -63.673f);

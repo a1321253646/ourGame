@@ -42,7 +42,7 @@ public class GameManager
             mHeroLv = (long)JsonUtils.getIntance().getConfigValueForId(100011);
             mCurrentCrystal = (long)JsonUtils.getIntance().getConfigValueForId(100012);
         }
-        mCurrentLevel = 1;
+       // mCurrentLevel = 1;
         Level level = JsonUtils.getIntance ().getLevelData ();
 		startBossGas = level.boss_gas;
 		mBossId = level.boss_DI;
@@ -80,13 +80,10 @@ public class GameManager
 	public void enemyDeal(Attacker enemy){
         if (enemy is EnemyBase) {
             EnemyBase tmp = (EnemyBase)enemy;
-            List<FellObjectBean> list = tmp.mData.getFellList();
+            List<FellObjectBean> list = tmp.mData.fell();
             if (list != null && list.Count > 0) {
                 foreach (FellObjectBean bean in list) {
-                    bool isFell = bean.isFell();
-                    if (isFell) {
-                        BackpackManager.getIntance().addGoods(bean.getId(), 1);
-                    }
+                    BackpackManager.getIntance().addGoods(bean.id, (int)bean.count);
                 }
             }
             

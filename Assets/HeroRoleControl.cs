@@ -10,12 +10,31 @@ public class HeroRoleControl : MonoBehaviour {
     Dictionary<long, GoodControl> mHeroGoodControl = new Dictionary<long, GoodControl>();
     private Text mText;
     private Button mClose;
-    public void showUi()
+    private int mLevel;
+    public void click()
     {
         if (isShow)
         {
-            return;
+            int level = GameManager.getIntance().getUiLevel();
+            if (mLevel < level)
+            {
+                gameObject.transform.SetSiblingIndex(level);
+                mLevel = level;
+                return;
+            }
+            else if (mLevel == level)
+            {
+                removeUi();
+            }
         }
+        else
+        {
+            showUi();
+        }
+    }
+
+    private void showUi()
+    {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
         gameObject.transform.localPosition = new Vector2(0, 0);
@@ -26,16 +45,12 @@ public class HeroRoleControl : MonoBehaviour {
                 removeUi();
             });
         }
-        int level = GameManager.getIntance().getUiLevel();
-        gameObject.transform.SetSiblingIndex(level);
+        mLevel = GameManager.getIntance().getUiLevel();
+        gameObject.transform.SetSiblingIndex(mLevel);
 
     }
-    public void removeUi()
+    private void removeUi()
     {
-        if (!isShow)
-        {
-            return;
-        }
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
         gameObject.transform.localPosition = new Vector2(-222, -411);

@@ -74,7 +74,7 @@ public class EnemyFactory : MonoBehaviour {
 		string res = bean.name;
 		getEnemyPrefab(res);
 		GameObject newobj =  GameObject.Instantiate (
-			getEnemyPrefab(res), new Vector2 (transform.position.x, transform.position.y),Quaternion.Euler(0.0f,0f,0.0f));
+			getEnemyPrefab(res), new Vector2 (transform.position.x, transform.position.y- bean.idel_y),Quaternion.Euler(0.0f,0f,0.0f));
 		EnemyBase enmey = newobj.GetComponent<EnemyBase> ();
 		enmey.init (data,bean);
 		if (isBoss) {

@@ -6,6 +6,7 @@ public class InventoryHalper
 {
     List<PlayerBackpackBean> mList = new List<PlayerBackpackBean>();
     private Dictionary<long, PlayerBackpackBean> mRoleUseList = new Dictionary<long, PlayerBackpackBean>();
+    private Dictionary<long, long> mDropDeviceUsed = new Dictionary<long, long>();
     private List<long> mHaveBookId = new List<long>();
     public static InventoryHalper mIntance = new InventoryHalper();
     public static InventoryHalper getIntance() {
@@ -77,6 +78,25 @@ public class InventoryHalper
         }
 //        Debug.Log("InventoryHalper list size  " + mList.Count);
     }
+
+    public long getUseCountByDropDeviceId(long id) {
+        addDropDeviceUseCount(id);
+        return mDropDeviceUsed[id];
+    }
+    public void clearDropDeviceUseCount(long id) {
+        mDropDeviceUsed.Add(id, 0);
+    }
+    private void addDropDeviceUseCount(long id) {
+        if (mDropDeviceUsed.ContainsKey(id))
+        {
+            mDropDeviceUsed.Add(id, mDropDeviceUsed[id] + 1);
+        }
+        else {
+            mDropDeviceUsed.Add(id,  1);
+        }
+        
+    }
+
 
     public Dictionary<long, PlayerBackpackBean> getRoleUseList() {
         return mRoleUseList;
