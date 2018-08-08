@@ -98,7 +98,7 @@ public class JsonUtils
     }
     private void readdropDeviceInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(composeFile));
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(dropDeviceFile));
         mDropDevoce = arrdata.ToObject<List<DropDevice>>();
     }
     public DropDevice getDropDevoiceByID(long id) {

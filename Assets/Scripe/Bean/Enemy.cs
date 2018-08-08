@@ -46,10 +46,12 @@ public class Enemy
             {
                 return null;
             }
+            Debug.Log("death_fell = " + death_fell);
             string[] array = death_fell.Split(',');
 
             foreach (string str2 in array)
             {
+                Debug.Log("str2 = " + str2);
                 if (str2 == null || str2.Length < 1)
                 {
                     continue;

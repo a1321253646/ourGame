@@ -6,7 +6,8 @@
     "boss_DI": 20001001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_01"
+    "map": "map_01",
+    "Reincarnation": 1
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "boss_DI": 20002001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_02"
+    "map": "map_02",
+    "Reincarnation": 2
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "boss_DI": 20003001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_03"
+    "map": "map_03",
+    "Reincarnation": 3
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "boss_DI": 20004001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_04"
+    "map": "map_04",
+    "Reincarnation": 4
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "boss_DI": 20005001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_05"
+    "map": "map_05",
+    "Reincarnation": 5
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "boss_DI": 20006001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_06"
+    "map": "map_06",
+    "Reincarnation": 6
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "boss_DI": 20007001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_07"
+    "map": "map_07",
+    "Reincarnation": 7
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "boss_DI": 20008001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_08"
+    "map": "map_08",
+    "Reincarnation": 8
   },
   {
     "id": 9,
@@ -78,7 +86,8 @@
     "boss_DI": 20009001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_09"
+    "map": "map_09",
+    "Reincarnation": 9
   },
   {
     "id": 10,
@@ -87,7 +96,8 @@
     "boss_DI": 20010001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_10"
+    "map": "map_10",
+    "Reincarnation": 10
   },
   {
     "id": 11,
@@ -96,7 +106,8 @@
     "boss_DI": 20011001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_11"
+    "map": "map_11",
+    "Reincarnation": 11
   },
   {
     "id": 12,
@@ -105,7 +116,8 @@
     "boss_DI": 20012001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_12"
+    "map": "map_12",
+    "Reincarnation": 12
   },
   {
     "id": 13,
@@ -114,7 +126,8 @@
     "boss_DI": 20013001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_13"
+    "map": "map_13",
+    "Reincarnation": 13
   },
   {
     "id": 14,
@@ -123,7 +136,8 @@
     "boss_DI": 20014001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_14"
+    "map": "map_14",
+    "Reincarnation": 14
   },
   {
     "id": 15,
@@ -132,7 +146,8 @@
     "boss_DI": 20015001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_15"
+    "map": "map_15",
+    "Reincarnation": 15
   },
   {
     "id": 16,
@@ -141,7 +156,8 @@
     "boss_DI": 20016001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_16"
+    "map": "map_16",
+    "Reincarnation": 16
   },
   {
     "id": 17,
@@ -150,7 +166,8 @@
     "boss_DI": 20017001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_17"
+    "map": "map_17",
+    "Reincarnation": 17
   },
   {
     "id": 18,
@@ -159,7 +176,8 @@
     "boss_DI": 20018001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_18"
+    "map": "map_18",
+    "Reincarnation": 18
   },
   {
     "id": 19,
@@ -168,7 +186,8 @@
     "boss_DI": 20019001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_19"
+    "map": "map_19",
+    "Reincarnation": 19
   },
   {
     "id": 20,
@@ -177,7 +196,8 @@
     "boss_DI": 20020001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_20"
+    "map": "map_20",
+    "Reincarnation": 20
   },
   {
     "id": 21,
@@ -186,6 +206,7 @@
     "boss_DI": 20021001,
     "boss_gas": 100,
     "abc": "道具包",
-    "map": "map_21"
+    "map": "map_21",
+    "Reincarnation": 21
   }
 ]
