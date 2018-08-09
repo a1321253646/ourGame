@@ -124,7 +124,7 @@ public class ComposeControl : MonoBehaviour {
         refreshShow();
     }
     private void refreshShow() {
-        Debug.Log("refreshShow");
+
         if (mNeedTextList.Count < 1) {
             return;
         }
@@ -150,7 +150,6 @@ public class ComposeControl : MonoBehaviour {
 
             mNeedTextList[id].GetComponentInChildren<Text>().text = count + " / " + mNeedCountList[id];
         }
-        Debug.Log("refreshShow " + GameManager.getIntance().mCurrentCrystal);
         if (isSure) {
             isSure = GameManager.getIntance().mCurrentCrystal >= mShowCompose.cost_crystal;
         }

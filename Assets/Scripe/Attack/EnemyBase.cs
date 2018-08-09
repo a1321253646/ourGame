@@ -48,7 +48,7 @@ public class EnemyBase : Attacker {
 		mAttackTime += Time.deltaTime;
 		if (status == Attacker.PLAY_STATUS_STANDY) {
 			if (mAttackTime >= mAttackSpeed) {
-				//Debug.Log("hurt");
+				Debug.Log("enemy hurt");
 				Fight ();
 				mFightManager.attackerAction (id);
 			}	
@@ -81,7 +81,8 @@ public class EnemyBase : Attacker {
 				mLocalBean.mTargetX = -9999;
 				mLocalBean.mTargetY = -9999;
 				Fight ();
-			}
+                mFightManager.attackerAction(id);
+            }
 		}
 
 

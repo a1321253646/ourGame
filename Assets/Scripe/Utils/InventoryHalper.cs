@@ -89,7 +89,7 @@ public class InventoryHalper
     private void addDropDeviceUseCount(long id) {
         if (mDropDeviceUsed.ContainsKey(id))
         {
-            mDropDeviceUsed.Add(id, mDropDeviceUsed[id] + 1);
+             mDropDeviceUsed[id] += 1;
         }
         else {
             mDropDeviceUsed.Add(id,  1);

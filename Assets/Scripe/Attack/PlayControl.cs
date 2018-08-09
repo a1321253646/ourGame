@@ -187,6 +187,7 @@ public class PlayControl : Attacker
 		transform.Translate (new Vector2 (1, 0)*(mRunSpeed-mBackManager.moveSpeed)*Time.deltaTime);
 	}
 	public override float BeAttack(HurtStatus status){
+//        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);
         if (JsonUtils.getIntance().getConfigValueForId(100007) != 1) {
             mBloodVolume = mBloodVolume - status.blood;
             GameManager.getIntance().setBlood(mBloodVolume, mMaxBloodVolume);
