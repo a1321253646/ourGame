@@ -172,7 +172,7 @@
     "itemID": 2999999,
     "minCount": 1,
     "maxCount": 1,
-    "weight": 10000,
+    "weight": 200,
     "dropCount": 1
   }
 ]
