@@ -48,7 +48,6 @@ public class EnemyBase : Attacker {
 		mAttackTime += Time.deltaTime;
 		if (status == Attacker.PLAY_STATUS_STANDY) {
 			if (mAttackTime >= mAttackSpeed) {
-				Debug.Log("enemy hurt");
 				Fight ();
 				mFightManager.attackerAction (id);
 			}	

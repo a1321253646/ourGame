@@ -95,14 +95,16 @@ public class IvertoryControl : MonoBehaviour {
             }
             else
             {
+            
                 for (int i = 0; i < goodList.Count; i++)
                 {
-                    if (bean.sortID >= goodList[i].sortID)
+                    if (bean.sortID < goodList[i].sortID)
                     {
                         goodList.Insert(i, bean);
                         break;
                     }
                 }
+                goodList.Add( bean);
             }
         }
     }
@@ -206,11 +208,10 @@ public class IvertoryControl : MonoBehaviour {
     {
         if (isShow)
         {
-            int level = GameManager.getIntance().getUiLevel();
+            int level = GameManager.getIntance().getUiCurrentLevel();
             if (mLevel < level)
             {
-                gameObject.transform.SetSiblingIndex(level);
-                mLevel = level;
+                showUi();
                 return;
             }
             else if (mLevel == level)
@@ -229,8 +230,8 @@ public class IvertoryControl : MonoBehaviour {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
         gameObject.transform.localPosition = new Vector2(0, 0);
-        int level = GameManager.getIntance().getUiLevel();
-        gameObject.transform.SetSiblingIndex(level);
+        mLevel = GameManager.getIntance().getUiLevel();
+        gameObject.transform.SetSiblingIndex(mLevel);
         update();
     }
     private void removeUi() {
@@ -241,7 +242,6 @@ public class IvertoryControl : MonoBehaviour {
 
     public void addGood(long id, long count) {
         long tabid = -1;
-        Debug.Log("IvertoryControl add id="+id+" count = "+count);
         if (JsonUtils.getIntance().getGoodInfoById(id) == null)
         {
             tabid = JsonUtils.getIntance().getAccouterInfoById(id).tabid;
@@ -249,14 +249,14 @@ public class IvertoryControl : MonoBehaviour {
         else {
             tabid = JsonUtils.getIntance().getGoodInfoById(id).tabid;
         }
-        if (mShowUiType != ALL_TYPE || tabid != mShowUiType) {
+        if (mShowUiType != ALL_TYPE && tabid != mShowUiType) {
             return;
         }
-        JsonUtils.getIntance().getGoodInfoById(id);
         foreach (GoodControl good in mGoodsControl) {
-            if (good.isActiveAndEnabled && good.id == id && !good.isFull()) {
-                if (good.addCount(count) != 0)
-                {
+            if ( good.id == id && !good.isFull()) {
+                long addReturn = good.addCount(count);;
+                if (addReturn != 0)
+                {                 ;
                     update();
                     return;
                 }

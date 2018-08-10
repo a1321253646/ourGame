@@ -28,15 +28,12 @@ public class DropDeviceDetail
     }
 
     public List<FellObjectBean> fellObjetList() {
-        Debug.Log("DropDeviceDetail dropCount="+ dropCount+ "weight =" + weight);
         List<FellObjectBean> list = new List<FellObjectBean>();
         for (int i = 0;i < dropCount; i++) {
             int obRange = getObRange();
-            Debug.Log("DropDeviceDetail obRange=" + obRange );
             Detail fell = null;
             foreach (Detail dt in mItemList) {
-                Debug.Log("DropDeviceDetail dt.weight=" + dt.weight);
-                if (dt.weight > obRange)
+                if (dt.weight> obRange)
                 {
                     fell = dt;
                 }

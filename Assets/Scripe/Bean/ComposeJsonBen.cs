@@ -11,6 +11,7 @@ public class ComposeJsonBen
     public long cost_crystal;
     public long classType;
     public long isShow;
+    public long compensate;
     List<ComposeNeedItemBean> mList;
     public List<ComposeNeedItemBean> getNeedList() {
         if (mList == null || mList.Count <1) {

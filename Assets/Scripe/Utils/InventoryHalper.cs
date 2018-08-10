@@ -24,11 +24,16 @@ public class InventoryHalper
     {
         bool isNew = true;
         PlayerBackpackBean bean = null;
-        foreach(PlayerBackpackBean tmp in mList ){
-            if (tmp.goodId == id && tmp.attributeList == null) {
-                tmp.count += count;
-                bean = tmp;
-                isNew = false;
+        if (id <= TABID_2_START_ID || id >= TABID_3_START_ID)
+        {
+            foreach (PlayerBackpackBean tmp in mList)
+            {
+                if (tmp.goodId == id && tmp.attributeList == null)
+                {
+                    tmp.count += count;
+                    bean = tmp;
+                    isNew = false;
+                }
             }
         }
         if (isNew)
@@ -124,12 +129,16 @@ public class InventoryHalper
             addIventory(bean);
         }
     }
-
-    public bool useBook(PlayerBackpackBean bean,long count) {
+    private bool isAddSuccess = true;
+    public long useBook(PlayerBackpackBean bean,long count) {
         deleteIventory(bean.goodId, (int)count);
         GoodJsonBean good =  JsonUtils.getIntance().getGoodInfoById(bean.goodId);
         long id = good.getBookId();
-        return addBookId(id);
+        isAddSuccess = addBookId(id);
+        return id;
+    }
+    public bool getIsAddSuccess() {
+        return isAddSuccess;
     }
     private bool addBookId(long id) {
         bool isHave = false;
@@ -148,6 +157,15 @@ public class InventoryHalper
             return true;
         }
     }
+    public bool isHaveBook(long id) {
+        foreach (long bookid in mHaveBookId) {
+            if (bookid == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void unUse(PlayerBackpackBean bean, long count) {
         AccouterJsonBean acc = BackpackManager.getIntance().getAccouterInfoById(bean.goodId);
         mRoleUseList.Remove(acc.type);

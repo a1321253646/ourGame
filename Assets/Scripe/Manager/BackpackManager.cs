@@ -85,28 +85,30 @@ public class BackpackManager
     public void use(PlayerBackpackBean bean, long count,int type) {
         if (type == TipControl.USE_TYPE)
         {
-            InventoryHalper.getIntance().use(bean, count);
-            mHeroControl.upDateUi();
+            InventoryHalper.getIntance().use(bean, count);         
             mInvertoryControl.update();
             mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
+            mHeroControl.upDateUi();
         }
         else if (type == TipControl.UNUSE_TYPE)
         {
-            InventoryHalper.getIntance().unUse(bean, count);
-            mHeroControl.upDateUi();
+            InventoryHalper.getIntance().unUse(bean, count);          
             mInvertoryControl.update();
             mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
+            mHeroControl.upDateUi();
         }
         else if (type == TipControl.COMPOSE_TYPE) {
             composeUiShowClick();
         }
         else if (type == TipControl.BOOK_TYPE)
         {
-            bool isSuccess = InventoryHalper.getIntance().useBook(bean, count);
+            long  id = InventoryHalper.getIntance().useBook(bean, count);
+            bool isSuccess = InventoryHalper.getIntance().getIsAddSuccess();
             mInvertoryControl.update();
             if (!isSuccess)
             {
-                GameManager.getIntance().mCurrentCrystal += 5000;
+                ComposeJsonBen book = JsonUtils.getIntance().gettComposeInfoForId(id);
+                GameManager.getIntance().mCurrentCrystal += book.compensate;
                 GameManager.getIntance().updataGasAndCrystal();
             }
             else {
@@ -118,16 +120,16 @@ public class BackpackManager
     }
 
     public void addGoods(long id, int count) {
-        Debug.Log("addGoods id=" + id+ " count="+ count);
+ //       Debug.Log("addGoods id=" + id+ " count="+ count);
         bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count);
-        Debug.Log("isAddNiew ="+isAddNiew);
+ //       Debug.Log("isAddNiew ="+isAddNiew);
         if (isAddNiew)
         {
-            Debug.Log("update " );
+ //           Debug.Log("update " );
             mInvertoryControl.update();
         }
         else {
-            Debug.Log("addGood ");
+   //         Debug.Log("addGood ");
             mInvertoryControl.addGood(id, count);
         }
         upDataComposeControl();
@@ -136,7 +138,11 @@ public class BackpackManager
     public void upDataComposeControl() {
         mComposeControl.updataUi();
     }
-    
+
+    public void updateHeroControl() {
+        mHeroControl.upDateUi();
+    }
+
     public void deleteGoods(long id, int count) {
         InventoryHalper.getIntance().deleteIventory(id, count);
         mInvertoryControl.deleteGood(id, count);

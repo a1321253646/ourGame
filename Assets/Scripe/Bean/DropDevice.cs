@@ -13,7 +13,6 @@ public class DropDevice
     public List<FellObjectBean> fell() {
         long group;
         long count = InventoryHalper.getIntance().getUseCountByDropDeviceId(id);
-        Debug.Log("DropDevice id =" + id + "count  = " + count);
         if (upGroupID != 0)
         {
             if (count > getRange(min, max))
@@ -29,7 +28,6 @@ public class DropDevice
         else {
             group = groupId;
         }
-        Debug.Log("DropDevice id ="+ id+"group = " + group);
         DropDeviceDetail detail =   JsonUtils.getIntance().getDropDeviceDetailById(group);
         if (detail != null) {
             return detail.fellObjetList();

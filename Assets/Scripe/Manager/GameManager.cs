@@ -31,8 +31,11 @@ public class GameManager
         upLevelCrystal = hero.lvup_crystal;
     }
     private int uiLevel = 99;
+    public int getUiCurrentLevel() {
+        return uiLevel;
+    }
     public int getUiLevel() {
-        return uiLevel++;
+        return ++uiLevel;
     }
 	public void init(LevelManager levelmanage){
         if (!isInit)
@@ -71,6 +74,7 @@ public class GameManager
 		uiManager.refreshData ();
         //修改数据到英雄
         mLevelManage.heroUp();
+        BackpackManager.getIntance().updateHeroControl();
 
     }
 	public void startBoss(){

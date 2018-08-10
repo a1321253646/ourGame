@@ -62,6 +62,11 @@ public class PlayControl : Attacker
         mEquipMaxBloodVolume = 0;
         mEquipDefense = 0;
         mEquipAggressivity = 0;
+        mEquipRate = 0;
+        mEquipEvd = 0;
+        mEquipCrt = 0;
+        mEquipCrtHurt = 0;
+        mEquipReadHurt = 0;
         float bili = mBloodVolume / mMaxBloodVolume;
         for (long i = 1; i < 7; i++) {
             if (equips != null && equips.ContainsKey(i)) {

@@ -13,8 +13,8 @@ public class ComposeControl : MonoBehaviour {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
         gameObject.transform.localPosition = new Vector2(0, 0);
-        int level = GameManager.getIntance().getUiLevel();
-        gameObject.transform.SetSiblingIndex(level);
+        mLevel = GameManager.getIntance().getUiLevel();
+        gameObject.transform.SetSiblingIndex(mLevel);
         if (mClose == null)
         {
             mClose = GameObject.Find("compose_close").GetComponent<Button>();
@@ -28,11 +28,10 @@ public class ComposeControl : MonoBehaviour {
     public void click() {
         if (isShow)
         {
-            int level = GameManager.getIntance().getUiLevel();
+            int level = GameManager.getIntance().getUiCurrentLevel();
             if (mLevel < level)
             {
-                gameObject.transform.SetSiblingIndex(level);
-                mLevel = level;
+                showUi();
                 return;
             }
             else if (mLevel == level)

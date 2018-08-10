@@ -226,7 +226,17 @@ public class JsonUtils
     public List<ComposeJsonBen> getComposeInfo() {
         return mComposeData;
     }
-
+    public ComposeJsonBen gettComposeInfoForId(long id)
+    {
+        foreach (ComposeJsonBen note in mComposeData)
+        {
+            if (note.id == id)
+            {
+                return note;
+            }
+        }
+        return null;
+    }
     public float getConfigValueForId(long id) {
         foreach (ConfigNote note in mConfig) {
             if (note.id == id) {

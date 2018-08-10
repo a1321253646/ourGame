@@ -8,18 +8,18 @@ public class HeroRoleControl : MonoBehaviour {
     public bool isShow = false;
     Dictionary<long, PlayerBackpackBean> mHeroEquipl;
     Dictionary<long, GoodControl> mHeroGoodControl = new Dictionary<long, GoodControl>();
-    private Text mText;
+    private Text mText, mText2, mText3;
+    private long[] mTypeAll = new long[] {1, 2, 3, 4, 5, 6};
     private Button mClose;
     private int mLevel;
     public void click()
     {
         if (isShow)
         {
-            int level = GameManager.getIntance().getUiLevel();
+            int level = GameManager.getIntance().getUiCurrentLevel();
             if (mLevel < level)
             {
-                gameObject.transform.SetSiblingIndex(level);
-                mLevel = level;
+                showUi();
                 return;
             }
             else if (mLevel == level)
@@ -59,40 +59,44 @@ public class HeroRoleControl : MonoBehaviour {
     public void upDateUi()
     {
         mHeroEquipl = BackpackManager.getIntance().getHeroEquipInfo();
-        if (mHeroEquipl.Count > 0)
-        {
-            foreach (KeyValuePair<long, PlayerBackpackBean> key in mHeroEquipl)
+        GoodControl goodIcon = null;
+        PlayerBackpackBean bean = null;
+        string name = null;
+        foreach (long type in mTypeAll) {
+            name = "equip_gride_" + type;
+            Debug.Log("hero equip type =" + name);
+            goodIcon = GameObject.Find(name).GetComponent<GoodControl>();
+
+            if (mHeroEquipl.ContainsKey(type))
             {
-                long keyType = key.Key;
-                PlayerBackpackBean keyValue = key.Value;
-                GoodControl goodIcon = null;
-                if (mHeroGoodControl.ContainsKey(keyType))
-                {
-                    goodIcon = mHeroGoodControl[keyType];
-                }
-                else
-                {
-                    string name = "equip_gride_" + keyType;
-                    Debug.Log("hero equip type =" + name);
-                    goodIcon = GameObject.Find(name).GetComponent<GoodControl>();
-                    mHeroGoodControl.Add(keyType, goodIcon);
-                }
-                goodIcon.updateUi(key.Value.goodId, key.Value.count, key.Value);
+                PlayerBackpackBean keyValue = mHeroEquipl[type];
+                goodIcon.updateUi(keyValue.goodId, keyValue.count, keyValue);
             }
-        }
-        else if (mHeroGoodControl.Count > 0) {
-            foreach (GoodControl icom in mHeroGoodControl.Values) {
-                icom.updateUi(-1, 0, null);
+            else {
+                goodIcon.updateUi(-1, 0, null);
             }
         }
 
         if (mText == null) {
             mText = GameObject.Find("hero_information").GetComponent<Text>();
         }
+        if (mText2 == null)
+        {
+            mText2 = GameObject.Find("hero_information2").GetComponent<Text>();
+        }
+        if (mText3 == null)
+        {
+            mText3 = GameObject.Find("hero_information3").GetComponent<Text>();
+        }
         PlayControl plya = BackpackManager.getIntance().getHero();
         mText.text = "英雄等级: " + GameManager.getIntance().mHeroLv+"\n"+
             "攻击: "+plya.mAggressivity+"\n"+
             "防御: "+plya.mDefense+"\n"+
-            "最大血量:"+plya.mMaxBloodVolume+"\n";
+            "生命:"+plya.mMaxBloodVolume+"\n";
+        mText2.text = "命中：" + plya.mRate+"\n"+
+            "闪避："+plya.mEvd+"\n"+
+            "暴击："+plya.mCrt+"\n"+
+            "暴击伤害："+plya.mCrtHurt+"\n";
+        mText3.text = "真实伤害：" + plya.mReadHurt+"\n";
     }
 }
