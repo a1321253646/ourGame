@@ -26,10 +26,18 @@ public class EnemyBase : Attacker {
 				event1.functionName = "standyEvent";
 				event1.time = cl.length-0.1f;
 				cl.AddEvent (event1);
-			} 
+                AnimationEvent event2 = new AnimationEvent();
+                event2.functionName = "fightEvent";
+                event2.time = cl.length - 0.1f;
+                cl.AddEvent(event2);
+            } 
 		}
 		Run ();
 	}
+    public void fightEvent() {
+
+    }
+
 	public void deadEvent(){
 		Destroy (gameObject, 1);
 	}
