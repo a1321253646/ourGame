@@ -27,7 +27,14 @@ public class PlayControl : Attacker
 				event1.functionName = "standyEvent";
 				event1.time = cl.length-0.1f;
 				cl.AddEvent (event1);
-			} 
+                AnimationEvent event2 = new AnimationEvent();
+                event2.functionName = "fightEvent";
+                event2.time = (cl.length - 0.1f) * (resourceData.attack_framce / resourceData.attack_all_framce);
+                // Debug.Log("set fightEvent resourceData.attack_frame =" + resourceData.attack_framce);
+                //Debug.Log("set fightEvent resourceData.attack_all_framce =" + resourceData.attack_all_framce);
+                // Debug.Log("set fightEvent time =" + event2.time);
+                cl.AddEvent(event2);
+            } 
 		}
 		Run ();
 	}
@@ -118,7 +125,19 @@ public class PlayControl : Attacker
         mReadHurt = mBaseReadHurt + mEquipReadHurt;
         GameManager.getIntance().setBlood(mBloodVolume, mMaxBloodVolume);
     }
+    private bool isFighted = false;
+    public void fightEvent()
+    {
 
+        if (status == Attacker.PLAY_STATUS_DIE || isFighted)
+        {
+            return;
+        }
+        //  Debug.Log("fightEvent time =" + timeTest);
+        isFighted = true;
+        // Debug.Log("fightEvent");
+        mFightManager.attackerAction(id);
+    }
     public void standyEvent(){
 		if (status == Attacker.PLAY_STATUS_DIE) {
 			return;
@@ -172,7 +191,8 @@ public class PlayControl : Attacker
 			status = mFightManager.mHeroStatus;
 			if (status == Attacker.PLAY_STATUS_FIGHT) {
 				Fight ();
-				mBackManager.stop ();
+                isFighted = false;
+                mBackManager.stop ();
 			}
 			if (status == Attacker.PLAY_STATUS_RUN ) {
 				Run ();
@@ -184,7 +204,7 @@ public class PlayControl : Attacker
 			if (mAttackTime >= mAttackSpeed) {
 		//		Debug.Log("hurt");
 				Fight ();
-				mFightManager.attackerAction (id);
+                isFighted = false;
 			}	
 		}
 	}

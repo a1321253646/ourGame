@@ -6,8 +6,9 @@ public class ResourceBean
 	public long id;
 	public string name;
 	public float zoom;
-	public float attack_frame;
-	public string blood_offset;
+	public float attack_framce;
+    public float attack_all_framce;
+    public string blood_offset;
 	public float blood_witch;
 	public string hurt_offset;
 	public string fight_offset;

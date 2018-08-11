@@ -25,38 +25,59 @@ public class EnemyBase : Attacker {
 				AnimationEvent event1 = new AnimationEvent ();
 				event1.functionName = "standyEvent";
 				event1.time = cl.length-0.1f;
-				cl.AddEvent (event1);
+                //Debug.Log("set standyEvent time =" + event1.time);
+                cl.AddEvent (event1);
                 AnimationEvent event2 = new AnimationEvent();
-                event2.functionName = "fightEvent";
-                event2.time = cl.length - 0.1f;
+                event2.functionName = "fightEvent";             
+                event2.time = (cl.length - 0.1f)*(resourceData.attack_framce / resourceData.attack_all_framce);
+               // Debug.Log("set fightEvent resourceData.attack_frame =" + resourceData.attack_framce);
+                //Debug.Log("set fightEvent resourceData.attack_all_framce =" + resourceData.attack_all_framce);
+               // Debug.Log("set fightEvent time =" + event2.time);
                 cl.AddEvent(event2);
             } 
 		}
 		Run ();
 	}
+   // private float timeTest = 0;
+    private bool isFighted = false;
     public void fightEvent() {
-
+        
+        if (status == Attacker.PLAY_STATUS_DIE || isFighted)
+        {
+            return;
+        }
+      //  Debug.Log("fightEvent time =" + timeTest);
+        isFighted = true;
+       // Debug.Log("fightEvent");
+        mFightManager.attackerAction(id);
     }
 
 	public void deadEvent(){
 		Destroy (gameObject, 1);
 	}
 	public void standyEvent(){
-		if (status == Attacker.PLAY_STATUS_DIE) {
+      //  Debug.Log("standyEvent time="+ timeTest);
+        if (status == Attacker.PLAY_STATUS_DIE) {
 			return;
 		}
 
-	//	Debug.Log ("standyEvent");
-		Standy ();
+		//Debug.Log ("standyEvent");
+        //Debug.Log("end fight");
+
+        Standy ();
 	}
 	private bool isAddEvent = false;
 	private bool isAddFightEvent = false;
 	void Update () {
-		run ();
+  //      timeTest += Time.deltaTime;
+
+        run ();
 		mAttackTime += Time.deltaTime;
 		if (status == Attacker.PLAY_STATUS_STANDY) {
 			if (mAttackTime >= mAttackSpeed) {
-				Fight ();
+                Debug.Log("Start fight");
+    //            timeTest = 0;
+                Fight ();
 				mFightManager.attackerAction (id);
 			}	
 		}
@@ -88,7 +109,7 @@ public class EnemyBase : Attacker {
 				mLocalBean.mTargetX = -9999;
 				mLocalBean.mTargetY = -9999;
 				Fight ();
-                mFightManager.attackerAction(id);
+                isFighted = false;
             }
 		}
 

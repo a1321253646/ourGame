@@ -18,7 +18,6 @@ public class Enemy
 	public long trajectory_resource;
 	public long hit_resource;
     public string death_fell;
-    public long attack_framce;
     public List<long> fellList = new List<long>();
 
     public List<FellObjectBean> fell() {
