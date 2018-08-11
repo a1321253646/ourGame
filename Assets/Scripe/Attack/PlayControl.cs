@@ -139,7 +139,7 @@ public class PlayControl : Attacker
         mFightManager.attackerAction(id);
     }
     public void standyEvent(){
-		if (status == Attacker.PLAY_STATUS_DIE) {
+		if (status == Attacker.PLAY_STATUS_DIE || status != Attacker.PLAY_STATUS_FIGHT) {
 			return;
 		}
 		Standy ();
