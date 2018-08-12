@@ -23,15 +23,13 @@ public class HeroState : MonoBehaviour
         {
             tv.text = "闪避";
         }
-        else
-        {
-            tv.text = "" + status.blood;
-        }
         if (status.isCrt)
         {
+            tv.text = "暴击" + status.blood;
             tv.color = Color.red;
         }
         else {
+            tv.text = "" + status.blood;
             tv.color = Color.yellow;
         }
         
