@@ -55,10 +55,10 @@ public class ComposeEquipListControl : MonoBehaviour {
     }
     private void SetGridHeight()   
     {
-        if (mItems.Count > 3) {
+        //if (mItems.Count > 3) {
             float height = (mVerivlaLayou.spacing + 54) * mItems.Count;
             mVerivlaLayou.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
-        }
+        //}
        
     }
     private bool isHave(long id) {
