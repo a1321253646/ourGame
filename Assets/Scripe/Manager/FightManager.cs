@@ -120,7 +120,8 @@ public class FightManager{
 
 		return 0;
 	}
-	private Attacker getAttackerById(int id){
+
+    private Attacker getAttackerById(int id){
 		return mAliveActtackers [id];
 	}
 	private HurtStatus attackBllod(Attacker attacker,Attacker beAttacker){

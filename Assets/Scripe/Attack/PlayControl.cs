@@ -187,6 +187,7 @@ public class PlayControl : Attacker
 	// Update is called once per frame
 	private float mTime = 0; 
 	void Update () {
+
 		if (status != mFightManager.mHeroStatus && status != Attacker.PLAY_STATUS_STANDY) {
 			status = mFightManager.mHeroStatus;
 			if (status == Attacker.PLAY_STATUS_FIGHT) {

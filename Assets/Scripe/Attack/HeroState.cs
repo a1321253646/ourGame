@@ -22,8 +22,9 @@ public class HeroState : MonoBehaviour
         if (!status.isRate)
         {
             tv.text = "闪避";
+            tv.color = Color.yellow;
         }
-        if (status.isCrt)
+        else if (status.isCrt)
         {
             tv.text = "暴击" + status.blood;
             tv.color = Color.red;

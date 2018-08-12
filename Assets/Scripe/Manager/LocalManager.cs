@@ -67,13 +67,12 @@ public class LocalManager{
 			if (mMultiple [i] == multiple) {
 				mMultiple.RemoveAt (i);
 			//	Debug.Log ("removeMultiple mMultiple size =" + mMultiple.Count);
-				mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
-			}
+//				mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
+        
+            }
 		}
 	}
-
 	private void heroAttackTarget(){
-		
 		LocalBean tmp = mLocalLink.next;
 
 		while (tmp != null) {
@@ -97,9 +96,13 @@ public class LocalManager{
 			}
 			tmp = tmp.next;
 		}
-		if (mLocalLink.mAttacker.mAttackerTargets.Count > 0) {
-			mFightManager.mHeroStatus = Attacker.PLAY_STATUS_FIGHT;
-		}
+        if (mLocalLink.mAttacker.mAttackerTargets.Count > 0)
+        {
+            mFightManager.mHeroStatus = Attacker.PLAY_STATUS_FIGHT;
+        }
+        else {
+            mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
+        }
 
 	}
 
