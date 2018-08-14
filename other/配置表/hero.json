@@ -10,10 +10,10 @@
     "resource": 10001,
     "hit": 1000,
     "dod": 500,
-    "cri": 5000,
-    "cri_dam": 10,
+    "cri": 9900,
+    "cri_dam": 0,
     "speed_up": 1000,
-    "real_dam": 100
+    "real_dam": 0
   },
   {
     "role_lv": 2,

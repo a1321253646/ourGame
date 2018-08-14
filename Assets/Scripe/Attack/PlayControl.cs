@@ -155,6 +155,7 @@ public class PlayControl : Attacker
         mMaxBloodVolume = mBaseMaxBloodVolume + mEquipMaxBloodVolume;
         mBloodVolume = mBloodVolume + mBaseMaxBloodVolume - mMaxTmp;
         GameManager.getIntance().setBlood(mBloodVolume, mMaxBloodVolume);
+        setHeroData();
     }
 
     public void setHeroData(){

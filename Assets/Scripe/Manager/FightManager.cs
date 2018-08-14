@@ -146,14 +146,17 @@ public class FightManager{
 		return new HurtStatus(hurt, crt,true);
 	}
     private bool isCrt(Attacker attacker) {
-        return randomResult(10000,(int) attacker.mCrt);
+        return randomResult(10000,(int) attacker.mCrt,true);
     }
     private bool isHurt(Attacker attacker, Attacker beAttacker) {
         int max =(int) (attacker.mRate + beAttacker.mEvd);
-        return randomResult(max,(int) attacker.mRate);
+        return randomResult(max,(int) attacker.mRate,false);
     }
-    private bool randomResult(int max ,int value) {
+    private bool randomResult(int max ,int value,bool isPri) {
         int rangeRadomNum = Random.Range(0, max);
+        if (isPri) {
+            Debug.Log("fight rangeRadomNum=" + rangeRadomNum + " value=" + value);
+        }
         return rangeRadomNum <= value;
     }
 

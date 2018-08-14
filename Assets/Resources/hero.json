@@ -1,7 +1,7 @@
 [
   {
     "role_lv": 1,
-    "role_hp": 300,
+    "role_hp": 200,
     "role_attack": 20,
     "role_defense": 1,
     "attack_speed": 1,
@@ -10,15 +10,15 @@
     "resource": 10001,
     "hit": 1000,
     "dod": 500,
-    "cri": 5000,
-    "cri_dam": 10,
+    "cri": 1000,
+    "cri_dam": 0,
     "speed_up": 1000,
-    "real_dam": 100
+    "real_dam": 0
   },
   {
     "role_lv": 2,
     "role_hp": 900,
-    "role_attack": 85,
+    "role_attack": 40,
     "role_defense": 8,
     "attack_speed": 1,
     "attack_range": 1.45,
@@ -26,7 +26,7 @@
     "resource": 10001,
     "hit": 1000,
     "dod": 500,
-    "cri": 5000,
+    "cri": 9000,
     "cri_dam": 10,
     "speed_up": 1000,
     "real_dam": 100
