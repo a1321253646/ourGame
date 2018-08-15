@@ -8,16 +8,21 @@ public class Enemy
 	public float monster_hp;
 	public float monster_attack;
 	public float monster_defense;
-	public float die_gas;
+    public float attack_speed;
+    public float die_gas;
 	public float die_crystal;
-	public float monster_speed;
-	public float attack_range;
-	public float attack_speed;
-	public long resource;
-	public string abc;
-	public long trajectory_resource;
-	public long hit_resource;
     public string death_fell;
+    public float monster_speed;
+    public float attack_range;
+    public long resource;
+    public long trajectory_resource;
+    public long hit_resource;
+    public float hit;
+    public float dod;
+    public float cri;
+    public float cri_dam;
+    public float speed_up;
+    public float real_dam;
     public List<long> fellList = new List<long>();
 
     public List<FellObjectBean> fell() {

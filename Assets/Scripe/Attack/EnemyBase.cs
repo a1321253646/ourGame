@@ -74,7 +74,7 @@ public class EnemyBase : Attacker {
         run ();
 		mAttackTime += Time.deltaTime;
 		if (status == Attacker.PLAY_STATUS_STANDY) {
-			if (mAttackTime >= mAttackSpeed) {
+			if (mAttackTime >= mAttribute.attackSpeed) {
                 Debug.Log("Start fight");
     //            timeTest = 0;
                 Fight ();
@@ -136,15 +136,21 @@ public class EnemyBase : Attacker {
 	public void init(Enemy data,ResourceBean resource){
 		resourceData= resource;
 		mData = data;
-		this.mAggressivity = data.monster_attack;
-		this.mDefense = data.monster_defense;
-		this.mBloodVolume = data.monster_hp;
-		mMaxBloodVolume = mBloodVolume;
-		this.mRunSpeed = data.monster_speed;
-		this.mAttackSpeed = data.attack_speed;
-		mAttackLeng = data.attack_range;
-		mDieGas = data.die_gas;
-		mDieCrysta = data.die_crystal;
+        mAttribute.aggressivity = data.monster_attack;
+        mAttribute.defense = data.monster_defense;
+        mAttribute.maxBloodVolume = data.monster_hp;
+        mAttribute.attackSpeed = data.attack_speed;
+        mAttribute.rate = data.hit;
+        mAttribute.evd = data.dod;
+        mAttribute.crt = data.cri;
+        mAttribute.crtHurt = data.cri_dam;
+        mAttribute.readHurt = data.real_dam;
+        mBloodVolume = mAttribute.maxBloodVolume;
+        mRunSpeed = data.monster_speed;
+        mAttackLeng = data.attack_range;
+        mDieGas = data.die_gas;
+        mDieCrysta = data.die_crystal;
+        
 		//toString ("enemy");
 		mState = new EnemyState (this);
 	}

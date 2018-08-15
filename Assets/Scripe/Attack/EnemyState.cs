@@ -26,7 +26,7 @@ public class EnemyState{
 		HP_imageGameObjectClone.transform.localScale = new Vector3 (  mResourceData.blood_witch,1f,0);
 		HP_imageGameObjectClone.transform.SetParent(HP_Parent); 
 		mHpSl = HP_imageGameObjectClone.GetComponent<Slider> ();
-		mHpSl.maxValue = mEnemy.mMaxBloodVolume;
+		mHpSl.maxValue = mEnemy.mAttribute.maxBloodVolume;
 		mHpSl.value = mEnemy.mBloodVolume;
 		EnemySceenPosition= Camera.main.WorldToScreenPoint(mEnemy.transform.position)+new Vector3(0,0,0);  
 		HP_imageGameObjectClone.transform.position = EnemySceenPosition;

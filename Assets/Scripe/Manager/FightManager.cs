@@ -129,28 +129,28 @@ public class FightManager{
             return new HurtStatus(0, false, false);
         }
 
-		float hurt= attacker.mAggressivity - beAttacker.mDefense;
-		if (hurt <= attacker.mAggressivity/10) {
-            int tmp = attacker.mAggressivity % 10 == 0 ? 0 : 1;
-            hurt = ((int)attacker.mAggressivity )/ 10+ tmp;
+		float hurt= attacker.mAttribute.aggressivity - beAttacker.mAttribute.defense;
+		if (hurt <= attacker.mAttribute.aggressivity /10) {
+            int tmp = attacker.mAttribute.aggressivity % 10 == 0 ? 0 : 1;
+            hurt = ((int)attacker.mAttribute.aggressivity )/ 10+ tmp;
 		}
         bool crt = isCrt(attacker);
         if (crt)
         {
     //        Debug.Log("hurt =" + hurt + " attacker.mCrtHurt=" + attacker.mCrtHurt + " attacker.mReadHurt=" + attacker.mReadHurt);
-            hurt = hurt * 2 + attacker.mCrtHurt + attacker.mReadHurt;
+            hurt = hurt * 2 + attacker.mAttribute.crtHurt + attacker.mAttribute.readHurt;
         }
         else {
-            hurt = hurt + attacker.mReadHurt;
+            hurt = hurt + attacker.mAttribute.readHurt;
         }
 		return new HurtStatus(hurt, crt,true);
 	}
     private bool isCrt(Attacker attacker) {
-        return randomResult(10000,(int) attacker.mCrt,true);
+        return randomResult(10000,(int) attacker.mAttribute.crt,true);
     }
     private bool isHurt(Attacker attacker, Attacker beAttacker) {
-        int max =(int) (attacker.mRate + beAttacker.mEvd);
-        return randomResult(max,(int) attacker.mRate,false);
+        int max =(int) (attacker.mAttribute.rate + beAttacker.mAttribute.evd);
+        return randomResult(max,(int) attacker.mAttribute.rate,false);
     }
     private bool randomResult(int max ,int value,bool isPri) {
         int rangeRadomNum = Random.Range(0, max);

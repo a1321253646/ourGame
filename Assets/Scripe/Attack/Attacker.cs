@@ -23,23 +23,16 @@ public abstract class Attacker : MonoBehaviour
 	public bool isBeAttacker = false;
 	public int status = PLAY_STATUS_STANDY;
 	public int id = -1;
-	public float mAggressivity;
-	public float mDefense;
-	public float mBloodVolume;
-	public float mMaxBloodVolume;
-	public float mAttackSpeed;
+	public float mBloodVolume = 0;
 	public float mRunSpeed;
 	public float mAttackLeng = 1;
-    public float mRate = 100;
-    public float mEvd = 0;
-    public float mCrt = 0;
-    public float mReadHurt = 0;
-    public float mCrtHurt = 0;
 	public float mDieGas = 0;
 	public float mDieCrysta = 0;
 	public int mAttackType =ATTACK_TYPE_DEFAULT;
 
-	public LocalBean mLocalBean;
+    public Attribute mAttribute = new Attribute();
+
+    public LocalBean mLocalBean;
 	public List<Attacker> mAttackerTargets;
 	public ResourceBean resourceData;
 
@@ -48,12 +41,11 @@ public abstract class Attacker : MonoBehaviour
 	public BackgroundManager mBackManager;
 	public FightManager mFightManager;
 	public void toString(string er){
-		Debug.Log(er+":\n mAggressivity "+mAggressivity+
-			" mDefense = "+mDefense+
+		Debug.Log(er+":\n mAggressivity "+ mAttribute.aggressivity +
+			" mDefense = "+ mAttribute.defense +
 			" mBloodVolume = "+mBloodVolume+
-			" mMaxBloodVolume = "+mMaxBloodVolume+
-			" mAttackSpeed = "+mAttackSpeed+
-			" mAttackSpeed = "+mAttackSpeed+
+			" mMaxBloodVolume = "+ mAttribute.maxBloodVolume +
+			" mAttackSpeed = "+ mAttribute.attackSpeed +
 			" mRunSpeed = "+mRunSpeed);
 	}
 
