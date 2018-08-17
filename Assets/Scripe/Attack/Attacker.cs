@@ -31,12 +31,33 @@ public abstract class Attacker : MonoBehaviour
 	public int mAttackType =ATTACK_TYPE_DEFAULT;
 
     public Attribute mAttribute = new Attribute();
-
+    
     public LocalBean mLocalBean;
 	public List<Attacker> mAttackerTargets;
 	public ResourceBean resourceData;
 
-	public abstract float BeAttack (HurtStatus status);
+    public AttackSpeedBean mSpeedBean;
+    public AnimationEvent mStandEvent;
+    public AnimationEvent mFightEvent;
+    public void upDataSpeed() {
+        if (resourceData == null) {
+            return;
+        }
+        mSpeedBean = AttackSpeedBean.GetAttackSpeed(resourceData, mAttribute.attackSpeed);
+        if (mStandEvent != null) {
+            Debug.Log(" mStandEvent.time 1=" + mStandEvent.time);
+            mStandEvent.time = mSpeedBean.leng;
+            Debug.Log(" mStandEvent.time 2=" + mStandEvent.time);
+        }
+        if (mFightEvent != null) {
+            Debug.Log(" mFightEvent.time 1=" + mFightEvent.time);
+            mFightEvent.time = mSpeedBean.leng * (resourceData.attack_framce / resourceData.attack_all_framce);
+            Debug.Log(" mFightEvent.time 2=" + mFightEvent.time);
+        }
+        mWaitAttackTime = mSpeedBean.interval;
+
+    }
+    public abstract float BeAttack (HurtStatus status);
 
 	public BackgroundManager mBackManager;
 	public FightManager mFightManager;
@@ -69,7 +90,6 @@ public abstract class Attacker : MonoBehaviour
 		_anim.SetInteger ("status", status);
 	}
 	public void Fight(){
-		mAttackTime = 0;
 		status = PLAY_STATUS_FIGHT;
 		_anim.SetInteger ("status", status);
 
@@ -90,6 +110,6 @@ public abstract class Attacker : MonoBehaviour
 		status = PLAY_STATUS_WIN;
 		_anim.SetInteger ("status", status);
 	}
-	public float mAttackTime = 0;
+	public float mWaitAttackTime = 0;
 }
 

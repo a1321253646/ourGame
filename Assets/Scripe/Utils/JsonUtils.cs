@@ -23,6 +23,7 @@ public class JsonUtils
     private string composeFile = "compose.json";
     private string dropDeviceDetailFile = "dropdevicedetail.json";
     private string dropDeviceFile = "dropdevice.json";
+    private string speedValueFile = "speedvalue.json";
     private static JsonUtils mInance= new JsonUtils();
 
 	List<Hero> heroData;
@@ -34,6 +35,7 @@ public class JsonUtils
     List<ComposeJsonBen> mComposeData;
     List<DropDeviceDetail> mDropDeviceDetailData;
     List<DropDevice> mDropDevoce;
+    List<SpeedValueJsonBean> mSpeedValue;
     private JsonUtils(){
 		readAllFile ();
 	}
@@ -48,6 +50,7 @@ public class JsonUtils
         readComposeInfo();
         readdropDeviceInfo();
         readdropDeviceDetailInfo();
+        readSpeedValueInfo();
     }
 
 	public static JsonUtils getIntance(){
@@ -101,6 +104,11 @@ public class JsonUtils
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(dropDeviceFile));
         mDropDevoce = arrdata.ToObject<List<DropDevice>>();
     }
+    private void readSpeedValueInfo()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(speedValueFile));
+        mSpeedValue = arrdata.ToObject<List<SpeedValueJsonBean>>();
+    }
     public DropDevice getDropDevoiceByID(long id) {
         foreach (DropDevice detail in mDropDevoce)
         {
@@ -136,6 +144,24 @@ public class JsonUtils
             dropDeviceDetail.addItem(json);
         }
     }
+    public float getFrequencyByValue(float value) {
+        if (value <= mSpeedValue[0].value)
+        {
+            return mSpeedValue[0].frequency;
+        }
+        else if(value >= mSpeedValue[mSpeedValue.Count-1].value)
+        {
+            return mSpeedValue[mSpeedValue.Count - 1].frequency;
+
+        }
+        for (int i = 0; i < mSpeedValue.Count; i++) {
+            if (value < mSpeedValue[i].value) {
+                return mSpeedValue[i - 1].frequency;
+            }
+        }
+        return 1;
+    }
+
     public DropDeviceDetail getDropDeviceDetailById(long id) {
         foreach (DropDeviceDetail detail in mDropDeviceDetailData) {
             if (id == detail.id) {

@@ -146,7 +146,7 @@ public class FightManager{
 		return new HurtStatus(hurt, crt,true);
 	}
     private bool isCrt(Attacker attacker) {
-        return randomResult(10000,(int) attacker.mAttribute.crt,true);
+        return randomResult(10000,(int) attacker.mAttribute.crt,false);
     }
     private bool isHurt(Attacker attacker, Attacker beAttacker) {
         int max =(int) (attacker.mAttribute.rate + beAttacker.mAttribute.evd);

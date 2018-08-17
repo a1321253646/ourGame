@@ -21,19 +21,16 @@ public class EnemyBase : Attacker {
 				event1.time = cl.length-0.1f;
 				cl.AddEvent (event1);
 			} else if (cl.name.Equals ("Attack")) {
-				//isAddEvent = true;
-				AnimationEvent event1 = new AnimationEvent ();
-				event1.functionName = "standyEvent";
-				event1.time = cl.length-0.1f;
-                //Debug.Log("set standyEvent time =" + event1.time);
-                cl.AddEvent (event1);
-                AnimationEvent event2 = new AnimationEvent();
-                event2.functionName = "fightEvent";             
-                event2.time = (cl.length - 0.1f)*(resourceData.attack_framce / resourceData.attack_all_framce);
-               // Debug.Log("set fightEvent resourceData.attack_frame =" + resourceData.attack_framce);
+                //isAddEvent = true;
+                mStandEvent = new AnimationEvent();
+                mStandEvent.functionName = "standyEvent";
+                cl.AddEvent(mStandEvent);
+                mFightEvent = new AnimationEvent();
+                mFightEvent.functionName = "fightEvent";
+                // Debug.Log("set fightEvent resourceData.attack_frame =" + resourceData.attack_framce);
                 //Debug.Log("set fightEvent resourceData.attack_all_framce =" + resourceData.attack_all_framce);
-               // Debug.Log("set fightEvent time =" + event2.time);
-                cl.AddEvent(event2);
+                // Debug.Log("set fightEvent time =" + event2.time);
+                cl.AddEvent(mFightEvent);
             } 
 		}
 		Run ();
@@ -61,9 +58,9 @@ public class EnemyBase : Attacker {
 			return;
 		}
 
-		//Debug.Log ("standyEvent");
+        //Debug.Log ("standyEvent");
         //Debug.Log("end fight");
-
+        mWaitAttackTime = 0;
         Standy ();
 	}
 	private bool isAddEvent = false;
@@ -72,10 +69,10 @@ public class EnemyBase : Attacker {
   //      timeTest += Time.deltaTime;
 
         run ();
-		mAttackTime += Time.deltaTime;
+        mWaitAttackTime += Time.deltaTime;
 		if (status == Attacker.PLAY_STATUS_STANDY) {
-			if (mAttackTime >= mAttribute.attackSpeed) {
-                Debug.Log("Start fight");
+			if (mWaitAttackTime >= mSpeedBean.interval) {
+//                Debug.Log("Start fight");
     //            timeTest = 0;
                 Fight ();
 				mFightManager.attackerAction (id);
@@ -153,6 +150,7 @@ public class EnemyBase : Attacker {
         
 		//toString ("enemy");
 		mState = new EnemyState (this);
+        upDataSpeed();
 	}
 
 	public int dieGas = 0;

@@ -8,7 +8,7 @@ public class PlayControl : Attacker
     // Use this for initialization
 
     private HeroState mState;
-	void Start () {
+    void Start () {
 		mAttackType = Attacker.ATTACK_TYPE_HERO;
 		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
 		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager (); 
@@ -22,18 +22,16 @@ public class PlayControl : Attacker
 		AnimationClip[] cls = rc.animationClips;
 		foreach(AnimationClip cl in cls){
 			if (cl.name.Equals ("Attack")) {
-				//isAddEvent = true;
-				AnimationEvent event1 = new AnimationEvent ();
-				event1.functionName = "standyEvent";
-				event1.time = cl.length-0.1f;
-				cl.AddEvent (event1);
-                AnimationEvent event2 = new AnimationEvent();
-                event2.functionName = "fightEvent";
-                event2.time = (cl.length - 0.1f) * (resourceData.attack_framce / resourceData.attack_all_framce);
+                //isAddEvent = true;
+                mStandEvent = new AnimationEvent ();
+                mStandEvent.functionName = "standyEvent";
+				cl.AddEvent (mStandEvent);
+                mFightEvent = new AnimationEvent();
+                mFightEvent.functionName = "fightEvent";
                 // Debug.Log("set fightEvent resourceData.attack_frame =" + resourceData.attack_framce);
                 //Debug.Log("set fightEvent resourceData.attack_all_framce =" + resourceData.attack_all_framce);
                 // Debug.Log("set fightEvent time =" + event2.time);
-                cl.AddEvent(event2);
+                cl.AddEvent(mFightEvent);
             } 
 		}
 		Run ();
@@ -98,25 +96,26 @@ public class PlayControl : Attacker
         mAttribute.add(mEquipAttribute);
         mBloodVolume = (int)(mAttribute.maxBloodVolume * bili);
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
+        upDataSpeed();
     }
     private bool isFighted = false;
     public void fightEvent()
     {
-
+        Debug.Log(" fightEvent ");
         if (status == Attacker.PLAY_STATUS_DIE || isFighted)
         {
             return;
         }
-        //  Debug.Log("fightEvent time =" + timeTest);
         isFighted = true;
-        // Debug.Log("fightEvent");
         mFightManager.attackerAction(id);
     }
     public void standyEvent(){
-		if (status == Attacker.PLAY_STATUS_DIE || status != Attacker.PLAY_STATUS_FIGHT) {
+        Debug.Log(" standyEvent ");
+        if (status == Attacker.PLAY_STATUS_DIE || status != Attacker.PLAY_STATUS_FIGHT) {
 			return;
 		}
-		Standy ();
+        mWaitAttackTime = 0;
+        Standy ();
 	}
     public void heroUp() {
         setHeroData();
@@ -152,11 +151,13 @@ public class PlayControl : Attacker
 	// Update is called once per frame
 	private float mTime = 0; 
 	void Update () {
-
-		if (status != mFightManager.mHeroStatus && status != Attacker.PLAY_STATUS_STANDY) {
+        mTime += Time.deltaTime;
+        Debug.Log(" mTime =" + mTime);
+        if (status != mFightManager.mHeroStatus && status != Attacker.PLAY_STATUS_STANDY) {
 			status = mFightManager.mHeroStatus;
 			if (status == Attacker.PLAY_STATUS_FIGHT) {
 				Fight ();
+                Debug.Log(" Fight () ");
                 isFighted = false;
                 mBackManager.stop ();
 			}
@@ -165,11 +166,13 @@ public class PlayControl : Attacker
 				mBackManager.move ();
 			}
 		}
-		mAttackTime += Time.deltaTime;
-		if (status == Attacker.PLAY_STATUS_STANDY) {
-			if (mAttackTime >= mAttribute.attackSpeed) {
+        mWaitAttackTime += Time.deltaTime;
+        Debug.Log(" mWaitAttackTime =" + mWaitAttackTime );
+        if (status == Attacker.PLAY_STATUS_STANDY) {
+			if (mWaitAttackTime >= mSpeedBean.interval) {
 		//		Debug.Log("hurt");
 				Fight ();
+                Debug.Log(" Fight () ");
                 isFighted = false;
 			}	
 		}
