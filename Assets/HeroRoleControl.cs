@@ -64,7 +64,6 @@ public class HeroRoleControl : MonoBehaviour {
         string name = null;
         foreach (long type in mTypeAll) {
             name = "equip_gride_" + type;
-            Debug.Log("hero equip type =" + name);
             goodIcon = GameObject.Find(name).GetComponent<GoodControl>();
 
             if (mHeroEquipl.ContainsKey(type))

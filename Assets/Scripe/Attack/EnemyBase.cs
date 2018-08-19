@@ -5,80 +5,51 @@ using UnityEngine;
 public class EnemyBase : Attacker {	
 	// Update is called once per frame
 	private EnemyState mState;
+    private float mDestroyTime = 0.5f;
 	void Start () {
-		_anim = gameObject.GetComponent<Animator> ();
 		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
 		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager (); 
 		mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,false,this);
 		mFightManager.registerAttacker (this);
-		RuntimeAnimatorController rc = _anim.runtimeAnimatorController;
-		AnimationClip[] cls = rc.animationClips;
-		foreach(AnimationClip cl in cls){
-			if (cl.name.Equals ("Dead")) {
-				//isAddEvent = true;
-				AnimationEvent event1 = new AnimationEvent ();
-				event1.functionName = "deadEvent";
-				event1.time = cl.length-0.1f;
-				cl.AddEvent (event1);
-			} else if (cl.name.Equals ("Attack")) {
-                //isAddEvent = true;
-                mStandEvent = new AnimationEvent();
-                mStandEvent.functionName = "standyEvent";
-                cl.AddEvent(mStandEvent);
-                mFightEvent = new AnimationEvent();
-                mFightEvent.functionName = "fightEvent";
-                // Debug.Log("set fightEvent resourceData.attack_frame =" + resourceData.attack_framce);
-                //Debug.Log("set fightEvent resourceData.attack_all_framce =" + resourceData.attack_all_framce);
-                // Debug.Log("set fightEvent time =" + event2.time);
-                cl.AddEvent(mFightEvent);
-            } 
-		}
-		Run ();
+        Run ();
 	}
-   // private float timeTest = 0;
-    private bool isFighted = false;
-    public void fightEvent() {
-        
-        if (status == Attacker.PLAY_STATUS_DIE || isFighted)
+    // private float timeTest = 0;
+    private void initAnimalEvent()
+    {
+        mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
+        mAnimalControl = new AnimalControlBase(resourceData, mSpriteRender);
+        mAnimalControl.setStatueDelayStatue(ActionFrameBean.ACTION_ATTACK, ActionFrameBean.ACTION_STANDY);
+        mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_ATTACK, (int)resourceData.attack_framce, new AnimalStatu.animalIndexCallback(fightEcent));
+        mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_DIE, (int)resourceData.attack_framce, new AnimalStatu.animalIndexCallback(dieEcent));
+        mAnimalControl.start();
+    }
+    void fightEcent(int status)
+    {
+        Debug.Log("enemy fightEvent ");
+        if (status == ActionFrameBean.ACTION_ATTACK)
         {
-            return;
+            
+            mFightManager.attackerAction(id);
         }
-      //  Debug.Log("fightEvent time =" + timeTest);
-        isFighted = true;
-       // Debug.Log("fightEvent");
-        mFightManager.attackerAction(id);
+    }
+    void dieEcent(int status)
+    {
+        if (status == ActionFrameBean.ACTION_DIE)
+        {
+            Destroy(gameObject, 1);
+        }
     }
 
-	public void deadEvent(){
-		Destroy (gameObject, 1);
-	}
-	public void standyEvent(){
-      //  Debug.Log("standyEvent time="+ timeTest);
-        if (status == Attacker.PLAY_STATUS_DIE) {
-			return;
-		}
-
-        //Debug.Log ("standyEvent");
-        //Debug.Log("end fight");
-        mWaitAttackTime = 0;
-        Standy ();
-	}
+    private bool isFighted = false;
 	private bool isAddEvent = false;
 	private bool isAddFightEvent = false;
+    private float mTime = 0;
 	void Update () {
   //      timeTest += Time.deltaTime;
 
         run ();
-        mWaitAttackTime += Time.deltaTime;
-		if (status == Attacker.PLAY_STATUS_STANDY) {
-			if (mWaitAttackTime >= mSpeedBean.interval) {
-//                Debug.Log("Start fight");
-    //            timeTest = 0;
-                Fight ();
-				mFightManager.attackerAction (id);
-			}	
-		}
-	}
+        mAnimalControl.update();
+    }
 	private float xy = 0;
 	public void run(){
 		
@@ -89,7 +60,7 @@ public class EnemyBase : Attacker {
 			transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
 			mState.Update ();
 		}
-		if (status != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999) {
+		if (getStatus() != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999) {
 			return;
 		}
 		float x;
@@ -132,7 +103,8 @@ public class EnemyBase : Attacker {
 	public Enemy mData;
 	public void init(Enemy data,ResourceBean resource){
 		resourceData= resource;
-		mData = data;
+        initAnimalEvent();
+        mData = data;
         mAttribute.aggressivity = data.monster_attack;
         mAttribute.defense = data.monster_defense;
         mAttribute.maxBloodVolume = data.monster_hp;

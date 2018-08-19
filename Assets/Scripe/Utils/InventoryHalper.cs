@@ -47,7 +47,6 @@ public class InventoryHalper
                 newBean.count = count;
                 newBean.tabId = jb.tabid;
                 mList.Add(newBean);
-                Debug.Log("InventoryHalper list size  " + mList.Count);
             }
             else if (id > TABID_2_START_ID && id < TABID_3_START_ID) {
                 AccouterJsonBean jb = BackpackManager.getIntance().getAccouterInfoById(id);
@@ -56,23 +55,14 @@ public class InventoryHalper
                 newBean.sortID = jb.sortID;
                 newBean.count = count;
                 newBean.tabId = jb.tabid;
-                Debug.Log("newBean.goodId  " + newBean.goodId);
-                Debug.Log("newBean.sortID  " + newBean.sortID);
-                Debug.Log("newBean.count  " + newBean.count);
-                Debug.Log("newBean.tabId  " + newBean.tabId);
                 newBean.attributeList = new List<PlayerAttributeBean>();
                 foreach (AttributeBean be in jb.getAttributeList()) {
                     PlayerAttributeBean p = new PlayerAttributeBean();
                     p.type = be.type;
                     p.value = be.getCurrentValue();
-                    Debug.Log("newBean.tabId  be.min " +be.min);
-                    Debug.Log("newBean.tabId be.max " + be.max);
-                    Debug.Log("newBean.tabId  p.type " + p.type);
-                    Debug.Log("newBean.tabId p.value " + p.value);
                     newBean.attributeList.Add(p);
                 }
                 mList.Add(newBean);
-                Debug.Log("InventoryHalper list size  " + mList.Count);
             }
             return true;
             //添加数据

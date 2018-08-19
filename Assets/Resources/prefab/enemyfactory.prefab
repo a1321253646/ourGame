@@ -51,47 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b987e5704fbf71845b46e7ce2f7b35c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game:
-  - {fileID: 1580133056562732, guid: a0c29cb975cf60543b23c97c98632cd6, type: 2}
-  - {fileID: 1099032193094664, guid: fea816de8eba50642a3c0970d341aa86, type: 2}
-  - {fileID: 1148312207825746, guid: 3851f72e0d9581f468eb4571a61c48e1, type: 2}
-  - {fileID: 1834080556754150, guid: 41a66b2718657c04fb56b58a7310a28a, type: 2}
-  - {fileID: 1316629864481290, guid: aa029255fe5dfc94199020a5c542fdcd, type: 2}
-  - {fileID: 1726469364800190, guid: a36beb5b0a4a2fa46b3ec9bf7f78dbef, type: 2}
-  - {fileID: 1905456953169430, guid: c201121ae38aded44a80d637f91afcf5, type: 2}
-  - {fileID: 1217752347590402, guid: 31847dd9f2d1523428b649b54651c9a7, type: 2}
-  - {fileID: 1474729401665142, guid: 69a5eee44130f2e4bb29cc3e991a48aa, type: 2}
-  - {fileID: 1104063228545918, guid: 28a916cfcb5b39042b89e196c2e7a2e7, type: 2}
-  - {fileID: 1719741603127194, guid: 9ea136e53065fa94fb5c5a3bea241004, type: 2}
-  - {fileID: 1157581216277030, guid: 5866f77ffa764be4f981f2a165c4a2ad, type: 2}
-  - {fileID: 1859615712202864, guid: 948be95a18b135843acf3f4194a35e18, type: 2}
-  - {fileID: 1612814104925278, guid: a5bd0a29650ce4c4da6ceb41c48e57b3, type: 2}
-  - {fileID: 1686876482114212, guid: 9a997edd479fbb24f8f557049065142e, type: 2}
-  - {fileID: 1834755718899634, guid: aaafa28a10922b44099a8b4dd9232a78, type: 2}
-  - {fileID: 1294972325651002, guid: 935d8e92a494867458f89997df9677e5, type: 2}
-  - {fileID: 1898497347866992, guid: e6234d52468e88e4ead6d9d662dbf481, type: 2}
-  - {fileID: 1554090089789102, guid: 43f894d7f4d6c3442b650339ac6d3b25, type: 2}
-  - {fileID: 1966924155648614, guid: 1ac1641c9aec6a5459adc0f3b431edce, type: 2}
-  - {fileID: 1512769862223948, guid: 143849da13a35804b9426725275deba0, type: 2}
-  - {fileID: 1122662088044142, guid: b9872f04f4fc9e441aaa0501ae8b9981, type: 2}
-  - {fileID: 1679343679789738, guid: 2faebf7cd9f07e1449ed56d6dceed595, type: 2}
-  - {fileID: 1687197279918680, guid: 916a4975b15a98d4584be35fb360955c, type: 2}
-  - {fileID: 1971119928441706, guid: abd0f3b3ce261054290543ff0025a504, type: 2}
-  - {fileID: 1639773915695646, guid: bc9915f10edf8cb4d804d02cc05b9285, type: 2}
-  - {fileID: 1742326870020338, guid: 1bb5e6d6deac58040b6dccd7f2c6fbbc, type: 2}
-  - {fileID: 1592398899323370, guid: ae1875b77d6a30240a14ccba539169f7, type: 2}
-  - {fileID: 1887535592685322, guid: 487edf95608527c4abc83bd908fdae4b, type: 2}
-  - {fileID: 1472633013429988, guid: 9ec39bebe1cc35945b655ba4600c1729, type: 2}
-  - {fileID: 1569742581627176, guid: e838dd4cc2e4f3d48b0c38b7f7c50c69, type: 2}
-  - {fileID: 1669358632525516, guid: 97c793aad06ef9747a09e873227660c2, type: 2}
-  - {fileID: 1561822986740484, guid: 3576792f14ef6ee499f2af79f865bc38, type: 2}
-  - {fileID: 1968784089606270, guid: 740a5e4f3f0ca8a46bccdbae1049c168, type: 2}
-  - {fileID: 1759639621845252, guid: ed266dbeebdba0444bc49ac80094019b, type: 2}
-  - {fileID: 1871175740634246, guid: 313416aaa5250a343970a78c2161ab5b, type: 2}
-  - {fileID: 1532357441645822, guid: c254dfd257728984cb404a2891ac1230, type: 2}
-  - {fileID: 1146296482521990, guid: f3dbe6abf5171a7438da7c77f1536a75, type: 2}
-  - {fileID: 1128500596405162, guid: 1ebaf4f4f42a4f8438c48c363c65bcf4, type: 2}
-  - {fileID: 1072545068518518, guid: 8014554e4e95b644a8ce92e52ef46231, type: 2}
+  game: {fileID: 1141499786049772, guid: f126c046f1a2bc94b9e29c28cffb26a3, type: 2}
   Effect:
   - {fileID: 1161253110895174, guid: eef565599eac3f243a1235b187a03948, type: 2}
   - {fileID: 1815311383339422, guid: bb1cf2e8b62ce684593ca684944e8663, type: 2}

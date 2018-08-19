@@ -9,7 +9,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.12,-0,3",
     "fight_offset": "0.32,-0.28",
-    "idel_y": -0.69
+    "idel_y": -0.69,
+    "action_list": "1,2,3,4,5,6",
+    "action_frame": "7,7,4,6,8,5",
+    "target_border": "0.38,0.45,1.1"
   },
   {
     "id": 20001,
@@ -21,7 +24,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.25,-0.26",
     "fight_offset": "0,0",
-    "idel_y": -0.53
+    "idel_y": -0.53,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,5,7,8",
+    "target_border": "0.45,0.45,0.83"
   },
   {
     "id": 20002,
@@ -33,7 +39,10 @@
     "blood_witch": 1,
     "hurt_offset": "0.07,-0.37",
     "fight_offset": "-0.13,-0.5",
-    "idel_y": -0.66
+    "idel_y": -0.66,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,10,5,8,8",
+    "target_border": "0.58,0.51,0.87"
   },
   {
     "id": 20003,
@@ -45,7 +54,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.14,-0.13",
     "fight_offset": "0,0",
-    "idel_y": -0.45
+    "idel_y": -0.45,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,13,6,10,8",
+    "target_border": "0.91,0.69,0.94"
   },
   {
     "id": 20004,
@@ -57,7 +69,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.2,-0.16",
     "fight_offset": "0,0",
-    "idel_y": -0.69
+    "idel_y": -0.69,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,4,8,6",
+    "target_border": "1.02,0.67,1.06"
   },
   {
     "id": 20005,
@@ -69,7 +84,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.21,-0.51",
     "fight_offset": "0,0",
-    "idel_y": -0.78
+    "idel_y": -0.78,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,12,5,9,10",
+    "target_border": "0.91,0.56,0.98"
   },
   {
     "id": 20006,
@@ -81,7 +99,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.33,-0.22",
     "fight_offset": "0,0",
-    "idel_y": -0.54
+    "idel_y": -0.54,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,5,7,8",
+    "target_border": "0.59,0.52,0.84"
   },
   {
     "id": 20007,
@@ -93,7 +114,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.33,-0.26",
     "fight_offset": "0,0",
-    "idel_y": -0.56
+    "idel_y": -0.56,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,5,7,8",
+    "target_border": "0.45,0.45,0.83"
   },
   {
     "id": 20008,
@@ -105,7 +129,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.14,-0.47",
     "fight_offset": "0,0",
-    "idel_y": -0.66
+    "idel_y": -0.66,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,7,5,7,6",
+    "target_border": "0.35,0.39,0.59"
   },
   {
     "id": 20009,
@@ -117,7 +144,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.16,-0.35",
     "fight_offset": "0,0",
-    "idel_y": -0.62
+    "idel_y": -0.62,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,6,5,7,6",
+    "target_border": "0.55,0.48,0.85"
   },
   {
     "id": 20010,
@@ -129,7 +159,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.13,-0.46",
     "fight_offset": "-0.22,-0.34",
-    "idel_y": -0.64
+    "idel_y": -0.64,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,6,5,7,6",
+    "target_border": "0.38,0.48,0.6"
   },
   {
     "id": 20011,
@@ -141,7 +174,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.18,0.44",
     "fight_offset": "0,0",
-    "idel_y": -0.64
+    "idel_y": -0.64,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,7,5,7,6",
+    "target_border": "0.38,0.5,0.65"
   },
   {
     "id": 20012,
@@ -153,7 +189,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.15,-0.47",
     "fight_offset": "0,0",
-    "idel_y": -0.64
+    "idel_y": -0.64,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,3,7,5",
+    "target_border": "0.26,0.29,0.47"
   },
   {
     "id": 20013,
@@ -165,7 +204,10 @@
     "blood_witch": 1,
     "hurt_offset": "0.08,-0.36",
     "fight_offset": "-0.086,-0.52",
-    "idel_y": -0.66
+    "idel_y": -0.66,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,10,5,8,8",
+    "target_border": "0.34,0.43,0.85"
   },
   {
     "id": 20014,
@@ -177,7 +219,10 @@
     "blood_witch": 1,
     "hurt_offset": "0.08,-0.36",
     "fight_offset": "-0.143,-0.475",
-    "idel_y": -0.66
+    "idel_y": -0.66,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,10,5,8,8",
+    "target_border": "0.39,0.41,0.89"
   },
   {
     "id": 20015,
@@ -189,7 +234,10 @@
     "blood_witch": 1,
     "hurt_offset": "0.16,-0.48",
     "fight_offset": "0,0",
-    "idel_y": -0.64
+    "idel_y": -0.64,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,3,7,5",
+    "target_border": "0.28,0.31,0.47"
   },
   {
     "id": 20016,
@@ -201,7 +249,10 @@
     "blood_witch": 1,
     "hurt_offset": "0,0",
     "fight_offset": "0,0",
-    "idel_y": 0
+    "idel_y": 0,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,7,4,8,6",
+    "target_border": "0.66,0.79,1.35"
   },
   {
     "id": 20017,
@@ -213,7 +264,10 @@
     "blood_witch": 1,
     "hurt_offset": "0.24,-0.14",
     "fight_offset": "1.01,0.12",
-    "idel_y": -0.54
+    "idel_y": -0.54,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,7,4,8,6",
+    "target_border": "0.42,0.54,0.89"
   },
   {
     "id": 20018,
@@ -225,7 +279,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.19,-0.16",
     "fight_offset": "0,0",
-    "idel_y": -0.71
+    "idel_y": -0.71,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,7,4,8,6",
+    "target_border": "0.5,0.61,1.14"
   },
   {
     "id": 20019,
@@ -237,7 +294,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.13,-0.46",
     "fight_offset": "0,0",
-    "idel_y": -0.66
+    "idel_y": -0.66,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,3,7,5",
+    "target_border": "0.27,0.35,0.5"
   },
   {
     "id": 20020,
@@ -249,7 +309,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.18,0.08",
     "fight_offset": "0,0",
-    "idel_y": -0.37
+    "idel_y": -0.37,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "8,11,5,9,8",
+    "target_border": "0.42,0.42,1.16"
   },
   {
     "id": 20021,
@@ -261,7 +324,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.15,-0.36",
     "fight_offset": "0,0",
-    "idel_y": -0.65
+    "idel_y": -0.65,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,3,8,8",
+    "target_border": "0.55,0.44,0.78"
   },
   {
     "id": 20022,
@@ -273,7 +339,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.26,-0.56",
     "fight_offset": "-0.61,-0.32",
-    "idel_y": -0.91
+    "idel_y": -0.91,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,9,5,7,8",
+    "target_border": "0.59,0.81,1.06"
   },
   {
     "id": 20023,
@@ -285,7 +354,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.27,-0.64",
     "fight_offset": "0,0",
-    "idel_y": -0.88
+    "idel_y": -0.88,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,5,7,8",
+    "target_border": "0.51,0.43,0.8"
   },
   {
     "id": 20024,
@@ -297,7 +369,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.15,-0.41",
     "fight_offset": "0,0",
-    "idel_y": -0.67
+    "idel_y": -0.67,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,9,7,6,6",
+    "target_border": "0.46,0.34,0.78"
   },
   {
     "id": 20025,
@@ -309,7 +384,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.18,-0.5",
     "fight_offset": "0,0",
-    "idel_y": -0.67
+    "idel_y": -0.67,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,9,7,6,6",
+    "target_border": "0.31,0.32,0.45"
   },
   {
     "id": 20026,
@@ -321,7 +399,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.18,-0.5",
     "fight_offset": "0,0",
-    "idel_y": -0.67
+    "idel_y": -0.67,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,9,7,6,6",
+    "target_border": "0.31,0.32,0.45"
   },
   {
     "id": 20027,
@@ -333,7 +414,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.18,-0.5",
     "fight_offset": "0,0",
-    "idel_y": -0.67
+    "idel_y": -0.67,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,9,7,6,6",
+    "target_border": "0.31,0.32,0.45"
   },
   {
     "id": 20028,
@@ -345,7 +429,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.17,-0.31",
     "fight_offset": "0,0",
-    "idel_y": -0.67
+    "idel_y": -0.67,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,4,9,6",
+    "target_border": "0.5,0.5,1.08"
   },
   {
     "id": 20029,
@@ -357,7 +444,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.18,-0.38",
     "fight_offset": "0,0",
-    "idel_y": -0.63
+    "idel_y": -0.63,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,3,12,5",
+    "target_border": "0.5,0.5,0.94"
   },
   {
     "id": 20030,
@@ -369,7 +459,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.16,-0.37",
     "fight_offset": "0,0",
-    "idel_y": -0.67
+    "idel_y": -0.67,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,9,4,9,6",
+    "target_border": "0.56,0.48,1.2"
   },
   {
     "id": 20031,
@@ -381,7 +474,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.26,-0.35",
     "fight_offset": "-1.06,-0.54",
-    "idel_y": -0.72
+    "idel_y": -0.72,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,4,8,6",
+    "target_border": "0.59,0.67,1"
   },
   {
     "id": 20032,
@@ -393,7 +489,10 @@
     "blood_witch": 1,
     "hurt_offset": "0,0",
     "fight_offset": "0,0",
-    "idel_y": -0.86
+    "idel_y": -0.86,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,7,4,8,8",
+    "target_border": "1.4,1.4,2"
   },
   {
     "id": 20033,
@@ -405,7 +504,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.23,-0.12",
     "fight_offset": "0,0",
-    "idel_y": -0.79
+    "idel_y": -0.79,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,8,4,7,8",
+    "target_border": "0.77,1.69,1.65"
   },
   {
     "id": 20034,
@@ -417,7 +519,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.14,-0.51",
     "fight_offset": "0,0",
-    "idel_y": -0.69
+    "idel_y": -0.69,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,6,4,7,6",
+    "target_border": "0.4,0.4,0.67"
   },
   {
     "id": 20035,
@@ -429,7 +534,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.16,-0.41",
     "fight_offset": "0,0",
-    "idel_y": -0.63
+    "idel_y": -0.63,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,5,5,6,6",
+    "target_border": "0.53,0.67,0.94"
   },
   {
     "id": 20036,
@@ -441,7 +549,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.14,-0.51",
     "fight_offset": "0,0",
-    "idel_y": -0.69
+    "idel_y": -0.69,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,6,4,7,6",
+    "target_border": "0.4,0.4,0.67"
   },
   {
     "id": 20037,
@@ -453,7 +564,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.14,-0.51",
     "fight_offset": "0,0",
-    "idel_y": -0.69
+    "idel_y": -0.69,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,6,4,7,6",
+    "target_border": "0.4,0.4,0.67"
   },
   {
     "id": 20038,
@@ -465,7 +579,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.34,-0.31",
     "fight_offset": "0,0",
-    "idel_y": -0.53
+    "idel_y": -0.53,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "4,12,6,11,10",
+    "target_border": "0.64,0.32,0.55"
   },
   {
     "id": 20039,
@@ -477,7 +594,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.32,0.46",
     "fight_offset": "0,0",
-    "idel_y": -0.3
+    "idel_y": -0.3,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "8,10,5,9,8",
+    "target_border": "1.15,0.7,2"
   },
   {
     "id": 20040,
@@ -489,7 +609,10 @@
     "blood_witch": 1,
     "hurt_offset": "-0.35,0.62",
     "fight_offset": "0,0",
-    "idel_y": -1.55
+    "idel_y": -1.55,
+    "action_list": "1,2,3,4,5",
+    "action_frame": "10,15,6,9,10",
+    "target_border": "1.67,1,4"
   },
   {
     "id": 30001,
@@ -501,7 +624,10 @@
     "blood_witch": 0,
     "hurt_offset": "-1.61,-0.1",
     "fight_offset": "-1.61,-0.1",
-    "idel_y": 0
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
   },
   {
     "id": 30002,
@@ -513,7 +639,10 @@
     "blood_witch": 0,
     "hurt_offset": "0,0",
     "fight_offset": "0,0",
-    "idel_y": 0
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
   },
   {
     "id": 30003,
@@ -525,7 +654,10 @@
     "blood_witch": 0,
     "hurt_offset": "-0.24,-0.001",
     "fight_offset": "0.27,-0.001",
-    "idel_y": 0
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
   },
   {
     "id": 30004,
@@ -537,7 +669,10 @@
     "blood_witch": 0,
     "hurt_offset": "-1.74,-0.15",
     "fight_offset": "-1.74,-0.15",
-    "idel_y": 0
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
   },
   {
     "id": 30005,
@@ -549,7 +684,10 @@
     "blood_witch": 0,
     "hurt_offset": "-1.76,-0.14",
     "fight_offset": "-1.76,-0.14",
-    "idel_y": 0
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
   },
   {
     "id": 30006,
@@ -561,7 +699,10 @@
     "blood_witch": 0,
     "hurt_offset": "0,0.21",
     "fight_offset": "0,0",
-    "idel_y": 0
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
   },
   {
     "id": 30007,
@@ -573,7 +714,10 @@
     "blood_witch": 0,
     "hurt_offset": "-0.91,-0.36",
     "fight_offset": "0,0",
-    "idel_y": 0
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
   },
   {
     "id": 30008,
@@ -585,7 +729,10 @@
     "blood_witch": 0,
     "hurt_offset": "-1.11,0.15",
     "fight_offset": "0,0",
-    "idel_y": 0
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
   },
   {
     "id": 30009,
@@ -597,6 +744,39 @@
     "blood_witch": 0,
     "hurt_offset": "0.51,-0.93",
     "fight_offset": "0,0",
-    "idel_y": 0
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
+  },
+  {
+    "id": 35001,
+    "name": "Effect_1001",
+    "zoom": 1,
+    "attack_framce": 7,
+    "attack_all_framce": 0.0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "",
+    "fight_offset": 0,
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
+  },
+  {
+    "id": 35002,
+    "name": "Effect_1002",
+    "zoom": 1,
+    "attack_framce": 4,
+    "attack_all_framce": 0.0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "",
+    "fight_offset": 0,
+    "idel_y": 0,
+    "action_list": "",
+    "action_frame": "",
+    "target_border": ""
   }
 ]

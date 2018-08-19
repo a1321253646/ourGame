@@ -11,31 +11,27 @@ public class PlayControl : Attacker
     void Start () {
 		mAttackType = Attacker.ATTACK_TYPE_HERO;
 		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
-		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager (); 
-		_anim = gameObject.GetComponent<Animator> ();
+		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager ();
 		//mBackManager.setBackground ("map/map_03");
 		toString ("Play");
 		mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;       
         setHeroData ();
 		mFightManager.registerAttacker (this);
-		RuntimeAnimatorController rc = _anim.runtimeAnimatorController;
-		AnimationClip[] cls = rc.animationClips;
-		foreach(AnimationClip cl in cls){
-			if (cl.name.Equals ("Attack")) {
-                //isAddEvent = true;
-                mStandEvent = new AnimationEvent ();
-                mStandEvent.functionName = "standyEvent";
-				cl.AddEvent (mStandEvent);
-                mFightEvent = new AnimationEvent();
-                mFightEvent.functionName = "fightEvent";
-                // Debug.Log("set fightEvent resourceData.attack_frame =" + resourceData.attack_framce);
-                //Debug.Log("set fightEvent resourceData.attack_all_framce =" + resourceData.attack_all_framce);
-                // Debug.Log("set fightEvent time =" + event2.time);
-                cl.AddEvent(mFightEvent);
-            } 
-		}
-		Run ();
 	}
+    private void initAnimalEvent() {
+        mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
+        mAnimalControl = new AnimalControlBase(resourceData, mSpriteRender);
+        mAnimalControl.setStatueDelayStatue(ActionFrameBean.ACTION_ATTACK, ActionFrameBean.ACTION_STANDY);
+        mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_ATTACK,(int)resourceData.attack_framce, new AnimalStatu.animalIndexCallback(fightEcent));
+        mAnimalControl.start();
+        Run();
+    }
+
+    void fightEcent(int status) {
+        if (status == ActionFrameBean.ACTION_ATTACK) {
+            mFightManager.attackerAction(id);
+        }
+    }
 
 
     public Attribute mEquipAttribute = new Attribute();
@@ -98,32 +94,16 @@ public class PlayControl : Attacker
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
         upDataSpeed();
     }
-    private bool isFighted = false;
-    public void fightEvent()
-    {
-        Debug.Log(" fightEvent ");
-        if (status == Attacker.PLAY_STATUS_DIE || isFighted)
-        {
-            return;
-        }
-        isFighted = true;
-        mFightManager.attackerAction(id);
-    }
-    public void standyEvent(){
-        Debug.Log(" standyEvent ");
-        if (status == Attacker.PLAY_STATUS_DIE || status != Attacker.PLAY_STATUS_FIGHT) {
-			return;
-		}
-        mWaitAttackTime = 0;
-        Standy ();
-	}
     public void heroUp() {
         setHeroData();
     }
 
     public void setHeroData(){
-        Hero mHero = JsonUtils.getIntance().getHeroData(); 
-        resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
+        Hero mHero = JsonUtils.getIntance().getHeroData();
+        if (resourceData == null) {           
+            resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
+            initAnimalEvent();
+        }
         float mMaxTmp = mBaseAttribute.maxBloodVolume;
         if (mBloodVolume < 0) {
             mBloodVolume = 0;
@@ -152,30 +132,19 @@ public class PlayControl : Attacker
 	private float mTime = 0; 
 	void Update () {
         mTime += Time.deltaTime;
-        Debug.Log(" mTime =" + mTime);
-        if (status != mFightManager.mHeroStatus && status != Attacker.PLAY_STATUS_STANDY) {
-			status = mFightManager.mHeroStatus;
-			if (status == Attacker.PLAY_STATUS_FIGHT) {
+        if (getStatus() != mFightManager.mHeroStatus && getStatus() != Attacker.PLAY_STATUS_STANDY) {
+			setStatus(mFightManager.mHeroStatus);
+			if (getStatus() == Attacker.PLAY_STATUS_FIGHT) {
 				Fight ();
-                Debug.Log(" Fight () ");
-                isFighted = false;
+                Debug.Log(" Fight () ");             
                 mBackManager.stop ();
 			}
-			if (status == Attacker.PLAY_STATUS_RUN ) {
+			if (getStatus() == Attacker.PLAY_STATUS_RUN ) {
 				Run ();
 				mBackManager.move ();
 			}
 		}
-        mWaitAttackTime += Time.deltaTime;
-        Debug.Log(" mWaitAttackTime =" + mWaitAttackTime );
-        if (status == Attacker.PLAY_STATUS_STANDY) {
-			if (mWaitAttackTime >= mSpeedBean.interval) {
-		//		Debug.Log("hurt");
-				Fight ();
-                Debug.Log(" Fight () ");
-                isFighted = false;
-			}	
-		}
+        mAnimalControl.update();
 	}
 	void run(){
 		transform.Translate (new Vector2 (1, 0)*(mRunSpeed-mBackManager.moveSpeed)*Time.deltaTime);
@@ -190,8 +159,7 @@ public class PlayControl : Attacker
                 Die();
                 mFightManager.unRegisterAttacker(this);
             }
-        }
-		
+        }		
 		mState.hurt (status);
 		return status.blood;
 	}

@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 public class AttackSpeedBean 
 {
     public float interval = 0;
     public float speed = 1;
     public float leng = 1;
-
     public static  AttackSpeedBean GetAttackSpeed(ResourceBean resource,float speed)
     {
         float eachFors = JsonUtils.getIntance().getFrequencyByValue(speed);

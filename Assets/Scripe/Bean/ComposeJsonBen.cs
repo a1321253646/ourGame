@@ -29,7 +29,6 @@ public class ComposeJsonBen
             int count = array.Length > array2.Length ? array2.Length : array.Length;
             for (int i=0; i < count; i++) {
                 ComposeNeedItemBean bean = new ComposeNeedItemBean();
-                Debug.Log("array[i] = " + array[i] + " array2[i]" + array2[i]);
                 bean.id = long.Parse(array[i]);
                 bean.num = long.Parse(array2[i]);
                 mList.Add(bean);
