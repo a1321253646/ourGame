@@ -47,8 +47,6 @@ public class AnimalStatu
             else{
                 index = "0" + (i+1);
             }
-
-
             Sprite sprite = Resources.Load("animal/"+mPathRoot+"/"+ mPath+"/"+statue+"/"+ index, typeof(Sprite)) as Sprite;
             spriteList.Add(sprite);
         }

@@ -36,7 +36,7 @@ public class AnimalControlBase
             statu.setEndCallBack(mDefuleEndCallbak);
             mAnimalStatuList.Add(bean.status, statu);
         }
-        if (mAnimalStatuList.Count == 1 && mAnimalStatuList[0].statue == 0) {
+        if (mAnimalStatuList.Count == 1 && mAnimalStatuList[0].statue == ActionFrameBean.ACTION_NONE) {
             changeStatue(mAnimalStatuList[0]);
         }
         else{

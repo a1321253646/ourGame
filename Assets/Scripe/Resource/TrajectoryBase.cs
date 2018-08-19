@@ -9,11 +9,19 @@ public class TrajectoryBase : MonoBehaviour
 	public float speed = 1f;
 	public bool isRUn = false;
 	Attacker mAttacker;
+    public SpriteRenderer mSpriteRender;
+    AnimalControlBase mAnimalControl;
 
+    // Use this for initialization
+    public void setId(long id)
+    {
+        mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
+        ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(id);
+        mAnimalControl = new AnimalControlBase(bean, mSpriteRender);
+        mAnimalControl.start();
+    }
 
-	// Use this for initialization
-
-	public void startRun(Attacker attacker,BackgroundManager back,FightResource fight){
+    public void startRun(Attacker attacker,BackgroundManager back,FightResource fight){
 		mBackManager = back;
 		mAttacker = attacker;
 		mFightResource = fight;
@@ -33,7 +41,9 @@ public class TrajectoryBase : MonoBehaviour
             gameObject.transform.Translate (Vector2.left *  speed * Time.deltaTime);
 		}
 		isReach ();
-	}
+        mAnimalControl.update();
+
+    }
 	private void isReach(){
         //  Debug.Log("traject update isReach");
         if (mAttacker.mAttackerTargets.Count > 0 && transform.position.x + mFightResource.mTrajectResource.getHurtOffset().x <=

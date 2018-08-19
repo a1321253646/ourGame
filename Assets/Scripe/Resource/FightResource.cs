@@ -19,7 +19,6 @@ public class FightResource
 			mHitId = ((EnemyBase)mAttacker).mData.hit_resource;
             mHitResource = JsonUtils.getIntance().getEnemyResourceData(mHitId);
             mTrajectResource = JsonUtils.getIntance().getEnemyResourceData(mTrajectoryId);
-
         }
 	}
 	public HurtStatus hurt(HurtStatus blood){
@@ -35,12 +34,13 @@ public class FightResource
 
 	private bool creatTrajectObj(){
 		if (mTrajectoryId != 0) {
-			long id = mTrajectoryId- 30001;
 			GameObject newobj =  GameObject.Instantiate (
-				mFactory.Effect[id], new Vector2 (mAttacker.transform.position.x+mAttacker.resourceData.getFightOffset().x-mTrajectResource.getFightOffset().x
+				mFactory.Effect, new Vector2 (mAttacker.transform.position.x+mAttacker.resourceData.getFightOffset().x-mTrajectResource.getFightOffset().x
                 , mAttacker.transform.position.y+ mAttacker.resourceData.getFightOffset().y - mTrajectResource.getFightOffset().y),Quaternion.Euler(0.0f,0f,0.0f));
-			TrajectoryBase mbase = newobj.GetComponent<TrajectoryBase> ();
-			mbase.startRun (mAttacker, mAttacker.mBackManager, this);
+            newobj.AddComponent<TrajectoryBase>();
+            TrajectoryBase mbase = newobj.GetComponent<TrajectoryBase> ();
+            mbase.setId(mTrajectoryId);
+            mbase.startRun (mAttacker, mAttacker.mBackManager, this);
 			return true;
 		}
 		return false;
@@ -48,15 +48,15 @@ public class FightResource
 
 	private bool creatHit(){
 		if (mHitId != 0 && mAttacker.mAttackerTargets.Count > 0) {
-			long id = mHitId - 30001;
             Attacker attacker = mAttacker.mAttackerTargets[0];
-
             GameObject newobj =  GameObject.Instantiate (
-                mFactory.Effect[id], new Vector2 (attacker.transform.position.x+attacker.resourceData.getHurtOffset().x- mHitResource.getHurtOffset().x,
+                mFactory.Effect, new Vector2 (attacker.transform.position.x+attacker.resourceData.getHurtOffset().x- mHitResource.getHurtOffset().x,
                 attacker.transform.position.y+attacker.resourceData.getHurtOffset().y - mHitResource.getHurtOffset().y
                 ),Quaternion.Euler(0.0f,0f,0.0f));
-			HitBase mbase = newobj.GetComponent<HitBase> ();
-			mbase.startRun (this);
+            newobj.AddComponent<HitBase>();
+            HitBase mbase = newobj.GetComponent<HitBase> ();
+            mbase.setId(mHitId);
+            mbase.startRun(this);
 			return true;
 		}
 		return false;

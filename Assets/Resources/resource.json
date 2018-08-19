@@ -625,8 +625,8 @@
     "hurt_offset": "-1.61,-0.1",
     "fight_offset": "-1.61,-0.1",
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 4,
     "target_border": ""
   },
   {
@@ -640,8 +640,8 @@
     "hurt_offset": "0,0",
     "fight_offset": "0,0",
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 8,
     "target_border": ""
   },
   {
@@ -655,8 +655,8 @@
     "hurt_offset": "-0.24,-0.001",
     "fight_offset": "0.27,-0.001",
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 1,
     "target_border": ""
   },
   {
@@ -670,8 +670,8 @@
     "hurt_offset": "-1.74,-0.15",
     "fight_offset": "-1.74,-0.15",
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 4,
     "target_border": ""
   },
   {
@@ -685,8 +685,8 @@
     "hurt_offset": "-1.76,-0.14",
     "fight_offset": "-1.76,-0.14",
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 4,
     "target_border": ""
   },
   {
@@ -700,8 +700,8 @@
     "hurt_offset": "0,0.21",
     "fight_offset": "0,0",
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 4,
     "target_border": ""
   },
   {
@@ -715,8 +715,8 @@
     "hurt_offset": "-0.91,-0.36",
     "fight_offset": "0,0",
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 4,
     "target_border": ""
   },
   {
@@ -730,8 +730,8 @@
     "hurt_offset": "-1.11,0.15",
     "fight_offset": "0,0",
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 4,
     "target_border": ""
   },
   {
@@ -745,8 +745,8 @@
     "hurt_offset": "0.51,-0.93",
     "fight_offset": "0,0",
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 6,
     "target_border": ""
   },
   {

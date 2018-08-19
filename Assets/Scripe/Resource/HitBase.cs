@@ -5,38 +5,32 @@ public class HitBase : MonoBehaviour
 {
 	public Animator _anim;
 	public FightResource mFightResource;
-	private string mAnimRunName = "run";
-	// Use this for initialization
+    public SpriteRenderer mSpriteRender;
+    AnimalControlBase mAnimalControl;
+    // Use this for initialization
 
-	public void startRun(FightResource fight){
+    public void startRun(FightResource fight){
 		mFightResource = fight;
 	}
+    public void setId(long id)
+    {
+        mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
+        ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(id);
+        mAnimalControl = new AnimalControlBase(bean, mSpriteRender);
+        mAnimalControl.setEndCallBack(ActionFrameBean.ACTION_NONE, new AnimalStatu.animalEnd(playEnd));
+        mAnimalControl.start();
+    }
+    void playEnd(int status) {
+        Destroy(gameObject);
+    }
+    void Update()
+    {
+        mAnimalControl.update();
 
-	void Start ()
-	{	
-		_anim = gameObject.GetComponent<Animator> ();
-		RuntimeAnimatorController rc = _anim.runtimeAnimatorController;
-		AnimationClip[] cls = rc.animationClips;
+    }
+    void Start ()
+	{	       
         mFightResource.hurt();
-        foreach (AnimationClip cl in cls){
-			if (cl.name.Equals ("effet")) {
-				//isAddEvent = true;
-				AnimationEvent event1 = new AnimationEvent ();
-				event1.functionName = "runEnd";
-				event1.time = cl.length-0.1f;
-				cl.AddEvent (event1);
-			}/* else if (cl.name.Equals ("Attack")) {
-				//isAddEvent = true;
-				AnimationEvent event1 = new AnimationEvent ();
-				event1.functionName = "standyEvent";
-				event1.time = cl.length-0.1f;
-				cl.AddEvent (event1);
-			} */
-		
-		}
-	}
-	public void runEnd(){
-		Destroy (gameObject);
 	}
 }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyFactory : MonoBehaviour {
 	private int mLevel;
 	public GameObject game;
-    public GameObject[] Effect;
+    public GameObject Effect;
     double timeCost = 0;
 	public BackgroundManager mBackManager;
 	public FightManager mFight;
