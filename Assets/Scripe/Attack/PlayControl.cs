@@ -70,7 +70,7 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 111)
                     {
-                        mEquipAttribute.evd += date.value;                 
+                        mEquipAttribute.evd += date.value;
                     }
                     else if (date.type == 112)
                     {
@@ -83,6 +83,9 @@ public class PlayControl : Attacker
                     else if (date.type == 115)
                     {
                         mEquipAttribute.readHurt += date.value;
+                    }
+                    else if (date.type == 114) {
+                        mEquipAttribute.attackSpeed += date.value;
                     }
                 }
             }
