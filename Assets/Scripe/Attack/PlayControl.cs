@@ -10,13 +10,14 @@ public class PlayControl : Attacker
     private HeroState mState;
     void Start () {
 		mAttackType = Attacker.ATTACK_TYPE_HERO;
-		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
+        mCampType = CAMP_TYPE_PLAYER;
+        mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
 		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager ();
 		//mBackManager.setBackground ("map/map_03");
 		toString ("Play");
 		mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;       
         setHeroData ();
-		mFightManager.registerAttacker (this);
+    mFightManager.registerAttacker (this);
 	}
     private void initAnimalEvent() {
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();

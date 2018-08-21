@@ -81,7 +81,8 @@ public class EnemyFactory : MonoBehaviour {
 		} else {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_ENEMY;
 		}
+        enmey.mCampType = Attacker.CAMP_TYPE_MONSTER;
 //		enmey.dieCrystal = enmey.g
-		//newobj.transform.rotation.y
-	}
+//newobj.transform.rotation.y
+    }
 }

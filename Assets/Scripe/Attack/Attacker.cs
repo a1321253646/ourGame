@@ -19,7 +19,11 @@ public abstract class Attacker : MonoBehaviour
 	public static  int ATTACK_TYPE_ENEMY= 3;
 	public static  int ATTACK_TYPE_BOSS = 4;
 
-	private bool isBeAttacker = false;
+    public static int CAMP_TYPE_DEFAULT = 0;
+    public static int CAMP_TYPE_PLAYER = 1;
+    public static int CAMP_TYPE_MONSTER = 2;
+
+    private bool isBeAttacker = false;
 	private int status = PLAY_STATUS_STANDY;
 	public int id = -1;
 	public float mBloodVolume = 0;
@@ -27,7 +31,7 @@ public abstract class Attacker : MonoBehaviour
 	public float mAttackLeng = 1;
 	public float mDieGas = 0;
 	public float mDieCrysta = 0;
-	public int mAttackType =ATTACK_TYPE_DEFAULT;
+
 
     public Attribute mAttribute = new Attribute();
     
@@ -40,6 +44,8 @@ public abstract class Attacker : MonoBehaviour
     public AnimationEvent mFightEvent;
     public AnimalControlBase mAnimalControl;
     public SpriteRenderer mSpriteRender;
+    public int mAttackType = ATTACK_TYPE_DEFAULT;
+    public int mCampType = CAMP_TYPE_DEFAULT;
 
     public void upDataSpeed() {
         if (resourceData == null) {
