@@ -9,3 +9,4 @@ J-主角属性配置表	hero.json
 z-杂项表		config.json
 z-装备配置表		equip.json
 z-资源配置表		resource.json
+j-技能配置表		skill.json

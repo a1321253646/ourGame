@@ -1,0 +1,53 @@
+[
+  {
+    "id": 100001,
+    "effects": 1,
+    "target_type": 2,
+    "effects_parameter": "210,010,0",
+    "calculator": "\"1,100\"*a1+a2+a3",
+    "special_parameter_key": "1001,1002",
+    "special_parameter_value": "0,0",
+    "next_skill": 0,
+    "skill_describe": "测试技能1",
+    "skill_resource": 35001,
+    "shape_type": 1,
+    "shape_resource_id": 12346,
+    "leng": 10,
+    "wight": 10,
+    "point_type": 1
+  },
+  {
+    "id": 100002,
+    "effects": 2,
+    "target_type": 1,
+    "effects_parameter": "0.2,",
+    "calculator": "\"1,102\"*a1",
+    "special_parameter_key": "1001,1002",
+    "special_parameter_value": "0,0",
+    "next_skill": 0,
+    "skill_describe": "测试技能2",
+    "skill_resource": 35002,
+    "shape_type": 1,
+    "shape_resource_id": 12345,
+    "leng": 10,
+    "wight": 10,
+    "point_type": 1
+  },
+  {
+    "id": 0.0,
+    "effects": 0.0,
+    "target_type": 0.0,
+    "effects_parameter": "",
+    "calculator": "",
+    "special_parameter_key": "",
+    "special_parameter_value": "",
+    "next_skill": 0.0,
+    "skill_describe": "",
+    "skill_resource": 0.0,
+    "shape_type": 0.0,
+    "shape_resource_id": 0.0,
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0.0
+  }
+]
