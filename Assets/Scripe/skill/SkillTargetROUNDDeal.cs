@@ -4,21 +4,36 @@ using System.Collections.Generic;
 
 public class SkillTargetRoundDeal
 {
-    public static List<Attacker> getTargetList(List<LocalBean> lives, SkillLocalBean local, int campType)
+    public static List<Attacker> getTargetList(LocalBean lives, SkillLocalBean local, int campType,bool isRed)
     {
         List<Attacker> result = new List<Attacker>();
         float r2 = local.leng / 2;
         r2 = r2 * r2;
-        foreach (LocalBean bean in lives)
+        LocalBean tmp = lives;
+        while (tmp != null)
         {
-            if (bean.mAttacker.mCampType == campType)
+            if (tmp.mAttacker.mCampType == campType)
             {
-                float x = bean.mCurrentX - local.x;
-                float y = bean.mCurrentY - local.y;
-                if (x*x+ y*y <= r2) {
-                    result.Add(bean.mAttacker);
+                float x = tmp.mCurrentX - local.x;
+                float y = tmp.mCurrentY - local.y;
+                if (x * x + y * y <= r2)
+                {
+                    result.Add(tmp.mAttacker);
+                    if (isRed)
+                    {
+                        tmp.mAttacker.setRed();
+                    }
+                }
+                else if (isRed)
+                {
+                    tmp.mAttacker.setWhith();
                 }
             }
+            else if (isRed)
+            {
+                tmp.mAttacker.setWhith();
+            }
+            tmp = tmp.next;
         }
         if (result.Count == 0) {
             result = null;

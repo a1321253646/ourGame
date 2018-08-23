@@ -117,5 +117,12 @@ public abstract class Attacker : MonoBehaviour
         status = ActionFrameBean.ACTION_WIN;
         changeAnim();
     }
+    public void setRed() {
+        mSpriteRender.color = Color.red;
+    }
+    public void setWhith() {
+        mSpriteRender.color = Color.white;
+    }
+
 }
 

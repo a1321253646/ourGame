@@ -5,9 +5,20 @@ using System.Collections.Generic;
 public class SkillManage
 {
     List<SkillObject> mSkillList = new List<SkillObject>();
+    public GameObject mSkillObject; 
+    public void addSkill(SkillJsonBean skill,float x,float y,int campType) {
+        GameObject newobj = GameObject.Instantiate(
+                mSkillObject, new Vector2(x,y), Quaternion.Euler(0.0f, 0f, 0.0f));
+        dealSkillType(newobj, skill,x,y,campType);
+    }
 
-    public void addSkill(SkillObject skill) {
-        mSkillList.Add(skill);
+    private void dealSkillType(GameObject newobj, SkillJsonBean skill, float x, float y, int campType) {
+        if (skill.effects == 1) {
+            newobj.AddComponent<SkillObjectTest>();
+        }
+        SkillObject skillComponent = newobj.GetComponent<SkillObject>();
+        skillComponent.init(skill, x, y, campType);
+        mSkillList.Add(skillComponent);
     }
 
     public void init() {
@@ -21,7 +32,7 @@ public class SkillManage
         for (int i = 0; i < mSkillList.Count;)
         {
             mSkillList[i].upDate();
-            if (mSkillList[i].getStatus() == SkillObject.SKILL_STATUS_RUNNING)
+            if (mSkillList[i].getStatus() == SkillObject.SKILL_STATUS_END)
             {
                 mSkillList.Remove(mSkillList[i]);
                
@@ -33,7 +44,9 @@ public class SkillManage
             }
         }
     }
-
+    public void setSkillPrefer(GameObject ob) {
+        mSkillObject = ob;
+    }
 
     private static  SkillManage mIntance = new SkillManage();
     public static SkillManage getIntance() {

@@ -54,6 +54,10 @@ public class LevelManager : MonoBehaviour {
 	public FightManager getFightManager(){
 		return mFightManager;
 	}
+    public LocalManager getLocalManager()
+    {
+        return mLocalManager;
+    }
 
 
     public void ChangeEquip(Dictionary<long, PlayerBackpackBean> equips) {

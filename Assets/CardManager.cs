@@ -12,9 +12,11 @@ public class CardManager : MonoBehaviour {
     private List<NengliangkuaiControl> mNengliangList = new List<NengliangkuaiControl>();
     private float mTime = 0;
     private Transform mCanvas;
+    private LocalManager mLocalManage;
     // Use this for initialization
     void Start () {
         mCanvas = GameObject.Find("Canvas").transform;
+        mLocalManage = GameObject.Find("Manager").GetComponent<LevelManager>().getLocalManager();
     }
 	
 	// Update is called once per frame
@@ -42,7 +44,7 @@ public class CardManager : MonoBehaviour {
         newobj.transform.SetParent(mCanvas);
         newobj.transform.localScale = Vector3.one;
         mList.Add(enmey);
-        enmey.init("1", mList.Count+1,this);
+        enmey.init("1", mList.Count + 1, this, null);
     }
     public void userCard(int index) {
         for (int i = 0; i < mList.Count;) {
@@ -55,5 +57,8 @@ public class CardManager : MonoBehaviour {
                 mList.Remove(mList[i]);
             }
         } 
+    }
+    public LocalManager getLocalManager() {
+        return mLocalManage;
     }
 }

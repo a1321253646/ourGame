@@ -3,6 +3,11 @@ using System.Collections;
 
 public class SkillJsonBean : MonoBehaviour
 {
+
+    public static long TYPE_SELF = 1;
+    public static long TYPE_ENEMY = 2;
+
+
     public long id;
     public long effects;
     public long target_type;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SkillObject 
+public abstract class SkillObject : MonoBehaviour
 {
 
     public static int SKILL_STATUS_DEFAULT = 1;
@@ -12,11 +12,24 @@ public class SkillObject
     private SkillJsonBean mBean;
     private SkillLocalBean mLocal;
     private int mSkillStatus = SKILL_STATUS_DEFAULT;
-
-    public SkillObject(SkillJsonBean bean) {
+    private bool isInit = false;
+    private int mCamp;
+    SpriteRenderer mSpriteRender;
+    AnimalControlBase mAnimalControl;
+    public void init(SkillJsonBean bean, float x, float y,int campType) {
         mBean = bean;
         getLocal();
+        mLocal.x = x;
+        mLocal.y = y;
+        mCamp = campType;
+        mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
+        mAnimalControl = new AnimalControlBase(JsonUtils.getIntance().getEnemyResourceData(bean.skill_resource), mSpriteRender);
+        initEnd();
+        isInit = true;
+
     }
+
+    public abstract float initEnd();
 
     public int getStatus() {
         return mSkillStatus;
@@ -29,14 +42,9 @@ public class SkillObject
         mLocal.type = mBean.shape_type;
     }
 
-    public void setCenterPoint(float x, float y) {
-        if (mLocal != null) {
-            mLocal.x = x;
-            mLocal.y = y;
-        }
-    }
-
     public void upDate() {
-
+        if (!isInit) {
+            return;
+        }
     }
 }

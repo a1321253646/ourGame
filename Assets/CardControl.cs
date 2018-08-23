@@ -13,7 +13,9 @@ public class CardControl : MonoBehaviour
     private Image mImageTop ;
     private int mStatue = STATUE_CARP_DEFAULT;
     private bool isInit = false;
+    private SkillJsonBean mSkill; 
     private CardManager mManager;
+    private int targetType;
     void Start()
     {
         gameObject.transform.SetSiblingIndex(99999);
@@ -38,12 +40,35 @@ public class CardControl : MonoBehaviour
                 transform.Translate(Vector2.right * run);
             }
         }
+        else if(STATUE_CARP_UP == mStatue) {
+            LocalBean mLocalLink = mManager.getLocalManager().mLocalLink;
+            SkillLocalBean bean =  new SkillLocalBean();
+            Vector3 center = PointUtils.screenTransToWorld(transform.position);
+            bean.x = center.x;
+            bean.y = center.y;
+            bean.type = mSkill.shape_type;
+            bean.wight = mSkill.wight;
+            bean.leng = mSkill.leng;
+            int targetType = Attacker.CAMP_TYPE_DEFAULT;
+            if (mSkill.target_type == SkillJsonBean.TYPE_SELF)
+            {
+                targetType = Attacker.CAMP_TYPE_PLAYER;
+            }
+            else if (mSkill.target_type == SkillJsonBean.TYPE_ENEMY) {
+                targetType = Attacker.CAMP_TYPE_MONSTER;
+            }
+
+            List<Attacker> list =  SkillTargetManager.getTargetList(mLocalLink, bean, targetType,true);
+
+        }
 
     }
     private Vector3 offset;
     public void OnpointUp() {
         if (mStatue == STATUE_CARP_UP) {
             mManager.userCard(mIndex);
+            Vector3 v = PointUtils.screenTransToWorld( transform.position);
+            SkillManage.getIntance().addSkill(mSkill, v.x, v.y, targetType);
             Destroy(gameObject, 0);
         }
     }
@@ -89,7 +114,8 @@ public class CardControl : MonoBehaviour
         {
                      
             RectTransform rt = GetComponent<RectTransform>();
-            rt.sizeDelta = new Vector2(300, 300);
+            Vector3 v = PointUtils.worldTransToScreen(new Vector3(mSkill.leng, mSkill.wight, 0));
+            rt.sizeDelta = new Vector2(v.x, v.y);
             Sprite sprite = Resources.Load("icon/test", typeof(Sprite)) as Sprite;
             tnp = mImageBottom.sprite;
             mImageBottom.sprite = sprite;
@@ -105,9 +131,10 @@ public class CardControl : MonoBehaviour
         }
     }
 
-    public void init(string img,int index, CardManager manage) {
+    public void init(string img,int index, CardManager manage, SkillJsonBean skill) {
         isInit = true;
         mManager = manage;
+        mSkill = skill;
         if (mImageBottom == null) {
             mImageBottom = GetComponent<Image>();
         }
