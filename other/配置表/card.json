@@ -1,0 +1,26 @@
+[
+  {
+    "id": 3000001,
+    "name": "火柱",
+    "stacking": 1,
+    "tabid": 3,
+    "sortID": 3000001,
+    "icon": "card_000",
+    "top_resource": "kapai",
+    "center_resource": "card_skill_3000001",
+    "skill_id": 100001,
+    "cost": 5
+  },
+  {
+    "id": 3000002,
+    "name": "治疗",
+    "stacking": 1,
+    "tabid": 3,
+    "sortID": 3000002,
+    "icon": "card_000",
+    "top_resource": "kapai",
+    "center_resource": "card_skill_3000002",
+    "skill_id": 100002,
+    "cost": 2
+  }
+]

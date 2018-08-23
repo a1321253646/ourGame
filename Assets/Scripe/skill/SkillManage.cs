@@ -14,7 +14,7 @@ public class SkillManage
 
     private void dealSkillType(GameObject newobj, SkillJsonBean skill, float x, float y, int campType) {
         if (skill.effects == 1) {
-            newobj.AddComponent<SkillObjectTest>();
+            newobj.AddComponent<SkillObject1>();
         }
         SkillObject skillComponent = newobj.GetComponent<SkillObject>();
         skillComponent.init(skill, x, y, campType);
@@ -31,7 +31,6 @@ public class SkillManage
         }
         for (int i = 0; i < mSkillList.Count;)
         {
-            mSkillList[i].upDate();
             if (mSkillList[i].getStatus() == SkillObject.SKILL_STATUS_END)
             {
                 mSkillList.Remove(mSkillList[i]);

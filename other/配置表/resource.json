@@ -757,11 +757,11 @@
     "attack_all_framce": 0.0,
     "blood_offset": 0,
     "blood_witch": 0,
-    "hurt_offset": "",
+    "hurt_offset": "0,-0.5",
     "fight_offset": 0,
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 18,
     "target_border": ""
   },
   {
@@ -772,11 +772,11 @@
     "attack_all_framce": 0.0,
     "blood_offset": 0,
     "blood_witch": 0,
-    "hurt_offset": "",
+    "hurt_offset": "0,-0.27",
     "fight_offset": 0,
     "idel_y": 0,
-    "action_list": "",
-    "action_frame": "",
+    "action_list": 0,
+    "action_frame": 9,
     "target_border": ""
   }
 ]

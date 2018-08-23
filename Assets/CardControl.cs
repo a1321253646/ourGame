@@ -13,7 +13,8 @@ public class CardControl : MonoBehaviour
     private Image mImageTop ;
     private int mStatue = STATUE_CARP_DEFAULT;
     private bool isInit = false;
-    private SkillJsonBean mSkill; 
+    private SkillJsonBean mSkill;
+    private CardJsonBean mCard;
     private CardManager mManager;
     private int targetType;
     void Start()
@@ -102,21 +103,16 @@ public class CardControl : MonoBehaviour
             return;
         }
         mStatue = status;
-        if (mImageBottom == null)
-        {
-            mImageBottom = GetComponentsInChildren<Image>()[0];
-        }
-        if (mImageTop == null) {
-            mImageTop = GetComponentsInChildren<Image>()[1];
-        }
         Debug.Log("mStatue = " + mStatue);
         if (mStatue == STATUE_CARP_UP)
         {
                      
             RectTransform rt = GetComponent<RectTransform>();
+            Debug.Log("mSkill.leng =" + mSkill.leng + " mSkill.wight=" + mSkill.wight);
             Vector3 v = PointUtils.worldTransToScreen(new Vector3(mSkill.leng, mSkill.wight, 0));
+            Debug.Log("v.x =" + v.x + " v.y=" + v.y);
             rt.sizeDelta = new Vector2(v.x, v.y);
-            Sprite sprite = Resources.Load("icon/test", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load("UI/"+mSkill.shape_resource_id, typeof(Sprite)) as Sprite;
             tnp = mImageBottom.sprite;
             mImageBottom.sprite = sprite;
             mImageTop.color = new Color(1, 1, 1, 0);
@@ -125,21 +121,32 @@ public class CardControl : MonoBehaviour
         else {
             
             RectTransform rt = GetComponent<RectTransform>();
-            rt.sizeDelta = new Vector2(106, 141);
+            rt.sizeDelta = new Vector2(53, 72);
             mImageBottom.sprite = tnp;
             mImageTop.color = new Color(1, 1, 1, 1);
         }
     }
 
-    public void init(string img,int index, CardManager manage, SkillJsonBean skill) {
+    public void init(int index, CardManager manage,long cardId) {
+        CardJsonBean card = JsonUtils.getIntance().getCardInfoById(cardId);
         isInit = true;
         mManager = manage;
-        mSkill = skill;
-        if (mImageBottom == null) {
-            mImageBottom = GetComponent<Image>();
+        mCard = card;
+        mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);
+        if (mImageBottom == null)
+        {
+            mImageBottom = GetComponentsInChildren<Image>()[0];
+            Debug.Log("mCard.center_resource = " + mCard.center_resource);
+            Sprite sprite = Resources.Load("UI/"+ mCard.center_resource, typeof(Sprite)) as Sprite;
+            mImageBottom.sprite = sprite;
         }
-        //Sprite sprite = Resources.Load("icon/card/"+img, typeof(Sprite)) as Sprite;
-        //mImageBottom.sprite = sprite;
+        if (mImageTop == null)
+        {
+            mImageTop = GetComponentsInChildren<Image>()[1];
+            Debug.Log("mCard.top_resource = " + mCard.top_resource);
+            Sprite sprite = Resources.Load("UI/" + mCard.top_resource, typeof(Sprite)) as Sprite;
+            mImageTop.sprite = sprite;
+        }
         mIndex = index;
     }
 

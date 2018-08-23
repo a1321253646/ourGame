@@ -8,7 +8,7 @@ public class PointUtils
     }
     public static Vector3 worldTransToScreen(Vector3 local)
     {
-        return Camera.main.WorldToScreenPoint(local);
+        return Camera.main.WorldToScreenPoint(local) - Camera.main.WorldToScreenPoint(new Vector3(0,0,0));
     }
     public static float screenTransToWorldForWitch(float witch)
     {

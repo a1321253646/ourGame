@@ -32,6 +32,7 @@ public class CardManager : MonoBehaviour {
         }
     }
 
+    private bool isFirst = true;
     private void addCard() {
         mTime = 0;
         if (mList.Count >= 8) {
@@ -44,7 +45,14 @@ public class CardManager : MonoBehaviour {
         newobj.transform.SetParent(mCanvas);
         newobj.transform.localScale = Vector3.one;
         mList.Add(enmey);
-        enmey.init("1", mList.Count + 1, this, null);
+        if (isFirst)
+        {
+            enmey.init( mList.Count + 1, this, 3000001);
+        }
+        else {
+            enmey.init( mList.Count + 1, this, 3000002);
+        }
+        isFirst = !isFirst;
     }
     public void userCard(int index) {
         for (int i = 0; i < mList.Count;) {

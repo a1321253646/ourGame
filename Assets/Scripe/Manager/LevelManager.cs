@@ -7,10 +7,13 @@ public class LevelManager : MonoBehaviour {
 	public GameObject BackgroupObject;
 	public GameObject Player;
 	public GameObject enemyFactory;
+    public GameObject skillObject;
+
     public BackgroundManager mBackManager;
 	public FightManager mFightManager;
 	public LocalManager mLocalManager;
     public PlayControl mPlayerControl;
+   
 	void Start () {
 		Debug.Log ("LevelManager Start");
 		GameManager.getIntance ();
@@ -25,6 +28,7 @@ public class LevelManager : MonoBehaviour {
 		mBackManager.init (BackgroupObject,JsonUtils.getIntance().getLevelData().map);
 		creaPlay ();
 		creatEnemyFactory ();
+        SkillManage.getIntance().setSkillPrefer(skillObject);
         BackpackManager.getIntance().init(this);
     }
 	

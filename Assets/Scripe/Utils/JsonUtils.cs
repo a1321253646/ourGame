@@ -25,6 +25,7 @@ public class JsonUtils
     private string dropDeviceFile = "dropdevice.json";
     private string speedValueFile = "speedvalue.json";
     private string skillFile = "skill.json";
+    private string cardFile = "card.json";
     private static JsonUtils mInance= new JsonUtils();
 
 	List<Hero> heroData;
@@ -38,6 +39,7 @@ public class JsonUtils
     List<DropDevice> mDropDevoce;
     List<SpeedValueJsonBean> mSpeedValue;
     List<SkillJsonBean> mSkillDate;
+    List<CardJsonBean> mCardDate;
     private JsonUtils(){
 		readAllFile ();
 	}
@@ -53,6 +55,8 @@ public class JsonUtils
         readdropDeviceInfo();
         readdropDeviceDetailInfo();
         readSpeedValueInfo();
+        readSkillInfo();
+        readCardInfo();
     }
 
 	public static JsonUtils getIntance(){
@@ -94,6 +98,11 @@ public class JsonUtils
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(skillFile));
         mSkillDate = arrdata.ToObject<List<SkillJsonBean>>();
+    }
+    private void readCardInfo()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(cardFile));
+        mCardDate = arrdata.ToObject<List<CardJsonBean>>();
     }
     private void readAttributeInfo()
     {
@@ -244,6 +253,17 @@ public class JsonUtils
     public SkillJsonBean getSkillInfoById(long id)
     {
         foreach (SkillJsonBean note in mSkillDate)
+        {
+            if (note.id == id)
+            {
+                return note;
+            }
+        }
+        return null;
+    }
+    public CardJsonBean getCardInfoById(long id)
+    {
+        foreach (CardJsonBean note in mCardDate)
         {
             if (note.id == id)
             {
