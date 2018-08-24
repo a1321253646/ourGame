@@ -149,5 +149,7 @@ public class AnimalStatu
     {
         mIndexCall.Add(frame, index);
     }
-
+    public void setIsLoop(bool isLoop) {
+        mIsLopp = isLoop;
+    }
 }

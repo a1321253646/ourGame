@@ -59,25 +59,35 @@ public class CardControl : MonoBehaviour
                 targetType = Attacker.CAMP_TYPE_MONSTER;
             }
 
-            List<Attacker> list =  SkillTargetManager.getTargetList(mLocalLink, bean, targetType,true);
+            List<Attacker> list =  SkillTargetManager.getTargetList(mLocalLink, bean, targetType,true,null);
 
         }
 
     }
     private Vector3 offset;
     public void OnpointUp() {
-        if (mStatue == STATUE_CARP_UP) {
+        if (mStatue == STATUE_CARP_UP)
+        {
             mManager.userCard(mIndex);
-            Vector3 v = PointUtils.screenTransToWorld( transform.position);
+            Vector3 v = PointUtils.screenTransToWorld(transform.position);
             SkillManage.getIntance().addSkill(mSkill, v.x, v.y, targetType);
             Destroy(gameObject, 0);
         }
-    }
+        else if (mStatue == STATUE_CARP_DOWN) {
+            float targetX = 600 - (mIndex - 1) * 70;
+            // transform.localPosition = new Vector2(targetX, mPointTmp.y);
 
+            transform.Translate(Vector2.right * (targetX - transform.position.x));
+            transform.Translate(Vector2.up * ( mPointTmp.y - transform.position.y));
+            // transform.Translate(new Vector2(targetX,mPointTmp.y));
+        }
+    }
+    Vector3 mPointTmp;
     public void OnpointDown()
     {
         mStatue = STATUE_CARP_DOWN;
         offset = transform.position -Input.mousePosition;
+        mPointTmp = transform.position;
 
     }
     public void OnDrag()
@@ -109,7 +119,7 @@ public class CardControl : MonoBehaviour
                      
             RectTransform rt = GetComponent<RectTransform>();
             Debug.Log("mSkill.leng =" + mSkill.leng + " mSkill.wight=" + mSkill.wight);
-            Vector3 v = PointUtils.worldTransToScreen(new Vector3(mSkill.leng, mSkill.wight, 0));
+            Vector3 v = PointUtils.getScreenSize(new Vector3(mSkill.leng, mSkill.wight, 0));
             Debug.Log("v.x =" + v.x + " v.y=" + v.y);
             rt.sizeDelta = new Vector2(v.x, v.y);
             Sprite sprite = Resources.Load("UI/"+mSkill.shape_resource_id, typeof(Sprite)) as Sprite;
@@ -118,12 +128,12 @@ public class CardControl : MonoBehaviour
             mImageTop.color = new Color(1, 1, 1, 0);
 
         }
-        else {
-            
+        else {      
             RectTransform rt = GetComponent<RectTransform>();
             rt.sizeDelta = new Vector2(53, 72);
             mImageBottom.sprite = tnp;
             mImageTop.color = new Color(1, 1, 1, 1);
+
         }
     }
 

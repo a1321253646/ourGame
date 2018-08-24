@@ -9,22 +9,31 @@ public abstract class SkillObject : MonoBehaviour
     public static int SKILL_STATUS_RUNNING = 3;
     public static int SKILL_STATUS_END = 4;
 
-    private SkillJsonBean mBean;
-    private SkillLocalBean mLocal;
+    public SkillJsonBean mBean;
+    public SkillLocalBean mLocal;
     private int mSkillStatus = SKILL_STATUS_DEFAULT;
     private bool isInit = false;
-    private int mCamp;
+    public int mCamp;
     SpriteRenderer mSpriteRender;
+    public ResourceBean mResource;
+    public CalculatorUtil calcuator;
+    public LocalManager mLocalManager;
+
     public AnimalControlBase mAnimalControl;
-    public void init(SkillJsonBean bean, float x, float y,int campType) {
+    public Attacker mAttacker;
+    public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType) {
+        mLocalManager = manage;
         mBean = bean;
         getLocal();
         mLocal.x = x;
         mLocal.y = y;
         mCamp = campType;
+        mAttacker = attacker;
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
-        mAnimalControl = new AnimalControlBase(JsonUtils.getIntance().getEnemyResourceData(bean.skill_resource), mSpriteRender);
+        mResource = JsonUtils.getIntance().getEnemyResourceData(bean.skill_resource);
+        mAnimalControl = new AnimalControlBase(mResource, mSpriteRender);
         initEnd();
+        calcuator = new CalculatorUtil(mBean.calculator, mBean.effects_parameter);
         mAnimalControl.start();
         isInit = true;
 
@@ -37,6 +46,7 @@ public abstract class SkillObject : MonoBehaviour
     }
 
     private void getLocal() {
+
         mLocal = new SkillLocalBean();
         mLocal.leng = mBean.leng;
         mLocal.wight = mBean.wight;

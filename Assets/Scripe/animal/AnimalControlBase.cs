@@ -128,4 +128,11 @@ public class AnimalControlBase
             mAnimalStatuList[statue].setBeginCallBack(begin);
         }
     }
+
+    public void setIsLoop(int statue, bool isLoop) {
+        if (mAnimalStatuList.ContainsKey(statue))
+        {
+            mAnimalStatuList[statue].setIsLoop(isLoop);
+        }
+    }
 }

@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour {
 		creaPlay ();
 		creatEnemyFactory ();
         SkillManage.getIntance().setSkillPrefer(skillObject);
+        SkillManage.getIntance().setLoclaManager(mLocalManager);
         BackpackManager.getIntance().init(this);
     }
 	
@@ -50,6 +51,7 @@ public class LevelManager : MonoBehaviour {
             BackpackManager.getIntance().deleteGoods(10001, 30);
             Debug.Log("Input.GetKeyDown(KeyCode.F5");
         }
+        SkillManage.getIntance().update();
 
     }
 	public BackgroundManager getBackManager(){

@@ -7,18 +7,18 @@ public class SkillTargetManager
     public static int TYPE_SHAPE_ELLIPSE = 1;
     public static int TYPE_SHAPE_ROUND = 2;
     public static int TYPE_SHAPE_SQUARENESS = 3;
-    public static List<Attacker> getTargetList( LocalBean  lives, SkillLocalBean local, int campType,bool isRead) {
+    public static List<Attacker> getTargetList( LocalBean  lives, SkillLocalBean local, int campType,bool isRead,ResourceBean resource) {
         if (local.type == TYPE_SHAPE_ELLIPSE)
         {
-            return SkillTargetEllipseDeal.getTargetList(lives, local, campType,isRead);
+            return SkillTargetEllipseDeal.getTargetList(lives, local, campType,isRead, resource);
         }
         else if (local.type == TYPE_SHAPE_ROUND)
         {
-            return SkillTargetRoundDeal.getTargetList(lives, local, campType,isRead);
+            return SkillTargetRoundDeal.getTargetList(lives, local, campType,isRead, resource);
         }
         else if (local.type == TYPE_SHAPE_SQUARENESS)
         {
-            return SkillTargetSquarenessDeal.getTargetList(lives, local, campType,isRead);
+            return SkillTargetSquarenessDeal.getTargetList(lives, local, campType,isRead, resource);
         }
         return null;
     }
