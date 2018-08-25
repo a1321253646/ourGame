@@ -4,27 +4,22 @@ using System.Collections.Generic;
 
 public class SkillTargetEllipseDeal
 {
-    public static List<Attacker> getTargetList(LocalBean lives, SkillLocalBean local, int campType , bool isRed, ResourceBean resource)
+    public static List<Attacker> getTargetList(LocalBean lives, SkillLocalBean local, int campType , bool isRed)
     {
-        float xOffet = 0;
-        float yOffet = 0;
-        if (resource != null)
-        {
-            xOffet = resource.getHurtOffset().x;
-            yOffet = resource.getHurtOffset().y;
-        }
         List<Attacker> result = new List<Attacker>();
         float a = local.leng / 2;
         float b = local.wight / 2;
         a = a * a;
         b = b * b;
+        int count = 1;
         LocalBean tmp=  lives;
         while (tmp != null) {
+            count++;
             if (tmp.mAttacker.mCampType == campType)
             {
 
-                float x = tmp.mCurrentX - (local.x-xOffet);
-                float y = tmp.mCurrentY - (local.y-yOffet);
+                float x = tmp.mCurrentX - local.x;
+                float y = tmp.mCurrentY - local.y;
                 if (x * x / a + y * y / b <= 1)
                 {
                     result.Add(tmp.mAttacker);

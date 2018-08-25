@@ -12,7 +12,7 @@ public class AnimalControlBase
     private ResourceBean mResource;
     private SpriteRenderer mSpriteRender;
     private float mAnimalTime = 0;
-
+    private bool isLastSet = false;
     private Dictionary<int, AnimalStatu.animalEnd> mEndCall = new Dictionary<int, AnimalStatu.animalEnd>();
     private Dictionary<int, AnimalStatu.animalBegin> mStratCall = new Dictionary<int, AnimalStatu.animalBegin>();
 
@@ -66,14 +66,31 @@ public class AnimalControlBase
         }
     }
 
-    public void setStatus(int status) {
+    public void setStatus(int status, bool isLast) {
+        if (isLastSet) {
+            return;
+        }
+        Debug.Log(" setStatus = " + status);
         if (mAnimalStatuList.ContainsKey(status))
         {
+            Debug.Log(" have = " + status);
             mShowAnimalStatu = mAnimalStatuList[status];
-            if(mShowAnimalStatu.delayStatue != -1)
-            mDelayAnimalStatu = mAnimalStatuList[mShowAnimalStatu.delayStatue];
+            if (mShowAnimalStatu.delayStatue != -1)
+            {
+                mDelayAnimalStatu = mAnimalStatuList[mShowAnimalStatu.delayStatue];
+            }
+
             changeStatue(mShowAnimalStatu);
         }
+        else
+        {
+            Debug.Log("mo have = " + status);
+        }
+        isLastSet = isLast;
+    }
+
+    public void setStatus(int status) {
+        setStatus(status, false);
     }
 
     private void changeStatue(AnimalStatu statue) {

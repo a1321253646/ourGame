@@ -129,8 +129,16 @@ public class EnemyBase : Attacker {
 	public int dieCrystal = 0;
 
 	public override float BeAttack(HurtStatus status){
+        if (status.blood > 1000) {
+            Debug.Log("HurtStatus =" + status.blood+"x = "+transform.position.x+" y="+transform.position.y);
+        }
+        
 		mBloodVolume = mBloodVolume - status.blood;
-		if (mBloodVolume <= 0) {
+        if (status.blood > 1000)
+        {
+            Debug.Log("mBloodVolume =" + mBloodVolume);
+        }
+        if (mBloodVolume <= 0) {
 			Die ();
 			mFightManager.unRegisterAttacker (this);
 		}

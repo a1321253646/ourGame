@@ -17,9 +17,16 @@ public class CardControl : MonoBehaviour
     private CardJsonBean mCard;
     private CardManager mManager;
     private int targetType;
+    List<Attacker> mTargetList;
+    private float mTargetX =-1;
+    private float mWitch = -1;
     void Start()
     {
         gameObject.transform.SetSiblingIndex(99999);
+        mWitch = gameObject.GetComponent<RectTransform>().rect.xMax -
+            gameObject.GetComponent<RectTransform>().rect.xMin;
+        Debug.Log("manager 卡牌宽度 " + mWitch);
+
     }
 
     private void Update()
@@ -29,8 +36,8 @@ public class CardControl : MonoBehaviour
         }
         if (mStatue == STATUE_CARP_DEFAULT)
         {
-            float targetX = 600 - (mIndex - 1) * 70;
-            float distance = targetX - transform.position.x;
+            mTargetX = mManager.getLocalXByIndex(mIndex);
+            float distance = mTargetX - transform.position.x;
             if (distance > 0)
             {
                 float run = 60 * Time.deltaTime;
@@ -38,29 +45,36 @@ public class CardControl : MonoBehaviour
                 {
                     run = distance;
                 }
+             
                 transform.Translate(Vector2.right * run);
             }
         }
-        else if(STATUE_CARP_UP == mStatue) {
+        else if (STATUE_CARP_UP == mStatue)
+        {
             LocalBean mLocalLink = mManager.getLocalManager().mLocalLink;
-            SkillLocalBean bean =  new SkillLocalBean();
+            SkillLocalBean bean = new SkillLocalBean();
             Vector3 center = PointUtils.screenTransToWorld(transform.position);
             bean.x = center.x;
             bean.y = center.y;
             bean.type = mSkill.shape_type;
             bean.wight = mSkill.wight;
             bean.leng = mSkill.leng;
-            int targetType = Attacker.CAMP_TYPE_DEFAULT;
+            targetType = Attacker.CAMP_TYPE_DEFAULT;
             if (mSkill.target_type == SkillJsonBean.TYPE_SELF)
             {
                 targetType = Attacker.CAMP_TYPE_PLAYER;
             }
-            else if (mSkill.target_type == SkillJsonBean.TYPE_ENEMY) {
+            else if (mSkill.target_type == SkillJsonBean.TYPE_ENEMY)
+            {
                 targetType = Attacker.CAMP_TYPE_MONSTER;
             }
 
-            List<Attacker> list =  SkillTargetManager.getTargetList(mLocalLink, bean, targetType,true,null);
-
+            mTargetList = SkillTargetManager.getTargetList(mLocalLink, bean, targetType, true);
+        }
+        else if (mTargetList !=null &&  mTargetList.Count > 0) {
+            foreach (Attacker a in mTargetList) {
+                a.setWhith();
+            }
         }
 
     }
@@ -70,14 +84,21 @@ public class CardControl : MonoBehaviour
         {
             mManager.userCard(mIndex);
             Vector3 v = PointUtils.screenTransToWorld(transform.position);
-            SkillManage.getIntance().addSkill(mSkill, v.x, v.y, targetType);
+            SkillManage.getIntance().addSkill(mManager.getHero(), mSkill, v.x, v.y, targetType);
             Destroy(gameObject, 0);
+            if(mTargetList != null && mTargetList.Count > 0)
+            {
+                foreach (Attacker a in mTargetList)
+                {
+                    a.setWhith();
+                }
+            }
         }
         else if (mStatue == STATUE_CARP_DOWN) {
-            float targetX = 600 - (mIndex - 1) * 70;
+            mTargetX = mManager.getLocalXByIndex(mIndex);
             // transform.localPosition = new Vector2(targetX, mPointTmp.y);
 
-            transform.Translate(Vector2.right * (targetX - transform.position.x));
+            transform.Translate(Vector2.right * (mTargetX - transform.position.x));
             transform.Translate(Vector2.up * ( mPointTmp.y - transform.position.y));
             // transform.Translate(new Vector2(targetX,mPointTmp.y));
         }
@@ -96,11 +117,11 @@ public class CardControl : MonoBehaviour
        // transform.Translate(offset + Input.mousePosition);
         transform.position = offset +Input.mousePosition;
        
-        if (transform.position.y >= 130 && mStatue == STATUE_CARP_DOWN)
+        if (transform.position.y > mManager.getUpLocalY() && mStatue == STATUE_CARP_DOWN)
         {
             setStatus(STATUE_CARP_UP);
         }
-        else if(transform.position.y < 130 && mStatue == STATUE_CARP_UP)
+        else if(transform.position.y < mManager.getUpLocalY() && mStatue == STATUE_CARP_UP)
         {
             setStatus(STATUE_CARP_DOWN);
         }

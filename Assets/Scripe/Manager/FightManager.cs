@@ -10,7 +10,7 @@ public class FightManager{
     public EnemyFactory mEnemyFactory;
     public int mHeroStatus = Attacker.PLAY_STATUS_RUN;
 
-	Dictionary<int,Attacker> mAliveActtackers = new Dictionary<int,Attacker>();
+	public Dictionary<int,Attacker> mAliveActtackers = new Dictionary<int,Attacker>();
 	public bool isEmptyEnemy(){
 		//Debug.Log ("mAliveActtackers.Count =" + mAliveActtackers.Count);
 		if (mAliveActtackers.Count < 2) {

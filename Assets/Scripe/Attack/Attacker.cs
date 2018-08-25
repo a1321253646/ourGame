@@ -89,7 +89,14 @@ public abstract class Attacker : MonoBehaviour
 		
 	}
 	private void changeAnim(){
-        mAnimalControl.setStatus(status);
+        if (status == ActionFrameBean.ACTION_DIE)
+        {
+            mAnimalControl.setStatus(status, true);
+        }
+        else {
+            mAnimalControl.setStatus(status);
+        }
+        
 	}
 
 	public void Standy(){
@@ -102,6 +109,7 @@ public abstract class Attacker : MonoBehaviour
         changeAnim();
     }
 	public void Die(){
+        Debug.Log("Die " );
         status = ActionFrameBean.ACTION_DIE;
         changeAnim();
     }

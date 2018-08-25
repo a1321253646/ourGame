@@ -13,12 +13,27 @@ public class CardManager : MonoBehaviour {
     private float mTime = 0;
     private Transform mCanvas;
     private LocalManager mLocalManage;
+    LevelManager mLevelManager;
+    private List<GameObject> mCardLoaclList = new List<GameObject>();
+    GameObject mCardLocalUp;
+
     // Use this for initialization
     void Start () {
         mCanvas = GameObject.Find("Canvas").transform;
         mLocalManage = GameObject.Find("Manager").GetComponent<LevelManager>().getLocalManager();
+        mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
+        for (int i = 1; i <= 8; i++ ){
+            mCardLoaclList.Add(GameObject.Find("kapai_local_"+i));
+        }
+        mCardLocalUp = GameObject.Find("kapai_local_up");
     }
-	
+
+    public float getLocalXByIndex(int index) {
+       return  mCardLoaclList[index-2].transform.position.x;
+    }
+    public float getUpLocalY() {
+        return mCardLocalUp.transform.position.y;
+    }
 	// Update is called once per frame
 	void Update () {
         mTime += Time.deltaTime;
@@ -40,7 +55,8 @@ public class CardManager : MonoBehaviour {
          }
 
         GameObject newobj = GameObject.Instantiate(
-            card, new Vector2(-30,50), Quaternion.Euler(0.0f, 0f, 0.0f));
+            card, new Vector2(-30,transform.position.y), Quaternion.Euler(0.0f, 0f, 0.0f));
+
         CardControl enmey = newobj.GetComponent<CardControl>();
         newobj.transform.SetParent(mCanvas);
         newobj.transform.localScale = Vector3.one;
@@ -69,4 +85,8 @@ public class CardManager : MonoBehaviour {
     public LocalManager getLocalManager() {
         return mLocalManage;
     }
+    public Attacker getHero() {
+        return mLevelManager.mPlayerControl;    
+    }
+
 }

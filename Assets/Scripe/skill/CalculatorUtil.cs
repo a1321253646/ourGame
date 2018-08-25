@@ -29,15 +29,32 @@ public class CalculatorUtil
         }
 
         float value = getValue(mBean);
+//        Debug.Log("float value = " + value);
         return value;
     }
     private void getBean()
     {
+        //Debug.Log("mStr ="+ mStr);
         char[] chars = mStr.ToCharArray();
         mBean = new CalculatorUtilBean();
         if (getListBean(chars, mBean, 0) == -1)
         {
             mBean = null;
+            //Debug.Log("getListBean == null");
+        }
+       // if (mBean != null) {
+       //     printfBean(mBean, "    ");
+       // }
+    }
+    private void printfBean(CalculatorUtilBean bean, string start) {
+        if (bean == null) {
+            return;
+        }
+        Debug.Log(start + "bean=" + bean.bean + " type=" + bean.type + " valueKey=" + bean.valueKey);
+        if (bean.list != null && bean.list.Count > 0) {
+            foreach (CalculatorUtilBean bean2 in bean.list) {
+                printfBean(bean2, start + "    ");
+            }
         }
     }
     private void getParList() {
@@ -45,6 +62,8 @@ public class CalculatorUtil
             string[] strs = mParameter.Split(',');
             for (int i = 0; i < strs.Length; i++) {
                 parameter.Add("a" + (i + 1), int.Parse(strs[i]));
+             //   Debug.Log("a" + (i + 1) + "=" + parameter["a" + (i + 1)]);
+
             }
         }
     }
@@ -57,9 +76,10 @@ public class CalculatorUtil
         getValueForBean(bean.list[0]);
         value.bean = bean.list[0].bean;
         value.type = bean.list[0].type;
-        int start = 1;
+        int start = 0;
         int tmp = 1;
         while (true) {
+          //  Debug.Log("value.bean =" + value.bean);
             tmp = start + 1;
             if (value.type == 0) {
                 break;
@@ -82,7 +102,7 @@ public class CalculatorUtil
                 getValueForBean(bean.list[tmp]);
                 tmpBean.bean = bean.list[tmp].bean;
                 tmpBean.type = bean.list[tmp].type;
-                while (tmp + 1< bean.list.Count && bean.list[tmp].type != CalculatorUtilBean.TYPE_DIVIDE && bean.list[tmp].type != CalculatorUtilBean.TYPE_MULTIPLY) {
+                while (tmp + 1< bean.list.Count &&( bean.list[tmp].type == CalculatorUtilBean.TYPE_DIVIDE || bean.list[tmp].type == CalculatorUtilBean.TYPE_MULTIPLY)) {
                     if (tmpBean.type == 0) {
                         break;
                     }
@@ -198,11 +218,12 @@ public class CalculatorUtil
             root.list = new List<CalculatorUtilBean>();
         }
         for (; index < chars.Length;) {
+           // Debug.Log("chars[" + index + "]=" + chars[index]);
             CalculatorUtilBean bean = new CalculatorUtilBean();
             root.list.Add(bean);
             if (chars[index] == '(')
             {             
-                index = getListBean(chars, bean, index++);
+                index = getListBean(chars, bean, ++index);
                 if (index == -1)
                 {
                     return -1;
@@ -222,19 +243,25 @@ public class CalculatorUtil
                     {
                         return -1;
                     }
-                    bean.type = type;
-                    return index++;
+                    else if (type != 0)
+                    {
+                        index++;
+                    }
+                    root.type = type;
                 }
+                return index;
             }
             else if (chars[index] == '"')
             {
                 index++;
                 string str = "";
-                while (index < chars.Length && chars[index] == '"')
+                while (index < chars.Length && chars[index] != '"')
                 {
+                 //   Debug.Log("chars[" + index + "]=" + chars[index]);
                     str += chars[index];
                     index++;
                 }
+               // Debug.Log(" 取值的值 = "+str);
                 if (index == chars.Length)
                 {
                     return -1;
@@ -253,8 +280,11 @@ public class CalculatorUtil
                 {
                     return -1;
                 }
+                else if (type != 0)
+                {
+                    index++;
+                }
                 bean.type = type;
-                index++;
             }
             else if (chars[index] == 'a')
             {
@@ -274,9 +304,13 @@ public class CalculatorUtil
                 if (type == -1)
                 {
                     return -1;
+                }else if (type != 0)
+                {
+                    index++;
                 }
                 bean.type = type;
-                index++;
+                
+                
             }
             else if (chars[index] >= '0' && chars[index] <= '9')
             {
@@ -291,6 +325,7 @@ public class CalculatorUtil
 
                 while (index < chars.Length && ((chars[index] >= '0' && chars[index] <= '9') || chars[index] == '.'))
                 {
+                   // Debug.Log("chars[" + index + "]=" + chars[index]);
                     if (!isXiaoshu)
                     {
                         if (chars[index] == '.')
@@ -333,6 +368,7 @@ public class CalculatorUtil
                     }
                 }
                 bean.bean = value1 + value2;
+               // Debug.Log("value1 =" + value1+" value2"  + value2+ " index="+ index+ "  chars.Length=" + chars.Length);
                 if (index == chars.Length)
                 {
                     return index;
@@ -344,8 +380,11 @@ public class CalculatorUtil
                     {
                         return -1;
                     }
+                    else if (type != 0)
+                    {
+                        index++;
+                    }
                     bean.type = type;
-                    index++;
                 }
             }
             else {
@@ -370,6 +409,10 @@ public class CalculatorUtil
         else if (c == '*')
         {
             return CalculatorUtilBean.TYPE_MULTIPLY;
+        }
+        else if (c == ')')
+        {
+            return 0;
         }
         else {
             return -1;

@@ -8,6 +8,8 @@ public class SkillManage
     public GameObject mSkillObject;
     public LocalManager mLocalManager;
     public void addSkill(Attacker attacker, SkillJsonBean skill,float x,float y,int campType) {
+        Debug.Log("addSkill x=" + x + " y = " + y);
+        
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(skill.skill_resource);
         GameObject newobj = GameObject.Instantiate(
                 mSkillObject, new Vector2(x+ bean.getHurtOffset().x, y + bean.getHurtOffset().y), Quaternion.Euler(0.0f, 0f, 0.0f));
@@ -51,7 +53,6 @@ public class SkillManage
     public void setLoclaManager(LocalManager manager) {
         mLocalManager = manager;
     }
-
 
     private static  SkillManage mIntance = new SkillManage();
     public static SkillManage getIntance() {

@@ -72,9 +72,6 @@ public class AnimalStatu
         if (index >= spriteList.Count) {
             return;
         }
-        if (statue == ActionFrameBean.ACTION_ATTACK && index == spriteList.Count - 1) {
-            Debug.Log("index = " + index + " spriteList.Count-1=" + (spriteList.Count - 1)+ " end = "+ end);
-        }
 
         if (index == 0 && begin != null)
         {
