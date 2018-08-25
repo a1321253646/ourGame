@@ -21,13 +21,18 @@ public class LevelManager : MonoBehaviour {
 		GameManager.getIntance ().getLevelData ();
 		GameManager.getIntance ().init (this);
 		GameManager.getIntance ().initUi ();
-		mBackManager = new BackgroundManager ();
+        
+        Vector3 tmp =  PointUtils.screenTransToWorld(GameObject.Find("kapai_local_top").transform.position);
+        Vector3 tmp2 = PointUtils.screenTransToWorld(GameObject.Find("kapai_local_bottom").transform.position);
+        float cardTop = tmp.y - tmp2.y;
+        mBackManager = new BackgroundManager ();
 		mFightManager =new FightManager ();
 		mLocalManager = new LocalManager ();
 		mFightManager.setLoaclManager (mLocalManager);
-		mBackManager.init (BackgroupObject,JsonUtils.getIntance().getLevelData().map);
-		creaPlay ();
-		creatEnemyFactory ();
+		mBackManager.init (BackgroupObject,JsonUtils.getIntance().getLevelData().map, cardTop);
+        
+        creaPlay (cardTop);
+		creatEnemyFactory (cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setLoclaManager(mLocalManager);
         BackpackManager.getIntance().init(this);
@@ -41,7 +46,7 @@ public class LevelManager : MonoBehaviour {
 			starBoss = true;
 			mBackManager.setBackground (JsonUtils.getIntance ().getLevelData ().boss_bg);
 		}
-        if (Input.GetKeyDown(KeyCode.F6))
+       /* if (Input.GetKeyDown(KeyCode.F6))
         {
             BackpackManager.getIntance().addGoods(10001,60);
             Debug.Log("Input.GetKeyDown(KeyCode.F6)");
@@ -50,7 +55,7 @@ public class LevelManager : MonoBehaviour {
         {
             BackpackManager.getIntance().deleteGoods(10001, 30);
             Debug.Log("Input.GetKeyDown(KeyCode.F5");
-        }
+        }*/
         SkillManage.getIntance().update();
 
     }
@@ -75,19 +80,21 @@ public class LevelManager : MonoBehaviour {
     }
 
 
-    private void creaPlay(){
+    private void creaPlay(float cardTop)
+    {
         Hero hero = JsonUtils.getIntance().getHeroData();
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(hero.resource);
         Debug.Log("hero.resource idel_y= " + bean.idel_y);
 
-        GameObject newobj =  GameObject.Instantiate (Player, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100003), JsonUtils.getIntance().getConfigValueForId(100002)-bean.idel_y),
+        GameObject newobj =  GameObject.Instantiate (Player, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100003), cardTop+ JsonUtils.getIntance().getConfigValueForId(100002)-bean.idel_y),
 			Quaternion.Euler(0.0f,0.0f,0.0f));
 		newobj.transform.localScale.Set (JsonUtils.getIntance().getConfigValueForId(100005), JsonUtils.getIntance().getConfigValueForId(100005), 1);
         mPlayerControl = newobj.GetComponent<PlayControl>();
 
     }
-	private void creatEnemyFactory(){
-		GameObject newobj =  GameObject.Instantiate (enemyFactory, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100004), JsonUtils.getIntance().getConfigValueForId(100002)),
+	private void creatEnemyFactory(float cardTop)
+    {
+		GameObject newobj =  GameObject.Instantiate (enemyFactory, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100004), cardTop +JsonUtils.getIntance().getConfigValueForId(100002)),
 			Quaternion.Euler(0.0f,0f,0.0f));
         mFightManager.mEnemyFactory = newobj.GetComponent<EnemyFactory>();
     }
