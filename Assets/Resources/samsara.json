@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "type": "100,",
+    "value": "10,",
+    "coast": 1,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "level": 2,
+    "type": "100,",
+    "value": "20,",
+    "coast": 2,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "level": 3,
+    "type": "100,",
+    "value": "30,",
+    "coast": 3,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "level": 4,
+    "type": "100,",
+    "value": "40,",
+    "coast": 4,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "level": 5,
+    "type": "100,",
+    "value": "50,",
+    "coast": 5,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "level": 6,
+    "type": "100,",
+    "value": "60,",
+    "coast": 6,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "level": 7,
+    "type": "100,",
+    "value": "70,",
+    "coast": 7,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "level": 8,
+    "type": "100,",
+    "value": "80,",
+    "coast": 8,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "level": 9,
+    "type": "100,",
+    "value": "90,",
+    "coast": 9,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "level": 10,
+    "type": "100,",
+    "value": "100,",
+    "coast": 10,
+    "sort": 1
+  },
+  {
+    "id": 2,
+    "level": 1,
+    "type": "101,",
+    "value": "10,",
+    "coast": 1,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "level": 2,
+    "type": "101,",
+    "value": "20,",
+    "coast": 2,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "level": 3,
+    "type": "101,",
+    "value": "30,",
+    "coast": 3,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "level": 4,
+    "type": "101,",
+    "value": "40,",
+    "coast": 4,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "level": 5,
+    "type": "101,",
+    "value": "50,",
+    "coast": 5,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "level": 6,
+    "type": "101,",
+    "value": "60,",
+    "coast": 6,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "level": 7,
+    "type": "101,",
+    "value": "70,",
+    "coast": 7,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "level": 8,
+    "type": "101,",
+    "value": "80,",
+    "coast": 8,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "level": 9,
+    "type": "101,",
+    "value": "90,",
+    "coast": 9,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "level": 10,
+    "type": "101,",
+    "value": "100,",
+    "coast": 10,
+    "sort": 2
+  },
+  {
+    "id": 3,
+    "level": 1,
+    "type": "102,",
+    "value": "10,",
+    "coast": 1,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "level": 2,
+    "type": "102,",
+    "value": "20,",
+    "coast": 2,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "level": 3,
+    "type": "102,",
+    "value": "30,",
+    "coast": 3,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "level": 4,
+    "type": "102,",
+    "value": "40,",
+    "coast": 4,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "level": 5,
+    "type": "102,",
+    "value": "50,",
+    "coast": 5,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "level": 6,
+    "type": "102,",
+    "value": "60,",
+    "coast": 6,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "level": 7,
+    "type": "102,",
+    "value": "70,",
+    "coast": 7,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "level": 8,
+    "type": "102,",
+    "value": "80,",
+    "coast": 8,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "level": 9,
+    "type": "102,",
+    "value": "90,",
+    "coast": 9,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "level": 10,
+    "type": "102,",
+    "value": "100,",
+    "coast": 10,
+    "sort": 3
+  }
+]

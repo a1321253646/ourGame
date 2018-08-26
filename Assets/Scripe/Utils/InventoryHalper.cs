@@ -8,6 +8,8 @@ public class InventoryHalper
     private Dictionary<long, PlayerBackpackBean> mRoleUseList = new Dictionary<long, PlayerBackpackBean>();
     private Dictionary<long, long> mDropDeviceUsed = new Dictionary<long, long>();
     private List<long> mHaveBookId = new List<long>();
+
+    private Dictionary<long, long> mSamsaraLevel = new Dictionary<long, long>();
     public static InventoryHalper mIntance = new InventoryHalper();
     public static InventoryHalper getIntance() {
         return mIntance;
@@ -72,6 +74,32 @@ public class InventoryHalper
             return false;
         }
 //        Debug.Log("InventoryHalper list size  " + mList.Count);
+    }
+
+    public void upDateSamsaraLevel(long id) {
+        if (mSamsaraLevel.ContainsKey(id))
+        {
+            mSamsaraLevel[id] = mSamsaraLevel[id] + 1;
+        }
+        else {
+            mSamsaraLevel.Add(id, 1);
+        }
+    }
+
+    public Dictionary<long, long> getSamsaraLevelDate()
+    {
+        return mSamsaraLevel;
+    }
+
+    public long getSamsaraLevelById(long id) {
+        if (mSamsaraLevel.ContainsKey(id))
+        {
+            return mSamsaraLevel[id];
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     public long getUseCountByDropDeviceId(long id) {

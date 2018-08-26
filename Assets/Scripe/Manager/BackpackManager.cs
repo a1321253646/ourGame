@@ -18,12 +18,13 @@ public class BackpackManager
     private RectTransform mBackpack;
     private RectTransform mHeroTranform;
     private RectTransform mComposeTranform;
+    private RectTransform mSamsaraTranform;
 
     private IvertoryControl mInvertoryControl;
     private TipControl mTipControl;
     private HeroRoleControl mHeroControl;
     private ComposeControl mComposeControl;
-
+    private SamsaraManage mSamsaraControl;
     LevelManager mLevel;
     private BackpackManager()
     {
@@ -47,6 +48,10 @@ public class BackpackManager
 
         mComposeTranform = GameObject.Find("compose_root").GetComponent<RectTransform>();
         mComposeControl = mComposeTranform.GetComponent<ComposeControl>();
+
+        mSamsaraTranform = GameObject.Find("lunhui").GetComponent<RectTransform>();
+        mSamsaraControl = mComposeTranform.GetComponent<SamsaraManage>();
+
         mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
     }
 
@@ -165,6 +170,8 @@ public class BackpackManager
         mTipControl.removeUi();
     }
 
+
+
     public void composeUiShowClick()
     {
         mComposeControl.click();
@@ -174,6 +181,12 @@ public class BackpackManager
     public void heroUiShowClick()
     {
         mHeroControl.click();
+        removeTipUi();
+    }
+
+    public void samsaraShowClick()
+    {
+        mSamsaraControl.click();
         removeTipUi();
     }
 

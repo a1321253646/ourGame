@@ -26,11 +26,12 @@ public class JsonUtils
     private string speedValueFile = "speedvalue.json";
     private string skillFile = "skill.json";
     private string cardFile = "card.json";
-    private static JsonUtils mInance= new JsonUtils();
+    private string samsaraFile = "samsara.json";
+    private static JsonUtils mInance = new JsonUtils();
 
-	List<Hero> heroData;
-	List<Level> levelData;
-	List<ResourceBean> resourceData;
+    List<Hero> heroData;
+    List<Level> levelData;
+    List<ResourceBean> resourceData;
     List<ConfigNote> mConfig;
     List<GoodJsonBean> mGoods;
     List<AccouterJsonBean> mAttribute;
@@ -40,15 +41,16 @@ public class JsonUtils
     List<SpeedValueJsonBean> mSpeedValue;
     List<SkillJsonBean> mSkillDate;
     List<CardJsonBean> mCardDate;
-    private JsonUtils(){
-		readAllFile ();
-	}
+    Dictionary<long, SamsaraJsonBean> mSamsaraDate = new Dictionary<long, SamsaraJsonBean>();
+    private JsonUtils() {
+        readAllFile();
+    }
 
-	public void readAllFile(){
+    public void readAllFile() {
         readConfig();
-        readHeroData ();
-		readLevelData ();
-		readResource ();
+        readHeroData();
+        readLevelData();
+        readResource();
         readGoodInfo();
         readAttributeInfo();
         readComposeInfo();
@@ -57,10 +59,11 @@ public class JsonUtils
         readSpeedValueInfo();
         readSkillInfo();
         readCardInfo();
+        readSamsaraInfo();
     }
 
-	public static JsonUtils getIntance(){
-		return mInance;
+    public static JsonUtils getIntance() {
+        return mInance;
     }
 
     public string loadFile(string path, string fileName)
@@ -83,17 +86,17 @@ public class JsonUtils
         sr.Close();
         sr.Dispose();
         return str;
-}
+    }
 
 
-    private string readFile(string fileName){
-		//TextAsset jsonText = Resources.Load(fileName) as TextAsset;
+    private string readFile(string fileName) {
+        //TextAsset jsonText = Resources.Load(fileName) as TextAsset;
         string str = loadFile(Application.dataPath + "/Resources", fileName);
 
-        Debug.Log ("readFile :" + fileName + "\n " + str);
+        Debug.Log("readFile :" + fileName + "\n " + str);
 
-		return str;
-	}
+        return str;
+    }
     private void readSkillInfo()
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(skillFile));
@@ -103,6 +106,65 @@ public class JsonUtils
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(cardFile));
         mCardDate = arrdata.ToObject<List<CardJsonBean>>();
+    }
+    private void readSamsaraInfo() {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(samsaraFile));
+        List<SamsaraJsonBean> list = arrdata.ToObject<List<SamsaraJsonBean>>();
+        foreach (SamsaraJsonBean bean in list) {
+            SamsaraJsonBean samsaraId;
+            List<SamsaraValueBean> tmpList;
+            if (mSamsaraDate.ContainsKey(bean.id))
+            {
+                samsaraId = mSamsaraDate[bean.id];
+            }
+            else {
+                samsaraId = new SamsaraJsonBean();
+                samsaraId.id = bean.id;
+                samsaraId.name = bean.name;
+                samsaraId.sort = bean.sort;
+                mSamsaraDate.Add(bean.id, samsaraId);
+            }
+            if (samsaraId.levelList == null)
+            {
+                samsaraId.levelList = new Dictionary<long, List<SamsaraValueBean>>();
+                tmpList = new List<SamsaraValueBean>();
+                samsaraId.levelList.Add(bean.level, tmpList);
+            }
+            else {
+                if (samsaraId.levelList.ContainsKey(bean.level))
+                {
+                    tmpList = samsaraId.levelList[bean.level];
+                }
+                else
+                {
+                    tmpList = new List<SamsaraValueBean>();
+                    samsaraId.levelList.Add(bean.level, tmpList);
+                }
+            }
+            bean.getKeyAndValueList(tmpList);
+        }
+    }
+    public Dictionary<long, SamsaraJsonBean> getSamsaraInfo(){
+        return mSamsaraDate;
+    }
+
+    public SamsaraJsonBean getSamsaraInfoById(long id) {
+        if (mSamsaraDate.ContainsKey(id))
+        {
+            return mSamsaraDate[id];
+        }
+        else {
+            return null;
+        }
+    }
+    public List<SamsaraValueBean> getSamsaraVulueInfoByIdAndLevel(long id, long level) {
+        if (mSamsaraDate.ContainsKey(id)) {
+            SamsaraJsonBean tmp = mSamsaraDate[id];
+            if (tmp.levelList != null && tmp.levelList.ContainsKey(level)) {
+                return tmp.levelList[level];
+            } 
+        }
+        return null;
     }
     private void readAttributeInfo()
     {

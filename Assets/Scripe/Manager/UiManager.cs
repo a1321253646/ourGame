@@ -6,7 +6,7 @@ public class UiManager
 {	
 	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv;
 	Slider mHpSl,mStartBossGasSl;
-	Button mStartBossBt,mLvUpBt,mRoleUiShow,mPackUiShow,mHeChengUiShow;
+	Button mStartBossBt,mLvUpBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow;
 	public void init(){
 		mHeroLvTv = GameObject.Find ("lv_labe").GetComponent<Text> ();
 		mGameLevelTv = GameObject.Find ("wellen_labe").GetComponent<Text> ();
@@ -21,6 +21,7 @@ public class UiManager
         mRoleUiShow = GameObject.Find("role_ui").GetComponent<Button>();
         mPackUiShow = GameObject.Find("pack_ui").GetComponent<Button>();
         mHeChengUiShow = GameObject.Find("hecheng_ui").GetComponent<Button>();
+        mSamsaraUiShow = GameObject.Find("lunhui_ui").GetComponent<Button>();
 
         mHpSl = GameObject.Find ("blood").GetComponent<Slider> ();
 		mStartBossGasSl = GameObject.Find ("gas_sl").GetComponent<Slider> ();
@@ -52,6 +53,9 @@ public class UiManager
         });
         mHeChengUiShow.onClick.AddListener(() => {
             BackpackManager.getIntance().composeUiShowClick();
+        });
+        mSamsaraUiShow.onClick.AddListener(() => {
+            BackpackManager.getIntance().samsaraShowClick();
         });
 
         refreshData ();
