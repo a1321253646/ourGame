@@ -145,4 +145,21 @@ public class EnemyBase : Attacker {
 		mState.hurt (status);
 		return status.blood;
 	}
+    public override float BeKillAttack(long effect, float value)
+    {
+        if (effect == 2)
+        {
+            int tmp = value % 10 == 0 ? 0 : 1;
+            value = ((int)value) / 10 + tmp;
+            mBloodVolume = mBloodVolume + value;
+            if (mBloodVolume + value > mAttribute.maxBloodVolume)
+            {
+                value = mAttribute.maxBloodVolume - mBloodVolume;
+            }
+            mBloodVolume = mBloodVolume + value;
+            GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
+            mState.add(value);
+        }
+        return value;
+    }
 }

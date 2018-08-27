@@ -79,7 +79,21 @@ public class EnemyState{
 	
 		EnemySceenPosition = Camera.main.WorldToScreenPoint (mEnemy.transform.position+bloodOffet)  ;  
 		HP_imageGameObjectClone.transform.position = EnemySceenPosition;  
-	}  
-
+	}
+    public void add(float blood)
+    {
+        mHpSl.value = mEnemy.mBloodVolume;
+        GameObject obj = Resources.Load<GameObject>("prefab/hurt");
+        EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position);
+        GameObject text = GameObject.Instantiate(obj,
+            new Vector2(EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
+        text.transform.SetParent(HP_Parent);
+        Text tv = text.GetComponent<Text>();
+        tv.text = "" + blood;
+        tv.color = Color.green;
+        EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position) + bloodOffet;
+        text.transform.position = EnemySceenPosition;
+        UiManager.FlyTo(tv);
+    }
 
 }

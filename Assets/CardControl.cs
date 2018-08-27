@@ -22,7 +22,7 @@ public class CardControl : MonoBehaviour
     private float mWitch = -1;
     void Start()
     {
-        gameObject.transform.SetSiblingIndex(99999);
+        gameObject.transform.SetSiblingIndex(400);
         mWitch = gameObject.GetComponent<RectTransform>().rect.xMax -
             gameObject.GetComponent<RectTransform>().rect.xMin;
         Debug.Log("manager 卡牌宽度 " + mWitch);

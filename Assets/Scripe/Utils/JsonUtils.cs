@@ -124,6 +124,20 @@ public class JsonUtils
                 samsaraId.sort = bean.sort;
                 mSamsaraDate.Add(bean.id, samsaraId);
             }
+            if (samsaraId.costList == null) {
+                samsaraId.costList = new Dictionary<long, long>();
+                samsaraId.costList.Add(bean.level, bean.coast);
+            }
+            else{
+                if (samsaraId.costList.ContainsKey(bean.level))
+                {
+                   samsaraId.costList[bean.level]= bean.coast;
+                }
+                else
+                {
+                    samsaraId.costList.Add(bean.level, bean.coast);
+                }
+            }
             if (samsaraId.levelList == null)
             {
                 samsaraId.levelList = new Dictionary<long, List<SamsaraValueBean>>();
@@ -142,6 +156,7 @@ public class JsonUtils
                 }
             }
             bean.getKeyAndValueList(tmpList);
+            Debug.Log("readSamsaraInfo ud= "+ bean.id + " bean.level= " + bean.level+" count = "+ mSamsaraDate[bean.id].levelList[bean.level].Count);
         }
     }
     public Dictionary<long, SamsaraJsonBean> getSamsaraInfo(){
@@ -157,6 +172,19 @@ public class JsonUtils
             return null;
         }
     }
+    public long getSamsaraCostByIdAndLevel(long id, long level)
+    {
+        if (mSamsaraDate.ContainsKey(id))
+        {
+            SamsaraJsonBean tmp = mSamsaraDate[id];
+            if (tmp.costList != null && tmp.costList.ContainsKey(level))
+            {
+                return tmp.costList[level];
+            }
+        }
+        return -1;
+    }
+
     public List<SamsaraValueBean> getSamsaraVulueInfoByIdAndLevel(long id, long level) {
         if (mSamsaraDate.ContainsKey(id)) {
             SamsaraJsonBean tmp = mSamsaraDate[id];

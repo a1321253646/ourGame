@@ -8,7 +8,12 @@ public class SkillObject1 : SkillObject
     {
         mAnimalControl.setIsLoop(ActionFrameBean.ACTION_NONE, false);
         mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_NONE, (int)mResource.attack_framce, new AnimalStatu.animalIndexCallback(fightEcent));
+        mAnimalControl.setEndCallBack(ActionFrameBean.ACTION_NONE, new AnimalStatu.animalEnd(endAnimal));
     }
+    void endAnimal(int status) {
+        Destroy(gameObject, 0);
+    }
+
     void fightEcent(int status)
     {
         if (status == ActionFrameBean.ACTION_NONE)
@@ -22,9 +27,7 @@ public class SkillObject1 : SkillObject
             }
             foreach (Attacker attack in list) {
                 float hurt =  calcuator.getValue(mAttacker, attack);
-                Debug.Log("hurt value = " + hurt);
-                HurtStatus hurtstatus = new HurtStatus(hurt,false,true);
-                attack.BeAttack(hurtstatus);
+                attack.skillAttack(mBean.effects, hurt);
             }
 
         }

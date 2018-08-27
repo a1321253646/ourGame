@@ -17,7 +17,7 @@ public class SkillManage
     }
 
     private void dealSkillType(Attacker attacker, GameObject newobj, SkillJsonBean skill, float x, float y, int campType) {
-        if (skill.effects == 1) {
+        if (skill.effects == 1 || skill.effects == 2) {
             newobj.AddComponent<SkillObject1>();
         }
         SkillObject skillComponent = newobj.GetComponent<SkillObject>();

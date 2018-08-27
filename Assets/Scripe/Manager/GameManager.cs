@@ -18,7 +18,8 @@ public class GameManager
 	public bool isLvUp = false;
     public bool isInit = false;
     public LevelManager mLevelManage= null;
-	private GameManager(){
+    public long mReincarnation = 0;
+    private GameManager(){
     }
 	private static GameManager mIntance = new GameManager();
 	public static GameManager getIntance(){
@@ -30,7 +31,7 @@ public class GameManager
         Hero hero = JsonUtils.getIntance ().getHeroData ();
         upLevelCrystal = hero.lvup_crystal;
     }
-    private int uiLevel = 99;
+    private int uiLevel = 500;
     public int getUiCurrentLevel() {
         return uiLevel;
     }

@@ -13,21 +13,21 @@ public class SamsaraJsonBean
     public string name;
     public string icon;
     public Dictionary<long, List<SamsaraValueBean>> levelList;
-
+    public Dictionary<long, long> costList;
     public List<SamsaraValueBean>  getKeyAndValueList(List<SamsaraValueBean> back) {
         back.Clear();
         string[] types;
         string[] values;
         if (type != null && type.Length > 0)
         {
-            types = type.Split('m');
+            types = type.Split(',');
         }
         else {
             return null;
         }
         if (value != null && value.Length > 0)
         {
-            values = value.Split('m');
+            values = value.Split(',');
         }
         else {
             return null;
@@ -36,6 +36,9 @@ public class SamsaraJsonBean
             return null;
         }
         for (int i = 0; i < types.Length; i++) {
+            if (types[i] == null || types[i].Length == 0) {
+                continue;
+            }
             SamsaraValueBean bean = new SamsaraValueBean();
             bean.type = int.Parse(types[i]);
             bean.value = int.Parse(values[i]);

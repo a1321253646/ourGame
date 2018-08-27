@@ -46,6 +46,7 @@ public class SamsaraManage : MonoBehaviour {
             mListControl = GameObject.Find("lunhui_skill_list").GetComponent<SamSaraListControl>();
             mListControl.init();
         }
+        mListControl.isEnableLavelUp();
     }
     private void removeUi()
     {

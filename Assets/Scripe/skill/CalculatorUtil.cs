@@ -61,7 +61,10 @@ public class CalculatorUtil
         if (mParameter != null && mParameter.Length > 0) {
             string[] strs = mParameter.Split(',');
             for (int i = 0; i < strs.Length; i++) {
-                parameter.Add("a" + (i + 1), int.Parse(strs[i]));
+                if (strs[i] == null || strs[i].Length == 0) {
+                    continue;
+                }
+                parameter.Add("a" + (i + 1), float.Parse(strs[i]));
              //   Debug.Log("a" + (i + 1) + "=" + parameter["a" + (i + 1)]);
 
             }

@@ -57,7 +57,7 @@ public abstract class Attacker : MonoBehaviour
 
     }
     public abstract float BeAttack (HurtStatus status);
-
+    public abstract float BeKillAttack(long effect, float value);
     public int getStatus() {
         return status;
     }
@@ -131,6 +131,15 @@ public abstract class Attacker : MonoBehaviour
     public void setWhith() {
         mSpriteRender.color = Color.white;
     }
-
+    public void skillAttack(long effect, float value) {
+        if (effect == 1)
+        {
+            BeAttack(new HurtStatus(value, false, true));
+        }
+        else if(effect == 2) {
+            BeKillAttack(effect, value);
+        }
+        
+    }
 }
 

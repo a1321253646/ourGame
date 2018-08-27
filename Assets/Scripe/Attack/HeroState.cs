@@ -38,5 +38,19 @@ public class HeroState : MonoBehaviour
 		text.transform.position = EnemySceenPosition;  
 		UiManager.FlyTo (tv);
 	}
+    public void add(float blood) {
+        GameObject obj = Resources.Load<GameObject>("prefab/hurt");
+        EnemySceenPosition = Camera.main.WorldToScreenPoint(mHero.transform.position);
+        GameObject text = GameObject.Instantiate(obj,
+            new Vector2(EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
+        text.transform.SetParent(HP_Parent);
+        Text tv = text.GetComponent<Text>();
+        tv.text = ""+blood;
+        tv.color = Color.green;
+        EnemySceenPosition = Camera.main.WorldToScreenPoint(mHero.transform.position) + new Vector3(0, 0, 0);
+        text.transform.position = EnemySceenPosition;
+        UiManager.FlyTo(tv);
+    }
+
 }
 

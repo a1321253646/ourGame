@@ -32,6 +32,10 @@ public class GameOverManager : MonoBehaviour {
         else {
             mShowBt = GameObject.Find("lose_Button").GetComponent<Button>();
         }
+        InventoryHalper.getIntance().dealClear();
+        GameManager.getIntance().mCurrentCrystal = 0;
+        GameManager.getIntance().mHeroLv = 1;
+        GameManager.getIntance().mCurrentLevel = 1;
         mShowBt.onClick.AddListener(() => {
             loadScene(0);
         });

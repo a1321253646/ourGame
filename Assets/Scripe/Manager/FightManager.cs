@@ -49,6 +49,8 @@ public class FightManager{
 			GameManager.getIntance ().mHeroIsAlive = false;
 			//SceneManager.UnloadSceneAsync (0);
 			SceneManager.LoadScene(1);
+            Level level = JsonUtils.getIntance().getLevelData();
+            GameManager.getIntance().mReincarnation += level.reincarnation;
             return;
         }
 		if (attcker.id == -1 || mAliveActtackers.Count < 1) {

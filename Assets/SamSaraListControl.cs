@@ -30,15 +30,26 @@ public class SamSaraListControl : MonoBehaviour {
         }
         SetGridHeight();
     }
+    public void isEnableLavelUp() {      
+        foreach (SamsaraItemControl control in mItems)
+        {
+            control.isEnableLevelUp();
+        }
+    }
+
     public void upDate(long id)
     {
+        Debug.Log(" SamSaraListControl upDate " + id);
         InventoryHalper.getIntance().upDateSamsaraLevel(id);
         foreach (SamsaraItemControl control in mItems) {
             if (control.mId == id) {
                 control.upDate();
             }
         }
+        isEnableLavelUp();
     }
+
+
 
     private void SetGridHeight()
     {

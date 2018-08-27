@@ -10,35 +10,69 @@ public class SamsaraItemControl : MonoBehaviour {
     private Text mSamsaraNameAndLevel;
     private Text mSamsaraValue;
     private Text mLvelUpCost;
+    private Text mLvelUpText;
     private Button mLevelUp;
     private SamSaraListControl mListControl;
     public void init(long id, SamSaraListControl control) {
         mId = id;
         mListControl = control;
         mJsonBean =  JsonUtils.getIntance().getSamsaraInfoById(mId);       
-        mIcon = GameObject.Find("skill_icon").GetComponent<Image>();
-        mSamsaraNameAndLevel = GameObject.Find("skill_name").GetComponent<Text>();
-        mSamsaraValue = GameObject.Find("skill_effect_labe").GetComponent<Text>();
-        mLvelUpCost = GameObject.Find("skill_effect").GetComponent<Text>();
-        mLevelUp = GameObject.Find("skill_lvup_button").GetComponent<Button>();
-        Sprite sprite = Resources.Load("icon/samsara" + mJsonBean.icon, typeof(Sprite)) as Sprite;
+       // mIcon = GameObject.Find("skill_icon").GetComponent<Image>();
+        Text[] texts = gameObject.GetComponentsInChildren<Text>();
+        mSamsaraNameAndLevel = texts[0];
+        mSamsaraValue = texts[1];
+        mLvelUpCost = texts[3];
+        mLvelUpText = texts[2];
+        mLevelUp = GetComponentsInChildren<Button>()[1];
+        //Sprite sprite = Resources.Load("icon/samsara" + mJsonBean.icon, typeof(Sprite)) as Sprite;
         mLevelUp.onClick.AddListener(() => {
-            levelUp();
+          levelUp();
         });
+        upDate();
     }
 
     private void levelUp()
     {
+        Debug.Log(" SamsaraItemControl levelUp " + mId);
+        GameManager.getIntance().mReincarnation -= JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, mLevel + 1);
         mListControl.upDate(mId);
     }
 
     public void upDate()
     {
+        if (mLevel == 0)
+        {
+            mLvelUpText.text = "学习";
+        }
+        else
+        {
+            mLvelUpText.text = "升级";
+        }
         mLevel = InventoryHalper.getIntance().getSamsaraLevelById(mId);
-        mSamsaraNameAndLevel.text = "技能名称 " + mJsonBean.name + "Lv:" + mLevel;
-        mSamsaraValue.text = getAttribute();
-        mLvelUpCost.text = "消耗：" + mJsonBean.coast + "轮回点";
+        if (mLevel == 0)
+        {
+            mSamsaraNameAndLevel.text = "技能名称" + mJsonBean.name ;
+            mSamsaraValue.text = "未学习";
+        }
+        else {
+            mSamsaraNameAndLevel.text = "技能名称 " + mJsonBean.name + " Lv:" + mLevel;
+            mSamsaraValue.text = getAttribute();
+        }       
+        mLvelUpCost.text = "消耗：" + JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, mLevel+1) + "轮回点";
+        isEnableLevelUp();
     }
+
+    public void isEnableLevelUp() {
+       long rein =  GameManager.getIntance().mReincarnation;
+        if (rein >= JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, mLevel + 1))
+        {
+            mLevelUp.interactable = true;
+        }
+        else {
+            mLevelUp.interactable = false;
+        }
+    }
+
     private string getAttribute() {
         List<SamsaraValueBean>  list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(mId, mLevel);
         string text = "";

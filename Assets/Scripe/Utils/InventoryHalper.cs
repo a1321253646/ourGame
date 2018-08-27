@@ -18,7 +18,14 @@ public class InventoryHalper
         //读数据库中的玩家拥有的物品
     }
 
-   
+
+    public void dealClear() {
+        mRoleUseList.Clear();
+        mDropDeviceUsed.Clear();
+        mList.Clear();
+        mRoleUseList.Clear();
+    }
+
     public long TABID_1_START_ID = 1000000;
     public long TABID_2_START_ID = 2000000;
     public long TABID_3_START_ID = 3000000;

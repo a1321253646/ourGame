@@ -94,7 +94,8 @@ public class ComposeListPartControl : MonoBehaviour {
             }
         }
 
-        mFri.transform.parent = mVertirclView.transform;
+        mFri.transform.parent
+            = mVertirclView.transform;
         mFri.transform.localScale = Vector3.one;
         if ( mNowClickButton == 1) {
             mList.transform.parent = mVertirclView.transform;
