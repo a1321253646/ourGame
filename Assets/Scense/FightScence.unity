@@ -5187,7 +5187,8 @@ MonoBehaviour:
   Player: {fileID: 1454518952746240, guid: bc4c5f712384868449111da44101f8d6, type: 2}
   enemyFactory: {fileID: 1220025670914754, guid: 338ef63f739a5f24dbbb077fa9e9bf1d,
     type: 2}
-  skillObject: {fileID: 0}
+  skillObject: {fileID: 1414704113077492, guid: 26ecf4a81499d304795cfcf71cefe6e5,
+    type: 2}
   mPlayerControl: {fileID: 0}
 --- !u!1 &1250037039
 GameObject:
