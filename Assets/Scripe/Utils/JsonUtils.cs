@@ -122,6 +122,7 @@ public class JsonUtils
                 samsaraId.id = bean.id;
                 samsaraId.name = bean.name;
                 samsaraId.sort = bean.sort;
+                samsaraId.icon = bean.icon;
                 mSamsaraDate.Add(bean.id, samsaraId);
             }
             if (samsaraId.costList == null) {

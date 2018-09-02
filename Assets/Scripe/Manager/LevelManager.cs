@@ -75,6 +75,11 @@ public class LevelManager : MonoBehaviour {
         mPlayerControl.ChangeEquip(equips);
     }
 
+    public void upLunhui()
+    {
+        mPlayerControl.upLunhui();
+    }
+
     public void heroUp() {
         mPlayerControl.heroUp();
     }

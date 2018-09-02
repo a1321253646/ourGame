@@ -58,7 +58,7 @@ public class CardManager : MonoBehaviour {
             card, new Vector2(-30,transform.position.y), Quaternion.Euler(0.0f, 0f, 0.0f));
 
         CardControl enmey = newobj.GetComponent<CardControl>();
-        newobj.transform.SetParent(mCanvas);
+        newobj.transform.SetParent(gameObject.transform);
         newobj.transform.localScale = Vector3.one;
         mList.Add(enmey);
         if (isFirst)

@@ -15,9 +15,10 @@ public class PlayControl : Attacker
 		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager ();
 		//mBackManager.setBackground ("map/map_03");
 		toString ("Play");
-		mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;       
+		mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
         setHeroData ();
-    mFightManager.registerAttacker (this);
+        upLunhui();
+        mFightManager.registerAttacker (this);
 	}
     private void initAnimalEvent() {
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
@@ -37,11 +38,76 @@ public class PlayControl : Attacker
 
     public Attribute mEquipAttribute = new Attribute();
     public Attribute mBaseAttribute = new Attribute();
+    public Attribute mLunhuiAttribute = new Attribute();
 
     public void ChangeEquip() {
         Dictionary<long, PlayerBackpackBean> equips =  InventoryHalper.getIntance().getRoleUseList();
         ChangeEquip(equips);
     }
+    public void upLunhui()
+    {
+        float mMaxTmp = mLunhuiAttribute.maxBloodVolume;
+        mLunhuiAttribute.clear();
+        Dictionary<long, long>  samsaras= InventoryHalper.getIntance().getSamsaraLevelDate();
+        Dictionary<long, long>.KeyCollection keys= samsaras.Keys;
+        foreach (long key in keys) {
+            long level = samsaras[key];
+            if(level != 0) {
+               SamsaraJsonBean sam=  JsonUtils.getIntance().getSamsaraInfoById(key);
+               List<SamsaraValueBean> beanValue = sam.levelList[level];
+                foreach (SamsaraValueBean date in beanValue) {
+                    if (date.type == 100)
+                    {
+                        mLunhuiAttribute.aggressivity += date.value;
+                    }
+                    else if (date.type == 101)
+                    {
+                        mLunhuiAttribute.defense += date.value;
+                    }
+                    else if (date.type == 102)
+                    {
+                        mLunhuiAttribute.maxBloodVolume += date.value;                    
+                    }
+                    else if (date.type == 110)
+                    {
+                        mLunhuiAttribute.rate += date.value;
+                    }
+                    else if (date.type == 111)
+                    {
+                        mLunhuiAttribute.evd += date.value;
+                    }
+                    else if (date.type == 112)
+                    {
+                        mLunhuiAttribute.crt += date.value;
+                    }
+                    else if (date.type == 113)
+                    {
+                        mLunhuiAttribute.crtHurt += date.value;
+                    }
+                    else if (date.type == 115)
+                    {
+                        mLunhuiAttribute.readHurt += date.value;
+                    }
+                    else if (date.type == 114)
+                    {
+                        mLunhuiAttribute.attackSpeed += date.value;
+                    }
+                }  
+            }
+        }
+        mBloodVolume = mBloodVolume + mLunhuiAttribute.maxBloodVolume - mMaxTmp;
+        getAttribute();
+        GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
+        upDataSpeed();
+    }
+
+    private void getAttribute() {
+        mAttribute.clear();
+        mAttribute.add(mBaseAttribute);
+        mAttribute.add(mEquipAttribute);
+        mAttribute.add(mLunhuiAttribute);
+    }
+
     public void ChangeEquip(Dictionary<long, PlayerBackpackBean> equips)
     {
         
@@ -91,9 +157,7 @@ public class PlayControl : Attacker
                 }
             }
         }
-        mAttribute.clear();
-        mAttribute.add(mBaseAttribute);
-        mAttribute.add(mEquipAttribute);
+        getAttribute();
         mBloodVolume = (int)(mAttribute.maxBloodVolume * bili);
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
         upDataSpeed();

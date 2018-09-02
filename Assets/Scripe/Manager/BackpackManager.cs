@@ -124,6 +124,10 @@ public class BackpackManager
 
     }
 
+    public void upLunhui() {
+        mLevel.upLunhui();
+    }
+
     public void addGoods(long id, int count) {
  //       Debug.Log("addGoods id=" + id+ " count="+ count);
         bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count);

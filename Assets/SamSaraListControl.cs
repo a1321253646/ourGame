@@ -46,6 +46,7 @@ public class SamSaraListControl : MonoBehaviour {
                 control.upDate();
             }
         }
+        BackpackManager.getIntance().upLunhui();
         isEnableLavelUp();
     }
 

@@ -17,14 +17,15 @@ public class SamsaraItemControl : MonoBehaviour {
         mId = id;
         mListControl = control;
         mJsonBean =  JsonUtils.getIntance().getSamsaraInfoById(mId);       
-       // mIcon = GameObject.Find("skill_icon").GetComponent<Image>();
+        mIcon = gameObject.GetComponentsInChildren<Image>()[3];
         Text[] texts = gameObject.GetComponentsInChildren<Text>();
         mSamsaraNameAndLevel = texts[0];
         mSamsaraValue = texts[1];
         mLvelUpCost = texts[3];
         mLvelUpText = texts[2];
         mLevelUp = GetComponentsInChildren<Button>()[1];
-        //Sprite sprite = Resources.Load("icon/samsara" + mJsonBean.icon, typeof(Sprite)) as Sprite;
+        Sprite sprite = Resources.Load("icon/samsara/" + mJsonBean.icon, typeof(Sprite)) as Sprite;
+        mIcon.sprite = sprite;
         mLevelUp.onClick.AddListener(() => {
           levelUp();
         });
@@ -51,11 +52,11 @@ public class SamsaraItemControl : MonoBehaviour {
         mLevel = InventoryHalper.getIntance().getSamsaraLevelById(mId);
         if (mLevel == 0)
         {
-            mSamsaraNameAndLevel.text = "技能名称" + mJsonBean.name ;
+            mSamsaraNameAndLevel.text = "" + mJsonBean.name ;
             mSamsaraValue.text = "未学习";
         }
         else {
-            mSamsaraNameAndLevel.text = "技能名称 " + mJsonBean.name + " Lv:" + mLevel;
+            mSamsaraNameAndLevel.text = " " + mJsonBean.name + " Lv:" + mLevel;
             mSamsaraValue.text = getAttribute();
         }       
         mLvelUpCost.text = "消耗：" + JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, mLevel+1) + "轮回点";
