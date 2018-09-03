@@ -188,7 +188,8 @@ public class PlayControl : Attacker
         mBaseAttribute.readHurt = mHero.real_dam;
         mBaseAttribute.evd = mHero.dod;
         mBaseAttribute.attackSpeed = mHero.attack_speed;
-        mBloodVolume = mBloodVolume + mBaseAttribute.maxBloodVolume - mMaxTmp;
+        mAttackLeng = mHero.attack_range;
+         mBloodVolume = mBloodVolume + mBaseAttribute.maxBloodVolume - mMaxTmp;
         Debug.Log("mBloodVolume = " + mBloodVolume+ " mBaseAttribute.maxBloodVolume="+ mBaseAttribute.maxBloodVolume+ " mMaxTmp"+ mMaxTmp);
         mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);

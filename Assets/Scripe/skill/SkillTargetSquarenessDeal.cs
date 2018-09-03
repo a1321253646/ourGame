@@ -16,10 +16,10 @@ public class SkillTargetSquarenessDeal
         {
             if (tmp.mAttacker.mCampType == campType)
             {
-                if (tmp.mCurrentX >= minX &&
-                    tmp.mCurrentX <= maxX &&
-                    tmp.mCurrentY >= minY &&
-                    tmp.mCurrentY <= maxY)
+                if (tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x >= minX &&
+                    tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x <= maxX &&
+                    tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y >= minY &&
+                    tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y <= maxY)
                 {
                     result.Add(tmp.mAttacker);
                     if (isRed)

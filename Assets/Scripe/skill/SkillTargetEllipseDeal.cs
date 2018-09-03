@@ -18,8 +18,8 @@ public class SkillTargetEllipseDeal
             if (tmp.mAttacker.mCampType == campType)
             {
 
-                float x = tmp.mCurrentX - local.x;
-                float y = tmp.mCurrentY - local.y;
+                float x = tmp.mCurrentX+tmp.mAttacker.resourceData.getHurtOffset().x - local.x;
+                float y = tmp.mCurrentY+tmp.mAttacker.resourceData.idel_y - local.y;
                 if (x * x / a + y * y / b <= 1)
                 {
                     result.Add(tmp.mAttacker);

@@ -29,8 +29,8 @@
     "skill_resource": 35002,
     "shape_type": 1,
     "shape_resource_id": "shape_2",
-    "leng": 1,
-    "wight": 0.4,
+    "leng": 0.2,
+    "wight": 0.2,
     "point_type": 0
   },
   {

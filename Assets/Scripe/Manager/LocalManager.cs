@@ -76,10 +76,10 @@ public class LocalManager{
 		LocalBean tmp = mLocalLink.next;
 
 		while (tmp != null) {
-			float leng = mLocalLink.mCurrentX + mLocalLink.mAttackLeng;
+			float leng = mLocalLink.mCurrentX + mLocalLink.mAttacker.resourceData.getHurtOffset().x + mLocalLink.mAttackLeng;
 
-			if (tmp.mCurrentX <= leng) {
-				bool isHave = false;
+            if (tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x <= leng) {
+                bool isHave = false;
 				foreach (Attacker a in mLocalLink.mAttacker.mAttackerTargets) {
 					if (a == tmp.mAttacker) {
 						isHave = true;
@@ -88,7 +88,13 @@ public class LocalManager{
 				}
 
 				if (!isHave) {
-					mLocalLink.mAttacker.mAttackerTargets.Add (tmp.mAttacker);
+                    Debug.Log("mLocalLink.mCurrentX = " + mLocalLink.mCurrentX);
+                    Debug.Log(" mLocalLink.mAttacker.resourceData.getFightOffset().x = " + mLocalLink.mAttacker.resourceData.getHurtOffset().x);
+                    Debug.Log(" mLocalLink.mAttackLeng = " + mLocalLink.mAttackLeng);
+                    Debug.Log("leng = " + leng);
+                    Debug.Log("tmp.mCurrentX = " + tmp.mCurrentX);
+                    Debug.Log("tmp.mAttacker.resourceData.getFightOffset().x = " + tmp.mAttacker.resourceData.getHurtOffset().x);
+                    mLocalLink.mAttacker.mAttackerTargets.Add (tmp.mAttacker);
 				}
 
 			} else {
@@ -143,7 +149,8 @@ public class LocalManager{
 				}
 			}
 
-			if (!isAdd && tmp.mCurrentX - tmp.mAttackLeng <= mLocalLink.mCurrentX) {
+			if (!isAdd && tmp.mCurrentX+ tmp.mAttacker.resourceData.getHurtOffset().x - tmp.mAttackLeng 
+                    <= mLocalLink.mCurrentX+mLocalLink.mAttacker.resourceData.getHurtOffset().x) {
 				LocalMultiple newMultiple = new LocalMultiple ();
 				newMultiple.initLocalMultiple (tmp, this);
 				mMultiple.Add (newMultiple);

@@ -68,11 +68,8 @@ public class EnemyBase : Attacker {
 
 		if(mLocalBean.mTargetX != -9999){
 			if(mLocalBean.mCurrentX < mLocalBean.mTargetX){
-				//x = mLocalBean.mCurrentX -  mLocalBean.mTargetX;
 				y = mLocalBean.mTargetY - mLocalBean.mCurrentY;
-				//transform.Translate (Vector2.left *(x+bgx));
 				transform.Translate (Vector2.up * y);
-
 				xy = 0;
 				mLocalBean.mTargetX = -9999;
 				mLocalBean.mTargetY = -9999;
