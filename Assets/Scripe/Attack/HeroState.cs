@@ -39,6 +39,9 @@ public class HeroState : MonoBehaviour
 		UiManager.FlyTo (tv);
 	}
     public void add(float blood) {
+        if (blood == 0) {
+            return;
+        }
         GameObject obj = Resources.Load<GameObject>("prefab/hurt");
         EnemySceenPosition = Camera.main.WorldToScreenPoint(mHero.transform.position);
         GameObject text = GameObject.Instantiate(obj,

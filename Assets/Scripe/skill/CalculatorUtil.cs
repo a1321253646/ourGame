@@ -11,6 +11,11 @@ public class CalculatorUtil
     Attacker firer;
     Attacker target;
     CalculatorUtilBean mBean;
+    AttackSkillBase attackSkill;
+
+    public void setSkill(AttackSkillBase attackSkill) {
+        this.attackSkill = attackSkill;
+    }
 
     public CalculatorUtil(string str, string parStr) {
         mStr = str;
@@ -154,26 +159,39 @@ public class CalculatorUtil
             return parameter[key];
         }
         else {
-            Attacker tmp;
+            Attacker tmp = null;
             string[] strs = key.Split(',');
-            string keyId;
-            if (strs.Length == 2)
-            {
-                if (strs[0].Equals("1"))
-                {
-                    tmp = firer;
-                }
-                else
-                {
-                    tmp = target;
-                }
+            string keyId = "0";
+            if (strs[0].Equals("1")) {
+                tmp = firer;
                 keyId = strs[1];
             }
-            else {
+            else if (strs[0].Equals("2"))
+            {
+                tmp = target;
+                keyId = strs[1];
+            }
+            else if (strs[0].Equals("3"))
+            {
+                keyId = strs[1];
+                return attackSkill.getValueById(int.Parse(keyId));
+            }
+            else if (strs[0].Equals("4"))
+            {
                 tmp = firer;
-                keyId = strs[0];
+                return tmp.mSkillManager.getValueBySkillAndId(long.Parse(strs[1]),long.Parse(strs[2]));
+            }
+            else if (strs[0].Equals("5"))
+            {
+                tmp = target;
+                return tmp.mSkillManager.getValueBySkillAndId(long.Parse(strs[1]), long.Parse(strs[2]));
+            }
+            else
+            {
+                return 0;
             }
             long id = int.Parse(keyId);
+           
             if (id == 100)
             {
                 return tmp.mAttribute.aggressivity;

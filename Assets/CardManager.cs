@@ -7,9 +7,8 @@ public class CardManager : MonoBehaviour {
     public GameObject card;
 
     private static float CREADT_CARD_TIME = 5;
-
+    private static float OUT_CREADT_CARD_TIME = 0.5f;
     private List<CardControl> mList = new List<CardControl>();
-    private List<NengliangkuaiControl> mNengliangList = new List<NengliangkuaiControl>();
     private float mTime = 0;
     private Transform mCanvas;
     private LocalManager mLocalManage;
@@ -36,18 +35,29 @@ public class CardManager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
+        if (mCount > 0) {
+            mOutSendCardTime += Time.deltaTime;
+            if (mOutSendCardTime >= OUT_CREADT_CARD_TIME) {
+                mOutSendCardTime -= OUT_CREADT_CARD_TIME;
+                mCount--;
+                addCard();
+            }
+            return;
+        }
         mTime += Time.deltaTime;
         if (mTime >= CREADT_CARD_TIME) {
             addCard();
         }
-        for (int i = 1; i <= 10; i++) {
-            NengliangkuaiControl tmp=GameObject.Find("nengliangkuai_" + i).GetComponent<NengliangkuaiControl>();
-            tmp.setCount(5.5f);
-            mNengliangList.Add(tmp);
-        }
     }
 
     private bool isFirst = true;
+    private long mCount = 0;
+    private float mOutSendCardTime = 0;
+    public void addCards(long count) {
+        mCount = count;
+        mOutSendCardTime = 0;
+    }
+
     private void addCard() {
         mTime = 0;
         if (mList.Count >= 8) {
@@ -70,7 +80,11 @@ public class CardManager : MonoBehaviour {
         }
         isFirst = !isFirst;
     }
-    public void userCard(int index) {
+    public bool userCard(int index,float cost) {
+        if (!GameObject.Find("Manager").GetComponent<LevelManager>().delectNengliangdian(cost))
+        {
+            return false;
+        }
         for (int i = 0; i < mList.Count;) {
             if (mList[i].mIndex != index)
             {
@@ -78,9 +92,10 @@ public class CardManager : MonoBehaviour {
                 i++;
             }
             else {
-                mList.Remove(mList[i]);
+                    mList.Remove(mList[i]);
             }
-        } 
+        }
+        return true;
     }
     public LocalManager getLocalManager() {
         return mLocalManage;

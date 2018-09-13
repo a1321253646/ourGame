@@ -19,7 +19,7 @@ public class ResourceBean
     public string action_frame;
     public Point BloodOffset,HurtOffset,FightOffset;
     private List<ActionFrameBean> mActionFrame;
-    private List<int> mTargetBorder;
+    private List<float> mTargetBorder;
 
     public Point getBloodOffset(){
 		if (BloodOffset == null) {
@@ -40,8 +40,28 @@ public class ResourceBean
 		}
 		return FightOffset;
 	}
-    public List<int> getTargetBorder() {
-        return getListIntByString(target_border);
+    public List<float> getTargetBorder() {
+        
+        if (mTargetBorder != null) {
+            return mTargetBorder;
+        }
+        if (target_border != null && target_border.Length > 0)
+        {
+            string[] array = target_border.Split(',');
+            mTargetBorder = new List<float>();
+            foreach (string str2 in array)
+            {
+                Debug.Log("target_border str2 = " + str2);
+                if (str2 == null || str2.Length < 1)
+                {
+                    continue;
+                }
+                mTargetBorder.Add(float.Parse(str2));
+            }
+            return mTargetBorder;
+
+        }
+        return null;
     }
     public List<ActionFrameBean> getActionFrameList() {
         if (mActionFrame != null) {
@@ -63,9 +83,6 @@ public class ResourceBean
     }
 
     private List<int> getListIntByString(string str) {
-        if (mTargetBorder != null) {
-            return mTargetBorder;
-        }
         if (str != null && str.Length > 0) {
             string[] array = str.Split(',');
             List<int> result = new List<int>();

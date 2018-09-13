@@ -11,6 +11,8 @@ public class InventoryHalper
 
     private Dictionary<long, long> mSamsaraLevel = new Dictionary<long, long>();
     public static InventoryHalper mIntance = new InventoryHalper();
+
+    private List<long> mUserCardId = new List<long>();
     public static InventoryHalper getIntance() {
         return mIntance;
     }
@@ -24,6 +26,27 @@ public class InventoryHalper
         mDropDeviceUsed.Clear();
         mList.Clear();
         mRoleUseList.Clear();
+        mUserCardId.Clear();
+    }
+
+    private bool addUserCard(long id) {
+        if (mUserCardId.Count >= 8) {
+            return false;
+        }
+        mUserCardId.Add(id);
+        return true;
+    }
+    private void removeUserCard(long id)
+    {
+        foreach (long item in mUserCardId) {
+            if (item == id) {
+                mUserCardId.Remove(item);
+            }
+        }
+    }
+
+    public List<long> getusercard() {
+        return mUserCardId;
     }
 
     public long TABID_1_START_ID = 1000000;

@@ -145,7 +145,13 @@ public class AnimalControlBase
             mAnimalStatuList[statue].setBeginCallBack(begin);
         }
     }
-
+    public void setTimeCountBack(int statue,long count, AnimalStatu.animalCountTimeCallback back)
+    {
+        if (mAnimalStatuList.ContainsKey(statue))
+        {
+            mAnimalStatuList[statue].setTimeCountBack(count, back);
+        }
+    }
     public void setIsLoop(int statue, bool isLoop) {
         if (mAnimalStatuList.ContainsKey(statue))
         {

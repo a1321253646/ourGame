@@ -7,7 +7,8 @@ public class EnemyBase : Attacker {
 	private EnemyState mState;
     private float mDestroyTime = 0.5f;
 	void Start () {
-		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
+        startComment();
+        mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
 		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager (); 
 		mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,false,this);
 		mFightManager.registerAttacker (this);
@@ -25,10 +26,8 @@ public class EnemyBase : Attacker {
     }
     void fightEcent(int status)
     {
-        Debug.Log("enemy fightEvent ");
         if (status == ActionFrameBean.ACTION_ATTACK)
         {
-            
             mFightManager.attackerAction(id);
         }
     }
@@ -45,10 +44,10 @@ public class EnemyBase : Attacker {
 	private bool isAddFightEvent = false;
     private float mTime = 0;
 	void Update () {
-  //      timeTest += Time.deltaTime;
-
+        //      timeTest += Time.deltaTime;
         run ();
         mAnimalControl.update();
+        mSkillManager.upDate();
     }
 	private float xy = 0;
 	public void run(){
@@ -58,7 +57,8 @@ public class EnemyBase : Attacker {
 
 		if ( mBackManager.isRun) {
 			transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
-			mState.Update ();
+            mSkillManager.upDateLocal(mBackManager.moveSpeed * Time.deltaTime, 0);
+            mState.Update ();
 		}
 		if (getStatus() != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999) {
 			return;
@@ -70,7 +70,8 @@ public class EnemyBase : Attacker {
 			if(mLocalBean.mCurrentX < mLocalBean.mTargetX){
 				y = mLocalBean.mTargetY - mLocalBean.mCurrentY;
 				transform.Translate (Vector2.up * y);
-				xy = 0;
+                mSkillManager.upDateLocal(0, y);
+                xy = 0;
 				mLocalBean.mTargetX = -9999;
 				mLocalBean.mTargetY = -9999;
 				Fight ();
@@ -92,7 +93,8 @@ public class EnemyBase : Attacker {
 
 
 		transform.Translate (Vector2.left *(x));
-		mState.Update ();
+        mSkillManager.upDateLocal(x, 0);
+        mState.Update ();
 		//if (y != 0) {
 			//transform.Translate (Vector2.down *y);
 		//}
@@ -126,15 +128,8 @@ public class EnemyBase : Attacker {
 	public int dieCrystal = 0;
 
 	public override float BeAttack(HurtStatus status){
-        if (status.blood > 1000) {
-            Debug.Log("HurtStatus =" + status.blood+"x = "+transform.position.x+" y="+transform.position.y);
-        }
-        
-		mBloodVolume = mBloodVolume - status.blood;
-        if (status.blood > 1000)
-        {
-            Debug.Log("mBloodVolume =" + mBloodVolume);
-        }
+        mSkillManager.beforeBeHurt(status);
+        mBloodVolume = mBloodVolume - status.blood;
         if (mBloodVolume <= 0) {
 			Die ();
 			mFightManager.unRegisterAttacker (this);
@@ -144,17 +139,28 @@ public class EnemyBase : Attacker {
 	}
     public override float BeKillAttack(long effect, float value)
     {
-        if (effect == 2)
+        if (effect == 1 || effect == 6)
         {
-            int tmp = value % 10 == 0 ? 0 : 1;
-            value = ((int)value) / 10 + tmp;
-            mBloodVolume = mBloodVolume + value;
+            HurtStatus status = new HurtStatus(value, false, true);
+            mBloodVolume = mBloodVolume - status.blood;
+            if (mBloodVolume <= 0)
+            {
+                Die();
+                mFightManager.unRegisterAttacker(this);
+            }
+            mState.hurt(status);
+            return status.blood;
+        }
+        else if (effect == 2 || effect == 10001)
+        {
+            int tmp = value % 1 == 0 ? 0 : 1;
+            value = ((int)value) / 1 + tmp;
+            
             if (mBloodVolume + value > mAttribute.maxBloodVolume)
             {
                 value = mAttribute.maxBloodVolume - mBloodVolume;
             }
             mBloodVolume = mBloodVolume + value;
-            GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
             mState.add(value);
         }
         return value;

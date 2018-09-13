@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SkillJsonBean : MonoBehaviour
 {
@@ -13,7 +14,6 @@ public class SkillJsonBean : MonoBehaviour
     public long target_type;
     public string effects_parameter;
     public string calculator;
-    public string special_parameter_key;
     public string special_parameter_value;
     public long next_skill;
     public string skill_describe;
@@ -23,4 +23,18 @@ public class SkillJsonBean : MonoBehaviour
     public float leng;
     public float wight;
     public long point_type;
+    public List<float> specialParameterValue;
+    public List<float> getSpecialParameterValue() {
+        if (specialParameterValue == null && special_parameter_value != null) {
+            specialParameterValue = new List<float>();
+            string[] strs = special_parameter_value.Split(',');
+            foreach (string str in strs) {
+                if (str != null && str.Length > 0) {
+                    float tmp = float.Parse(str);
+                    specialParameterValue.Add(tmp);
+                }
+            }
+        }
+        return specialParameterValue;
+    }
 }

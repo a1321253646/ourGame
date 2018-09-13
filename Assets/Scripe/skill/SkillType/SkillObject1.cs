@@ -11,6 +11,8 @@ public class SkillObject1 : SkillObject
         mAnimalControl.setEndCallBack(ActionFrameBean.ACTION_NONE, new AnimalStatu.animalEnd(endAnimal));
     }
     void endAnimal(int status) {
+        mSkillStatus = SKILL_STATUS_END;
+        actionEnd();
         Destroy(gameObject, 0);
     }
 
@@ -19,13 +21,13 @@ public class SkillObject1 : SkillObject
         if (status == ActionFrameBean.ACTION_NONE)
         {
             Debug.Log("skill fight event");
-            List<Attacker> list = SkillTargetManager.getTargetList(mLocalManager.mLocalLink, mLocal, mCamp, false);
+            mTargetList = SkillTargetManager.getTargetList(mLocalManager.mLocalLink, mLocal, mCamp, false);
             Debug.Log("mLocal x="+ mLocal.x+" y="+ mLocal.y);
-            if (list == null || list.Count < 1) {
+            if (mTargetList == null || mTargetList.Count < 1) {
                 Debug.Log("getTargetList null");
                 return;
             }
-            foreach (Attacker attack in list) {
+            foreach (Attacker attack in mTargetList) {
                 float hurt =  calcuator.getValue(mAttacker, attack);
                 attack.skillAttack(mBean.effects, hurt);
             }

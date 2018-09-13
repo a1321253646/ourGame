@@ -13,8 +13,8 @@ public class CardControl : MonoBehaviour
     private Image mImageTop ;
     private int mStatue = STATUE_CARP_DEFAULT;
     private bool isInit = false;
-    private SkillJsonBean mSkill;
-    private CardJsonBean mCard;
+    public SkillJsonBean mSkill;
+    public CardJsonBean mCard;
     private CardManager mManager;
     private int targetType;
     List<Attacker> mTargetList;
@@ -68,7 +68,6 @@ public class CardControl : MonoBehaviour
             {
                 targetType = Attacker.CAMP_TYPE_MONSTER;
             }
-
             mTargetList = SkillTargetManager.getTargetList(mLocalLink, bean, targetType, true);
         }
         else if (mTargetList !=null &&  mTargetList.Count > 0) {
@@ -80,11 +79,39 @@ public class CardControl : MonoBehaviour
     }
     private Vector3 offset;
     public void OnpointUp() {
+        if (!mManager.userCard(mIndex, mCard.cost))
+        {
+            setStatus(STATUE_CARP_DOWN);
+        }
         if (mStatue == STATUE_CARP_UP)
         {
-            mManager.userCard(mIndex);
+
             Vector3 v = PointUtils.screenTransToWorld(transform.position);
-            SkillManage.getIntance().addSkill(mManager.getHero(), mSkill, v.x, v.y, targetType);
+            if (mSkill.shape_type == 4)
+            {
+                if (mTargetList != null && mTargetList.Count > 0)
+                {
+                    mTargetList[0].mSkillManager.addSkill(mSkill.id, mManager.getLocalManager().mLocalLink.mAttacker);
+                }
+            }
+            else if (mSkill.shape_type == 0)
+            {
+                if (mSkill.effects == 5)
+                {
+                    float a1 = mSkill.getSpecialParameterValue()[0];
+                    GameObject.Find("Manager").GetComponent<LevelManager>().addNengliangDian(a1);
+                }
+                else if (mSkill.effects == 5) {
+                    mManager.getHero().mSkillManager.addSkill(mSkill.id, mManager.getHero());
+                }
+            }
+            else
+            {
+                SkillManage.getIntance().addSkill(mManager.getHero(), mSkill, v.x, v.y, targetType);
+
+
+            }
+            
             Destroy(gameObject, 0);
             if(mTargetList != null && mTargetList.Count > 0)
             {
@@ -135,9 +162,8 @@ public class CardControl : MonoBehaviour
         }
         mStatue = status;
         Debug.Log("mStatue = " + mStatue);
-        if (mStatue == STATUE_CARP_UP)
+        if (mStatue == STATUE_CARP_UP && mSkill.shape_type != 0)
         {
-                     
             RectTransform rt = GetComponent<RectTransform>();
             Debug.Log("mSkill.leng =" + mSkill.leng + " mSkill.wight=" + mSkill.wight);
             Vector3 v = PointUtils.getScreenSize(new Vector3(mSkill.leng, mSkill.wight, 0));
@@ -147,14 +173,12 @@ public class CardControl : MonoBehaviour
             tnp = mImageBottom.sprite;
             mImageBottom.sprite = sprite;
             mImageTop.color = new Color(1, 1, 1, 0);
-
         }
         else {      
             RectTransform rt = GetComponent<RectTransform>();
             rt.sizeDelta = new Vector2(53, 72);
             mImageBottom.sprite = tnp;
             mImageTop.color = new Color(1, 1, 1, 1);
-
         }
     }
 

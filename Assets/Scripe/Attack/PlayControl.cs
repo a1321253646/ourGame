@@ -8,18 +8,21 @@ public class PlayControl : Attacker
     // Use this for initialization
 
     private HeroState mState;
+    private LevelManager mLevelManager;
     void Start () {
-		mAttackType = Attacker.ATTACK_TYPE_HERO;
+        startComment();
+        mAttackType = Attacker.ATTACK_TYPE_HERO;
         mCampType = CAMP_TYPE_PLAYER;
-        mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
-		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager ();
+        mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
+        mBackManager = mLevelManager.getBackManager ();
+		mFightManager = mLevelManager.getFightManager ();
 		//mBackManager.setBackground ("map/map_03");
 		toString ("Play");
 		mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
         setHeroData ();
         upLunhui();
         mFightManager.registerAttacker (this);
-	}
+    }
     private void initAnimalEvent() {
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
         mAnimalControl = new AnimalControlBase(resourceData, mSpriteRender);
@@ -31,6 +34,7 @@ public class PlayControl : Attacker
 
     void fightEcent(int status) {
         if (status == ActionFrameBean.ACTION_ATTACK) {
+            mLevelManager.playerAction();
             mFightManager.attackerAction(id);
         }
     }
@@ -198,7 +202,7 @@ public class PlayControl : Attacker
 
 
 	// Update is called once per frame
-	private float mTime = 0; 
+	private float mTime = 0;
 	void Update () {
         mTime += Time.deltaTime;
         if (getStatus() != mFightManager.mHeroStatus && getStatus() != Attacker.PLAY_STATUS_STANDY) {
@@ -213,13 +217,15 @@ public class PlayControl : Attacker
 				mBackManager.move ();
 			}
 		}
+        mSkillManager.upDate();
         mAnimalControl.update();
-	}
+    }
 	void run(){
 		transform.Translate (new Vector2 (1, 0)*(mRunSpeed-mBackManager.moveSpeed)*Time.deltaTime);
 	}
 	public override float BeAttack(HurtStatus status){
-//        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);
+        //        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);
+        mSkillManager.beforeBeHurt(status);
         if (JsonUtils.getIntance().getConfigValueForId(100007) != 1) {
             mBloodVolume = mBloodVolume - status.blood;
             GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
@@ -234,10 +240,25 @@ public class PlayControl : Attacker
 	}
     public override float BeKillAttack(long effect, float value)
     {
-        if (effect == 2) {
-            int tmp = value % 10 == 0 ? 0 : 1;
-            value = ((int)value) / 10 + tmp;
-            mBloodVolume = mBloodVolume + value;
+        if (effect == 1 || effect == 6)
+        {
+            HurtStatus status = new HurtStatus(value, false, true);
+            if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)
+            {
+                mBloodVolume = mBloodVolume - status.blood;
+                GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
+                if (mBloodVolume <= 0)
+                {
+                    Die();
+                    mFightManager.unRegisterAttacker(this);
+                }
+            }
+            mState.hurt(status);
+            return status.blood;
+        }
+        else if (effect == 2 || effect == 10001) {
+            int tmp = value % 1 == 0 ? 0 : 1;
+            value = ((int)value) / 1 + tmp;
             if (mBloodVolume + value > mAttribute.maxBloodVolume)
             {
                 value = mAttribute.maxBloodVolume - mBloodVolume;

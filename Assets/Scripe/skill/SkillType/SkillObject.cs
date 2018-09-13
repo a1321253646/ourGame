@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public abstract class SkillObject : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public abstract class SkillObject : MonoBehaviour
 
     public SkillJsonBean mBean;
     public SkillLocalBean mLocal;
-    private int mSkillStatus = SKILL_STATUS_DEFAULT;
+    public int mSkillStatus = SKILL_STATUS_DEFAULT;
     private bool isInit = false;
     public int mCamp;
     SpriteRenderer mSpriteRender;
@@ -21,6 +22,8 @@ public abstract class SkillObject : MonoBehaviour
 
     public AnimalControlBase mAnimalControl;
     public Attacker mAttacker;
+
+    public List<Attacker> mTargetList;
     public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType) {
         mLocalManager = manage;
         mBean = bean;
@@ -36,7 +39,6 @@ public abstract class SkillObject : MonoBehaviour
         calcuator = new CalculatorUtil(mBean.calculator, mBean.effects_parameter);
         mAnimalControl.start();
         isInit = true;
-
     }
 
     public abstract void initEnd();
@@ -46,7 +48,6 @@ public abstract class SkillObject : MonoBehaviour
     }
 
     private void getLocal() {
-
         mLocal = new SkillLocalBean();
         mLocal.leng = mBean.leng;
         mLocal.wight = mBean.wight;
@@ -59,5 +60,41 @@ public abstract class SkillObject : MonoBehaviour
             return;
         }
         mAnimalControl.update();
+    }
+
+    public void actionEnd() {
+        if (mBean.next_skill == 0) {
+            return;
+        }
+        SkillJsonBean nextSkill = JsonUtils.getIntance().getSkillInfoById(mBean.next_skill);
+        if (nextSkill.shape_type == 5 || nextSkill.shape_type == 4)
+        {
+            if (mTargetList != null && mTargetList.Count > 0)
+            {
+                foreach (Attacker a in mTargetList)
+                {
+                    a.mSkillManager.addSkill(mBean.next_skill, mAttacker);
+                }
+            }
+        }
+        else {
+            int type = Attacker.CAMP_TYPE_DEFAULT;
+            int attackType = mAttacker.mCampType;
+            if (mBean.target_type == SkillJsonBean.TYPE_SELF)
+            {
+                type = attackType;
+            }
+            else if (mBean.target_type == SkillJsonBean.TYPE_ENEMY)
+            {
+                if (attackType == Attacker.CAMP_TYPE_PLAYER)
+                {
+                    type = Attacker.CAMP_TYPE_MONSTER;
+                }
+                else if (attackType == Attacker.CAMP_TYPE_MONSTER){
+                    type = Attacker.CAMP_TYPE_PLAYER;
+                }
+            }
+            SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
+        }
     }
 }

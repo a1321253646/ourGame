@@ -11,5 +11,10 @@ public class Point
 		x = float.Parse(split[0]);
 		y = float.Parse(split[1]);
 	}
+    public Point(float x, float y)
+    {
+        this.x = x;
+        this.y = y;
+    }
 }
 

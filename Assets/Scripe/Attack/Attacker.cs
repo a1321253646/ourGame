@@ -32,6 +32,7 @@ public abstract class Attacker : MonoBehaviour
 	public float mDieGas = 0;
 	public float mDieCrysta = 0;
 
+    public AttackSkillManager mSkillManager;
 
     public Attribute mAttribute = new Attribute();
     
@@ -78,8 +79,10 @@ public abstract class Attacker : MonoBehaviour
 			" mRunSpeed = "+mRunSpeed);
 	}
 
-	void Start () {
-	}
+	public void startComment () {
+        mSkillManager = new AttackSkillManager(this);
+
+    }
 
 
 	public void attack(){
@@ -126,20 +129,20 @@ public abstract class Attacker : MonoBehaviour
         changeAnim();
     }
     public void setRed() {
-        mSpriteRender.color = Color.red;
-    }
-    public void setWhith() {
-        mSpriteRender.color = Color.white;
-    }
-    public void skillAttack(long effect, float value) {
-        if (effect == 1)
+        if (mSpriteRender != null)
         {
-            BeAttack(new HurtStatus(value, false, true));
-        }
-        else if(effect == 2) {
-            BeKillAttack(effect, value);
+            mSpriteRender.color = Color.red;
         }
         
+    }
+    public void setWhith() {
+        if (mSpriteRender != null) {
+            mSpriteRender.color = Color.white;
+        }
+        
+    }
+    public void skillAttack(long effect, float value) {
+        BeKillAttack(effect, value);
     }
 }
 

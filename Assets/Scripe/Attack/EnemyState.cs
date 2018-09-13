@@ -82,6 +82,9 @@ public class EnemyState{
 	}
     public void add(float blood)
     {
+        if (blood == 0) {
+            return;    
+        }
         mHpSl.value = mEnemy.mBloodVolume;
         GameObject obj = Resources.Load<GameObject>("prefab/hurt");
         EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position);
