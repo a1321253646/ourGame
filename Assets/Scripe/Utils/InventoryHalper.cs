@@ -27,6 +27,7 @@ public class InventoryHalper
         mList.Clear();
         mRoleUseList.Clear();
         mUserCardId.Clear();
+       
     }
 
     private bool addUserCard(long id) {
@@ -80,20 +81,30 @@ public class InventoryHalper
                 newBean.tabId = jb.tabid;
                 mList.Add(newBean);
             }
-            else if (id > TABID_2_START_ID && id < TABID_3_START_ID) {
+            else if (id > TABID_2_START_ID && id < TABID_3_START_ID)
+            {
                 AccouterJsonBean jb = BackpackManager.getIntance().getAccouterInfoById(id);
-                
-                newBean.goodId = id;             
+
+                newBean.goodId = id;
                 newBean.sortID = jb.sortID;
                 newBean.count = count;
                 newBean.tabId = jb.tabid;
                 newBean.attributeList = new List<PlayerAttributeBean>();
-                foreach (AttributeBean be in jb.getAttributeList()) {
+                foreach (AttributeBean be in jb.getAttributeList())
+                {
                     PlayerAttributeBean p = new PlayerAttributeBean();
                     p.type = be.type;
                     p.value = be.getCurrentValue();
                     newBean.attributeList.Add(p);
                 }
+                mList.Add(newBean);
+            }
+            else if (id > TABID_3_START_ID) {
+                CardJsonBean cj = BackpackManager.getIntance().getCardInfoById(id);
+                newBean.goodId = id;
+                newBean.sortID = cj.sortID;
+                newBean.count = count;
+                newBean.tabId = cj.tabid;
                 mList.Add(newBean);
             }
             return true;
@@ -185,6 +196,13 @@ public class InventoryHalper
         isAddSuccess = addBookId(id);
         return id;
     }
+    public void useCard(PlayerBackpackBean bean, long count) {
+        for (int i = 0; i < count; i++) {
+            mUserCardId.Add(JsonUtils.getIntance().getCardInfoById(bean.goodId).skill_id);
+            deleteIventory(bean.goodId, 1);
+        }
+    }
+
     public bool getIsAddSuccess() {
         return isAddSuccess;
     }

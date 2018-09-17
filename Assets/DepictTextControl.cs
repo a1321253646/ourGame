@@ -39,7 +39,7 @@ public class DepictTextControl : MonoBehaviour {
         if (h != 0 && !isChange && mStr != null) {
            
             isChange = true;
-            Debug.Log("mRect.rect.height = " + mRect.rect.height);
+//            Debug.Log("mRect.rect.height = " + mRect.rect.height);
             int count = 0;
             if (h < 147.3513f)
             {
@@ -54,7 +54,7 @@ public class DepictTextControl : MonoBehaviour {
 
 
             }
-            Debug.Log("count = " + count);
+//            Debug.Log("count = " + count);
             for (int i = 0; i < count*3; i++)
             {
                 mText.text = mText.text + "\n";

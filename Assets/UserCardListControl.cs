@@ -44,6 +44,9 @@ public class UserCardListControl : MonoBehaviour {
             line = 1;
         }
         line += mGoodUiCount / LinCount;
+        if (line < 3) {
+            line = 3;
+        }
         //   Debug.Log("  gridLyout line = " + line);
         float height = line * mGrilLayout.cellSize.y;  //行数乘以Cell的高度，3.0f是微调
         height += (line - 1) * mGrilLayout.spacing.y;     //每行之间有间隔

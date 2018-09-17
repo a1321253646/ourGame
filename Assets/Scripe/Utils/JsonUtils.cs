@@ -352,6 +352,11 @@ public class JsonUtils
         }
         return null;
     }
+
+    public List<CardJsonBean> getCardInfos() {
+        return mCardDate;
+    }
+
     public CardJsonBean getCardInfoById(long id)
     {
         foreach (CardJsonBean note in mCardDate)

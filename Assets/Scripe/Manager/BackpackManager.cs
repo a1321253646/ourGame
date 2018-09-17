@@ -13,6 +13,8 @@ public class BackpackManager
     private Dictionary<long, PlayerBackpackBean> mHeroEquip;
     private List<GoodJsonBean> mGoodInfoList;
     private List<AccouterJsonBean> mAccouterInfoList;
+    private List<CardJsonBean> mCardInfoList;
+
 
     private RectTransform mTipTranform;
     private RectTransform mBackpack;
@@ -23,6 +25,8 @@ public class BackpackManager
     private IvertoryControl mInvertoryControl;
     private TipControl mTipControl;
     private HeroRoleControl mHeroControl;
+    private CardShowControl mCardControl;
+
     private ComposeControl mComposeControl;
     private SamsaraManage mSamsaraControl;
     LevelManager mLevel;
@@ -37,6 +41,7 @@ public class BackpackManager
         mHeroEquip = InventoryHalper.getIntance().getRoleUseList();
         mGoodInfoList = JsonUtils.getIntance().getGoodInfoList();
         mAccouterInfoList = JsonUtils.getIntance().getAccouterInfoList();
+        mCardInfoList = JsonUtils.getIntance().getCardInfos();
         mBackpack = GameObject.Find("Backpack").GetComponent<RectTransform>();
         mInvertoryControl = mBackpack.GetComponentInChildren<IvertoryControl>();
 
@@ -51,7 +56,7 @@ public class BackpackManager
 
         mSamsaraTranform = GameObject.Find("lunhui").GetComponent<RectTransform>();
         mSamsaraControl = GameObject.Find("lunhui").GetComponent<SamsaraManage>();
-
+        mCardControl = GameObject.Find("card").GetComponent<CardShowControl>();
         mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
     }
 
@@ -76,6 +81,17 @@ public class BackpackManager
         return null;
     }
 
+    public CardJsonBean getCardInfoById(long id) {
+        foreach (CardJsonBean bean in mCardInfoList)
+        {
+            if (bean.id == id)
+            {
+                return bean;
+            }
+        }
+        return null;
+    }
+
     public PlayControl getHero() {
         return mLevel.mPlayerControl;
     }
@@ -90,24 +106,25 @@ public class BackpackManager
     public void use(PlayerBackpackBean bean, long count,int type) {
         if (type == TipControl.USE_TYPE)
         {
-            InventoryHalper.getIntance().use(bean, count);         
+            InventoryHalper.getIntance().use(bean, count);
             mInvertoryControl.update();
             mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
             mHeroControl.upDateUi();
         }
         else if (type == TipControl.UNUSE_TYPE)
         {
-            InventoryHalper.getIntance().unUse(bean, count);          
+            InventoryHalper.getIntance().unUse(bean, count);
             mInvertoryControl.update();
             mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
             mHeroControl.upDateUi();
         }
-        else if (type == TipControl.COMPOSE_TYPE) {
+        else if (type == TipControl.COMPOSE_TYPE)
+        {
             composeUiShowClick();
         }
         else if (type == TipControl.BOOK_TYPE)
         {
-            long  id = InventoryHalper.getIntance().useBook(bean, count);
+            long id = InventoryHalper.getIntance().useBook(bean, count);
             bool isSuccess = InventoryHalper.getIntance().getIsAddSuccess();
             mInvertoryControl.update();
             if (!isSuccess)
@@ -116,10 +133,14 @@ public class BackpackManager
                 GameManager.getIntance().mCurrentCrystal += book.compensate;
                 GameManager.getIntance().updataGasAndCrystal();
             }
-            else {
+            else
+            {
                 mComposeControl.updateListPart();
             }
-          
+        }
+        else if (type == TipControl.USE_CARD_TYPE) {
+            InventoryHalper.getIntance().useCard(bean, count);
+            mInvertoryControl.update();
         }
 
     }
@@ -187,6 +208,12 @@ public class BackpackManager
         mHeroControl.click();
         removeTipUi();
     }
+    public void cardUiShowClick()
+    {
+        mCardControl.click();
+        removeTipUi();
+    }
+
 
     public void samsaraShowClick()
     {
@@ -199,12 +226,4 @@ public class BackpackManager
         mInvertoryControl.click();
         removeTipUi();
     }
-    public void setShowDate(string name, string dec, long count, int type, long cardId, string sprinPath) {
-        mTipControl.setShowDate(name, dec, count, type, cardId, sprinPath);
-    }
-    public void use(long cardId,int type,long count)
-    {
-
-    }
-
 }

@@ -140,7 +140,7 @@ public class AnimalStatu
             loopDelayTime = 0;
             eachTime = oneTime / spriteList.Count;
         }
-        Debug.Log(" each == " + eachTime + " loopDelayTime= "+ loopDelayTime+ " speedDate="+ speedDate);
+//        Debug.Log(" each == " + eachTime + " loopDelayTime= "+ loopDelayTime+ " speedDate="+ speedDate);
     }
 
     public void setScale(float scale) {

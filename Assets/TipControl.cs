@@ -18,6 +18,7 @@ public class TipControl : MonoBehaviour {
     private DepictTextControl mDepoct;
     AccouterJsonBean mAccouter = null;
     GoodJsonBean mGoodJson = null;
+    CardJsonBean mCardJson = null;
     private Button mClose, mActionClick;
     private Text mClickText;
     public static int COMPOSE_TYPE = 1;
@@ -28,10 +29,11 @@ public class TipControl : MonoBehaviour {
     public static int UNUSE_CARD_TYPE = 6;
 
     public long mCardId = -1;
-
+    LevelManager mLevelManager;
     private int mCurrentType = 1;
     void Start()
     {
+        mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mActionClick = GameObject.Find("tip_Button").GetComponent<Button>();
         mClose = GameObject.Find("tip_close").GetComponent<Button>();
         mClickText = GameObject.Find("tipButtonTx").GetComponent<Text>();
@@ -47,48 +49,8 @@ public class TipControl : MonoBehaviour {
 
     private void use()
     {
-        if (mCurrentType == USE_CARD_TYPE || mCurrentType == UNUSE_CARD_TYPE)
-        {
-            BackpackManager.getIntance().use(mCardId, mCurrentType, count);
-        }
-        else {
-            BackpackManager.getIntance().use(mBean, count, mCurrentType);
-        }
+        BackpackManager.getIntance().use(mBean, count, mCurrentType);
         removeUi();
-    }
-
-    public void setShowDate(string name, string dec, long count, int type,long cardId,string sprinPath) {
-        mCurrentType = type;
-        mCardId = cardId;
-        if (mTipImage == null)
-        {
-            mTipImage = GameObject.Find("box_icon_tip").GetComponent<Image>();
-        }
-        if (mTipCount == null)
-        {
-            mTipCount = GameObject.Find("box_text_tip").GetComponent<Text>();
-        }
-        if (mTipName == null)
-        {
-            mTipName = GameObject.Find("tipName").GetComponent<Text>();
-        }
-
-        if (type == USE_CARD_TYPE) {
-            mClickText.text = "准备";
-        }
-        else {
-            mClickText.text = "卸载";
-        }
-        mTipImage.sprite = Resources.
-                 Load("backpackIcon/" + sprinPath, typeof(Sprite)) as Sprite;
-        mTipName.text = name;
-        mTipCount.text = "" + count;
-        if (nDepictTx == null)
-        {
-            mDepoct = GameObject.Find("depict_text").GetComponent<DepictTextControl>();
-        }
-        mDepoct.setText(dec);
-        showUi();
     }
 
     public void setShowData(PlayerBackpackBean bean,long count,int type) {
@@ -105,8 +67,16 @@ public class TipControl : MonoBehaviour {
         {
             mClickText.text = "脱下";
         }
-        else if (mCurrentType == BOOK_TYPE) {
+        else if (mCurrentType == BOOK_TYPE)
+        {
             mClickText.text = "使用";
+        }
+        else if (mCurrentType == USE_CARD_TYPE)
+        {
+            mClickText.text = "装备";
+        }
+        else if (mCurrentType == UNUSE_CARD_TYPE) {
+            mClickText.text = "卸下";
         }
         mBean = bean;
         this.id = bean.goodId;
@@ -143,7 +113,12 @@ public class TipControl : MonoBehaviour {
             img = mGoodJson.icon;
             name = mGoodJson.name;
         }
-
+        else if (mBean.tabId == GoodControl.TABID_CARD_TYPE)
+        {
+            mCardJson = BackpackManager.getIntance().getCardInfoById(id);
+            img = mCardJson.icon;
+            name = mCardJson.name;
+        }
         mTipCount.text = "" + count;
         mTipName.text = name;
         mTipImage.sprite = Resources.
@@ -151,9 +126,7 @@ public class TipControl : MonoBehaviour {
         mTipImage.color = Color.white;
     }
 
-    private void updataUi() {
-        
-        
+    private void updataUi() {               
         creatDepictText();
        
     }
@@ -167,6 +140,18 @@ public class TipControl : MonoBehaviour {
             str = "";
             foreach (PlayerAttributeBean b in mBean.attributeList) {
                 str = str+b.getTypeStr() + ":" + b.value+"\n";
+            }
+        }
+        if (mCardJson != null) {
+            SkillJsonBean sj = JsonUtils.getIntance().getSkillInfoById(mCardJson.skill_id);
+            str = "";
+            str += sj.skill_describe;
+            Debug.Log(" SkillJsonBean.describe = " + sj.skill_describe);
+            if (str.Contains("&n")) {
+                Debug.Log(" str.Contains" );
+                CalculatorUtil calcuator = new CalculatorUtil(sj.calculator,sj.effects_parameter);
+                float value = calcuator.getValue(mLevelManager.mPlayerControl, null);
+                str = str.Replace("&n", "" + value);
             }
         }
         if (nDepictTx == null)

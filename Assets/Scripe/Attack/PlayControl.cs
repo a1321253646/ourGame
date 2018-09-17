@@ -22,6 +22,15 @@ public class PlayControl : Attacker
         setHeroData ();
         upLunhui();
         mFightManager.registerAttacker (this);
+        BackpackManager.getIntance().addGoods(3000001, 1);
+        BackpackManager.getIntance().addGoods(3000002, 1);
+        BackpackManager.getIntance().addGoods(3000003, 1);
+        BackpackManager.getIntance().addGoods(3000004, 1);
+        BackpackManager.getIntance().addGoods(3000005, 1);
+        BackpackManager.getIntance().addGoods(3000006, 1);
+        BackpackManager.getIntance().addGoods(3000007, 1);
+        BackpackManager.getIntance().addGoods(3000008, 1);
+        BackpackManager.getIntance().addGoods(3000009, 1);
     }
     private void initAnimalEvent() {
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
@@ -209,7 +218,7 @@ public class PlayControl : Attacker
 			setStatus(mFightManager.mHeroStatus);
 			if (getStatus() == Attacker.PLAY_STATUS_FIGHT) {
 				Fight ();
-                Debug.Log(" Fight () ");             
+  //              Debug.Log(" Fight () ");             
                 mBackManager.stop ();
 			}
 			if (getStatus() == Attacker.PLAY_STATUS_RUN ) {

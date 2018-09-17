@@ -88,12 +88,12 @@ public class LocalManager{
 				}
 
 				if (!isHave) {
-                    Debug.Log("mLocalLink.mCurrentX = " + mLocalLink.mCurrentX);
-                    Debug.Log(" mLocalLink.mAttacker.resourceData.getFightOffset().x = " + mLocalLink.mAttacker.resourceData.getHurtOffset().x);
-                    Debug.Log(" mLocalLink.mAttackLeng = " + mLocalLink.mAttackLeng);
-                    Debug.Log("leng = " + leng);
-                    Debug.Log("tmp.mCurrentX = " + tmp.mCurrentX);
-                    Debug.Log("tmp.mAttacker.resourceData.getFightOffset().x = " + tmp.mAttacker.resourceData.getHurtOffset().x);
+              //      Debug.Log("mLocalLink.mCurrentX = " + mLocalLink.mCurrentX);
+                //    Debug.Log(" mLocalLink.mAttacker.resourceData.getFightOffset().x = " + mLocalLink.mAttacker.resourceData.getHurtOffset().x);
+               //     Debug.Log(" mLocalLink.mAttackLeng = " + mLocalLink.mAttackLeng);
+               //     Debug.Log("leng = " + leng);
+               //     Debug.Log("tmp.mCurrentX = " + tmp.mCurrentX);
+               //     Debug.Log("tmp.mAttacker.resourceData.getFightOffset().x = " + tmp.mAttacker.resourceData.getHurtOffset().x);
                     mLocalLink.mAttacker.mAttackerTargets.Add (tmp.mAttacker);
 				}
 

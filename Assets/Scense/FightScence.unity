@@ -4088,10 +4088,10 @@ RectTransform:
   m_Father: {fileID: 800348617}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95.91, y: -11.218}
-  m_SizeDelta: {x: -204.77, y: -40.85}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -95.91, y: -11.218002}
+  m_SizeDelta: {x: 383.22998, y: 283.15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782358998
 MonoBehaviour:
@@ -4174,6 +4174,7 @@ GameObject:
   - component: {fileID: 800348617}
   - component: {fileID: 800348619}
   - component: {fileID: 800348618}
+  - component: {fileID: 800348620}
   m_Layer: 5
   m_Name: card
   m_TagString: Untagged
@@ -4201,7 +4202,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 574, y: -725.8}
+  m_AnchoredPosition: {x: 733.89, y: 335.53}
   m_SizeDelta: {x: 588.66, y: 323}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &800348618
@@ -4239,6 +4240,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 800348616}
+--- !u!114 &800348620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 800348616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b38b6194b8f984b8b55d331519fb3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isShow: 0
 --- !u!224 &807420869
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7055,7 +7068,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000045776367, y: 0.00002224918}
+  m_AnchoredPosition: {x: -0.000045776367, y: 0.000016786305}
   m_SizeDelta: {x: -24.629974, y: -25.189987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1283622471
@@ -7536,7 +7549,7 @@ GameObject:
   - component: {fileID: 1347823821}
   - component: {fileID: 1347823820}
   m_Layer: 5
-  m_Name: compose_close
+  m_Name: card_close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

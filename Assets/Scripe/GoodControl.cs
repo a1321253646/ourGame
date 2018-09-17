@@ -8,6 +8,7 @@ public class GoodControl : MonoBehaviour {
 
     public static int TABID_EQUIP_TYPY = 2;
     public static int TABID_ITEM_TYPE = 1;
+    public static int TABID_CARD_TYPE = 3;
 
 
     private Image mImage;
@@ -61,14 +62,18 @@ public class GoodControl : MonoBehaviour {
         {
             type = TipControl.USE_TYPE;
         }
-        else if (bean.tabId == TABID_ITEM_TYPE && bean.goodId > 1900000) {
+        else if (bean.tabId == TABID_ITEM_TYPE && bean.goodId > 1900000)
+        {
             type = TipControl.BOOK_TYPE;
         }
         else if (bean.tabId == TABID_ITEM_TYPE)
         {
             type = TipControl.COMPOSE_TYPE;
         }
-        BackpackManager.getIntance().showTipUi(bean, count, type);
+        else if (bean.tabId == TABID_CARD_TYPE) {
+            type = TipControl.USE_CARD_TYPE;
+        }
+            BackpackManager.getIntance().showTipUi(bean, count, type);
     }
 
     public bool isFull() {
@@ -91,6 +96,10 @@ public class GoodControl : MonoBehaviour {
             {
                 img = BackpackManager.getIntance().getGoodInfoById(id).icon;
                 mMaxCout = BackpackManager.getIntance().getGoodInfoById(id).stacking;
+            }
+            else if (bean.tabId == TABID_CARD_TYPE) {
+                img = BackpackManager.getIntance().getCardInfoById(id).icon;
+                mMaxCout = BackpackManager.getIntance().getCardInfoById(id).stacking;
             }
             // SpriteRenderer sp1 = mImage.GetComponent<SpriteRenderer>();
             //            Debug.Log("icon = " + mGoodInfo.icon + "mImage = " + mImage);

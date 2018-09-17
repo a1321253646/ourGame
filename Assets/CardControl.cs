@@ -25,7 +25,7 @@ public class CardControl : MonoBehaviour
         gameObject.transform.SetSiblingIndex(400);
         mWitch = gameObject.GetComponent<RectTransform>().rect.xMax -
             gameObject.GetComponent<RectTransform>().rect.xMin;
-        Debug.Log("manager 卡牌宽度 " + mWitch);
+ //       Debug.Log("manager 卡牌宽度 " + mWitch);
 
     }
 
@@ -191,14 +191,14 @@ public class CardControl : MonoBehaviour
         if (mImageBottom == null)
         {
             mImageBottom = GetComponentsInChildren<Image>()[0];
-            Debug.Log("mCard.center_resource = " + mCard.center_resource);
+ //           Debug.Log("mCard.center_resource = " + mCard.center_resource);
             Sprite sprite = Resources.Load("UI/"+ mCard.center_resource, typeof(Sprite)) as Sprite;
             mImageBottom.sprite = sprite;
         }
         if (mImageTop == null)
         {
             mImageTop = GetComponentsInChildren<Image>()[1];
-            Debug.Log("mCard.top_resource = " + mCard.top_resource);
+//            Debug.Log("mCard.top_resource = " + mCard.top_resource);
             Sprite sprite = Resources.Load("UI/" + mCard.top_resource, typeof(Sprite)) as Sprite;
             mImageTop.sprite = sprite;
         }

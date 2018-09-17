@@ -68,7 +68,7 @@ public class CardUiControl : MonoBehaviour {
     }
     private void onClick()
     {
-        BackpackManager.getIntance().setShowDate(mCard.name, mCard.describe, 1, TipControl.UNUSE_CARD_TYPE,mCard.id,"");
+//        BackpackManager.getIntance().setShowDate(mCard.name, mCard.describe, 1, TipControl.USE_CARD_TYPE,mCard.id,"");
     }
     public void update()
     {

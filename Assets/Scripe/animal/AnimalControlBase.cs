@@ -70,10 +70,10 @@ public class AnimalControlBase
         if (isLastSet) {
             return;
         }
-        Debug.Log(" setStatus = " + status);
+   //     Debug.Log(" setStatus = " + status);
         if (mAnimalStatuList.ContainsKey(status))
         {
-            Debug.Log(" have = " + status);
+ //           Debug.Log(" have = " + status);
             mShowAnimalStatu = mAnimalStatuList[status];
             if (mShowAnimalStatu.delayStatue != -1)
             {

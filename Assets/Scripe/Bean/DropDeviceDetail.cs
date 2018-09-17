@@ -43,7 +43,7 @@ public class DropDeviceDetail
             }
             
             if (fell == null) {
-                Debug.Log("DropDeviceDetail fell null");
+ //               Debug.Log("DropDeviceDetail fell null");
                 continue;
             }
             
