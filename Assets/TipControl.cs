@@ -24,6 +24,11 @@ public class TipControl : MonoBehaviour {
     public static int USE_TYPE = 2;
     public static int UNUSE_TYPE = 3;
     public static int BOOK_TYPE = 4;
+    public static int USE_CARD_TYPE = 5;
+    public static int UNUSE_CARD_TYPE = 6;
+
+    public long mCardId = -1;
+
     private int mCurrentType = 1;
     void Start()
     {
@@ -42,8 +47,48 @@ public class TipControl : MonoBehaviour {
 
     private void use()
     {
-        BackpackManager.getIntance().use(mBean, count, mCurrentType);
+        if (mCurrentType == USE_CARD_TYPE || mCurrentType == UNUSE_CARD_TYPE)
+        {
+            BackpackManager.getIntance().use(mCardId, mCurrentType, count);
+        }
+        else {
+            BackpackManager.getIntance().use(mBean, count, mCurrentType);
+        }
         removeUi();
+    }
+
+    public void setShowDate(string name, string dec, long count, int type,long cardId,string sprinPath) {
+        mCurrentType = type;
+        mCardId = cardId;
+        if (mTipImage == null)
+        {
+            mTipImage = GameObject.Find("box_icon_tip").GetComponent<Image>();
+        }
+        if (mTipCount == null)
+        {
+            mTipCount = GameObject.Find("box_text_tip").GetComponent<Text>();
+        }
+        if (mTipName == null)
+        {
+            mTipName = GameObject.Find("tipName").GetComponent<Text>();
+        }
+
+        if (type == USE_CARD_TYPE) {
+            mClickText.text = "准备";
+        }
+        else {
+            mClickText.text = "卸载";
+        }
+        mTipImage.sprite = Resources.
+                 Load("backpackIcon/" + sprinPath, typeof(Sprite)) as Sprite;
+        mTipName.text = name;
+        mTipCount.text = "" + count;
+        if (nDepictTx == null)
+        {
+            mDepoct = GameObject.Find("depict_text").GetComponent<DepictTextControl>();
+        }
+        mDepoct.setText(dec);
+        showUi();
     }
 
     public void setShowData(PlayerBackpackBean bean,long count,int type) {
@@ -70,6 +115,7 @@ public class TipControl : MonoBehaviour {
         updataTip();
         updataUi();
     }
+
 
     private void updataTip()
     {

@@ -15,7 +15,7 @@ public class CardManager : MonoBehaviour {
     LevelManager mLevelManager;
     private List<GameObject> mCardLoaclList = new List<GameObject>();
     GameObject mCardLocalUp;
-
+    private float mYdel;
     // Use this for initialization
     void Start () {
         mCanvas = GameObject.Find("Canvas").transform;
@@ -25,6 +25,7 @@ public class CardManager : MonoBehaviour {
             mCardLoaclList.Add(GameObject.Find("kapai_local_"+i));
         }
         mCardLocalUp = GameObject.Find("kapai_local_up");
+        mYdel = mCardLoaclList[0].transform.position.y;
     }
 
     public float getLocalXByIndex(int index) {
@@ -65,8 +66,8 @@ public class CardManager : MonoBehaviour {
          }
 
         GameObject newobj = GameObject.Instantiate(
-            card, new Vector2(-30,transform.position.y), Quaternion.Euler(0.0f, 0f, 0.0f));
-
+            card, new Vector2(-30, mYdel), Quaternion.Euler(0.0f, 0f, 0.0f));
+        newobj.AddComponent<CardControl>();
         CardControl enmey = newobj.GetComponent<CardControl>();
         newobj.transform.SetParent(gameObject.transform);
         newobj.transform.localScale = Vector3.one;

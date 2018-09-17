@@ -199,5 +199,12 @@ public class BackpackManager
         mInvertoryControl.click();
         removeTipUi();
     }
+    public void setShowDate(string name, string dec, long count, int type, long cardId, string sprinPath) {
+        mTipControl.setShowDate(name, dec, count, type, cardId, sprinPath);
+    }
+    public void use(long cardId,int type,long count)
+    {
+
+    }
 
 }

@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class CardItemControl : MonoBehaviour {
     CardManager mManager;
     long mCardId;
     SkillJsonBean mSkillJson;
+    
     private void Start()
     {
 
@@ -13,8 +14,10 @@ public class CardItemControl : MonoBehaviour {
 
     private void Update()
     {
-        float x = gameObject.GetComponent<RectTransform>().rect.width* gameObject.transform.localScale.x;
+    }
 
+    public void init( long cardId) {
+        float x = gameObject.GetComponent<RectTransform>().rect.width * gameObject.transform.localScale.x;
         float y = gameObject.GetComponent<RectTransform>().rect.height * gameObject.transform.localScale.y;
         Transform ob = transform.GetChild(0).GetChild(0);
         float x1 = ob.gameObject.GetComponent<RectTransform>().rect.width;
@@ -23,11 +26,4 @@ public class CardItemControl : MonoBehaviour {
         ob.localScale = new Vector3(x / x1, y / y1, 1);
     }
 
-    public void init(CardManager manage, long cardId) {
-
-    }
-
-    public void init(CardControl control) {
-
-    }
 }
