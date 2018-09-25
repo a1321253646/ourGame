@@ -29,24 +29,27 @@ public class InventoryHalper
         mUserCardId.Clear();
        
     }
-
-    private bool addUserCard(long id) {
-        if (mUserCardId.Count >= 8) {
-            return false;
-        }
-        mUserCardId.Add(id);
-        return true;
-    }
-    private void removeUserCard(long id)
+    public void useCard(PlayerBackpackBean bean, long count)
     {
-        foreach (long item in mUserCardId) {
+        for (int i = 0; i < count; i++)
+        {
+            mUserCardId.Add(bean.goodId);
+            deleteIventory(bean.goodId, 1);
+        }
+    }
+    public void removeUserCard(long id)
+    {
+        for (int i = 0 ; i < mUserCardId.Count;i++) {
+            long item = mUserCardId[i];
             if (item == id) {
                 mUserCardId.Remove(item);
+                addInventory(item, 1);
+                return;
             }
         }
     }
 
-    public List<long> getusercard() {
+    public List<long> getUsercard() {
         return mUserCardId;
     }
 
@@ -196,12 +199,7 @@ public class InventoryHalper
         isAddSuccess = addBookId(id);
         return id;
     }
-    public void useCard(PlayerBackpackBean bean, long count) {
-        for (int i = 0; i < count; i++) {
-            mUserCardId.Add(JsonUtils.getIntance().getCardInfoById(bean.goodId).skill_id);
-            deleteIventory(bean.goodId, 1);
-        }
-    }
+
 
     public bool getIsAddSuccess() {
         return isAddSuccess;

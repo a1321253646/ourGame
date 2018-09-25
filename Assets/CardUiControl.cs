@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CardUiControl : MonoBehaviour {
 
-    public int TYPE_CARD_ITME = 1;
-    public int TYPE_CARD_PLAY = 2;
+    public static int TYPE_CARD_ITME = 1;
+    public static int TYPE_CARD_PLAY = 2;
 
 
     private Image mImageBottom;
@@ -17,7 +17,7 @@ public class CardUiControl : MonoBehaviour {
     Attacker firer;
     Button mBt;
     string dec;
-    private void init(long cardId,int type)
+    public void init(long cardId,int type)
     {
         if (mCard == null) {
             CardJsonBean card = JsonUtils.getIntance().getCardInfoById(cardId);
@@ -27,14 +27,12 @@ public class CardUiControl : MonoBehaviour {
             mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);
         }
         if (mImageBottom == null) {
-            mImageBottom = GetComponentsInChildren<Image>()[0];
-            Debug.Log("mCard.center_resource = " + mCard.center_resource);
+            mImageBottom = GetComponentsInChildren<Image>()[1];
             Sprite sprite1 = Resources.Load("UI/" + mCard.center_resource, typeof(Sprite)) as Sprite;
             mImageBottom.sprite = sprite1;
         }
         if(mImageTop == null) {
-            mImageTop = GetComponentsInChildren<Image>()[1];
-            Debug.Log("mCard.top_resource = " + mCard.top_resource);
+            mImageTop = GetComponentsInChildren<Image>()[2];
             Sprite sprite2 = Resources.Load("UI/" + mCard.top_resource, typeof(Sprite)) as Sprite;
             mImageTop.sprite = sprite2;
         }
@@ -43,37 +41,52 @@ public class CardUiControl : MonoBehaviour {
             mCostCount = listText[0];
             mCostCount.text = mCard.cost + "";
             mSkillDec = listText[1];
-            mSkillName.text = mCard.name;
             mSkillName = listText[2];
+            mSkillName.text = mCard.name;
+            
         }
         if (calcuator == null)
         {
             calcuator = new CalculatorUtil(mSkill.calculator, mSkill.effects_parameter);
         }
         if (mBt == null) {
-            mBt = GetComponentInChildren<Button>();
+            mBt = transform.GetChild(0).GetChild(0).gameObject.GetComponent<Button>();
             if (type == TYPE_CARD_ITME)
             {
                 mBt.onClick.AddListener(() =>
                 {
-                    onClick();
+                    Debug.Log("onClick onClick onClick");
+                    PlayerBackpackBean newBean = new PlayerBackpackBean();
+                    newBean.goodId = mCard.id;
+                    newBean.sortID = mCard.sortID;
+                    newBean.count = 1;
+                    newBean.tabId = mCard.tabid;
+                    BackpackManager.getIntance().showTipUi(newBean, 1, TipControl.UNUSE_CARD_TYPE);
                 });
 
             }
             else {
-                mBt.enabled = false;
+                mBt.GetComponent<Button>().enabled = false;
             }
+           
         }
         update();
     }
     private void onClick()
     {
-//        BackpackManager.getIntance().setShowDate(mCard.name, mCard.describe, 1, TipControl.USE_CARD_TYPE,mCard.id,"");
+        Debug.Log("onClick onClick onClick");
+        PlayerBackpackBean newBean = new PlayerBackpackBean();
+        newBean.goodId = mCard.id;
+        newBean.sortID = mCard.sortID;
+        newBean.count = 1;
+        newBean.tabId = mCard.tabid;
+        BackpackManager.getIntance().showTipUi(newBean, 1, TipControl.UNUSE_CARD_TYPE);
+       // BackpackManager.getIntance().setShowDate(mCard.name, mCard.describe, 1, TipControl.USE_CARD_TYPE,mCard.id,"");
     }
     public void update()
     {
         dec = mCard.describe;
-        if (dec.Contains("\"n\""))
+        if (dec != null && dec.Contains("&n"))
         {   
             float value = calcuator.getValue(firer, null);
             dec = dec.Replace("\"n\"", "" + value);

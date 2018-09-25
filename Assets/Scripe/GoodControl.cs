@@ -73,7 +73,7 @@ public class GoodControl : MonoBehaviour {
         else if (bean.tabId == TABID_CARD_TYPE) {
             type = TipControl.USE_CARD_TYPE;
         }
-            BackpackManager.getIntance().showTipUi(bean, count, type);
+        BackpackManager.getIntance().showTipUi(bean, count, type);
     }
 
     public bool isFull() {

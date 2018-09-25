@@ -138,9 +138,15 @@ public class BackpackManager
                 mComposeControl.updateListPart();
             }
         }
-        else if (type == TipControl.USE_CARD_TYPE) {
+        else if (type == TipControl.USE_CARD_TYPE)
+        {
             InventoryHalper.getIntance().useCard(bean, count);
             mInvertoryControl.update();
+            mCardControl.upDateUi();
+        }
+        else if (type == TipControl.UNUSE_CARD_TYPE) {
+            InventoryHalper.getIntance().removeUserCard(bean.goodId);
+            mCardControl.upDateUi();
         }
 
     }

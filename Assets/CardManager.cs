@@ -5,6 +5,7 @@ using UnityEngine;
 public class CardManager : MonoBehaviour {
 
     public GameObject card;
+    public GameObject indicator;
 
     private static float CREADT_CARD_TIME = 5;
     private static float OUT_CREADT_CARD_TIME = 0.5f;
@@ -14,7 +15,8 @@ public class CardManager : MonoBehaviour {
     private LocalManager mLocalManage;
     LevelManager mLevelManager;
     private List<GameObject> mCardLoaclList = new List<GameObject>();
-    GameObject mCardLocalUp;
+    GameObject mCardLocalUp, mCardLocalTop;
+    Random mRandom = new Random();
     private float mYdel;
     // Use this for initialization
     void Start () {
@@ -25,15 +27,79 @@ public class CardManager : MonoBehaviour {
             mCardLoaclList.Add(GameObject.Find("kapai_local_"+i));
         }
         mCardLocalUp = GameObject.Find("kapai_local_up");
+        mCardLocalTop = GameObject.Find("kapai_local_up_top");
         mYdel = mCardLoaclList[0].transform.position.y;
     }
 
     public float getLocalXByIndex(int index) {
-       return  mCardLoaclList[index-2].transform.position.x;
+        return  mCardLoaclList[index-1].transform.position.x;
     }
+    class CardUser {
+        public long id;
+        public bool isUse = false;
+    }
+    private List<CardUser> mCardList = new List<CardUser>();
+
+    private long getRandomCard() {
+        List<long> list =  InventoryHalper.getIntance().getUsercard();
+        if (list.Count == 0) {
+            return 0;
+        }
+        if (mCardList.Count != list.Count) {
+            for (int i = mCardList.Count; i < list.Count; i++) {
+                CardUser tmp = new CardUser();
+                tmp.id = list[i];
+                mCardList.Add(tmp);
+            }
+        }
+        int noUse = 0;
+        foreach (CardUser card in mCardList) {
+            if (!card.isUse) {
+                noUse++;
+            }
+        }
+        if (noUse == 0)
+        {
+            Debug.Log("重置卡牌");
+            foreach (CardUser card in mCardList)
+            {
+                card.isUse = false;           
+            }
+            return getRandomCard();
+        }
+        else {
+            int i = Random.Range(1, noUse*10);
+           // Debug.Log("读随机数 noUse = " + noUse + " i=" + i);
+            i = i / 10 + (i % 10 == 0 ? 0 : 1);
+            //Debug.Log("读随机数 noUse = " + noUse + " i=" + i);
+            int index = 1;
+            foreach (CardUser card in mCardList)
+            {
+                if (!card.isUse) {
+                    if (index == i) { 
+                        card.isUse = true;
+                        return card.id;
+                    }
+                    else {
+                        index++;
+                    }
+                }
+            }
+        }
+
+        return 0;
+    }
+
     public float getUpLocalY() {
         return mCardLocalUp.transform.position.y;
     }
+    public GameObject getIndicator() {
+        return indicator;
+    }
+    public float getTopLocalY() {
+        return mCardLocalTop.transform.position.y;
+    }
+
 	// Update is called once per frame
 	void Update () {
         if (mCount > 0) {
@@ -41,17 +107,23 @@ public class CardManager : MonoBehaviour {
             if (mOutSendCardTime >= OUT_CREADT_CARD_TIME) {
                 mOutSendCardTime -= OUT_CREADT_CARD_TIME;
                 mCount--;
-                addCard();
+                long random = getRandomCard();
+                if (random != 0) {
+                    addCard(random);
+                }
+                
             }
             return;
         }
         mTime += Time.deltaTime;
         if (mTime >= CREADT_CARD_TIME) {
-            addCard();
+            long random = getRandomCard();
+            if (random != 0)
+            {
+                addCard(random);
+            }
         }
     }
-
-    private bool isFirst = true;
     private long mCount = 0;
     private float mOutSendCardTime = 0;
     public void addCards(long count) {
@@ -59,7 +131,7 @@ public class CardManager : MonoBehaviour {
         mOutSendCardTime = 0;
     }
 
-    private void addCard() {
+    private void addCard(long id) {
         mTime = 0;
         if (mList.Count >= 8) {
             return;
@@ -68,18 +140,12 @@ public class CardManager : MonoBehaviour {
         GameObject newobj = GameObject.Instantiate(
             card, new Vector2(-30, mYdel), Quaternion.Euler(0.0f, 0f, 0.0f));
         newobj.AddComponent<CardControl>();
+        newobj.GetComponent<CardUiControl>().init(id, CardUiControl.TYPE_CARD_PLAY);
         CardControl enmey = newobj.GetComponent<CardControl>();
         newobj.transform.SetParent(gameObject.transform);
         newobj.transform.localScale = Vector3.one;
+        enmey.init(mList.Count + 1, this, 3000001);
         mList.Add(enmey);
-        if (isFirst)
-        {
-            enmey.init( mList.Count + 1, this, 3000001);
-        }
-        else {
-            enmey.init( mList.Count + 1, this, 3000002);
-        }
-        isFirst = !isFirst;
     }
     public bool userCard(int index,float cost) {
         if (!GameObject.Find("Manager").GetComponent<LevelManager>().delectNengliangdian(cost))
