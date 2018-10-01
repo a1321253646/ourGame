@@ -154,8 +154,8 @@ public class CardControl : MonoBehaviour
        
         mClickV = PointUtils.screenTransToWorld(Input.mousePosition);
         mClickV.z = 0;
-        Debug.Log("mClickV.x " + mClickV.x+ " mClickV.y "+ mClickV.y);
-        Debug.Log("mManager.getUpLocalY() " + mManager.getUpLocalY() + " mManager.getTopLocalY() " + mManager.getTopLocalY());
+//        Debug.Log("mClickV.x " + mClickV.x+ " mClickV.y "+ mClickV.y);
+ //       Debug.Log("mManager.getUpLocalY() " + mManager.getUpLocalY() + " mManager.getTopLocalY() " + mManager.getTopLocalY());
         if (Input.mousePosition.y >= mManager.getUpLocalY() && Input.mousePosition.y <= mManager.getTopLocalY())
         {
             setStatus(STATUE_CARP_UP);
@@ -199,6 +199,7 @@ public class CardControl : MonoBehaviour
         }
         if (mStatue == STATUE_CARP_UP && mSkill.shape_type != 0)
         {
+            Debug.Log("STATUE_CARP_UP " + mSkill.id);
             Sprite sprite = Resources.Load("UI/" + mSkill.shape_resource_id, typeof(Sprite)) as Sprite;
             mIndicator = GameObject.Instantiate(
                          mManager.getIndicator(), new Vector2(mClickV.x, mClickV.y), Quaternion.Euler(0.0f, 0f, 0.0f));
@@ -239,6 +240,7 @@ public class CardControl : MonoBehaviour
     }
 
     public void init(int index, CardManager manage,long cardId) {
+        Debug.Log("init card id =" + cardId);
         CardJsonBean card = JsonUtils.getIntance().getCardInfoById(cardId);
         isInit = true;
         mManager = manage;
