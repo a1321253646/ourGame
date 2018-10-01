@@ -144,7 +144,7 @@ public class CardManager : MonoBehaviour {
         CardControl enmey = newobj.GetComponent<CardControl>();
         newobj.transform.SetParent(gameObject.transform);
         newobj.transform.localScale = Vector3.one;
-        enmey.init(mList.Count + 1, this, 3000001);
+        enmey.init(mList.Count + 1, this, id);
         mList.Add(enmey);
     }
     public bool userCard(int index,float cost) {
