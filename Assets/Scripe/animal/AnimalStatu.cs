@@ -28,6 +28,7 @@ public class AnimalStatu
     private bool mIsLopp = true;
     private int mFrameCount= 0;
     private SpriteRenderer mSpriteRender;
+    private Image mImageRender;
     private string mPathRoot;
     private string mPath;
 
@@ -52,12 +53,37 @@ public class AnimalStatu
             else{
                 index = "0" + (i+1);
             }
-            Sprite sprite = Resources.Load("animal/"+mPathRoot+"/"+ mPath+"/"+statue+"/"+ index, typeof(Sprite)) as Sprite;
+            string path = "animal/" + mPathRoot + "/" + mPath + "/" + statue + "/" + index;
+            Debug.Log("AnimalStatu " + path);
+            Sprite sprite = Resources.Load(path, typeof(Sprite)) as Sprite;
             spriteList.Add(sprite);
         }
         eachTime = DEFAULT_EACH_TIME;
     }
-
+    public AnimalStatu(int statue, int frame, string resultPath, Image spriteRender, bool isLoop)
+    {
+        mIsLopp = isLoop;
+        this.statue = statue;
+        mImageRender = spriteRender;
+        mFrameCount = frame;
+        mPathRoot = resultPath.Split('_')[0];
+        mPath = resultPath;
+        for (int i = 0; i < mFrameCount; i++)
+        {
+            string index;
+            if (i > 8)
+            {
+                index = "" + (i + 1);
+            }
+            else
+            {
+                index = "0" + (i + 1);
+            }
+            Sprite sprite = Resources.Load("animal/" + mPathRoot + "/" + mPath + "/" + statue + "/" + index, typeof(Sprite)) as Sprite;
+            spriteList.Add(sprite);
+        }
+        eachTime = DEFAULT_EACH_TIME;
+    }
 
 
     public void upDateTime() {
@@ -108,8 +134,15 @@ public class AnimalStatu
                 return;
             }
         }
-        mSpriteRender.sprite = 
-            spriteList[index];
+        if (mSpriteRender != null)
+        {
+            mSpriteRender.sprite =
+                spriteList[index];
+        }
+        else {
+            mImageRender.sprite = spriteList[index];
+        }
+
 
     }
 

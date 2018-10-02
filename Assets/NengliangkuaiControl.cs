@@ -6,21 +6,46 @@ public class NengliangkuaiControl : MonoBehaviour {
 
     // Use this for initialization
     public float index;
-    private Image liang, mie;
-	void Start () {
-        liang = GetComponentsInChildren<Image>()[1];
-        mie = GetComponentsInChildren<Image>()[2];
-
+    private Image mImage;
+    AnimalControlBase mAnimalControl;
+    Sprite endSprite;
+    void Start () {
+        if (mAnimalControl == null)
+        {
+            creatAnimal();
+        }
     }
+
+    void Update()
+    {
+        if (mAnimalControl == null)
+        {
+            creatAnimal();
+        }
+        mAnimalControl.update();
+    }
+
+    private void creatAnimal() {
+
+        mImage = GetComponent<Image>();
+        ResourceBean resourceData = JsonUtils.getIntance().getEnemyResourceData(40001);
+        mAnimalControl = new AnimalControlBase(resourceData, mImage);
+        mAnimalControl.start();
+        endSprite = Resources.Load("ui_new/huo_hui", typeof(Sprite)) as Sprite;
+        mAnimalControl.start();
+        mAnimalControl.end(endSprite);
+    }
+
     public void setCount(float count) {
+        if (mAnimalControl == null) {
+            creatAnimal();
+        }
         if (count >= index)
         {
-            liang.color = new Color(1, 1, 1, 1);
-            mie.color = new Color(1, 1, 1, 0);
+            mAnimalControl.start();
         }
         else {
-            mie.color = new Color(1, 1, 1, 1);
-            liang.color = new Color(1, 1, 1, 0);
+            mAnimalControl.end(endSprite);
         }
     }
 }

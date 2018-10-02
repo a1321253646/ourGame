@@ -943,5 +943,20 @@
     "action_list": "",
     "action_frame": "",
     "target_border": ""
+  },
+  {
+    "id": 40001,
+    "name": "Effect_fire",
+    "zoom": 1,
+    "attack_framce": 0,
+    "attack_all_framce": 0.0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "0,0",
+    "fight_offset": "0,0",
+    "idel_y": 0,
+    "action_list": 0,
+    "action_frame": 8,
+    "target_border": ""
   }
 ]

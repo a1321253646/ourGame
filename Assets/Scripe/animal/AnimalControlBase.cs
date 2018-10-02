@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 //用于对象的动画控制，可以理解为动画机
 public class AnimalControlBase
 {
@@ -13,6 +14,7 @@ public class AnimalControlBase
     private SpriteRenderer mSpriteRender;
     private float mAnimalTime = 0;
     private bool isLastSet = false;
+    Image mImage;
     private Dictionary<int, AnimalStatu.animalEnd> mEndCall = new Dictionary<int, AnimalStatu.animalEnd>();
     private Dictionary<int, AnimalStatu.animalBegin> mStratCall = new Dictionary<int, AnimalStatu.animalBegin>();
 
@@ -23,16 +25,31 @@ public class AnimalControlBase
         mResource = resource;
         mSpriteRender = spriteRender;
         mDefuleEndCallbak = new AnimalStatu.animalEnd(animalEnd);
-        init();
-       
+        init(); 
     }
+    public AnimalControlBase(ResourceBean resource, Image spriteRender)
+    {
+        mResource = resource;
+        mImage = spriteRender;
+        mDefuleEndCallbak = new AnimalStatu.animalEnd(animalEnd);
+        init();
+    }
+
     private void init() {
         foreach (ActionFrameBean bean in mResource.getActionFrameList()) {
             bool loop = true;
             if (bean.status == ActionFrameBean.ACTION_DIE) {
                 loop = false;
             }
-            AnimalStatu statu = new AnimalStatu(bean.status,bean.frame,mResource.name, mSpriteRender, loop);
+            AnimalStatu statu;
+            if (mSpriteRender != null)
+            {
+                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mSpriteRender, loop);
+            }
+            else {
+                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mImage, loop);
+            }
+            
             statu.setEndCallBack(mDefuleEndCallbak);
             mAnimalStatuList.Add(bean.status, statu);
         }
@@ -58,6 +75,18 @@ public class AnimalControlBase
 
     public void start() {
         isStart = true;
+    }
+    public void end(Sprite endSprite)
+    {
+        isStart = false;
+        if (endSprite != null) {
+            if (mSpriteRender != null) {
+                mSpriteRender.sprite = endSprite;
+            }
+            else{
+                mImage.sprite = endSprite;
+            }
+        }
     }
     public void setSpeedData(float speed,int status) {
         if (mAnimalStatuList.ContainsKey(status))
