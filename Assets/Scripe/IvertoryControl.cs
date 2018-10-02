@@ -17,6 +17,7 @@ public class IvertoryControl : MonoBehaviour {
     GoodControl[] mGoodsControl;
     private int mLevel;
     public bool isShow = false;
+    private Vector2 mFri;
     Dictionary<long, List<PlayerBackpackBean>> mGoodDic = new Dictionary<long, List<PlayerBackpackBean>>();
     // Use this for initialization
     bool isInit = false;
@@ -229,6 +230,7 @@ public class IvertoryControl : MonoBehaviour {
 
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
+        mFri = gameObject.transform.localPosition;
         gameObject.transform.localPosition = new Vector2(0, 0);
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
@@ -237,7 +239,7 @@ public class IvertoryControl : MonoBehaviour {
     private void removeUi() {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
-        gameObject.transform.localPosition = new Vector2(162, -403);
+        gameObject.transform.localPosition = mFri;
     }
 
     public void addGood(long id, long count) {

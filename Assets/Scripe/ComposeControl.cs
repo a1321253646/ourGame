@@ -8,10 +8,12 @@ public class ComposeControl : MonoBehaviour {
     private Button mClose;
     private ComposeListPartControl mListPartControl;
     private int mLevel;
+    private Vector2 mFri;
     private void showUi()
     {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
+        mFri = gameObject.transform.localPosition;
         gameObject.transform.localPosition = new Vector2(0, 0);
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
@@ -22,7 +24,6 @@ public class ComposeControl : MonoBehaviour {
                 removeUi();
             });
         }
-
         showCompose(mShowCompose);
     }
     public void click() {
@@ -56,7 +57,7 @@ public class ComposeControl : MonoBehaviour {
     {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
-        gameObject.transform.localPosition = new Vector2(740, -63.673f);
+        gameObject.transform.localPosition = mFri;
     }
 
     private ComposeJsonBen mShowCompose;

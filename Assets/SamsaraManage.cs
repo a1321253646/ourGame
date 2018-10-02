@@ -7,7 +7,7 @@ public class SamsaraManage : MonoBehaviour {
     public bool isShow = false;
     private Button mClose;
     private SamSaraListControl mListControl;
-
+    private Vector2 mFri;
     public void click()
     {
         if (isShow)
@@ -32,6 +32,7 @@ public class SamsaraManage : MonoBehaviour {
     {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
+        mFri = gameObject.transform.localPosition;
         gameObject.transform.localPosition = new Vector2(0, 0);
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
@@ -52,7 +53,7 @@ public class SamsaraManage : MonoBehaviour {
     {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
-        gameObject.transform.localPosition = new Vector2(-604, -411);
+        gameObject.transform.localPosition = mFri;
     }
 
 }

@@ -23,7 +23,7 @@ public class CardManager : MonoBehaviour {
         mCanvas = GameObject.Find("Canvas").transform;
         mLocalManage = GameObject.Find("Manager").GetComponent<LevelManager>().getLocalManager();
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
-        for (int i = 1; i <= 8; i++ ){
+        for (int i = 1; i <= 9; i++ ){
             mCardLoaclList.Add(GameObject.Find("kapai_local_"+i));
         }
         mCardLocalUp = GameObject.Find("kapai_local_up");
@@ -133,7 +133,7 @@ public class CardManager : MonoBehaviour {
 
     private void addCard(long id) {
         mTime = 0;
-        if (mList.Count >= 8) {
+        if (mList.Count >= 9) {
             return;
          }
 
@@ -143,7 +143,7 @@ public class CardManager : MonoBehaviour {
         newobj.GetComponent<CardUiControl>().init(id, CardUiControl.TYPE_CARD_PLAY);
         CardControl enmey = newobj.GetComponent<CardControl>();
         newobj.transform.SetParent(gameObject.transform);
-        newobj.transform.localScale = Vector3.one;
+        newobj.transform.localScale = Vector3.one* 3.585211f;
         enmey.init(mList.Count + 1, this, id);
         mList.Add(enmey);
     }

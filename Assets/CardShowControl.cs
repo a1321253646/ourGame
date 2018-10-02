@@ -18,10 +18,11 @@ public class CardShowControl : MonoBehaviour {
     public GameObject CardObject, CardItem;
     private int USER_LINE_COUNT = 4;
     private int BACK_LINE_COUNT = 4;
+    private Vector2 mFri;
     private void Start()
     {
         mUserListGl =  GameObject.Find("user_card_list").GetComponent<GridLayoutGroup>();
-        mBackListGl =  GameObject.Find("cardList").GetComponent<GridLayoutGroup>();   
+        mBackListGl =  GameObject.Find("cardList").GetComponent<GridLayoutGroup>();
     }
 
 
@@ -72,6 +73,7 @@ public class CardShowControl : MonoBehaviour {
         upDateUi();
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
+        mFri = gameObject.transform.localPosition;
         gameObject.transform.localPosition = new Vector2(0, 0);
         upDateUi();
         if (mClose == null)
@@ -89,7 +91,7 @@ public class CardShowControl : MonoBehaviour {
     {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
-        gameObject.transform.localPosition = new Vector2(733.89f, 335.53f);
+        gameObject.transform.localPosition = mFri;
     }
 
     private void addUserUi(long id)

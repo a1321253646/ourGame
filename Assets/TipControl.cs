@@ -31,6 +31,7 @@ public class TipControl : MonoBehaviour {
     public long mCardId = -1;
     LevelManager mLevelManager;
     private int mCurrentType = 1;
+    private Vector2 mFri;
     void Start()
     {
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
@@ -45,6 +46,7 @@ public class TipControl : MonoBehaviour {
         {
             removeUi();
         });
+        mFri = gameObject.transform.localPosition;
     }
 
     private void use()
@@ -163,12 +165,13 @@ public class TipControl : MonoBehaviour {
 
     private void showUi()
     {
+       
         gameObject.transform.localPosition = new Vector2(0, 0);
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);
     }
     public void removeUi()
     {
-        gameObject.transform.localPosition = new Vector2(500f, -386.46f);
+        gameObject.transform.localPosition = mFri;
     }
 }

@@ -12,6 +12,7 @@ public class HeroRoleControl : MonoBehaviour {
     private long[] mTypeAll = new long[] {1, 2, 3, 4, 5, 6};
     private Button mClose;
     private int mLevel;
+    private Vector2 mFri;
     public void click()
     {
         if (isShow)
@@ -37,9 +38,11 @@ public class HeroRoleControl : MonoBehaviour {
     {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
+        mFri = gameObject.transform.localPosition;
         gameObject.transform.localPosition = new Vector2(0, 0);
         upDateUi();
         if (mClose == null) {
+
             mClose = GameObject.Find("hero_info_close").GetComponent<Button>();
             mClose.onClick.AddListener(()=> {
                 removeUi();
@@ -53,7 +56,7 @@ public class HeroRoleControl : MonoBehaviour {
     {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
-        gameObject.transform.localPosition = new Vector2(-222, -411);
+        gameObject.transform.localPosition = mFri;
     }
 
     public void upDateUi()
