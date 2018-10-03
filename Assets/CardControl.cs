@@ -192,7 +192,20 @@ public class CardControl : MonoBehaviour
         mStatue = status;
         if (mStatue == STATUE_CARP_DOWN)
         {
-            mClickShow.transform.GetChild(0).position = new Vector2(transform.GetChild(0).position.x, mClickShow.transform.GetChild(0).position.y);
+            float x;
+            if (mIndex == 1)
+            {
+                x = mManager.getLocalXByIndex(2);
+            }
+            else if (mIndex == 10)
+            {
+                x = mManager.getLocalXByIndex(9);
+            }
+            else {
+                x = transform.GetChild(0).position.x;
+            }
+          
+            mClickShow.transform.GetChild(0).position = new Vector2(x, mClickShow.transform.GetChild(0).position.y);
         }
         else {
             mClickShow.transform.GetChild(0).position = new Vector2(mClickShowX, mClickShow.transform.GetChild(0).position.y);
