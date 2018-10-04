@@ -63,38 +63,42 @@ public abstract class SkillObject : MonoBehaviour
     }
 
     public void actionEnd() {
-        if (mBean.next_skill == 0) {
+        if (mBean.getNextSkillList() == null || mBean.getNextSkillList().Count == 0) {
             return;
         }
-        SkillJsonBean nextSkill = JsonUtils.getIntance().getSkillInfoById(mBean.next_skill);
-        if (nextSkill.shape_type == 5 || nextSkill.shape_type == 4)
-        {
-            if (mTargetList != null && mTargetList.Count > 0)
+        foreach (long skillid in mBean.getNextSkillList()) {
+            SkillJsonBean nextSkill = JsonUtils.getIntance().getSkillInfoById(skillid);
+            if (nextSkill.shape_type == 5 || nextSkill.shape_type == 4)
             {
-                foreach (Attacker a in mTargetList)
+                if (mTargetList != null && mTargetList.Count > 0)
                 {
-                    a.mSkillManager.addSkill(mBean.next_skill, mAttacker);
+                    foreach (Attacker a in mTargetList)
+                    {
+                        a.mSkillManager.addSkill(skillid, mAttacker);
+                    }
                 }
             }
-        }
-        else {
-            int type = Attacker.CAMP_TYPE_DEFAULT;
-            int attackType = mAttacker.mCampType;
-            if (mBean.target_type == SkillJsonBean.TYPE_SELF)
+            else
             {
-                type = attackType;
-            }
-            else if (mBean.target_type == SkillJsonBean.TYPE_ENEMY)
-            {
-                if (attackType == Attacker.CAMP_TYPE_PLAYER)
+                int type = Attacker.CAMP_TYPE_DEFAULT;
+                int attackType = mAttacker.mCampType;
+                if (mBean.target_type == SkillJsonBean.TYPE_SELF)
                 {
-                    type = Attacker.CAMP_TYPE_MONSTER;
+                    type = attackType;
                 }
-                else if (attackType == Attacker.CAMP_TYPE_MONSTER){
-                    type = Attacker.CAMP_TYPE_PLAYER;
+                else if (mBean.target_type == SkillJsonBean.TYPE_ENEMY)
+                {
+                    if (attackType == Attacker.CAMP_TYPE_PLAYER)
+                    {
+                        type = Attacker.CAMP_TYPE_MONSTER;
+                    }
+                    else if (attackType == Attacker.CAMP_TYPE_MONSTER)
+                    {
+                        type = Attacker.CAMP_TYPE_PLAYER;
+                    }
                 }
+                SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
             }
-            SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
         }
     }
 }

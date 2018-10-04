@@ -15,7 +15,7 @@ public class SkillJsonBean : MonoBehaviour
     public string effects_parameter;
     public string calculator;
     public string special_parameter_value;
-    public long next_skill;
+    public string next_skill;
     public string skill_describe;
     public long skill_resource;
     public long shape_type;
@@ -24,6 +24,7 @@ public class SkillJsonBean : MonoBehaviour
     public float wight;
     public long point_type;
     public List<float> specialParameterValue;
+    public List<long> nextSkillList;
     public List<float> getSpecialParameterValue() {
         if (specialParameterValue == null && special_parameter_value != null) {
             specialParameterValue = new List<float>();
@@ -36,5 +37,22 @@ public class SkillJsonBean : MonoBehaviour
             }
         }
         return specialParameterValue;
+    }
+    public List<long> getNextSkillList()
+    {
+        if (nextSkillList == null && next_skill != null)
+        {
+            nextSkillList = new List<long>();
+            string[] strs = special_parameter_value.Split(',');
+            foreach (string str in strs)
+            {
+                if (str != null && str.Length > 0)
+                {
+                    long tmp = long.Parse(str);
+                    nextSkillList.Add(tmp);
+                }
+            }
+        }
+        return nextSkillList;
     }
 }
