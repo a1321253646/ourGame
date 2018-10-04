@@ -3498,9 +3498,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93b38b6194b8f984b8b55d331519fb3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mClose: {fileID: 0}
+  mLevel: 0
   isShow: 0
+  mUserUiCount: 0
+  mBacUiCount: 0
+  mUserListGl: {fileID: 0}
+  mBackListGl: {fileID: 0}
+  mUserListGb: []
+  mBackListGb: []
+  mUserArray: []
+  mBackArray: []
   CardObject: {fileID: 1248837282077136, guid: 766c4ea69a2d54f48878e17d8fb57708, type: 2}
   CardItem: {fileID: 1840960486017198, guid: 37496a3540e97d9458e6b64fd0a3677d, type: 2}
+  USER_LINE_COUNT: 4
+  BACK_LINE_COUNT: 4
+  mFri: {x: 0, y: 0}
 --- !u!1 &828849064
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,7 +4794,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -4790,9 +4803,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 7202385541ca61842a6ea361c6fc1927,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: e4826d6f4edbcd141a510a63fa8583ac, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 12a18d3f40c26844dad8235d969f6f8a, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -5828,7 +5842,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000045776367, y: -0.000007971101}
+  m_AnchoredPosition: {x: -0.000045776367, y: 0.000013932974}
   m_SizeDelta: {x: -24.629974, y: -25.189987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1283622471
@@ -6289,7 +6303,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6298,9 +6312,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 8de98eed56d15024ab762eea2ee51ff9,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 2bc4f1de5c0ec5b49bf7b77b064ed766, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 12a18d3f40c26844dad8235d969f6f8a, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -7684,6 +7699,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card: {fileID: 1248837282077136, guid: 766c4ea69a2d54f48878e17d8fb57708, type: 2}
   indicator: {fileID: 1180183373433390, guid: dc2acde67d71d2449a110ee21739bf39, type: 2}
+  mList: []
+  mTime: 0
+  mCanvas: {fileID: 0}
+  mLevelManager: {fileID: 0}
+  mCardLoaclList: []
+  mCardLocalUp: {fileID: 0}
+  mCardLocalTop: {fileID: 0}
+  mYdel: 0
+  mOutSendCardTime: 0
 --- !u!1 &1683859833
 GameObject:
   m_ObjectHideFlags: 0
