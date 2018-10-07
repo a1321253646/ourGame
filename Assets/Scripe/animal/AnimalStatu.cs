@@ -54,7 +54,7 @@ public class AnimalStatu
                 index = "0" + (i+1);
             }
             string path = "animal/" + mPathRoot + "/" + mPath + "/" + statue + "/" + index;
-            Debug.Log("AnimalStatu " + path);
+            //Debug.Log("AnimalStatu " + path);
             Sprite sprite = Resources.Load(path, typeof(Sprite)) as Sprite;
             spriteList.Add(sprite);
         }

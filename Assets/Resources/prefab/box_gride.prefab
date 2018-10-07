@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 224739141253118240}
   - component: {fileID: 222452535605153458}
   - component: {fileID: 114924906319833880}
+  - component: {fileID: 114327315837497352}
   m_Layer: 5
   m_Name: box_gride
   m_TagString: Untagged
@@ -62,6 +63,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114327315837497352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1840960486017198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1db2b372807c94a8dee34653dd0845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: -1
+  isHero: 0
 --- !u!114 &114537589713800468
 MonoBehaviour:
   m_ObjectHideFlags: 1
