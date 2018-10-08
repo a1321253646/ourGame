@@ -6,14 +6,17 @@ using UnityEngine.UI;
 public class IvertoryControl : MonoBehaviour {
     private static int ALL_TYPE = 10;
     private static int[] OTHER_TYPE = { 1,2,3};
-    private long mShowUiType = ALL_TYPE;
+    private long mShowUiType = -1;
     public GameObject mGood;
     private GameObject mGoods;
     private GridLayoutGroup mGrilLayout;
     private List<GameObject> mGoodsGameObject = new List<GameObject>();
     private Button mFirBt, mSecBt, mThiBt, mFouBt, mCloBt;
-    private int MinCount = 5;
-    private int LinCount = 7;
+    private GameObject mFir, mSec, mThi, mFou, mClo;
+    private Button mFirBtNo, mSecBtNo, mThiBtNo, mFouBtNo;
+    private GameObject mFirNo, mSecNo, mThiNo, mFouNo;
+    private int MinCount = 6;
+    private int LinCount = 9;
     GoodControl[] mGoodsControl;
     private int mLevel;
     public bool isShow = false;
@@ -33,28 +36,114 @@ public class IvertoryControl : MonoBehaviour {
         mSecBt = GameObject.Find("pack_second_bt").GetComponent<Button>();
         mThiBt = GameObject.Find("pack_third_bt").GetComponent<Button>();
         mFouBt = GameObject.Find("pack_four_bt").GetComponent<Button>();
+        mFirBtNo = GameObject.Find("pack_frist_bt_no").GetComponent<Button>();
+        mSecBtNo = GameObject.Find("pack_second_bt_no").GetComponent<Button>();
+        mThiBtNo = GameObject.Find("pack_third_bt_no").GetComponent<Button>();
+        mFouBtNo = GameObject.Find("pack_four_bt_no").GetComponent<Button>();
+
+        mFir = GameObject.Find("pack_frist_bt");
+        mSec = GameObject.Find("pack_second_bt");
+        mThi = GameObject.Find("pack_third_bt");
+        mFou = GameObject.Find("pack_four_bt");
+        mFirNo = GameObject.Find("pack_frist_bt_no");
+        mSecNo = GameObject.Find("pack_second_bt_no");
+        mThiNo = GameObject.Find("pack_third_bt_no");
+        mFouNo = GameObject.Find("pack_four_bt_no");
+
         mCloBt = GameObject.Find("pack_close").GetComponent<Button>();
 
-        mFirBt.onClick.AddListener(() => {
-            changeType(ALL_TYPE);
-        });
-        mSecBt.onClick.AddListener(() => {
-            changeType(1);
-        });
-        mThiBt.onClick.AddListener(() => {
-            changeType(2);
-        });
-        mFouBt.onClick.AddListener(() => {
-            changeType(3);
-        });
         mCloBt.onClick.AddListener(() =>
         {
             removeUi();
         });
+
+        mFirBtNo.onClick.AddListener(() => {
+            chageTabShow((int)mShowUiType, false);
+            chageTabShow(ALL_TYPE, true);
+           
+        });
+        mSecBtNo.onClick.AddListener(() => {
+            chageTabShow((int)mShowUiType, false);
+            chageTabShow(1, true);
+        });
+        mThiBtNo.onClick.AddListener(() => {
+            chageTabShow((int)mShowUiType, false);
+            chageTabShow(2, true);
+        });
+        mFouBtNo.onClick.AddListener(() => {
+            chageTabShow((int)mShowUiType, false);
+            chageTabShow(3, true);
+        });
         addGoodUi(MinCount* LinCount);
-        update();
+        //update();
+        chageTabShow(ALL_TYPE, false); 
+        chageTabShow(1, false);
+        chageTabShow(2, false);
+        chageTabShow(3, false);
+        chageTabShow(ALL_TYPE, true);
     }
 
+    private void chageTabShow(int type, bool show)
+    {
+        if (type == mShowUiType && show) {
+            return;
+        }
+        if (show)
+        {
+            changeType(type);
+        }
+        if (show)
+        {
+            switch (type)
+            {
+                case 10:
+                    mFir.SetActive(true);
+                    mFirNo.SetActive(false);
+                    break;
+                case 1:
+                    mSec.SetActive(true);
+                    mSecNo.SetActive(false);
+                    break;
+                case 2:
+                    mThi.SetActive(true);
+                    mThiNo.SetActive(false);
+                    break;
+                case 3:
+                    mFou.SetActive(true);
+                    mFouNo.SetActive(false);
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            switch (type)
+            {
+                case 10:
+                    mFir.SetActive(false);
+                    mFirNo.SetActive(true);
+                    break;
+                case 1:
+                    mSec.SetActive(false);
+                    mSecNo.SetActive(true);
+                    break;
+                case 2:
+                    mThi.SetActive(false);
+                    mThiNo.SetActive(true);
+                    break;
+                case 3:
+                    mFou.SetActive(false);
+                    mFouNo.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
+    }
+   
     private void changeType(int type) {
         mShowUiType = type;
         update();
