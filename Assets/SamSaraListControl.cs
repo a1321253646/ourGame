@@ -22,7 +22,8 @@ public class SamSaraListControl : MonoBehaviour {
             SamsaraJsonBean bean = list[key];
             GameObject ob = GameObject.Instantiate(mItemObject,
                  new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            ob.transform.localScale = Vector2.one;
+            ob.transform.localScale = new Vector3(1, 1, 1);
+            ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             ob.transform.parent = gameObject.transform;
             SamsaraItemControl item = ob.GetComponent<SamsaraItemControl>();
             item.init(bean.id,this);
