@@ -53,6 +53,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     private int mPlayActionCount = 0;
+
     public void playerAction() {
         mPlayActionCount++;
         if (mPlayActionCount >= JsonUtils.getIntance().getConfigValueForId(100014)) {

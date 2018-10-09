@@ -56,7 +56,15 @@ public class SamSaraListControl : MonoBehaviour {
     private void SetGridHeight()
     {
         //if (mItems.Count > 3) {
-        float height = (mVerivlaLayou.spacing + 90) * mItems.Count;
+        int count = 0;
+        if (mItems.Count < 5)
+        {
+            count = 5;
+        }
+        else {
+            count = mItems.Count;
+        }
+            float height = (mVerivlaLayou.spacing + 90) * count;
         mVerivlaLayou.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
         //}
 

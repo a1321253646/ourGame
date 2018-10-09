@@ -56,7 +56,7 @@ public class BackpackManager
 
         mSamsaraTranform = GameObject.Find("lunhui").GetComponent<RectTransform>();
         mSamsaraControl = GameObject.Find("lunhui").GetComponent<SamsaraManage>();
-        mCardControl = GameObject.Find("card").GetComponent<CardShowControl>();
+        mCardControl = GameObject.Find("Card2").GetComponent<CardShowControl>();
         mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
     }
 

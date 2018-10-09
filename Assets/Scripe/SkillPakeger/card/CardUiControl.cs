@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class CardUiControl : MonoBehaviour {
 
     public static int TYPE_CARD_ITME = 1;
+    public static int TYPE_CARD_GOOD = 3;
     public static int TYPE_CARD_PLAY = 2;
 
 
@@ -65,7 +66,21 @@ public class CardUiControl : MonoBehaviour {
                 });
 
             }
-            else {
+            else if (type == TYPE_CARD_GOOD)
+            {
+                mBt.onClick.AddListener(() =>
+                {
+                    Debug.Log("onClick onClick onClick");
+                    PlayerBackpackBean newBean = new PlayerBackpackBean();
+                    newBean.goodId = mCard.id;
+                    newBean.sortID = mCard.sortID;
+                    newBean.count = 1;
+                    newBean.tabId = mCard.tabid;
+                    BackpackManager.getIntance().showTipUi(newBean, 1, TipControl.USE_CARD_TYPE);
+                });
+            }
+            else
+            {
                 mBt.GetComponent<Button>().enabled = false;
             }
            

@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 222924029322143808}
   - component: {fileID: 114681466602449354}
   - component: {fileID: 114975520881299406}
+  - component: {fileID: 114591431297171466}
   m_Layer: 5
   m_Name: kapai
   m_TagString: Untagged
@@ -208,6 +209,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u63CF\u8FF0\n\u63CF\u8FF0\n\u63CF\u8FF0"
+--- !u!114 &114591431297171466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1248837282077136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd99a70831688ae46a1c8c54f0a86b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mSkill: {fileID: 0}
+  mCostCount: {fileID: 0}
+  mSkillDec: {fileID: 0}
+  mSkillName: {fileID: 0}
 --- !u!114 &114681466602449354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -460,7 +476,7 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1460, y: -485}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0, y: 0}
 --- !u!224 &224627711755099260
 RectTransform:
   m_ObjectHideFlags: 1
