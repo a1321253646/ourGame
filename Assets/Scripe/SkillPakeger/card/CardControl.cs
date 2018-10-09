@@ -49,7 +49,7 @@ public class CardControl : MonoBehaviour
             float distance = mTargetX - transform.position.x;
             if (distance > 0)
             {
-                float run = 60 * Time.deltaTime;
+                float run = 800 * Time.deltaTime;
                 if (run > distance)
                 {
                     run = distance;

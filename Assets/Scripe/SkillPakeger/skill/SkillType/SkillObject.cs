@@ -68,7 +68,7 @@ public abstract class SkillObject : MonoBehaviour
         }
         foreach (long skillid in mBean.getNextSkillList()) {
             SkillJsonBean nextSkill = JsonUtils.getIntance().getSkillInfoById(skillid);
-            if (nextSkill.shape_type == 5 || nextSkill.shape_type == 4)
+            if (nextSkill !=null &&(nextSkill.shape_type == 5 || nextSkill.shape_type == 4))
             {
                 if (mTargetList != null && mTargetList.Count > 0)
                 {
