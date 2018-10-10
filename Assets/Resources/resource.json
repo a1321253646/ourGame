@@ -2,7 +2,7 @@
   {
     "id": 10001,
     "name": "Role_001",
-    "zoom": 1,
+    "zoom": 3,
     "attack_framce": 4,
     "attack_all_framce": 8,
     "blood_offset": "-0.15,0.6",
@@ -752,7 +752,7 @@
   {
     "id": 35001,
     "name": "Effect_1001",
-    "zoom": 1,
+    "zoom": 2,
     "attack_framce": 7,
     "attack_all_framce": 0.0,
     "blood_offset": 0,

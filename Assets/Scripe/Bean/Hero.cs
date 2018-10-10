@@ -17,5 +17,6 @@ public class Hero
     public float cri_dam;
     public float speed_up;
     public float real_dam;
+    public float range_type;
 }
 

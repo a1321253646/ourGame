@@ -27,13 +27,13 @@ public abstract class SkillObject : MonoBehaviour
     public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType) {
         mLocalManager = manage;
         mBean = bean;
+        mResource = JsonUtils.getIntance().getEnemyResourceData(bean.skill_resource);
         getLocal();
         mLocal.x = x;
         mLocal.y = y;
         mCamp = campType;
         mAttacker = attacker;
-        mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
-        mResource = JsonUtils.getIntance().getEnemyResourceData(bean.skill_resource);
+        mSpriteRender = gameObject.GetComponent<SpriteRenderer>();       
         mAnimalControl = new AnimalControlBase(mResource, mSpriteRender);
         initEnd();
         calcuator = new CalculatorUtil(mBean.calculator, mBean.effects_parameter);
@@ -49,8 +49,8 @@ public abstract class SkillObject : MonoBehaviour
 
     private void getLocal() {
         mLocal = new SkillLocalBean();
-        mLocal.leng = mBean.leng;
-        mLocal.wight = mBean.wight;
+        mLocal.leng = mBean.leng * mResource.zoom;
+        mLocal.wight = mBean.wight * mResource.zoom;
         mLocal.type = mBean.shape_type;
     }
 

@@ -24,7 +24,7 @@ public class ResourceBean
     public Point getBloodOffset(){
 		if (BloodOffset == null) {
 			BloodOffset = new Point (blood_offset);
-		}
+        }
 		return BloodOffset;
 	}
 

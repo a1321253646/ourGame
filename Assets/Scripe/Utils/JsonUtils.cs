@@ -47,10 +47,10 @@ public class JsonUtils
     }
 
     public void readAllFile() {
+        readResource();
         readConfig();
         readHeroData();
-        readLevelData();
-        readResource();
+        readLevelData();        
         readGoodInfo();
         readAttributeInfo();
         readComposeInfo();
@@ -285,6 +285,23 @@ public class JsonUtils
 	private void readResource(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (resourceFile));
 		resourceData = arrdata.ToObject<List<ResourceBean>> ();
+        foreach (ResourceBean bean in resourceData) {
+            bean.getBloodOffset().x = bean.zoom * bean.getBloodOffset().x;
+            bean.getBloodOffset().y = bean.zoom * bean.getBloodOffset().y;
+            bean.getHurtOffset().x = bean.zoom * bean.getHurtOffset().x;
+            bean.getHurtOffset().y = bean.zoom * bean.getHurtOffset().y;
+            bean.getFightOffset().x = bean.zoom * bean.getFightOffset().x;
+            bean.getFightOffset().y = bean.zoom * bean.getFightOffset().y;
+            bean.idel_y = bean.zoom * bean.idel_y;
+            List<float> tar = bean.getTargetBorder();
+            if (tar != null && tar.Count > 0) {
+                for (int i = 0; i < tar.Count; i++)
+                {
+                    tar[i] = tar[i] * bean.zoom;
+                }
+            }
+
+        }
 	}
     private void readConfig()
     {
@@ -295,6 +312,11 @@ public class JsonUtils
     private void readHeroData(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (heroFile));
 		heroData = arrdata.ToObject<List<Hero>> ();
+        
+        foreach (Hero hero in heroData) {
+            ResourceBean res = getEnemyResourceData(hero.resource);
+            hero.attack_range = hero.attack_range * (hero.range_type == 1? res.zoom :1);
+        }
 /*		Debug.Log ("readHeroData:");
 		foreach (Hero hero in heroData) {
 			Debug.Log ("hero getRoleLv="+hero.getRoleLv()+
@@ -322,7 +344,14 @@ public class JsonUtils
 	}
 	private List<Enemy> readEnemyData(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (enemyFile));
-		return arrdata.ToObject<List<Enemy>> ();
+
+        List<Enemy> list =  arrdata.ToObject<List<Enemy>> ();
+        foreach (Enemy e in list) {
+            ResourceBean res = getEnemyResourceData(e.resource);
+            e.attack_range = e.attack_range *(e.range_type == 1? res.zoom : 1) ;
+        }
+        return list;
+  
 	}
 
     

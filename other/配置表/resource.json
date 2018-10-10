@@ -2,7 +2,7 @@
   {
     "id": 10001,
     "name": "Role_001",
-    "zoom": 1,
+    "zoom": 3,
     "attack_framce": 4,
     "attack_all_framce": 8,
     "blood_offset": "-0.15,0.6",
@@ -817,7 +817,7 @@
     "attack_all_framce": 0.0,
     "blood_offset": "",
     "blood_witch": 0.0,
-    "hurt_offset": "0,-0.9",
+    "hurt_offset": "0,0.9",
     "fight_offset": "0,0",
     "idel_y": 0,
     "action_list": 0,

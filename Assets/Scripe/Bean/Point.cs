@@ -8,8 +8,11 @@ public class Point
 
 	public Point(string str){
 		string[] split = str.Split(',');
-		x = float.Parse(split[0]);
-		y = float.Parse(split[1]);
+        if (split.Length == 2)
+        {
+            x = float.Parse(split[0]);
+            y = float.Parse(split[1]);
+        }
 	}
     public Point(float x, float y)
     {

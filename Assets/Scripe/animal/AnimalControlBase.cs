@@ -24,6 +24,7 @@ public class AnimalControlBase
     public AnimalControlBase(ResourceBean resource, SpriteRenderer spriteRender) {
         mResource = resource;
         mSpriteRender = spriteRender;
+        mSpriteRender.transform.localScale = new Vector3(resource.zoom, resource.zoom, 1);
         mDefuleEndCallbak = new AnimalStatu.animalEnd(animalEnd);
         init(); 
     }

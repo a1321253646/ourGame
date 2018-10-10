@@ -23,6 +23,7 @@ public class Enemy
     public float cri_dam;
     public float speed_up;
     public float real_dam;
+    public float range_type;
     public List<long> fellList = new List<long>();
 
     public List<FellObjectBean> fell() {

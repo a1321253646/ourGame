@@ -68,8 +68,9 @@ public class CardControl : MonoBehaviour
             bean.x = mClickV.x;
             bean.y = mClickV.y;
             bean.type = mSkill.shape_type;
-            bean.wight = mSkill.wight;
-            bean.leng = mSkill.leng;
+            ResourceBean res = JsonUtils.getIntance().getEnemyResourceData(mSkill.skill_resource);
+            bean.wight = mSkill.wight * res.zoom;
+            bean.leng = mSkill.leng * res.zoom;
             targetType = Attacker.CAMP_TYPE_DEFAULT;
             if (mSkill.target_type == SkillJsonBean.TYPE_SELF)
             {
@@ -219,7 +220,8 @@ public class CardControl : MonoBehaviour
             mIndicator = GameObject.Instantiate(
                          mManager.getIndicator(), new Vector2(mClickV.x, mClickV.y), Quaternion.Euler(0.0f, 0f, 0.0f));
             mIndicator.GetComponent<SpriteRenderer>().sprite = sprite;
-            mIndicator.GetComponent<SpriteRenderer>().size = new Vector2(mSkill.leng, mSkill.wight);
+            ResourceBean res = JsonUtils.getIntance().getEnemyResourceData(mSkill.skill_resource);
+            mIndicator.GetComponent<SpriteRenderer>().size = new Vector2(mSkill.leng*res.zoom, mSkill.wight * res.zoom);
         }
         else {
             Destroy(mIndicator);
