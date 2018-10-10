@@ -97,7 +97,7 @@ public abstract class SkillObject : MonoBehaviour
                         type = Attacker.CAMP_TYPE_PLAYER;
                     }
                 }
-                SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
+                //SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
             }
         }
     }

@@ -107,13 +107,15 @@ public class CardControl : MonoBehaviour
             }
             else if (mSkill.shape_type == 0)
             {
-                if (mSkill.effects == 5)
+                if (mSkill.effects == 4)
                 {
                     float a1 = mSkill.getSpecialParameterValue()[0];
                     GameObject.Find("Manager").GetComponent<LevelManager>().addNengliangDian(a1);
+                    mManager.getHero().BeKillAttack(mSkill.effects, mManager.getHero().mAttribute.maxBloodVolume * 0.2f);
+
                 }
                 else if (mSkill.effects == 5) {
-                    mManager.getHero().mSkillManager.addSkill(mSkill.id, mManager.getHero());
+                    mManager.addCards((long)mSkill.getSpecialParameterValue()[0]);
                 }
             }
             else

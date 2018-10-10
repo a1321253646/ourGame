@@ -249,7 +249,7 @@ public class PlayControl : Attacker
 	}
     public override float BeKillAttack(long effect, float value)
     {
-        if (effect == 1 || effect == 6)
+        if (effect == 1 || effect == 6 || effect == 4)
         {
             HurtStatus status = new HurtStatus(value, false, true);
             if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)

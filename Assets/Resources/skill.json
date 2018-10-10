@@ -117,7 +117,7 @@
     "target_type": 1,
     "effects_parameter": "0.2,",
     "calculator": "\"1,102\"*a1",
-    "special_parameter_value": "5,",
+    "special_parameter_value": "5,20",
     "next_skill": 0,
     "skill_describe": "消耗20%最大生命值，获取5个水晶",
     "skill_resource": 0.0,

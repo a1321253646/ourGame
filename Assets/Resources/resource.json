@@ -817,7 +817,7 @@
     "attack_all_framce": 0.0,
     "blood_offset": "",
     "blood_witch": 0.0,
-    "hurt_offset": "0,-0.9",
+    "hurt_offset": "0,0.9",
     "fight_offset": "0,0",
     "idel_y": 0,
     "action_list": 0,
