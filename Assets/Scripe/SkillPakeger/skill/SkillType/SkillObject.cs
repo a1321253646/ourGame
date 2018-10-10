@@ -62,11 +62,19 @@ public abstract class SkillObject : MonoBehaviour
         mAnimalControl.update();
     }
 
+    public void dealNextSkill(SkillJsonBean skill) {
+
+    }
+    public void dealNextSkillForEach(SkillJsonBean skill, Attacker a)
+    {
+
+    }
     public void actionEnd() {
         if (mBean.getNextSkillList() == null || mBean.getNextSkillList().Count == 0) {
             return;
         }
         foreach (long skillid in mBean.getNextSkillList()) {
+            Debug.Log("actionEnd skillid= " + skillid);
             SkillJsonBean nextSkill = JsonUtils.getIntance().getSkillInfoById(skillid);
             if (nextSkill !=null &&(nextSkill.shape_type == 5 || nextSkill.shape_type == 4))
             {
@@ -74,6 +82,7 @@ public abstract class SkillObject : MonoBehaviour
                 {
                     foreach (Attacker a in mTargetList)
                     {
+                        dealNextSkillForEach(nextSkill, a);
                         a.mSkillManager.addSkill(skillid, mAttacker);
                     }
                 }
@@ -97,7 +106,7 @@ public abstract class SkillObject : MonoBehaviour
                         type = Attacker.CAMP_TYPE_PLAYER;
                     }
                 }
-                //SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
+            //    SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
             }
         }
     }

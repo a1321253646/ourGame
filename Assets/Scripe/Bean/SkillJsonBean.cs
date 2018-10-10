@@ -38,12 +38,15 @@ public class SkillJsonBean : MonoBehaviour
         }
         return specialParameterValue;
     }
+    public void  setSpecialParameterValue(List<float> list) {
+        specialParameterValue = list;
+    }
     public List<long> getNextSkillList()
     {
         if (nextSkillList == null && next_skill != null)
         {
             nextSkillList = new List<long>();
-            string[] strs = special_parameter_value.Split(',');
+            string[] strs = next_skill.Split(',');
             foreach (string str in strs)
             {
                 if (str != null && str.Length > 0)

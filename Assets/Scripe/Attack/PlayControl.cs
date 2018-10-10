@@ -268,14 +268,17 @@ public class PlayControl : Attacker
         else if (effect == 2 || effect == 10001) {
             int tmp = value % 1 == 0 ? 0 : 1;
             value = ((int)value) / 1 + tmp;
-            if (mBloodVolume + value > mAttribute.maxBloodVolume)
-            {
-                value = mAttribute.maxBloodVolume - mBloodVolume;
-            }
-            mBloodVolume = mBloodVolume + value;
-            GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
-            mState.add(value);
+            AddBlood(value);
         }
         return value;
+    }
+    public override void AddBlood(float value) {
+        if (mBloodVolume + value > mAttribute.maxBloodVolume)
+        {
+            value = mAttribute.maxBloodVolume - mBloodVolume;
+        }
+        mBloodVolume = mBloodVolume + value;
+        GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
+        mState.add(value);
     }
 }

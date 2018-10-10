@@ -59,6 +59,7 @@ public abstract class Attacker : MonoBehaviour
     }
     public abstract float BeAttack (HurtStatus status);
     public abstract float BeKillAttack(long effect, float value);
+    public abstract void AddBlood( float value);
     public int getStatus() {
         return status;
     }

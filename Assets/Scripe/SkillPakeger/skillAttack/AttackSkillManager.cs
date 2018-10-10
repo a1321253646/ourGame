@@ -8,7 +8,7 @@ public class AttackSkillManager
     private Attacker mAttackFight;
     private GameObject mSkillObject;
     private List<AttackSkillWithAnimal> mAnimalActionSkill = new List<AttackSkillWithAnimal>();
-    private List<AttackSkillNoAnimal> mNoAnimalActionSkill = new List<AttackSkillNoAnimal>();
+    public List<AttackSkillNoAnimal> mNoAnimalActionSkill = new List<AttackSkillNoAnimal>();
     private List<AttackSkillNoAnimal> beforeBehurtActionSkill = new List<AttackSkillNoAnimal>();
     public AttackSkillManager(Attacker attack) {
         mAttack = attack;
@@ -45,17 +45,13 @@ public class AttackSkillManager
         }
         if (jsonBean.effects == 20001)
         {
-            AttackSkillNoAnimal newSkill = new AttackSkill20001();
-            newSkill.init(this, jsonBean.id, mAttackFight);
-            mNoAnimalActionSkill.Add(newSkill);
-            beforeBehurtActionSkill.Add(newSkill);
-        }
-        else if (jsonBean.effects == 30001)
-        {
-            AttackSkillNoAnimal newSkill = new AttackSkill4();
-            newSkill.init(this, jsonBean.id, mAttackFight);
-            mNoAnimalActionSkill.Add(newSkill);
-            beforeBehurtActionSkill.Add(newSkill);
+            int count = (int)jsonBean.getSpecialParameterValue()[0];
+            for(int i = 0; i < count; i++) {
+                AttackSkillNoAnimal newSkill = new AttackSkill20001();
+                newSkill.init(this, jsonBean.id, mAttackFight);
+                mNoAnimalActionSkill.Add(newSkill);
+                beforeBehurtActionSkill.Add(newSkill);
+            }
         }
     }
 

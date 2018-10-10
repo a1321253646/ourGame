@@ -155,14 +155,18 @@ public class EnemyBase : Attacker {
         {
             int tmp = value % 1 == 0 ? 0 : 1;
             value = ((int)value) / 1 + tmp;
-            
-            if (mBloodVolume + value > mAttribute.maxBloodVolume)
-            {
-                value = mAttribute.maxBloodVolume - mBloodVolume;
-            }
-            mBloodVolume = mBloodVolume + value;
-            mState.add(value);
+            AddBlood(value);
+
         }
         return value;
+    }
+    public override void AddBlood(float value)
+    {
+        if (mBloodVolume + value > mAttribute.maxBloodVolume)
+        {
+            value = mAttribute.maxBloodVolume - mBloodVolume;
+        }
+        mBloodVolume = mBloodVolume + value;
+        mState.add(value); ;
     }
 }

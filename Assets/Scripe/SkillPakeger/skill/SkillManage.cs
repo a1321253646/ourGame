@@ -21,8 +21,20 @@ public class SkillManage
         {
             newobj.AddComponent<SkillObject1>();
         }
-        else if (skill.effects == 6) {
+        else if (skill.effects == 6)
+        {
             newobj.AddComponent<SkillObject6>();
+        }
+        else if (skill.effects == 30001) {
+            newobj.AddComponent<SkillObject30001>();
+        }
+        else if (skill.effects == 30002)
+        {
+            newobj.AddComponent<SkillObject30002>();
+        }
+        else if (skill.effects == 30003)
+        {
+            newobj.AddComponent<SkillObject30003>();
         }
         SkillObject skillComponent = newobj.GetComponent<SkillObject>();
         skillComponent.init(attacker, mLocalManager,skill, x, y, campType);
