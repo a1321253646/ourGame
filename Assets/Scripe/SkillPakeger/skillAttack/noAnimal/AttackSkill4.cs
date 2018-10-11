@@ -14,6 +14,11 @@ public class AttackSkill4 : AttackSkillNoAnimal
         return -1;
     }
 
+    public override void inAction()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void initEnd()
     {
         GameObject.Find("Manager").GetComponent<LevelManager>().addNengliangDian(5);
