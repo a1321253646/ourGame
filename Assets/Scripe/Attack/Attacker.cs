@@ -48,6 +48,9 @@ public abstract class Attacker : MonoBehaviour
     public int mAttackType = ATTACK_TYPE_DEFAULT;
     public int mCampType = CAMP_TYPE_DEFAULT;
 
+    public bool isStop = false;
+
+
     public void upDataSpeed() {
         if (resourceData == null) {
             return;
@@ -65,6 +68,9 @@ public abstract class Attacker : MonoBehaviour
     }
 
     public void setStatus(int status) {
+        if (isStop) {
+            return;
+        }
         this.status = status;
         changeAnim();
     }
@@ -104,30 +110,23 @@ public abstract class Attacker : MonoBehaviour
 	}
 
 	public void Standy(){
-		status = ActionFrameBean.ACTION_STANDY;
-        changeAnim();
-
+        setStatus(ActionFrameBean.ACTION_STANDY);
     }
 	public void Fight(){
-        status = ActionFrameBean.ACTION_ATTACK;
-        changeAnim();
+        setStatus(ActionFrameBean.ACTION_ATTACK);
     }
 	public void Die(){
-//        Debug.Log("Die " );
-        status = ActionFrameBean.ACTION_DIE;
-        changeAnim();
+        //        Debug.Log("Die " );
+        setStatus(ActionFrameBean.ACTION_DIE);
     }
 	public void Run(){
-        status = ActionFrameBean.ACTION_MOVE;
-        changeAnim();
+        setStatus(ActionFrameBean.ACTION_MOVE);
     }
 	public void Hurt(){
-        status = ActionFrameBean.ACTION_HURT;
-        changeAnim();
+        setStatus(ActionFrameBean.ACTION_HURT);
     }
 	public void Win(){
-        status = ActionFrameBean.ACTION_WIN;
-        changeAnim();
+        setStatus(ActionFrameBean.ACTION_WIN);
     }
     public void setRed() {
         if (mSpriteRender != null)

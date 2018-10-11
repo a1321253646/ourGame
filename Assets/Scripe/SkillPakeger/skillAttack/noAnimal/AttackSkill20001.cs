@@ -4,10 +4,14 @@ using System.Collections;
 public class AttackSkill20001 : AttackSkillNoAnimal
 {
 
-    public override bool add()
+    public override bool add(float count)
     {
-        level ++ ;
+        value = value + count;
         return true;
+    }
+
+    public override void inAction()
+    {
     }
 
     public override float beAction(HurtStatus status)

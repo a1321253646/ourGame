@@ -111,13 +111,19 @@ public class CardControl : MonoBehaviour
                 if (mSkill.effects == 4)
                 {
                     float a1 = mSkill.getSpecialParameterValue()[0];
+                    float a2 = mSkill.getSpecialParameterValue()[1];
                     GameObject.Find("Manager").GetComponent<LevelManager>().addNengliangDian(a1);
-                    mManager.getHero().BeKillAttack(mSkill.effects, mManager.getHero().mAttribute.maxBloodVolume * 0.2f);
+                    mManager.getHero().BeKillAttack(mSkill.effects, mManager.getHero().mAttribute.maxBloodVolume * (a2/100));
 
                 }
-                else if (mSkill.effects == 5) {
+                else if (mSkill.effects == 5)
+                {
                     mManager.addCards((long)mSkill.getSpecialParameterValue()[0]);
                 }
+            }
+            else if (mSkill.shape_type == 6) {
+                mManager.getHero().mSkillManager.addSkill(mSkill.id, mManager.getHero());
+               // mManager.getHero().BeKillAttack(mSkill.effects, mManager.getHero().mAttribute.maxBloodVolume * 0.2f);
             }
             else
             {
@@ -213,7 +219,7 @@ public class CardControl : MonoBehaviour
         else {
             mClickShow.transform.GetChild(0).position = new Vector2(mClickShowX, mClickShow.transform.GetChild(0).position.y);
         }
-        if (mStatue == STATUE_CARP_UP && mSkill.shape_type != 0)
+        if (mStatue == STATUE_CARP_UP && mSkill.shape_type != 0 && mSkill.shape_type != 6)
         {
             Debug.Log("STATUE_CARP_UP " + mSkill.id);
             Sprite sprite = Resources.Load("UI/" + mSkill.shape_resource_id, typeof(Sprite)) as Sprite;

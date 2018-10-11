@@ -13,6 +13,7 @@ public abstract class AttackSkillBase : MonoBehaviour
     public static int SKILL_STATUS_END = 4;
 
     public abstract float beAction(HurtStatus status);
+    public abstract void inAction();
     public abstract void init(AttackSkillManager manager, long skillId,Attacker fight);
     public abstract void update();
 
@@ -25,7 +26,7 @@ public abstract class AttackSkillBase : MonoBehaviour
     public CalculatorUtil calcuator;
 
     public static long LEVEL_ID = 10001;
-    public float level = 1;
+    public float value = 1;
     
     public int getSkillStatus() {
         return mSkillStatus;
@@ -34,7 +35,7 @@ public abstract class AttackSkillBase : MonoBehaviour
     public float getValueById(long id) {
         switch (id) {
             case 10001:
-                return level;
+                return value;
             default:
                 return 0;
         }

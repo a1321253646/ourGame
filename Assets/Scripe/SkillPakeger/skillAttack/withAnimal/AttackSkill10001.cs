@@ -29,7 +29,7 @@ public class AttackSkill10001 : AttackSkillWithAnimal
         {
             float hurt = calcuator.getValue(mManager.getAttacker(), mFight);
             Debug.Log("fightEcent " + hurt);
-            mManager.getAttacker().skillAttack(mSkillJson.effects, hurt);
+            mManager.getAttacker().AddBlood(hurt);
         }
     }
 }

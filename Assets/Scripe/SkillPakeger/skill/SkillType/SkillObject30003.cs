@@ -7,7 +7,7 @@ public class SkillObject30003 : SkillObject
     public override void initEnd()
     {
         mAnimalControl.setIsLoop(ActionFrameBean.ACTION_NONE, false);
-        mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_NONE, (int)mResource.attack_framce, new AnimalStatu.animalIndexCallback(fightEcent));
+ //       mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_NONE, (int)mResource.attack_framce, new AnimalStatu.animalIndexCallback(fightEcent));
         mAnimalControl.setEndCallBack(ActionFrameBean.ACTION_NONE, new AnimalStatu.animalEnd(endAnimal));
     }
     void endAnimal(int status)

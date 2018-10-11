@@ -4,7 +4,7 @@ using System.Collections;
 public class AttackSkill4 : AttackSkillNoAnimal
 {
 
-    public override bool add()
+    public override bool add(float count)
     {
         return false;
     }

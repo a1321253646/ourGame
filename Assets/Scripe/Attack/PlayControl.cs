@@ -45,6 +45,7 @@ public class PlayControl : Attacker
         if (status == ActionFrameBean.ACTION_ATTACK) {
             mLevelManager.playerAction();
             mFightManager.attackerAction(id);
+            mSkillManager.inFight();
         }
     }
 

@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class AttackSkillNoAnimal : AttackSkillBase
 {
-    public abstract bool add();
+    public abstract bool add(float count);
 
     public override void init(AttackSkillManager manager, long skillId, Attacker fight)
     {

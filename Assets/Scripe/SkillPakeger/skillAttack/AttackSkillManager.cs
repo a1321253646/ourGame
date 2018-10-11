@@ -10,6 +10,7 @@ public class AttackSkillManager
     private List<AttackSkillWithAnimal> mAnimalActionSkill = new List<AttackSkillWithAnimal>();
     public List<AttackSkillNoAnimal> mNoAnimalActionSkill = new List<AttackSkillNoAnimal>();
     private List<AttackSkillNoAnimal> beforeBehurtActionSkill = new List<AttackSkillNoAnimal>();
+    private List<AttackSkillNoAnimal> inFightActionSkill = new List<AttackSkillNoAnimal>();
     public AttackSkillManager(Attacker attack) {
         mAttack = attack;
         mSkillObject  = GameObject.Find("Manager").GetComponent<LevelManager>().skillObject;
@@ -36,28 +37,72 @@ public class AttackSkillManager
 
     private void addNoAnimal(SkillJsonBean jsonBean, Attacker mAttackFight)
     {
-        foreach (AttackSkillNoAnimal skill in mNoAnimalActionSkill)
+        AttackSkillNoAnimal skill = null;
+        if (mNoAnimalActionSkill.Count > 0)
         {
-            if (skill.mSkillJson.id == jsonBean.id && skill.add())
+            foreach (AttackSkillNoAnimal s in mNoAnimalActionSkill)
             {
-                return;
+                if (s.mSkillJson.effects == 20001)
+                {
+                    skill = s;
+                    break;
+                }
             }
         }
         if (jsonBean.effects == 20001)
         {
             int count = (int)jsonBean.getSpecialParameterValue()[0];
-            for(int i = 0; i < count; i++) {
-                AttackSkillNoAnimal newSkill = new AttackSkill20001();
-                newSkill.init(this, jsonBean.id, mAttackFight);
-                mNoAnimalActionSkill.Add(newSkill);
-                beforeBehurtActionSkill.Add(newSkill);
+
+            if (skill != null)
+            {
+                skill.add(count);
+            }
+            else
+            {
+                skill = new AttackSkill20001();
+                skill.init(this, jsonBean.id, mAttackFight);
+                mNoAnimalActionSkill.Add(skill);
+                beforeBehurtActionSkill.Add(skill);
+                skill.add(count);
+            }
+        }
+        else if (jsonBean.effects == 10002)
+        {
+            int time = (int)jsonBean.getSpecialParameterValue()[0];
+            if (skill != null)
+            {
+                skill.add(time);
+            }
+            else
+            {
+                skill = new AttackSkill10002();
+                skill.init(this, jsonBean.id, mAttackFight);
+                mNoAnimalActionSkill.Add(skill);
+                skill.add(time);
+            }
+        }
+        else if (jsonBean.effects == 10003) {
+            int time = (int)jsonBean.getSpecialParameterValue()[0];
+            if (skill != null)
+            {
+                skill.add(time);
+            }
+            else
+            {
+                skill = new AttackSkill10003();
+                skill.init(this, jsonBean.id, mAttackFight);
+                mNoAnimalActionSkill.Add(skill);
+                inFightActionSkill.Add(skill);
+                skill.add(time);
             }
         }
     }
 
     private bool isNoAnimal(long skillId) {
         if (skillId == 200001 ||
-            skillId == 300001) {
+            skillId == 300001 ||
+            skillId == 200002 || 
+            skillId == 10003) {
             return true;
         }
         return false;
@@ -84,7 +129,11 @@ public class AttackSkillManager
         status.blood += value;
     }
     public void inFight() {
-
+        float value = 0;
+        foreach (AttackSkillNoAnimal skill in inFightActionSkill)
+        {
+            skill.inAction();
+        }
     }
     public void upDate() {
         for(int i = 0; i< mAnimalActionSkill.Count; ) {
@@ -97,6 +146,19 @@ public class AttackSkillManager
                 i++;
             }
         }
+        for (int i = 0; i < mNoAnimalActionSkill.Count;)
+        {
+            if (mNoAnimalActionSkill[i].getSkillStatus() == AttackSkillBase.SKILL_STATUS_END)
+            {
+                mAnimalActionSkill.Remove(mAnimalActionSkill[i]);
+            }
+            else
+            {
+                mNoAnimalActionSkill[i].update();
+                i++;
+            }
+        }
+        
     }
 
     public void upDateLocal(float x,float y )
