@@ -13,7 +13,9 @@ public abstract class AttackSkillBase : MonoBehaviour
     public static int SKILL_STATUS_END = 4;
 
     public abstract float beAction(HurtStatus status);
-    public abstract void inAction();
+    public void inAction() {
+
+    }
     public abstract void init(AttackSkillManager manager, long skillId,Attacker fight);
     public abstract void update();
 

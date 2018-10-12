@@ -10,7 +10,7 @@ public class AttackSkill10002 : AttackSkillNoAnimal
         return true;
     }
 
-    public override void inAction()
+    public new void inAction()
     {
     }
 
