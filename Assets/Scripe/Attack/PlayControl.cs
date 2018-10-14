@@ -31,6 +31,12 @@ public class PlayControl : Attacker
         BackpackManager.getIntance().addGoods(3000007, 1);
         BackpackManager.getIntance().addGoods(3000008, 1);
         BackpackManager.getIntance().addGoods(3000009, 1);
+        BackpackManager.getIntance().addGoods(3000010, 1);
+        BackpackManager.getIntance().addGoods(3000011, 1);
+        BackpackManager.getIntance().addGoods(3000012, 1);
+        BackpackManager.getIntance().addGoods(3000013, 1);
+        BackpackManager.getIntance().addGoods(3000014, 1);
+        BackpackManager.getIntance().addGoods(3000015, 1);
     }
     private void initAnimalEvent() {
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
@@ -250,7 +256,7 @@ public class PlayControl : Attacker
 	}
     public override float BeKillAttack(long effect, float value)
     {
-        if (effect == 1 || effect == 6 || effect == 4)
+        if (effect == 1 || effect == 6 || effect == 4 || effect == 30001)
         {
             HurtStatus status = new HurtStatus(value, false, true);
             if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)

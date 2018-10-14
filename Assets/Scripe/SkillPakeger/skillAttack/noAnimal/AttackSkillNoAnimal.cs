@@ -10,9 +10,9 @@ public abstract class AttackSkillNoAnimal : AttackSkillBase
         mManager = manager;
         mFight = fight;
         mSkillJson = JsonUtils.getIntance().getSkillInfoById(skillId);
-        initEnd();
         calcuator = new CalculatorUtil(mSkillJson.calculator, mSkillJson.effects_parameter);
         isInit = true;
+        initEnd();
     }
 
 

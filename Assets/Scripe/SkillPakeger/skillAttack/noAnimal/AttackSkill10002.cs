@@ -7,10 +7,12 @@ public class AttackSkill10002 : AttackSkillNoAnimal
     public override bool add(float time)
     {
         value = value + time;
+        Debug.Log("====================AttackSkill10002 value=" + value);
+        mTime = 0;
         return true;
     }
 
-    public new void inAction()
+    public override void inAction()
     {
     }
 
@@ -21,7 +23,8 @@ public class AttackSkill10002 : AttackSkillNoAnimal
 
     public override void initEnd()
     {
-        mManager.getAttacker().isStop = true;
+        mManager.getAttacker().setStop();
+        Debug.Log("=================== mManager.getAttacker().isStop = " + mManager.getAttacker().isStop);
     }
 
     public override void upDateEnd()
@@ -30,7 +33,9 @@ public class AttackSkill10002 : AttackSkillNoAnimal
             mTime += Time.deltaTime;       
         }
         if (mTime > value) {
-            mManager.getAttacker().isStop = false;
+            Debug.Log("====================AttackSkill10002 timeOut");
+            mManager.getAttacker().cancelStop();
+            Debug.Log("=================== mManager.getAttacker().isStop = " + mManager.getAttacker().isStop);
             mSkillStatus = AttackSkillBase.SKILL_STATUS_END;
         }
     }

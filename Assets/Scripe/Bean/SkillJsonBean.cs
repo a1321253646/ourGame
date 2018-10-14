@@ -10,7 +10,7 @@ public class SkillJsonBean : MonoBehaviour
 
 
     public long id;
-    public long effects;
+    public long effects = 0;
     public long target_type;
     public string effects_parameter;
     public string calculator;

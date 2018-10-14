@@ -7,11 +7,8 @@ public class AttackSkill20001 : AttackSkillNoAnimal
     public override bool add(float count)
     {
         value = value + count;
+        Debug.Log("====================AttackSkill20001 value=" + value);
         return true;
-    }
-
-    public new void inAction()
-    {
     }
 
     public override float beAction(HurtStatus status)
@@ -22,13 +19,15 @@ public class AttackSkill20001 : AttackSkillNoAnimal
 
     public override void initEnd()
     {
-        float hurt = calcuator.getValue(mManager.getAttacker(), mFight);
-        HurtStatus status = new HurtStatus(hurt,false,false);
-        mManager.getAttacker().BeAttack(status);
-
+        calcuator.setSkill(this);
     }
 
     public override void upDateEnd()
     {
     }
+
+    public override void inAction()
+    {
+    }
+    
 }

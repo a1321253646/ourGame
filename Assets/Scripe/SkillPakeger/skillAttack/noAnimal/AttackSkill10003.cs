@@ -7,10 +7,11 @@ public class AttackSkill10003 : AttackSkillNoAnimal
     public override bool add(float time)
     {
         value = value + time;
+        Debug.Log("====================AttackSkill10003 value=" + value);
         return true;
     }
 
-    public new void inAction()
+    public override void inAction()
     {
         float hurt = calcuator.getValue(mManager.getAttacker(), mFight);
         mFight.AddBlood(hurt);
@@ -28,10 +29,11 @@ public class AttackSkill10003 : AttackSkillNoAnimal
 
     public override void upDateEnd()
     {
-        if (mTime != -1) {
+       // if (mTime != -1) {
             mTime += Time.deltaTime;       
-        }
+        //}
         if (mTime > value) {
+            Debug.Log("-----------------------AttackSkill10003 SKILL_STATUS_END=" );
             mSkillStatus = AttackSkillBase.SKILL_STATUS_END;
         }
     }

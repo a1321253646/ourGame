@@ -10,10 +10,10 @@ public class testmanager : MonoBehaviour {
     private void Awake()
     {
         Enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject Enemy in Enemy)
-        {
-            Enemy.AddComponent<testdongzuo>();
-        }
+//        foreach (GameObject Enemy in Enemy)
+ //       {
+ //           Enemy.AddComponent<testdongzuo>();
+//        }
 
     }
 

@@ -14,7 +14,8 @@ public class AttackSkill4 : AttackSkillNoAnimal
         return -1;
     }
 
-    public new void inAction()
+
+    public override void inAction()
     {
         throw new System.NotImplementedException();
     }

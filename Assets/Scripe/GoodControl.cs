@@ -25,7 +25,7 @@ public class GoodControl : MonoBehaviour {
         mImage = GetComponentsInChildren<Image>()[1];
         mText = GetComponentInChildren<Text>();
         mBt = GetComponent<Button>();
-        Debug.Log("mBt = " + mBt);
+//        Debug.Log("mBt = " + mBt);
         if (mImage != null)
         {
             if (id == -1)
@@ -42,7 +42,7 @@ public class GoodControl : MonoBehaviour {
             }
         }
         if (mBt != null) {
-            Debug.Log("mBt != null ");
+//            Debug.Log("mBt != null ");
             mBt.onClick.AddListener(() => {
                 showTip();
             });

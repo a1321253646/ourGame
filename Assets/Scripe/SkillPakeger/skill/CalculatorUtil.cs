@@ -26,6 +26,8 @@ public class CalculatorUtil
     public  float getValue(Attacker firer, Attacker target) {
         this.firer = firer;
         this.target = target;
+        Debug.Log("firer:\n+" + firer.mAttribute.toString() + "blood=" + firer.mBloodVolume + "\ntarget:\n" + target.mAttribute.toString() + "blood=" + target.mBloodVolume);
+
         if (mBean == null) {
             return -1;
         }
@@ -34,7 +36,7 @@ public class CalculatorUtil
         }
 
         float value = getValue(mBean);
-//        Debug.Log("float value = " + value);
+        Debug.Log("float value = " + value);
         return value;
     }
     private void getBean()
@@ -174,7 +176,8 @@ public class CalculatorUtil
             else if (strs[0].Equals("3"))
             {
                 keyId = strs[1];
-                return attackSkill.getValueById(int.Parse(keyId));
+                int idd = int.Parse(keyId);
+                return attackSkill.getValueById(idd);
             }
             else if (strs[0].Equals("4"))
             {
@@ -228,7 +231,10 @@ public class CalculatorUtil
             {
                 return tmp.mAttribute.attackSpeed;
             }
-
+            else if (id == 1)
+            {
+                return tmp.mBloodVolume;
+            }
         }
         return -1;
     }

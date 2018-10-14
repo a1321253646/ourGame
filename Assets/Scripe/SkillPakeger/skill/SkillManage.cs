@@ -44,6 +44,14 @@ public class SkillManage
         {
             newobj.AddComponent<SkillObject6>();
         }
+        else if (skill.effects == 8)
+        {
+            newobj.AddComponent<SkillObject8>();
+        }
+        else if (skill.effects == 3)
+        {
+            newobj.AddComponent<SkillObject3>();
+        }
         SkillObject skillComponent = newobj.GetComponent<SkillObject>();
         skillComponent.init(attacker, mLocalManager,skill, x, y, campType);
         mSkillList.Add(skillComponent);

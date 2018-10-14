@@ -128,8 +128,12 @@ public class EnemyBase : Attacker {
 	public int dieCrystal = 0;
 
 	public override float BeAttack(HurtStatus status){
+        
         mSkillManager.beforeBeHurt(status);
-        mBloodVolume = mBloodVolume - status.blood;
+        //if (mBloodVolume == mAttribute.maxBloodVolume) {
+            mBloodVolume = mBloodVolume - status.blood;
+        //}
+        
         if (mBloodVolume <= 0) {
 			Die ();
 			mFightManager.unRegisterAttacker (this);
@@ -139,7 +143,7 @@ public class EnemyBase : Attacker {
 	}
     public override float BeKillAttack(long effect, float value)
     {
-        if (effect == 1 || effect == 6)
+        if (effect == 1 || effect == 6 || effect == 30001 || effect == 8 || effect == 3)
         {
             HurtStatus status = new HurtStatus(value, false, true);
             mBloodVolume = mBloodVolume - status.blood;

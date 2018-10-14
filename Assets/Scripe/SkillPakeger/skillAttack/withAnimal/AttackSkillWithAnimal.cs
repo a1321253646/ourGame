@@ -28,6 +28,7 @@ public abstract class AttackSkillWithAnimal : AttackSkillBase
     }
     public override void update()
     {
+        Debug.Log("AttackSkillWithAnimal update :" + mSkillJson.effects);
         if (!isInit)
         {
             return;

@@ -37,4 +37,18 @@
         readHurt = 0;
         attackSpeed = 1;
     }
+    public string toString() {
+        string s = "";
+        s += ("aggressivity=" + aggressivity + "\n");
+        s += ("defense=" + defense + "\n");
+        s += ("maxBloodVolume=" + maxBloodVolume + "\n");
+        s += ("rate=" + rate + "\n");
+        s += ("evd=" + evd + "\n");
+        s += ("crt=" + crt + "\n");
+        s += ("hurt=" + hurt + "\n");
+        s += ("crtHurt=" + crtHurt + "\n");
+        s += ("readHurt=" + readHurt + "\n");
+        s += ("attackSpeed=" + attackSpeed +"\n");
+        return s;
+    }
 }

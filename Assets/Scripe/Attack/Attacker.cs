@@ -49,6 +49,18 @@ public abstract class Attacker : MonoBehaviour
     public int mCampType = CAMP_TYPE_DEFAULT;
 
     public bool isStop = false;
+    public int oldStatus = PLAY_STATUS_STANDY;
+    public void setStop() {
+        oldStatus = status;
+        setStatus(PLAY_STATUS_STANDY);
+        isStop = true;
+    }
+    public void cancelStop()
+    {
+        isStop = false;
+        setStatus(oldStatus);
+       
+    }
 
 
     public void upDataSpeed() {

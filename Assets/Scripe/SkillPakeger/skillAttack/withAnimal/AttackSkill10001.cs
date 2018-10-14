@@ -5,6 +5,10 @@ using System.Collections;
 */
 public class AttackSkill10001 : AttackSkillWithAnimal
 {
+    public override void inAction()
+    {
+        throw new System.NotImplementedException();
+    }
 
     public override void initEnd()
     {

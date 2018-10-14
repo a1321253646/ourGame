@@ -65,7 +65,7 @@ public abstract class SkillObject : MonoBehaviour
     public void dealNextSkill(SkillJsonBean skill) {
 
     }
-    public void dealNextSkillForEach(SkillJsonBean skill, Attacker a)
+    public virtual void dealNextSkillForEach(SkillJsonBean skill, Attacker a)
     {
 
     }
@@ -76,18 +76,20 @@ public abstract class SkillObject : MonoBehaviour
         foreach (long skillid in mBean.getNextSkillList()) {
             Debug.Log("actionEnd skillid= " + skillid);
             SkillJsonBean nextSkill = JsonUtils.getIntance().getSkillInfoById(skillid);
-            if (nextSkill !=null &&(nextSkill.shape_type == 5 || nextSkill.shape_type == 4))
+            if (nextSkill.effects != 0 &&(nextSkill.shape_type == 5 || nextSkill.shape_type == 4))
             {
+                Debug.Log("actionEnd dealNextSkillForEach before" );
                 if (mTargetList != null && mTargetList.Count > 0)
                 {
+                    Debug.Log("mTargetList != null");
                     foreach (Attacker a in mTargetList)
                     {
                         dealNextSkillForEach(nextSkill, a);
-                        a.mSkillManager.addSkill(skillid, mAttacker);
+                        a.mSkillManager.addSkill(nextSkill, mAttacker);
                     }
                 }
             }
-            else
+            else if(nextSkill.effects != 0)
             {
                 int type = Attacker.CAMP_TYPE_DEFAULT;
                 int attackType = mAttacker.mCampType;
@@ -106,7 +108,11 @@ public abstract class SkillObject : MonoBehaviour
                         type = Attacker.CAMP_TYPE_PLAYER;
                     }
                 }
-            //    SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
+                else if((nextSkill.shape_type != 0))
+                {
+                    SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
+                }
+                
             }
         }
     }

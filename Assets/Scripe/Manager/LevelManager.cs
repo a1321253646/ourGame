@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void addNengliangDian(float nengliang) {
-        Debug.Log("addNengliangDian= " + nengliang);
+//        Debug.Log("addNengliangDian= " + nengliang);
         if (nengLiangDian >= 10) {
             nengLiangDian = 10;
             return;

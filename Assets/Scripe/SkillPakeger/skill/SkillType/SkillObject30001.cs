@@ -37,7 +37,8 @@ public class SkillObject30001 : SkillObject
 
         }
     }
-    void dealNextSkill(SkillJsonBean skill) {
+    public override void dealNextSkillForEach(SkillJsonBean skill, Attacker a)
+    {
         List<float> vals = new List<float>();
         vals.AddRange(mBean.getSpecialParameterValue());
         skill.setSpecialParameterValue(vals);

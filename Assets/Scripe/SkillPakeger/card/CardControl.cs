@@ -65,12 +65,15 @@ public class CardControl : MonoBehaviour
         {
             LocalBean mLocalLink = mManager.getLocalManager().mLocalLink;
             SkillLocalBean bean = new SkillLocalBean();
+            
             bean.x = mClickV.x;
             bean.y = mClickV.y;
             bean.type = mSkill.shape_type;
             ResourceBean res = JsonUtils.getIntance().getEnemyResourceData(mSkill.skill_resource);
-            bean.wight = mSkill.wight * res.zoom;
-            bean.leng = mSkill.leng * res.zoom;
+            if (res != null) {
+                bean.wight = mSkill.wight * res.zoom;
+                bean.leng = mSkill.leng * res.zoom;
+            }
             targetType = Attacker.CAMP_TYPE_DEFAULT;
             if (mSkill.target_type == SkillJsonBean.TYPE_SELF)
             {
@@ -99,7 +102,7 @@ public class CardControl : MonoBehaviour
                 return;
             }
             Vector3 v = PointUtils.screenTransToWorld(transform.position);
-            if (mSkill.shape_type == 4)
+            if (mSkill.shape_type == 4 && mTargetList != null && mTargetList.Count > 0)
             {
                 if (mTargetList != null && mTargetList.Count > 0)
                 {
