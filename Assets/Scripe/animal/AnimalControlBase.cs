@@ -109,6 +109,9 @@ public class AnimalControlBase
             {
                 mDelayAnimalStatu = mAnimalStatuList[mShowAnimalStatu.delayStatue];
             }
+            else {
+                mDelayAnimalStatu = null;
+            }
 
             changeStatue(mShowAnimalStatu);
         }

@@ -214,7 +214,7 @@ public class AttackSkillManager
                 i++;
             }
         }
-        for (int i = 0; i < beforeBehurtActionSkill.Count;)
+      /*  for (int i = 0; i < beforeBehurtActionSkill.Count;)
         {
             if (beforeBehurtActionSkill[i].getSkillStatus() == AttackSkillBase.SKILL_STATUS_END)
             {
@@ -222,7 +222,7 @@ public class AttackSkillManager
                 beforeBehurtActionSkill.Remove(skill);
                 mNoAnimalActionSkill.Remove(skill);
             }
-        }
+        }*/
     }
     public float getValueBySkillAndId(long skillId, long statusId) {
         foreach (AttackSkillNoAnimal skill in mNoAnimalActionSkill) {
