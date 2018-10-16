@@ -51,7 +51,7 @@ public class CardUiControl : MonoBehaviour {
             calcuator = new CalculatorUtil(mSkill.calculator, mSkill.effects_parameter);
         }
         if (mBt == null) {
-            mBt = transform.GetChild(0).GetChild(0).gameObject.GetComponent<Button>();
+            mBt = transform.GetComponent<Button>();
             if (type == TYPE_CARD_ITME)
             {
                 mBt.onClick.AddListener(() =>
@@ -108,4 +108,15 @@ public class CardUiControl : MonoBehaviour {
             mSkillDec.text = dec;
         }
     }
+    public void init(long cardId, float x, float y)
+    {
+        // float x = gameObject.GetComponent<RectTransform>().rect.width * gameObject.transform.localScale.x;
+        // float y = gameObject.GetComponent<RectTransform>().rect.height * gameObject.transform.localScale.y;
+        Transform ob = transform.GetChild(0).GetChild(0);
+        float x1 = ob.gameObject.GetComponent<RectTransform>().rect.width;
+        float y1 = ob.gameObject.gameObject.GetComponent<RectTransform>().rect.height;
+        Debug.Log("x= " + x + " y= " + y + " x1= " + x1 + " y1=" + y1 + " Bilix=" + (x / x1) + " Biliy=" + (y / y1));
+        transform.GetChild(0).localScale = new Vector3(x / x1, y / y1, 1);
+    }
+
 }

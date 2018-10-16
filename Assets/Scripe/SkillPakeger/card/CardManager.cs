@@ -143,7 +143,8 @@ public class CardManager : MonoBehaviour {
         newobj.GetComponent<CardUiControl>().init(id, CardUiControl.TYPE_CARD_PLAY);
         CardControl enmey = newobj.GetComponent<CardControl>();
         newobj.transform.SetParent(gameObject.transform);
-        newobj.transform.localScale = Vector3.one* 3f;
+        newobj.transform.localScale = Vector3.one;
+        enmey.init(id, 182, 272);
         enmey.init(mList.Count + 1, this, id);
         mList.Add(enmey);
     }
