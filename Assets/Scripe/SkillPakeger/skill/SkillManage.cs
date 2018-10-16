@@ -12,7 +12,7 @@ public class SkillManage
         
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(skill.skill_resource);
         GameObject newobj = GameObject.Instantiate(
-                mSkillObject, new Vector2(x+ bean.getHurtOffset().x, y + bean.getHurtOffset().y), Quaternion.Euler(0.0f, 0f, 0.0f));
+                mSkillObject, new Vector2(x- bean.getHurtOffset().x, y - bean.getHurtOffset().y), Quaternion.Euler(0.0f, 0f, 0.0f));
         dealSkillType(attacker,newobj, skill,x,y,campType);
     }
 

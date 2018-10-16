@@ -6,7 +6,11 @@ public class UiManager
 {	
 	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv;
 	Slider mHpSl,mStartBossGasSl;
-	Button mStartBossBt,mLvUpBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow;
+	Button mStartBossBt,mLvUpBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss;
+    Image autoBack;
+    Sprite mAutoYes, mAutoNo;
+
+    bool isAuto = false;
 	public void init(){
 		mHeroLvTv = GameObject.Find ("lv_labe").GetComponent<Text> ();
 		mGameLevelTv = GameObject.Find ("wellen_labe").GetComponent<Text> ();
@@ -26,7 +30,12 @@ public class UiManager
         mHpSl = GameObject.Find ("blood").GetComponent<Slider> ();
 		mStartBossGasSl = GameObject.Find ("gas_sl").GetComponent<Slider> ();
 
-		mGameLevelTv.text = "当前关卡:第" + GameManager.getIntance ().mCurrentLevel+"关";
+        GameObject auto = GameObject.Find("zidong");
+        mAutoBoss = auto.GetComponent<Button>();
+        autoBack = auto.GetComponent<Image>();
+        mAutoYes = Resources.Load("ui_new/gouxuan_yes", typeof(Sprite)) as Sprite;
+        mAutoNo = Resources.Load("ui_new/gouxuan_no", typeof(Sprite)) as Sprite;
+        mGameLevelTv.text = "当前关卡:第" + GameManager.getIntance ().mCurrentLevel+"关";
 		mGasTv.text =
 			GameManager.getIntance().mCurrentGas+ 
 			"/"+
@@ -42,7 +51,8 @@ public class UiManager
 			startBoss();
 		});
 		mLvUpBt.onClick.AddListener (() => {
-			levelUp();
+            Debug.Log("levelUp");
+            levelUp();
 		});
 
         mRoleUiShow.onClick.AddListener(() => {
@@ -62,8 +72,32 @@ public class UiManager
             BackpackManager.getIntance().cardUiShowClick();
         });
 
+        mAutoBoss.onClick.AddListener(() =>
+        {
+            isAuto = !isAuto;
+            clickAuto();
+            GameManager.getIntance().setIsAutoBoss(isAuto);
+        });
         refreshData ();
-	}
+        isAuto = GameManager.getIntance().gettIsAutoBoss();
+        clickAuto();
+
+    }
+
+    private void clickAuto() {    
+        if (isAuto)
+        {
+            if ( GameManager.getIntance().mCurrentGas >= GameManager.getIntance().startBossGas)
+            {
+                startBoss();
+            }
+            autoBack.sprite = mAutoYes;
+        }
+        else
+        {
+            autoBack.sprite = mAutoNo;
+        }
+    }
 
 	public void refreshData(){
 		mHeroLvTv.text = "英雄等级:" + GameManager.getIntance ().mHeroLv +"级";
@@ -102,7 +136,11 @@ public class UiManager
 		}
 		if (!mStartBossBt.IsInteractable() && GameManager.getIntance ().mCurrentGas >= GameManager.getIntance ().startBossGas) {
 			mStartBossBt.interactable = true;
-		}
+            if (isAuto) {
+                startBoss();
+            }
+        }
+       
 	}
 
 
@@ -138,7 +176,7 @@ public class UiManager
 	private void levelUp(){
 		GameManager.getIntance ().heroUp ();
 	//	mLvUpBt.interactable = false;
-		Debug.Log ("levelUp");
+		
 	}
 }
 

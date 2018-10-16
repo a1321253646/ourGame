@@ -101,5 +101,13 @@ public class GameManager
     public void updataGasAndCrystal() {
         uiManager.addGasAndCrystal();
     }
+    private bool isAuto = false;
+    public void setIsAutoBoss(bool auto) {
+        isAuto = auto;
+    }
+    public bool gettIsAutoBoss()
+    {
+        return isAuto;
+    }
 }
 

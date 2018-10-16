@@ -8,11 +8,29 @@ public class HeroRoleControl : MonoBehaviour {
     public bool isShow = false;
     Dictionary<long, PlayerBackpackBean> mHeroEquipl;
     Dictionary<long, GoodControl> mHeroGoodControl = new Dictionary<long, GoodControl>();
+    Image mRoleShow;
     private Text mText, mText2, mText3;
     private long[] mTypeAll = new long[] {1, 2, 3, 4, 5, 6};
     private Button mClose;
     private int mLevel;
     private Vector2 mFri;
+    AnimalControlBase mAnimalControl;
+    ResourceBean resourceData;
+    private void Start()
+    {
+        Hero mHero = JsonUtils.getIntance().getHeroData();
+        resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
+        mRoleShow = GameObject.Find("heroRole").GetComponent<Image>();
+        mAnimalControl = new AnimalControlBase(resourceData, mRoleShow);
+        mAnimalControl.setStatus(ActionFrameBean.ACTION_STANDY);
+        mAnimalControl.start();
+    }
+    private void Update()
+    {
+        if (isShow) {
+            mAnimalControl.update();
+        }
+    }
     public void click()
     {
         if (isShow)
@@ -82,23 +100,15 @@ public class HeroRoleControl : MonoBehaviour {
         if (mText == null) {
             mText = GameObject.Find("hero_information").GetComponent<Text>();
         }
-        if (mText2 == null)
-        {
-            mText2 = GameObject.Find("hero_information2").GetComponent<Text>();
-        }
-        if (mText3 == null)
-        {
-            mText3 = GameObject.Find("hero_information3").GetComponent<Text>();
-        }
         PlayControl plya = BackpackManager.getIntance().getHero();
         mText.text = "英雄等级: " + GameManager.getIntance().mHeroLv+"\n"+
             "攻击: "+plya.mAttribute.aggressivity +"\n"+
             "防御: "+plya.mAttribute.defense +"\n"+
-            "生命:"+plya.mAttribute.maxBloodVolume +"\n";
-        mText2.text = "命中：" + plya.mAttribute.rate +"\n"+
+            "生命:"+plya.mAttribute.maxBloodVolume +"\n"+
+            "命中：" + plya.mAttribute.rate +"\n"+
             "闪避："+plya.mAttribute.evd +"\n"+
             "暴击："+plya.mAttribute.crt +"\n"+
-            "暴击伤害："+plya.mAttribute.crtHurt +"\n";
-        mText3.text = "真实伤害：" + plya.mAttribute.readHurt +"\n";
+            "暴击伤害："+plya.mAttribute.crtHurt +"\n"+
+            "真实伤害：" + plya.mAttribute.readHurt +"\n";
     }
 }
