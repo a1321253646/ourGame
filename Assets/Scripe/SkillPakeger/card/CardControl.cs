@@ -25,7 +25,7 @@ public class CardControl : MonoBehaviour
     private float mTargetX =-1;
     private float mWitch = -1;
     private GameObject mClickShow;
-    float mClickShowX;
+    float mClickShowX = -1;
     Vector3 mClickV;
 
     void Start()
@@ -35,7 +35,6 @@ public class CardControl : MonoBehaviour
             gameObject.GetComponent<RectTransform>().rect.xMin;
         //       Debug.Log("manager 卡牌宽度 " + mWitch);
         mClickShow = GameObject.Find("kapai_click");
-        mClickShowX = mClickShow.transform.GetChild(0).transform.position.x;
     }
 
     private void Update()
@@ -216,10 +215,15 @@ public class CardControl : MonoBehaviour
             else {
                 x = transform.GetChild(0).position.x;
             }
-          
+            mClickShow.GetComponent<CardUiControl>().init(mCard.id, CardUiControl.TYPE_CARD_PLAY);
+            if (mClickShowX == -1)
+            {
+                mClickShowX = mClickShow.transform.transform.position.x;
+            }
             mClickShow.transform.GetChild(0).position = new Vector2(x, mClickShow.transform.GetChild(0).position.y);
         }
         else {
+
             mClickShow.transform.GetChild(0).position = new Vector2(mClickShowX, mClickShow.transform.GetChild(0).position.y);
         }
         if (mStatue == STATUE_CARP_UP && mSkill.shape_type != 0 && mSkill.shape_type != 6)

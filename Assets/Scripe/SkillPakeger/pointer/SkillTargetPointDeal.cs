@@ -39,7 +39,7 @@ public class SkillTargetPointDeal
                     float y = tmp.mCurrentY + tmp.mAttacker.resourceData.getHurtOffset().y - local.y;
 
                     distance2 = x * x + y * y;
-                    Debug.Log("distance2 = " + distance2 + " distance" + distance);
+ //                   Debug.Log("distance2 = " + distance2 + " distance" + distance);
                     if (distance2 < distance)
                     {
   

@@ -10,6 +10,15 @@ public class ComposeEquipListControl : MonoBehaviour {
     // Use this for initialization
     public GameObject mItemObject;
     private ComposeListPartControl mParten;
+    private GameObject mClickItem;
+
+    private Sprite mClick, mNoClick;
+
+    private void Start()
+    {
+
+    }
+
     public void setParten(ComposeListPartControl part) {
         mParten = part;
     }
@@ -26,7 +35,13 @@ public class ComposeEquipListControl : MonoBehaviour {
             }
             mItems.Clear();
         }
-        foreach(ComposeJsonBen bean in list) {
+        if (mClick == null) {
+            mClick = Resources.Load("ui_new/hecheng_labe3", typeof(Sprite)) as Sprite;
+        }
+        if (mNoClick == null) {
+            mNoClick = Resources.Load("ui_new/hecheng_labe4", typeof(Sprite)) as Sprite;
+        }
+        foreach (ComposeJsonBen bean in list) {
             if (bean.isShow == 2 && !isHave(bean.id)) {
                 continue;
             }
@@ -46,9 +61,18 @@ public class ComposeEquipListControl : MonoBehaviour {
             im.sprite = Resources.Load("backpackIcon/" + icon, typeof(Sprite)) as Sprite; 
             im.color = Color.white;
             ob.GetComponent<Button>().onClick.AddListener(()=>{
+                if (mClickItem != null) {
+                    mClickItem.GetComponent<Image>().sprite = mNoClick;
+                }
+                mClickItem = ob;
+                mClickItem.GetComponent<Image>().sprite = mClick;
                 Debug.Log("ob.GetComponent bean.tid " + bean.tid);
                 GetComponentInParent<ComposeListPartControl>().listIsClick(bean.tid); 
             });
+            if (mItems.Count == 0) {
+                mClickItem = ob;
+                mClickItem.GetComponent<Image>().sprite = mClick;
+            }
             mItems.Add(ob);
         }
         SetGridHeight();
@@ -56,7 +80,7 @@ public class ComposeEquipListControl : MonoBehaviour {
     private void SetGridHeight()   
     {
         //if (mItems.Count > 3) {
-            float height = (mVerivlaLayou.spacing + 54) * mItems.Count;
+            float height = (mVerivlaLayou.spacing + 115) * mItems.Count;
             mVerivlaLayou.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
         //}
        

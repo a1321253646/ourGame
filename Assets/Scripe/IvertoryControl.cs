@@ -261,6 +261,8 @@ public class IvertoryControl : MonoBehaviour {
 
         }
     }
+    private float mGridHeight = 0;
+
     private void SetGridHeight()     //每行Cell的个数
     {
         int line = 0;
@@ -277,6 +279,10 @@ public class IvertoryControl : MonoBehaviour {
         float height = line * mGrilLayout.cellSize.y ;  //行数乘以Cell的高度，3.0f是微调
         height += (line -1)* mGrilLayout.spacing.y;     //每行之间有间隔
         mGrilLayout.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+        if (mGridHeight != height) {
+            mGridHeight = height;
+            mGrilLayout.transform.Translate(Vector2.down * (height));
+        }
     }
 
     private int mGoodUiCount = 0;

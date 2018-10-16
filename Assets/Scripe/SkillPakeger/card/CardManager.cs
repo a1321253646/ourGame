@@ -28,7 +28,7 @@ public class CardManager : MonoBehaviour {
         }
         mCardLocalUp = GameObject.Find("kapai_local_up");
         mCardLocalTop = GameObject.Find("kapai_local_up_top");
-        mYdel = mCardLoaclList[0].transform.position.y;
+        mYdel = mCardLoaclList[0].transform.position.y+20;
     }
 
     public float getLocalXByIndex(int index) {

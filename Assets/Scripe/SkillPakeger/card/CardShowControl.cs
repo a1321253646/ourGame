@@ -20,6 +20,7 @@ public class CardShowControl : MonoBehaviour {
     private int USER_LINE_COUNT = 4;
     private int BACK_LINE_COUNT = 4;
     private Vector2 mFri;
+
     Text mUserCount ;
 
     private void Start()
@@ -146,7 +147,7 @@ public class CardShowControl : MonoBehaviour {
         GoodControl ct = good.GetComponent<GoodControl>();
         ct.updateUi(bean.goodId, 1, bean);
         mBackArray = GetComponentsInChildren<GoodControl>();*/
-        SetGridHeight(mBackListGl, 3, mBacUiCount, BACK_LINE_COUNT);
+        SetGridHeight(mBackListGl, 2, mBacUiCount, 11 );
     }
     private void clearBackUi() {
         mBacUiCount = 0;
@@ -160,7 +161,7 @@ public class CardShowControl : MonoBehaviour {
         }
 
     }
-
+    private float mGridHeight = 0;
     private void SetGridHeight(GridLayoutGroup grid, int minLine,int count,int lineCount)     //每行Cell的个数
     {
         int line = 0;
@@ -176,6 +177,11 @@ public class CardShowControl : MonoBehaviour {
         float height = line * grid.cellSize.y;  //行数乘以Cell的高度，3.0f是微调
         height += (line - 1) * grid.spacing.y;     //每行之间有间隔
         grid.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+        if (mGridHeight != height) {
+            mGridHeight = height;
+            grid.transform.Translate(Vector2.down * (height));
+        }
+      
     }
     private void setWitch(GridLayoutGroup grid, int count)     //每行Cell的个数
     {

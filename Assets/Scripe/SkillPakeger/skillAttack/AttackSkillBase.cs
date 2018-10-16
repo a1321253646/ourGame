@@ -32,6 +32,11 @@ public abstract class AttackSkillBase : MonoBehaviour
         return mSkillStatus;
     }
 
+    public virtual bool add(float value) {
+        return false;
+
+    }
+
     public float getValueById(long id) {
         switch (id) {
             case 10001:

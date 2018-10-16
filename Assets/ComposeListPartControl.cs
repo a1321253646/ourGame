@@ -8,13 +8,17 @@ public class ComposeListPartControl : MonoBehaviour {
     private VerticalLayoutGroup mVertirclView = null;
     public GameObject mButtonObject = null;
     public GameObject mListViewObject = null;
+    public GameObject mClickItem = null;
     private Button mFirst, mSecond, mThird;
     private GameObject mFri, mSec,/* mThr,*/ mList;
     private Dictionary<long, List<ComposeJsonBen>> mMap;
     private ComposeEquipListControl mListControl;
-	// Use this for initialization
-	void Start () {
+    private Sprite mClick, mNoClick;
+    // Use this for initialization
+    void Start () {
         mVertirclView = GetComponent<VerticalLayoutGroup>();
+        mClick = Resources.Load("ui_new/hecheng_labe1" , typeof(Sprite)) as Sprite;
+        mNoClick = Resources.Load("ui_new/hecheng_labe0", typeof(Sprite)) as Sprite;
         creatGameObjec();
     }
 	
@@ -25,13 +29,14 @@ public class ComposeListPartControl : MonoBehaviour {
 
     private void creatGameObjec()
     {
-        if (mFri != null)
-        {
-            Destroy(mFri);
-        }
+ //       if (mFri != null)
+ //       {
+ //           Destroy(mFri);
+ //       }
         if (mSec != null)
         {
-            Destroy(mSec);
+            mSec.transform.parent = null;
+  //          Destroy(mSec);
         }
 //        if (mThr != null)
 //        {
@@ -39,8 +44,29 @@ public class ComposeListPartControl : MonoBehaviour {
 //        }
         if (mList != null)
         {
+            mList.transform.parent = null;
             Destroy(mList);
             mListControl = null;
+        }
+
+        if (mMap == null || mMap.Count < 1)
+        {
+            mMap = new Dictionary<long, List<ComposeJsonBen>>();
+            List<ComposeJsonBen> list = JsonUtils.getIntance().getComposeInfo();
+            List<ComposeJsonBen> classType = null;
+            foreach (ComposeJsonBen bean in list)
+            {
+                if (mMap.ContainsKey(bean.classType))
+                {
+                    classType = mMap[bean.classType];
+                }
+                else
+                {
+                    classType = new List<ComposeJsonBen>();
+                    mMap.Add(bean.classType, classType);
+                }
+                classType.Add(bean);
+            }
         }
 
         if (mFri == null) {
@@ -50,8 +76,19 @@ public class ComposeListPartControl : MonoBehaviour {
             mFri.transform.localScale = Vector3.one;
             mFri.GetComponent<Button>().onClick.AddListener(() =>
             {
+                if (mClickItem == mFri) {
+                    return;
+                }
+                if (mClickItem != null)
+                {
+                    mClickItem.GetComponent<Image>().sprite = mNoClick;
+                }
+                mClickItem = mFri;
+                mClickItem.GetComponent<Image>().sprite = mClick;
                 clockIndex(1);
             });
+            mClickItem = mFri;
+            mFri.GetComponent<Image>().sprite = mClick;
         }
         if (mSec == null)
         {
@@ -61,8 +98,20 @@ public class ComposeListPartControl : MonoBehaviour {
             mSec.transform.localScale = Vector3.one;
             mSec.GetComponent<Button>().onClick.AddListener(() =>
             {
+                if (mClickItem == mSec)
+                {
+                    return;
+                }
+                if (mClickItem != null) {
+                    mClickItem.GetComponent<Image>().sprite = mNoClick;
+                }
+                mClickItem = mSec;
+                mClickItem.GetComponent<Image>().sprite = mClick;
                 clockIndex(2);
             });
+            if (!mMap.ContainsKey(2)) {
+                mSec.GetComponent<Button>().interactable = false;
+            }
         }
 //        if (mThr == null)
 //       {
@@ -77,22 +126,7 @@ public class ComposeListPartControl : MonoBehaviour {
            
             mListControl = mList.GetComponentInChildren<ComposeEquipListControl>();
         }
-        if (mMap == null || mMap.Count < 1) {
-            mMap = new Dictionary<long, List<ComposeJsonBen>>();
-            List<ComposeJsonBen> list = JsonUtils.getIntance().getComposeInfo();
-            List<ComposeJsonBen> classType = null; 
-            foreach (ComposeJsonBen bean in list) {
-                if (mMap.ContainsKey(bean.classType))
-                {
-                    classType = mMap[bean.classType];
-                }
-                else {
-                    classType = new List<ComposeJsonBen>();
-                    mMap.Add(bean.classType,classType);
-                }
-                classType.Add(bean);
-            }
-        }
+
 
         mFri.transform.parent
             = mVertirclView.transform;

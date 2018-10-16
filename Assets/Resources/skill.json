@@ -29,7 +29,7 @@
     "shape_resource_id": "shape_2",
     "leng": 1,
     "wight": 0.4,
-    "point_type": 0
+    "point_type": 3
   },
   {
     "id": 100003,
@@ -125,7 +125,7 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 3
   },
   {
     "id": 100009,
@@ -232,12 +232,12 @@
     "special_parameter_value": "time",
     "next_skill": "",
     "skill_describe": "眩晕：无法移动、无法攻击和无法施法",
-    "skill_resource": 0.0,
+    "skill_resource": 35013,
     "shape_type": 5,
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 1
+    "point_type": 3
   },
   {
     "id": 200003,

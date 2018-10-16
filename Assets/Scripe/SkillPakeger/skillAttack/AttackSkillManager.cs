@@ -25,12 +25,26 @@ public class AttackSkillManager
             return;
         }
         Point skillP = JsonUtils.getIntance().getEnemyResourceData(skill.skill_resource).getFightOffset();
-        Point attackP = mAttack.resourceData.getFightOffset();
+        Point attackP = mAttack.resourceData.getHurtOffset();
+
+        float xDel=0, yDel=0;
+        if (skill.point_type == 1)
+        {
+            yDel = mAttack.resourceData.getTargetBorder()[2];
+        }
+        else if (skill.point_type == 2)
+        {
+            yDel = mAttack.resourceData.getTargetBorder()[2] / 2;
+        }
+        else {
+            yDel = 0;
+        }
+        Debug.Log("attackP.x =" + attackP.x);
 
         GameObject newobj = GameObject.Instantiate(
                 mSkillObject,
-                new Vector2(mAttack.transform.position.x + attackP.x - skillP.x,
-                            mAttack.transform.position.y + attackP.y - skillP.y),
+                new Vector2(mAttack.transform.position.x + attackP.x+ xDel - skillP.x,
+                            mAttack.transform.position.y + mAttack.resourceData.idel_y+ yDel - skillP.y),
                 Quaternion.Euler(0.0f, 0f, 0.0f));
         dealSkillType(newobj, skill.id, mAttackFight, skill);
     }
@@ -78,22 +92,6 @@ public class AttackSkillManager
                 skill.add(count);
             }
         }
-        else if (jsonBean.effects == 10002)
-        {
-            int time = (int)jsonBean.getSpecialParameterValue()[0];
-            
-            if (i != -1)
-            {
-                mNoAnimalActionSkill[i].add(time);
-            }
-            else
-            {
-                skill = new AttackSkill10002();
-                skill.init(this, jsonBean.id, mAttackFight);
-                mNoAnimalActionSkill.Add(skill);
-                skill.add(time);
-            }
-        }
         else if (jsonBean.effects == 10003) {
             int time = (int)jsonBean.getSpecialParameterValue()[0];
             if (i != -1)
@@ -115,8 +113,6 @@ public class AttackSkillManager
     private bool isNoAnimal(long skillId) {
         if (skillId == 200001 ||
             skillId == 300001 ||
-            skillId == 200002 || 
-            skillId == 10003||
             skillId == 200003) {
             return true;
         }
@@ -138,6 +134,36 @@ public class AttackSkillManager
             AttackSkillWithAnimal skillComponent = newobj.GetComponent<AttackSkillWithAnimal>();
             skillComponent.init(this, skillId, mAttackFight);
             mAnimalActionSkill.Add(skillComponent);
+        }
+        else if (skill.effects == 10002)
+        {
+            int i = 0;
+            if (mAnimalActionSkill.Count > 0)
+            {
+                for (; i < mAnimalActionSkill.Count; i++)
+                {
+                    AttackSkillWithAnimal s = mAnimalActionSkill[i];
+                    if (s.mSkillJson.effects == skill.effects)
+                    {
+                        break;
+                    }
+                }
+
+            }
+            int time = (int)skill.getSpecialParameterValue()[0];
+
+            if (i != mAnimalActionSkill.Count)
+            {
+                mAnimalActionSkill[i].add(time);
+            }
+            else
+            {
+                newobj.AddComponent<AttackSkill10002>();
+                AttackSkillWithAnimal skillComponent = newobj.GetComponent<AttackSkillWithAnimal>();
+                skillComponent.init(this, skillId, mAttackFight);
+                mAnimalActionSkill.Add(skillComponent);
+                skillComponent.add(time);
+            }
         }
     }
     public Attacker getAttacker() {

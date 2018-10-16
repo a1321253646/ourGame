@@ -148,7 +148,7 @@ public class ComposeControl : MonoBehaviour {
                 isSure = false;         
             }
 
-            mNeedTextList[id].GetComponentInChildren<Text>().text = count + " / " + mNeedCountList[id];
+            mNeedTextList[id].GetComponentInChildren<Text>().text = count + "/" + mNeedCountList[id];
         }
         if (isSure) {
             isSure = GameManager.getIntance().mCurrentCrystal >= mShowCompose.cost_crystal;
@@ -188,6 +188,7 @@ public class ComposeControl : MonoBehaviour {
             }
             mNeedTextList.Add(been.id, ob.GetComponentInChildren<Text>());
             mNeedCountList.Add(been.id, been.num);
+         //   Debug.Log("合成材料icon= " + "backpackIcon/" + icon);
             ob.GetComponentsInChildren<Image>()[1].sprite = Resources.Load("backpackIcon/" + icon, typeof(Sprite)) as Sprite;
             mNeedListObject.Add(ob);
         }

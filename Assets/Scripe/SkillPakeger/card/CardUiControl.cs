@@ -20,36 +20,41 @@ public class CardUiControl : MonoBehaviour {
     string dec;
     public void init(long cardId,int type)
     {
-        if (mCard == null) {
-            CardJsonBean card = JsonUtils.getIntance().getCardInfoById(cardId);
-            mCard = card;
-        }
-        if (mSkill == null) {
-            mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);
-        }
+        //if (mCard == null) {
+        CardJsonBean card1 = JsonUtils.getIntance().getCardInfoById(cardId);
+        mCard = card1;
+      //  }
+    //    if (mSkill == null) {
+         mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);
+        //   }
         if (mImageBottom == null) {
             mImageBottom = GetComponentsInChildren<Image>()[1];
-            Sprite sprite1 = Resources.Load("UI/" + mCard.center_resource, typeof(Sprite)) as Sprite;
-            mImageBottom.sprite = sprite1;
         }
-        if(mImageTop == null) {
+        Sprite sprite1 = Resources.Load("UI/" + mCard.center_resource, typeof(Sprite)) as Sprite;
+        mImageBottom.sprite = sprite1;
+     
+        if (mImageTop == null) {
             mImageTop = GetComponentsInChildren<Image>()[2];
-            Sprite sprite2 = Resources.Load("UI/" + mCard.top_resource, typeof(Sprite)) as Sprite;
-            mImageTop.sprite = sprite2;
         }
+
+        Sprite sprite2 = Resources.Load("UI/" + mCard.top_resource, typeof(Sprite)) as Sprite;
+        mImageTop.sprite = sprite2;
+      
         if (mCostCount == null) {
             Text[] listText = GetComponentsInChildren<Text>();
+            mSkillDec = listText[2];
+            mSkillName = listText[1];
             mCostCount = listText[0];
-            mCostCount.text = mCard.cost + "";
-            mSkillDec = listText[1];
-            mSkillName = listText[2];
-            mSkillName.text = mCard.name;
-            
         }
-        if (calcuator == null)
-        {
-            calcuator = new CalculatorUtil(mSkill.calculator, mSkill.effects_parameter);
-        }
+           
+        mCostCount.text = mCard.cost + "";           
+        mSkillName.text = mCard.name;
+        mSkillDec.text = mSkill.skill_describe;
+        
+      //  if (calcuator == null)
+      //  {
+        calcuator = new CalculatorUtil(mSkill.calculator, mSkill.effects_parameter);
+      //  }
         if (mBt == null) {
             mBt = transform.GetComponent<Button>();
             if (type == TYPE_CARD_ITME)
