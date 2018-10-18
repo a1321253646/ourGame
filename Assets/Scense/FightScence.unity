@@ -2806,17 +2806,17 @@ Prefab:
     - target: {fileID: 224435656796208176, guid: 1c3b28dfe67a1084cbd02cb793d85073,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -13.9
+      value: -27.1
       objectReference: {fileID: 0}
     - target: {fileID: 224435656796208176, guid: 1c3b28dfe67a1084cbd02cb793d85073,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -12.77
+      value: -12.8
       objectReference: {fileID: 0}
     - target: {fileID: 224435656796208176, guid: 1c3b28dfe67a1084cbd02cb793d85073,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: -42.88
+      value: -102.8
       objectReference: {fileID: 0}
     - target: {fileID: 224435656796208176, guid: 1c3b28dfe67a1084cbd02cb793d85073,
         type: 2}
@@ -2856,7 +2856,7 @@ Prefab:
     - target: {fileID: 224630224828386928, guid: 1c3b28dfe67a1084cbd02cb793d85073,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -277.56015
+      value: -247.59999
       objectReference: {fileID: 0}
     - target: {fileID: 224630224828386928, guid: 1c3b28dfe67a1084cbd02cb793d85073,
         type: 2}
@@ -3009,7 +3009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.000010292738, y: -207.63}
+  m_AnchoredPosition: {x: 0.00005575821, y: -207.63}
   m_SizeDelta: {x: 269.41, y: 182.28}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &499747978
@@ -10645,7 +10645,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 1
-  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
@@ -12020,7 +12020,7 @@ GameObject:
   - component: {fileID: 1992152689}
   - component: {fileID: 1992152688}
   m_Layer: 5
-  m_Name: Text
+  m_Name: hero_lv_tx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

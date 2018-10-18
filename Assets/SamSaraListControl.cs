@@ -52,7 +52,7 @@ public class SamSaraListControl : MonoBehaviour {
     }
 
 
-
+    private float mGridHeight = 0;
     private void SetGridHeight()
     {
         //if (mItems.Count > 3) {
@@ -64,8 +64,13 @@ public class SamSaraListControl : MonoBehaviour {
         else {
             count = mItems.Count;
         }
-            float height = (mVerivlaLayou.spacing + 90) * count;
+            float height = (mVerivlaLayou.spacing + 125) * count;
         mVerivlaLayou.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+        if (mGridHeight != height)
+        {
+            mGridHeight = height;
+            mVerivlaLayou.transform.Translate(Vector2.down * (height));
+        }
         //}
 
     }

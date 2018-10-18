@@ -9,7 +9,7 @@ public class HeroRoleControl : MonoBehaviour {
     Dictionary<long, PlayerBackpackBean> mHeroEquipl;
     Dictionary<long, GoodControl> mHeroGoodControl = new Dictionary<long, GoodControl>();
     Image mRoleShow;
-    private Text mText, mText2, mText3;
+    private Text mText, mHeroLvTx;
     private long[] mTypeAll = new long[] {1, 2, 3, 4, 5, 6};
     private Button mClose;
     private int mLevel;
@@ -96,19 +96,22 @@ public class HeroRoleControl : MonoBehaviour {
                 goodIcon.updateUi(-1, 0, null);
             }
         }
-
         if (mText == null) {
             mText = GameObject.Find("hero_information").GetComponent<Text>();
         }
+        if (mHeroLvTx == null) {
+            mHeroLvTx = GameObject.Find("hero_lv_tx").GetComponent<Text>();
+        }
         PlayControl plya = BackpackManager.getIntance().getHero();
-        mText.text = "英雄等级: " + GameManager.getIntance().mHeroLv+"\n"+
-            "攻击: "+plya.mAttribute.aggressivity +"\n"+
-            "防御: "+plya.mAttribute.defense +"\n"+
-            "生命:"+plya.mAttribute.maxBloodVolume +"\n"+
-            "命中：" + plya.mAttribute.rate +"\n"+
-            "闪避："+plya.mAttribute.evd +"\n"+
-            "暴击："+plya.mAttribute.crt +"\n"+
-            "暴击伤害："+plya.mAttribute.crtHurt +"\n"+
+        mHeroLvTx.text = "英雄等级：Lv." + GameManager.getIntance().mHeroLv;
+        mText.text =
+            "攻    击：" + plya.mAttribute.aggressivity +"\n"+
+            "防    御：" + plya.mAttribute.defense +"\n"+
+            "生    命：" + plya.mAttribute.maxBloodVolume +"\n"+
+            "命    中：" + plya.mAttribute.rate +"\n"+
+            "闪    避：" + plya.mAttribute.evd +"\n"+
+            "暴    击：" + plya.mAttribute.crt +"\n"+
+            "暴击伤害：" + plya.mAttribute.crtHurt +"\n"+
             "真实伤害：" + plya.mAttribute.readHurt +"\n";
     }
 }
