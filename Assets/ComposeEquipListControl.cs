@@ -50,14 +50,24 @@ public class ComposeEquipListControl : MonoBehaviour {
                 GetComponentInParent<ComposeListPartControl>().listIsClick(bean.tid);
             }
             Debug.Log("ComposeEquipListControl id = " + bean.tid);
-            string icon = JsonUtils.getIntance().getAccouterInfoById(bean.tid).icon;
-            string name = JsonUtils.getIntance().getAccouterInfoById(bean.tid).name;
+            string icon = null;
+            string name = null;
+            if (bean.tid < 3000001)
+            {
+                icon = JsonUtils.getIntance().getAccouterInfoById(bean.tid).icon;
+                name = JsonUtils.getIntance().getAccouterInfoById(bean.tid).name;
+            }
+            else
+            {
+                icon = JsonUtils.getIntance().getCardInfoById(bean.tid).icon;
+                name = JsonUtils.getIntance().getCardInfoById(bean.tid).name;
+            }
             GameObject ob = GameObject.Instantiate(mItemObject,
                  new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             ob.transform.localScale = Vector2.one;
             ob.transform.parent = gameObject.transform;
             ob.GetComponentInChildren<Text>().text = name;
-            Image im = ob.GetComponentsInChildren<Image>()[1];
+            Image im = ob.GetComponentsInChildren<Image>()[2];
             im.sprite = Resources.Load("backpackIcon/" + icon, typeof(Sprite)) as Sprite; 
             im.color = Color.white;
             ob.GetComponent<Button>().onClick.AddListener(()=>{

@@ -24,9 +24,20 @@ public class InventoryHalper
     public void dealClear() {
         mRoleUseList.Clear();
         mDropDeviceUsed.Clear();
-        mList.Clear();
-        mRoleUseList.Clear();
-        mUserCardId.Clear();
+       // mList.Clear();
+        for (int i = 0; i < mList.Count;) {
+            PlayerBackpackBean bean = mList[i];
+            if (bean.goodId >= 3000001)
+            {
+                i++;
+                continue;
+            }
+            else {
+                mList.Remove(bean);
+            }
+        }
+      //  mRoleUseList.Clear();
+     //   mUserCardId.Clear();
        
     }
     public void useCard(PlayerBackpackBean bean, long count)
@@ -53,9 +64,9 @@ public class InventoryHalper
         return mUserCardId;
     }
 
-    public long TABID_1_START_ID = 1000000;
-    public long TABID_2_START_ID = 2000000;
-    public long TABID_3_START_ID = 3000000;
+    public static long TABID_1_START_ID = 1000000;
+    public static long TABID_2_START_ID = 2000000;
+    public static long TABID_3_START_ID = 3000000;
     public bool addInventory(long id, int count)
     {
         bool isNew = true;

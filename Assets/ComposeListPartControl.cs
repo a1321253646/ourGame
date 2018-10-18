@@ -20,6 +20,7 @@ public class ComposeListPartControl : MonoBehaviour {
         mClick = Resources.Load("ui_new/hecheng_labe1" , typeof(Sprite)) as Sprite;
         mNoClick = Resources.Load("ui_new/hecheng_labe0", typeof(Sprite)) as Sprite;
         creatGameObjec();
+
     }
 	
 	// Update is called once per frame
@@ -47,6 +48,7 @@ public class ComposeListPartControl : MonoBehaviour {
             mList.transform.parent = null;
             Destroy(mList);
             mListControl = null;
+            mList = null;
         }
 
         if (mMap == null || mMap.Count < 1)
@@ -109,9 +111,9 @@ public class ComposeListPartControl : MonoBehaviour {
                 mClickItem.GetComponent<Image>().sprite = mClick;
                 clockIndex(2);
             });
-            if (!mMap.ContainsKey(2)) {
-                mSec.GetComponent<Button>().interactable = false;
-            }
+         //   if (mMap.ContainsKey(2)) {
+         //       mSec.GetComponent<Button>().interactable = false;
+         //   }
         }
 //        if (mThr == null)
 //       {
@@ -130,6 +132,7 @@ public class ComposeListPartControl : MonoBehaviour {
 
         mFri.transform.parent
             = mVertirclView.transform;
+       
         mFri.transform.localScale = Vector3.one;
         if ( mNowClickButton == 1) {
             mList.transform.parent = mVertirclView.transform;
@@ -152,6 +155,7 @@ public class ComposeListPartControl : MonoBehaviour {
     }
     private void clockIndex(long index) {
         if (mNowClickButton == index || !mMap.ContainsKey(index)) {
+            Debug.Log("clockIndex false mNowClickButton= "+ mNowClickButton+ " index = "+ index);
             return;
         }
         mNowClickButton = index;

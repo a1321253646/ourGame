@@ -27,6 +27,7 @@ public class TipControl : MonoBehaviour {
     public static int BOOK_TYPE = 4;
     public static int USE_CARD_TYPE = 5;
     public static int UNUSE_CARD_TYPE = 6;
+    public static int SHOW_COMPOSE_TYPE = 7;
 
     public long mCardId = -1;
     LevelManager mLevelManager;
@@ -51,7 +52,10 @@ public class TipControl : MonoBehaviour {
 
     private void use()
     {
-        BackpackManager.getIntance().use(mBean, count, mCurrentType);
+        if (mCurrentType != SHOW_COMPOSE_TYPE) {
+            BackpackManager.getIntance().use(mBean, count, mCurrentType);
+        }
+        
         removeUi();
     }
 
@@ -80,6 +84,9 @@ public class TipControl : MonoBehaviour {
         else if (mCurrentType == UNUSE_CARD_TYPE) {
             mClickText.text = "卸下";
         }
+        else if (mCurrentType == SHOW_COMPOSE_TYPE) {
+            mClickText.text = "关闭";
+        }
         mBean = bean;
         this.id = bean.goodId;
         this.count = count;
@@ -103,21 +110,39 @@ public class TipControl : MonoBehaviour {
         }
         string img = null;
         string name = null;
+        long tabID = mBean.tabId;
+        if (mBean.tabId == GoodControl.TABID_COMPOSE_TYPE)
+        {
+            Debug.Log("mBean.goodId = " + mBean.goodId);
+            if (mBean.goodId > InventoryHalper.TABID_1_START_ID && mBean.goodId < InventoryHalper.TABID_2_START_ID)
+            {
+                mBean.tabId = GoodControl.TABID_ITEM_TYPE;
+            }
+            else if (mBean.goodId > InventoryHalper.TABID_2_START_ID && mBean.goodId < InventoryHalper.TABID_3_START_ID)
+            {
+                mBean.tabId = GoodControl.TABID_EQUIP_TYPY;
+            }
+            else if (mBean.goodId > InventoryHalper.TABID_3_START_ID)
+            {
+                mBean.tabId = GoodControl.TABID_CARD_TYPE;
+            }
+        }
         if (mBean.tabId == GoodControl.TABID_EQUIP_TYPY)
         {
-            mAccouter = BackpackManager.getIntance().getAccouterInfoById(id);
+            mAccouter = JsonUtils.getIntance().getAccouterInfoById(id);
             img = mAccouter.icon;
             name = mAccouter.name;
         }
+        
         else if (mBean.tabId == GoodControl.TABID_ITEM_TYPE)
         {
-            mGoodJson = BackpackManager.getIntance().getGoodInfoById(id);
+            mGoodJson = JsonUtils.getIntance().getGoodInfoById(id);
             img = mGoodJson.icon;
             name = mGoodJson.name;
         }
         else if (mBean.tabId == GoodControl.TABID_CARD_TYPE)
         {
-            mCardJson = BackpackManager.getIntance().getCardInfoById(id);
+            mCardJson = JsonUtils.getIntance().getCardInfoById(id);
             img = mCardJson.icon;
             name = mCardJson.name;
         }
@@ -126,6 +151,7 @@ public class TipControl : MonoBehaviour {
         mTipImage.sprite = Resources.
                  Load("backpackIcon/" + img, typeof(Sprite)) as Sprite;
         mTipImage.color = Color.white;
+        mBean.tabId = tabID;
     }
 
     private void updataUi() {               

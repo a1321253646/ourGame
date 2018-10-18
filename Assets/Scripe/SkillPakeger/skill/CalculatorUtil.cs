@@ -26,7 +26,7 @@ public class CalculatorUtil
     public  float getValue(Attacker firer, Attacker target) {
         this.firer = firer;
         this.target = target;
-        Debug.Log("firer:\n+" + firer.mAttribute.toString() + "blood=" + firer.mBloodVolume + "\ntarget:\n" + target.mAttribute.toString() + "blood=" + target.mBloodVolume);
+
 
         if (mBean == null) {
             return -1;

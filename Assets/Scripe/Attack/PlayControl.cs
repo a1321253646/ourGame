@@ -22,21 +22,25 @@ public class PlayControl : Attacker
         setHeroData ();
         upLunhui();
         mFightManager.registerAttacker (this);
-        BackpackManager.getIntance().addGoods(3000001, 1);
-        BackpackManager.getIntance().addGoods(3000002, 1);
-        BackpackManager.getIntance().addGoods(3000003, 1);
-        BackpackManager.getIntance().addGoods(3000004, 1);
-        BackpackManager.getIntance().addGoods(3000005, 1);
-        BackpackManager.getIntance().addGoods(3000006, 1);
-        BackpackManager.getIntance().addGoods(3000007, 1);
-        BackpackManager.getIntance().addGoods(3000008, 1);
-        BackpackManager.getIntance().addGoods(3000009, 1);
-        BackpackManager.getIntance().addGoods(3000010, 1);
-        BackpackManager.getIntance().addGoods(3000011, 1);
-        BackpackManager.getIntance().addGoods(3000012, 1);
-        BackpackManager.getIntance().addGoods(3000013, 1);
-        BackpackManager.getIntance().addGoods(3000014, 1);
-        BackpackManager.getIntance().addGoods(3000015, 1);
+        if (!GameManager.getIntance().isAddGoodForTest) {
+            GameManager.getIntance().isAddGoodForTest = true;
+            BackpackManager.getIntance().addGoods(3000001, 1);
+            BackpackManager.getIntance().addGoods(3000002, 1);
+            BackpackManager.getIntance().addGoods(3000003, 1);
+            BackpackManager.getIntance().addGoods(3000004, 1);
+            BackpackManager.getIntance().addGoods(3000005, 1);
+            BackpackManager.getIntance().addGoods(3000006, 1);
+            BackpackManager.getIntance().addGoods(3000007, 1);
+            BackpackManager.getIntance().addGoods(3000008, 1);
+            BackpackManager.getIntance().addGoods(3000009, 1);
+            BackpackManager.getIntance().addGoods(3000010, 1);
+            BackpackManager.getIntance().addGoods(3000011, 1);
+            BackpackManager.getIntance().addGoods(3000012, 1);
+            BackpackManager.getIntance().addGoods(3000013, 1);
+            BackpackManager.getIntance().addGoods(3000014, 1);
+            BackpackManager.getIntance().addGoods(3000015, 1);
+        }
+
     }
     private void initAnimalEvent() {
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();

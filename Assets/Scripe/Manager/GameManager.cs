@@ -25,7 +25,8 @@ public class GameManager
 	public static GameManager getIntance(){
 		return mIntance;
 	}
-		
+
+    public bool isAddGoodForTest = false;
 
 	public void getLevelData(){
         Hero hero = JsonUtils.getIntance ().getHeroData ();

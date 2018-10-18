@@ -9,6 +9,7 @@ public class GoodControl : MonoBehaviour {
     public static int TABID_EQUIP_TYPY = 2;
     public static int TABID_ITEM_TYPE = 1;
     public static int TABID_CARD_TYPE = 3;
+    public static int TABID_COMPOSE_TYPE = 4;
 
 
     private Image mImage;
@@ -76,12 +77,17 @@ public class GoodControl : MonoBehaviour {
         else if (bean.tabId == TABID_CARD_TYPE) {
             type = TipControl.USE_CARD_TYPE;
         }
+        else if (bean.tabId == TABID_COMPOSE_TYPE)
+        {
+            type = TipControl.SHOW_COMPOSE_TYPE;
+        }
         BackpackManager.getIntance().showTipUi(bean, count, type);
     }
 
     public bool isFull() {
         return count == mMaxCout;
     }
+    string img = null;
     private long updateUi(long id, long count)
     {
         //       Debug.Log("GoodControl updateUi id = " + id);
@@ -89,21 +95,24 @@ public class GoodControl : MonoBehaviour {
         if (mImage != null && id != -1)
         {
 
-            string img = null;
-            if (bean.tabId == TABID_EQUIP_TYPY)
-            {
-                img = BackpackManager.getIntance().getAccouterInfoById(id).icon;
-                mMaxCout = BackpackManager.getIntance().getAccouterInfoById(id).stacking;
+            if (img == null) {
+                if (bean.tabId == TABID_EQUIP_TYPY)
+                {
+                    img = BackpackManager.getIntance().getAccouterInfoById(id).icon;
+                    mMaxCout = BackpackManager.getIntance().getAccouterInfoById(id).stacking;
+                }
+                else if (bean.tabId == TABID_ITEM_TYPE)
+                {
+                    img = BackpackManager.getIntance().getGoodInfoById(id).icon;
+                    mMaxCout = BackpackManager.getIntance().getGoodInfoById(id).stacking;
+                }
+                else if (bean.tabId == TABID_CARD_TYPE)
+                {
+                    img = BackpackManager.getIntance().getCardInfoById(id).icon;
+                    mMaxCout = BackpackManager.getIntance().getCardInfoById(id).stacking;
+                }
             }
-            else if (bean.tabId == TABID_ITEM_TYPE)
-            {
-                img = BackpackManager.getIntance().getGoodInfoById(id).icon;
-                mMaxCout = BackpackManager.getIntance().getGoodInfoById(id).stacking;
-            }
-            else if (bean.tabId == TABID_CARD_TYPE) {
-                img = BackpackManager.getIntance().getCardInfoById(id).icon;
-                mMaxCout = BackpackManager.getIntance().getCardInfoById(id).stacking;
-            }
+       
             // SpriteRenderer sp1 = mImage.GetComponent<SpriteRenderer>();
             //            Debug.Log("icon = " + mGoodInfo.icon + "mImage = " + mImage);
             mImage.sprite = Resources.
@@ -113,12 +122,30 @@ public class GoodControl : MonoBehaviour {
         else if (mImage != null && id == -1) {
             mImage.sprite = null;
             mImage.color = Color.clear;
-
         }
 
         return setCount(count);
 
     }
+    long mNeed = 0;
+    bool isCompose = false;
+
+    public void updateCount(long count, long need) {
+        Debug.Log("updateCount count = " + count + " need=" + need);
+        mNeed = need;
+        setCount(count);
+    }
+
+    public void updateUi(long id,long count, long need,string im) {
+        isCompose = true;
+        img = im;
+        PlayerBackpackBean bean = new PlayerBackpackBean();
+        mNeed = need;
+        bean.tabId = TABID_COMPOSE_TYPE;
+        bean.goodId = id;
+        updateUi(id, count,bean);
+    } 
+
     public long updateUi(long id, long count, PlayerBackpackBean bean)
     {
  //       Debug.Log("GoodControl updateUi id = " + id);
@@ -155,10 +182,26 @@ public class GoodControl : MonoBehaviour {
         }
     }
 
-    public long setCount(long count)
+    public long setCount(long count2)
     {
+        count = count2;
+        Debug.Log("updateCount2 count = " + count + " need=" + mNeed);
+
         string text;
         long value ;
+        if (mText == null) {
+            mText = GetComponentInChildren<Text>();
+        }
+        if (isCompose ) {
+            if (mNeed != 0)
+            {
+                mText.text = count + "/" + mNeed;
+            }
+            else {
+                mText.text = "";
+            }
+            return 0;
+        }
         if (id != -1 && count > mMaxCout)
         {
             this.count = mMaxCout;

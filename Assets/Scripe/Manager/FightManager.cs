@@ -96,7 +96,7 @@ public class FightManager{
 		HurtStatus hurtBlood = null;
         float hurt = 0;
 		Attacker attacker = getAttackerById (id);
-		if (attacker.mAttackerTargets != null && attacker.mAttackerTargets.Count > 0) {
+		if (attacker!= null && attacker.mAttackerTargets != null && attacker.mAttackerTargets.Count > 0) {
 			if (attacker is EnemyBase) {//enemy only one target
 				FightResource resouce = new FightResource (attacker, mEnemyFactory);
                 hurtBlood = attackBllod(attacker, attacker.mAttackerTargets[0]);
@@ -124,7 +124,12 @@ public class FightManager{
 	}
 
     private Attacker getAttackerById(int id){
-		return mAliveActtackers [id];
+        if (mAliveActtackers.ContainsKey(id))
+        {
+            return mAliveActtackers[id];
+        }
+        else return null;
+		
 	}
 	private HurtStatus attackBllod(Attacker attacker,Attacker beAttacker){
         if (!isHurt(attacker, beAttacker)) {

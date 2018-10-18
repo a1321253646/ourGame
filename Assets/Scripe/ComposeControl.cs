@@ -65,7 +65,7 @@ public class ComposeControl : MonoBehaviour {
     private Button mComposeSure;
     private Text mQuitName;
     private GameObject mNeedListOj;
-    private Image mShowTarget;
+    private GoodControl mShowTarget;
     private List<GameObject> mNeedListObject = new List<GameObject>();
     public GameObject mComposeMetrialGride = null;
     private Text mCost;
@@ -106,12 +106,22 @@ public class ComposeControl : MonoBehaviour {
         }
         if (mShowTarget == null)
         {
-            mShowTarget = GameObject.Find("compose_equip_targe_gride").GetComponent<Image>();
+            mShowTarget = GameObject.Find("compose_equip_targe_gride").GetComponent<GoodControl>();
         }
-        string icon = JsonUtils.getIntance().getAccouterInfoById(bean.tid).icon;
-        string name = JsonUtils.getIntance().getAccouterInfoById(bean.tid).name;
+        string icon = null;
+        string name = null;
+        if (bean.tid < 3000001)
+        {
+            icon = JsonUtils.getIntance().getAccouterInfoById(bean.tid).icon;
+            name = JsonUtils.getIntance().getAccouterInfoById(bean.tid).name;
+        }
+        else {
+            icon = JsonUtils.getIntance().getCardInfoById(bean.tid).icon;
+            name = JsonUtils.getIntance().getCardInfoById(bean.tid).name;
+        }
         mQuitName.text = name;
-        mShowTarget.sprite = Resources.Load("backpackIcon/" + icon, typeof(Sprite)) as Sprite;
+        mShowTarget.updateUi(bean.tid, 0, 0,icon);
+       // mShowTarget.sprite = Resources.Load("backpackIcon/" + icon, typeof(Sprite)) as Sprite;
         if (mCost == null)
         {
             mCost = GameObject.Find("compose_cost_labe").GetComponentInChildren<Text>();
@@ -147,8 +157,8 @@ public class ComposeControl : MonoBehaviour {
             {
                 isSure = false;         
             }
-
-            mNeedTextList[id].GetComponentInChildren<Text>().text = count + "/" + mNeedCountList[id];
+            mNeedTextList[id].GetComponent<GoodControl>().updateCount(count, mNeedCountList[id]);
+         //   mNeedTextList[id].GetComponentInChildren<Text>().text = count + "/" + mNeedCountList[id];
         }
         if (isSure) {
             isSure = GameManager.getIntance().mCurrentCrystal >= mShowCompose.cost_crystal;
@@ -156,7 +166,7 @@ public class ComposeControl : MonoBehaviour {
         mComposeSure.interactable = isSure;
     }
 
-    Dictionary<long, Text> mNeedTextList = new Dictionary<long, Text>();
+    Dictionary<long, GameObject> mNeedTextList = new Dictionary<long, GameObject>();
     Dictionary<long, long> mNeedCountList = new Dictionary<long, long>();
     private bool creatMaterialGride()
     {
@@ -186,10 +196,10 @@ public class ComposeControl : MonoBehaviour {
             else {
                 icon = JsonUtils.getIntance().getGoodInfoById(been.id).icon;
             }
-            mNeedTextList.Add(been.id, ob.GetComponentInChildren<Text>());
+            mNeedTextList.Add(been.id, ob);
             mNeedCountList.Add(been.id, been.num);
-         //   Debug.Log("合成材料icon= " + "backpackIcon/" + icon);
-            ob.GetComponentsInChildren<Image>()[1].sprite = Resources.Load("backpackIcon/" + icon, typeof(Sprite)) as Sprite;
+            //   Debug.Log("合成材料icon= " + "backpackIcon/" + icon);
+            ob.GetComponent<GoodControl>().updateUi(been.id, 0, 0, icon);
             mNeedListObject.Add(ob);
         }
         Debug.Log("isSure = =" + isSure);
