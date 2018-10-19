@@ -24,7 +24,7 @@ public class AttackSkillManager
             addNoAnimal(skill, mAttackFight);
             return;
         }
-        Point skillP = JsonUtils.getIntance().getEnemyResourceData(skill.skill_resource).getFightOffset();
+        Point skillP = JsonUtils.getIntance().getEnemyResourceData(skill.skill_resource).getHurtOffset();
         Point attackP = mAttack.resourceData.getHurtOffset();
 
         float xDel=0, yDel=0;
