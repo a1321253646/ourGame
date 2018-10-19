@@ -20,7 +20,7 @@ public class CardShowControl : MonoBehaviour {
     private int USER_LINE_COUNT = 4;
     private int BACK_LINE_COUNT = 4;
     private Vector2 mFri;
-
+    LevelManager mLevelManager;
     Text mUserCount ;
 
     private void Start()
@@ -28,6 +28,7 @@ public class CardShowControl : MonoBehaviour {
         mUserListGl =  GameObject.Find("user_card_list").GetComponent<GridLayoutGroup>();
         mBackListGl =  GameObject.Find("cardList").GetComponent<GridLayoutGroup>();
         mUserCount =  GameObject.Find("title01").GetComponent<Text>();
+        mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
     }
 
 
@@ -112,7 +113,7 @@ public class CardShowControl : MonoBehaviour {
         mUserListGb.Add(good);
         mUserCount.text = "已装备卡牌（" + mUserListGb.Count + "/30）";
         mUserArray = GetComponentsInChildren<CardItemControl>();
-        ui.init(id, CardUiControl.TYPE_CARD_ITME);
+        ui.init(id, CardUiControl.TYPE_CARD_ITME, mLevelManager.mPlayerControl);
         item.init(id, 113, 166);
         setWitch(mUserListGl, mUserListGb.Count);
       //  SetGridHeight(mUserListGl,3, mUserUiCount,USER_LINE_COUNT);
@@ -140,7 +141,7 @@ public class CardShowControl : MonoBehaviour {
         mBackListGb.Add(good);
         mUserArray = GetComponentsInChildren<CardItemControl>();
         CardJsonBean card = JsonUtils.getIntance().getCardInfoById(bean.goodId);
-        ui.init(bean.goodId, CardUiControl.TYPE_CARD_GOOD);
+        ui.init(bean.goodId, CardUiControl.TYPE_CARD_GOOD, mLevelManager.mPlayerControl);
         item.init(bean.goodId, 73, 108);
 
 /*

@@ -7,8 +7,6 @@ public class CardUiControl : MonoBehaviour {
     public static int TYPE_CARD_ITME = 1;
     public static int TYPE_CARD_GOOD = 3;
     public static int TYPE_CARD_PLAY = 2;
-
-
     private Image mImageBottom;
     public SkillJsonBean mSkill;
     private Image mImageTop;
@@ -18,8 +16,11 @@ public class CardUiControl : MonoBehaviour {
     Attacker firer;
     Button mBt;
     string dec;
-    public void init(long cardId,int type)
+
+    
+    public void init(long cardId,int type, Attacker hero)
     {
+        firer = hero;
         //if (mCard == null) {
         CardJsonBean card1 = JsonUtils.getIntance().getCardInfoById(cardId);
         mCard = card1;
@@ -105,11 +106,13 @@ public class CardUiControl : MonoBehaviour {
     }
     public void update()
     {
-        dec = mCard.describe;
+        Debug.Log("CardUiControl update =================");
+
+        dec = mSkill.skill_describe;
         if (dec != null && dec.Contains("&n"))
         {   
             float value = calcuator.getValue(firer, null);
-            dec = dec.Replace("\"n\"", "" + value);
+            dec = dec.Replace("&n", "" + value);
             mSkillDec.text = dec;
         }
     }

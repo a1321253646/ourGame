@@ -550,7 +550,6 @@ public class JsonUtils
 								}
 							}
 						}
-                        Debug.Log("getWellenEnemy add :wellent=" + wellent);
                         mWellentList.Add (tmp, list);
 						break;
 					}

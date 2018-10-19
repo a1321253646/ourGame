@@ -131,7 +131,6 @@ public class GoodControl : MonoBehaviour {
     bool isCompose = false;
 
     public void updateCount(long count, long need) {
-        Debug.Log("updateCount count = " + count + " need=" + need);
         mNeed = need;
         setCount(count);
     }
@@ -185,7 +184,6 @@ public class GoodControl : MonoBehaviour {
     public long setCount(long count2)
     {
         count = count2;
-        Debug.Log("updateCount2 count = " + count + " need=" + mNeed);
 
         string text;
         long value ;

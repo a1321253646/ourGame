@@ -215,7 +215,7 @@ public class CardControl : MonoBehaviour
             else {
                 x = transform.GetChild(0).position.x;
             }
-            mClickShow.GetComponent<CardUiControl>().init(mCard.id, CardUiControl.TYPE_CARD_PLAY);
+            mClickShow.GetComponent<CardUiControl>().init(mCard.id, CardUiControl.TYPE_CARD_PLAY,mManager.getHero());
             if (mClickShowX == -1)
             {
                 mClickShowX = mClickShow.transform.transform.position.x;
@@ -322,7 +322,6 @@ public class CardControl : MonoBehaviour
         Transform ob = transform.GetChild(0).GetChild(0);
         float x1 = ob.gameObject.GetComponent<RectTransform>().rect.width;
         float y1 = ob.gameObject.gameObject.GetComponent<RectTransform>().rect.height;
-        Debug.Log("x= " + x + " y= " + y + " x1= " + x1 + " y1=" + y1 + " Bilix=" + (x / x1) + " Biliy=" + (y / y1));
         transform.GetChild(0).localScale = new Vector3(x / x1, y / y1, 1);
     }
 }

@@ -40,22 +40,40 @@ public class SkillObject3 : SkillObject
 
     void timeCountBack(int count)
     {
+        mTargetList = SkillTargetManager.getTargetList(mLocalManager.mLocalLink, mLocal, mCamp, false);
+        if (mTargetList == null || mTargetList.Count == 0) {
+            return;
+        }
         if (count % v1 == 0)
         {
-            foreach (Attacker attack in isStop) {
-                float hurt =  calcuator.getValue(mAttacker, attack);
-                Debug.Log("skill fight event hurt="+ count);
-                attack.skillAttack(mBean.effects, hurt);
+            foreach (Attacker attack0 in mTargetList) {
+                foreach (Attacker attack in isStop)
+                {
+                    if (attack0 == attack) {
+                        float hurt = calcuator.getValue(mAttacker, attack);
+                        Debug.Log("skill fight event hurt=" + count);
+                        attack.skillAttack(mBean.effects, hurt);
+                    }
+                }
             }
+
         }
         if (count % v2 == 0)
         {
-            foreach (Attacker attack in noStop)
+            foreach (Attacker attack0 in mTargetList)
             {
-                float hurt = calcuator.getValue(mAttacker, attack);
-                Debug.Log("skill fight event hurt=" + count);
-                attack.skillAttack(mBean.effects, hurt);
+                foreach (Attacker attack in noStop)
+                {
+                    if (attack0 == attack)
+                    {
+                        float hurt = calcuator.getValue(mAttacker, attack);
+                        Debug.Log("skill fight event hurt=" + count);
+                        attack.skillAttack(mBean.effects, hurt);
+                    }
+
+                }
             }
+
         }
     }
 }
