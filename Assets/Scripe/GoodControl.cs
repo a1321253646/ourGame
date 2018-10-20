@@ -194,6 +194,13 @@ public class GoodControl : MonoBehaviour {
             if (mNeed != 0)
             {
                 mText.text = count + "/" + mNeed;
+                if (count >= mNeed)
+                {
+                    mText.color = Color.green;
+                }
+                else {
+                    mText.color = Color.red;
+                }
             }
             else {
                 mText.text = "";
