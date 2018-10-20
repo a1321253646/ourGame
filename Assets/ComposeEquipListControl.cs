@@ -9,8 +9,9 @@ public class ComposeEquipListControl : MonoBehaviour {
     private List<GameObject> mItems = new List<GameObject>();
     // Use this for initialization
     public GameObject mItemObject;
+    public GameObject mFillingObject;
     private ComposeListPartControl mParten;
-    private GameObject mClickItem;
+    private GameObject mClickItem,mFill;
 
     private Sprite mClick, mNoClick;
 
@@ -87,13 +88,38 @@ public class ComposeEquipListControl : MonoBehaviour {
         }
         SetGridHeight();
     }
+
     private void SetGridHeight()   
     {
-        //if (mItems.Count > 3) {
-            float height = (mVerivlaLayou.spacing + 115) * mItems.Count;
-            mVerivlaLayou.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
-        //}
-       
+        int count = mItems.Count > 4 ? mItems.Count : 4;
+
+        if (mItems.Count > 4)
+        {
+            count = mItems.Count;
+            if (mFill != null) {
+                Destroy(mFill);
+                mFill = null;
+            }
+        }
+        else {
+            count = 4;
+            if (mFill != null) {
+                Destroy(mFill);
+                mFill = null;
+            }
+            mFill = GameObject.Instantiate(mFillingObject,
+                 new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            mFill.transform.localScale = Vector2.one;
+            mFill.transform.parent = gameObject.transform;
+        }
+
+        Debug.Log("ComposeEquipListControl SetGridHeight count = "+ count);
+        float height = (mVerivlaLayou.spacing + 115) * count;
+        float fillingHeight = height - (mVerivlaLayou.spacing + 115) * mItems.Count;
+        if (mFill != null) {
+            mFill.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fillingHeight);
+        }
+        mVerivlaLayou.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);    
     }
     private bool isHave(long id) {
         List<long> idList = InventoryHalper.getIntance().getHaveBookId();

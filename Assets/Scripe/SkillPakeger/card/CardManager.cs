@@ -138,13 +138,13 @@ public class CardManager : MonoBehaviour {
          }
 
         GameObject newobj = GameObject.Instantiate(
-            card, new Vector2(-30, mYdel), Quaternion.Euler(0.0f, 0f, 0.0f));
+            card, new Vector2(-30, mYdel-5), Quaternion.Euler(0.0f, 0f, 0.0f));
         newobj.AddComponent<CardControl>();
         newobj.GetComponent<CardUiControl>().init(id, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
         CardControl enmey = newobj.GetComponent<CardControl>();
         newobj.transform.SetParent(gameObject.transform);
         newobj.transform.localScale = Vector3.one;
-        enmey.init(id, 182, 272);
+        enmey.init(id, 182,268);
         enmey.init(mList.Count + 1, this, id);
         mList.Add(enmey);
     }
