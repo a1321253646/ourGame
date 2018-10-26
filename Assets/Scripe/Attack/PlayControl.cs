@@ -22,7 +22,8 @@ public class PlayControl : Attacker
         setHeroData ();
         upLunhui();
         mFightManager.registerAttacker (this);
-        if (!GameManager.getIntance().isAddGoodForTest) {
+        if ( InventoryHalper.getIntance().getInventorys().Count == 0  && !GameManager.getIntance().isAddGoodForTest)
+        {
             GameManager.getIntance().isAddGoodForTest = true;
             BackpackManager.getIntance().addGoods(3000001, 1);
             BackpackManager.getIntance().addGoods(3000002, 1);

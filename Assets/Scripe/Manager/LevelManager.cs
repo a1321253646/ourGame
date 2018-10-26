@@ -15,31 +15,37 @@ public class LevelManager : MonoBehaviour {
     public PlayControl mPlayerControl;
     public List<NengliangkuaiControl> mNengLiangKuai = new List<NengliangkuaiControl>();
 
-    void Start () {
-		Debug.Log ("LevelManager Start");
-		GameManager.getIntance ();
-		JsonUtils.getIntance ().init ();
-		GameManager.getIntance ().getLevelData ();
-		GameManager.getIntance ().init (this);
-		GameManager.getIntance ().initUi ();
-        
-        Vector3 tmp =  PointUtils.screenTransToWorld(GameObject.Find("kapai_local_top").transform.position);
+    private bool isInit = false;
+    public void init()
+    {
+        Debug.Log("LevelManager Start");
+        GameManager.getIntance();
+        JsonUtils.getIntance().init();
+        GameManager.getIntance().getLevelData();
+        GameManager.getIntance().init(this);
+        GameManager.getIntance().initUi();
+
+        Vector3 tmp = PointUtils.screenTransToWorld(GameObject.Find("kapai_local_top").transform.position);
         Vector3 tmp2 = PointUtils.screenTransToWorld(GameObject.Find("kapai_local_bottom").transform.position);
         float cardTop = tmp.y - tmp2.y;
-        mBackManager = new BackgroundManager ();
-		mFightManager =new FightManager ();
-		mLocalManager = new LocalManager ();
-		mFightManager.setLoaclManager (mLocalManager);
-		mBackManager.init (BackgroupObject,JsonUtils.getIntance().getLevelData().map, cardTop);
-        
-        creaPlay (cardTop);
-		creatEnemyFactory (cardTop);
+        mBackManager = new BackgroundManager();
+        mFightManager = new FightManager();
+        mLocalManager = new LocalManager();
+        mFightManager.setLoaclManager(mLocalManager);
+        mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
+
+        creaPlay(cardTop);
+        creatEnemyFactory(cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setLoclaManager(mLocalManager);
         BackpackManager.getIntance().init(this);
         nengLiangDian = 0;
         mNengLiangKuai.Clear();
         initNengliangkuai();
+        isInit = true;
+    }
+    void Start () {
+;
     }
 
     private void initNengliangkuai() {
@@ -103,7 +109,10 @@ public class LevelManager : MonoBehaviour {
     public float nengLiangDian = 0;
 
 	void Update () {
-		mLocalManager.upData ();
+        if (!isInit) {
+            return;
+        }
+        mLocalManager.upData ();
 		if (!starBoss && GameManager.getIntance ().mStartBoss) {
 			starBoss = true;
 			mBackManager.setBackground (JsonUtils.getIntance ().getLevelData ().boss_bg);

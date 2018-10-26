@@ -46,17 +46,17 @@
   },
   {
     "id": 100010,
-    "value": 1,
+    "value": -1,
     "remark": "开始关卡"
   },
   {
     "id": 100011,
-    "value": 1,
+    "value": -1,
     "remark": "开始等级"
   },
   {
     "id": 100012,
-    "value": 0,
+    "value": -1,
     "remark": "开始魂晶"
   },
   {

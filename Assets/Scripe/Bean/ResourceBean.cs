@@ -51,7 +51,7 @@ public class ResourceBean
             mTargetBorder = new List<float>();
             foreach (string str2 in array)
             {
-                Debug.Log("target_border str2 = " + str2);
+//                Debug.Log("target_border str2 = " + str2);
                 if (str2 == null || str2.Length < 1)
                 {
                     continue;

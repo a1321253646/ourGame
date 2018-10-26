@@ -18,6 +18,8 @@ public class InventoryHalper
     }
     private InventoryHalper() {
         //读数据库中的玩家拥有的物品
+        mUserCardId = SQLHelper.getIntance().getUserCard();
+        mList = SQLHelper.getIntance().getAllGood();
     }
 
 
@@ -45,6 +47,7 @@ public class InventoryHalper
         for (int i = 0; i < count; i++)
         {
             mUserCardId.Add(bean.goodId);
+            SQLHelper.getIntance().addUserCard(bean.goodId);
             deleteIventory(bean.goodId, 1);
         }
     }
@@ -54,6 +57,7 @@ public class InventoryHalper
             long item = mUserCardId[i];
             if (item == id) {
                 mUserCardId.Remove(item);
+                SQLHelper.getIntance().deleteUserCard(id);
                 addInventory(item, 1);
                 return;
             }
@@ -121,11 +125,13 @@ public class InventoryHalper
                 newBean.tabId = cj.tabid;
                 mList.Add(newBean);
             }
+            SQLHelper.getIntance().addGood(newBean);
             return true;
             //添加数据
         }
         else {
             //修改数据
+            SQLHelper.getIntance().ChangeGood(bean);
             return false;
         }
 //        Debug.Log("InventoryHalper list size  " + mList.Count);
@@ -288,9 +294,10 @@ public class InventoryHalper
         {
             mList.Remove(bean);
             //删除数据
+            SQLHelper.getIntance().deleteGood(bean.goodId);
         }
         else {
-            //修改数据
+            SQLHelper.getIntance().ChangeGood(bean);
         }
     }
     public List<PlayerBackpackBean> getInventorys() {

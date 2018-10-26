@@ -88,7 +88,7 @@ public class ComposeEquipListControl : MonoBehaviour {
         }
         SetGridHeight();
     }
-
+    float mGridHeight = 0;
     private void SetGridHeight()   
     {
         int count = mItems.Count > 4 ? mItems.Count : 4;
@@ -119,7 +119,14 @@ public class ComposeEquipListControl : MonoBehaviour {
         if (mFill != null) {
             mFill.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, fillingHeight);
         }
-        mVerivlaLayou.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);    
+        mVerivlaLayou.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+      //  if (mGridHeight != height)
+        //{
+        //    mGridHeight = height;
+            mVerivlaLayou.transform.Translate(Vector2.down * (height));
+       
+       // }
+
     }
     private bool isHave(long id) {
         List<long> idList = InventoryHalper.getIntance().getHaveBookId();

@@ -51,6 +51,7 @@ public class FightManager{
 			SceneManager.LoadScene(1);
             Level level = JsonUtils.getIntance().getLevelData();
             GameManager.getIntance().mReincarnation += level.reincarnation;
+            SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
             return;
         }
 		if (attcker.id == -1 || mAliveActtackers.Count < 1) {

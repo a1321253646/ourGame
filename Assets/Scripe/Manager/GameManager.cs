@@ -44,8 +44,41 @@ public class GameManager
         {
             isInit = true;
             mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100010);
+            if (mCurrentLevel == -1) {
+                mCurrentLevel = SQLHelper.getIntance().mGameLevel;
+                if (mCurrentLevel == -1) {
+                    mCurrentLevel = 1;
+                }
+            }
             mHeroLv = (long)JsonUtils.getIntance().getConfigValueForId(100011);
+            if (mHeroLv == -1)
+            {
+                mHeroLv = SQLHelper.getIntance().mHeroLevel;
+                if (mHeroLv == -1)
+                {
+                    mHeroLv = 1;
+                }
+            }
             mCurrentCrystal = (long)JsonUtils.getIntance().getConfigValueForId(100012);
+            if (mCurrentCrystal == -1)
+            {
+                mCurrentCrystal = SQLHelper.getIntance().mMojing;
+                if (mCurrentCrystal == -1)
+                {
+                    mCurrentCrystal = 1;
+                }
+            }
+            long auto = SQLHelper.getIntance().isAutoBoss;
+            if (auto == -1 || auto == 1) {
+                isAuto = false;
+            }
+            else {
+                isAuto = true;  
+            }
+            mReincarnation = SQLHelper.getIntance().mLunhuiValue;
+            if (mReincarnation == -1) {
+                mReincarnation = 0;
+            }
         }
        // mCurrentLevel = 1;
         Level level = JsonUtils.getIntance ().getLevelData ();
@@ -54,6 +87,7 @@ public class GameManager
 		mCurrentGas = 0;
         mLevelManage = levelmanage;
         uiLevel = 99;
+        getLevelData();
     }
 
 	public void initUi(){
@@ -66,8 +100,10 @@ public class GameManager
 	}
 	public void heroUp(){
 		mHeroLv += 1;
-		mCurrentCrystal = mCurrentCrystal - upLevelCrystal ;
-		getLevelData ();
+        SQLHelper.getIntance().updateHeroLevel(mHeroLv);
+        mCurrentCrystal = mCurrentCrystal - upLevelCrystal ;
+        SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
+        getLevelData ();
 		if (mCurrentCrystal >= upLevelCrystal) {
 			uiManager.showLevelUp (true);
 		} else {
@@ -89,6 +125,7 @@ public class GameManager
             List<FellObjectBean> list = tmp.mData.fell();
             if (list != null && list.Count > 0) {
                 foreach (FellObjectBean bean in list) {
+                    Debug.Log("怪物死亡掉落 " + bean.id);
                     BackpackManager.getIntance().addGoods(bean.id, (int)bean.count);
                 }
             }
@@ -96,6 +133,7 @@ public class GameManager
         }
 		mCurrentGas += enemy.mDieGas*JsonUtils.getIntance().getConfigValueForId(100009);
 		mCurrentCrystal += enemy.mDieCrysta * JsonUtils.getIntance().getConfigValueForId(100008);
+        SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
         uiManager.addGasAndCrystal ();
         BackpackManager.getIntance().upDataComposeControl();
 	}
@@ -105,6 +143,7 @@ public class GameManager
     private bool isAuto = false;
     public void setIsAutoBoss(bool auto) {
         isAuto = auto;
+        SQLHelper.getIntance().updateAutoBoss(isAuto ? 2 : 1);
     }
     public bool gettIsAutoBoss()
     {

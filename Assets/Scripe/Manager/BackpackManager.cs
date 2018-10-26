@@ -156,9 +156,9 @@ public class BackpackManager
     }
 
     public void addGoods(long id, int count) {
- //       Debug.Log("addGoods id=" + id+ " count="+ count);
+        Debug.Log("addGoods id=" + id+ " count="+ count);
         bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count);
- //       Debug.Log("isAddNiew ="+isAddNiew);
+        Debug.Log("isAddNiew ="+isAddNiew);
         if (isAddNiew)
         {
  //           Debug.Log("update " );

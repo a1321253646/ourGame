@@ -36,7 +36,8 @@ public class UiManager
         mAutoYes = Resources.Load("ui_new/gouxuan_yes", typeof(Sprite)) as Sprite;
         mAutoNo = Resources.Load("ui_new/gouxuan_no", typeof(Sprite)) as Sprite;
         mGameLevelTv.text = "当前关卡:第" + GameManager.getIntance ().mCurrentLevel+"关";
-		mGasTv.text =
+        SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
+        mGasTv.text =
 			GameManager.getIntance().mCurrentGas+ 
 			"/"+
 			GameManager.getIntance ().startBossGas;
@@ -101,9 +102,10 @@ public class UiManager
 
 	public void refreshData(){
 		mHeroLvTv.text = "英雄等级:" + GameManager.getIntance ().mHeroLv +"级";
-		mLvUpCrystalTv.text = "升级消耗：魔晶" + GameManager.getIntance ().upLevelCrystal;
+        SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
+        mLvUpCrystalTv.text = "升级消耗：魔晶" + GameManager.getIntance ().upLevelCrystal;
 		mCurrentCrystalTv.text = "拥有魔晶：" + GameManager.getIntance ().mCurrentCrystal;
-		if (GameManager.getIntance ().mCurrentCrystal >= GameManager.getIntance ().upLevelCrystal) {
+        if (GameManager.getIntance ().mCurrentCrystal >= GameManager.getIntance ().upLevelCrystal) {
 			mLvUpBt.interactable = true;
 		} else {
 			mLvUpBt.interactable = false;
@@ -123,8 +125,7 @@ public class UiManager
 
 	public void addGasAndCrystal(){
 		mCurrentCrystalTv.text = "拥有魔晶：" + GameManager.getIntance ().mCurrentCrystal;
-
-		if (GameManager.getIntance ().mCurrentGas > GameManager.getIntance ().startBossGas) {
+        if (GameManager.getIntance ().mCurrentGas > GameManager.getIntance ().startBossGas) {
 			mGasTv.text =GameManager.getIntance ().startBossGas+ "/"+GameManager.getIntance ().startBossGas;
 			mStartBossGasSl.value = GameManager.getIntance ().startBossGas;
 		} else {

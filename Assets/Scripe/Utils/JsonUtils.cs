@@ -157,7 +157,7 @@ public class JsonUtils
                 }
             }
             bean.getKeyAndValueList(tmpList);
-            Debug.Log("readSamsaraInfo ud= "+ bean.id + " bean.level= " + bean.level+" count = "+ mSamsaraDate[bean.id].levelList[bean.level].Count);
+//            Debug.Log("readSamsaraInfo ud= "+ bean.id + " bean.level= " + bean.level+" count = "+ mSamsaraDate[bean.id].levelList[bean.level].Count);
         }
     }
     public Dictionary<long, SamsaraJsonBean> getSamsaraInfo(){

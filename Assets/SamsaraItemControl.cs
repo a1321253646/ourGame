@@ -36,6 +36,7 @@ public class SamsaraItemControl : MonoBehaviour {
     {
         Debug.Log(" SamsaraItemControl levelUp " + mId);
         GameManager.getIntance().mReincarnation -= JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, mLevel + 1);
+        SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         mListControl.upDate(mId);
     }
 
