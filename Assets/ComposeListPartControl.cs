@@ -19,10 +19,18 @@ public class ComposeListPartControl : MonoBehaviour {
         mVertirclView = GetComponent<VerticalLayoutGroup>();
         mClick = Resources.Load("ui_new/hecheng_labe1" , typeof(Sprite)) as Sprite;
         mNoClick = Resources.Load("ui_new/hecheng_labe0", typeof(Sprite)) as Sprite;
-        creatGameObjec();
+       
 
     }
-	
+    public bool isInit = false;
+    public void init() {
+        isInit = true;
+        if (isInit) {
+            return;
+        }
+        creatGameObjec();
+    }
+
 	// Update is called once per frame
 	public void updateList () {
         mListControl.setUiShow(mMap[mNowClickButton]);

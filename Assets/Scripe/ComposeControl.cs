@@ -24,6 +24,11 @@ public class ComposeControl : MonoBehaviour {
                 removeUi();
             });
         }
+        if (mListPartControl == null)
+        {
+            mListPartControl = GetComponentInChildren<ComposeListPartControl>();
+            mListPartControl.init();
+        }
         showCompose(mShowCompose);
     }
     public void click() {
