@@ -140,7 +140,9 @@ public class CalculatorUtil
                 start = tmp;
             }
         }
-
+        float a = value.bean;
+        int tmp1 = a % 1 == 0 ? 0 : 1;
+        value.bean = ((int)a) / 1 + tmp1;
         return value.bean;
     }
 

@@ -160,6 +160,7 @@ public class SQLHelper
     }
 
     public void addGood(PlayerBackpackBean good) {
+
         string value = "count，" + good.count + "；" ;
         if (good.attributeList != null && good.attributeList.Count > 0) {
             foreach (PlayerAttributeBean b in good.attributeList) {
@@ -168,7 +169,8 @@ public class SQLHelper
         }
         value = value + "sortID，" + good.sortID + "；";
         value = value + "tabId，" + good.tabId + "；";
-        mManager.InsertDataToSQL( new[] { ""+ TYPE_GOOD, ""+good.goodId, "'"+value+"'" });
+        mManager.InsertDataToSQL(new[] { "" + TYPE_GOOD, "" + good.goodId, "'" + value + "'" });
+        
     }
     public void addBook(long book)
     {

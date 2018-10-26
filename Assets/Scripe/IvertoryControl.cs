@@ -185,16 +185,20 @@ public class IvertoryControl : MonoBehaviour {
             }
             else
             {
-            
+                bool isAdd = false;
                 for (int i = 0; i < goodList.Count; i++)
                 {
                     if (bean.sortID < goodList[i].sortID)
                     {
                         goodList.Insert(i, bean);
+                        isAdd = true;
                         break;
                     }
                 }
-                goodList.Add( bean);
+                if (!isAdd) {
+                    goodList.Add(bean);
+                }
+             
             }
         }
     }

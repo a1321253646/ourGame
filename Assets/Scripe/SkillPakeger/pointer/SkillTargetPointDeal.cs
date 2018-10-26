@@ -7,10 +7,10 @@ public class SkillTargetPointDeal
     public static List<Attacker> getTargetList(LocalBean lives, SkillLocalBean local, int campType,bool isRed)
     {
         List<Attacker> result = new List<Attacker>();
-        float maxX = local.x + local.leng / 2;
-        float minX = local.x  - local.leng / 2;
-        float maxY = local.y + local.wight / 2;
-        float minY = local.y  - local.wight / 2;
+        float maxX = local.x ;
+        float minX = local.x ;
+        float maxY = local.y ;
+        float minY = local.y;
         float maxx = 0;
         float minx = 0;
         float maxy = 0;

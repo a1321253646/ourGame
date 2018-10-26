@@ -19,6 +19,8 @@ public class GameManager
     public bool isInit = false;
     public LevelManager mLevelManage= null;
     public long mReincarnation = 0;
+    public bool isShowQieHuang = false;
+    public bool isWinQirHuang = false;
     private GameManager(){
     }
 	private static GameManager mIntance = new GameManager();

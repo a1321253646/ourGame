@@ -43,15 +43,15 @@ public class FightManager{
 			GameManager.getIntance ().mCurrentLevel += 1;
             GameManager.getIntance().enemyDeal(attcker);
             //    SceneManager.UnloadSceneAsync (0);    
-            SceneManager.LoadScene(1);
+            dieOrWin(true);
             return;
 		}else if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
 			GameManager.getIntance ().mHeroIsAlive = false;
 			//SceneManager.UnloadSceneAsync (0);
-			SceneManager.LoadScene(1);
             Level level = JsonUtils.getIntance().getLevelData();
             GameManager.getIntance().mReincarnation += level.reincarnation;
             SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
+            dieOrWin(false);
             return;
         }
 		if (attcker.id == -1 || mAliveActtackers.Count < 1) {
@@ -78,7 +78,9 @@ public class FightManager{
 		}
 
 	}
-
+    private void dieOrWin(bool isWin) {
+        GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(isWin);
+    }
 /*	public void addAttacker(int myId,int beAttackerid){
 		
 		if (!mAliveActtackers.ContainsKey (myId) || !mAliveActtackers.ContainsKey (beAttackerid)) {

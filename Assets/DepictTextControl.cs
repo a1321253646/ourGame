@@ -13,6 +13,7 @@ public class DepictTextControl : MonoBehaviour {
     public void setText(string str) {
         mStr = str;
         mText.text = mStr;
+        isChange = false;
         Debug.Log("DepictTextControl .setText mStr= " + mStr);
     }
 
@@ -36,30 +37,34 @@ public class DepictTextControl : MonoBehaviour {
     {
       //  Debug.Log("DepictTextControl .Update mStr= " + mStr);
         float h = mRect.rect.height;
-        if (h != 0 && !isChange && mStr != null) {
+        if (h != 0 && mStr != null) {
            
             isChange = true;
 //            Debug.Log("mRect.rect.height = " + mRect.rect.height);
             int count = 0;
             if (h < 147.3513f)
             {
-                float a = (147.3513f - h) / (166.2592f - 147.3513f);
+                float a = (147.3513f - h) / (32f);
                 count = (int)a;
-                if (a - count == 0)
+                if (a - count > 0)
                 {
                     count++;
                 }
+                count += 2;
             }
             else {
 
 
             }
 //            Debug.Log("count = " + count);
-            for (int i = 0; i < count*3; i++)
+            for (int i = 0; i < count; i++)
             {
                 mText.text = mText.text + "\n";
             }
-            gameObject.transform.localPosition = new Vector2(0, -6677);
+            if (count > 0) {
+                gameObject.transform.localPosition = new Vector2(0, -6677);
+            }
+            
         }
     }
 
