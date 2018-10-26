@@ -19,15 +19,13 @@ public class ComposeListPartControl : MonoBehaviour {
         mVertirclView = GetComponent<VerticalLayoutGroup>();
         mClick = Resources.Load("ui_new/hecheng_labe1" , typeof(Sprite)) as Sprite;
         mNoClick = Resources.Load("ui_new/hecheng_labe0", typeof(Sprite)) as Sprite;
-       
-
     }
     public bool isInit = false;
-    public void init() {
-        isInit = true;
+    public void init() {        
         if (isInit) {
             return;
         }
+        isInit = true;
         creatGameObjec();
     }
 

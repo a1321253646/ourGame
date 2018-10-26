@@ -222,6 +222,8 @@ public class SQLHelper
                 value = value + b.type + "，" + b.value + "；";
             }
         }
+        value = value + "sortID，" + good.sortID + "；";
+        value = value + "tabId，" + good.tabId + "；";
         mManager.UpdateInto( "'"+value+"'", TYPE_GOOD, good.goodId);
     }
     public void ChangeLuiHui(long id,long level)
