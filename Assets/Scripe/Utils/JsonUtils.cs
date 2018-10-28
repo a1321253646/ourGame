@@ -12,21 +12,36 @@ public class JsonUtils
     //private  string resourceFile = "config/resource";
     //private string configeFile = "config/config";
     //private string goodsFile = "config/goods";
-    private string levelFile = "level.json";
-    private string heroFile = "hero.json";
-    private string enemyFile = "enemy.json";
-    private string levelEnemyFile = "levelenemy.json";
-    private string resourceFile = "resource.json";
-    private string configeFile = "config.json";
-    private string goodsFile = "item.json";
-    private string attributeFile = "equip.json";
-    private string composeFile = "compose.json";
-    private string dropDeviceDetailFile = "dropdevicedetail.json";
-    private string dropDeviceFile = "dropdevice.json";
-    private string speedValueFile = "speedvalue.json";
-    private string skillFile = "skill.json";
-    private string cardFile = "card.json";
-    private string samsaraFile = "samsara.json";
+       private string levelFile = "level.json";
+        private string heroFile = "hero.json";
+        private string enemyFile = "enemy.json";
+        private string levelEnemyFile = "levelenemy.json";
+        private string resourceFile = "resource.json";
+        private string configeFile = "config.json";
+        private string goodsFile = "item.json";
+        private string attributeFile = "equip.json";
+        private string composeFile = "compose.json";
+        private string dropDeviceDetailFile = "dropdevicedetail.json";
+        private string dropDeviceFile = "dropdevice.json";
+        private string speedValueFile = "speedvalue.json";
+        private string skillFile = "skill.json";
+        private string cardFile = "card.json";
+        private string samsaraFile = "samsara.json";
+ /*    private string levelFile = "level";
+    private string heroFile = "hero";
+    private string enemyFile = "enemy";
+    private string levelEnemyFile = "levelenemy";
+    private string resourceFile = "resource";
+    private string configeFile = "config";
+    private string goodsFile = "item";
+    private string attributeFile = "equip";
+    private string composeFile = "compose";
+    private string dropDeviceDetailFile = "dropdevicedetail";
+    private string dropDeviceFile = "dropdevice";
+    private string speedValueFile = "speedvalue";
+    private string skillFile = "skill";
+    private string cardFile = "card";
+    private string samsaraFile = "samsara";*/
     private static JsonUtils mInance = new JsonUtils();
 
     List<Hero> heroData;
@@ -92,7 +107,7 @@ public class JsonUtils
     private string readFile(string fileName) {
         //TextAsset jsonText = Resources.Load(fileName) as TextAsset;
         string str = loadFile(Application.dataPath + "/Resources", fileName);
-
+        //string str = Resources.Load<TextAsset>(  fileName).text;
         Debug.Log("readFile :" + fileName + "\n " + str);
 
         return str;

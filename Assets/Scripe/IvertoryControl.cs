@@ -28,6 +28,7 @@ public class IvertoryControl : MonoBehaviour {
         if (isInit) {
             return;
         }
+        mFri = gameObject.transform.localPosition;
         isInit = true;
         Debug.Log("------------------------------------IvertoryControl isInit " + isInit);
         mGoods = GameObject.Find("Goods");
@@ -329,7 +330,6 @@ public class IvertoryControl : MonoBehaviour {
 
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
-        mFri = gameObject.transform.localPosition;
         gameObject.transform.localPosition = new Vector2(0, 0);
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);

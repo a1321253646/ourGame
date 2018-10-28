@@ -29,6 +29,7 @@ public class CardShowControl : MonoBehaviour {
         mBackListGl =  GameObject.Find("cardList").GetComponent<GridLayoutGroup>();
         mUserCount =  GameObject.Find("title01").GetComponent<Text>();
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
+        mFri = gameObject.transform.localPosition;
     }
 
 
@@ -81,7 +82,7 @@ public class CardShowControl : MonoBehaviour {
         upDateUi();
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
-        mFri = gameObject.transform.localPosition;
+
         gameObject.transform.localPosition = new Vector2(0, 0);
         upDateUi();
         if (mClose == null)

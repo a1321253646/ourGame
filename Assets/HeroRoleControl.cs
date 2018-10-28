@@ -24,6 +24,7 @@ public class HeroRoleControl : MonoBehaviour {
         mAnimalControl = new AnimalControlBase(resourceData, mRoleShow);
         mAnimalControl.setStatus(ActionFrameBean.ACTION_STANDY);
         mAnimalControl.start();
+        mFri = gameObject.transform.localPosition;
     }
     private void Update()
     {
@@ -56,7 +57,7 @@ public class HeroRoleControl : MonoBehaviour {
     {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
-        mFri = gameObject.transform.localPosition;
+        
         gameObject.transform.localPosition = new Vector2(0, 0);
         upDateUi();
         if (mClose == null) {

@@ -13,7 +13,6 @@ public class ComposeControl : MonoBehaviour {
     {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
-        mFri = gameObject.transform.localPosition;
         gameObject.transform.localPosition = new Vector2(0, 0);
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
@@ -74,6 +73,12 @@ public class ComposeControl : MonoBehaviour {
     private List<GameObject> mNeedListObject = new List<GameObject>();
     public GameObject mComposeMetrialGride = null;
     private Text mCost;
+
+    private void Start()
+    {
+        mFri = gameObject.transform.localPosition;
+    }
+
     public void showCompose(ComposeJsonBen bean)
     {
         if (bean == null) {
