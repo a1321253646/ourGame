@@ -20,6 +20,14 @@ public class InventoryHalper
         //读数据库中的玩家拥有的物品
         mUserCardId = SQLHelper.getIntance().getUserCard();
         mList = SQLHelper.getIntance().getAllGood();
+        mSamsaraLevel = SQLHelper.getIntance().getLunHui();
+        List<PlayerBackpackBean> list = SQLHelper.getIntance().getPlayUserZhuangbei();
+        if (list != null && list.Count > 0) {
+            foreach (PlayerBackpackBean b in list) {
+                AccouterJsonBean acc = BackpackManager.getIntance().getAccouterInfoById(b.goodId);
+                mRoleUseList.Add(acc.type, b);
+            }
+        }
     }
 
 
@@ -129,10 +137,8 @@ public class InventoryHalper
             }
             SQLHelper.getIntance().addGood(newBean);
             return true;
-            //添加数据
         }
         else {
-            //修改数据
             SQLHelper.getIntance().ChangeGood(bean);
             return false;
         }
@@ -143,10 +149,13 @@ public class InventoryHalper
         if (mSamsaraLevel.ContainsKey(id))
         {
             mSamsaraLevel[id] = mSamsaraLevel[id] + 1;
+            SQLHelper.getIntance().ChangeLuiHui(id, mSamsaraLevel[id]);
         }
         else {
             mSamsaraLevel.Add(id, 1);
+            SQLHelper.getIntance().addLunhui(id);
         }
+        
     }
 
     public Dictionary<long, long> getSamsaraLevelDate()
@@ -198,12 +207,13 @@ public class InventoryHalper
         if (mRoleUseList.ContainsKey(acc.type))
         {
             beanOld = mRoleUseList[acc.type];
-            deleteRoleUse(acc.type);
+            deleteRoleUse(acc.type,bean);
+            
             addRoleUse(acc.type, bean);
         }
         else
         {
-            addRoleUse(acc.type, bean);
+            addRoleUse(acc.type, bean);            
         }
         deleteIventory(bean);
         if (beanOld != null) {
@@ -252,18 +262,19 @@ public class InventoryHalper
     public void unUse(PlayerBackpackBean bean, long count) {
         AccouterJsonBean acc = BackpackManager.getIntance().getAccouterInfoById(bean.goodId);
         mRoleUseList.Remove(acc.type);
+        SQLHelper.getIntance().deleteZuangbei(bean.goodId);
         addIventory(bean);
     }
 
-    private void deleteRoleUse(long type)
+    private void deleteRoleUse(long type, PlayerBackpackBean bean)
     {
         mRoleUseList.Remove(type);
-        //删除角色数据
+        SQLHelper.getIntance().deleteZuangbei(bean.goodId);
     }
     private void addRoleUse(long type,PlayerBackpackBean bean)
     {
         mRoleUseList.Add(type,bean);
-        //添加角色数据
+        SQLHelper.getIntance().addZHUANGBEI(bean);
     }
 
 
@@ -271,13 +282,13 @@ public class InventoryHalper
     {
         Debug.Log("mList size = " + mList.Count);
         mList.Remove(bean);
+        SQLHelper.getIntance().deleteGood(bean.goodId);
         Debug.Log("mList size = " + mList.Count);
-        //删除数据
     }
     private void addIventory(PlayerBackpackBean bean)
     {
         mList.Add(bean);
-        //添加数据
+        SQLHelper.getIntance().addGood(bean);
     }
     public void deleteIventory(long id, int count) {
         PlayerBackpackBean bean = null;
@@ -295,7 +306,6 @@ public class InventoryHalper
         if (bean.count == 0)
         {
             mList.Remove(bean);
-            //删除数据
             SQLHelper.getIntance().deleteGood(bean.goodId);
         }
         else {

@@ -40,6 +40,11 @@ public class SQLHelper
 
     public void init() {
         mList = mManager.readAllTable();
+        mLunhuui.Clear();
+        mALLGood.Clear();
+        mUserZhuangbei.Clear();
+        mCard.Clear();
+        mBook.Clear();
         if (mList != null && mList.Count > 0)
         {
             foreach (SQLDate date in mList)
@@ -162,7 +167,10 @@ public class SQLHelper
     {
         return mALLGood;
     }
-
+    public Dictionary<long, long> getLunHui()
+    {
+        return mLunhuui;
+    }
     public void addGood(PlayerBackpackBean good) {
 
         string value = "count，" + good.count + "；" ;
@@ -253,7 +261,6 @@ public class SQLHelper
         string value = "" + level;
         mManager.UpdateInto( value, TYPE_LUNHUI, id);
     }
-
     public void updateGameLevel( long value)
     {
         if (mGameLevel == -1)

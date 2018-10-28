@@ -50,7 +50,7 @@ public class LuiHuiTips : MonoBehaviour {
         GameManager.getIntance().mCurrentLevel = 1;
         SQLHelper.getIntance().updateGameLevel(1);
         Level level = JsonUtils.getIntance().getLevelData();
-        GameManager.getIntance().mReincarnation += level.reincarnation;
+        GameManager.getIntance().mReincarnation += level.reincarnation*100;
         SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
     }

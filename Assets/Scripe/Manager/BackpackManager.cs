@@ -159,6 +159,7 @@ public class BackpackManager
 
     public void upLunhui() {
         mLevel.upLunhui();
+        mSamsaraControl.updata();
     }
 
     public void addGoods(long id, int count) {

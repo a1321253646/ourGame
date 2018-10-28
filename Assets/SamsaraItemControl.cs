@@ -42,6 +42,7 @@ public class SamsaraItemControl : MonoBehaviour {
 
     public void upDate()
     {
+        mLevel = InventoryHalper.getIntance().getSamsaraLevelById(mId);
         if (mLevel == 0)
         {
             mLvelUpText.text = "学习";
@@ -50,7 +51,7 @@ public class SamsaraItemControl : MonoBehaviour {
         {
             mLvelUpText.text = "升级";
         }
-        mLevel = InventoryHalper.getIntance().getSamsaraLevelById(mId);
+        
         if (mLevel == 0)
         {
             mSamsaraNameAndLevel.text = "" + mJsonBean.name ;

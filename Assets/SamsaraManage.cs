@@ -60,7 +60,7 @@ public class SamsaraManage : MonoBehaviour {
             mListControl = GameObject.Find("lunhui_skill_list").GetComponent<SamSaraListControl>();
             mListControl.init();
         }
-        mLunhuiValue.text = "" + GameManager.getIntance().mReincarnation;
+        mLunhuiValue.text = "当前拥有轮回点：" + GameManager.getIntance().mReincarnation;
         mListControl.isEnableLavelUp();
     }
     public void removeUi()
@@ -69,5 +69,7 @@ public class SamsaraManage : MonoBehaviour {
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
         gameObject.transform.localPosition = mFri;
     }
-
+    public void updata() {
+        mLunhuiValue.text = "当前拥有轮回点：" + GameManager.getIntance().mReincarnation;
+    }
 }
