@@ -81,7 +81,7 @@ public class ComposeListPartControl : MonoBehaviour {
             mFri = GameObject.Instantiate(mButtonObject,
                 new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             mFri.GetComponentInChildren<Text>().text = "装备";
-            mFri.transform.localScale = Vector3.one;
+            
             mFri.GetComponent<Button>().onClick.AddListener(() =>
             {
                 if (mClickItem == mFri) {
@@ -103,7 +103,7 @@ public class ComposeListPartControl : MonoBehaviour {
             mSec = GameObject.Instantiate(mButtonObject,
                 new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             mSec.GetComponentInChildren<Text>().text = "卡牌";
-            mSec.transform.localScale = Vector3.one;
+            
             mSec.GetComponent<Button>().onClick.AddListener(() =>
             {
                 if (mClickItem == mSec)
@@ -142,7 +142,8 @@ public class ComposeListPartControl : MonoBehaviour {
         mFri.transform.localScale = Vector3.one;
         if ( mNowClickButton == 1) {
             mList.transform.parent = mVertirclView.transform;
-            mList.transform.localScale = Vector3.one;
+            mList.transform.localScale = new Vector3(1, 1, 1);
+            mList.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             mListControl.setUiShow(mMap[mNowClickButton]);
         }
         mSec.transform.parent = mVertirclView.transform;
@@ -150,7 +151,8 @@ public class ComposeListPartControl : MonoBehaviour {
         if (mNowClickButton == 2)
         {
             mList.transform.parent = mVertirclView.transform;
-            mList.transform.localScale = Vector3.one;
+            mList.transform.localScale = new Vector3(1, 1, 1);
+            mList.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             mListControl.setUiShow(mMap[mNowClickButton]);
         }
 //        mSec.transform.parent = mVertirclView.transform;

@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour {
     private bool isInit = false;
     public void init()
     {
+        SQLHelper.getIntance().init();
         Debug.Log("LevelManager Start");
         GameManager.getIntance();
         JsonUtils.getIntance().init();
@@ -43,6 +44,7 @@ public class LevelManager : MonoBehaviour {
         mNengLiangKuai.Clear();
         initNengliangkuai();
         isInit = true;
+       
     }
     void Start () {
 ;

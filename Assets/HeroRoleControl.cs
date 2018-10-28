@@ -70,7 +70,7 @@ public class HeroRoleControl : MonoBehaviour {
         gameObject.transform.SetSiblingIndex(mLevel);
 
     }
-    private void removeUi()
+    public void removeUi()
     {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));

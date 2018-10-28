@@ -335,7 +335,7 @@ public class IvertoryControl : MonoBehaviour {
         gameObject.transform.SetSiblingIndex(mLevel);
         update();
     }
-    private void removeUi() {
+    public void removeUi() {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
         gameObject.transform.localPosition = mFri;
@@ -345,7 +345,14 @@ public class IvertoryControl : MonoBehaviour {
         long tabid = -1;
         if (JsonUtils.getIntance().getGoodInfoById(id) == null)
         {
-            tabid = JsonUtils.getIntance().getAccouterInfoById(id).tabid;
+            if (JsonUtils.getIntance().getAccouterInfoById(id) == null)
+            {
+                tabid = JsonUtils.getIntance().getCardInfoById(id).tabid;
+            }
+            else {
+                tabid = JsonUtils.getIntance().getAccouterInfoById(id).tabid;
+            }
+            
         }
         else {
             tabid = JsonUtils.getIntance().getGoodInfoById(id).tabid;

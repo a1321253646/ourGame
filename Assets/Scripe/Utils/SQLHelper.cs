@@ -36,8 +36,12 @@ public class SQLHelper
     private SQLHelper()
     {
         mManager = GameObject.Find("Manager").GetComponent<SQLManager>();
+    }
+
+    public void init() {
         mList = mManager.readAllTable();
-        if (mList != null && mList.Count > 0) {
+        if (mList != null && mList.Count > 0)
+        {
             foreach (SQLDate date in mList)
             {
                 Debug.Log("读取数据库 " + date.toString());
@@ -92,8 +96,8 @@ public class SQLHelper
             }
             Debug.Log("读取数据库 物品数量" + mALLGood.Count);
         }
-        
     }
+
     private PlayerBackpackBean getBeanFromStr(string str) {
         PlayerBackpackBean bean = new PlayerBackpackBean();
         string[] strs = str.Split('；');
@@ -201,17 +205,33 @@ public class SQLHelper
     {
         mManager.delete(TYPE_GOOD, goodId);
     }
+    public void deleteAllGood()
+    {
+        mManager.delete(TYPE_GOOD, -1);
+    }
     public void deleteBook(long book)
     {
         mManager.delete( TYPE_BOOK, book);
+    }
+    public void deleteAllBook()
+    {
+        mManager.delete(TYPE_BOOK, -1);
     }
     public void deleteUserCard(long card)
     {
         mManager.delete( TYPE_CARD, card);
     }
+    public void deleteAllUserCard()
+    {
+        mManager.delete(TYPE_CARD, -1);
+    }
     public void deleteZuangbei(long goodId)
     {
         mManager.delete( TYPE_ZHUANGBEI, goodId);
+    }
+    public void deleteAllZuangbei()
+    {
+        mManager.delete(TYPE_ZHUANGBEI, -1);
     }
 
 

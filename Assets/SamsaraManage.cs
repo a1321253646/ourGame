@@ -5,9 +5,22 @@ using UnityEngine.UI;
 public class SamsaraManage : MonoBehaviour {
     private int mLevel;
     public bool isShow = false;
-    private Button mClose;
+    private Button mClose,mLunhuiClick;
     private SamSaraListControl mListControl;
     private Vector2 mFri;
+    private Text mLunhuiValue;
+
+    private void Start()
+    {
+        mFri = gameObject.transform.localPosition;
+        mLunhuiClick = GameObject.Find("lunhui_show_tip").GetComponent<Button>();
+        mLunhuiValue = GameObject.Find("lunhui_show_tip_tx").GetComponent<Text>();
+        mLunhuiClick.onClick.AddListener(() =>
+        {
+            BackpackManager.getIntance().showLunhuiTipUi();
+        });
+    }
+
     public void click()
     {
         if (isShow)
@@ -32,7 +45,7 @@ public class SamsaraManage : MonoBehaviour {
     {
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
-        mFri = gameObject.transform.localPosition;
+        
         gameObject.transform.localPosition = new Vector2(0, 0);
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
@@ -47,9 +60,10 @@ public class SamsaraManage : MonoBehaviour {
             mListControl = GameObject.Find("lunhui_skill_list").GetComponent<SamSaraListControl>();
             mListControl.init();
         }
+        mLunhuiValue.text = "" + GameManager.getIntance().mReincarnation;
         mListControl.isEnableLavelUp();
     }
-    private void removeUi()
+    public void removeUi()
     {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));

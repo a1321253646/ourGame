@@ -58,7 +58,7 @@ public class ComposeControl : MonoBehaviour {
         mListPartControl.updateList();
     }
 
-    private void removeUi()
+    public void removeUi()
     {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
@@ -192,8 +192,10 @@ public class ComposeControl : MonoBehaviour {
         {
             GameObject ob = GameObject.Instantiate(mComposeMetrialGride,
                 new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            ob.transform.localScale = Vector2.one;
+
             ob.transform.parent = mNeedListOj.transform;
+            ob.transform.localScale = new Vector3(1, 1, 1);
+            ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             string icon;
             if (been.id > 2000000) {
                 icon = JsonUtils.getIntance().getAccouterInfoById(been.id).icon;

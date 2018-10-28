@@ -95,7 +95,7 @@ public class GoodControl : MonoBehaviour {
         if (mImage != null && id != -1)
         {
 
-            if (img == null) {
+          //  if (img == null) {
                 if (bean.tabId == TABID_EQUIP_TYPY)
                 {
                     img = BackpackManager.getIntance().getAccouterInfoById(id).icon;
@@ -111,7 +111,7 @@ public class GoodControl : MonoBehaviour {
                     img = BackpackManager.getIntance().getCardInfoById(id).icon;
                     mMaxCout = BackpackManager.getIntance().getCardInfoById(id).stacking;
                 }
-            }
+       //     }
        
             // SpriteRenderer sp1 = mImage.GetComponent<SpriteRenderer>();
             //            Debug.Log("icon = " + mGoodInfo.icon + "mImage = " + mImage);

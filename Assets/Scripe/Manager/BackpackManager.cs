@@ -21,11 +21,13 @@ public class BackpackManager
     private RectTransform mHeroTranform;
     private RectTransform mComposeTranform;
     private RectTransform mSamsaraTranform;
+    private RectTransform mLunHuiTips;
 
     private IvertoryControl mInvertoryControl;
     private TipControl mTipControl;
     private HeroRoleControl mHeroControl;
     private CardShowControl mCardControl;
+    private LuiHuiTips mLunhuiControl;
 
     private ComposeControl mComposeControl;
     private SamsaraManage mSamsaraControl;
@@ -47,6 +49,9 @@ public class BackpackManager
 
         mTipTranform = GameObject.Find("tip").GetComponent<RectTransform>();
         mTipControl = mTipTranform.GetComponent<TipControl>();
+
+        mLunHuiTips = GameObject.Find("lunhui_tips").GetComponent<RectTransform>();
+        mLunhuiControl = GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>();
 
         mHeroTranform = GameObject.Find("hero").GetComponent<RectTransform>();
         mHeroControl = mHeroTranform.GetComponent<HeroRoleControl>();
@@ -146,6 +151,7 @@ public class BackpackManager
         }
         else if (type == TipControl.UNUSE_CARD_TYPE) {
             InventoryHalper.getIntance().removeUserCard(bean.goodId);
+            mInvertoryControl.update();
             mCardControl.upDateUi();
         }
 
@@ -195,29 +201,41 @@ public class BackpackManager
     public void showTipUi(PlayerBackpackBean bean, long count,int type)
     {
         mTipControl.setShowData(bean, count, type);
+        removeLunhuiTipUi();
     }
-    private void removeTipUi()
+    public void removeTipUi()
     {
         mTipControl.removeUi();
     }
-
+    public void showLunhuiTipUi()
+    {
+        mLunhuiControl.showUi();
+        removeTipUi();
+    }
+    private void removeLunhuiTipUi()
+    {
+        mLunhuiControl.removeUi();
+    }
 
 
     public void composeUiShowClick()
     {
         mComposeControl.click();
         removeTipUi();
+        removeLunhuiTipUi();
     }
 
     public void heroUiShowClick()
     {
         mHeroControl.click();
         removeTipUi();
+        removeLunhuiTipUi();
     }
     public void cardUiShowClick()
     {
         mCardControl.click();
         removeTipUi();
+        removeLunhuiTipUi();
     }
 
 
@@ -225,11 +243,23 @@ public class BackpackManager
     {
         mSamsaraControl.click();
         removeTipUi();
+        removeLunhuiTipUi();
     }
 
     public void packUiShowClick()
     {
         mInvertoryControl.click();
         removeTipUi();
+        removeLunhuiTipUi();
+    }
+
+    public void removeAll() {
+        removeTipUi();
+        removeLunhuiTipUi();
+        mInvertoryControl.removeUi();
+        mSamsaraControl.removeUi();
+        mCardControl.removeUi();
+        mHeroControl.removeUi();
+        mComposeControl.removeUi();
     }
 }

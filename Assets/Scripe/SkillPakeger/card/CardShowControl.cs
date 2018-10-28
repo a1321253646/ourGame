@@ -58,7 +58,9 @@ public class CardShowControl : MonoBehaviour {
     }
     private void updateUserd() {
         clearUserUi();
+        mUserCount.text = "已装备卡牌（" + mUserListGb.Count + "/30）";
         List<long> user = InventoryHalper.getIntance().getUsercard();
+
         foreach (long id in user)
         {
             addUserUi(id);
@@ -93,7 +95,7 @@ public class CardShowControl : MonoBehaviour {
         gameObject.transform.SetSiblingIndex(mLevel);
 
     }
-    private void removeUi()
+    public void removeUi()
     {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));

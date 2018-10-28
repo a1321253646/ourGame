@@ -25,9 +25,10 @@ public class InventoryHalper
 
     public void dealClear() {
         mRoleUseList.Clear();
+        SQLHelper.getIntance().deleteAllZuangbei();
         mDropDeviceUsed.Clear();
-       // mList.Clear();
-        for (int i = 0; i < mList.Count;) {
+        mList.Clear();
+      /*  for (int i = 0; i < mList.Count;) {
             PlayerBackpackBean bean = mList[i];
             if (bean.goodId >= 3000001)
             {
@@ -37,10 +38,11 @@ public class InventoryHalper
             else {
                 mList.Remove(bean);
             }
-        }
-      //  mRoleUseList.Clear();
-     //   mUserCardId.Clear();
-       
+        }*/
+        SQLHelper.getIntance().deleteAllGood();
+        mUserCardId.Clear();
+        SQLHelper.getIntance().deleteAllUserCard();
+
     }
     public void useCard(PlayerBackpackBean bean, long count)
     {

@@ -33,10 +33,10 @@ public class SQLManager : MonoBehaviour
     //创建数据库文件
     public void CreateSQL()
     {
-        if (!File.Exists(Application.streamingAssetsPath + "/" + this.sqlName))
+        if (!File.Exists(Application.dataPath + "/Resources/" + this.sqlName))
         {
             Debug.Log("  数据库 文件没存在 ");
-            this.connection = new SqliteConnection("data source=" + Application.streamingAssetsPath + "/" + this.sqlName);
+            this.connection = new SqliteConnection("data source=" + Application.dataPath + "/Resources/" + this.sqlName);
             this.connection.Open();
             Debug.Log("  连接数据库  connection= "+ connection);
             Debug.Log("  连接数据库 ");
@@ -58,7 +58,7 @@ public class SQLManager : MonoBehaviour
     public void OpenSQLaAndConnect()
     {
         Debug.Log("  打开数据库 = ");
-        this.connection = new SqliteConnection("data source=" + Application.streamingAssetsPath + "/" + this.sqlName);
+        this.connection = new SqliteConnection("data source=" + Application.dataPath + "/Resources/" + this.sqlName);
         this.connection.Open();
         Debug.Log("  打开数据库 结束 ");
         GameObject.Find("Manager").GetComponent<LevelManager>().init();
@@ -154,7 +154,10 @@ public class SQLManager : MonoBehaviour
     }
     public void delete(long type, long id)
     {
-        string commandString = "DELETE FROM " + tabName + " WHERE TYPE =" + type+" AND ID ="+id;
+        string commandString = "DELETE FROM " + tabName + " WHERE TYPE =" + type;
+        if (id != -1) {
+            commandString = commandString + " AND ID =" + id;
+        }
         ExecuteSQLCommand(commandString);
     }
     /// <summary>

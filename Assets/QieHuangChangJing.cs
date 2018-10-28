@@ -5,7 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class QieHuangChangJing : MonoBehaviour {
 
-    private Text mTitle, mTimeText;
+    public Sprite mSuccess, mFaile, mLunhui;
+
+ //   private Text mTitle, mTimeText;
     private float mTime = 0;
     private float mTime2 = 0;
 
@@ -17,10 +19,12 @@ public class QieHuangChangJing : MonoBehaviour {
     private bool isAdd = true;
     private bool isEnd = false;
     private Image image = null;
+    private Image imageTitle = null;
     // Use this for initialization
     void Start () {
         image = GetComponent<Image>();
-        mTitle = GetComponentsInChildren<Text>()[0];
+        imageTitle = GameObject.Find("qiehuanchangjing_statue").GetComponent<Image>();
+  //      mTitle = GetComponentsInChildren<Text>()[0];
       //  mTimeText = GetComponentsInChildren<Text>()[1];
         mFri = gameObject.transform.localPosition;
         if (GameManager.getIntance().isShowQieHuang)
@@ -30,7 +34,7 @@ public class QieHuangChangJing : MonoBehaviour {
             c.a = friColor / 255;
             image.color = c;
             isAdd = false;
-            run(GameManager.getIntance().isWinQirHuang);
+            run(GameManager.getIntance().isWinQirHuang?1:2);
             eveyTime = 0.5f / 155f;
         }
         else {
@@ -92,7 +96,7 @@ public class QieHuangChangJing : MonoBehaviour {
         }
 	}
 
-    public void run(bool isSuccess) {
+    public void run(int status) {
         if (isStart) {
             return;
         }
@@ -104,18 +108,35 @@ public class QieHuangChangJing : MonoBehaviour {
             c.a = friColor/255;
             image.color = c;
         }
-        if (isSuccess)
+        if (isAdd)
         {
-            mTitle.text = "成功";
+            Color c = imageTitle.color;
+            c.a = 1;
+            imageTitle.color = c;
+            if (status == 1)
+            {
+                imageTitle.sprite = mSuccess;
+            }
+            else if (status == 2)
+            {
+                imageTitle.sprite = mFaile;
+            }
+            else if (status == 3) {
+                c.a = 0;
+                imageTitle.color = c;
+            }
         }
         else {
-            mTitle.text = "失败";
+            Color c = imageTitle.color;
+            c.a = 0;
+            imageTitle.color = c;
         }
+
       //  mTimeText.text = "" + count;
-        if (!isAdd) {
+//        if (!isAdd) {
         //    mTimeText.text = "";
-            mTitle.text = "";
-        }
+//            mTitle.text = "";
+//        }
         show();
     }
 

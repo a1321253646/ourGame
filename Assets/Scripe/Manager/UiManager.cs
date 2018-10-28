@@ -103,8 +103,10 @@ public class UiManager
 	public void refreshData(){
 		mHeroLvTv.text = "英雄等级:" + GameManager.getIntance ().mHeroLv +"级";
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
+        SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         mLvUpCrystalTv.text = "升级消耗：魔晶" + GameManager.getIntance ().upLevelCrystal;
 		mCurrentCrystalTv.text = "拥有魔晶：" + GameManager.getIntance ().mCurrentCrystal;
+
         if (GameManager.getIntance ().mCurrentCrystal >= GameManager.getIntance ().upLevelCrystal) {
 			mLvUpBt.interactable = true;
 		} else {

@@ -65,8 +65,9 @@ public class ComposeEquipListControl : MonoBehaviour {
             }
             GameObject ob = GameObject.Instantiate(mItemObject,
                  new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            ob.transform.localScale = Vector2.one;
             ob.transform.parent = gameObject.transform;
+            ob.transform.localScale = new Vector3(1, 1, 1);
+            ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             ob.GetComponentInChildren<Text>().text = name;
             Image im = ob.GetComponentsInChildren<Image>()[2];
             im.sprite = Resources.Load("backpackIcon/" + icon, typeof(Sprite)) as Sprite; 
@@ -109,8 +110,9 @@ public class ComposeEquipListControl : MonoBehaviour {
             }
             mFill = GameObject.Instantiate(mFillingObject,
                  new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            mFill.transform.localScale = Vector2.one;
             mFill.transform.parent = gameObject.transform;
+            mFill.transform.localScale = new Vector3(1, 1, 1);
+            mFill.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }
 
         Debug.Log("ComposeEquipListControl SetGridHeight count = "+ count);

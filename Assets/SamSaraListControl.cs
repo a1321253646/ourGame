@@ -6,9 +6,12 @@ public class SamSaraListControl : MonoBehaviour {
     public GameObject mItemObject;
     private List<SamsaraItemControl> mItems = new List<SamsaraItemControl>();
     private VerticalLayoutGroup mVerivlaLayou;
+    float mWitch = 0;
+
     public void init() {
         mVerivlaLayou = mVerivlaLayou = GetComponent<VerticalLayoutGroup>();
         setUiShow();
+        mWitch =gameObject.GetComponent<RectTransform>().rect.width;
     }
     private void setUiShow()
     {
@@ -22,9 +25,10 @@ public class SamSaraListControl : MonoBehaviour {
             SamsaraJsonBean bean = list[key];
             GameObject ob = GameObject.Instantiate(mItemObject,
                  new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            float witch = ob.GetComponent<RectTransform>().rect.width;          
+            ob.transform.parent = gameObject.transform;
             ob.transform.localScale = new Vector3(1, 1, 1);
             ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-            ob.transform.parent = gameObject.transform;
             SamsaraItemControl item = ob.GetComponent<SamsaraItemControl>();
             item.init(bean.id,this);
             mItems.Add(item);

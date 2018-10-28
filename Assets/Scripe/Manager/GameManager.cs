@@ -14,6 +14,7 @@ public class GameManager
 	public float upLevelCrystal = 0;
 	public long mBossId;
 	public bool mHeroIsAlive;
+	public bool isEnd = false;
 	public UiManager uiManager;
 	public bool isLvUp = false;
     public bool isInit = false;
@@ -67,7 +68,7 @@ public class GameManager
                 mCurrentCrystal = SQLHelper.getIntance().mMojing;
                 if (mCurrentCrystal == -1)
                 {
-                    mCurrentCrystal = 1;
+                    mCurrentCrystal = 0;
                 }
             }
             long auto = SQLHelper.getIntance().isAutoBoss;
@@ -93,6 +94,7 @@ public class GameManager
     }
 
 	public void initUi(){
+        isEnd = false;
 		uiManager = new UiManager ();
 		uiManager.init ();
 	}
@@ -102,7 +104,6 @@ public class GameManager
 	}
 	public void heroUp(){
 		mHeroLv += 1;
-        SQLHelper.getIntance().updateHeroLevel(mHeroLv);
         mCurrentCrystal = mCurrentCrystal - upLevelCrystal ;
         SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
         getLevelData ();

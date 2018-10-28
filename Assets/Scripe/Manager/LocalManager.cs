@@ -26,8 +26,22 @@ public class LocalManager{
 		local.previous = tmp;
 
 	}
-
+    private bool isEnd = false;
 	public void upData(){
+        if (isEnd) {
+            return;
+        }
+        if (GameManager.getIntance().isEnd) {
+            isEnd = true;
+            if (GameManager.getIntance().mHeroIsAlive)
+            {
+
+            }
+            else {
+
+            }
+            return;
+        }
 		sortLink ();
 		dealMultiple ();
 		heroAttackTarget ();
