@@ -27,12 +27,17 @@ public class SQLManager : MonoBehaviour
     private static int IDCount;
     public void Start()
     {
+#if UNITY_ANDROID
+
+#else
         this.CreateSQL();
+#endif
         this.OpenSQLaAndConnect();
     }
     //创建数据库文件
     public void CreateSQL()
     {
+
         if (!File.Exists(Application.dataPath + "/Resources/" + this.sqlName))
         {
             Debug.Log("  数据库 文件没存在 ");
@@ -52,13 +57,29 @@ public class SQLManager : MonoBehaviour
             this.connection.Close();
             return;
         }
-
     }
     //打开数据库
     public void OpenSQLaAndConnect()
     {
+#if UNITY_ANDROID
+        string appDBPath = Application.persistentDataPath + "/" + "location.db";
+        if (!File.Exists(appDBPath))
+        {
+            //用www先从Unity中下载到数据库
+         Debug.Log("  Android 拷贝数据库 = ");
+            WWW loadDB = new WWW("jar:file://" + Application.dataPath + "!/assets/" + "location.db");
+
+            //拷贝至规定的地方
+            File.WriteAllBytes(appDBPath, loadDB.bytes);
+
+        }
+        Debug.Log("  Android 打开数据库 = ");
+        this.connection = new SqliteConnection("URI=file:" + appDBPath);
+        
+#else
         Debug.Log("  打开数据库 = ");
         this.connection = new SqliteConnection("data source=" + Application.dataPath + "/Resources/" + this.sqlName);
+#endif
         this.connection.Open();
         Debug.Log("  打开数据库 结束 ");
         GameObject.Find("Manager").GetComponent<LevelManager>().init();

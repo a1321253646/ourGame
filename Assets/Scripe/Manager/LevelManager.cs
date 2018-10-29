@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour {
        
     }
     void Start () {
-;
+        init();
     }
 
     private void initNengliangkuai() {

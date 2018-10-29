@@ -12,7 +12,7 @@ public class JsonUtils
     //private  string resourceFile = "config/resource";
     //private string configeFile = "config/config";
     //private string goodsFile = "config/goods";
-       private string levelFile = "level.json";
+ /*       private string levelFile = "level.json";
         private string heroFile = "hero.json";
         private string enemyFile = "enemy.json";
         private string levelEnemyFile = "levelenemy.json";
@@ -26,8 +26,8 @@ public class JsonUtils
         private string speedValueFile = "speedvalue.json";
         private string skillFile = "skill.json";
         private string cardFile = "card.json";
-        private string samsaraFile = "samsara.json";
- /*    private string levelFile = "level";
+        private string samsaraFile = "samsara.json";*/
+    private string levelFile = "level";
     private string heroFile = "hero";
     private string enemyFile = "enemy";
     private string levelEnemyFile = "levelenemy";
@@ -41,7 +41,7 @@ public class JsonUtils
     private string speedValueFile = "speedvalue";
     private string skillFile = "skill";
     private string cardFile = "card";
-    private string samsaraFile = "samsara";*/
+    private string samsaraFile = "samsara";
     private static JsonUtils mInance = new JsonUtils();
 
     List<Hero> heroData;
@@ -106,8 +106,8 @@ public class JsonUtils
 
     private string readFile(string fileName) {
         //TextAsset jsonText = Resources.Load(fileName) as TextAsset;
-        string str = loadFile(Application.dataPath + "/Resources", fileName);
-        //string str = Resources.Load<TextAsset>(  fileName).text;
+       // string str = loadFile(Application.dataPath + "/Resources", fileName);
+        string str = Resources.Load<TextAsset>(  fileName).text;
         Debug.Log("readFile :" + fileName + "\n " + str);
 
         return str;
