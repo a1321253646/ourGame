@@ -14,6 +14,7 @@ public class GameCamera : MonoBehaviour
         float screenHeight = Screen.height;
 
         Debug.Log("screenHeight = " + screenHeight);
+        Debug.Log("screenwidth = " + Screen.width);
 
         //this.GetComponent<Camera>().orthographicSize = screenHeight / 200.0f;
 

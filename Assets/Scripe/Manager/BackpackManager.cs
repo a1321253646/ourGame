@@ -108,7 +108,7 @@ public class BackpackManager
         return mHeroEquip;
     }
 
-    public void use(PlayerBackpackBean bean, long count,int type) {
+    public bool use(PlayerBackpackBean bean, long count,int type) {
         if (type == TipControl.USE_TYPE)
         {
             InventoryHalper.getIntance().use(bean, count);
@@ -145,6 +145,13 @@ public class BackpackManager
         }
         else if (type == TipControl.USE_CARD_TYPE)
         {
+            int userCardCount = InventoryHalper.getIntance().getUsercard().Count;
+            float maxCount = JsonUtils.getIntance().getConfigValueForId(100016);
+            Debug.Log("userCardCount== " + userCardCount + " maxCount==" + maxCount);
+
+            if (userCardCount >= maxCount) {
+                return false;
+            }
             InventoryHalper.getIntance().useCard(bean, count);
             mInvertoryControl.update();
             mCardControl.upDateUi();
@@ -154,7 +161,7 @@ public class BackpackManager
             mInvertoryControl.update();
             mCardControl.upDateUi();
         }
-
+        return true;
     }
 
     public void upLunhui() {

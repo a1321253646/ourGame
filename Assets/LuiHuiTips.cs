@@ -7,6 +7,7 @@ public class LuiHuiTips : MonoBehaviour {
     Text mDes;
     Button mSure, mClose;
     private Vector2 mFri;
+
     // Use this for initialization
     void Start()
     {
@@ -40,6 +41,9 @@ public class LuiHuiTips : MonoBehaviour {
         
     }
     private void sure() {
+        Level level = JsonUtils.getIntance().getLevelData();
+        GameManager.getIntance().mReincarnation += level.reincarnation;
+        SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         GameManager.getIntance().isAddGoodForTest = false; 
         BackpackManager.getIntance().removeAll();
         InventoryHalper.getIntance().dealClear();
@@ -49,9 +53,6 @@ public class LuiHuiTips : MonoBehaviour {
         SQLHelper.getIntance().updateHeroLevel(1);
         GameManager.getIntance().mCurrentLevel = 1;
         SQLHelper.getIntance().updateGameLevel(1);
-        Level level = JsonUtils.getIntance().getLevelData();
-        GameManager.getIntance().mReincarnation += level.reincarnation*100;
-        SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
     }
 

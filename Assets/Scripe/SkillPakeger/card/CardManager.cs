@@ -18,6 +18,7 @@ public class CardManager : MonoBehaviour {
     GameObject mCardLocalUp, mCardLocalTop;
     Random mRandom = new Random();
     private float mYdel;
+
     // Use this for initialization
     void Start () {
         mCanvas = GameObject.Find("Canvas").transform;
@@ -133,7 +134,7 @@ public class CardManager : MonoBehaviour {
 
     private void addCard(long id) {
         mTime = 0;
-        if (mList.Count >= 10) {
+        if (mList.Count >= JsonUtils.getIntance().getConfigValueForId(100015)) {
             return;
          }
 

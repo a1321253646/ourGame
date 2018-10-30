@@ -14,13 +14,14 @@ public class CardShowControl : MonoBehaviour {
     GridLayoutGroup mUserListGl;
     List<GameObject> mUserListGb = new List<GameObject>();
     List<GameObject> mBackListGb = new List<GameObject>();
-    CardItemControl[] mUserArray;
+    CardUserOrUnUserControl[] mUserArray;
     GoodControl[] mBackArray;
     public GameObject CardObject, CardItem;
     private int USER_LINE_COUNT = 4;
     private int BACK_LINE_COUNT = 4;
     private Vector2 mFri;
     LevelManager mLevelManager;
+    CardManager mCardManager;
     Text mUserCount ;
 
     private void Start()
@@ -29,6 +30,7 @@ public class CardShowControl : MonoBehaviour {
         mBackListGl =  GameObject.Find("cardList").GetComponent<GridLayoutGroup>();
         mUserCount =  GameObject.Find("title01").GetComponent<Text>();
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
+        mCardManager = GameObject.Find("jineng").GetComponent<CardManager>();
         mFri = gameObject.transform.localPosition;
     }
 
@@ -103,24 +105,6 @@ public class CardShowControl : MonoBehaviour {
         gameObject.transform.localPosition = mFri;
     }
 
-    private void addUserUi(long id)
-    {
-        mUserUiCount += 1;
-        GameObject good = GameObject.Instantiate(CardObject,
-            new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-        good.AddComponent<CardItemControl>();
-        CardItemControl item = good.GetComponent<CardItemControl>();
-        CardUiControl ui = good.GetComponent<CardUiControl>();
-        good.transform.parent = mUserListGl.transform;
-        good.transform.localScale = Vector2.one;;
-        mUserListGb.Add(good);
-        mUserCount.text = "已装备卡牌（" + mUserListGb.Count + "/30）";
-        mUserArray = GetComponentsInChildren<CardItemControl>();
-        ui.init(id, CardUiControl.TYPE_CARD_ITME, mLevelManager.mPlayerControl);
-        item.init(id, 113, 166);
-        setWitch(mUserListGl, mUserListGb.Count);
-      //  SetGridHeight(mUserListGl,3, mUserUiCount,USER_LINE_COUNT);
-    }
     private void clearUserUi()
     {
         mUserUiCount = 0;
@@ -131,14 +115,53 @@ public class CardShowControl : MonoBehaviour {
             Destroy(goj);
         }
     }
+    private void addUserUi(long id)
+    {
+        mUserUiCount += 1;
+        GameObject good = GameObject.Instantiate(CardObject,
+            new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+        good.AddComponent<CardUserOrUnUserControl>();
+        CardUserOrUnUserControl item = good.GetComponent<CardUserOrUnUserControl>();
+        CardUiControl ui = good.GetComponent<CardUiControl>();
+        good.transform.parent = mUserListGl.transform;
+        good.transform.localScale = Vector2.one; ;
+        mUserListGb.Add(good);
+        mUserCount.text = "已装备卡牌（" + mUserListGb.Count + "/"+JsonUtils.getIntance().getConfigValueForId(100016)+")";
+        mUserArray = GetComponentsInChildren<CardUserOrUnUserControl>();
+        ui.init(id, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
+        item.init(id, 113, 166);
+        item.init(mCardManager, id, false);
+        setWitch(mUserListGl, mUserListGb.Count);
+        //  SetGridHeight(mUserListGl,3, mUserUiCount,USER_LINE_COUNT);
+    }
     private void addBackUi(PlayerBackpackBean bean)
     {
         mBacUiCount += 1;
         GameObject good = GameObject.Instantiate(CardObject,
             new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-        good.AddComponent<CardItemControl>();
-        CardItemControl item = good.GetComponent<CardItemControl>();
+        good.AddComponent<CardUserOrUnUserControl>();
+        CardUserOrUnUserControl item = good.GetComponent<CardUserOrUnUserControl>();
         CardUiControl ui = good.GetComponent<CardUiControl>();
+        good.transform.parent = mBackListGl.transform;
+        good.transform.localScale = Vector2.one; ;
+        mBackListGb.Add(good);
+        mUserArray = GetComponentsInChildren<CardUserOrUnUserControl>();
+        ui.init(bean.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
+        item.init(bean.goodId, 73, 108);
+        item.init(mCardManager, bean.goodId, true);
+        SetGridHeight(mBackListGl, 2, mBacUiCount, 11);
+    }
+
+
+
+ /*   private void addBackUi(PlayerBackpackBean bean)
+    {
+        mBacUiCount += 1;
+        GameObject good = GameObject.Instantiate(CardObject,
+            new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+        good.AddComponent<CardUserOrUnUserControl>();
+        CardItemControl item = good.GetComponent<CardItemControl>();
+        CardUserOrUnUserControl ui = good.GetComponent<CardUserOrUnUserControl>();
         good.transform.parent = mBackListGl.transform;
         good.transform.localScale = Vector2.one; ;
         mBackListGb.Add(good);
@@ -147,12 +170,12 @@ public class CardShowControl : MonoBehaviour {
         ui.init(bean.goodId, CardUiControl.TYPE_CARD_GOOD, mLevelManager.mPlayerControl);
         item.init(bean.goodId, 73, 108);
 
-/*
-        GoodControl ct = good.GetComponent<GoodControl>();
-        ct.updateUi(bean.goodId, 1, bean);
-        mBackArray = GetComponentsInChildren<GoodControl>();*/
+
+//        GoodControl ct = good.GetComponent<GoodControl>();
+//        ct.updateUi(bean.goodId, 1, bean);
+//        mBackArray = GetComponentsInChildren<GoodControl>();
         SetGridHeight(mBackListGl, 2, mBacUiCount, 11 );
-    }
+    }*/
     private void clearBackUi() {
         mBacUiCount = 0;
         if (mBackListGb != null) {

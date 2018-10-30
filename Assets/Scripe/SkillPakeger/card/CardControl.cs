@@ -95,7 +95,23 @@ public class CardControl : MonoBehaviour
     public void OnpointUp(BaseEventData date) {
         if (mStatue == STATUE_CARP_UP)
         {
-            if (!mManager.userCard(mIndex, mCard.cost))
+
+            if (mSkill.shape_type == SkillTargetManager.TYPE_SHAPE_POINT && (mTargetList == null || mTargetList.Count == 0)) {
+                setStatus(STATUE_CARP_DEFAULT);
+                GameObject obj = Resources.Load<GameObject>("prefab/hurt");
+                Vector3 v1 = PointUtils.worldTransToScreen(mClickV);
+                GameObject text = GameObject.Instantiate(obj,
+                    new Vector2(v1.x, v1.y), Quaternion.identity);
+                Transform hp = GameObject.Find("enemyStatePlane").transform;
+                text.transform.SetParent(hp);
+                Text tv = text.GetComponent<Text>();
+                tv.text = "请选择一个目标";
+                tv.color = Color.red;
+                tv.fontSize = 30;
+                UiManager.FlyTo(tv);
+                return;
+            }
+            else if (!mManager.userCard(mIndex, mCard.cost))
             {
                 setStatus(STATUE_CARP_DEFAULT);
                 GameObject obj = Resources.Load<GameObject>("prefab/hurt");
@@ -106,21 +122,6 @@ public class CardControl : MonoBehaviour
                 text.transform.SetParent(hp);
                 Text tv = text.GetComponent<Text>();
                 tv.text = "能量点不足";
-                tv.color = Color.red;
-                tv.fontSize = 30;
-                UiManager.FlyTo(tv);
-                return;
-            }
-            else if (mTargetList == null || mTargetList.Count == 0) {
-                setStatus(STATUE_CARP_DEFAULT);
-                GameObject obj = Resources.Load<GameObject>("prefab/hurt");
-                Vector3 v1 = PointUtils.worldTransToScreen(mClickV);
-                GameObject text = GameObject.Instantiate(obj,
-                    new Vector2(v1.x, v1.y), Quaternion.identity);
-                Transform hp = GameObject.Find("enemyStatePlane").transform;
-                text.transform.SetParent(hp);
-                Text tv = text.GetComponent<Text>();
-                tv.text = "请选择一个目标";
                 tv.color = Color.red;
                 tv.fontSize = 30;
                 UiManager.FlyTo(tv);

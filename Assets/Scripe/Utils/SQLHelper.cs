@@ -35,11 +35,11 @@ public class SQLHelper
    SQLManager mManager = null;
     private SQLHelper()
     {
-//        mManager = GameObject.Find("Manager").GetComponent<SQLManager>();
+        mManager = GameObject.Find("Manager").GetComponent<SQLManager>();
     }
 
     public void init() {
-        mList = null;// mManager.readAllTable();
+        mList =  mManager.readAllTable();
         mLunhuui.Clear();
         mALLGood.Clear();
         mUserZhuangbei.Clear();
@@ -181,16 +181,16 @@ public class SQLHelper
         }
         value = value + "sortID，" + good.sortID + "；";
         value = value + "tabId，" + good.tabId + "；";
-        //        mManager.InsertDataToSQL(new[] { "" + TYPE_GOOD, "" + good.goodId, "'" + value + "'" });
+                mManager.InsertDataToSQL(new[] { "" + TYPE_GOOD, "" + good.goodId, "'" + value + "'" });
 
     }
     public void addBook(long book)
     {
-        //        mManager.InsertDataToSQL( new[] { "" + TYPE_BOOK, "" + book, "1" });
+                mManager.InsertDataToSQL( new[] { "" + TYPE_BOOK, "" + book, "1" });
     }
     public void addUserCard(long card)
     {
-        //       mManager.InsertDataToSQL( new[] { "" + TYPE_CARD, "" + card, "1" });
+               mManager.InsertDataToSQL( new[] { "" + TYPE_CARD, "" + card, "1" });
     }
     public void addZHUANGBEI(PlayerBackpackBean good)
     {
@@ -202,44 +202,44 @@ public class SQLHelper
                 value = value + b.type + "," + b.value + ";";
             }
         }
-        //        mManager.InsertDataToSQL( new[] { "" + TYPE_ZHUANGBEI, "" + good.goodId, "'" + value + "'" });
+                mManager.InsertDataToSQL( new[] { "" + TYPE_ZHUANGBEI, "" + good.goodId, "'" + value + "'" });
     }
     public void addLunhui(long id)
     {
-        //        mManager.InsertDataToSQL( new[] { "" + TYPE_LUNHUI, "" + id, "1" });
+                mManager.InsertDataToSQL( new[] { "" + TYPE_LUNHUI, "" + id, "1" });
     }
 
     public void deleteGood(long goodId)
     {
-        //        mManager.delete(TYPE_GOOD, goodId);
+                mManager.delete(TYPE_GOOD, goodId);
     }
     public void deleteAllGood()
     {
-        //       mManager.delete(TYPE_GOOD, -1);
+               mManager.delete(TYPE_GOOD, -1);
     }
     public void deleteBook(long book)
     {
-        //        mManager.delete( TYPE_BOOK, book);
+                mManager.delete( TYPE_BOOK, book);
     }
     public void deleteAllBook()
     {
-        //               mManager.delete(TYPE_BOOK, -1);
+                       mManager.delete(TYPE_BOOK, -1);
     }
     public void deleteUserCard(long card)
     {
-        //              mManager.delete( TYPE_CARD, card);
+                      mManager.delete( TYPE_CARD, card);
     }
     public void deleteAllUserCard()
     {
-        //                mManager.delete(TYPE_CARD, -1);
+                        mManager.delete(TYPE_CARD, -1);
     }
     public void deleteZuangbei(long goodId)
     {
-        //          mManager.delete( TYPE_ZHUANGBEI, goodId);
+                  mManager.delete( TYPE_ZHUANGBEI, goodId);
     }
     public void deleteAllZuangbei()
     {
-        //        mManager.delete(TYPE_ZHUANGBEI, -1);
+                mManager.delete(TYPE_ZHUANGBEI, -1);
     }
 
 
@@ -254,12 +254,12 @@ public class SQLHelper
         }
         value = value + "sortID，" + good.sortID + "；";
         value = value + "tabId，" + good.tabId + "；";
-        //           mManager.UpdateInto( "'"+value+"'", TYPE_GOOD, good.goodId);
+                   mManager.UpdateInto( "'"+value+"'", TYPE_GOOD, good.goodId);
     }
     public void ChangeLuiHui(long id,long level)
     {
         string value = "" + level;
-        //            mManager.UpdateInto( value, TYPE_LUNHUI, id);
+                    mManager.UpdateInto( value, TYPE_LUNHUI, id);
     }
     public void updateGameLevel( long value)
     {
@@ -321,15 +321,16 @@ public class SQLHelper
         else
         {
             updateGame(GAME_ID_LUNHUI, value);
+            mLunhuiValue = value;
         }        
     }
     private void updateGame(long id, long value) {
         string value1 = "" + value;
-        //                mManager.UpdateInto(value1, TYPE_GAME, id);
+        mManager.UpdateInto(value1, TYPE_GAME, id);
     }
     private void addGame(long id, long value)
     {
         string value1 = "" + value;
-        //           mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, value1 });
+                   mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, value1 });
     }
 }
