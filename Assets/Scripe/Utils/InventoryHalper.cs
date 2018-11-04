@@ -117,7 +117,7 @@ public class InventoryHalper
                 newBean.sortID = jb.sortID;
                 newBean.count = count;
                 newBean.tabId = jb.tabid;
-                newBean.attributeList = new List<PlayerAttributeBean>();
+                newBean.attributeList = new List<PlayerAttributeBean>();重写
                 foreach (AttributeBean be in jb.getAttributeList())
                 {
                     PlayerAttributeBean p = new PlayerAttributeBean();

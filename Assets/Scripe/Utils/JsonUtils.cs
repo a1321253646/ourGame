@@ -12,7 +12,7 @@ public class JsonUtils
     //private  string resourceFile = "config/resource";
     //private string configeFile = "config/config";
     //private string goodsFile = "config/goods";
- /*       private string levelFile = "level.json";
+            private string levelFile = "level.json";
         private string heroFile = "hero.json";
         private string enemyFile = "enemy.json";
         private string levelEnemyFile = "levelenemy.json";
@@ -26,8 +26,9 @@ public class JsonUtils
         private string speedValueFile = "speedvalue.json";
         private string skillFile = "skill.json";
         private string cardFile = "card.json";
-        private string samsaraFile = "samsara.json";*/
-    private string levelFile = "level";
+        private string affixFile = "afffix.json";
+    private string samsaraFile = "samsara.json";
+/*private string levelFile = "level";
     private string heroFile = "hero";
     private string enemyFile = "enemy";
     private string levelEnemyFile = "levelenemy";
@@ -41,7 +42,8 @@ public class JsonUtils
     private string speedValueFile = "speedvalue";
     private string skillFile = "skill";
     private string cardFile = "card";
-    private string samsaraFile = "samsara";
+    private string affixFile = "afffix";
+    private string samsaraFile = "samsara";*/
     private static JsonUtils mInance = new JsonUtils();
 
     List<Hero> heroData;
@@ -56,6 +58,7 @@ public class JsonUtils
     List<SpeedValueJsonBean> mSpeedValue;
     List<SkillJsonBean> mSkillDate;
     List<CardJsonBean> mCardDate;
+    List<AffixJsonBean> mAffixDate;
     Dictionary<long, SamsaraJsonBean> mSamsaraDate = new Dictionary<long, SamsaraJsonBean>();
     private JsonUtils() {
         readAllFile();
@@ -67,6 +70,7 @@ public class JsonUtils
         readHeroData();
         readLevelData();        
         readGoodInfo();
+        readAffixInfo();
         readAttributeInfo();
         readComposeInfo();
         readdropDeviceInfo();
@@ -106,8 +110,8 @@ public class JsonUtils
 
     private string readFile(string fileName) {
         //TextAsset jsonText = Resources.Load(fileName) as TextAsset;
-       // string str = loadFile(Application.dataPath + "/Resources", fileName);
-        string str = Resources.Load<TextAsset>(  fileName).text;
+        string str = loadFile(Application.dataPath + "/Resources", fileName);
+        //string str = Resources.Load<TextAsset>(  fileName).text;
         Debug.Log("readFile :" + fileName + "\n " + str);
 
         return str;
@@ -215,6 +219,12 @@ public class JsonUtils
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(attributeFile));
         mAttribute = arrdata.ToObject<List<AccouterJsonBean>>();
     }
+    private void readAffixInfo()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(affixFile));
+        mAffixDate = arrdata.ToObject<List<AffixJsonBean>>();
+    }
+
     private void readComposeInfo()
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(composeFile)); 
@@ -374,6 +384,23 @@ public class JsonUtils
     {
         return mAttribute;
     }
+    public List<AffixJsonBean> getAffixInfoList()
+    {
+        return mAffixDate;
+    }
+
+    public AffixJsonBean getAffixInfoById(long id)
+    {
+        foreach (AffixJsonBean note in mAffixDate)
+        {
+            if (note.id == id)
+            {
+                return note;
+            }
+        }
+        return null;
+    }
+
     public AccouterJsonBean getAccouterInfoById(long id)
     {
         foreach (AccouterJsonBean note in mAttribute)

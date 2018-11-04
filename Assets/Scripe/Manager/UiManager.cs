@@ -63,7 +63,8 @@ public class UiManager
             BackpackManager.getIntance().packUiShowClick();
         });
         mHeChengUiShow.onClick.AddListener(() => {
-            BackpackManager.getIntance().composeUiShowClick();
+            //  BackpackManager.getIntance().composeUiShowClick();
+            BackpackManager.getIntance().qianghuaClick();
         });
         mSamsaraUiShow.onClick.AddListener(() => {
             BackpackManager.getIntance().samsaraShowClick();

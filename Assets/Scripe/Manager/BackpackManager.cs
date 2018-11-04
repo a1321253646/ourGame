@@ -22,12 +22,14 @@ public class BackpackManager
     private RectTransform mComposeTranform;
     private RectTransform mSamsaraTranform;
     private RectTransform mLunHuiTips;
+    private RectTransform mQiangHua;
 
     private IvertoryControl mInvertoryControl;
     private TipControl mTipControl;
     private HeroRoleControl mHeroControl;
     private CardShowControl mCardControl;
     private LuiHuiTips mLunhuiControl;
+    private QiangHuaManager mQianghuaControl;
 
     private ComposeControl mComposeControl;
     private SamsaraManage mSamsaraControl;
@@ -58,6 +60,9 @@ public class BackpackManager
 
         mComposeTranform = GameObject.Find("compose_root").GetComponent<RectTransform>();
         mComposeControl = mComposeTranform.GetComponent<ComposeControl>();
+
+        mQiangHua = GameObject.Find("qianghua").GetComponent<RectTransform>();
+        mQianghuaControl = mQiangHua.GetComponent<QiangHuaManager>();
 
         mSamsaraTranform = GameObject.Find("lunhui").GetComponent<RectTransform>();
         mSamsaraControl = GameObject.Find("lunhui").GetComponent<SamsaraManage>();
@@ -250,6 +255,12 @@ public class BackpackManager
     public void samsaraShowClick()
     {
         mSamsaraControl.click();
+        removeTipUi();
+        removeLunhuiTipUi();
+    }
+    public void qianghuaClick()
+    {
+        mQianghuaControl.click();
         removeTipUi();
         removeLunhuiTipUi();
     }
