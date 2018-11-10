@@ -227,38 +227,38 @@ public class PlayControl : Attacker
         foreach (PlayerAttributeBean date in bean.attributeList) {
             if (date.type == 100)
             {
-                mEquipAttribute.aggressivity += date.value* fuhao;
+                mEquipAttribute.aggressivity += date.value;
             }
             else if (date.type == 101)
             {
-                mEquipAttribute.defense += date.value * fuhao;
+                mEquipAttribute.defense += date.value ;
             }
             else if (date.type == 102)
             {
-                mEquipAttribute.maxBloodVolume += date.value * fuhao;
+                mEquipAttribute.maxBloodVolume += date.value ;
             }
             else if (date.type == 110)
             {
-                mEquipAttribute.rate += date.value * fuhao;
+                mEquipAttribute.rate += date.value ;
             }
             else if (date.type == 111)
             {
-                mEquipAttribute.evd += date.value * fuhao;
+                mEquipAttribute.evd += date.value ;
             }
             else if (date.type == 112)
             {
-                mEquipAttribute.crt += date.value * fuhao;
+                mEquipAttribute.crt += date.value;
             }
             else if (date.type == 113)
             {
-                mEquipAttribute.crtHurt += date.value * fuhao;
+                mEquipAttribute.crtHurt += date.value;
             }
             else if (date.type == 115)
             {
-                mEquipAttribute.readHurt += date.value * fuhao;
+                mEquipAttribute.readHurt += date.value;
             }
             else if (date.type == 114) {
-                mEquipAttribute.attackSpeed += date.value * fuhao;
+                mEquipAttribute.attackSpeed += date.value;
             }
         }
         if (isAdd)

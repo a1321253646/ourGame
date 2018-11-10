@@ -2661,7 +2661,7 @@ GameObject:
   - component: {fileID: 345733087}
   - component: {fileID: 345733086}
   m_Layer: 5
-  m_Name: tipButtonTx
+  m_Name: lunhui_sure_ButtonTx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3629,7 +3629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.00010849191, y: -207.63}
+  m_AnchoredPosition: {x: -0.00014469372, y: -207.63}
   m_SizeDelta: {x: 269.41, y: 175.25}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &499747978
@@ -7322,7 +7322,7 @@ GameObject:
   - component: {fileID: 1150999240}
   - component: {fileID: 1150999239}
   m_Layer: 5
-  m_Name: tipButtonTx
+  m_Name: lunhuiButtonTx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7425,7 +7425,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 169.5, y: -112.19993}
-  m_SizeDelta: {x: 333.51, y: 24}
+  m_SizeDelta: {x: 333.5, y: 223.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188898616
 MonoBehaviour:

@@ -138,7 +138,7 @@ public class GoodControl : MonoBehaviour {
         }
         if (level != 0)
         {
-            mLv.text = "" + level;
+            mLv.text = "+" + level;
         }
         else {
             mLv.text = "" ;

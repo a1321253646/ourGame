@@ -36,7 +36,8 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
             mGoodControl = GetComponentInChildren<GoodControl>();
         }
         mGoodControl.updateUi(bean.goodId,0,bean);
-        foreach(PlayerAttributeBean b in bean.attributeList) {
+        mGoodControl.isHero = true;
+        foreach (PlayerAttributeBean b in bean.attributeList) {
             if (b.type == 10001) {
                 level = b.value;
                 break;

@@ -231,13 +231,9 @@ public class CardControl : MonoBehaviour
         if (mStatue == STATUE_CARP_DOWN)
         {
             float x;
-            if (mIndex == 1)
+            if (mIndex == 8)
             {
-                x = mManager.getLocalXByIndex(2);
-            }
-            else if (mIndex == 10)
-            {
-                x = mManager.getLocalXByIndex(9);
+                x = mManager.getLocalXByIndex(7);
             }
             else {
                 x = transform.GetChild(0).position.x;

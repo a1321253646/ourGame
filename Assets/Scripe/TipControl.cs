@@ -13,7 +13,7 @@ public class TipControl : MonoBehaviour {
     private Text nDepictTx;
     //private Image mTipImage;
     //private Text mTipCount;
-    //private Text mTipName;
+    private Text mTipName;
     PlayerBackpackBean mBean;
     private DepictTextControl mDepoct;
     AccouterJsonBean mAccouter = null;
@@ -39,6 +39,7 @@ public class TipControl : MonoBehaviour {
         mActionClick = GameObject.Find("tip_Button").GetComponent<Button>();
         mClose = GameObject.Find("tip_close").GetComponent<Button>();
         mClickText = GameObject.Find("tipButtonTx").GetComponent<Text>();
+        mTipName = GameObject.Find("tipName").GetComponent<Text>();
         mActionClick.onClick.AddListener(() =>
         {
             use();
@@ -103,11 +104,11 @@ public class TipControl : MonoBehaviour {
         }
         if (mTipCount == null) {
             mTipCount = GameObject.Find("box_text_tip").GetComponent<Text>();
-        }
+        }*/
         if (mTipName == null)
         {
             mTipName = GameObject.Find("tipName").GetComponent<Text>();
-        }*/
+        }
         string img = null;
         string name = null;
         long tabID = mBean.tabId;
@@ -150,7 +151,7 @@ public class TipControl : MonoBehaviour {
         GoodControl g = GetComponentInChildren<GoodControl>();
         g.updateUi(mBean.goodId, count, mBean);
         //mTipCount.text = "" + count;
-        //mTipName.text = name;
+        mTipName.text = name;
         //mTipImage.sprite = Resources.
         //         Load("backpackIcon/" + img, typeof(Sprite)) as Sprite;
         //mTipImage.color = Color.white;

@@ -22,49 +22,24 @@ public class DepictTextControl : MonoBehaviour {
         mRect = gameObject.GetComponent<RectTransform>();
         mText.text = mStr;
         Debug.Log("DepictTextControl .Start mStr= " + mStr);
-        /*   float y = mRect.rect.y;
-           float h = mRect.rect.height;
-           mStratY = y + h / 2;
-           Debug.Log("mStratY =" + mStratY);
-           changePointY();*/
-
-        //117.15
-        //-75.18496
     }
 
     bool isChange = false;
     void Update()
-    {
-      //  Debug.Log("DepictTextControl .Update mStr= " + mStr);
-        float h = mRect.rect.height;
-        if (h != 0 && mStr != null) {
-           
-            Debug.Log("mRect.rect.height = " + mRect.rect.height);
-            int count = 0;
-            if (h < 147.3513f)
-            {
-                float a = (147.3513f - h) / (32f);
-                count = (int)a;
-                if (a - count > 0)
+    {       
+        if ( !isChange)
+        {
+            float h = mRect.rect.height;
+            if (h != 0 && mStr != null) {
+                if (h < 224.4f)
                 {
-                    count++;
+                    h = 224.4f;
                 }
-                count += 2;
-            }
-            else {
-
-
-            }
-//            Debug.Log("count = " + count);
-            for (int i = 0; i < count; i++)
-            {
-                mText.text = mText.text + "\n";
-            }
-            if (count > 0 && !isChange) {
+                GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, h);
                 isChange = true;
-                gameObject.transform.localPosition = new Vector2(0, -6677);
+                //gameObject.transform.localPosition = new Vector2(0, -h);
             }
-            
+
         }
     }
 

@@ -41,7 +41,14 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
     }
     private void setWitch(HorizontalLayoutGroup grid, int count)     //每行Cell的个数
     {
-        float w = 85 * count + 20 * (count - 1) + 40;
+        float w = 0;
+        if (count > 4)
+        {
+            w = 85 * count + 20 * (count - 1) + 40;
+        }
+        else {
+            w = 476;
+        }
         grid.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, w);
         grid.transform.Translate(Vector2.right * (w));
     }

@@ -330,7 +330,7 @@ public class IvertoryControl : MonoBehaviour {
 
         isShow = true;
         //gameObject.transform.TransformPoint(new Vector2(0,0));
-        gameObject.transform.localPosition = new Vector2(0, 0);
+        gameObject.transform.localPosition = new Vector2(50, 0);
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
         update();

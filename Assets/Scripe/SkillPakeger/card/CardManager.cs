@@ -139,7 +139,7 @@ public class CardManager : MonoBehaviour {
          }
 
         GameObject newobj = GameObject.Instantiate(
-            card, new Vector2(1370, mYdel-23), Quaternion.Euler(0.0f, 0f, 0.0f));
+            card, new Vector2(2500, mYdel-23), Quaternion.Euler(0.0f, 0f, 0.0f));
         newobj.AddComponent<CardControl>();
         newobj.GetComponent<CardUiControl>().init(id, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
         CardControl enmey = newobj.GetComponent<CardControl>();
