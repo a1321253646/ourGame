@@ -24,7 +24,7 @@ public class UiManager
 
         mRoleUiShow = GameObject.Find("role_ui").GetComponent<Button>();
         mPackUiShow = GameObject.Find("pack_ui").GetComponent<Button>();
-        mHeChengUiShow = GameObject.Find("hecheng_ui").GetComponent<Button>();
+       // mHeChengUiShow = GameObject.Find("hecheng_ui").GetComponent<Button>();
         mSamsaraUiShow = GameObject.Find("lunhui_ui").GetComponent<Button>();
         mCardUiShow = GameObject.Find("skilcard_ui").GetComponent<Button>();
         mHpSl = GameObject.Find ("blood").GetComponent<Slider> ();
@@ -62,10 +62,10 @@ public class UiManager
         mPackUiShow.onClick.AddListener(() => {
             BackpackManager.getIntance().packUiShowClick();
         });
-        mHeChengUiShow.onClick.AddListener(() => {
+ //       mHeChengUiShow.onClick.AddListener(() => {
             //  BackpackManager.getIntance().composeUiShowClick();
-            BackpackManager.getIntance().qianghuaClick();
-        });
+  //          BackpackManager.getIntance().qianghuaClick();
+   //     });
         mSamsaraUiShow.onClick.AddListener(() => {
             BackpackManager.getIntance().samsaraShowClick();
         });

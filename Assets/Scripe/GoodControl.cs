@@ -14,6 +14,7 @@ public class GoodControl : MonoBehaviour {
 
     private Image mImage;
     private Text mText;
+    private Text mLv;
     public long id = -1;
     private long count;
     private long mMaxCout = 1;
@@ -24,9 +25,10 @@ public class GoodControl : MonoBehaviour {
     {
  //       Debug.Log("GoodControl Start id = " + id );
         mImage = GetComponentsInChildren<Image>()[1];
-        mText = GetComponentInChildren<Text>();
+        mText = GetComponentsInChildren<Text>()[0];
         mBt = GetComponent<Button>();
-//        Debug.Log("mBt = " + mBt);
+        mLv = GetComponentsInChildren<Text>()[1];
+        //        Debug.Log("mBt = " + mBt);
         if (mImage != null)
         {
             if (id == -1)
@@ -123,7 +125,24 @@ public class GoodControl : MonoBehaviour {
             mImage.sprite = null;
             mImage.color = Color.clear;
         }
-
+        long level = 0;
+        if (bean != null && bean.attributeList != null && bean.attributeList.Count > 0) {
+            foreach (PlayerAttributeBean p in bean.attributeList) {
+                if (p.type == 10001) {
+                    level = p.value;
+                }
+            }
+        }
+        if (mLv == null) {
+            mLv = GetComponentsInChildren<Text>()[1];
+        }
+        if (level != 0)
+        {
+            mLv.text = "" + level;
+        }
+        else {
+            mLv.text = "" ;
+        }
         return setCount(count);
 
     }
@@ -188,7 +207,7 @@ public class GoodControl : MonoBehaviour {
         string text;
         long value ;
         if (mText == null) {
-            mText = GetComponentInChildren<Text>();
+            mText = GetComponentsInChildren<Text>()[0];
         }
         if (isCompose ) {
             if (mNeed != 0)
@@ -210,8 +229,12 @@ public class GoodControl : MonoBehaviour {
         if (id != -1 && count > mMaxCout)
         {
             this.count = mMaxCout;
-            text  = "" + this.count;
-            value =  count - mMaxCout;
+            text = "" + this.count;
+            value = count - mMaxCout;
+        }
+        else if (count == 0) {
+            text = "" ;
+            value = 0;
         }
         else
         {

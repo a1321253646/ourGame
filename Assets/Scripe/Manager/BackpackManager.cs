@@ -10,7 +10,7 @@ public class BackpackManager
     public static long KAPAI_TYPE = 3;
 
     private List<PlayerBackpackBean> mInventoryList ;
-    private Dictionary<long, PlayerBackpackBean> mHeroEquip;
+    private List<PlayerBackpackBean> mHeroEquip;
     private List<GoodJsonBean> mGoodInfoList;
     private List<AccouterJsonBean> mAccouterInfoList;
     private List<CardJsonBean> mCardInfoList;
@@ -19,20 +19,22 @@ public class BackpackManager
     private RectTransform mTipTranform;
     private RectTransform mBackpack;
     private RectTransform mHeroTranform;
-    private RectTransform mComposeTranform;
+//    private RectTransform mComposeTranform;
     private RectTransform mSamsaraTranform;
     private RectTransform mLunHuiTips;
-    private RectTransform mQiangHua;
+//    private RectTransform mQiangHua;
 
     private IvertoryControl mInvertoryControl;
     private TipControl mTipControl;
     private HeroRoleControl mHeroControl;
     private CardShowControl mCardControl;
     private LuiHuiTips mLunhuiControl;
-    private QiangHuaManager mQianghuaControl;
+//    private QiangHuaManager mQianghuaControl;
 
-    private ComposeControl mComposeControl;
+//    private ComposeControl mComposeControl;
     private SamsaraManage mSamsaraControl;
+
+    private ZhuangbeiUpdateControl mZhuangbeiShowControl;
     LevelManager mLevel;
     private BackpackManager()
     {
@@ -58,16 +60,18 @@ public class BackpackManager
         mHeroTranform = GameObject.Find("hero").GetComponent<RectTransform>();
         mHeroControl = mHeroTranform.GetComponent<HeroRoleControl>();
 
-        mComposeTranform = GameObject.Find("compose_root").GetComponent<RectTransform>();
-        mComposeControl = mComposeTranform.GetComponent<ComposeControl>();
+      //  mComposeTranform = GameObject.Find("compose_root").GetComponent<RectTransform>();
+      //  mComposeControl = mComposeTranform.GetComponent<ComposeControl>();
 
-        mQiangHua = GameObject.Find("qianghua").GetComponent<RectTransform>();
-        mQianghuaControl = mQiangHua.GetComponent<QiangHuaManager>();
+//        mQiangHua = GameObject.Find("qianghua").GetComponent<RectTransform>();
+//        mQianghuaControl = mQiangHua.GetComponent<QiangHuaManager>();
 
         mSamsaraTranform = GameObject.Find("lunhui").GetComponent<RectTransform>();
         mSamsaraControl = GameObject.Find("lunhui").GetComponent<SamsaraManage>();
         mCardControl = GameObject.Find("Card2").GetComponent<CardShowControl>();
-        mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
+
+        mZhuangbeiShowControl = GameObject.Find("jineng").GetComponent<ZhuangbeiUpdateControl>();
+ //       mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
     }
 
     public GoodJsonBean getGoodInfoById(long id) {
@@ -109,28 +113,41 @@ public class BackpackManager
     public List<PlayerBackpackBean> getInventoryInfos() {
         return mInventoryList;
     }
-    public Dictionary<long, PlayerBackpackBean> getHeroEquipInfo() {
+    public List< PlayerBackpackBean> getHeroEquipInfo() {
         return mHeroEquip;
     }
+    public void UpdateZhuangBei(PlayerBackpackBean bean, long cost,long level)
+    {
+        InventoryHalper.getIntance().updateZhuangbei(bean,level);
+        GameManager.getIntance().mCurrentCrystal -= cost;
+        GameManager.getIntance().updataGasAndCrystal();
+        mInvertoryControl.update();
+        mHeroControl.upDateUi();
+        updateZhuangbeiItem();
+        mLevel.mPlayerControl.initEquip(false);
 
+    }
     public bool use(PlayerBackpackBean bean, long count,int type) {
         if (type == TipControl.USE_TYPE)
         {
             InventoryHalper.getIntance().use(bean, count);
             mInvertoryControl.update();
-            mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
+            Debug.Log("TipControl.USE_TYPE");
+            mLevel.ChangeEquip(bean,true);
             mHeroControl.upDateUi();
+            updateZhuangbeiItem();
         }
         else if (type == TipControl.UNUSE_TYPE)
         {
             InventoryHalper.getIntance().unUse(bean, count);
             mInvertoryControl.update();
-            mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
+            mLevel.ChangeEquip(bean,false);
             mHeroControl.upDateUi();
+            updateZhuangbeiItem();
         }
         else if (type == TipControl.COMPOSE_TYPE)
         {
-            composeUiShowClick();
+       //     composeUiShowClick();
         }
         else if (type == TipControl.BOOK_TYPE)
         {
@@ -145,7 +162,7 @@ public class BackpackManager
             }
             else
             {
-                mComposeControl.updateListPart();
+           ///     mComposeControl.updateListPart();
             }
         }
         else if (type == TipControl.USE_CARD_TYPE)
@@ -190,8 +207,12 @@ public class BackpackManager
         upDataComposeControl();
     }
 
+    public void updateZhuangbeiItem() {
+        mZhuangbeiShowControl.upDate();
+    }
+
     public void upDataComposeControl() {
-        mComposeControl.updataUi();
+      //  mComposeControl.updataUi();
     }
 
     public void updateHeroControl() {
@@ -231,13 +252,13 @@ public class BackpackManager
     }
 
 
-    public void composeUiShowClick()
+/*    public void composeUiShowClick()
     {
         mComposeControl.click();
         removeTipUi();
         removeLunhuiTipUi();
     }
-
+    */
     public void heroUiShowClick()
     {
         mHeroControl.click();
@@ -260,9 +281,9 @@ public class BackpackManager
     }
     public void qianghuaClick()
     {
-        mQianghuaControl.click();
-        removeTipUi();
-        removeLunhuiTipUi();
+//        mQianghuaControl.click();
+//        removeTipUi();
+//        removeLunhuiTipUi();
     }
 
     public void packUiShowClick()
@@ -279,6 +300,6 @@ public class BackpackManager
         mSamsaraControl.removeUi();
         mCardControl.removeUi();
         mHeroControl.removeUi();
-        mComposeControl.removeUi();
+    //    mComposeControl.removeUi();
     }
 }

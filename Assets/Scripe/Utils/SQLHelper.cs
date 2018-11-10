@@ -96,6 +96,7 @@ public class SQLHelper
                     else if (date.id == GAME_ID_MOJING)
                     {
                         mMojing = long.Parse(date.extan);
+                        Debug.Log("读取数据库 mMojing" + mMojing);
                     }
                 }
             }
@@ -172,16 +173,8 @@ public class SQLHelper
         return mLunhuui;
     }
     public void addGood(PlayerBackpackBean good) {
-
-        string value = "count，" + good.count + "；" ;
-        if (good.attributeList != null && good.attributeList.Count > 0) {
-            foreach (PlayerAttributeBean b in good.attributeList) {
-                value = value + b.type + "，" + b.value + "；";
-            }
-        }
-        value = value + "sortID，" + good.sortID + "；";
-        value = value + "tabId，" + good.tabId + "；";
-                mManager.InsertDataToSQL(new[] { "" + TYPE_GOOD, "" + good.goodId, "'" + value + "'" });
+        string value = getGoodExtra(good);
+        mManager.InsertDataToSQL(new[] { "" + TYPE_GOOD, "" + good.goodId, "'" + value + "'" });
 
     }
     public void addBook(long book)
@@ -194,24 +187,18 @@ public class SQLHelper
     }
     public void addZHUANGBEI(PlayerBackpackBean good)
     {
-        string value = "count," + good.count + ";";
-        if (good.attributeList != null && good.attributeList.Count > 0)
-        {
-            foreach (PlayerAttributeBean b in good.attributeList)
-            {
-                value = value + b.type + "," + b.value + ";";
-            }
-        }
-                mManager.InsertDataToSQL( new[] { "" + TYPE_ZHUANGBEI, "" + good.goodId, "'" + value + "'" });
+        string value = getGoodExtra(good);
+        mManager.InsertDataToSQL( new[] { "" + TYPE_ZHUANGBEI, "" + good.goodId, "'" + value + "'" });
     }
     public void addLunhui(long id)
     {
                 mManager.InsertDataToSQL( new[] { "" + TYPE_LUNHUI, "" + id, "1" });
     }
 
-    public void deleteGood(long goodId)
+    public void deleteGood(PlayerBackpackBean good)
     {
-                mManager.delete(TYPE_GOOD, goodId);
+        string value = getGoodExtra(good);
+        mManager.delete(TYPE_GOOD, good.goodId,"'"+ value+"'");
     }
     public void deleteAllGood()
     {
@@ -242,8 +229,7 @@ public class SQLHelper
                 mManager.delete(TYPE_ZHUANGBEI, -1);
     }
 
-
-    public void ChangeGood(PlayerBackpackBean good) {
+    public string getGoodExtra(PlayerBackpackBean good) {
         string value = "count，" + good.count + "；";
         if (good.attributeList != null && good.attributeList.Count > 0)
         {
@@ -254,12 +240,22 @@ public class SQLHelper
         }
         value = value + "sortID，" + good.sortID + "；";
         value = value + "tabId，" + good.tabId + "；";
-                   mManager.UpdateInto( "'"+value+"'", TYPE_GOOD, good.goodId);
+        return value;
+    }
+
+    public void updateZHUANGBEI(PlayerBackpackBean good, string extra)
+    {
+        string value = getGoodExtra(good);
+        mManager.UpdateZhuangbeiInto("'" + extra + "'", TYPE_ZHUANGBEI, good.goodId, "'" + value + "'");
+    }
+    public void ChangeGood(PlayerBackpackBean good) {
+        string value = getGoodExtra(good);
+        mManager.UpdateInto( "'"+value+"'", TYPE_GOOD, good.goodId);
     }
     public void ChangeLuiHui(long id,long level)
     {
         string value = "" + level;
-                    mManager.UpdateInto( value, TYPE_LUNHUI, id);
+        mManager.UpdateInto( value, TYPE_LUNHUI, id);
     }
     public void updateGameLevel( long value)
     {

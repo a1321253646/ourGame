@@ -43,6 +43,7 @@ public class LevelManager : MonoBehaviour {
         nengLiangDian = 0;
         mNengLiangKuai.Clear();
         initNengliangkuai();
+        BackpackManager.getIntance().updateZhuangbeiItem();
         isInit = true;
        
     }
@@ -144,8 +145,9 @@ public class LevelManager : MonoBehaviour {
     }
 
 
-    public void ChangeEquip(Dictionary<long, PlayerBackpackBean> equips) {
-        mPlayerControl.ChangeEquip(equips);
+    public void ChangeEquip( PlayerBackpackBean equips, bool isAdd) {
+        Debug.Log(" ChangeEquip");
+        mPlayerControl.ChangeEquip(equips,isAdd);
     }
 
     public void upLunhui()

@@ -66,12 +66,12 @@ public class FightResource
         if (!creatHit())
         {
             mAttacker.attackSync(mHurtBlood.blood);
-            mAttacker.mAttackerTargets[0].BeAttack(mHurtBlood);
+            mAttacker.mAttackerTargets[0].BeAttack(mHurtBlood , mAttacker);
         }
 	}
 	public void hurt(){
 		if (mAttacker.mAttackerTargets.Count > 0) {
-			mAttacker.mAttackerTargets [0].BeAttack (mHurtBlood);
+			mAttacker.mAttackerTargets [0].BeAttack (mHurtBlood , mAttacker);
 			mAttacker.attackSync (mHurtBlood.blood);
 		}
 	}

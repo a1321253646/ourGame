@@ -16,7 +16,7 @@ public class CardShowControl : MonoBehaviour {
     List<GameObject> mBackListGb = new List<GameObject>();
     CardUserOrUnUserControl[] mUserArray;
     GoodControl[] mBackArray;
-    public GameObject CardObject, CardItem;
+    public GameObject CardObject;
     private int USER_LINE_COUNT = 4;
     private int BACK_LINE_COUNT = 4;
     private Vector2 mFri;

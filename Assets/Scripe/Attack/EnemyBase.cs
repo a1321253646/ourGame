@@ -127,11 +127,14 @@ public class EnemyBase : Attacker {
 	public int dieGas = 0;
 	public int dieCrystal = 0;
 
-	public override float BeAttack(HurtStatus status){
-        
+	public override float BeAttack(HurtStatus status,Attacker hurter)
+    {        
         mSkillManager.beforeBeHurt(status);
+        status.blood = status.blood * hurter.mSkillManager.hurtPre;
+        int tmp = status.blood % 1 == 0 ? 0 : 1;
+        status.blood = ((int)status.blood) / 1 + tmp;
         //if (mBloodVolume == mAttribute.maxBloodVolume) {
-            mBloodVolume = mBloodVolume - status.blood;
+        mBloodVolume = mBloodVolume - status.blood;
         //}
         
         if (mBloodVolume <= 0) {
@@ -141,11 +144,14 @@ public class EnemyBase : Attacker {
 		mState.hurt (status);
 		return status.blood;
 	}
-    public override float BeKillAttack(long effect, float value)
+    public override float BeKillAttack(long effect, float value,Attacker hurt)
     {
         if (effect == 1 || effect == 6 || effect == 30001 || effect == 8 || effect == 3)
         {
             HurtStatus status = new HurtStatus(value, false, true);
+            if (hurt != null) {
+                status.blood = status.blood * hurt.mSkillManager.cardHurtPre;
+            }
             mBloodVolume = mBloodVolume - status.blood;
             if (mBloodVolume <= 0)
             {
@@ -172,5 +178,10 @@ public class EnemyBase : Attacker {
         }
         mBloodVolume = mBloodVolume + value;
         mState.add(value); ;
+    }
+
+    public override void getAttribute()
+    {
+     
     }
 }

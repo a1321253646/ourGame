@@ -119,7 +119,7 @@ public class FightManager{
                 hurtBlood = attackBllod(attacker, attacker.mAttackerTargets[0]);
                 hurtBlood = resouce.hurt(hurtBlood);
                 if (hurtBlood != null) {
-                    attacker.mAttackerTargets[0].BeAttack(hurtBlood);
+                    attacker.mAttackerTargets[0].BeAttack(hurtBlood, attacker);
                     return hurtBlood.blood;
 
                 }
@@ -131,7 +131,7 @@ public class FightManager{
 			for (int i = 0; i < attacker.mAttackerTargets.Count; i++) {
 				Attacker tager = attacker.mAttackerTargets [i];
 				hurtBlood = attackBllod (attacker, tager);
-				tager.BeAttack (hurtBlood);
+				tager.BeAttack (hurtBlood, attacker);
 				hurtBloodAll += hurtBlood.blood;
 			}
 			return hurtBloodAll;

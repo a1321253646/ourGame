@@ -4,6 +4,11 @@ using System.Collections.Generic;
 
 public class AttackSkillManager 
 {
+
+    public long downCardCost = 0;
+    public float hurtPre = 1;
+    public float cardHurtPre = 1;
+
     private Attacker mAttack;
     private Attacker mAttackFight;
     private GameObject mSkillObject;
@@ -11,6 +16,7 @@ public class AttackSkillManager
     public List<AttackSkillNoAnimal> mNoAnimalActionSkill = new List<AttackSkillNoAnimal>();
     private List<AttackSkillNoAnimal> beforeBehurtActionSkill = new List<AttackSkillNoAnimal>();
     private List<AttackSkillNoAnimal> inFightActionSkill = new List<AttackSkillNoAnimal>();
+    private Dictionary<PlayerBackpackBean, List<PackbackSkillBase>> mBackpackSkill = new Dictionary<PlayerBackpackBean, List<PackbackSkillBase>>();
     public AttackSkillManager(Attacker attack) {
         mAttack = attack;
         mSkillObject  = GameObject.Find("Manager").GetComponent<LevelManager>().skillObject;
@@ -54,6 +60,88 @@ public class AttackSkillManager
 
         SkillJsonBean skill =JsonUtils.getIntance().getSkillInfoById(skillId);
         addSkill(skill, mAttackFight);
+    }
+
+    public void addSkill(PlayerBackpackBean bean, Attacker mAttackFight) {
+        Debug.Log("addSkill PlayerBackpackBean");
+        List<PackbackSkillBase> list = new List<PackbackSkillBase>();
+        if (!(mAttack is PlayControl)) {
+            return;
+        }
+        foreach (PlayerAttributeBean p in bean.attributeList) {
+            if (p.type == 10002)
+            {
+                long id = p.value;
+                long value = 0;
+                Debug.Log("addSkill PlayerBackpackBean id= "+ id);
+                foreach (PlayerAttributeBean p2 in bean.attributeList)
+                {
+                    if (p2.type == id) {
+                        value = p2.value;
+                        Debug.Log("addSkill PlayerBackpackBean value= " + value);
+                        break;
+                    }
+                }
+                PackbackSkillBase pb = creatPackbackSkill(id, value);
+                pb.startSkill();
+                list.Add(pb);
+            }
+        }
+        
+        if(list != null) {
+            mBackpackSkill.Add(bean, list);
+            if (mAttack is PlayControl) {
+                ((PlayControl)mAttack).getAttribute();
+            }
+        }
+    }
+    private PackbackSkillBase creatPackbackSkill(long id, long value) {
+        PackbackSkillBase p = null;
+        if (id == 400001)
+        {
+            p = new PackbackSkill400001();
+        }
+        else if (id == 400002) {
+            p = new PackbackSkill400002();
+        }
+        else if (id == 400003)
+        {
+            p = new PackbackSkill400003();
+        }
+        else if (id == 400004)
+        {
+            p = new PackbackSkill400004();
+        }
+        else if (id == 400005)
+        {
+            p = new PackbackSkill400005();
+        }
+        else if (id == 400006)
+        {
+            p = new PackbackSkill400006();
+        }
+        else if (id == 400007)
+        {
+            p = new PackbackSkill400007();
+        }
+        else if (id == 400008)
+        {
+            p = new PackbackSkill400008();
+        }
+        if (p != null) {
+            p.init(this, value, mAttack);
+        }
+        return p;
+
+    }
+    public void removeSkill(PlayerBackpackBean bean, Attacker mAttackFight) {
+        if (mBackpackSkill.ContainsKey(bean)) {
+            List<PackbackSkillBase> list = mBackpackSkill[bean];
+            foreach (PackbackSkillBase b in list) {
+                b.removeSkill();
+            }
+            mBackpackSkill.Remove(bean);
+        }
     }
 
     private void addNoAnimal(SkillJsonBean jsonBean, Attacker mAttackFight)

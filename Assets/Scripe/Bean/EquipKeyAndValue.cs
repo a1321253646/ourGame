@@ -7,7 +7,8 @@ public class EquipKeyAndValue
     public long key;
     public long value;
 
-    public static List<EquipKeyAndValue> getListForString(string str) {
+    public static List<EquipKeyAndValue> getListForString(string str)
+    {
         if (str == null || str.Length < 1)
         {
             return null;
@@ -35,8 +36,36 @@ public class EquipKeyAndValue
         {
             return null;
         }
-        else {
+        else
+        {
             return list;
         }
+    }
+    public static Dictionary<long, List<EquipKeyAndValue>> getDicForString(List<EquipKeyAndValue> type, string str)
+    {
+        Dictionary<long, List<EquipKeyAndValue>> dic = new Dictionary<long, List<EquipKeyAndValue>>();
+        string[] strs = str.Split(')');
+        if (str.Length == 0)
+        {
+            return null;
+        }
+        if (strs.Length != type.Count)
+        {
+            return null;
+        }
+        for (int i = 0; i < strs.Length; i++) {
+            string s = strs[i];
+            if (s == null || s.Length == 0)
+            {
+                continue;
+            }
+            s = s.Replace("(", "");
+            List<EquipKeyAndValue> value2 = EquipKeyAndValue.getListForString(s);
+            dic.Add(type[i].key, value2);
+        }
+        if (dic.Count == 0) {
+            return null;
+        }
+        return dic;
     }
 }

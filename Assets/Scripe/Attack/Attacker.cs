@@ -72,8 +72,9 @@ public abstract class Attacker : MonoBehaviour
         mAnimalControl.setSpeedData(eachFors,ActionFrameBean.ACTION_ATTACK);
 
     }
-    public abstract float BeAttack (HurtStatus status);
-    public abstract float BeKillAttack(long effect, float value);
+    public abstract float BeAttack (HurtStatus status, Attacker hurter);
+    public abstract float BeKillAttack(long effect, float value, Attacker hurter);
+    public abstract void getAttribute();
     public abstract void AddBlood( float value);
     public int getStatus() {
         return status;
@@ -153,8 +154,8 @@ public abstract class Attacker : MonoBehaviour
         }
         
     }
-    public void skillAttack(long effect, float value) {
-        BeKillAttack(effect, value);
+    public void skillAttack(long effect, float value,Attacker hurter) {
+        BeKillAttack(effect, value,hurter);
     }
 }
 

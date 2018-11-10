@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class AffixJsonBean 
 {
     public long id;
+    public long value;
     public string dec;
     public string name;
     public string valueArea;

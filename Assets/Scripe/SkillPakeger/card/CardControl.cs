@@ -45,7 +45,7 @@ public class CardControl : MonoBehaviour
         if (mStatue == STATUE_CARP_DEFAULT)
         {
             mTargetX = mManager.getLocalXByIndex(mIndex);
-            float distance = mTargetX - transform.position.x;
+            float distance = transform.position.x- mTargetX ;
             if (distance > 0)
             {
                 float run = 800 * Time.deltaTime;
@@ -54,7 +54,7 @@ public class CardControl : MonoBehaviour
                     run = distance;
                 }
 
-                transform.Translate(Vector2.right * run);
+                transform.Translate(Vector2.left * run);
             }
             else {
                 isInTarget = true;
@@ -95,7 +95,7 @@ public class CardControl : MonoBehaviour
     public void OnpointUp(BaseEventData date) {
         if (mStatue == STATUE_CARP_UP)
         {
-
+            long cost = mManager.getHero().mSkillManager.downCardCost > mCard.cost ? 0 : mCard.cost - mManager.getHero().mSkillManager.downCardCost;
             if (mSkill.shape_type == SkillTargetManager.TYPE_SHAPE_POINT && (mTargetList == null || mTargetList.Count == 0)) {
                 setStatus(STATUE_CARP_DEFAULT);
                 GameObject obj = Resources.Load<GameObject>("prefab/hurt");
@@ -111,7 +111,7 @@ public class CardControl : MonoBehaviour
                 UiManager.FlyTo(tv);
                 return;
             }
-            else if (!mManager.userCard(mIndex, mCard.cost))
+            else if (!mManager.userCard(mIndex, cost))
             {
                 setStatus(STATUE_CARP_DEFAULT);
                 GameObject obj = Resources.Load<GameObject>("prefab/hurt");
@@ -142,7 +142,7 @@ public class CardControl : MonoBehaviour
                     float a1 = mSkill.getSpecialParameterValue()[0];
                     float a2 = mSkill.getSpecialParameterValue()[1];
                     GameObject.Find("Manager").GetComponent<LevelManager>().addNengliangDian(a1);
-                    mManager.getHero().BeKillAttack(mSkill.effects, mManager.getHero().mAttribute.maxBloodVolume * (a2/100));
+                    mManager.getHero().BeKillAttack(mSkill.effects, mManager.getHero().mAttribute.maxBloodVolume * (a2/100), null);
 
                 }
                 else if (mSkill.effects == 5)

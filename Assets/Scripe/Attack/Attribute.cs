@@ -9,7 +9,7 @@
     public float hurt = 0;
     public float crtHurt = 0;
     public float readHurt = 0;
-    public float attackSpeed = 1;
+    public float attackSpeed = 0;
 
     public Attribute add(Attribute adder) {
         aggressivity += adder.aggressivity;
@@ -24,6 +24,27 @@
         attackSpeed += adder.attackSpeed;
         return this;
     }
+    public Attribute chen(Attribute adder)
+    {
+        aggressivity = chenGetInt(aggressivity, adder.aggressivity / 10000) ;
+        defense = chenGetInt(defense, adder.defense / 10000);
+        rate = chenGetInt(rate, adder.rate / 10000);
+        evd = chenGetInt(evd, adder.evd / 10000);
+        maxBloodVolume = chenGetInt(maxBloodVolume, adder.maxBloodVolume / 10000);
+        crt = chenGetInt(crt, adder.crt / 10000);
+        hurt = chenGetInt(hurt, adder.hurt / 10000);
+        crtHurt = chenGetInt(crtHurt, adder.crtHurt / 10000);
+        readHurt = chenGetInt(readHurt, adder.readHurt / 10000);
+        attackSpeed = chenGetInt(attackSpeed, adder.attackSpeed / 10000);
+        return this;
+    }
+
+    private float chenGetInt(float a1, float a2) {
+        float a3 = a1 * a2;
+        int tmp = a3 % 1 == 0 ? 0 : 1;
+        a3 = ((int)a3) / 1 + tmp;
+        return a3;
+    }
     public void clear()
     {
         aggressivity = 0;
@@ -36,6 +57,19 @@
         crtHurt = 0;
         readHurt = 0;
         attackSpeed = 1;
+    }
+    public Attribute setToPre() {
+        aggressivity = 10000;
+        defense = 10000;
+        rate = 10000;
+        evd = 10000;
+        maxBloodVolume = 10000;
+        crt = 10000;
+        hurt = 10000;
+        crtHurt = 10000;
+        readHurt = 10000;
+        attackSpeed = 10000;
+        return this;
     }
     public string toString() {
         string s = "";

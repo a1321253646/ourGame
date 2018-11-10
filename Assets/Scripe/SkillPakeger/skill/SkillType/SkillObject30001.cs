@@ -32,7 +32,7 @@ public class SkillObject30001 : SkillObject
             foreach (Attacker attack in mTargetList)
             {
                 float hurt = calcuator.getValue(mAttacker, attack);
-                attack.skillAttack(mBean.effects, hurt);
+                attack.skillAttack(mBean.effects, hurt, mAttacker);
             }
 
         }
