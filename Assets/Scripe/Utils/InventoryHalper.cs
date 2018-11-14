@@ -225,7 +225,8 @@ public class InventoryHalper
        string extan =  SQLHelper.getIntance().getGoodExtra(bean);
         AccouterJsonBean ac = JsonUtils.getIntance().getAccouterInfoById(bean.goodId);
         foreach (PlayerAttributeBean p in bean.attributeList){
-            if (p.type >= 100 && p.type <= 999 && ac.getStrengThen().ContainsKey(p.type))
+            if (p.type >= 100 && p.type <= 999 &&
+                ac.getStrengThen().ContainsKey(p.type))
             {
                 List<EquipKeyAndValue> ekv = ac.getStrengThen()[p.type];
                 for (int i = 0; i < ac.getAttributeList().Count; i++)

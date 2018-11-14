@@ -49,10 +49,10 @@ public class EquipKeyAndValue
         {
             return null;
         }
-        if (strs.Length != type.Count)
+       /* if (strs.Length != type.Count)
         {
             return null;
-        }
+        }*/
         for (int i = 0; i < strs.Length; i++) {
             string s = strs[i];
             if (s == null || s.Length == 0)
