@@ -92,7 +92,7 @@ public class GoodControl : MonoBehaviour {
     string img = null;
     private long updateUi(long id, long count)
     {
-               Debug.Log("GoodControl updateUi id = " + id);
+               Debug.Log("GoodControl updateUi id = " + id+ " bean.tabId = "+ bean.tabId);
         this.id = id;
         if (mImage != null && id != -1)
         {

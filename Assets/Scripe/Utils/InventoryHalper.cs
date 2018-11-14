@@ -78,9 +78,9 @@ public class InventoryHalper
         return mUserCardId;
     }
 
-    public static long TABID_1_START_ID = 1000000;
-    public static long TABID_2_START_ID = 2000000;
-    public static long TABID_3_START_ID = 3000000;
+    public static long TABID_1_START_ID = 100000;
+    public static long TABID_2_START_ID = 200000;
+    public static long TABID_3_START_ID = 300000;
     public bool addInventory(long id, int count)
     {
         bool isNew = true;
