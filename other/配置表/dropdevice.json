@@ -1,149 +1,202 @@
 [
   {
     "id": 10000001,
-    "groupId": 1000001,
+    "groupId": 500001,
     "upGroupID": 0,
     "min": 0,
-    "max": 0
+    "max": 0,
+    "des": "绿色纯粹之剑"
   },
   {
     "id": 10000002,
-    "groupId": 1000002,
+    "groupId": 500002,
     "upGroupID": 0,
     "min": 0,
-    "max": 0
+    "max": 0,
+    "des": "绿色纯粹项链"
   },
   {
     "id": 10000003,
-    "groupId": 1000003,
+    "groupId": 500003,
     "upGroupID": 0,
     "min": 0,
-    "max": 0
+    "max": 0,
+    "des": "绿色纯粹戒指"
   },
   {
     "id": 10000004,
-    "groupId": 1000004,
+    "groupId": 500004,
     "upGroupID": 0,
     "min": 0,
-    "max": 0
+    "max": 0,
+    "des": "绿色纯粹靴子"
   },
   {
     "id": 10000005,
-    "groupId": 1000005,
+    "groupId": 500005,
     "upGroupID": 0,
     "min": 0,
-    "max": 0
+    "max": 0,
+    "des": "绿色纯粹护甲"
   },
   {
     "id": 10000006,
-    "groupId": 1000006,
+    "groupId": 500006,
     "upGroupID": 0,
     "min": 0,
-    "max": 0
+    "max": 0,
+    "des": "绿色纯粹头盔"
   },
   {
-    "id": 10000007,
-    "groupId": 1000007,
-    "upGroupID": 0,
-    "min": 0,
-    "max": 0
-  },
-  {
-    "id": 10000008,
-    "groupId": 1000008,
-    "upGroupID": 0,
-    "min": 0,
-    "max": 0
-  },
-  {
-    "id": 10000009,
-    "groupId": 1000009,
-    "upGroupID": 0,
-    "min": 0,
-    "max": 0
-  },
-  {
-    "id": 10000010,
-    "groupId": 1000010,
-    "upGroupID": 0,
-    "min": 0,
-    "max": 0
-  },
-  {
-    "id": 10000011,
-    "groupId": 1000011,
-    "upGroupID": 0,
-    "min": 0,
-    "max": 0
-  },
-  {
-    "id": 10000012,
-    "groupId": 1000012,
-    "upGroupID": 0,
-    "min": 0,
-    "max": 0
-  },
-  {
-    "id": 10000013,
-    "groupId": 1000013,
-    "upGroupID": 0,
-    "min": 0,
-    "max": 0
-  },
-  {
-    "id": 10000014,
-    "groupId": 1000014,
-    "upGroupID": 0,
-    "min": 0,
-    "max": 0
-  },
-  {
-    "id": 10000015,
-    "groupId": 1000015,
-    "upGroupID": 0,
-    "min": 0,
-    "max": 0
-  },
-  {
-    "id": 20000001,
+    "id": 10000016,
     "groupId": 2000001,
-    "upGroupID": 9999999,
-    "min": 5,
-    "max": 10
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "火柱"
   },
   {
-    "id": 20000002,
+    "id": 10000017,
     "groupId": 2000002,
-    "upGroupID": 9999999,
-    "min": 5,
-    "max": 10
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "治疗"
   },
   {
-    "id": 20000003,
+    "id": 10000018,
     "groupId": 2000003,
-    "upGroupID": 9999999,
-    "min": 5,
-    "max": 10
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "百裂斩"
   },
   {
-    "id": 20000004,
+    "id": 10000019,
     "groupId": 2000004,
-    "upGroupID": 9999999,
-    "min": 5,
-    "max": 10
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "灵魂痛击"
   },
   {
-    "id": 20000005,
+    "id": 10000020,
     "groupId": 2000005,
-    "upGroupID": 9999999,
-    "min": 5,
-    "max": 10
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "痛击"
   },
   {
-    "id": 20000006,
+    "id": 10000021,
     "groupId": 2000006,
-    "upGroupID": 9999999,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "压制"
+  },
+  {
+    "id": 10000022,
+    "groupId": 2000007,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "祭品"
+  },
+  {
+    "id": 10000023,
+    "groupId": 2000008,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "准备"
+  },
+  {
+    "id": 10000024,
+    "groupId": 2000009,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "无目标治疗"
+  },
+  {
+    "id": 10000025,
+    "groupId": 2000010,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "连环斩"
+  },
+  {
+    "id": 10000026,
+    "groupId": 2000011,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "恐吓"
+  },
+  {
+    "id": 10000027,
+    "groupId": 2000012,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "汲魂"
+  },
+  {
+    "id": 10000028,
+    "groupId": 2000013,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "撕裂"
+  },
+  {
+    "id": 10000029,
+    "groupId": 2000014,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "手雷"
+  },
+  {
+    "id": 10000030,
+    "groupId": 2000015,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "渴血"
+  },
+  {
+    "id": 10000031,
+    "groupId": 300001,
+    "upGroupID": 300002,
     "min": 5,
-    "max": 10
+    "max": 10,
+    "des": "随便掉一件绿色装备,10次给件蓝色"
+  },
+  {
+    "id": 10000032,
+    "groupId": 300002,
+    "upGroupID": 300003,
+    "min": 10,
+    "max": 15,
+    "des": "随便掉一件蓝色装备,10次给件紫色"
+  },
+  {
+    "id": 10000033,
+    "groupId": 300003,
+    "upGroupID": 300004,
+    "min": 15,
+    "max": 20,
+    "des": "随便掉一件紫色装备,20次给件橙色"
+  },
+  {
+    "id": 10000034,
+    "groupId": 300004,
+    "upGroupID": 0,
+    "min": 0,
+    "max": 0,
+    "des": "随便掉件橙色装备"
   }
 ]

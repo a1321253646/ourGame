@@ -23,7 +23,7 @@ public class PlayControl : Attacker
         upLunhui();
         initEquip();
         mFightManager.registerAttacker (this);
-        if (InventoryHalper.getIntance().getInventorys().Count == 0 
+       /* if (InventoryHalper.getIntance().getInventorys().Count == 0 
             && InventoryHalper.getIntance().getUsercard().Count == 0
             && !GameManager.getIntance().isAddGoodForTest)
         {
@@ -49,7 +49,7 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(2110001, 1);
             BackpackManager.getIntance().addGoods(2110001, 1);
             BackpackManager.getIntance().addGoods(2110001, 1);
-        }
+        }*/
 
     }
     private void initAnimalEvent() {

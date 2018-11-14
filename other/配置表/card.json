@@ -9,7 +9,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000001",
     "skill_id": 100001,
-    "cost": 5
+    "cost": 2
   },
   {
     "id": 3000002,
@@ -33,7 +33,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000003",
     "skill_id": 100004,
-    "cost": 2
+    "cost": 3
   },
   {
     "id": 3000004,
@@ -45,7 +45,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000004",
     "skill_id": 100005,
-    "cost": 2
+    "cost": 4
   },
   {
     "id": 3000005,
@@ -57,7 +57,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000005",
     "skill_id": 100006,
-    "cost": 1
+    "cost": 2
   },
   {
     "id": 3000006,
@@ -69,7 +69,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000006",
     "skill_id": 100007,
-    "cost": 3
+    "cost": 5
   },
   {
     "id": 3000007,
@@ -93,7 +93,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000008",
     "skill_id": 100009,
-    "cost": 3
+    "cost": 4
   },
   {
     "id": 3000009,
@@ -113,7 +113,7 @@
     "stacking": 1,
     "tabid": 3,
     "sortID": 3000010,
-    "icon": "card_3000001",
+    "icon": "card_3000010",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000010",
     "skill_id": 100003,
@@ -125,11 +125,11 @@
     "stacking": 1,
     "tabid": 3,
     "sortID": 3000011,
-    "icon": "card_3000001",
+    "icon": "card_3000011",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000011",
     "skill_id": 100010,
-    "cost": 1
+    "cost": 3
   },
   {
     "id": 3000012,
@@ -137,11 +137,11 @@
     "stacking": 1,
     "tabid": 3,
     "sortID": 3000012,
-    "icon": "card_3000001",
+    "icon": "card_3000012",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000012",
     "skill_id": 100011,
-    "cost": 3
+    "cost": 1
   },
   {
     "id": 3000013,
@@ -149,11 +149,11 @@
     "stacking": 1,
     "tabid": 3,
     "sortID": 3000013,
-    "icon": "card_3000001",
+    "icon": "card_3000013",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000013",
     "skill_id": 100012,
-    "cost": 2
+    "cost": 3
   },
   {
     "id": 3000014,
@@ -161,7 +161,7 @@
     "stacking": 1,
     "tabid": 3,
     "sortID": 3000014,
-    "icon": "card_3000001",
+    "icon": "card_3000014",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000014",
     "skill_id": 100013,
@@ -173,7 +173,7 @@
     "stacking": 1,
     "tabid": 3,
     "sortID": 3000015,
-    "icon": "card_3000001",
+    "icon": "card_3000015",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000015",
     "skill_id": 200003,

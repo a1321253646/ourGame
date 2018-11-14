@@ -5,8 +5,8 @@
     "icon": "samsara_01",
     "level": 1,
     "type": "100,",
-    "value": 2,
-    "coast": 100,
+    "value": 100,
+    "coast": 20,
     "sort": 1
   },
   {
@@ -15,1088 +15,1088 @@
     "icon": "samsara_01",
     "level": 2,
     "type": "100,",
-    "value": 4,
-    "coast": 200,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 3,
-    "type": "100,",
-    "value": 6,
-    "coast": 300,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 4,
-    "type": "100,",
-    "value": 8,
-    "coast": 400,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 5,
-    "type": "100,",
-    "value": 10,
-    "coast": 500,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 6,
-    "type": "100,",
-    "value": 12,
-    "coast": 600,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 7,
-    "type": "100,",
-    "value": 14,
-    "coast": 700,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 8,
-    "type": "100,",
-    "value": 16,
-    "coast": 800,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 9,
-    "type": "100,",
-    "value": 18,
-    "coast": 900,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 10,
-    "type": "100,",
-    "value": 20,
-    "coast": 1000,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 11,
-    "type": "100,",
-    "value": 22,
-    "coast": 1100,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 12,
-    "type": "100,",
-    "value": 24,
-    "coast": 1200,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 13,
-    "type": "100,",
-    "value": 26,
-    "coast": 1300,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 14,
-    "type": "100,",
-    "value": 28,
-    "coast": 1400,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 15,
-    "type": "100,",
-    "value": 30,
-    "coast": 1500,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 16,
-    "type": "100,",
-    "value": 32,
-    "coast": 1600,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 17,
-    "type": "100,",
-    "value": 34,
-    "coast": 1700,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 18,
-    "type": "100,",
-    "value": 36,
-    "coast": 1800,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 19,
-    "type": "100,",
-    "value": 38,
-    "coast": 1900,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 20,
-    "type": "100,",
-    "value": 40,
-    "coast": 2000,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 21,
-    "type": "100,",
-    "value": 42,
-    "coast": 2100,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 22,
-    "type": "100,",
-    "value": 44,
-    "coast": 2200,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 23,
-    "type": "100,",
-    "value": 46,
-    "coast": 2300,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 24,
-    "type": "100,",
-    "value": 48,
-    "coast": 2400,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 25,
-    "type": "100,",
-    "value": 50,
-    "coast": 2500,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 26,
-    "type": "100,",
-    "value": 52,
-    "coast": 2600,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 27,
-    "type": "100,",
-    "value": 54,
-    "coast": 2700,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 28,
-    "type": "100,",
-    "value": 56,
-    "coast": 2800,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 29,
-    "type": "100,",
-    "value": 58,
-    "coast": 2900,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 30,
-    "type": "100,",
-    "value": 60,
-    "coast": 3000,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 31,
-    "type": "100,",
-    "value": 62,
-    "coast": 3100,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 32,
-    "type": "100,",
-    "value": 64,
-    "coast": 3200,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 33,
-    "type": "100,",
-    "value": 66,
-    "coast": 3300,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 34,
-    "type": "100,",
-    "value": 68,
-    "coast": 3400,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 35,
-    "type": "100,",
-    "value": 70,
-    "coast": 3500,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 36,
-    "type": "100,",
-    "value": 72,
-    "coast": 3600,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 37,
-    "type": "100,",
-    "value": 74,
-    "coast": 3700,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 38,
-    "type": "100,",
-    "value": 76,
-    "coast": 3800,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 39,
-    "type": "100,",
-    "value": 78,
-    "coast": 3900,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 40,
-    "type": "100,",
-    "value": 80,
-    "coast": 4000,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 41,
-    "type": "100,",
-    "value": 82,
-    "coast": 4100,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 42,
-    "type": "100,",
-    "value": 84,
-    "coast": 4200,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 43,
-    "type": "100,",
-    "value": 86,
-    "coast": 4300,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 44,
-    "type": "100,",
-    "value": 88,
-    "coast": 4400,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 45,
-    "type": "100,",
-    "value": 90,
-    "coast": 4500,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 46,
-    "type": "100,",
-    "value": 92,
-    "coast": 4600,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 47,
-    "type": "100,",
-    "value": 94,
-    "coast": 4700,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 48,
-    "type": "100,",
-    "value": 96,
-    "coast": 4800,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 49,
-    "type": "100,",
-    "value": 98,
-    "coast": 4900,
-    "sort": 1
-  },
-  {
-    "id": 1,
-    "name": "猛击",
-    "icon": "samsara_01",
-    "level": 50,
-    "type": "100,",
-    "value": 100,
-    "coast": 5000,
-    "sort": 1
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 1,
-    "type": "101,",
-    "value": 2,
-    "coast": 100,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 2,
-    "type": "101,",
-    "value": 4,
-    "coast": 200,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 3,
-    "type": "101,",
-    "value": 6,
-    "coast": 300,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 4,
-    "type": "101,",
-    "value": 8,
-    "coast": 400,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 5,
-    "type": "101,",
-    "value": 10,
-    "coast": 500,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 6,
-    "type": "101,",
-    "value": 12,
-    "coast": 600,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 7,
-    "type": "101,",
-    "value": 14,
-    "coast": 700,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 8,
-    "type": "101,",
-    "value": 16,
-    "coast": 800,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 9,
-    "type": "101,",
-    "value": 18,
-    "coast": 900,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 10,
-    "type": "101,",
-    "value": 20,
-    "coast": 1000,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 11,
-    "type": "101,",
-    "value": 22,
-    "coast": 1100,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 12,
-    "type": "101,",
-    "value": 24,
-    "coast": 1200,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 13,
-    "type": "101,",
-    "value": 26,
-    "coast": 1300,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 14,
-    "type": "101,",
-    "value": 28,
-    "coast": 1400,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 15,
-    "type": "101,",
-    "value": 30,
-    "coast": 1500,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 16,
-    "type": "101,",
-    "value": 32,
-    "coast": 1600,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 17,
-    "type": "101,",
-    "value": 34,
-    "coast": 1700,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 18,
-    "type": "101,",
-    "value": 36,
-    "coast": 1800,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 19,
-    "type": "101,",
-    "value": 38,
-    "coast": 1900,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 20,
-    "type": "101,",
-    "value": 40,
-    "coast": 2000,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 21,
-    "type": "101,",
-    "value": 42,
-    "coast": 2100,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 22,
-    "type": "101,",
-    "value": 44,
-    "coast": 2200,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 23,
-    "type": "101,",
-    "value": 46,
-    "coast": 2300,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 24,
-    "type": "101,",
-    "value": 48,
-    "coast": 2400,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 25,
-    "type": "101,",
-    "value": 50,
-    "coast": 2500,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 26,
-    "type": "101,",
-    "value": 52,
-    "coast": 2600,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 27,
-    "type": "101,",
-    "value": 54,
-    "coast": 2700,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 28,
-    "type": "101,",
-    "value": 56,
-    "coast": 2800,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 29,
-    "type": "101,",
-    "value": 58,
-    "coast": 2900,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 30,
-    "type": "101,",
-    "value": 60,
-    "coast": 3000,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 31,
-    "type": "101,",
-    "value": 62,
-    "coast": 3100,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 32,
-    "type": "101,",
-    "value": 64,
-    "coast": 3200,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 33,
-    "type": "101,",
-    "value": 66,
-    "coast": 3300,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 34,
-    "type": "101,",
-    "value": 68,
-    "coast": 3400,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 35,
-    "type": "101,",
-    "value": 70,
-    "coast": 3500,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 36,
-    "type": "101,",
-    "value": 72,
-    "coast": 3600,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 37,
-    "type": "101,",
-    "value": 74,
-    "coast": 3700,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 38,
-    "type": "101,",
-    "value": 76,
-    "coast": 3800,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 39,
-    "type": "101,",
-    "value": 78,
-    "coast": 3900,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 40,
-    "type": "101,",
-    "value": 80,
-    "coast": 4000,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 41,
-    "type": "101,",
-    "value": 82,
-    "coast": 4100,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 42,
-    "type": "101,",
-    "value": 84,
-    "coast": 4200,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 43,
-    "type": "101,",
-    "value": 86,
-    "coast": 4300,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 44,
-    "type": "101,",
-    "value": 88,
-    "coast": 4400,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 45,
-    "type": "101,",
-    "value": 90,
-    "coast": 4500,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 46,
-    "type": "101,",
-    "value": 92,
-    "coast": 4600,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 47,
-    "type": "101,",
-    "value": 94,
-    "coast": 4700,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 48,
-    "type": "101,",
-    "value": 96,
-    "coast": 4800,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 49,
-    "type": "101,",
-    "value": 98,
-    "coast": 4900,
-    "sort": 2
-  },
-  {
-    "id": 2,
-    "name": "重甲",
-    "icon": "samsara_01",
-    "level": 50,
-    "type": "101,",
-    "value": 100,
-    "coast": 5000,
-    "sort": 2
-  },
-  {
-    "id": 3,
-    "name": "强体",
-    "icon": "samsara_01",
-    "level": 1,
-    "type": "102,",
-    "value": 20,
-    "coast": 100,
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "强体",
-    "icon": "samsara_01",
-    "level": 2,
-    "type": "102,",
-    "value": 40,
-    "coast": 200,
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "强体",
-    "icon": "samsara_01",
-    "level": 3,
-    "type": "102,",
-    "value": 60,
-    "coast": 300,
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "强体",
-    "icon": "samsara_01",
-    "level": 4,
-    "type": "102,",
-    "value": 80,
-    "coast": 400,
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "强体",
-    "icon": "samsara_01",
-    "level": 5,
-    "type": "102,",
-    "value": 100,
-    "coast": 500,
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "强体",
-    "icon": "samsara_01",
-    "level": 6,
-    "type": "102,",
-    "value": 120,
-    "coast": 600,
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "强体",
-    "icon": "samsara_01",
-    "level": 7,
-    "type": "102,",
-    "value": 140,
-    "coast": 700,
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "强体",
-    "icon": "samsara_01",
-    "level": 8,
-    "type": "102,",
-    "value": 160,
-    "coast": 800,
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "强体",
-    "icon": "samsara_01",
-    "level": 9,
-    "type": "102,",
-    "value": 180,
-    "coast": 900,
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "强体",
-    "icon": "samsara_01",
-    "level": 10,
-    "type": "102,",
     "value": 200,
-    "coast": 1000,
+    "coast": 20,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 3,
+    "type": "100,",
+    "value": 300,
+    "coast": 20,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 4,
+    "type": "100,",
+    "value": 400,
+    "coast": 20,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 5,
+    "type": "100,",
+    "value": 500,
+    "coast": 20,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 6,
+    "type": "100,",
+    "value": 600,
+    "coast": 20,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 7,
+    "type": "100,",
+    "value": 700,
+    "coast": 20,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 8,
+    "type": "100,",
+    "value": 800,
+    "coast": 20,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 9,
+    "type": "100,",
+    "value": 900,
+    "coast": 20,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 10,
+    "type": "100,",
+    "value": 1050,
+    "coast": 60,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 11,
+    "type": "100,",
+    "value": 1200,
+    "coast": 60,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 12,
+    "type": "100,",
+    "value": 1350,
+    "coast": 60,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 13,
+    "type": "100,",
+    "value": 1500,
+    "coast": 60,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 14,
+    "type": "100,",
+    "value": 1650,
+    "coast": 60,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 15,
+    "type": "100,",
+    "value": 1800,
+    "coast": 60,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 16,
+    "type": "100,",
+    "value": 1950,
+    "coast": 60,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 17,
+    "type": "100,",
+    "value": 2100,
+    "coast": 60,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 18,
+    "type": "100,",
+    "value": 2250,
+    "coast": 60,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 19,
+    "type": "100,",
+    "value": 2450,
+    "coast": 180,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 20,
+    "type": "100,",
+    "value": 2650,
+    "coast": 180,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 21,
+    "type": "100,",
+    "value": 2850,
+    "coast": 180,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 22,
+    "type": "100,",
+    "value": 3050,
+    "coast": 180,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 23,
+    "type": "100,",
+    "value": 3250,
+    "coast": 180,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 24,
+    "type": "100,",
+    "value": 3450,
+    "coast": 180,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 25,
+    "type": "100,",
+    "value": 3650,
+    "coast": 180,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 26,
+    "type": "100,",
+    "value": 3850,
+    "coast": 180,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 27,
+    "type": "100,",
+    "value": 4050,
+    "coast": 180,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 28,
+    "type": "100,",
+    "value": 4300,
+    "coast": 540,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 29,
+    "type": "100,",
+    "value": 4550,
+    "coast": 540,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 30,
+    "type": "100,",
+    "value": 4800,
+    "coast": 540,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 31,
+    "type": "100,",
+    "value": 5050,
+    "coast": 540,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 32,
+    "type": "100,",
+    "value": 5300,
+    "coast": 540,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 33,
+    "type": "100,",
+    "value": 5550,
+    "coast": 540,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 34,
+    "type": "100,",
+    "value": 5800,
+    "coast": 540,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 35,
+    "type": "100,",
+    "value": 6050,
+    "coast": 540,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 36,
+    "type": "100,",
+    "value": 6300,
+    "coast": 540,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 37,
+    "type": "100,",
+    "value": 6600,
+    "coast": 1620,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 38,
+    "type": "100,",
+    "value": 6900,
+    "coast": 1620,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 39,
+    "type": "100,",
+    "value": 7200,
+    "coast": 1620,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 40,
+    "type": "100,",
+    "value": 7500,
+    "coast": 1620,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 41,
+    "type": "100,",
+    "value": 7800,
+    "coast": 1620,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 42,
+    "type": "100,",
+    "value": 8100,
+    "coast": 1620,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 43,
+    "type": "100,",
+    "value": 8400,
+    "coast": 1620,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 44,
+    "type": "100,",
+    "value": 8700,
+    "coast": 1620,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 45,
+    "type": "100,",
+    "value": 9000,
+    "coast": 1620,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 46,
+    "type": "100,",
+    "value": 9300,
+    "coast": 4860,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 47,
+    "type": "100,",
+    "value": 9600,
+    "coast": 4860,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 48,
+    "type": "100,",
+    "value": 9900,
+    "coast": 4860,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 49,
+    "type": "100,",
+    "value": 10200,
+    "coast": 4860,
+    "sort": 1
+  },
+  {
+    "id": 1,
+    "name": "猛击",
+    "icon": "samsara_01",
+    "level": 50,
+    "type": "100,",
+    "value": 10500,
+    "coast": 4860,
+    "sort": 1
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 1,
+    "type": "101,",
+    "value": 83,
+    "coast": 20,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 2,
+    "type": "101,",
+    "value": 167,
+    "coast": 20,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 3,
+    "type": "101,",
+    "value": 250,
+    "coast": 20,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 4,
+    "type": "101,",
+    "value": 333,
+    "coast": 20,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 5,
+    "type": "101,",
+    "value": 417,
+    "coast": 20,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 6,
+    "type": "101,",
+    "value": 500,
+    "coast": 20,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 7,
+    "type": "101,",
+    "value": 583,
+    "coast": 20,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 8,
+    "type": "101,",
+    "value": 667,
+    "coast": 20,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 9,
+    "type": "101,",
+    "value": 750,
+    "coast": 20,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 10,
+    "type": "101,",
+    "value": 875,
+    "coast": 60,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 11,
+    "type": "101,",
+    "value": 1000,
+    "coast": 60,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 12,
+    "type": "101,",
+    "value": 1125,
+    "coast": 60,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 13,
+    "type": "101,",
+    "value": 1250,
+    "coast": 60,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 14,
+    "type": "101,",
+    "value": 1375,
+    "coast": 60,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 15,
+    "type": "101,",
+    "value": 1500,
+    "coast": 60,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 16,
+    "type": "101,",
+    "value": 1625,
+    "coast": 60,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 17,
+    "type": "101,",
+    "value": 1750,
+    "coast": 60,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 18,
+    "type": "101,",
+    "value": 1875,
+    "coast": 60,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 19,
+    "type": "101,",
+    "value": 2042,
+    "coast": 180,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 20,
+    "type": "101,",
+    "value": 2208,
+    "coast": 180,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 21,
+    "type": "101,",
+    "value": 2375,
+    "coast": 180,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 22,
+    "type": "101,",
+    "value": 2542,
+    "coast": 180,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 23,
+    "type": "101,",
+    "value": 2708,
+    "coast": 180,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 24,
+    "type": "101,",
+    "value": 2875,
+    "coast": 180,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 25,
+    "type": "101,",
+    "value": 3042,
+    "coast": 180,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 26,
+    "type": "101,",
+    "value": 3208,
+    "coast": 180,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 27,
+    "type": "101,",
+    "value": 3375,
+    "coast": 180,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 28,
+    "type": "101,",
+    "value": 3583,
+    "coast": 540,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 29,
+    "type": "101,",
+    "value": 3792,
+    "coast": 540,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 30,
+    "type": "101,",
+    "value": 4000,
+    "coast": 540,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 31,
+    "type": "101,",
+    "value": 4208,
+    "coast": 540,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 32,
+    "type": "101,",
+    "value": 4417,
+    "coast": 540,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 33,
+    "type": "101,",
+    "value": 4625,
+    "coast": 540,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 34,
+    "type": "101,",
+    "value": 4833,
+    "coast": 540,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 35,
+    "type": "101,",
+    "value": 5042,
+    "coast": 540,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 36,
+    "type": "101,",
+    "value": 5250,
+    "coast": 540,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 37,
+    "type": "101,",
+    "value": 5500,
+    "coast": 1620,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 38,
+    "type": "101,",
+    "value": 5750,
+    "coast": 1620,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 39,
+    "type": "101,",
+    "value": 6000,
+    "coast": 1620,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 40,
+    "type": "101,",
+    "value": 6250,
+    "coast": 1620,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 41,
+    "type": "101,",
+    "value": 6500,
+    "coast": 1620,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 42,
+    "type": "101,",
+    "value": 6750,
+    "coast": 1620,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 43,
+    "type": "101,",
+    "value": 7000,
+    "coast": 1620,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 44,
+    "type": "101,",
+    "value": 7250,
+    "coast": 1620,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 45,
+    "type": "101,",
+    "value": 7500,
+    "coast": 1620,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 46,
+    "type": "101,",
+    "value": 7750,
+    "coast": 4860,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 47,
+    "type": "101,",
+    "value": 8000,
+    "coast": 4860,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 48,
+    "type": "101,",
+    "value": 8250,
+    "coast": 4860,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 49,
+    "type": "101,",
+    "value": 8500,
+    "coast": 4860,
+    "sort": 2
+  },
+  {
+    "id": 2,
+    "name": "重甲",
+    "icon": "samsara_01",
+    "level": 50,
+    "type": "101,",
+    "value": 8750,
+    "coast": 4860,
+    "sort": 2
+  },
+  {
+    "id": 3,
+    "name": "强体",
+    "icon": "samsara_01",
+    "level": 1,
+    "type": "102,",
+    "value": 3333,
+    "coast": 20,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "强体",
+    "icon": "samsara_01",
+    "level": 2,
+    "type": "102,",
+    "value": 6667,
+    "coast": 20,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "强体",
+    "icon": "samsara_01",
+    "level": 3,
+    "type": "102,",
+    "value": 10000,
+    "coast": 20,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "强体",
+    "icon": "samsara_01",
+    "level": 4,
+    "type": "102,",
+    "value": 13333,
+    "coast": 20,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "强体",
+    "icon": "samsara_01",
+    "level": 5,
+    "type": "102,",
+    "value": 16667,
+    "coast": 20,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "强体",
+    "icon": "samsara_01",
+    "level": 6,
+    "type": "102,",
+    "value": 20000,
+    "coast": 20,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "强体",
+    "icon": "samsara_01",
+    "level": 7,
+    "type": "102,",
+    "value": 23333,
+    "coast": 20,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "强体",
+    "icon": "samsara_01",
+    "level": 8,
+    "type": "102,",
+    "value": 26667,
+    "coast": 20,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "强体",
+    "icon": "samsara_01",
+    "level": 9,
+    "type": "102,",
+    "value": 30000,
+    "coast": 20,
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "强体",
+    "icon": "samsara_01",
+    "level": 10,
+    "type": "102,",
+    "value": 35000,
+    "coast": 60,
     "sort": 3
   },
   {
@@ -1105,8 +1105,8 @@
     "icon": "samsara_01",
     "level": 11,
     "type": "102,",
-    "value": 220,
-    "coast": 1100,
+    "value": 40000,
+    "coast": 60,
     "sort": 3
   },
   {
@@ -1115,8 +1115,8 @@
     "icon": "samsara_01",
     "level": 12,
     "type": "102,",
-    "value": 240,
-    "coast": 1200,
+    "value": 45000,
+    "coast": 60,
     "sort": 3
   },
   {
@@ -1125,8 +1125,8 @@
     "icon": "samsara_01",
     "level": 13,
     "type": "102,",
-    "value": 260,
-    "coast": 1300,
+    "value": 50000,
+    "coast": 60,
     "sort": 3
   },
   {
@@ -1135,8 +1135,8 @@
     "icon": "samsara_01",
     "level": 14,
     "type": "102,",
-    "value": 280,
-    "coast": 1400,
+    "value": 55000,
+    "coast": 60,
     "sort": 3
   },
   {
@@ -1145,8 +1145,8 @@
     "icon": "samsara_01",
     "level": 15,
     "type": "102,",
-    "value": 300,
-    "coast": 1500,
+    "value": 60000,
+    "coast": 60,
     "sort": 3
   },
   {
@@ -1155,8 +1155,8 @@
     "icon": "samsara_01",
     "level": 16,
     "type": "102,",
-    "value": 320,
-    "coast": 1600,
+    "value": 65000,
+    "coast": 60,
     "sort": 3
   },
   {
@@ -1165,8 +1165,8 @@
     "icon": "samsara_01",
     "level": 17,
     "type": "102,",
-    "value": 340,
-    "coast": 1700,
+    "value": 70000,
+    "coast": 60,
     "sort": 3
   },
   {
@@ -1175,8 +1175,8 @@
     "icon": "samsara_01",
     "level": 18,
     "type": "102,",
-    "value": 360,
-    "coast": 1800,
+    "value": 75000,
+    "coast": 60,
     "sort": 3
   },
   {
@@ -1185,8 +1185,8 @@
     "icon": "samsara_01",
     "level": 19,
     "type": "102,",
-    "value": 380,
-    "coast": 1900,
+    "value": 81667,
+    "coast": 180,
     "sort": 3
   },
   {
@@ -1195,8 +1195,8 @@
     "icon": "samsara_01",
     "level": 20,
     "type": "102,",
-    "value": 400,
-    "coast": 2000,
+    "value": 88333,
+    "coast": 180,
     "sort": 3
   },
   {
@@ -1205,8 +1205,8 @@
     "icon": "samsara_01",
     "level": 21,
     "type": "102,",
-    "value": 420,
-    "coast": 2100,
+    "value": 95000,
+    "coast": 180,
     "sort": 3
   },
   {
@@ -1215,8 +1215,8 @@
     "icon": "samsara_01",
     "level": 22,
     "type": "102,",
-    "value": 440,
-    "coast": 2200,
+    "value": 101667,
+    "coast": 180,
     "sort": 3
   },
   {
@@ -1225,8 +1225,8 @@
     "icon": "samsara_01",
     "level": 23,
     "type": "102,",
-    "value": 460,
-    "coast": 2300,
+    "value": 108333,
+    "coast": 180,
     "sort": 3
   },
   {
@@ -1235,8 +1235,8 @@
     "icon": "samsara_01",
     "level": 24,
     "type": "102,",
-    "value": 480,
-    "coast": 2400,
+    "value": 115000,
+    "coast": 180,
     "sort": 3
   },
   {
@@ -1245,8 +1245,8 @@
     "icon": "samsara_01",
     "level": 25,
     "type": "102,",
-    "value": 500,
-    "coast": 2500,
+    "value": 121667,
+    "coast": 180,
     "sort": 3
   },
   {
@@ -1255,8 +1255,8 @@
     "icon": "samsara_01",
     "level": 26,
     "type": "102,",
-    "value": 520,
-    "coast": 2600,
+    "value": 128333,
+    "coast": 180,
     "sort": 3
   },
   {
@@ -1265,8 +1265,8 @@
     "icon": "samsara_01",
     "level": 27,
     "type": "102,",
-    "value": 540,
-    "coast": 2700,
+    "value": 135000,
+    "coast": 180,
     "sort": 3
   },
   {
@@ -1275,8 +1275,8 @@
     "icon": "samsara_01",
     "level": 28,
     "type": "102,",
-    "value": 560,
-    "coast": 2800,
+    "value": 143333,
+    "coast": 540,
     "sort": 3
   },
   {
@@ -1285,8 +1285,8 @@
     "icon": "samsara_01",
     "level": 29,
     "type": "102,",
-    "value": 580,
-    "coast": 2900,
+    "value": 151667,
+    "coast": 540,
     "sort": 3
   },
   {
@@ -1295,8 +1295,8 @@
     "icon": "samsara_01",
     "level": 30,
     "type": "102,",
-    "value": 600,
-    "coast": 3000,
+    "value": 160000,
+    "coast": 540,
     "sort": 3
   },
   {
@@ -1305,8 +1305,8 @@
     "icon": "samsara_01",
     "level": 31,
     "type": "102,",
-    "value": 620,
-    "coast": 3100,
+    "value": 168333,
+    "coast": 540,
     "sort": 3
   },
   {
@@ -1315,8 +1315,8 @@
     "icon": "samsara_01",
     "level": 32,
     "type": "102,",
-    "value": 640,
-    "coast": 3200,
+    "value": 176667,
+    "coast": 540,
     "sort": 3
   },
   {
@@ -1325,8 +1325,8 @@
     "icon": "samsara_01",
     "level": 33,
     "type": "102,",
-    "value": 660,
-    "coast": 3300,
+    "value": 185000,
+    "coast": 540,
     "sort": 3
   },
   {
@@ -1335,8 +1335,8 @@
     "icon": "samsara_01",
     "level": 34,
     "type": "102,",
-    "value": 680,
-    "coast": 3400,
+    "value": 193333,
+    "coast": 540,
     "sort": 3
   },
   {
@@ -1345,8 +1345,8 @@
     "icon": "samsara_01",
     "level": 35,
     "type": "102,",
-    "value": 700,
-    "coast": 3500,
+    "value": 201667,
+    "coast": 540,
     "sort": 3
   },
   {
@@ -1355,8 +1355,8 @@
     "icon": "samsara_01",
     "level": 36,
     "type": "102,",
-    "value": 720,
-    "coast": 3600,
+    "value": 210000,
+    "coast": 540,
     "sort": 3
   },
   {
@@ -1365,8 +1365,8 @@
     "icon": "samsara_01",
     "level": 37,
     "type": "102,",
-    "value": 740,
-    "coast": 3700,
+    "value": 220000,
+    "coast": 1620,
     "sort": 3
   },
   {
@@ -1375,8 +1375,8 @@
     "icon": "samsara_01",
     "level": 38,
     "type": "102,",
-    "value": 760,
-    "coast": 3800,
+    "value": 230000,
+    "coast": 1620,
     "sort": 3
   },
   {
@@ -1385,8 +1385,8 @@
     "icon": "samsara_01",
     "level": 39,
     "type": "102,",
-    "value": 780,
-    "coast": 3900,
+    "value": 240000,
+    "coast": 1620,
     "sort": 3
   },
   {
@@ -1395,8 +1395,8 @@
     "icon": "samsara_01",
     "level": 40,
     "type": "102,",
-    "value": 800,
-    "coast": 4000,
+    "value": 250000,
+    "coast": 1620,
     "sort": 3
   },
   {
@@ -1405,8 +1405,8 @@
     "icon": "samsara_01",
     "level": 41,
     "type": "102,",
-    "value": 820,
-    "coast": 4100,
+    "value": 260000,
+    "coast": 1620,
     "sort": 3
   },
   {
@@ -1415,8 +1415,8 @@
     "icon": "samsara_01",
     "level": 42,
     "type": "102,",
-    "value": 840,
-    "coast": 4200,
+    "value": 270000,
+    "coast": 1620,
     "sort": 3
   },
   {
@@ -1425,8 +1425,8 @@
     "icon": "samsara_01",
     "level": 43,
     "type": "102,",
-    "value": 860,
-    "coast": 4300,
+    "value": 280000,
+    "coast": 1620,
     "sort": 3
   },
   {
@@ -1435,8 +1435,8 @@
     "icon": "samsara_01",
     "level": 44,
     "type": "102,",
-    "value": 880,
-    "coast": 4400,
+    "value": 290000,
+    "coast": 1620,
     "sort": 3
   },
   {
@@ -1445,8 +1445,8 @@
     "icon": "samsara_01",
     "level": 45,
     "type": "102,",
-    "value": 900,
-    "coast": 4500,
+    "value": 300000,
+    "coast": 1620,
     "sort": 3
   },
   {
@@ -1455,8 +1455,8 @@
     "icon": "samsara_01",
     "level": 46,
     "type": "102,",
-    "value": 920,
-    "coast": 4600,
+    "value": 310000,
+    "coast": 4860,
     "sort": 3
   },
   {
@@ -1465,8 +1465,8 @@
     "icon": "samsara_01",
     "level": 47,
     "type": "102,",
-    "value": 940,
-    "coast": 4700,
+    "value": 320000,
+    "coast": 4860,
     "sort": 3
   },
   {
@@ -1475,8 +1475,8 @@
     "icon": "samsara_01",
     "level": 48,
     "type": "102,",
-    "value": 960,
-    "coast": 4800,
+    "value": 330000,
+    "coast": 4860,
     "sort": 3
   },
   {
@@ -1485,8 +1485,8 @@
     "icon": "samsara_01",
     "level": 49,
     "type": "102,",
-    "value": 980,
-    "coast": 4900,
+    "value": 340000,
+    "coast": 4860,
     "sort": 3
   },
   {
@@ -1495,8 +1495,8 @@
     "icon": "samsara_01",
     "level": 50,
     "type": "102,",
-    "value": 1000,
-    "coast": 5000,
+    "value": 350000,
+    "coast": 4860,
     "sort": 3
   },
   {
@@ -1505,8 +1505,8 @@
     "icon": "samsara_01",
     "level": 1,
     "type": "112,",
-    "value": 20,
-    "coast": 100,
+    "value": 50,
+    "coast": 20,
     "sort": 4
   },
   {
@@ -1515,8 +1515,8 @@
     "icon": "samsara_01",
     "level": 2,
     "type": "112,",
-    "value": 40,
-    "coast": 200,
+    "value": 100,
+    "coast": 20,
     "sort": 4
   },
   {
@@ -1525,8 +1525,8 @@
     "icon": "samsara_01",
     "level": 3,
     "type": "112,",
-    "value": 60,
-    "coast": 300,
+    "value": 150,
+    "coast": 20,
     "sort": 4
   },
   {
@@ -1534,69 +1534,69 @@
     "name": "会心",
     "icon": "samsara_01",
     "level": 4,
-    "type": "112,",
-    "value": 80,
-    "coast": 400,
-    "sort": 4
-  },
-  {
-    "id": 4,
-    "name": "会心",
-    "icon": "samsara_01",
-    "level": 5,
-    "type": "112,",
-    "value": 100,
-    "coast": 500,
-    "sort": 4
-  },
-  {
-    "id": 4,
-    "name": "会心",
-    "icon": "samsara_01",
-    "level": 6,
-    "type": "112,",
-    "value": 120,
-    "coast": 600,
-    "sort": 4
-  },
-  {
-    "id": 4,
-    "name": "会心",
-    "icon": "samsara_01",
-    "level": 7,
-    "type": "112,",
-    "value": 140,
-    "coast": 700,
-    "sort": 4
-  },
-  {
-    "id": 4,
-    "name": "会心",
-    "icon": "samsara_01",
-    "level": 8,
-    "type": "112,",
-    "value": 160,
-    "coast": 800,
-    "sort": 4
-  },
-  {
-    "id": 4,
-    "name": "会心",
-    "icon": "samsara_01",
-    "level": 9,
-    "type": "112,",
-    "value": 180,
-    "coast": 900,
-    "sort": 4
-  },
-  {
-    "id": 4,
-    "name": "会心",
-    "icon": "samsara_01",
-    "level": 10,
     "type": "112,",
     "value": 200,
-    "coast": 1000,
+    "coast": 20,
+    "sort": 4
+  },
+  {
+    "id": 4,
+    "name": "会心",
+    "icon": "samsara_01",
+    "level": 5,
+    "type": "112,",
+    "value": 250,
+    "coast": 20,
+    "sort": 4
+  },
+  {
+    "id": 4,
+    "name": "会心",
+    "icon": "samsara_01",
+    "level": 6,
+    "type": "112,",
+    "value": 300,
+    "coast": 20,
+    "sort": 4
+  },
+  {
+    "id": 4,
+    "name": "会心",
+    "icon": "samsara_01",
+    "level": 7,
+    "type": "112,",
+    "value": 350,
+    "coast": 20,
+    "sort": 4
+  },
+  {
+    "id": 4,
+    "name": "会心",
+    "icon": "samsara_01",
+    "level": 8,
+    "type": "112,",
+    "value": 400,
+    "coast": 20,
+    "sort": 4
+  },
+  {
+    "id": 4,
+    "name": "会心",
+    "icon": "samsara_01",
+    "level": 9,
+    "type": "112,",
+    "value": 450,
+    "coast": 20,
+    "sort": 4
+  },
+  {
+    "id": 4,
+    "name": "会心",
+    "icon": "samsara_01",
+    "level": 10,
+    "type": "112,",
+    "value": 525,
+    "coast": 60,
     "sort": 4
   },
   {
@@ -1605,8 +1605,8 @@
     "icon": "samsara_01",
     "level": 11,
     "type": "112,",
-    "value": 220,
-    "coast": 1100,
+    "value": 600,
+    "coast": 60,
     "sort": 4
   },
   {
@@ -1615,8 +1615,8 @@
     "icon": "samsara_01",
     "level": 12,
     "type": "112,",
-    "value": 240,
-    "coast": 1200,
+    "value": 675,
+    "coast": 60,
     "sort": 4
   },
   {
@@ -1625,8 +1625,8 @@
     "icon": "samsara_01",
     "level": 13,
     "type": "112,",
-    "value": 260,
-    "coast": 1300,
+    "value": 750,
+    "coast": 60,
     "sort": 4
   },
   {
@@ -1635,8 +1635,8 @@
     "icon": "samsara_01",
     "level": 14,
     "type": "112,",
-    "value": 280,
-    "coast": 1400,
+    "value": 825,
+    "coast": 60,
     "sort": 4
   },
   {
@@ -1645,8 +1645,8 @@
     "icon": "samsara_01",
     "level": 15,
     "type": "112,",
-    "value": 300,
-    "coast": 1500,
+    "value": 900,
+    "coast": 60,
     "sort": 4
   },
   {
@@ -1655,8 +1655,8 @@
     "icon": "samsara_01",
     "level": 16,
     "type": "112,",
-    "value": 320,
-    "coast": 1600,
+    "value": 975,
+    "coast": 60,
     "sort": 4
   },
   {
@@ -1665,8 +1665,8 @@
     "icon": "samsara_01",
     "level": 17,
     "type": "112,",
-    "value": 340,
-    "coast": 1700,
+    "value": 1050,
+    "coast": 60,
     "sort": 4
   },
   {
@@ -1675,8 +1675,8 @@
     "icon": "samsara_01",
     "level": 18,
     "type": "112,",
-    "value": 360,
-    "coast": 1800,
+    "value": 1125,
+    "coast": 60,
     "sort": 4
   },
   {
@@ -1685,8 +1685,8 @@
     "icon": "samsara_01",
     "level": 19,
     "type": "112,",
-    "value": 380,
-    "coast": 1900,
+    "value": 1225,
+    "coast": 180,
     "sort": 4
   },
   {
@@ -1695,8 +1695,8 @@
     "icon": "samsara_01",
     "level": 20,
     "type": "112,",
-    "value": 400,
-    "coast": 2000,
+    "value": 1325,
+    "coast": 180,
     "sort": 4
   },
   {
@@ -1705,8 +1705,8 @@
     "icon": "samsara_01",
     "level": 21,
     "type": "112,",
-    "value": 420,
-    "coast": 2100,
+    "value": 1425,
+    "coast": 180,
     "sort": 4
   },
   {
@@ -1715,8 +1715,8 @@
     "icon": "samsara_01",
     "level": 22,
     "type": "112,",
-    "value": 440,
-    "coast": 2200,
+    "value": 1525,
+    "coast": 180,
     "sort": 4
   },
   {
@@ -1725,8 +1725,8 @@
     "icon": "samsara_01",
     "level": 23,
     "type": "112,",
-    "value": 460,
-    "coast": 2300,
+    "value": 1625,
+    "coast": 180,
     "sort": 4
   },
   {
@@ -1735,8 +1735,8 @@
     "icon": "samsara_01",
     "level": 24,
     "type": "112,",
-    "value": 480,
-    "coast": 2400,
+    "value": 1725,
+    "coast": 180,
     "sort": 4
   },
   {
@@ -1745,8 +1745,8 @@
     "icon": "samsara_01",
     "level": 25,
     "type": "112,",
-    "value": 500,
-    "coast": 2500,
+    "value": 1825,
+    "coast": 180,
     "sort": 4
   },
   {
@@ -1755,8 +1755,8 @@
     "icon": "samsara_01",
     "level": 26,
     "type": "112,",
-    "value": 520,
-    "coast": 2600,
+    "value": 1925,
+    "coast": 180,
     "sort": 4
   },
   {
@@ -1765,8 +1765,8 @@
     "icon": "samsara_01",
     "level": 27,
     "type": "112,",
-    "value": 540,
-    "coast": 2700,
+    "value": 2025,
+    "coast": 180,
     "sort": 4
   },
   {
@@ -1775,8 +1775,8 @@
     "icon": "samsara_01",
     "level": 28,
     "type": "112,",
-    "value": 560,
-    "coast": 2800,
+    "value": 2150,
+    "coast": 540,
     "sort": 4
   },
   {
@@ -1785,8 +1785,8 @@
     "icon": "samsara_01",
     "level": 29,
     "type": "112,",
-    "value": 580,
-    "coast": 2900,
+    "value": 2275,
+    "coast": 540,
     "sort": 4
   },
   {
@@ -1795,8 +1795,8 @@
     "icon": "samsara_01",
     "level": 30,
     "type": "112,",
-    "value": 600,
-    "coast": 3000,
+    "value": 2400,
+    "coast": 540,
     "sort": 4
   },
   {
@@ -1805,8 +1805,8 @@
     "icon": "samsara_01",
     "level": 31,
     "type": "112,",
-    "value": 620,
-    "coast": 3100,
+    "value": 2525,
+    "coast": 540,
     "sort": 4
   },
   {
@@ -1815,8 +1815,8 @@
     "icon": "samsara_01",
     "level": 32,
     "type": "112,",
-    "value": 640,
-    "coast": 3200,
+    "value": 2650,
+    "coast": 540,
     "sort": 4
   },
   {
@@ -1825,8 +1825,8 @@
     "icon": "samsara_01",
     "level": 33,
     "type": "112,",
-    "value": 660,
-    "coast": 3300,
+    "value": 2775,
+    "coast": 540,
     "sort": 4
   },
   {
@@ -1835,8 +1835,8 @@
     "icon": "samsara_01",
     "level": 34,
     "type": "112,",
-    "value": 680,
-    "coast": 3400,
+    "value": 2900,
+    "coast": 540,
     "sort": 4
   },
   {
@@ -1845,8 +1845,8 @@
     "icon": "samsara_01",
     "level": 35,
     "type": "112,",
-    "value": 700,
-    "coast": 3500,
+    "value": 3025,
+    "coast": 540,
     "sort": 4
   },
   {
@@ -1855,8 +1855,8 @@
     "icon": "samsara_01",
     "level": 36,
     "type": "112,",
-    "value": 720,
-    "coast": 3600,
+    "value": 3150,
+    "coast": 540,
     "sort": 4
   },
   {
@@ -1865,8 +1865,8 @@
     "icon": "samsara_01",
     "level": 37,
     "type": "112,",
-    "value": 740,
-    "coast": 3700,
+    "value": 3300,
+    "coast": 1620,
     "sort": 4
   },
   {
@@ -1875,8 +1875,8 @@
     "icon": "samsara_01",
     "level": 38,
     "type": "112,",
-    "value": 760,
-    "coast": 3800,
+    "value": 3450,
+    "coast": 1620,
     "sort": 4
   },
   {
@@ -1885,8 +1885,8 @@
     "icon": "samsara_01",
     "level": 39,
     "type": "112,",
-    "value": 780,
-    "coast": 3900,
+    "value": 3600,
+    "coast": 1620,
     "sort": 4
   },
   {
@@ -1895,8 +1895,8 @@
     "icon": "samsara_01",
     "level": 40,
     "type": "112,",
-    "value": 800,
-    "coast": 4000,
+    "value": 3750,
+    "coast": 1620,
     "sort": 4
   },
   {
@@ -1905,8 +1905,8 @@
     "icon": "samsara_01",
     "level": 41,
     "type": "112,",
-    "value": 820,
-    "coast": 4100,
+    "value": 3900,
+    "coast": 1620,
     "sort": 4
   },
   {
@@ -1915,8 +1915,8 @@
     "icon": "samsara_01",
     "level": 42,
     "type": "112,",
-    "value": 840,
-    "coast": 4200,
+    "value": 4050,
+    "coast": 1620,
     "sort": 4
   },
   {
@@ -1925,8 +1925,8 @@
     "icon": "samsara_01",
     "level": 43,
     "type": "112,",
-    "value": 860,
-    "coast": 4300,
+    "value": 4200,
+    "coast": 1620,
     "sort": 4
   },
   {
@@ -1935,8 +1935,8 @@
     "icon": "samsara_01",
     "level": 44,
     "type": "112,",
-    "value": 880,
-    "coast": 4400,
+    "value": 4350,
+    "coast": 1620,
     "sort": 4
   },
   {
@@ -1945,8 +1945,8 @@
     "icon": "samsara_01",
     "level": 45,
     "type": "112,",
-    "value": 900,
-    "coast": 4500,
+    "value": 4500,
+    "coast": 1620,
     "sort": 4
   },
   {
@@ -1955,8 +1955,8 @@
     "icon": "samsara_01",
     "level": 46,
     "type": "112,",
-    "value": 920,
-    "coast": 4600,
+    "value": 4650,
+    "coast": 4860,
     "sort": 4
   },
   {
@@ -1965,8 +1965,8 @@
     "icon": "samsara_01",
     "level": 47,
     "type": "112,",
-    "value": 940,
-    "coast": 4700,
+    "value": 4800,
+    "coast": 4860,
     "sort": 4
   },
   {
@@ -1975,8 +1975,8 @@
     "icon": "samsara_01",
     "level": 48,
     "type": "112,",
-    "value": 960,
-    "coast": 4800,
+    "value": 4950,
+    "coast": 4860,
     "sort": 4
   },
   {
@@ -1985,8 +1985,8 @@
     "icon": "samsara_01",
     "level": 49,
     "type": "112,",
-    "value": 980,
-    "coast": 4900,
+    "value": 5100,
+    "coast": 4860,
     "sort": 4
   },
   {
@@ -1995,8 +1995,8 @@
     "icon": "samsara_01",
     "level": 50,
     "type": "112,",
-    "value": 1000,
-    "coast": 5000,
+    "value": 5250,
+    "coast": 4860,
     "sort": 4
   },
   {
@@ -2005,8 +2005,8 @@
     "icon": "samsara_01",
     "level": 1,
     "type": "113,",
-    "value": 2,
-    "coast": 100,
+    "value": 200,
+    "coast": 20,
     "sort": 5
   },
   {
@@ -2015,8 +2015,8 @@
     "icon": "samsara_01",
     "level": 2,
     "type": "113,",
-    "value": 4,
-    "coast": 200,
+    "value": 400,
+    "coast": 20,
     "sort": 5
   },
   {
@@ -2025,8 +2025,8 @@
     "icon": "samsara_01",
     "level": 3,
     "type": "113,",
-    "value": 6,
-    "coast": 300,
+    "value": 600,
+    "coast": 20,
     "sort": 5
   },
   {
@@ -2035,8 +2035,8 @@
     "icon": "samsara_01",
     "level": 4,
     "type": "113,",
-    "value": 8,
-    "coast": 400,
+    "value": 800,
+    "coast": 20,
     "sort": 5
   },
   {
@@ -2045,8 +2045,8 @@
     "icon": "samsara_01",
     "level": 5,
     "type": "113,",
-    "value": 10,
-    "coast": 500,
+    "value": 1000,
+    "coast": 20,
     "sort": 5
   },
   {
@@ -2055,8 +2055,8 @@
     "icon": "samsara_01",
     "level": 6,
     "type": "113,",
-    "value": 12,
-    "coast": 600,
+    "value": 1200,
+    "coast": 20,
     "sort": 5
   },
   {
@@ -2065,8 +2065,8 @@
     "icon": "samsara_01",
     "level": 7,
     "type": "113,",
-    "value": 14,
-    "coast": 700,
+    "value": 1400,
+    "coast": 20,
     "sort": 5
   },
   {
@@ -2075,8 +2075,8 @@
     "icon": "samsara_01",
     "level": 8,
     "type": "113,",
-    "value": 16,
-    "coast": 800,
+    "value": 1600,
+    "coast": 20,
     "sort": 5
   },
   {
@@ -2085,8 +2085,8 @@
     "icon": "samsara_01",
     "level": 9,
     "type": "113,",
-    "value": 18,
-    "coast": 900,
+    "value": 1800,
+    "coast": 20,
     "sort": 5
   },
   {
@@ -2095,8 +2095,8 @@
     "icon": "samsara_01",
     "level": 10,
     "type": "113,",
-    "value": 20,
-    "coast": 1000,
+    "value": 2100,
+    "coast": 60,
     "sort": 5
   },
   {
@@ -2105,8 +2105,8 @@
     "icon": "samsara_01",
     "level": 11,
     "type": "113,",
-    "value": 22,
-    "coast": 1100,
+    "value": 2400,
+    "coast": 60,
     "sort": 5
   },
   {
@@ -2115,8 +2115,8 @@
     "icon": "samsara_01",
     "level": 12,
     "type": "113,",
-    "value": 24,
-    "coast": 1200,
+    "value": 2700,
+    "coast": 60,
     "sort": 5
   },
   {
@@ -2125,8 +2125,8 @@
     "icon": "samsara_01",
     "level": 13,
     "type": "113,",
-    "value": 26,
-    "coast": 1300,
+    "value": 3000,
+    "coast": 60,
     "sort": 5
   },
   {
@@ -2135,8 +2135,8 @@
     "icon": "samsara_01",
     "level": 14,
     "type": "113,",
-    "value": 28,
-    "coast": 1400,
+    "value": 3300,
+    "coast": 60,
     "sort": 5
   },
   {
@@ -2145,8 +2145,8 @@
     "icon": "samsara_01",
     "level": 15,
     "type": "113,",
-    "value": 30,
-    "coast": 1500,
+    "value": 3600,
+    "coast": 60,
     "sort": 5
   },
   {
@@ -2155,8 +2155,8 @@
     "icon": "samsara_01",
     "level": 16,
     "type": "113,",
-    "value": 32,
-    "coast": 1600,
+    "value": 3900,
+    "coast": 60,
     "sort": 5
   },
   {
@@ -2165,8 +2165,8 @@
     "icon": "samsara_01",
     "level": 17,
     "type": "113,",
-    "value": 34,
-    "coast": 1700,
+    "value": 4200,
+    "coast": 60,
     "sort": 5
   },
   {
@@ -2175,8 +2175,8 @@
     "icon": "samsara_01",
     "level": 18,
     "type": "113,",
-    "value": 36,
-    "coast": 1800,
+    "value": 4500,
+    "coast": 60,
     "sort": 5
   },
   {
@@ -2185,8 +2185,8 @@
     "icon": "samsara_01",
     "level": 19,
     "type": "113,",
-    "value": 38,
-    "coast": 1900,
+    "value": 4900,
+    "coast": 180,
     "sort": 5
   },
   {
@@ -2195,8 +2195,8 @@
     "icon": "samsara_01",
     "level": 20,
     "type": "113,",
-    "value": 40,
-    "coast": 2000,
+    "value": 5300,
+    "coast": 180,
     "sort": 5
   },
   {
@@ -2205,8 +2205,8 @@
     "icon": "samsara_01",
     "level": 21,
     "type": "113,",
-    "value": 42,
-    "coast": 2100,
+    "value": 5700,
+    "coast": 180,
     "sort": 5
   },
   {
@@ -2215,8 +2215,8 @@
     "icon": "samsara_01",
     "level": 22,
     "type": "113,",
-    "value": 44,
-    "coast": 2200,
+    "value": 6100,
+    "coast": 180,
     "sort": 5
   },
   {
@@ -2225,8 +2225,8 @@
     "icon": "samsara_01",
     "level": 23,
     "type": "113,",
-    "value": 46,
-    "coast": 2300,
+    "value": 6500,
+    "coast": 180,
     "sort": 5
   },
   {
@@ -2235,8 +2235,8 @@
     "icon": "samsara_01",
     "level": 24,
     "type": "113,",
-    "value": 48,
-    "coast": 2400,
+    "value": 6900,
+    "coast": 180,
     "sort": 5
   },
   {
@@ -2245,8 +2245,8 @@
     "icon": "samsara_01",
     "level": 25,
     "type": "113,",
-    "value": 50,
-    "coast": 2500,
+    "value": 7300,
+    "coast": 180,
     "sort": 5
   },
   {
@@ -2255,8 +2255,8 @@
     "icon": "samsara_01",
     "level": 26,
     "type": "113,",
-    "value": 52,
-    "coast": 2600,
+    "value": 7700,
+    "coast": 180,
     "sort": 5
   },
   {
@@ -2265,8 +2265,8 @@
     "icon": "samsara_01",
     "level": 27,
     "type": "113,",
-    "value": 54,
-    "coast": 2700,
+    "value": 8100,
+    "coast": 180,
     "sort": 5
   },
   {
@@ -2275,8 +2275,8 @@
     "icon": "samsara_01",
     "level": 28,
     "type": "113,",
-    "value": 56,
-    "coast": 2800,
+    "value": 8600,
+    "coast": 540,
     "sort": 5
   },
   {
@@ -2285,8 +2285,8 @@
     "icon": "samsara_01",
     "level": 29,
     "type": "113,",
-    "value": 58,
-    "coast": 2900,
+    "value": 9100,
+    "coast": 540,
     "sort": 5
   },
   {
@@ -2295,8 +2295,8 @@
     "icon": "samsara_01",
     "level": 30,
     "type": "113,",
-    "value": 60,
-    "coast": 3000,
+    "value": 9600,
+    "coast": 540,
     "sort": 5
   },
   {
@@ -2305,8 +2305,8 @@
     "icon": "samsara_01",
     "level": 31,
     "type": "113,",
-    "value": 62,
-    "coast": 3100,
+    "value": 10100,
+    "coast": 540,
     "sort": 5
   },
   {
@@ -2315,8 +2315,8 @@
     "icon": "samsara_01",
     "level": 32,
     "type": "113,",
-    "value": 64,
-    "coast": 3200,
+    "value": 10600,
+    "coast": 540,
     "sort": 5
   },
   {
@@ -2325,8 +2325,8 @@
     "icon": "samsara_01",
     "level": 33,
     "type": "113,",
-    "value": 66,
-    "coast": 3300,
+    "value": 11100,
+    "coast": 540,
     "sort": 5
   },
   {
@@ -2335,8 +2335,8 @@
     "icon": "samsara_01",
     "level": 34,
     "type": "113,",
-    "value": 68,
-    "coast": 3400,
+    "value": 11600,
+    "coast": 540,
     "sort": 5
   },
   {
@@ -2345,8 +2345,8 @@
     "icon": "samsara_01",
     "level": 35,
     "type": "113,",
-    "value": 70,
-    "coast": 3500,
+    "value": 12100,
+    "coast": 540,
     "sort": 5
   },
   {
@@ -2355,8 +2355,8 @@
     "icon": "samsara_01",
     "level": 36,
     "type": "113,",
-    "value": 72,
-    "coast": 3600,
+    "value": 12600,
+    "coast": 540,
     "sort": 5
   },
   {
@@ -2365,8 +2365,8 @@
     "icon": "samsara_01",
     "level": 37,
     "type": "113,",
-    "value": 74,
-    "coast": 3700,
+    "value": 13200,
+    "coast": 1620,
     "sort": 5
   },
   {
@@ -2375,8 +2375,8 @@
     "icon": "samsara_01",
     "level": 38,
     "type": "113,",
-    "value": 76,
-    "coast": 3800,
+    "value": 13800,
+    "coast": 1620,
     "sort": 5
   },
   {
@@ -2385,8 +2385,8 @@
     "icon": "samsara_01",
     "level": 39,
     "type": "113,",
-    "value": 78,
-    "coast": 3900,
+    "value": 14400,
+    "coast": 1620,
     "sort": 5
   },
   {
@@ -2395,8 +2395,8 @@
     "icon": "samsara_01",
     "level": 40,
     "type": "113,",
-    "value": 80,
-    "coast": 4000,
+    "value": 15000,
+    "coast": 1620,
     "sort": 5
   },
   {
@@ -2405,8 +2405,8 @@
     "icon": "samsara_01",
     "level": 41,
     "type": "113,",
-    "value": 82,
-    "coast": 4100,
+    "value": 15600,
+    "coast": 1620,
     "sort": 5
   },
   {
@@ -2415,8 +2415,8 @@
     "icon": "samsara_01",
     "level": 42,
     "type": "113,",
-    "value": 84,
-    "coast": 4200,
+    "value": 16200,
+    "coast": 1620,
     "sort": 5
   },
   {
@@ -2425,8 +2425,8 @@
     "icon": "samsara_01",
     "level": 43,
     "type": "113,",
-    "value": 86,
-    "coast": 4300,
+    "value": 16800,
+    "coast": 1620,
     "sort": 5
   },
   {
@@ -2435,8 +2435,8 @@
     "icon": "samsara_01",
     "level": 44,
     "type": "113,",
-    "value": 88,
-    "coast": 4400,
+    "value": 17400,
+    "coast": 1620,
     "sort": 5
   },
   {
@@ -2445,8 +2445,8 @@
     "icon": "samsara_01",
     "level": 45,
     "type": "113,",
-    "value": 90,
-    "coast": 4500,
+    "value": 18000,
+    "coast": 1620,
     "sort": 5
   },
   {
@@ -2455,8 +2455,8 @@
     "icon": "samsara_01",
     "level": 46,
     "type": "113,",
-    "value": 92,
-    "coast": 4600,
+    "value": 18600,
+    "coast": 4860,
     "sort": 5
   },
   {
@@ -2465,8 +2465,8 @@
     "icon": "samsara_01",
     "level": 47,
     "type": "113,",
-    "value": 94,
-    "coast": 4700,
+    "value": 19200,
+    "coast": 4860,
     "sort": 5
   },
   {
@@ -2475,8 +2475,8 @@
     "icon": "samsara_01",
     "level": 48,
     "type": "113,",
-    "value": 96,
-    "coast": 4800,
+    "value": 19800,
+    "coast": 4860,
     "sort": 5
   },
   {
@@ -2485,8 +2485,8 @@
     "icon": "samsara_01",
     "level": 49,
     "type": "113,",
-    "value": 98,
-    "coast": 4900,
+    "value": 20400,
+    "coast": 4860,
     "sort": 5
   },
   {
@@ -2495,8 +2495,8 @@
     "icon": "samsara_01",
     "level": 50,
     "type": "113,",
-    "value": 100,
-    "coast": 5000,
+    "value": 21000,
+    "coast": 4860,
     "sort": 5
   },
   {
@@ -2506,7 +2506,7 @@
     "level": 1,
     "type": "114,",
     "value": 50,
-    "coast": 100,
+    "coast": 20,
     "sort": 6
   },
   {
@@ -2516,7 +2516,7 @@
     "level": 2,
     "type": "114,",
     "value": 100,
-    "coast": 200,
+    "coast": 20,
     "sort": 6
   },
   {
@@ -2526,7 +2526,7 @@
     "level": 3,
     "type": "114,",
     "value": 150,
-    "coast": 300,
+    "coast": 20,
     "sort": 6
   },
   {
@@ -2536,7 +2536,7 @@
     "level": 4,
     "type": "114,",
     "value": 200,
-    "coast": 400,
+    "coast": 20,
     "sort": 6
   },
   {
@@ -2546,7 +2546,7 @@
     "level": 5,
     "type": "114,",
     "value": 250,
-    "coast": 500,
+    "coast": 20,
     "sort": 6
   },
   {
@@ -2556,7 +2556,7 @@
     "level": 6,
     "type": "114,",
     "value": 300,
-    "coast": 600,
+    "coast": 20,
     "sort": 6
   },
   {
@@ -2566,7 +2566,7 @@
     "level": 7,
     "type": "114,",
     "value": 350,
-    "coast": 700,
+    "coast": 20,
     "sort": 6
   },
   {
@@ -2576,7 +2576,7 @@
     "level": 8,
     "type": "114,",
     "value": 400,
-    "coast": 800,
+    "coast": 20,
     "sort": 6
   },
   {
@@ -2586,7 +2586,7 @@
     "level": 9,
     "type": "114,",
     "value": 450,
-    "coast": 900,
+    "coast": 20,
     "sort": 6
   },
   {
@@ -2595,8 +2595,8 @@
     "icon": "samsara_01",
     "level": 10,
     "type": "114,",
-    "value": 500,
-    "coast": 1000,
+    "value": 525,
+    "coast": 60,
     "sort": 6
   },
   {
@@ -2605,8 +2605,8 @@
     "icon": "samsara_01",
     "level": 11,
     "type": "114,",
-    "value": 550,
-    "coast": 1100,
+    "value": 600,
+    "coast": 60,
     "sort": 6
   },
   {
@@ -2615,8 +2615,8 @@
     "icon": "samsara_01",
     "level": 12,
     "type": "114,",
-    "value": 600,
-    "coast": 1200,
+    "value": 675,
+    "coast": 60,
     "sort": 6
   },
   {
@@ -2624,89 +2624,89 @@
     "name": "迅捷",
     "icon": "samsara_01",
     "level": 13,
-    "type": "114,",
-    "value": 650,
-    "coast": 1300,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 14,
-    "type": "114,",
-    "value": 700,
-    "coast": 1400,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 15,
     "type": "114,",
     "value": 750,
-    "coast": 1500,
+    "coast": 60,
     "sort": 6
   },
   {
     "id": 6,
     "name": "迅捷",
     "icon": "samsara_01",
-    "level": 16,
+    "level": 14,
     "type": "114,",
-    "value": 800,
-    "coast": 1600,
+    "value": 825,
+    "coast": 60,
     "sort": 6
   },
   {
     "id": 6,
     "name": "迅捷",
     "icon": "samsara_01",
-    "level": 17,
-    "type": "114,",
-    "value": 850,
-    "coast": 1700,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 18,
+    "level": 15,
     "type": "114,",
     "value": 900,
-    "coast": 1800,
+    "coast": 60,
     "sort": 6
   },
   {
     "id": 6,
     "name": "迅捷",
     "icon": "samsara_01",
-    "level": 19,
+    "level": 16,
     "type": "114,",
-    "value": 950,
-    "coast": 1900,
+    "value": 975,
+    "coast": 60,
     "sort": 6
   },
   {
     "id": 6,
     "name": "迅捷",
     "icon": "samsara_01",
-    "level": 20,
-    "type": "114,",
-    "value": 1000,
-    "coast": 2000,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 21,
+    "level": 17,
     "type": "114,",
     "value": 1050,
-    "coast": 2100,
+    "coast": 60,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 18,
+    "type": "114,",
+    "value": 1125,
+    "coast": 60,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 19,
+    "type": "114,",
+    "value": 1225,
+    "coast": 180,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 20,
+    "type": "114,",
+    "value": 1325,
+    "coast": 180,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 21,
+    "type": "114,",
+    "value": 1425,
+    "coast": 180,
     "sort": 6
   },
   {
@@ -2715,8 +2715,8 @@
     "icon": "samsara_01",
     "level": 22,
     "type": "114,",
-    "value": 1100,
-    "coast": 2200,
+    "value": 1525,
+    "coast": 180,
     "sort": 6
   },
   {
@@ -2725,8 +2725,8 @@
     "icon": "samsara_01",
     "level": 23,
     "type": "114,",
-    "value": 1150,
-    "coast": 2300,
+    "value": 1625,
+    "coast": 180,
     "sort": 6
   },
   {
@@ -2735,8 +2735,8 @@
     "icon": "samsara_01",
     "level": 24,
     "type": "114,",
-    "value": 1200,
-    "coast": 2400,
+    "value": 1725,
+    "coast": 180,
     "sort": 6
   },
   {
@@ -2745,8 +2745,8 @@
     "icon": "samsara_01",
     "level": 25,
     "type": "114,",
-    "value": 1250,
-    "coast": 2500,
+    "value": 1825,
+    "coast": 180,
     "sort": 6
   },
   {
@@ -2755,8 +2755,8 @@
     "icon": "samsara_01",
     "level": 26,
     "type": "114,",
-    "value": 1300,
-    "coast": 2600,
+    "value": 1925,
+    "coast": 180,
     "sort": 6
   },
   {
@@ -2765,8 +2765,8 @@
     "icon": "samsara_01",
     "level": 27,
     "type": "114,",
-    "value": 1350,
-    "coast": 2700,
+    "value": 2025,
+    "coast": 180,
     "sort": 6
   },
   {
@@ -2774,209 +2774,209 @@
     "name": "迅捷",
     "icon": "samsara_01",
     "level": 28,
-    "type": "114,",
-    "value": 1400,
-    "coast": 2800,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 29,
-    "type": "114,",
-    "value": 1450,
-    "coast": 2900,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 30,
-    "type": "114,",
-    "value": 1500,
-    "coast": 3000,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 31,
-    "type": "114,",
-    "value": 1550,
-    "coast": 3100,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 32,
-    "type": "114,",
-    "value": 1600,
-    "coast": 3200,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 33,
-    "type": "114,",
-    "value": 1650,
-    "coast": 3300,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 34,
-    "type": "114,",
-    "value": 1700,
-    "coast": 3400,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 35,
-    "type": "114,",
-    "value": 1750,
-    "coast": 3500,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 36,
-    "type": "114,",
-    "value": 1800,
-    "coast": 3600,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 37,
-    "type": "114,",
-    "value": 1850,
-    "coast": 3700,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 38,
-    "type": "114,",
-    "value": 1900,
-    "coast": 3800,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 39,
-    "type": "114,",
-    "value": 1950,
-    "coast": 3900,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 40,
-    "type": "114,",
-    "value": 2000,
-    "coast": 4000,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 41,
-    "type": "114,",
-    "value": 2050,
-    "coast": 4100,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 42,
-    "type": "114,",
-    "value": 2100,
-    "coast": 4200,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 43,
     "type": "114,",
     "value": 2150,
-    "coast": 4300,
+    "coast": 540,
     "sort": 6
   },
   {
     "id": 6,
     "name": "迅捷",
     "icon": "samsara_01",
-    "level": 44,
+    "level": 29,
     "type": "114,",
-    "value": 2200,
-    "coast": 4400,
+    "value": 2275,
+    "coast": 540,
     "sort": 6
   },
   {
     "id": 6,
     "name": "迅捷",
     "icon": "samsara_01",
-    "level": 45,
-    "type": "114,",
-    "value": 2250,
-    "coast": 4500,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 46,
-    "type": "114,",
-    "value": 2300,
-    "coast": 4600,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 47,
-    "type": "114,",
-    "value": 2350,
-    "coast": 4700,
-    "sort": 6
-  },
-  {
-    "id": 6,
-    "name": "迅捷",
-    "icon": "samsara_01",
-    "level": 48,
+    "level": 30,
     "type": "114,",
     "value": 2400,
-    "coast": 4800,
+    "coast": 540,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 31,
+    "type": "114,",
+    "value": 2525,
+    "coast": 540,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 32,
+    "type": "114,",
+    "value": 2650,
+    "coast": 540,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 33,
+    "type": "114,",
+    "value": 2775,
+    "coast": 540,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 34,
+    "type": "114,",
+    "value": 2900,
+    "coast": 540,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 35,
+    "type": "114,",
+    "value": 3025,
+    "coast": 540,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 36,
+    "type": "114,",
+    "value": 3150,
+    "coast": 540,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 37,
+    "type": "114,",
+    "value": 3300,
+    "coast": 1620,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 38,
+    "type": "114,",
+    "value": 3450,
+    "coast": 1620,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 39,
+    "type": "114,",
+    "value": 3600,
+    "coast": 1620,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 40,
+    "type": "114,",
+    "value": 3750,
+    "coast": 1620,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 41,
+    "type": "114,",
+    "value": 3900,
+    "coast": 1620,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 42,
+    "type": "114,",
+    "value": 4050,
+    "coast": 1620,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 43,
+    "type": "114,",
+    "value": 4200,
+    "coast": 1620,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 44,
+    "type": "114,",
+    "value": 4350,
+    "coast": 1620,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 45,
+    "type": "114,",
+    "value": 4500,
+    "coast": 1620,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 46,
+    "type": "114,",
+    "value": 4650,
+    "coast": 4860,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 47,
+    "type": "114,",
+    "value": 4800,
+    "coast": 4860,
+    "sort": 6
+  },
+  {
+    "id": 6,
+    "name": "迅捷",
+    "icon": "samsara_01",
+    "level": 48,
+    "type": "114,",
+    "value": 4950,
+    "coast": 4860,
     "sort": 6
   },
   {
@@ -2985,8 +2985,8 @@
     "icon": "samsara_01",
     "level": 49,
     "type": "114,",
-    "value": 2450,
-    "coast": 4900,
+    "value": 5100,
+    "coast": 4860,
     "sort": 6
   },
   {
@@ -2995,138 +2995,138 @@
     "icon": "samsara_01",
     "level": 50,
     "type": "114,",
+    "value": 5250,
+    "coast": 4860,
+    "sort": 6
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 1,
+    "type": "110,",
+    "value": 167,
+    "coast": 20,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 2,
+    "type": "110,",
+    "value": 333,
+    "coast": 20,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 3,
+    "type": "110,",
+    "value": 500,
+    "coast": 20,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 4,
+    "type": "110,",
+    "value": 667,
+    "coast": 20,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 5,
+    "type": "110,",
+    "value": 833,
+    "coast": 20,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 6,
+    "type": "110,",
+    "value": 1000,
+    "coast": 20,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 7,
+    "type": "110,",
+    "value": 1167,
+    "coast": 20,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 8,
+    "type": "110,",
+    "value": 1333,
+    "coast": 20,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 9,
+    "type": "110,",
+    "value": 1500,
+    "coast": 20,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 10,
+    "type": "110,",
+    "value": 1750,
+    "coast": 60,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 11,
+    "type": "110,",
+    "value": 2000,
+    "coast": 60,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 12,
+    "type": "110,",
+    "value": 2250,
+    "coast": 60,
+    "sort": 7
+  },
+  {
+    "id": 7,
+    "name": "精准",
+    "icon": "samsara_01",
+    "level": 13,
+    "type": "110,",
     "value": 2500,
-    "coast": 5000,
-    "sort": 6
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 1,
-    "type": "110,",
-    "value": 10,
-    "coast": 100,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 2,
-    "type": "110,",
-    "value": 20,
-    "coast": 200,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 3,
-    "type": "110,",
-    "value": 30,
-    "coast": 300,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 4,
-    "type": "110,",
-    "value": 40,
-    "coast": 400,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 5,
-    "type": "110,",
-    "value": 50,
-    "coast": 500,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 6,
-    "type": "110,",
-    "value": 60,
-    "coast": 600,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 7,
-    "type": "110,",
-    "value": 70,
-    "coast": 700,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 8,
-    "type": "110,",
-    "value": 80,
-    "coast": 800,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 9,
-    "type": "110,",
-    "value": 90,
-    "coast": 900,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 10,
-    "type": "110,",
-    "value": 100,
-    "coast": 1000,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 11,
-    "type": "110,",
-    "value": 110,
-    "coast": 1100,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 12,
-    "type": "110,",
-    "value": 120,
-    "coast": 1200,
-    "sort": 7
-  },
-  {
-    "id": 7,
-    "name": "精准",
-    "icon": "samsara_01",
-    "level": 13,
-    "type": "110,",
-    "value": 130,
-    "coast": 1300,
+    "coast": 60,
     "sort": 7
   },
   {
@@ -3135,8 +3135,8 @@
     "icon": "samsara_01",
     "level": 14,
     "type": "110,",
-    "value": 140,
-    "coast": 1400,
+    "value": 2750,
+    "coast": 60,
     "sort": 7
   },
   {
@@ -3145,8 +3145,8 @@
     "icon": "samsara_01",
     "level": 15,
     "type": "110,",
-    "value": 150,
-    "coast": 1500,
+    "value": 3000,
+    "coast": 60,
     "sort": 7
   },
   {
@@ -3155,8 +3155,8 @@
     "icon": "samsara_01",
     "level": 16,
     "type": "110,",
-    "value": 160,
-    "coast": 1600,
+    "value": 3250,
+    "coast": 60,
     "sort": 7
   },
   {
@@ -3165,8 +3165,8 @@
     "icon": "samsara_01",
     "level": 17,
     "type": "110,",
-    "value": 170,
-    "coast": 1700,
+    "value": 3500,
+    "coast": 60,
     "sort": 7
   },
   {
@@ -3175,8 +3175,8 @@
     "icon": "samsara_01",
     "level": 18,
     "type": "110,",
-    "value": 180,
-    "coast": 1800,
+    "value": 3750,
+    "coast": 60,
     "sort": 7
   },
   {
@@ -3185,8 +3185,8 @@
     "icon": "samsara_01",
     "level": 19,
     "type": "110,",
-    "value": 190,
-    "coast": 1900,
+    "value": 4083,
+    "coast": 180,
     "sort": 7
   },
   {
@@ -3195,8 +3195,8 @@
     "icon": "samsara_01",
     "level": 20,
     "type": "110,",
-    "value": 200,
-    "coast": 2000,
+    "value": 4417,
+    "coast": 180,
     "sort": 7
   },
   {
@@ -3205,8 +3205,8 @@
     "icon": "samsara_01",
     "level": 21,
     "type": "110,",
-    "value": 210,
-    "coast": 2100,
+    "value": 4750,
+    "coast": 180,
     "sort": 7
   },
   {
@@ -3215,8 +3215,8 @@
     "icon": "samsara_01",
     "level": 22,
     "type": "110,",
-    "value": 220,
-    "coast": 2200,
+    "value": 5083,
+    "coast": 180,
     "sort": 7
   },
   {
@@ -3225,8 +3225,8 @@
     "icon": "samsara_01",
     "level": 23,
     "type": "110,",
-    "value": 230,
-    "coast": 2300,
+    "value": 5417,
+    "coast": 180,
     "sort": 7
   },
   {
@@ -3235,8 +3235,8 @@
     "icon": "samsara_01",
     "level": 24,
     "type": "110,",
-    "value": 240,
-    "coast": 2400,
+    "value": 5750,
+    "coast": 180,
     "sort": 7
   },
   {
@@ -3245,8 +3245,8 @@
     "icon": "samsara_01",
     "level": 25,
     "type": "110,",
-    "value": 250,
-    "coast": 2500,
+    "value": 6083,
+    "coast": 180,
     "sort": 7
   },
   {
@@ -3255,8 +3255,8 @@
     "icon": "samsara_01",
     "level": 26,
     "type": "110,",
-    "value": 260,
-    "coast": 2600,
+    "value": 6417,
+    "coast": 180,
     "sort": 7
   },
   {
@@ -3265,8 +3265,8 @@
     "icon": "samsara_01",
     "level": 27,
     "type": "110,",
-    "value": 270,
-    "coast": 2700,
+    "value": 6750,
+    "coast": 180,
     "sort": 7
   },
   {
@@ -3275,8 +3275,8 @@
     "icon": "samsara_01",
     "level": 28,
     "type": "110,",
-    "value": 280,
-    "coast": 2800,
+    "value": 7167,
+    "coast": 540,
     "sort": 7
   },
   {
@@ -3285,8 +3285,8 @@
     "icon": "samsara_01",
     "level": 29,
     "type": "110,",
-    "value": 290,
-    "coast": 2900,
+    "value": 7583,
+    "coast": 540,
     "sort": 7
   },
   {
@@ -3295,8 +3295,8 @@
     "icon": "samsara_01",
     "level": 30,
     "type": "110,",
-    "value": 300,
-    "coast": 3000,
+    "value": 8000,
+    "coast": 540,
     "sort": 7
   },
   {
@@ -3305,8 +3305,8 @@
     "icon": "samsara_01",
     "level": 31,
     "type": "110,",
-    "value": 310,
-    "coast": 3100,
+    "value": 8417,
+    "coast": 540,
     "sort": 7
   },
   {
@@ -3315,8 +3315,8 @@
     "icon": "samsara_01",
     "level": 32,
     "type": "110,",
-    "value": 320,
-    "coast": 3200,
+    "value": 8833,
+    "coast": 540,
     "sort": 7
   },
   {
@@ -3325,8 +3325,8 @@
     "icon": "samsara_01",
     "level": 33,
     "type": "110,",
-    "value": 330,
-    "coast": 3300,
+    "value": 9250,
+    "coast": 540,
     "sort": 7
   },
   {
@@ -3335,8 +3335,8 @@
     "icon": "samsara_01",
     "level": 34,
     "type": "110,",
-    "value": 340,
-    "coast": 3400,
+    "value": 9667,
+    "coast": 540,
     "sort": 7
   },
   {
@@ -3345,8 +3345,8 @@
     "icon": "samsara_01",
     "level": 35,
     "type": "110,",
-    "value": 350,
-    "coast": 3500,
+    "value": 10083,
+    "coast": 540,
     "sort": 7
   },
   {
@@ -3355,8 +3355,8 @@
     "icon": "samsara_01",
     "level": 36,
     "type": "110,",
-    "value": 360,
-    "coast": 3600,
+    "value": 10500,
+    "coast": 540,
     "sort": 7
   },
   {
@@ -3365,8 +3365,8 @@
     "icon": "samsara_01",
     "level": 37,
     "type": "110,",
-    "value": 370,
-    "coast": 3700,
+    "value": 11000,
+    "coast": 1620,
     "sort": 7
   },
   {
@@ -3375,8 +3375,8 @@
     "icon": "samsara_01",
     "level": 38,
     "type": "110,",
-    "value": 380,
-    "coast": 3800,
+    "value": 11500,
+    "coast": 1620,
     "sort": 7
   },
   {
@@ -3385,8 +3385,8 @@
     "icon": "samsara_01",
     "level": 39,
     "type": "110,",
-    "value": 390,
-    "coast": 3900,
+    "value": 12000,
+    "coast": 1620,
     "sort": 7
   },
   {
@@ -3395,8 +3395,8 @@
     "icon": "samsara_01",
     "level": 40,
     "type": "110,",
-    "value": 400,
-    "coast": 4000,
+    "value": 12500,
+    "coast": 1620,
     "sort": 7
   },
   {
@@ -3405,8 +3405,8 @@
     "icon": "samsara_01",
     "level": 41,
     "type": "110,",
-    "value": 410,
-    "coast": 4100,
+    "value": 13000,
+    "coast": 1620,
     "sort": 7
   },
   {
@@ -3415,8 +3415,8 @@
     "icon": "samsara_01",
     "level": 42,
     "type": "110,",
-    "value": 420,
-    "coast": 4200,
+    "value": 13500,
+    "coast": 1620,
     "sort": 7
   },
   {
@@ -3425,8 +3425,8 @@
     "icon": "samsara_01",
     "level": 43,
     "type": "110,",
-    "value": 430,
-    "coast": 4300,
+    "value": 14000,
+    "coast": 1620,
     "sort": 7
   },
   {
@@ -3435,8 +3435,8 @@
     "icon": "samsara_01",
     "level": 44,
     "type": "110,",
-    "value": 440,
-    "coast": 4400,
+    "value": 14500,
+    "coast": 1620,
     "sort": 7
   },
   {
@@ -3445,8 +3445,8 @@
     "icon": "samsara_01",
     "level": 45,
     "type": "110,",
-    "value": 450,
-    "coast": 4500,
+    "value": 15000,
+    "coast": 1620,
     "sort": 7
   },
   {
@@ -3455,8 +3455,8 @@
     "icon": "samsara_01",
     "level": 46,
     "type": "110,",
-    "value": 460,
-    "coast": 4600,
+    "value": 15500,
+    "coast": 4860,
     "sort": 7
   },
   {
@@ -3465,8 +3465,8 @@
     "icon": "samsara_01",
     "level": 47,
     "type": "110,",
-    "value": 470,
-    "coast": 4700,
+    "value": 16000,
+    "coast": 4860,
     "sort": 7
   },
   {
@@ -3475,8 +3475,8 @@
     "icon": "samsara_01",
     "level": 48,
     "type": "110,",
-    "value": 480,
-    "coast": 4800,
+    "value": 16500,
+    "coast": 4860,
     "sort": 7
   },
   {
@@ -3485,8 +3485,8 @@
     "icon": "samsara_01",
     "level": 49,
     "type": "110,",
-    "value": 490,
-    "coast": 4900,
+    "value": 17000,
+    "coast": 4860,
     "sort": 7
   },
   {
@@ -3495,8 +3495,8 @@
     "icon": "samsara_01",
     "level": 50,
     "type": "110,",
-    "value": 500,
-    "coast": 5000,
+    "value": 17500,
+    "coast": 4860,
     "sort": 7
   },
   {
@@ -3505,8 +3505,8 @@
     "icon": "samsara_01",
     "level": 1,
     "type": "111,",
-    "value": 10,
-    "coast": 100,
+    "value": 25,
+    "coast": 20,
     "sort": 8
   },
   {
@@ -3515,8 +3515,8 @@
     "icon": "samsara_01",
     "level": 2,
     "type": "111,",
-    "value": 20,
-    "coast": 200,
+    "value": 50,
+    "coast": 20,
     "sort": 8
   },
   {
@@ -3525,8 +3525,8 @@
     "icon": "samsara_01",
     "level": 3,
     "type": "111,",
-    "value": 30,
-    "coast": 300,
+    "value": 75,
+    "coast": 20,
     "sort": 8
   },
   {
@@ -3535,8 +3535,8 @@
     "icon": "samsara_01",
     "level": 4,
     "type": "111,",
-    "value": 40,
-    "coast": 400,
+    "value": 100,
+    "coast": 20,
     "sort": 8
   },
   {
@@ -3545,8 +3545,8 @@
     "icon": "samsara_01",
     "level": 5,
     "type": "111,",
-    "value": 50,
-    "coast": 500,
+    "value": 125,
+    "coast": 20,
     "sort": 8
   },
   {
@@ -3555,8 +3555,8 @@
     "icon": "samsara_01",
     "level": 6,
     "type": "111,",
-    "value": 60,
-    "coast": 600,
+    "value": 150,
+    "coast": 20,
     "sort": 8
   },
   {
@@ -3565,8 +3565,8 @@
     "icon": "samsara_01",
     "level": 7,
     "type": "111,",
-    "value": 70,
-    "coast": 700,
+    "value": 175,
+    "coast": 20,
     "sort": 8
   },
   {
@@ -3575,8 +3575,8 @@
     "icon": "samsara_01",
     "level": 8,
     "type": "111,",
-    "value": 80,
-    "coast": 800,
+    "value": 200,
+    "coast": 20,
     "sort": 8
   },
   {
@@ -3585,8 +3585,8 @@
     "icon": "samsara_01",
     "level": 9,
     "type": "111,",
-    "value": 90,
-    "coast": 900,
+    "value": 225,
+    "coast": 20,
     "sort": 8
   },
   {
@@ -3595,8 +3595,8 @@
     "icon": "samsara_01",
     "level": 10,
     "type": "111,",
-    "value": 100,
-    "coast": 1000,
+    "value": 263,
+    "coast": 60,
     "sort": 8
   },
   {
@@ -3605,8 +3605,8 @@
     "icon": "samsara_01",
     "level": 11,
     "type": "111,",
-    "value": 110,
-    "coast": 1100,
+    "value": 300,
+    "coast": 60,
     "sort": 8
   },
   {
@@ -3615,8 +3615,8 @@
     "icon": "samsara_01",
     "level": 12,
     "type": "111,",
-    "value": 120,
-    "coast": 1200,
+    "value": 338,
+    "coast": 60,
     "sort": 8
   },
   {
@@ -3625,8 +3625,8 @@
     "icon": "samsara_01",
     "level": 13,
     "type": "111,",
-    "value": 130,
-    "coast": 1300,
+    "value": 375,
+    "coast": 60,
     "sort": 8
   },
   {
@@ -3635,8 +3635,8 @@
     "icon": "samsara_01",
     "level": 14,
     "type": "111,",
-    "value": 140,
-    "coast": 1400,
+    "value": 413,
+    "coast": 60,
     "sort": 8
   },
   {
@@ -3645,8 +3645,8 @@
     "icon": "samsara_01",
     "level": 15,
     "type": "111,",
-    "value": 150,
-    "coast": 1500,
+    "value": 450,
+    "coast": 60,
     "sort": 8
   },
   {
@@ -3655,8 +3655,8 @@
     "icon": "samsara_01",
     "level": 16,
     "type": "111,",
-    "value": 160,
-    "coast": 1600,
+    "value": 488,
+    "coast": 60,
     "sort": 8
   },
   {
@@ -3665,8 +3665,8 @@
     "icon": "samsara_01",
     "level": 17,
     "type": "111,",
-    "value": 170,
-    "coast": 1700,
+    "value": 525,
+    "coast": 60,
     "sort": 8
   },
   {
@@ -3675,8 +3675,8 @@
     "icon": "samsara_01",
     "level": 18,
     "type": "111,",
-    "value": 180,
-    "coast": 1800,
+    "value": 563,
+    "coast": 60,
     "sort": 8
   },
   {
@@ -3685,8 +3685,8 @@
     "icon": "samsara_01",
     "level": 19,
     "type": "111,",
-    "value": 190,
-    "coast": 1900,
+    "value": 613,
+    "coast": 180,
     "sort": 8
   },
   {
@@ -3695,8 +3695,8 @@
     "icon": "samsara_01",
     "level": 20,
     "type": "111,",
-    "value": 200,
-    "coast": 2000,
+    "value": 663,
+    "coast": 180,
     "sort": 8
   },
   {
@@ -3705,8 +3705,8 @@
     "icon": "samsara_01",
     "level": 21,
     "type": "111,",
-    "value": 210,
-    "coast": 2100,
+    "value": 713,
+    "coast": 180,
     "sort": 8
   },
   {
@@ -3715,8 +3715,8 @@
     "icon": "samsara_01",
     "level": 22,
     "type": "111,",
-    "value": 220,
-    "coast": 2200,
+    "value": 763,
+    "coast": 180,
     "sort": 8
   },
   {
@@ -3725,8 +3725,8 @@
     "icon": "samsara_01",
     "level": 23,
     "type": "111,",
-    "value": 230,
-    "coast": 2300,
+    "value": 813,
+    "coast": 180,
     "sort": 8
   },
   {
@@ -3735,8 +3735,8 @@
     "icon": "samsara_01",
     "level": 24,
     "type": "111,",
-    "value": 240,
-    "coast": 2400,
+    "value": 863,
+    "coast": 180,
     "sort": 8
   },
   {
@@ -3745,8 +3745,8 @@
     "icon": "samsara_01",
     "level": 25,
     "type": "111,",
-    "value": 250,
-    "coast": 2500,
+    "value": 913,
+    "coast": 180,
     "sort": 8
   },
   {
@@ -3755,8 +3755,8 @@
     "icon": "samsara_01",
     "level": 26,
     "type": "111,",
-    "value": 260,
-    "coast": 2600,
+    "value": 963,
+    "coast": 180,
     "sort": 8
   },
   {
@@ -3765,8 +3765,8 @@
     "icon": "samsara_01",
     "level": 27,
     "type": "111,",
-    "value": 270,
-    "coast": 2700,
+    "value": 1013,
+    "coast": 180,
     "sort": 8
   },
   {
@@ -3775,8 +3775,8 @@
     "icon": "samsara_01",
     "level": 28,
     "type": "111,",
-    "value": 280,
-    "coast": 2800,
+    "value": 1075,
+    "coast": 540,
     "sort": 8
   },
   {
@@ -3785,8 +3785,8 @@
     "icon": "samsara_01",
     "level": 29,
     "type": "111,",
-    "value": 290,
-    "coast": 2900,
+    "value": 1138,
+    "coast": 540,
     "sort": 8
   },
   {
@@ -3795,8 +3795,8 @@
     "icon": "samsara_01",
     "level": 30,
     "type": "111,",
-    "value": 300,
-    "coast": 3000,
+    "value": 1200,
+    "coast": 540,
     "sort": 8
   },
   {
@@ -3805,8 +3805,8 @@
     "icon": "samsara_01",
     "level": 31,
     "type": "111,",
-    "value": 310,
-    "coast": 3100,
+    "value": 1263,
+    "coast": 540,
     "sort": 8
   },
   {
@@ -3815,8 +3815,8 @@
     "icon": "samsara_01",
     "level": 32,
     "type": "111,",
-    "value": 320,
-    "coast": 3200,
+    "value": 1325,
+    "coast": 540,
     "sort": 8
   },
   {
@@ -3825,8 +3825,8 @@
     "icon": "samsara_01",
     "level": 33,
     "type": "111,",
-    "value": 330,
-    "coast": 3300,
+    "value": 1388,
+    "coast": 540,
     "sort": 8
   },
   {
@@ -3835,8 +3835,8 @@
     "icon": "samsara_01",
     "level": 34,
     "type": "111,",
-    "value": 340,
-    "coast": 3400,
+    "value": 1450,
+    "coast": 540,
     "sort": 8
   },
   {
@@ -3845,8 +3845,8 @@
     "icon": "samsara_01",
     "level": 35,
     "type": "111,",
-    "value": 350,
-    "coast": 3500,
+    "value": 1513,
+    "coast": 540,
     "sort": 8
   },
   {
@@ -3855,8 +3855,8 @@
     "icon": "samsara_01",
     "level": 36,
     "type": "111,",
-    "value": 360,
-    "coast": 3600,
+    "value": 1575,
+    "coast": 540,
     "sort": 8
   },
   {
@@ -3865,8 +3865,8 @@
     "icon": "samsara_01",
     "level": 37,
     "type": "111,",
-    "value": 370,
-    "coast": 3700,
+    "value": 1650,
+    "coast": 1620,
     "sort": 8
   },
   {
@@ -3875,8 +3875,8 @@
     "icon": "samsara_01",
     "level": 38,
     "type": "111,",
-    "value": 380,
-    "coast": 3800,
+    "value": 1725,
+    "coast": 1620,
     "sort": 8
   },
   {
@@ -3885,8 +3885,8 @@
     "icon": "samsara_01",
     "level": 39,
     "type": "111,",
-    "value": 390,
-    "coast": 3900,
+    "value": 1800,
+    "coast": 1620,
     "sort": 8
   },
   {
@@ -3895,8 +3895,8 @@
     "icon": "samsara_01",
     "level": 40,
     "type": "111,",
-    "value": 400,
-    "coast": 4000,
+    "value": 1875,
+    "coast": 1620,
     "sort": 8
   },
   {
@@ -3905,8 +3905,8 @@
     "icon": "samsara_01",
     "level": 41,
     "type": "111,",
-    "value": 410,
-    "coast": 4100,
+    "value": 1950,
+    "coast": 1620,
     "sort": 8
   },
   {
@@ -3915,8 +3915,8 @@
     "icon": "samsara_01",
     "level": 42,
     "type": "111,",
-    "value": 420,
-    "coast": 4200,
+    "value": 2025,
+    "coast": 1620,
     "sort": 8
   },
   {
@@ -3925,8 +3925,8 @@
     "icon": "samsara_01",
     "level": 43,
     "type": "111,",
-    "value": 430,
-    "coast": 4300,
+    "value": 2100,
+    "coast": 1620,
     "sort": 8
   },
   {
@@ -3935,8 +3935,8 @@
     "icon": "samsara_01",
     "level": 44,
     "type": "111,",
-    "value": 440,
-    "coast": 4400,
+    "value": 2175,
+    "coast": 1620,
     "sort": 8
   },
   {
@@ -3945,8 +3945,8 @@
     "icon": "samsara_01",
     "level": 45,
     "type": "111,",
-    "value": 450,
-    "coast": 4500,
+    "value": 2250,
+    "coast": 1620,
     "sort": 8
   },
   {
@@ -3955,8 +3955,8 @@
     "icon": "samsara_01",
     "level": 46,
     "type": "111,",
-    "value": 460,
-    "coast": 4600,
+    "value": 2325,
+    "coast": 4860,
     "sort": 8
   },
   {
@@ -3965,8 +3965,8 @@
     "icon": "samsara_01",
     "level": 47,
     "type": "111,",
-    "value": 470,
-    "coast": 4700,
+    "value": 2400,
+    "coast": 4860,
     "sort": 8
   },
   {
@@ -3975,8 +3975,8 @@
     "icon": "samsara_01",
     "level": 48,
     "type": "111,",
-    "value": 480,
-    "coast": 4800,
+    "value": 2475,
+    "coast": 4860,
     "sort": 8
   },
   {
@@ -3985,8 +3985,8 @@
     "icon": "samsara_01",
     "level": 49,
     "type": "111,",
-    "value": 490,
-    "coast": 4900,
+    "value": 2550,
+    "coast": 4860,
     "sort": 8
   },
   {
@@ -3995,8 +3995,8 @@
     "icon": "samsara_01",
     "level": 50,
     "type": "111,",
-    "value": 500,
-    "coast": 5000,
+    "value": 2625,
+    "coast": 4860,
     "sort": 8
   }
 ]
