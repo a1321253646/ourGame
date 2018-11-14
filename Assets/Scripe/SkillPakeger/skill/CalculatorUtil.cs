@@ -203,6 +203,7 @@ public class CalculatorUtil
             }
             else if (id == 101)
             {
+                Debug.Log("mStr = " + mStr);
                 return tmp.mAttribute.defense;
             }
             else if (id == 102)

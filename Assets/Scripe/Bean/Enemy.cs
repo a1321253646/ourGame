@@ -31,6 +31,9 @@ public class Enemy
         List<FellObjectBean> tmp;
         fellList = getFellList();
         foreach(long id  in fellList){
+            if (id == 0) {
+                continue;
+            }
             tmp = JsonUtils.getIntance().getDropDevoiceByID(id).fell();
             if (tmp != null) {
                 list.AddRange(tmp);
