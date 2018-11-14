@@ -56,9 +56,19 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
         {
             mButton = GetComponentsInChildren<Button>()[1];
             mButton.onClick.AddListener(() => {
-                BackpackManager.getIntance().UpdateZhuangBei(mBean, updateCost, level);
+                BackpackManager.getIntance().UpdateZhuangBei(mBean, updateCost, level);              
             });
         }
-
+        if (mButton != null)
+        {
+            if (GameManager.getIntance().mCurrentCrystal >= updateCost)
+            {
+                mButton.interactable = true;
+            }
+            else
+            {
+                mButton.interactable = false;
+            }
+        }
     }
 }

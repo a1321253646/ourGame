@@ -44,7 +44,7 @@ public class FightManager{
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS ) {
 			GameManager.getIntance ().mHeroIsAlive = true;
 			GameManager.getIntance ().mCurrentLevel += 1;
-            GameManager.getIntance().enemyDeal(attcker);
+         //   GameManager.getIntance().enemyDeal(attcker);
             //    SceneManager.UnloadSceneAsync (0);    
             dieOrWin(true);
            // return;

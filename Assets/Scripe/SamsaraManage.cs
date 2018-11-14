@@ -8,13 +8,14 @@ public class SamsaraManage : MonoBehaviour {
     private Button mClose,mLunhuiClick;
     private SamSaraListControl mListControl;
     private Vector2 mFri;
-    private Text mLunhuiValue;
+    private Text mLunhuiValue, mLunhuiTx;
 
     private void Start()
     {
         mFri = gameObject.transform.localPosition;
         mLunhuiClick = GameObject.Find("lunhui_show_tip").GetComponent<Button>();
         mLunhuiValue = GameObject.Find("lunhui_show_tip_tx").GetComponent<Text>();
+        mLunhuiTx = GameObject.Find("lunhui_show_tip_tx2").GetComponent<Text>();
         mLunhuiClick.onClick.AddListener(() =>
         {
             BackpackManager.getIntance().showLunhuiTipUi();
@@ -59,6 +60,22 @@ public class SamsaraManage : MonoBehaviour {
         if (mListControl == null) {
             mListControl = GameObject.Find("lunhui_skill_list").GetComponent<SamSaraListControl>();
             mListControl.init();
+        }
+        if (mLunhuiClick == null) {
+            mLunhuiClick = GameObject.Find("lunhui_show_tip").GetComponent<Button>();
+        }
+        if (mLunhuiTx == null) {
+            mLunhuiTx = GameObject.Find("lunhui_show_tip_tx2").GetComponent<Text>();
+        }
+
+        float mix = JsonUtils.getIntance().getConfigValueForId(100017);
+        if (GameManager.getIntance().mCurrentLevel >= mix) {
+            mLunhuiClick.interactable = true;
+            mLunhuiTx.text = "";
+        }
+        else {
+            mLunhuiClick.interactable = false;
+            mLunhuiTx.text = "第" + mix + "关开启轮回功能";
         }
         mLunhuiValue.text = "当前拥有轮回点：" + GameManager.getIntance().mReincarnation;
         mListControl.isEnableLavelUp();
