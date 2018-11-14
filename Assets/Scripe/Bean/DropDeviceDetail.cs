@@ -36,13 +36,14 @@ public class DropDeviceDetail
                 if (dt.weight> obRange)
                 {
                     fell = dt;
+                    break;
                 }
                 else {
                     obRange -=(int) dt.weight;
                 }
             }
             
-            if (fell == null) {
+            if (fell == null || fell.itemId == 0) {
  //               Debug.Log("DropDeviceDetail fell null");
                 continue;
             }
