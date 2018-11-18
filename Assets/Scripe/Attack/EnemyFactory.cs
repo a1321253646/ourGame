@@ -50,7 +50,7 @@ public class EnemyFactory : MonoBehaviour {
 
 		timeCost += Time.deltaTime;
 
-		if (timeCost > mList[currentCount].time) {
+		if (timeCost*1000 > mList[currentCount].time) {
 			long id = mList [currentCount].id;
 		//	Debug.Log ("creat enemey id =" + id);
 			data = JsonUtils.getIntance ().getEnemyById (id);

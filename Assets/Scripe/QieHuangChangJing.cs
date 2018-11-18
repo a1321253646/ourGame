@@ -96,16 +96,18 @@ public class QieHuangChangJing : MonoBehaviour {
         }
 	}
 
-    public void run(int status) {
-        if (isStart) {
+    public void run(int status, bool isChange) {
+        if (isStart)
+        {
             return;
         }
 
-        GameManager.getIntance().isShowQieHuang = true;       
-        if(isAdd) {
-            friColor = 100;
+        GameManager.getIntance().isShowQieHuang = true;
+        if (isAdd)
+        {
+            friColor = 0;
             Color c = image.color;
-            c.a = friColor/255;
+            c.a = friColor / 255;
             image.color = c;
         }
         if (isAdd)
@@ -121,30 +123,30 @@ public class QieHuangChangJing : MonoBehaviour {
             {
                 imageTitle.sprite = mFaile;
             }
-            else if (status == 3) {
+            else if (status == 3)
+            {
                 c.a = 0;
                 imageTitle.color = c;
             }
         }
-        else {
+        else
+        {
             Color c = imageTitle.color;
             c.a = 0;
             imageTitle.color = c;
         }
-
-      //  mTimeText.text = "" + count;
-//        if (!isAdd) {
-        //    mTimeText.text = "";
-//            mTitle.text = "";
-//        }
-        show();
+        show(isChange);
     }
 
-    private void show() {
+    public void run(int status) {
+        run(status, true);
+    }
+
+    private void show(bool change) {
         gameObject.transform.localPosition = new Vector2(0, 0);
         mTime2 = 0;
         isEnd = false;
-        isStart = true;
+        isStart = change;
     }
     private void Dishow()
     {

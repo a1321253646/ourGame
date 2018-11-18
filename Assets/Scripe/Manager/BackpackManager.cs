@@ -302,4 +302,8 @@ public class BackpackManager
         mHeroControl.removeUi();
     //    mComposeControl.removeUi();
     }
+
+    public void updateCardBackShow() {
+        mCardControl.updateBack();
+    }
 }

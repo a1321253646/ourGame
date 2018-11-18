@@ -228,9 +228,10 @@ public class GoodControl : MonoBehaviour {
         }
         if (id != -1 && count > mMaxCout)
         {
+            value = count - mMaxCout;
             this.count = mMaxCout;
             text = "" + this.count;
-            value = count - mMaxCout;
+            
         }
         else if (count == 0) {
             text = "" ;

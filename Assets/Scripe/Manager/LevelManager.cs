@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour {
     public List<NengliangkuaiControl> mNengLiangKuai = new List<NengliangkuaiControl>();
 
     private bool isInit = false;
+    float cardTop = 0;
     public void init()
     {
         SQLHelper.getIntance().init();
@@ -28,7 +29,7 @@ public class LevelManager : MonoBehaviour {
 
         Vector3 tmp = PointUtils.screenTransToWorld(GameObject.Find("kapai_local_top").transform.position);
         Vector3 tmp2 = PointUtils.screenTransToWorld(GameObject.Find("kapai_local_bottom").transform.position);
-        float cardTop = tmp.y - tmp2.y;
+        cardTop = tmp.y - tmp2.y;
         mBackManager = new BackgroundManager();
         mFightManager = new FightManager();
         mLocalManager = new LocalManager();
@@ -36,7 +37,7 @@ public class LevelManager : MonoBehaviour {
         mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
 
         creaPlay(cardTop);
-        creatEnemyFactory(cardTop);
+      //  creatEnemyFactory(cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setLoclaManager(mLocalManager);
         BackpackManager.getIntance().init(this);
@@ -44,6 +45,8 @@ public class LevelManager : MonoBehaviour {
         mNengLiangKuai.Clear();
         initNengliangkuai();
         BackpackManager.getIntance().updateZhuangbeiItem();
+        SQLHelper.getIntance().updateOutTime();
+        mTime = 0;
         isInit = true;
        
     }
@@ -110,10 +113,15 @@ public class LevelManager : MonoBehaviour {
 	// Update is called once per frame
 	bool starBoss = false;
     public float nengLiangDian = 0;
-
+    public float mTime = 0; 
 	void Update () {
         if (!isInit) {
             return;
+        }
+        mTime += Time.deltaTime;
+        if (mTime > 60000) {
+            mTime = mTime - 60000;
+            SQLHelper.getIntance().updateOutTime();
         }
         mLocalManager.upData ();
 		if (!starBoss && GameManager.getIntance ().mStartBoss) {
@@ -166,13 +174,15 @@ public class LevelManager : MonoBehaviour {
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(hero.resource);
         Debug.Log("hero.resource idel_y= " + bean.idel_y);
 
-        GameObject newobj =  GameObject.Instantiate (Player, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100003), cardTop+ JsonUtils.getIntance().getConfigValueForId(100002)-bean.idel_y),
+        GameObject newobj =  GameObject.Instantiate (Player, new Vector2 (-7, 
+            cardTop+ JsonUtils.getIntance().getConfigValueForId(100002)-bean.idel_y),
 			Quaternion.Euler(0.0f,0.0f,0.0f));
 		newobj.transform.localScale.Set (JsonUtils.getIntance().getConfigValueForId(100005), JsonUtils.getIntance().getConfigValueForId(100005), 1);
         mPlayerControl = newobj.GetComponent<PlayControl>();
+        mPlayerControl.startGame();
 
     }
-	private void creatEnemyFactory(float cardTop)
+	public void creatEnemyFactory()
     {
 		GameObject newobj =  GameObject.Instantiate (enemyFactory, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100004), cardTop +JsonUtils.getIntance().getConfigValueForId(100002)),
 			Quaternion.Euler(0.0f,0f,0.0f));

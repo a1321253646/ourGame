@@ -34,7 +34,7 @@ public class CardUserOrUnUserControl : MonoBehaviour
         gameObject.transform.SetSiblingIndex(400);
         mClickShow = GameObject.Find("kapai_click");
         mWitch = mClickShow.transform.GetChild(0).transform.GetChild(0).GetComponent<RectTransform>().rect.width / 2;
-        Debug.Log("manager 卡牌宽度 " + mWitch);
+//        Debug.Log("manager 卡牌宽度 " + mWitch);
         HP_Parent = GameObject.Find("Canvas").transform;
     }
     private Vector3 offset;
@@ -56,12 +56,16 @@ public class CardUserOrUnUserControl : MonoBehaviour
         {
             if (clickHight > hight + 30)
             {
-                if (BackpackManager.getIntance().use(newBean, 1, TipControl.USE_CARD_TYPE))
-                {
-                    Destroy(mIndicator);
-                    Destroy(gameObject);
+              //  if (BackpackManager.getIntance().use(newBean, 1, TipControl.USE_CARD_TYPE))
+             //   {
+                    BackpackManager.getIntance().use(newBean, 1, TipControl.USE_CARD_TYPE);
+                       Destroy(mIndicator);
+                    //  Destroy(gameObject);
+                    init(null, -1, false);
+                    CardUiControl ui = mIndicator.GetComponent<CardUiControl>();
+                    ui.init(-1, 0, null);
                     return;
-                }
+             //   }
             }
         }
         else {
@@ -69,7 +73,11 @@ public class CardUserOrUnUserControl : MonoBehaviour
             {
                 BackpackManager.getIntance().use(newBean, 1, TipControl.UNUSE_CARD_TYPE);
                 Destroy(mIndicator);
-                Destroy(gameObject);
+                // Destroy(gameObject);
+                init(null, -1, false);
+                CardUiControl ui = mIndicator.GetComponent<CardUiControl>();
+                ui.init(-1, 0, null);
+                BackpackManager.getIntance().updateCardBackShow();
                 return;
             }
         }
@@ -88,7 +96,7 @@ public class CardUserOrUnUserControl : MonoBehaviour
         mClickV = Input.mousePosition;
         mClickV.z = 0;
         setStatus(STATUE_CARP_UP);
-        Debug.Log("mClickV.x " + mClickV.x+ " mClickV.y "+ mClickV.y);
+//        Debug.Log("mClickV.x " + mClickV.x+ " mClickV.y "+ mClickV.y);
         //Debug.Log("mManager.getUpLocalY() " + mManager.getUpLocalY() + " mManager.getTopLocalY() " + mManager.getTopLocalY());
         if (mIndicator != null)
         {
@@ -154,14 +162,19 @@ public class CardUserOrUnUserControl : MonoBehaviour
     {
         this.isUser = isUser;
         Debug.Log("init card id =" + cardId);
-        CardJsonBean card = JsonUtils.getIntance().getCardInfoById(cardId);
-        isInit = true;
         mManager = manage;
-        mCard = card;
-        mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);
-        EventTrigger tri = gameObject.AddComponent<EventTrigger>();
+        
+        EventTrigger tri = gameObject.AddComponent<EventTrigger>();        
+        if (cardId == -1) {
+            if (tri.triggers != null && tri.triggers.Count > 0) {
+                tri.triggers.Clear();
+            }
+            
+            isInit = false;
+            return;
+        }
+        isInit = true;
         tri.triggers = new List<EventTrigger.Entry>();
-
         EventTrigger.Entry entry1 = new EventTrigger.Entry();
         entry1.eventID = EventTriggerType.PointerDown;
         UnityAction<BaseEventData> callback1 = new UnityAction<BaseEventData>(OnpointDown);
@@ -189,6 +202,9 @@ public class CardUserOrUnUserControl : MonoBehaviour
             mImageTop = GetComponentsInChildren<Image>()[2];
         }
 
+        CardJsonBean card = JsonUtils.getIntance().getCardInfoById(cardId);
+        mCard = card;
+        mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);
     }
 
     public void deleteCard(int index)

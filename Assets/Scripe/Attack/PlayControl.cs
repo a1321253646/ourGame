@@ -22,28 +22,29 @@ public class PlayControl : Attacker
         setHeroData ();
         upLunhui();
         initEquip();
+        int count = 2;
         mFightManager.registerAttacker (this);
-      /*  if (InventoryHalper.getIntance().getInventorys().Count == 0 
+        if (InventoryHalper.getIntance().getInventorys().Count == 0 
             && InventoryHalper.getIntance().getUsercard().Count == 0
             && !GameManager.getIntance().isAddGoodForTest)
         {
             GameManager.getIntance().isAddGoodForTest = true;
-            BackpackManager.getIntance().addGoods(3000001, 1);
-            BackpackManager.getIntance().addGoods(3000002, 1);
-            BackpackManager.getIntance().addGoods(3000003, 1);
-            BackpackManager.getIntance().addGoods(3000004, 1);
-            BackpackManager.getIntance().addGoods(3000005, 1);
-            BackpackManager.getIntance().addGoods(3000006, 1);
-            BackpackManager.getIntance().addGoods(3000007, 1);
-            BackpackManager.getIntance().addGoods(3000008, 1);
-            BackpackManager.getIntance().addGoods(3000009, 1);
-            BackpackManager.getIntance().addGoods(3000010, 1);
-            BackpackManager.getIntance().addGoods(3000011, 1);
-            BackpackManager.getIntance().addGoods(3000012, 1);
-            BackpackManager.getIntance().addGoods(3000013, 1);
-            BackpackManager.getIntance().addGoods(3000014, 1);
-            BackpackManager.getIntance().addGoods(3000015, 1);
-        }*/
+            BackpackManager.getIntance().addGoods(3000001, count);
+            BackpackManager.getIntance().addGoods(3000002, count);
+            BackpackManager.getIntance().addGoods(3000003, count);
+            BackpackManager.getIntance().addGoods(3000004, count);
+            BackpackManager.getIntance().addGoods(3000005, count);
+            BackpackManager.getIntance().addGoods(3000006, count);
+            BackpackManager.getIntance().addGoods(3000007, count);
+            BackpackManager.getIntance().addGoods(3000008, count);
+            BackpackManager.getIntance().addGoods(3000009, count);
+            BackpackManager.getIntance().addGoods(3000010, count);
+            BackpackManager.getIntance().addGoods(3000011, count);
+            BackpackManager.getIntance().addGoods(3000012, count);
+            BackpackManager.getIntance().addGoods(3000013, count);
+            BackpackManager.getIntance().addGoods(3000014, count);
+            BackpackManager.getIntance().addGoods(3000015, count);
+        }
 
     }
     private void initAnimalEvent() {
@@ -79,6 +80,7 @@ public class PlayControl : Attacker
 
     public void initEquip(bool isAddSkill) {
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();
+        float bili = mBloodVolume/mAttribute.maxBloodVolume;
         mEquipAttribute.clear();
         foreach (PlayerBackpackBean bean in list)
         {
@@ -128,7 +130,7 @@ public class PlayControl : Attacker
            
         }
         getAttribute();
-        mBloodVolume = (int)mAttribute.maxBloodVolume;
+        mBloodVolume = (int)(mAttribute.maxBloodVolume* bili);
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
         upDataSpeed();
     }
@@ -306,25 +308,71 @@ public class PlayControl : Attacker
 
 	// Update is called once per frame
 	private float mTime = 0;
+    private bool isShowGuoChang = false;
 	void Update () {
         mTime += Time.deltaTime;
-        if (getStatus() != mFightManager.mHeroStatus && getStatus() != Attacker.PLAY_STATUS_STANDY) {
-			setStatus(mFightManager.mHeroStatus);
-			if (getStatus() == Attacker.PLAY_STATUS_FIGHT) {
-				Fight ();
-  //              Debug.Log(" Fight () ");             
-                mBackManager.stop ();
-			}
-			if (getStatus() == Attacker.PLAY_STATUS_RUN ) {
-				Run ();
-				mBackManager.move ();
-			}
-		}
+        //        Debug.Log(" isWin  ="+ isWin);
+        if (isWin)
+        {
+            winrun();
+            if (!isShowGuoChang && transform.position.x > 0)
+            {
+                isShowGuoChang = true;
+                mFightManager.dieOrWin(true,true);
+            }
+            // return;
+        }
+        else if (isStart)
+        {
+            winrun();
+            if (transform.position.x > JsonUtils.getIntance().getConfigValueForId(100003))
+            {
+                isStart = false;
+                mBackManager.move();
+                mLocalBean = new LocalBean(transform.position.x, transform.position.y, mAttackLeng, true, this);
+                mFightManager.registerAttacker(this);
+                mLevelManager.creatEnemyFactory();
+            }
+        }
+        else if (getStatus() != mFightManager.mHeroStatus && getStatus() != Attacker.PLAY_STATUS_STANDY)
+        {
+            setStatus(mFightManager.mHeroStatus);
+            if (getStatus() == Attacker.PLAY_STATUS_FIGHT)
+            {
+                Fight();
+                //              Debug.Log(" Fight () ");             
+                mBackManager.stop();
+            }
+            if (getStatus() == Attacker.PLAY_STATUS_RUN)
+            {
+                Run();
+                mBackManager.move();
+            }
+        }
+
         mSkillManager.upDate();
         mAnimalControl.update();
     }
-	void run(){
-		transform.Translate (new Vector2 (1, 0)*(mRunSpeed-mBackManager.moveSpeed)*Time.deltaTime);
+    private bool isWin = false;
+    public void win()
+    {
+        isWin = true;
+        setStatus(Attacker.PLAY_STATUS_RUN);
+        Run();
+        mBackManager.stop();
+        mFightManager.dieOrWin(true, false);
+    }
+    private bool isStart = false;
+    public void startGame() {
+        isStart = true;
+        mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
+        mBackManager = mLevelManager.getBackManager();
+        mBackManager.stop();
+    }
+
+    void winrun(){
+        Debug.Log(" run ");
+        transform.Translate (Vector2.right*(2*Time.deltaTime));
 	}
 	public override float BeAttack(HurtStatus status,Attacker hurter){
         //        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);

@@ -11,12 +11,14 @@ public class SQLHelper
     public long isAutoBoss = -1;
     public long mLunhuiValue = - 1;
     public long mMojing = -1;
+    public long mOutTime = -1;
 
     private long GAME_ID_LEVEL = 1;
     private long GAME_ID_HERO = 2;
     private long GAME_ID_AUTO = 3;
     private long GAME_ID_LUNHUI = 4;
     private long GAME_ID_MOJING = 5;
+    private long GAME_ID_TIME = 6;
 
 
     private long TYPE_GAME = 1;
@@ -58,6 +60,7 @@ public class SQLHelper
                 {
                     PlayerBackpackBean bean = getBeanFromStr(date.extan);
                     bean.goodId = date.id;
+                    Debug.Log("读取数据库  id= " +bean.goodId+" count ="+bean.count);
                     mALLGood.Add(bean);
                 }
                 else if (date.type == TYPE_ZHUANGBEI)
@@ -97,6 +100,10 @@ public class SQLHelper
                     {
                         mMojing = long.Parse(date.extan);
                         Debug.Log("读取数据库 mMojing" + mMojing);
+                    }
+                    else if (date.id == GAME_ID_TIME) {
+                        mOutTime = long.Parse(date.extan);
+                        Debug.Log("读取数据库 上次离线时间" + mMojing);
                     }
                 }
             }
@@ -269,6 +276,20 @@ public class SQLHelper
             updateGame(GAME_ID_LEVEL, value);
         }
     }
+    public void updateOutTime()
+    {
+        long value = TimeUtils.GetTimeStamp(); 
+        if (mOutTime == -1)
+        {
+            addGame(GAME_ID_TIME, value);
+            mOutTime = value;
+        }
+        else
+        {
+            updateGame(GAME_ID_TIME, value);
+        }
+    }
+
     public void updateHeroLevel(long value)
     {
         if (mHeroLevel == -1)

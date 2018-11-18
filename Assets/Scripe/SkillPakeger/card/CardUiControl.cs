@@ -11,6 +11,7 @@ public class CardUiControl : MonoBehaviour {
     public SkillJsonBean mSkill;
     private Image mImageTop;
     public CardJsonBean mCard;
+    public long mCardId = -1;
     public Text mCostCount, mSkillDec, mSkillName;
     CalculatorUtil calcuator;
     Attacker firer;
@@ -20,6 +21,13 @@ public class CardUiControl : MonoBehaviour {
     
     public void init(long cardId,int type, Attacker hero)
     {
+        mCardId = cardId;
+        if (cardId == -1)
+        {
+            transform.GetChild(0).localScale = new Vector3(0, 0, 1);
+            return;
+        }
+        
         firer = hero;
         //if (mCard == null) {
         CardJsonBean card1 = JsonUtils.getIntance().getCardInfoById(cardId);
@@ -116,6 +124,7 @@ public class CardUiControl : MonoBehaviour {
             mSkillDec.text = dec;
         }
     }
+    Vector3 mScale ;
     public void init(long cardId, float x, float y)
     {
         // float x = gameObject.GetComponent<RectTransform>().rect.width * gameObject.transform.localScale.x;
@@ -123,8 +132,9 @@ public class CardUiControl : MonoBehaviour {
         Transform ob = transform.GetChild(0).GetChild(0);
         float x1 = ob.gameObject.GetComponent<RectTransform>().rect.width;
         float y1 = ob.gameObject.gameObject.GetComponent<RectTransform>().rect.height;
-        Debug.Log("x= " + x + " y= " + y + " x1= " + x1 + " y1=" + y1 + " Bilix=" + (x / x1) + " Biliy=" + (y / y1));
-        transform.GetChild(0).localScale = new Vector3(x / x1, y / y1, 1);
+//        Debug.Log("x= " + x + " y= " + y + " x1= " + x1 + " y1=" + y1 + " Bilix=" + (x / x1) + " Biliy=" + (y / y1));
+        mScale = new Vector3(x / x1, y / y1, 1);
+        transform.GetChild(0).localScale = mScale;
     }
 
 }

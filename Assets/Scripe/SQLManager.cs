@@ -216,7 +216,7 @@ public class SQLManager : MonoBehaviour
         string commPath = "UPDATE " + tabName + " SET EXTAN=" + extan;
         commPath += " WHERE Type=" + type + " AND ID=" + id;
         ExecuteSQLCommand(commPath);
-        Debug.Log("更新数据成功!");
+      //  Debug.Log("更新数据成功!");
         return true;
     }
 

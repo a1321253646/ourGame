@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mSkill: {fileID: 0}
+  mCardId: -1
   mCostCount: {fileID: 0}
   mSkillDec: {fileID: 0}
   mSkillName: {fileID: 0}

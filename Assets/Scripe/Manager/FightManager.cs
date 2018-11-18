@@ -24,7 +24,14 @@ public class FightManager{
 	}
 
 	public void registerAttacker(Attacker attcker){
-		if (attcker.id != -1 || mAliveActtackers.ContainsKey(attcker.id)) {
+        if (mAliveActtackers.ContainsKey(attcker.id)) {
+            if (attcker.mLocalBean.mIsHero)
+            {
+                mLocalManager.setHeroLoacl(attcker.mLocalBean);
+                return;
+            }
+        }
+        else if (attcker.id != -1) {
 			Debug.Log ("registerAttacker:this attcker is register");
 			return;
 		}
@@ -39,20 +46,11 @@ public class FightManager{
 	}
 	public void unRegisterAttacker(Attacker attcker){
 
-
-
-        if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS ) {
-			GameManager.getIntance ().mHeroIsAlive = true;
-			GameManager.getIntance ().mCurrentLevel += 1;
-         //   GameManager.getIntance().enemyDeal(attcker);
-            //    SceneManager.UnloadSceneAsync (0);    
-            dieOrWin(true);
-           // return;
-		}else if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
+        if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
 			GameManager.getIntance ().mHeroIsAlive = false;
 			//SceneManager.UnloadSceneAsync (0);
             dieOrWin(false);
-          //  return;
+            //return;
         }
         if (attcker.id == -1 || mAliveActtackers.Count < 1)
         {
@@ -76,24 +74,43 @@ public class FightManager{
 			GameManager.getIntance ().enemyDeal (attcker);
             mLocalManager.EnemyDeal(attcker);
         }
-
-
-	}
-    private void dieOrWin(bool isWin) {
-        GameManager.getIntance().isEnd = true;
-        GameObject.Find("Manager").GetComponent<LevelManager>().getBackManager().stop() ;
-        if (!isWin)
+        if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
         {
-            foreach (Attacker a in mAliveActtackers.Values)
+            LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
+            level.mPlayerControl.win();
+            GameManager.getIntance().mHeroIsAlive = true;
+            GameManager.getIntance().mCurrentLevel += 1;
+            // return;
+        }
+
+    }
+    public void dieOrWin(bool isWin,bool isChange)
+    {
+        GameManager.getIntance().isEnd = true;
+        GameObject.Find("Manager").GetComponent<LevelManager>().getBackManager().stop();
+        foreach (Attacker a in mAliveActtackers.Values)
+        {
+            if (a is PlayControl)
             {
-                a.setStatus(ActionFrameBean.ACTION_STANDY);
+                continue;
             }
+            a.setStatus(ActionFrameBean.ACTION_STANDY);
+        }
+        if (isWin)
+        {
+            GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(isWin ? 1 : 2, isChange);
         }
         else {
-            GameObject.Find("Manager").GetComponent<LevelManager>().mPlayerControl.setStatus(ActionFrameBean.ACTION_WIN);
+            GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(isWin ? 1 : 2);
         }
-        GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(isWin?1:2);
         
+
+    }
+    public void dieOrWin(bool isWin) {
+        dieOrWin(isWin, true);
+    }
+    public void changeColor() {
+
     }
 /*	public void addAttacker(int myId,int beAttackerid){
 		

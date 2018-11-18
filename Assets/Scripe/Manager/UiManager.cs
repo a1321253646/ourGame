@@ -76,6 +76,8 @@ public class UiManager
 
         mAutoBoss.onClick.AddListener(() =>
         {
+
+            //Time.timeScale = 0;
             isAuto = !isAuto;
             clickAuto();
             GameManager.getIntance().setIsAutoBoss(isAuto);
@@ -105,8 +107,8 @@ public class UiManager
 		mHeroLvTv.text = "英雄等级:" + GameManager.getIntance ().mHeroLv +"级";
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
-        mLvUpCrystalTv.text = "升级消耗：魔晶" + GameManager.getIntance ().upLevelCrystal;
-		mCurrentCrystalTv.text = "拥有魔晶：" + GameManager.getIntance ().mCurrentCrystal;
+        mLvUpCrystalTv.text = "" + GameManager.getIntance ().upLevelCrystal;
+		mCurrentCrystalTv.text = "" + GameManager.getIntance ().mCurrentCrystal;
 
         if (GameManager.getIntance ().mCurrentCrystal >= GameManager.getIntance ().upLevelCrystal) {
 			mLvUpBt.interactable = true;
@@ -127,7 +129,7 @@ public class UiManager
 	}
 
 	public void addGasAndCrystal(){
-		mCurrentCrystalTv.text = "拥有魔晶：" + GameManager.getIntance ().mCurrentCrystal;
+		mCurrentCrystalTv.text = "" + GameManager.getIntance ().mCurrentCrystal;
         if (GameManager.getIntance ().mCurrentGas > GameManager.getIntance ().startBossGas) {
 			mGasTv.text =GameManager.getIntance ().startBossGas+ "/"+GameManager.getIntance ().startBossGas;
 			mStartBossGasSl.value = GameManager.getIntance ().startBossGas;
@@ -143,10 +145,21 @@ public class UiManager
             if (isAuto) {
                 startBoss();
             }
-        }
-       
+        }   
 	}
 
+    public void addGas() {
+        if (GameManager.getIntance().mCurrentGas > GameManager.getIntance().startBossGas)
+        {
+            mGasTv.text = GameManager.getIntance().startBossGas + "/" + GameManager.getIntance().startBossGas;
+            mStartBossGasSl.value = GameManager.getIntance().startBossGas;
+        }
+        else
+        {
+            mGasTv.text = GameManager.getIntance().mCurrentGas + "/" + GameManager.getIntance().startBossGas;
+            mStartBossGasSl.value = GameManager.getIntance().mCurrentGas;
+        }
+    }
 
 	public static void FlyTo(Graphic graphic)
 	{
@@ -182,5 +195,33 @@ public class UiManager
 	//	mLvUpBt.interactable = false;
 		
 	}
+    Vector2 mHuanjingVect = new Vector2(0,0);
+    Vector2 mGoodVect = new Vector2(0, 0);
+
+    public Vector2 mgetTarget(int type) {
+        if (type == DiaoluoDonghuaControl.GOOD_DIAOLUO_TYPE)
+        {           
+            if (mGoodVect.x == 0)
+            {
+                GameObject good = GameObject.Find("pack_ui");
+                Debug.Log("good.x = " + good.transform.position.y + " good.y=" + good.transform.position.y);
+                mGoodVect.x =good.transform.position.x;
+                mGoodVect.y =good.transform.position.y;
+            }
+            return mGoodVect;
+        }
+        else if (type == DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE)
+        {
+            
+            if (mHuanjingVect.x == 0)
+            {
+                GameObject hunjing = GameObject.Find("gas_sl_img");
+                mHuanjingVect.x =hunjing.transform.position.x;
+                mHuanjingVect.y = hunjing.transform.position.y;
+            }
+            return mHuanjingVect;
+        }
+        return new Vector2(0, 0);
+    }
 }
 

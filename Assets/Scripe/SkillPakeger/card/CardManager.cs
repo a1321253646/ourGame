@@ -61,7 +61,7 @@ public class CardManager : MonoBehaviour {
         }
         if (noUse == 0)
         {
-            Debug.Log("重置卡牌");
+//            Debug.Log("重置卡牌");
             //  foreach (CardUser card in mCardList)
             //{
             //     card.isUse = false;           

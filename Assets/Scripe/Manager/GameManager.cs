@@ -42,6 +42,7 @@ public class GameManager
     public int getUiLevel() {
         return ++uiLevel;
     }
+    private bool isHaveOutGet = true;
 	public void init(LevelManager levelmanage){
         if (!isInit)
         {
@@ -66,6 +67,20 @@ public class GameManager
             if (mCurrentCrystal == -1)
             {
                 mCurrentCrystal = SQLHelper.getIntance().mMojing;
+                if (mCurrentCrystal == -1)
+                {
+                    mCurrentCrystal = 0;
+                }
+               
+                if (isHaveOutGet) {
+                    isHaveOutGet = false;
+                    long old = SQLHelper.getIntance().mOutTime;
+                    if (old != -1) {
+                        old = TimeUtils.getTimeDistanceMin(old);
+                        mCurrentCrystal = mCurrentCrystal + old * (long)JsonUtils.getIntance().getConfigValueForId(100018);
+                        SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
+                    }
+                }
                 if (mCurrentCrystal == -1)
                 {
                     mCurrentCrystal = 0;
@@ -130,16 +145,31 @@ public class GameManager
                 foreach (FellObjectBean bean in list) {
                     Debug.Log("怪物死亡掉落 " + bean.id);
                     BackpackManager.getIntance().addGoods(bean.id, (int)bean.count);
+                    string path = InventoryHalper.getIntance().getIcon(bean.id);
+                    showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.GOOD_DIAOLUO_TYPE, path,0);
                 }
             }
-            
+
         }
 		mCurrentGas += enemy.mDieGas*JsonUtils.getIntance().getConfigValueForId(100009);
 		mCurrentCrystal += enemy.mDieCrysta * JsonUtils.getIntance().getConfigValueForId(100008);
-        SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
-        uiManager.addGasAndCrystal ();
-        BackpackManager.getIntance().upDataComposeControl();
+        uiManager.addGas();
+        showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", mCurrentGas);
 	}
+    public void updateGasAndCrystal() {
+        SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
+        uiManager.addGasAndCrystal();
+        BackpackManager.getIntance().upDataComposeControl();
+    }
+
+    private void  showDIaoLuo(EnemyBase e,int type,string path,float count) {
+        GameObject obj = Object.Instantiate(Resources.Load("prefab/diaoluodonghua")) as GameObject;//Resources.Load<GameObject>();
+        obj.transform.SetParent(GameObject.Find("enemyStatePlane").transform);
+        obj.transform.localScale =new  Vector3(1, 1, 1);
+        DiaoluoDonghuaControl control = obj.GetComponent<DiaoluoDonghuaControl>();
+        control.init(e, type, path, count);
+    }
+
     public void updataGasAndCrystal() {
         uiManager.addGasAndCrystal();
     }
