@@ -32,11 +32,13 @@ public class EnemyState{
 		HP_imageGameObjectClone.transform.position = EnemySceenPosition;
 		//GameObject.Instantiate (getEnemyPrefab(res), new Vector2 (transform.position.x, transform.position.y),Quaternion.Euler(0.0f,0f,0.0f));
 		 
-	} 
+	}
 	public void Update (){	  
 		PHFollowEnemy();  
-	}  
- 
+	}
+    public void delectBlood() {
+        GameObject.Destroy(HP_imageGameObjectClone);
+    }
 	public void hurt(HurtStatus status)
     {
 		mHpSl.value = mEnemy.mBloodVolume;

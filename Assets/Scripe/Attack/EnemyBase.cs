@@ -49,7 +49,14 @@ public class EnemyBase : Attacker {
         mAnimalControl.update();
         mSkillManager.upDate();
     }
-	private float xy = 0;
+
+    public void endDie()
+    {
+        setStatus(ActionFrameBean.ACTION_DIE);
+        mState.delectBlood();
+    }
+
+    private float xy = 0;
 	public void run(){
 		
 		mLocalBean.mCurrentX = transform.position.x;

@@ -137,9 +137,14 @@ public class UiManager
 			mGasTv.text =GameManager.getIntance().mCurrentGas+ "/"+GameManager.getIntance ().startBossGas;
 			mStartBossGasSl.value = GameManager.getIntance().mCurrentGas;
 		}
-		if (!mLvUpBt.IsInteractable() && GameManager.getIntance ().mCurrentCrystal >= GameManager.getIntance ().upLevelCrystal) {
-			mLvUpBt.interactable = true;
-		}
+        if (!mLvUpBt.IsInteractable() && GameManager.getIntance().mCurrentCrystal >= GameManager.getIntance().upLevelCrystal)
+        {
+            mLvUpBt.interactable = true;
+        }
+        else if(mLvUpBt.IsInteractable() && GameManager.getIntance().mCurrentCrystal < GameManager.getIntance().upLevelCrystal)
+        {
+            mLvUpBt.interactable = false;
+        }
 		if (!mStartBossBt.IsInteractable() && GameManager.getIntance ().mCurrentGas >= GameManager.getIntance ().startBossGas) {
 			mStartBossBt.interactable = true;
             if (isAuto) {
@@ -186,7 +191,8 @@ public class UiManager
 
 	private void startBoss(){
 		GameManager.getIntance ().mCurrentGas = 0;
-		Debug.Log ("startBoss");
+        addGasAndCrystal();
+        Debug.Log ("startBoss");
 		GameManager.getIntance ().startBoss ();
 		mStartBossBt.interactable = false;
 	}

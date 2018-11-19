@@ -94,7 +94,7 @@ public class FightManager{
             {
                 continue;
             }
-            a.setStatus(ActionFrameBean.ACTION_STANDY);
+            ((EnemyBase)a).endDie();
         }
         if (isWin)
         {
