@@ -45,10 +45,10 @@ public class AnimalControlBase
             AnimalStatu statu;
             if (mSpriteRender != null)
             {
-                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mSpriteRender, loop);
+                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mSpriteRender, loop, mResource.animation_speed);
             }
             else {
-                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mImage, loop);
+                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mImage, loop, mResource.animation_speed);
             }
             
             statu.setEndCallBack(mDefuleEndCallbak);

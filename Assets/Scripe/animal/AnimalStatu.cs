@@ -36,10 +36,12 @@ public class AnimalStatu
     private int mTimeCountIndex = 1;
     private float mCountTimeBackEach = -1;
     private float mCountTime = 0;
+    private float mSetSpeed = 1;
 
-    public AnimalStatu(int statue, int frame, string resultPath, SpriteRenderer spriteRender, bool isLoop)
+    public AnimalStatu(int statue, int frame, string resultPath, SpriteRenderer spriteRender, bool isLoop, float setSpeed)
     {
         mIsLopp = isLoop;
+        mSetSpeed = setSpeed;
         this.statue = statue;
         mSpriteRender = spriteRender;
         mFrameCount = frame;
@@ -58,11 +60,12 @@ public class AnimalStatu
             Sprite sprite = Resources.Load(path, typeof(Sprite)) as Sprite;
             spriteList.Add(sprite);
         }
-        eachTime = DEFAULT_EACH_TIME;
+        eachTime = DEFAULT_EACH_TIME/ mSetSpeed;
     }
-    public AnimalStatu(int statue, int frame, string resultPath, Image spriteRender, bool isLoop)
+    public AnimalStatu(int statue, int frame, string resultPath, Image spriteRender, bool isLoop, float setSpeed)
     {
         mIsLopp = isLoop;
+        mSetSpeed = setSpeed;
         this.statue = statue;
         mImageRender = spriteRender;
         mFrameCount = frame;
@@ -82,7 +85,7 @@ public class AnimalStatu
             Sprite sprite = Resources.Load("animal/" + mPathRoot + "/" + mPath + "/" + statue + "/" + index, typeof(Sprite)) as Sprite;
             spriteList.Add(sprite);
         }
-        eachTime = DEFAULT_EACH_TIME;
+        eachTime = DEFAULT_EACH_TIME/ mSetSpeed;
     }
 
 
@@ -166,12 +169,12 @@ public class AnimalStatu
         if (oneTime >= animalTime)
         {
             loopDelayTime = oneTime - animalTime;
-            eachTime = DEFAULT_EACH_TIME;
+            eachTime = DEFAULT_EACH_TIME/ mSetSpeed;
         }
         else
         {
             loopDelayTime = 0;
-            eachTime = oneTime / spriteList.Count;
+            eachTime = oneTime / spriteList.Count/ mSetSpeed ;
         }
 //        Debug.Log(" each == " + eachTime + " loopDelayTime= "+ loopDelayTime+ " speedDate="+ speedDate);
     }
@@ -195,7 +198,7 @@ public class AnimalStatu
     public void setTimeCountBack(long count, animalCountTimeCallback back) {
         this.timeBack = back;
         mTimeCount = count;
-        mCountTimeBackEach = eachTime * spriteList.Count / mTimeCount;
+        mCountTimeBackEach = eachTime * spriteList.Count / mTimeCount/ mSetSpeed;
         mCountTime = 0;
     }
     public void setEndCallBack(animalEnd end) {

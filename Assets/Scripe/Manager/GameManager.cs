@@ -77,7 +77,8 @@ public class GameManager
                     long old = SQLHelper.getIntance().mOutTime;
                     if (old != -1) {
                         old = TimeUtils.getTimeDistanceMin(old);
-                        mCurrentCrystal = mCurrentCrystal + old * (long)JsonUtils.getIntance().getConfigValueForId(100018);
+                        long levelCryStal = JsonUtils.getIntance().getLevelData(mCurrentLevel).offlinereward;
+                        mCurrentCrystal = mCurrentCrystal + old * levelCryStal;
                         SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
                     }
                 }

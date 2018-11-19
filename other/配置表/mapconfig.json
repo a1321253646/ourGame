@@ -1,0 +1,107 @@
+[
+  {
+    "resouce": "map_01",
+    "y_random": "-5.9,-1.9",
+    "y_base": -3.4
+  },
+  {
+    "resouce": "map_02",
+    "y_random": "-5.7,-2",
+    "y_base": -3.4
+  },
+  {
+    "resouce": "map_03",
+    "y_random": "-5,-2",
+    "y_base": -3
+  },
+  {
+    "resouce": "map_04",
+    "y_random": "-5,-2.7",
+    "y_base": -4
+  },
+  {
+    "resouce": "map_05",
+    "y_random": "-5,-2.9",
+    "y_base": -4
+  },
+  {
+    "resouce": "map_06",
+    "y_random": "-5.5,-2.5",
+    "y_base": -3.8
+  },
+  {
+    "resouce": "map_07",
+    "y_random": "-5.5,-2.5",
+    "y_base": -4.2
+  },
+  {
+    "resouce": "map_08",
+    "y_random": "-5.26,-1.44",
+    "y_base": -3.8
+  },
+  {
+    "resouce": "map_09",
+    "y_random": "-5.26,-1.44",
+    "y_base": -3.8
+  },
+  {
+    "resouce": "map_10",
+    "y_random": "-5.5,-2.5",
+    "y_base": -3.5
+  },
+  {
+    "resouce": "map_11",
+    "y_random": "-3.0,-0.4",
+    "y_base": -2
+  },
+  {
+    "resouce": "map_12",
+    "y_random": "-4,-1.66",
+    "y_base": -3.15
+  },
+  {
+    "resouce": "map_13",
+    "y_random": "-5.5,-2.87",
+    "y_base": -4.12
+  },
+  {
+    "resouce": "map_14",
+    "y_random": "-5,-2",
+    "y_base": -3.8
+  },
+  {
+    "resouce": "map_15",
+    "y_random": "-5,-2.5",
+    "y_base": -4.43
+  },
+  {
+    "resouce": "map_16",
+    "y_random": "-5.5,-1.83",
+    "y_base": -4.15
+  },
+  {
+    "resouce": "map_17",
+    "y_random": "-5.5,-1.83",
+    "y_base": -4.15
+  },
+  {
+    "resouce": "map_18",
+    "y_random": "-5.5,-3",
+    "y_base": -4.46
+  },
+  {
+    "resouce": "map_19",
+    "y_random": "-5.5,-3",
+    "y_base": -4.94
+  },
+  {
+    "resouce": "map_20",
+    "y_random": "-4.8,-0.99",
+    "y_base": -2.79
+  },
+  {
+    "resouce": "map_21",
+    "y_random": "-4.84,-1.99",
+    "y_base": -4.31
+  }
+]

@@ -12,5 +12,6 @@ public class Level
 	public string boss_bg;
 	public string abc;
 	public long reincarnation;
+	public long offlinereward;
 }
 

@@ -17,6 +17,7 @@ public class ResourceBean
     public string target_border;
     public string action_list;
     public string action_frame;
+    public float animation_speed;
     public Point BloodOffset,HurtOffset,FightOffset;
     private List<ActionFrameBean> mActionFrame;
     private List<float> mTargetBorder;
