@@ -30,6 +30,10 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
         }
     }
 
+    public void init() {
+        init(mBean);
+    }
+
     public void init(PlayerBackpackBean bean) {
         mBean = bean;
         if (mGoodControl == null) {

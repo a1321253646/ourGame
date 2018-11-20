@@ -13,14 +13,25 @@ public class EnemyFactory : MonoBehaviour {
 	private bool isCreat = true;
 	private bool startBoss = false;
 	private GameObject canvas;
-	// Use this for initialization
-	void Start () {
+    private MapConfigBean mMapConfig = null;
+    private float mBottom = 0;
+    float mHeroX = 0;
+    float mHeroY = 0;
+    // Use this for initialization
+    void Start () {
 		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
 		mFight = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager ();
 		canvas = GameObject.Find ("Canvas");
 		mList = JsonUtils.getIntance ().getWellenEnemy ();
 	}
-	
+
+    public void setMapConfig(MapConfigBean map,float bottom,float x,float y) {
+        mMapConfig = map;
+        mBottom = bottom;
+        mHeroX = x;
+        mHeroY = y;
+    }
+
 	// Update is called once per frame
 	void Update () {
 		if (startBoss) {
@@ -73,7 +84,7 @@ public class EnemyFactory : MonoBehaviour {
 		ResourceBean bean = JsonUtils.getIntance ().getEnemyResourceData (data.resource);
 		string res = bean.name;
 		GameObject newobj =  GameObject.Instantiate (
-            game, new Vector2 (transform.position.x, transform.position.y- bean.idel_y),Quaternion.Euler(0.0f,0f,0.0f));
+            game, new Vector2 (transform.position.x, getYRamdom()- bean.idel_y),Quaternion.Euler(0.0f,0f,0.0f));
 		EnemyBase enmey = newobj.GetComponent<EnemyBase> ();
 		enmey.init (data,bean);
 		if (isBoss) {
@@ -82,7 +93,12 @@ public class EnemyFactory : MonoBehaviour {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_ENEMY;
 		}
         enmey.mCampType = Attacker.CAMP_TYPE_MONSTER;
-//		enmey.dieCrystal = enmey.g
-//newobj.transform.rotation.y
+        enmey.setTarget(new Vector2(mHeroX, mHeroY));
+    }
+    private float getYRamdom() {
+        float y = Random.Range(mMapConfig.y_min+ mBottom, mMapConfig.y_max+ mBottom);
+        Debug.Log("==================getYRamdom  y = " + y+ " mBottom="+ mBottom);
+
+        return y;
     }
 }

@@ -13,6 +13,7 @@ public class GoodControl : MonoBehaviour {
 
 
     private Image mImage;
+    private Image mBack;
     private Text mText;
     private Text mLv;
     public long id = -1;
@@ -25,6 +26,7 @@ public class GoodControl : MonoBehaviour {
     {
  //       Debug.Log("GoodControl Start id = " + id );
         mImage = GetComponentsInChildren<Image>()[1];
+        mBack = GetComponentsInChildren<Image>()[0];
         mText = GetComponentsInChildren<Text>()[0];
         mBt = GetComponent<Button>();
         mLv = GetComponentsInChildren<Text>()[1];
@@ -96,12 +98,13 @@ public class GoodControl : MonoBehaviour {
         this.id = id;
         if (mImage != null && id != -1)
         {
-
+            string back = "ui_new/box_gride";
           //  if (img == null) {
                 if (bean.tabId == TABID_EQUIP_TYPY)
                 {
                     img = BackpackManager.getIntance().getAccouterInfoById(id).icon;
                     mMaxCout = BackpackManager.getIntance().getAccouterInfoById(id).stacking;
+                back = "ui_new/box_gride0" + BackpackManager.getIntance().getAccouterInfoById(id).quality;
                 }
                 else if (bean.tabId == TABID_ITEM_TYPE)
                 {
@@ -120,10 +123,14 @@ public class GoodControl : MonoBehaviour {
             mImage.sprite = Resources.
                 Load("backpackIcon/" + img, typeof(Sprite)) as Sprite;
             mImage.color = Color.white;
+            mBack.sprite = Resources.
+                Load(back, typeof(Sprite)) as Sprite;
         }
         else if (mImage != null && id == -1) {
             mImage.sprite = null;
             mImage.color = Color.clear;
+            mBack.sprite = Resources.
+                Load("ui_new/box_gride", typeof(Sprite)) as Sprite;
         }
         long level = 0;
         if (bean != null && bean.attributeList != null && bean.attributeList.Count > 0) {

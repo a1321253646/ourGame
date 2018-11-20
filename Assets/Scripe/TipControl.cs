@@ -54,10 +54,28 @@ public class TipControl : MonoBehaviour {
     private void use()
     {
         if (mCurrentType != SHOW_COMPOSE_TYPE) {
-            BackpackManager.getIntance().use(mBean, count, mCurrentType);
+            if (BackpackManager.getIntance().use(mBean, count, mCurrentType))
+            {
+                removeUi();
+            }
+            else {
+                if (mCurrentType == USE_TYPE) {
+                    GameObject obj = Resources.Load<GameObject>("prefab/hurt");
+                    Vector3 v1 = mActionClick.transform.position;
+                    GameObject text = GameObject.Instantiate(obj,
+                        new Vector2(v1.x, v1.y), Quaternion.identity);
+                    Transform hp = GameObject.Find("Canvas").transform;
+                    text.transform.SetParent(hp);
+                    Text tv = text.GetComponent<Text>();
+                    tv.text = "已装备全部装备，请先脱下一件";
+                    tv.color = Color.red;
+                    tv.fontSize = 30;
+                    UiManager.FlyTo(tv);
+                }
+            }
         }
         
-        removeUi();
+        
     }
 
     public void setShowData(PlayerBackpackBean bean,long count,int type) {
@@ -130,6 +148,8 @@ public class TipControl : MonoBehaviour {
         }
         if (mBean.tabId == GoodControl.TABID_EQUIP_TYPY)
         {
+            mGoodJson = null;
+            mCardJson = null;
             mAccouter = JsonUtils.getIntance().getAccouterInfoById(id);
             img = mAccouter.icon;
             name = mAccouter.name;
@@ -137,12 +157,16 @@ public class TipControl : MonoBehaviour {
         
         else if (mBean.tabId == GoodControl.TABID_ITEM_TYPE)
         {
+            mAccouter = null;
+            mCardJson = null;
             mGoodJson = JsonUtils.getIntance().getGoodInfoById(id);
             img = mGoodJson.icon;
             name = mGoodJson.name;
         }
         else if (mBean.tabId == GoodControl.TABID_CARD_TYPE)
         {
+            mAccouter = null;
+            mGoodJson = null;
             mCardJson = JsonUtils.getIntance().getCardInfoById(id);
             img = mCardJson.icon;
             name = mCardJson.name;
@@ -169,10 +193,40 @@ public class TipControl : MonoBehaviour {
         }
         if (mAccouter != null && mBean.attributeList != null && mBean.attributeList.Count > 0) {
             str = "";
+            AccouterJsonBean aJson = JsonUtils.getIntance().getAccouterInfoById(mBean.goodId);
+            List<EquipKeyAndValue> key = aJson.getAttributeList();
+            long level = 0;
+            List<PlayerAttributeBean> affixList = new List<PlayerAttributeBean>();
+            foreach (PlayerAttributeBean b in mBean.attributeList) {
+                if (b.type == 10001)
+                {
+                    level = b.value;
+                }
+                else if(b.getTypeStr() == null && b.type != 10002) {
+                    affixList.Add(b);
+                }
+            }
+            str = "<color=#FF49FAFF>基础属性</color>\n";
             foreach (PlayerAttributeBean b in mBean.attributeList) {
                 if (b.getTypeStr() != null) {
-                    str = str + b.getTypeStr() + ":" + b.value + "\n";
+                    foreach (EquipKeyAndValue e in key) {
+                        if (e.key == b.type) {
+                            str = str + b.getTypeStr() + ":" + e.value;
+                            break;
+                        }                        
+                    }
+                    if (level != 0) {
+                        str = str + "<color=#00FF01FF>+" + aJson.getStrengthenByLevel(b.type, level)+ "</color>";
+                    }
+                    str = str+ "\n";
                 }              
+            }
+            if (affixList.Count > 0) {
+                str = str+ "<color=#FF49FAFF>特殊属性</color>\n";
+                foreach (PlayerAttributeBean b in affixList) {
+                    AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
+                    str = str + a.dec +":"+ (b.value / 100) + "%";
+                }
             }
         }
         if (mCardJson != null) {

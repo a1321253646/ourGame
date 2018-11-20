@@ -145,11 +145,15 @@ public class FightManager{
                 }
                 
             }
-			for (int i = 0; i < attacker.mAttackerTargets.Count; i++) {
-				Attacker tager = attacker.mAttackerTargets [i];
+			for (int i = 0; i < attacker.mAttackerTargets.Count; ) {
+                int size = attacker.mAttackerTargets.Count;
+                Attacker tager = attacker.mAttackerTargets [i];
 				hurtBlood = attackBllod (attacker, tager);
 				tager.BeAttack (hurtBlood, attacker);
 				hurtBloodAll += hurtBlood.blood;
+                if (size == attacker.mAttackerTargets.Count) {
+                    i++;
+                }
 			}
 			return hurtBloodAll;
 		}

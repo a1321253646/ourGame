@@ -1,107 +1,128 @@
 [
   {
     "resouce": "map_01",
-    "y_random": "-5.9,-1.9",
-    "y_base": -3.4
+    "y_min": -3.31,
+    "y_max": -0.97,
+    "y_base": -2.4
   },
   {
     "resouce": "map_02",
-    "y_random": "-5.7,-2",
-    "y_base": -3.4
+    "y_min": -3.5,
+    "y_max": -0.98,
+    "y_base": -2.6
   },
   {
     "resouce": "map_03",
-    "y_random": "-5,-2",
-    "y_base": -3
+    "y_min": -3.11,
+    "y_max": -1.09,
+    "y_base": -2.19
   },
   {
     "resouce": "map_04",
-    "y_random": "-5,-2.7",
-    "y_base": -4
+    "y_min": -3.46,
+    "y_max": -1.64,
+    "y_base": -2.64
   },
   {
     "resouce": "map_05",
-    "y_random": "-5,-2.9",
-    "y_base": -4
+    "y_min": -3.57,
+    "y_max": -1.91,
+    "y_base": -2.83
   },
   {
     "resouce": "map_06",
-    "y_random": "-5.5,-2.5",
-    "y_base": -3.8
+    "y_min": -3.57,
+    "y_max": -1.76,
+    "y_base": -2.8
   },
   {
     "resouce": "map_07",
-    "y_random": "-5.5,-2.5",
-    "y_base": -4.2
+    "y_min": -3.57,
+    "y_max": -1.56,
+    "y_base": -2.65
   },
   {
     "resouce": "map_08",
-    "y_random": "-5.26,-1.44",
-    "y_base": -3.8
+    "y_min": -3.19,
+    "y_max": -0.9,
+    "y_base": -2.46
   },
   {
     "resouce": "map_09",
-    "y_random": "-5.26,-1.44",
-    "y_base": -3.8
+    "y_min": -3.19,
+    "y_max": -0.9,
+    "y_base": -2.46
   },
   {
     "resouce": "map_10",
-    "y_random": "-5.5,-2.5",
-    "y_base": -3.5
+    "y_min": -3.22,
+    "y_max": -1.72,
+    "y_base": -2.57
   },
   {
     "resouce": "map_11",
-    "y_random": "-3.0,-0.4",
-    "y_base": -2
+    "y_min": -2.18,
+    "y_max": -0.51,
+    "y_base": -1.89
   },
   {
     "resouce": "map_12",
-    "y_random": "-4,-1.66",
-    "y_base": -3.15
+    "y_min": -2.6,
+    "y_max": -1.18,
+    "y_base": -1.89
   },
   {
     "resouce": "map_13",
-    "y_random": "-5.5,-2.87",
-    "y_base": -4.12
+    "y_min": -3.32,
+    "y_max": -1.7,
+    "y_base": -2.43
   },
   {
     "resouce": "map_14",
-    "y_random": "-5,-2",
-    "y_base": -3.8
+    "y_min": -3.32,
+    "y_max": -1.29,
+    "y_base": -2.19
   },
   {
     "resouce": "map_15",
-    "y_random": "-5,-2.5",
-    "y_base": -4.43
+    "y_min": -3.38,
+    "y_max": -1.49,
+    "y_base": -2.74
   },
   {
     "resouce": "map_16",
-    "y_random": "-5.5,-1.83",
-    "y_base": -4.15
+    "y_min": -3.57,
+    "y_max": -1.35,
+    "y_base": -2.49
   },
   {
     "resouce": "map_17",
-    "y_random": "-5.5,-1.83",
-    "y_base": -4.15
+    "y_min": -3.57,
+    "y_max": -1.35,
+    "y_base": -2.49
   },
   {
     "resouce": "map_18",
-    "y_random": "-5.5,-3",
-    "y_base": -4.46
+    "y_min": -3.57,
+    "y_max": -1.89,
+    "y_base": -2.68
   },
   {
     "resouce": "map_19",
-    "y_random": "-5.5,-3",
-    "y_base": -4.94
+    "y_min": -3.57,
+    "y_max": -2.09,
+    "y_base": -2.85
   },
   {
     "resouce": "map_20",
-    "y_random": "-4.8,-0.99",
-    "y_base": -2.79
+    "y_min": -3.57,
+    "y_max": -0.58,
+    "y_base": -1.87
   },
   {
     "resouce": "map_21",
-    "y_random": "-4.84,-1.99",
-    "y_base": -4.31
+    "y_min": -3.57,
+    "y_max": -1.36,
+    "y_base": -2.69
   }
 ]

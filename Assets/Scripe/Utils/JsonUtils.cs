@@ -61,12 +61,14 @@ public class JsonUtils
     List<SkillJsonBean> mSkillDate;
     List<CardJsonBean> mCardDate;
     List<AffixJsonBean> mAffixDate;
+    List<MapConfigBean> mMapDate;
     Dictionary<long, SamsaraJsonBean> mSamsaraDate = new Dictionary<long, SamsaraJsonBean>();
     private JsonUtils() {
         readAllFile();
     }
 
     public void readAllFile() {
+        readMapInfoInfo();
         readResource();
         readConfig();
         readHeroData();
@@ -115,13 +117,17 @@ public class JsonUtils
         string str = loadFile(Application.dataPath + "/Resources", fileName);
         //string str = Resources.Load<TextAsset>(  fileName).text;
         Debug.Log("readFile :" + fileName + "\n " + str);
-
         return str;
     }
     private void readSkillInfo()
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(skillFile));
         mSkillDate = arrdata.ToObject<List<SkillJsonBean>>();
+    }
+    private void readMapInfoInfo()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(mapConfigFile));
+        mMapDate = arrdata.ToObject<List<MapConfigBean>>();
     }
     private void readCardInfo()
     {
@@ -183,6 +189,15 @@ public class JsonUtils
     }
     public Dictionary<long, SamsaraJsonBean> getSamsaraInfo(){
         return mSamsaraDate;
+    }
+
+    public MapConfigBean getMapConfigByResource(string map) {
+        foreach (MapConfigBean mf in mMapDate) {
+            if (mf.resouce.Equals(map)) {
+                return mf;
+            }
+        }
+        return null;
     }
 
     public SamsaraJsonBean getSamsaraInfoById(long id) {

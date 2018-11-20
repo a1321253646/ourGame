@@ -123,19 +123,22 @@ public class BackpackManager
         GameManager.getIntance().updataGasAndCrystal();
         mInvertoryControl.update();
         mHeroControl.upDateUi();
-        updateZhuangbeiItem();
+        updateZhuangbeiItem(false);
         mLevel.mPlayerControl.initEquip(false);
 
     }
     public bool use(PlayerBackpackBean bean, long count,int type) {
         if (type == TipControl.USE_TYPE)
         {
-            InventoryHalper.getIntance().use(bean, count);
+            bool isUsed = InventoryHalper.getIntance().use(bean, count);
+            if (!isUsed) {
+                return false;
+            }
             mInvertoryControl.update();
             Debug.Log("TipControl.USE_TYPE");
             mLevel.ChangeEquip(bean,true);
             mHeroControl.upDateUi();
-            updateZhuangbeiItem();
+            updateZhuangbeiItem(true);
         }
         else if (type == TipControl.UNUSE_TYPE)
         {
@@ -143,7 +146,7 @@ public class BackpackManager
             mInvertoryControl.update();
             mLevel.ChangeEquip(bean,false);
             mHeroControl.upDateUi();
-            updateZhuangbeiItem();
+            updateZhuangbeiItem(true);
         }
         else if (type == TipControl.COMPOSE_TYPE)
         {
@@ -207,8 +210,8 @@ public class BackpackManager
         upDataComposeControl();
     }
 
-    public void updateZhuangbeiItem() {
-        mZhuangbeiShowControl.upDate();
+    public void updateZhuangbeiItem(bool isDelete) {
+        mZhuangbeiShowControl.upDate(isDelete);
     }
 
     public void upDataComposeControl() {

@@ -14,30 +14,41 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
     void Start () {
        
     }
-    public void upDate() {
+
+    public void upDate(bool isDelete) {
         if (mZhuangbeiList == null) {
             mZhuangbeiList = GameObject.Find("zhuangbei_update").GetComponent<HorizontalLayoutGroup>();
         }
         List<PlayerBackpackBean>  list  = InventoryHalper.getIntance().getRoleUseList();
-        if (mItemGameObjectList.Count > 0) {
+        if (isDelete && mItemGameObjectList.Count > 0) {
             for (int i = 0; i < mItemGameObjectList.Count;) {
                 GameObject ob = mItemGameObjectList[i];
                 mItemGameObjectList.Remove(ob);
                 Destroy(ob);
             }
         }
-        mItemGameObjectList.Clear();
-        foreach (PlayerBackpackBean b in list) {
-            GameObject ob = GameObject.Instantiate(Item,
-                 new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            float witch = ob.GetComponent<RectTransform>().rect.width;
-            ob.transform.parent = mZhuangbeiList.transform;
-            ob.transform.localScale = new Vector3(1, 1, 1);
-            ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-            ob.GetComponent<ZhuangBeiItemShowControl>().init(b);
-            mItemGameObjectList.Add(ob);
+        if (isDelete)
+        {
+            mItemGameObjectList.Clear();
+            foreach (PlayerBackpackBean b in list)
+            {
+                GameObject ob = GameObject.Instantiate(Item,
+                     new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                float witch = ob.GetComponent<RectTransform>().rect.width;
+                ob.transform.parent = mZhuangbeiList.transform;
+                ob.transform.localScale = new Vector3(1, 1, 1);
+                ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                ob.GetComponent<ZhuangBeiItemShowControl>().init(b);
+                mItemGameObjectList.Add(ob);
+            }
+            setWitch(mZhuangbeiList, mItemGameObjectList.Count);
         }
-        setWitch(mZhuangbeiList, mItemGameObjectList.Count);
+        else {
+            foreach (GameObject g in mItemGameObjectList) {
+                g.GetComponent<ZhuangBeiItemShowControl>().init();
+            }
+        }
+
     }
     private void setWitch(HorizontalLayoutGroup grid, int count)     //每行Cell的个数
     {

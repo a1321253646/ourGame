@@ -6,6 +6,17 @@ public class EnemyBase : Attacker {
 	// Update is called once per frame
 	private EnemyState mState;
     private float mDestroyTime = 0.5f;
+
+    private  Vector2 mTarger = new Vector2(-9999,-9999) ;
+
+    public void setTarget(Vector2 v)
+    {
+        mTarger = v;
+        mTarger.x = mTarger.x + mAttackLeng;
+        mTarger.y = mTarger.y - resourceData.idel_y;
+        Debug.Log("mTarger x = " + mTarger.x + "  mTarger y =" + mTarger.y);
+    }
+
 	void Start () {
         startComment();
         mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
@@ -61,38 +72,66 @@ public class EnemyBase : Attacker {
 		
 		mLocalBean.mCurrentX = transform.position.x;
 		mLocalBean.mCurrentY = transform.position.y;
-
+        float speedX = 0;
 		if ( mBackManager.isRun) {
-			transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
-            mSkillManager.upDateLocal(mBackManager.moveSpeed * Time.deltaTime, 0);
-            mState.Update ();
+            speedX = mBackManager.moveSpeed;
+         //   transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
+         //   mSkillManager.upDateLocal(mBackManager.moveSpeed * Time.deltaTime, 0);
+         //   mState.Update ();
 		}
-		if (getStatus() != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999) {
-			return;
+		if ((getStatus() != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999)||
+            (getStatus() != Attacker.PLAY_STATUS_RUN && mTarger.x == -9999 && mTarger.y == -9999)) {
+               transform.Translate (Vector2.left * (speedX * Time.deltaTime));
+               mSkillManager.upDateLocal(speedX * Time.deltaTime, 0);
+               mState.Update ();
+            return;
 		}
-		float x;
+		float x = 0;
 		float y = 0;
 
-		if(mLocalBean.mTargetX != -9999){
-			if(mLocalBean.mCurrentX < mLocalBean.mTargetX){
-				y = mLocalBean.mTargetY - mLocalBean.mCurrentY;
-				transform.Translate (Vector2.up * y);
+        if (mLocalBean.mTargetX != -9999)
+        {
+            mTarger.x = -9999;
+            mTarger.y = -9999;
+            if (mLocalBean.mCurrentX < mLocalBean.mTargetX)
+            {
+                y = mLocalBean.mTargetY - mLocalBean.mCurrentY;
+                transform.Translate(Vector2.up * y);
                 mSkillManager.upDateLocal(0, y);
                 xy = 0;
-				mLocalBean.mTargetX = -9999;
-				mLocalBean.mTargetY = -9999;
-				Fight ();
+                mLocalBean.mTargetX = -9999;
+                mLocalBean.mTargetY = -9999;
+                Fight();
                 isFighted = false;
             }
-		}
+        }
+        else if ((mTarger.x != -9999)) {
+            if (mLocalBean.mCurrentX < mTarger.x)
+            {
+                y = mTarger.y - mLocalBean.mCurrentY;
+                transform.Translate(Vector2.up * y);
+                mSkillManager.upDateLocal(0, y);
+                xy = 0;
+                mTarger.x = -9999;
+                mTarger.y = -9999;
+                Fight();
+                isFighted = false;
+            }
+        }
 
 
-		if (mLocalBean.mTargetX != -9999 && mLocalBean.mTargetY != -9999 && xy == 0) {
-			xy = (mLocalBean.mCurrentX - mLocalBean.mTargetX) / (mLocalBean.mCurrentY - mLocalBean.mTargetY);
-		}
+
+        if (mLocalBean.mTargetX != -9999 && mLocalBean.mTargetY != -9999)
+        {
+            xy = (mLocalBean.mCurrentY-mLocalBean.mTargetY ) / (mLocalBean.mCurrentX-mLocalBean.mTargetX );
+        }
+        else if (mTarger.x != -9999 && mTarger.y != -9999 )
+        {
+            xy = (mLocalBean.mCurrentY-mTarger.y ) / (mLocalBean.mCurrentX-mTarger.x );
+        }
 
 
-		x = mRunSpeed * Time.deltaTime;
+		x = (mRunSpeed+ speedX) * Time.deltaTime;
 		if (xy != 0) {
 			y = x * xy ;
 		}
@@ -100,11 +139,13 @@ public class EnemyBase : Attacker {
 
 
 		transform.Translate (Vector2.left *(x));
+        if (y != 0)
+        {
+            transform.Translate(Vector2.down * y);
+        }
         mSkillManager.upDateLocal(x, 0);
         mState.Update ();
-		//if (y != 0) {
-			//transform.Translate (Vector2.down *y);
-		//}
+
 	}
 	public Enemy mData;
 	public void init(Enemy data,ResourceBean resource){

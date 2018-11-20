@@ -335,6 +335,7 @@ public class InventoryHalper
             mRoleUseList.Add( bean);
             deleteIventory(bean);
             SQLHelper.getIntance().addZHUANGBEI(bean);
+            return true;
         }
         return false;
     }

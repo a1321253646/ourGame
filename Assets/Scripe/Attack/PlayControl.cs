@@ -24,7 +24,7 @@ public class PlayControl : Attacker
         initEquip();
         int count = 2;
         mFightManager.registerAttacker (this);
-        if (InventoryHalper.getIntance().getInventorys().Count == 0 
+        /*if (InventoryHalper.getIntance().getInventorys().Count == 0 
             && InventoryHalper.getIntance().getUsercard().Count == 0
             && !GameManager.getIntance().isAddGoodForTest)
         {
@@ -44,7 +44,7 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(3000013, count);
             BackpackManager.getIntance().addGoods(3000014, count);
             BackpackManager.getIntance().addGoods(3000015, count);
-        }
+        }*/
 
     }
     private void initAnimalEvent() {
@@ -331,7 +331,7 @@ public class PlayControl : Attacker
                 mBackManager.move();
                 mLocalBean = new LocalBean(transform.position.x, transform.position.y, mAttackLeng, true, this);
                 mFightManager.registerAttacker(this);
-                mLevelManager.creatEnemyFactory();
+                mLevelManager.creatEnemyFactory(transform.position.x, transform.position.y+resourceData.idel_y);
             }
         }
         else if (getStatus() != mFightManager.mHeroStatus && getStatus() != Attacker.PLAY_STATUS_STANDY)
