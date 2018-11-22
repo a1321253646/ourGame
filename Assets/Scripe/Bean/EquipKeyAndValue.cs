@@ -43,6 +43,7 @@ public class EquipKeyAndValue
     }
     public static Dictionary<long, List<EquipKeyAndValue>> getDicForString(List<EquipKeyAndValue> type, string str)
     {
+        Debug.Log(" getDicForString str =" + str);
         Dictionary<long, List<EquipKeyAndValue>> dic = new Dictionary<long, List<EquipKeyAndValue>>();
         string[] strs = str.Split(')');
         if (str.Length == 0)
@@ -60,6 +61,7 @@ public class EquipKeyAndValue
                 continue;
             }
             s = s.Replace("(", "");
+            Debug.Log(" getDicForString key =" + type[i].key+" replace = "+s);
             List<EquipKeyAndValue> value2 = EquipKeyAndValue.getListForString(s);
             dic.Add(type[i].key, value2);
         }

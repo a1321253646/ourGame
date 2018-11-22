@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour {
 	public LocalManager mLocalManager;
     public PlayControl mPlayerControl;
     public List<NengliangkuaiControl> mNengLiangKuai = new List<NengliangkuaiControl>();
-
+    public GuideManager mGuideManager;
     private bool isInit = false;
     float cardTop = 0;
     float yBase = 0;
@@ -53,6 +53,7 @@ public class LevelManager : MonoBehaviour {
         BackpackManager.getIntance().updateZhuangbeiItem(true);
         SQLHelper.getIntance().updateOutTime();
         mTime = 0;
+        mGuideManager = GetComponent<GuideManager>();
         isInit = true;
        
     }

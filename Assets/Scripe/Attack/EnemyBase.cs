@@ -114,7 +114,7 @@ public class EnemyBase : Attacker {
                 xy = 0;
                 mTarger.x = -9999;
                 mTarger.y = -9999;
-                Fight();
+            //    Fight();
                 isFighted = false;
             }
         }

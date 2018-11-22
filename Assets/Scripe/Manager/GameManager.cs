@@ -43,6 +43,11 @@ public class GameManager
         return ++uiLevel;
     }
     private bool isHaveOutGet = true;
+
+    public GuideManager getGuideManager() {
+        return mLevelManage.mGuideManager;    
+    }
+
 	public void init(LevelManager levelmanage){
         if (!isInit)
         {

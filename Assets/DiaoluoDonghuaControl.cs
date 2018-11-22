@@ -16,7 +16,6 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
     float mHight = 0;
     float mXspeed = 0;
     public float mDownSpeed = 0;
-    public float mUpSpeed = 0;
 
     Vector2 mUpTarget;
     // Use this for initialization
@@ -56,10 +55,11 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
         }
         else {
             if (mXspeed == 0) {
-                mXspeed = (mUpTarget.x - transform.position.x) / (mUpTarget.y - transform.position.y) * mUpSpeed;
+                mXspeed = (mUpTarget.x - transform.position.x) / (mUpTarget.y - transform.position.y) * 
+                    JsonUtils.getIntance().getConfigValueForId(100017);
 //                Debug.Log("mUpTarget.x = " + mUpTarget.x + " mUpTarget.y=" + mUpTarget.y);
             }
-            float up = Time.deltaTime * mUpSpeed;
+            float up = Time.deltaTime * JsonUtils.getIntance().getConfigValueForId(100017);
             float x = Time.deltaTime * mXspeed;
 //            Debug.Log("transform.position.x = " + mUpTarget.x + " transform.position.y=" + transform.position.y+ " up="+ up);
             if (transform.position.y + up > mUpTarget.y) {

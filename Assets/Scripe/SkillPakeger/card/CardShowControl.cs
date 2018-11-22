@@ -24,7 +24,8 @@ public class CardShowControl : MonoBehaviour {
     LevelManager mLevelManager;
     CardManager mCardManager;
     Text mUserCount ;
-
+    ScrollRect mUserScroll;
+    ScrollRect mBackScroll;
     private void Start()
     {
         mUserListGl =  GameObject.Find("user_card_list").GetComponent<GridLayoutGroup>();
@@ -32,6 +33,8 @@ public class CardShowControl : MonoBehaviour {
         mUserCount =  GameObject.Find("title01").GetComponent<Text>();
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mCardManager = GameObject.Find("jineng").GetComponent<CardManager>();
+        mUserScroll = GameObject.Find("user_card_list_root").GetComponent<ScrollRect>();
+        mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
         mFri = gameObject.transform.localPosition;
     }
 
@@ -69,9 +72,11 @@ public class CardShowControl : MonoBehaviour {
                 GameObject good = GameObject.Instantiate(CardObject,
                       new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 CardUiControl ui = good.GetComponent<CardUiControl>();
-                good.AddComponent<CardUserOrUnUserControl>();
+                
                 good.transform.parent = mUserListGl.transform;
-                good.transform.localScale = Vector2.one; ;
+                good.transform.localScale = Vector2.one;
+                good.AddComponent<ItemOnDrag>();
+                good.GetComponent<ItemOnDrag>().init(mUserScroll);
                 mUserListGb.Add(good);
                 ui.init(-1, 113, 166);
                 ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
@@ -96,7 +101,10 @@ public class CardShowControl : MonoBehaviour {
                 GameObject good = GameObject.Instantiate(CardObject,
                       new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 CardUiControl ui = good.GetComponent<CardUiControl>();
-                good.AddComponent<CardUserOrUnUserControl>();
+
+                good.AddComponent<ItemOnDrag>();
+                good.GetComponent<ItemOnDrag>().init(mBackScroll);
+
                 good.transform.parent = mBackListGl.transform;
                 good.transform.localScale = Vector2.one; ;
                 mBackListGb.Add(good);
@@ -159,10 +167,12 @@ public class CardShowControl : MonoBehaviour {
             CardUiControl ui = mUserListGb[i].GetComponent<CardUiControl>();
             if (ui.mCardId == -1) {
                 ui.init(id, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
-                CardUserOrUnUserControl item = mUserListGb[i].GetComponent<CardUserOrUnUserControl>();
+                ui.init(id, 113, 166);
+                
                 mUserCount.text = "已装备卡牌（" + (i+1) + "/" + JsonUtils.getIntance().getConfigValueForId(100016) + ")";
-                item.init(id, 113, 166);
-                item.init(mCardManager, id, false);
+                // item.init(id, 113, 166);
+                ItemOnDrag item = mUserListGb[i].GetComponent<ItemOnDrag>();
+                item.init(mCardManager, id, false,mCardManager.card, gameObject.transform, mUserScroll);
                 break;
             }
         }
@@ -194,10 +204,10 @@ public class CardShowControl : MonoBehaviour {
             CardUiControl ui = mBackListGb[i].GetComponent<CardUiControl>();
             if (ui.mCardId == -1)
             {
+                ui.init(bean.goodId, 73, 108);
                 ui.init(bean.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
-                CardUserOrUnUserControl item = mBackListGb[i].GetComponent<CardUserOrUnUserControl>();             
-                item.init(bean.goodId, 73, 108);
-                item.init(mCardManager, bean.goodId, true);
+                ItemOnDrag item = mBackListGb[i].GetComponent<ItemOnDrag>();
+                item.init(mCardManager, bean.goodId, true, mCardManager.card, gameObject.transform, mBackScroll);
                 break;
             }            
         }
@@ -212,7 +222,10 @@ public class CardShowControl : MonoBehaviour {
                 GameObject good = GameObject.Instantiate(CardObject,
                       new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 CardUiControl ui = good.GetComponent<CardUiControl>();
-                good.AddComponent<CardUserOrUnUserControl>();
+
+                good.AddComponent<ItemOnDrag>();
+                good.GetComponent<ItemOnDrag>().init(mUserScroll);
+
                 good.transform.parent = mBackListGl.transform;
                 good.transform.localScale = Vector2.one; ;
                 mBackListGb.Add(good);

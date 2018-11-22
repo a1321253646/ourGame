@@ -24,7 +24,7 @@ public class PlayControl : Attacker
         initEquip();
         int count = 2;
         mFightManager.registerAttacker (this);
-        /*if (InventoryHalper.getIntance().getInventorys().Count == 0 
+        if (InventoryHalper.getIntance().getInventorys().Count == 0 
             && InventoryHalper.getIntance().getUsercard().Count == 0
             && !GameManager.getIntance().isAddGoodForTest)
         {
@@ -44,7 +44,7 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(3000013, count);
             BackpackManager.getIntance().addGoods(3000014, count);
             BackpackManager.getIntance().addGoods(3000015, count);
-        }*/
+        }
 
     }
     private void initAnimalEvent() {
@@ -220,45 +220,47 @@ public class PlayControl : Attacker
         mEquipAttribute.clear();
         Debug.Log("bili = " + bili);
         long fuhao = isAdd ? 1 : -1;
-        foreach (PlayerAttributeBean date in bean.attributeList) {
-            if (date.type == 100)
-            {
-                mEquipAttribute.aggressivity += date.value;
-            }
-            else if (date.type == 101)
-            {
-                mEquipAttribute.defense += date.value ;
-            }
-            else if (date.type == 102)
-            {
-                mEquipAttribute.maxBloodVolume += date.value ;
-            }
-            else if (date.type == 110)
-            {
-                mEquipAttribute.rate += date.value ;
-            }
-            else if (date.type == 111)
-            {
-                mEquipAttribute.evd += date.value ;
-            }
-            else if (date.type == 112)
-            {
-                mEquipAttribute.crt += date.value;
-            }
-            else if (date.type == 113)
-            {
-                mEquipAttribute.crtHurt += date.value;
-            }
-            else if (date.type == 115)
-            {
-                mEquipAttribute.readHurt += date.value;
-            }
-            else if (date.type == 114) {
-                mEquipAttribute.attackSpeed += date.value;
-            }
-        }
         if (isAdd)
         {
+            foreach (PlayerAttributeBean date in bean.attributeList)
+            {
+                if (date.type == 100)
+                {
+                    mEquipAttribute.aggressivity += date.value;
+                }
+                else if (date.type == 101)
+                {
+                    mEquipAttribute.defense += date.value;
+                }
+                else if (date.type == 102)
+                {
+                    mEquipAttribute.maxBloodVolume += date.value;
+                }
+                else if (date.type == 110)
+                {
+                    mEquipAttribute.rate += date.value;
+                }
+                else if (date.type == 111)
+                {
+                    mEquipAttribute.evd += date.value;
+                }
+                else if (date.type == 112)
+                {
+                    mEquipAttribute.crt += date.value;
+                }
+                else if (date.type == 113)
+                {
+                    mEquipAttribute.crtHurt += date.value;
+                }
+                else if (date.type == 115)
+                {
+                    mEquipAttribute.readHurt += date.value;
+                }
+                else if (date.type == 114)
+                {
+                    mEquipAttribute.attackSpeed += date.value;
+                }
+            }
             Debug.Log("addSkill ChangeEquip");
             mSkillManager.addSkill(bean, this);
         }
