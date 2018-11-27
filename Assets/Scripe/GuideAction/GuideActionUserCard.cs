@@ -30,5 +30,6 @@ public class GuideActionUserCard : GuideActionItem
         Time.timeScale = 0;
         GameObject ob = GameObject.Find("user_card_list_root");
         mManager.ShowGuideNormalObject(ob);
+        mManager.showGuideDec(mTargetX, mTargetY, mDecX, mDecY, mDec);
     }
 }

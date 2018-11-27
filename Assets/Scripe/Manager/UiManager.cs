@@ -135,13 +135,7 @@ public class UiManager
 
 	public void addGasAndCrystal(){
 		mCurrentCrystalTv.text = "" + GameManager.getIntance ().mCurrentCrystal;
-        if (GameManager.getIntance ().mCurrentGas > GameManager.getIntance ().startBossGas) {
-			mGasTv.text =GameManager.getIntance ().startBossGas+ "/"+GameManager.getIntance ().startBossGas;
-			mStartBossGasSl.value = GameManager.getIntance ().startBossGas;
-		} else {
-			mGasTv.text =GameManager.getIntance().mCurrentGas+ "/"+GameManager.getIntance ().startBossGas;
-			mStartBossGasSl.value = GameManager.getIntance().mCurrentGas;
-		}
+        addGas();
         if (!mLvUpBt.IsInteractable() && GameManager.getIntance().mCurrentCrystal >= GameManager.getIntance().upLevelCrystal)
         {
             mLvUpBt.interactable = true;
@@ -151,16 +145,7 @@ public class UiManager
         {
             mLvUpBt.interactable = false;
         }
-		if (!mStartBossBt.IsInteractable() && GameManager.getIntance ().mCurrentGas >= GameManager.getIntance ().startBossGas) {
-			mStartBossBt.interactable = true;
-            if (!isGuide) {
-                isGuide = true;
-             //   GameManager.getIntance().getGuideManager().ShowGuideNormalObject(mStartBossBt.gameObject);
-            }
-            if (isAuto) {
-                startBoss();
-            }
-        }   
+ 
 	}
 
     bool isGuide = false;
@@ -175,6 +160,19 @@ public class UiManager
         {
             mGasTv.text = GameManager.getIntance().mCurrentGas + "/" + GameManager.getIntance().startBossGas;
             mStartBossGasSl.value = GameManager.getIntance().mCurrentGas;
+        }
+        if (!mStartBossBt.IsInteractable() && GameManager.getIntance().mCurrentGas >= GameManager.getIntance().startBossGas)
+        {
+            mStartBossBt.interactable = true;
+            if (!isGuide)
+            {
+                isGuide = true;
+                //   GameManager.getIntance().getGuideManager().ShowGuideNormalObject(mStartBossBt.gameObject);
+            }
+            if (isAuto)
+            {
+                startBoss();
+            }
         }
     }
 

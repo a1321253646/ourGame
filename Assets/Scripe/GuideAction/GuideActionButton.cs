@@ -23,6 +23,7 @@ public class GuideActionButton : GuideActionItem
         Time.timeScale = 0;
         GameObject ob = GameObject.Find(mStr);
         mManager.ShowGuideNormalObject(ob);
+        mManager.showGuideDec(mTargetX, mTargetY, mDecX, mDecY, mDec);
     }
 
     public string mStr;

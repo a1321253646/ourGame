@@ -27,6 +27,7 @@ public class GuideControl
                 mManager,
                 null);
             item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_ENEMY_DEAL, GuideManager.BUTTON_START_HERO_UP, "Button_lvup");
+            item1.setDecLocal(2, 1, 2, 3);
             mActionList.Add(item1);
         }
         else if (mData.id == 2)
@@ -38,6 +39,7 @@ public class GuideControl
                 mManager,
                 null);
             item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_ENEMY_DEAL, GuideManager.BUTTON_START_BOSS, "Button_boss");
+            item1.setDecLocal(3, 3, 3, 1);
             mActionList.Add(item1);
         }
         else if (mData.id == 3)
@@ -49,6 +51,7 @@ public class GuideControl
                 mManager,
                 null);
             item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_OBJECT_DROP, GuideManager.BUTTON_START_OPEN_BACK, "pack_ui");
+            item1.setDecLocal(3, 2, 1, 2);
             mActionList.Add(item1);
             GuideActionBackpackItem item2 = new GuideActionBackpackItem();
             item2.init(
@@ -57,6 +60,7 @@ public class GuideControl
                 mManager,
                 null);
             mActionList.Add(item2);
+            item2.setDecLocal(2, 3, 2, 1);
             ShowGuideBySelf item3 = new ShowGuideBySelf();
             item3.init(
                 mData.getDecString()[2]
@@ -64,6 +68,7 @@ public class GuideControl
                 mManager,
                 null);
             item3.init(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP, GuideManager.BUTTON_CLICK_TIP_SURE, "tip_Button");
+            item3.setDecLocal(2, 3, 2, 1);
             mActionList.Add(item3);
         }
         else if (mData.id == 4)
@@ -74,6 +79,7 @@ public class GuideControl
                 , mData.getTarget(),
                 mManager,
                 mData.getQualificationList());
+            item1.setDecLocal(3, 2, 1, 2);
             mActionList.Add(item1);
         }
         else if (mData.id == 5) {//准备卡牌引导
@@ -84,6 +90,7 @@ public class GuideControl
                 mManager,
                 null);
             item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_OBJECT_DROP, GuideManager.BUTTON_CLICK_OPEN_CARD, "skilcard_ui");
+            item1.setDecLocal(3, 2, 1, 2);
             mActionList.Add(item1);
             GuideActionCardUiBackItem item2 = new GuideActionCardUiBackItem();
             item2.init(
@@ -91,6 +98,7 @@ public class GuideControl
                 , mData.getTarget(),
                 mManager,
                 null);
+            item2.setDecLocal(2, 3, 2, 1);
             mActionList.Add(item2);
 /*            GuideActionCardUiShowInfo item3 = new GuideActionCardUiShowInfo();
             item3.init(
@@ -105,6 +113,7 @@ public class GuideControl
                 ,null,
                 mManager,
                 null);
+            item4.setDecLocal(3, 3, 3, 1);
             mActionList.Add(item4);
         }
     }

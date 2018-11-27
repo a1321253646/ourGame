@@ -7965,8 +7965,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fe6500d96dd4a45b66f01cf09aa163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sqlName: local94
-  tabName: local94
+  sqlName: local100
+  tabName: local100
 --- !u!114 &1206986515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7978,8 +7978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0057e9f807e6d7e41aaa46ff39666b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMiddleItem: {fileID: 1297825740559844, guid: b84299a7f83b13c42bf32ae7f190b66c,
-    type: 2}
+  mGuideDec: {fileID: 1000608714030620, guid: d1d0339d07c095448ac4e4c18136a455, type: 2}
   mMaskItem: {fileID: 1673838495158948, guid: 4a7ac1c46d7cb4542b2bde21a60edcbb, type: 2}
   mRootTransform: {fileID: 0}
   mCamera: {fileID: 0}
@@ -7987,8 +7986,7 @@ MonoBehaviour:
   mRight: {fileID: 0}
   mLeft: {fileID: 0}
   mBotton: {fileID: 0}
-  mMiddle: {fileID: 0}
-  mMiddle2: {fileID: 0}
+  mDec: {fileID: 0}
 --- !u!1 &1211501380
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,13 @@
     "str": "点击升级勇士，提升攻、防、血属性"
   },
   {
+    "id": 2,
+    "guideId": 2,
+    "qualification": "1,10012002",
+    "guideTarget": "",
+    "str": "击杀小怪获得魔气，魔气已满。点击挑战BOSS"
+  },
+  {
     "id": 3,
     "guideId": 3,
     "qualification": "2,241001",

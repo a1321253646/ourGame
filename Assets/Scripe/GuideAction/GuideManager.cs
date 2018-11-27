@@ -35,7 +35,7 @@ public class GuideManager : MonoBehaviour {
     
 
 
-    public GameObject mMiddleItem; 
+    public GameObject mGuideDec; 
     public GameObject mMaskItem; 
 
     public  Transform mRootTransform;
@@ -44,8 +44,7 @@ public class GuideManager : MonoBehaviour {
     public  GameObject mRight ;
     public  GameObject mLeft;
     public  GameObject mBotton;
-    public  GameObject mMiddle;
-    public  GameObject mMiddle2;
+    public  GameObject mDec;
 
     float mxBili = 0;
     float myBili = 0;
@@ -203,24 +202,21 @@ public class GuideManager : MonoBehaviour {
                  new Vector2(0, 0), Quaternion.identity);
             mBotton = GameObject.Instantiate(mMaskItem,
                  new Vector2(0, 0), Quaternion.identity);
-            mMiddle = GameObject.Instantiate(mMiddleItem,
-                 new Vector2(0, 0), Quaternion.identity);
-            mMiddle2 = GameObject.Instantiate(mMiddleItem,
+
+            mDec = GameObject.Instantiate(mGuideDec,
                  new Vector2(0, 0), Quaternion.identity);
 
             mTop.transform.localScale = new Vector2(1, 1);
             mRight.transform.localScale = new Vector2(1, 1);
             mLeft.transform.localScale = new Vector2(1, 1);
             mBotton.transform.localScale = new Vector2(1, 1);
-            mMiddle.transform.localScale = new Vector2(1, 1);
-            mMiddle2.transform.localScale = new Vector2(1, 1);
+            mDec.transform.localScale = new Vector2(1, 1);
 
             mRight.transform.parent = mRootTransform.transform;
             mTop.transform.parent = mRootTransform.transform;
             mLeft.transform.parent = mRootTransform.transform;
             mBotton.transform.parent = mRootTransform.transform;
-            mMiddle.transform.parent = mRootTransform.transform;
-            mMiddle2.transform.parent = mRootTransform.transform;
+            mDec.transform.parent = mRootTransform.transform;
         }
 
         mGanmeTarget = go;
@@ -229,14 +225,14 @@ public class GuideManager : MonoBehaviour {
         //float x1 = ob.gameObject.GetComponent<RectTransform>().rect.width;
         showGuide(lefUp,rightBottom);
     }
-
+    private Vector2 mLefUp, mRightBottom;
     public void showGuide(Vector2 lefUp, Vector2 rightBottom) {
         float top = lefUp.y;
         float bot = rightBottom.y;
         float rig = rightBottom.x;
         float lef = lefUp.x ;
-        mMiddle.transform.position = lefUp; 
-        mMiddle2.transform.position = rightBottom; 
+        mLefUp = lefUp;
+        mRightBottom = rightBottom; 
 
         Debug.Log("top = " + top + " bot=" + bot + " rig=" + rig + "lef = " + lef);
      //   Debug.Log("mid.y = " + mid.y + " mid.x=" + mid.x );
@@ -244,12 +240,71 @@ public class GuideManager : MonoBehaviour {
         //Debug.Log("topHeight = " + topHeight + " bottomHeight=" + bottomHeight + " leftWitch=" + leftWitch + " rightWitch = " + rightWitch);
         setBorder(mTop, new Vector2(Screen.width/2, (Screen.height + top)/2), Screen.width, Screen.height  - top);
         setBorder(mBotton, new Vector2(Screen.width / 2, bot  / 2), Screen.width,  bot);
-        setBorder(mLeft, new Vector2(lef/2, (top+bot)/2), lef, top - bot+20);
-        setBorder(mRight, new Vector2((Screen.width+rig) / 2, (top + bot) / 2), Screen.width-rig, top - bot+20);
-        //setBorder(mMiddle, new Vector2(mid.x, mid.y), rig-lef, top - bot);
-        
-
+        setBorder(mLeft, new Vector2(lef/2, (top+bot)/2), lef, top - bot);
+        setBorder(mRight, new Vector2((Screen.width+rig) / 2, (top + bot) / 2), Screen.width-rig, top - bot);
+        //setBorder(mMiddle, new Vector2(mid.x, mid.y), rig-lef, top - bot);      
     }
+    private TextAnchor[] mTextAnchorList = { TextAnchor.UpperLeft, TextAnchor.UpperCenter,TextAnchor.UpperRight,
+                                             TextAnchor.MiddleLeft, TextAnchor.MiddleCenter,TextAnchor.MiddleRight,
+                                             TextAnchor.LowerLeft, TextAnchor.LowerCenter,TextAnchor.LowerRight};
+    public void showGuideDec(int targetX, int targetY, int decX, int decY,string str) {
+        float tX = 0;
+        float tY = 0;
+        if (targetX == 2)
+        {
+            tX = (mLefUp.x + mRightBottom.x) / 2;
+        }
+        else if (targetX == 1)
+        {
+            tX = mLefUp.x;
+        }
+        else if (targetX == 3) {
+            tX = mRightBottom.x;
+        }
+        if (targetY == 2)
+        {
+            tY = (mLefUp.y + mRightBottom.y) / 2;
+        }
+        else if (targetY == 1)
+        {
+            tY = mLefUp.y;
+        }
+        else if (targetY == 3)
+        {
+            tY = mRightBottom.y;
+        }
+        float vX = 0;
+        float vY = 0;
+        float w = mDec.GetComponent<RectTransform>().rect.width;
+        float h = mDec.GetComponent<RectTransform>().rect.height;
+        if (decX == 1)
+        {
+            vX = tX + w / 2;
+        }
+        else if (decX == 2)
+        {
+            vX = tX;
+        }
+        else if(decX == 3){
+            vX = tX - w / 2; 
+        }
+        if (decY == 1)
+        {
+            vY = tY - h / 2;
+        }
+        else if (decY == 2)
+        {
+            vY = tY;
+        }
+        else if (decY == 3)
+        {
+            vY = tY + h / 2;
+        }
+        mDec.GetComponent<Text>().alignment = mTextAnchorList[(decY-1) * 3 + decX - 1];
+        mDec.transform.position = new Vector2(vX,vY);
+        mDec.GetComponent<Text>().text = str;
+    }
+
 
     private void setBorder(GameObject go,Vector2 mid, float witch, float height) {
         
@@ -263,10 +318,13 @@ public class GuideManager : MonoBehaviour {
         Destroy(mRight);
         Destroy(mLeft);
         Destroy(mBotton);
+        Destroy(mDec);
         mBotton = null;
         mLeft = null;
         mRight = null;
         mTop = null;
+        mDec = null;
+
        // mMiddle.transform.localScale = new Vector2(0, 0);
        // mMiddle2.transform.localScale = new Vector2(0, 0);
     }

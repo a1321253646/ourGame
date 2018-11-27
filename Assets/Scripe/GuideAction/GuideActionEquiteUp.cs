@@ -24,5 +24,6 @@ public class GuideActionEquiteUp : GuideActionItem
     {
         Time.timeScale = 0; 
         GameObject.Find("jineng").GetComponent<ZhuangbeiUpdateControl>().gui(mTarget.value);
+        mManager.showGuideDec(mTargetX, mTargetY, mDecX, mDecY, mDec);
     }
 }

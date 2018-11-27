@@ -25,5 +25,6 @@ public class GuideActionBackpackItem : GuideActionItem
     {
         Time.timeScale = 0;
         GameObject.Find("Backpack").GetComponent<IvertoryControl>().guide(mTarget.value);
+        mManager.showGuideDec(mTargetX, mTargetY, mDecX, mDecY, mDec);
     }
 }
