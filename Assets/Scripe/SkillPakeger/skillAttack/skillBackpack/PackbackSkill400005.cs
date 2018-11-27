@@ -7,7 +7,7 @@ public class PackbackSkill400005 : PackbackSkillBase
         if (a is PlayControl)
         {
             PlayControl play = (PlayControl)a;
-            play.mSkillAttributePre.crt -= value;
+            play.mSkillAttribute.crt -= value;
         }
     }
 
@@ -16,7 +16,7 @@ public class PackbackSkill400005 : PackbackSkillBase
         Attacker a = mManager.getAttacker();
         if (a is PlayControl) {
             PlayControl play = (PlayControl)a;
-            play.mSkillAttributePre.crt += value ;
+            play.mSkillAttribute.crt += value ;
         }
     }
 }

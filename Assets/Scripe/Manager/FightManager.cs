@@ -48,8 +48,17 @@ public class FightManager{
 
         if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
 			GameManager.getIntance ().mHeroIsAlive = false;
-			//SceneManager.UnloadSceneAsync (0);
-            dieOrWin(false);
+            //SceneManager.UnloadSceneAsync (0);
+            GameObject.Find("Manager").GetComponent<LevelManager>().getBackManager().stop();
+            foreach (Attacker a in mAliveActtackers.Values)
+            {
+                if (a is PlayControl)
+                {
+                    continue;
+                }
+                ((EnemyBase)a).Standy();
+            }
+         
             //return;
         }
         if (attcker.id == -1 || mAliveActtackers.Count < 1)

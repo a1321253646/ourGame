@@ -53,10 +53,14 @@ public class PlayControl : Attacker
         mAnimalControl.setStatueDelayStatue(ActionFrameBean.ACTION_ATTACK, ActionFrameBean.ACTION_STANDY);
         mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_ATTACK,(int)resourceData.attack_framce, new AnimalStatu.animalIndexCallback(fightEcent));
         mAnimalControl.setEndCallBack(ActionFrameBean.ACTION_WIN, new AnimalStatu.animalEnd(winEnd));
+        mAnimalControl.setEndCallBack(ActionFrameBean.ACTION_DIE, new AnimalStatu.animalEnd(faileEnd));
         mAnimalControl.start();
         Run();
     }
-
+    void faileEnd(int status)
+    {
+        mFightManager.dieOrWin(false, false);
+    }
     void winEnd(int status) {
         setStatus(Attacker.PLAY_STATUS_RUN);
         Run();
@@ -404,8 +408,9 @@ public class PlayControl : Attacker
             GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
             if (mBloodVolume <= 0)
             {
-                Die();
                 mFightManager.unRegisterAttacker(this);
+                Die();
+               
             }
         }		
 		mState.hurt (status);
@@ -426,8 +431,9 @@ public class PlayControl : Attacker
                 GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
                 if (mBloodVolume <= 0)
                 {
-                    Die();
                     mFightManager.unRegisterAttacker(this);
+                    Die();
+                    
                 }
             }
             mState.hurt(status);

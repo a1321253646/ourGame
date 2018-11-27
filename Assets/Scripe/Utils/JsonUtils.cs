@@ -26,7 +26,7 @@ public class JsonUtils
         private string speedValueFile = "speedvalue.json";
         private string skillFile = "skill.json";
         private string cardFile = "card.json";
-        private string affixFile = "afffix.json";
+        private string affixFile = "affix.json";
     private string samsaraFile = "samsara.json";
     private string mapConfigFile = "mapconfig.json";
     private string guideFile = "guide.json";
@@ -44,7 +44,7 @@ public class JsonUtils
         private string speedValueFile = "speedvalue";
         private string skillFile = "skill";
         private string cardFile = "card";
-        private string affixFile = "afffix";
+        private string affixFile = "affix";
         private string samsaraFile = "samsara";
         private string mapConfigFile = "mapconfig";
         private string guideFile = "guide";;*/

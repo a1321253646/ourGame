@@ -7965,8 +7965,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fe6500d96dd4a45b66f01cf09aa163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sqlName: local100
-  tabName: local100
+  sqlName: local2
+  tabName: local2
 --- !u!114 &1206986515
 MonoBehaviour:
   m_ObjectHideFlags: 0

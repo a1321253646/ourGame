@@ -7,7 +7,7 @@ public class PackbackSkill400006 : PackbackSkillBase
         if (a is PlayControl)
         {
             PlayControl play = (PlayControl)a;
-            play.mSkillAttributePre.evd -= value ;
+            play.mSkillAttribute.evd -= value ;
         }
     }
 
@@ -16,7 +16,7 @@ public class PackbackSkill400006 : PackbackSkillBase
         Attacker a = mManager.getAttacker();
         if (a is PlayControl) {
             PlayControl play = (PlayControl)a;
-            play.mSkillAttributePre.evd += value ;
+            play.mSkillAttribute.evd += value ;
         }
     }
 }

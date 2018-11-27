@@ -91,7 +91,7 @@ public class HeroRoleControl : MonoBehaviour {
             if (i - 1 < mHeroEquipl.Count)
             {
                 PlayerBackpackBean keyValue = mHeroEquipl[i - 1];
-                goodIcon.updateUi(keyValue.goodId, keyValue.count, keyValue);
+                goodIcon.updateUi(keyValue.goodId,0, keyValue);
             }
             else {
                 goodIcon.updateUi(-1, 0, null);

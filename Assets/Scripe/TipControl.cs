@@ -226,7 +226,8 @@ public class TipControl : MonoBehaviour {
                 str = str+ "<color=#FF49FAFF>特殊属性</color>\n";
                 foreach (PlayerAttributeBean b in affixList) {
                     AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
-                    str = str + a.dec +":"+ (b.value / 100) + "%";
+                    float vale = (float) b.value / 100 ;
+                    str = str + a.dec +":"+ vale + "%";
                 }
             }
         }
