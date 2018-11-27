@@ -42,6 +42,7 @@ public class TipControl : MonoBehaviour {
         mTipName = GameObject.Find("tipName").GetComponent<Text>();
         mActionClick.onClick.AddListener(() =>
         {
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_TIP_SURE);
             use();
         });
         mClose.onClick.AddListener(() =>
@@ -254,6 +255,7 @@ public class TipControl : MonoBehaviour {
         gameObject.transform.localPosition = new Vector2(0, 0);
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);
+        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP);
     }
     public void removeUi()
     {

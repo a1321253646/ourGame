@@ -9,7 +9,7 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
     Button mButton;
     Text mCost;
     long level = 0;
-    PlayerBackpackBean mBean;
+    public PlayerBackpackBean mBean;
     long updateCost;
 
     // Use this for initialization
@@ -60,6 +60,7 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
         {
             mButton = GetComponentsInChildren<Button>()[1];
             mButton.onClick.AddListener(() => {
+                GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_EQUITE_UP_CLICK,mBean.goodId);
                 BackpackManager.getIntance().UpdateZhuangBei(mBean, updateCost, level);              
             });
         }

@@ -41,6 +41,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                     mCurTime = 0f;
                     return;
                 }
+                long result = GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_OBJECT_CLICK, mCard.id);
                 mCurTime = 0f;
                 mIsDown = false;
                 mIndicator = Instantiate(mNewItem);
@@ -52,8 +53,12 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                 mIndicator.transform.position = Input.mousePosition;
                 mUiContorl = mIndicator.GetComponent<CardUiControl>();
                 mUiContorl.init(mCard.id, CardUiControl.TYPE_CARD_PLAY, mManager.getHero());
-                mUiContorl.init(mCard.id, 341.6f, 509.6f);              
+                mUiContorl.init(mCard.id, 341.6f, 509.6f);
+                if (result == 1) {
+                    GameManager.getIntance().getGuideManager().ShowGuideNormalObject(mIndicator);
+                }
                 mRootContorl.transform.GetChild(0).localScale = new Vector2(0, 0);
+                GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD_BACK_INFO);
             }
         }
     }
@@ -129,9 +134,12 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
             isMove = false;
             mRootContorl = null;
             isInit = false;
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_ONDRAG_UP, GuideManager.ONDRAG_UP_CARDUI_WORK);
         }
         else if(mRootContorl != null)
         {
+            isMove = false;
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_ONDRAG_UP, GuideManager.ONDRAG_UP_CARDUI_UNWORK);
             mRootContorl.transform.GetChild(0).localScale = mOldVector;
         }
 

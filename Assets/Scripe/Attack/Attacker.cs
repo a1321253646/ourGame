@@ -68,7 +68,7 @@ public abstract class Attacker : MonoBehaviour
             return;
         }
         float eachFors = JsonUtils.getIntance().getFrequencyByValue(mAttribute.attackSpeed);
-//        Debug.Log("mAttribute.attackSpeed = " + mAttribute.attackSpeed + " eachFors =" + eachFors);
+        Debug.Log("mAttribute.attackSpeed = " + mAttribute.attackSpeed + " eachFors =" + eachFors);
         mAnimalControl.setSpeedData(eachFors,ActionFrameBean.ACTION_ATTACK);
 
     }

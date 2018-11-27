@@ -77,25 +77,26 @@ public class FightManager{
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
         {
             LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
+            GameManager.getIntance().isEnd = true;
+            GameObject.Find("Manager").GetComponent<LevelManager>().getBackManager().stop();
+            foreach (Attacker a in mAliveActtackers.Values)
+            {
+                if (a is PlayControl)
+                {
+                    continue;
+                }
+                ((EnemyBase)a).endDie();
+            }
             level.mPlayerControl.win();
             GameManager.getIntance().mHeroIsAlive = true;
             GameManager.getIntance().mCurrentLevel += 1;
+
             // return;
         }
 
     }
     public void dieOrWin(bool isWin,bool isChange)
     {
-        GameManager.getIntance().isEnd = true;
-        GameObject.Find("Manager").GetComponent<LevelManager>().getBackManager().stop();
-        foreach (Attacker a in mAliveActtackers.Values)
-        {
-            if (a is PlayControl)
-            {
-                continue;
-            }
-            ((EnemyBase)a).endDie();
-        }
         if (isWin)
         {
             GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(isWin ? 1 : 2, isChange);

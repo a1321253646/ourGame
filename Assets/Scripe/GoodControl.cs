@@ -49,6 +49,7 @@ public class GoodControl : MonoBehaviour {
         if (mBt != null) {
 //            Debug.Log("mBt != null ");
             mBt.onClick.AddListener(() => {
+                
                 showTip();
             });
         }
@@ -61,6 +62,7 @@ public class GoodControl : MonoBehaviour {
         if (bean == null) {
             return;
         }
+        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_OBJECT_CLICK, bean.goodId);
         int type = TipControl.COMPOSE_TYPE;
         if (isHero)
         {

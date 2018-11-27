@@ -21,6 +21,7 @@ public class IvertoryControl : MonoBehaviour {
     private int mLevel;
     public bool isShow = false;
     private Vector2 mFri;
+    private ScrollRect mScroll;
     Dictionary<long, List<PlayerBackpackBean>> mGoodDic = new Dictionary<long, List<PlayerBackpackBean>>();
     // Use this for initialization
     bool isInit = false;
@@ -50,7 +51,7 @@ public class IvertoryControl : MonoBehaviour {
         mSecNo = GameObject.Find("pack_second_bt_no");
         mThiNo = GameObject.Find("pack_third_bt_no");
         mFouNo = GameObject.Find("pack_four_bt_no");
-
+        mScroll = GameObject.Find("backpack_scroll").GetComponent<ScrollRect>();
         mCloBt = GameObject.Find("pack_close").GetComponent<Button>();
 
         mCloBt.onClick.AddListener(() =>
@@ -333,7 +334,9 @@ public class IvertoryControl : MonoBehaviour {
         gameObject.transform.localPosition = new Vector2(50, 0);
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
+        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_BACK);
         update();
+
     }
     public void removeUi() {
         isShow = false;
@@ -375,6 +378,18 @@ public class IvertoryControl : MonoBehaviour {
         }
         update();
     }
+    public void guide(long target) {
+        for (int i = 0; i < mGoodsGameObject.Count; i++)
+        {
+            GoodControl gc = mGoodsGameObject[i].GetComponent<GoodControl>();
+            if (gc != null && gc.id == target)
+            {
+                GameManager.getIntance().getGuideManager().ShowGuideGrideLayoutInScroll(mGoodsGameObject[i], mScroll, mGrilLayout, i, 9);
+                break;
+            }
+        }
+    }
+
     public void deleteGood(long id, long count)
     {
         bool isSuccess = false;

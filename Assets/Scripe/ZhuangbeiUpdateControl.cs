@@ -8,14 +8,14 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
     public GameObject Item;
     HorizontalLayoutGroup mZhuangbeiList;
     public List<GameObject> mItemGameObjectList = new List<GameObject>();
-
+    ScrollRect mScroll;
 
     // Use this for initialization
     void Start () {
-       
     }
-
+    
     public void upDate(bool isDelete) {
+
         if (mZhuangbeiList == null) {
             mZhuangbeiList = GameObject.Find("zhuangbei_update").GetComponent<HorizontalLayoutGroup>();
         }
@@ -48,8 +48,18 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
                 g.GetComponent<ZhuangBeiItemShowControl>().init();
             }
         }
-
     }
+
+    public void gui(long id) {
+        for(int i = 0; i< mItemGameObjectList.Count; i++) {
+            if (mItemGameObjectList[i].GetComponent<ZhuangBeiItemShowControl>().mBean.goodId == id) {
+                GameManager.getIntance().getGuideManager().ShowGuideHorizontalLayoutGroupInScroll(mItemGameObjectList[i], 
+                    GameObject.Find("di_2").GetComponent<ScrollRect>(), mZhuangbeiList,i);
+                break;
+            }
+        }
+    }
+
     private void setWitch(HorizontalLayoutGroup grid, int count)     //每行Cell的个数
     {
         float w = 0;

@@ -144,42 +144,48 @@ public class GameManager
 	}
 
 	public void enemyDeal(Attacker enemy){
+        mCurrentGas += enemy.mDieGas * JsonUtils.getIntance().getConfigValueForId(100009);
+        mCurrentCrystal += enemy.mDieCrysta * JsonUtils.getIntance().getConfigValueForId(100008);
+        uiManager.addGas();
         if (enemy is EnemyBase) {
             EnemyBase tmp = (EnemyBase)enemy;
             List<FellObjectBean> list = tmp.mData.fell();
             if (list != null && list.Count > 0) {
-                foreach (FellObjectBean bean in list) {
+                foreach (FellObjectBean bean in list) {                
                     Debug.Log("怪物死亡掉落 " + bean.id);
                     BackpackManager.getIntance().addGoods(bean.id, (int)bean.count);
                     string path = InventoryHalper.getIntance().getIcon(bean.id);
-                    showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.GOOD_DIAOLUO_TYPE, path,0);
+                    showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.GOOD_DIAOLUO_TYPE, path,0, bean.id);
                 }
             }
-
+            getGuideManager().eventNotification(GuideManager.EVENT_ENEMY_DEAL, tmp.mData.id);
         }
-		mCurrentGas += enemy.mDieGas*JsonUtils.getIntance().getConfigValueForId(100009);
-		mCurrentCrystal += enemy.mDieCrysta * JsonUtils.getIntance().getConfigValueForId(100008);
-        uiManager.addGas();
         showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", mCurrentGas);
+        
 	}
     public void updateGasAndCrystal() {
         SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
         uiManager.addGasAndCrystal();
         BackpackManager.getIntance().upDataComposeControl();
     }
-
-    private void  showDIaoLuo(EnemyBase e,int type,string path,float count) {
+    private void showDIaoLuo(EnemyBase e, int type, string path, float count,long id)
+    {
         GameObject obj = Object.Instantiate(Resources.Load("prefab/diaoluodonghua")) as GameObject;//Resources.Load<GameObject>();
         obj.transform.SetParent(GameObject.Find("enemyStatePlane").transform);
-        obj.transform.localScale =new  Vector3(1, 1, 1);
+        obj.transform.localScale = new Vector3(1, 1, 1);
         DiaoluoDonghuaControl control = obj.GetComponent<DiaoluoDonghuaControl>();
-        control.init(e, type, path, count);
+        control.init(e, type, path, count,id);
+    }
+    private void  showDIaoLuo(EnemyBase e,int type,string path,float count) {
+        showDIaoLuo(e, type, path, count,-1);
     }
 
     public void updataGasAndCrystal() {
         uiManager.addGasAndCrystal();
     }
     private bool isAuto = false;
+    public bool isGuide = false;
+
     public void setIsAutoBoss(bool auto) {
         isAuto = auto;
         SQLHelper.getIntance().updateAutoBoss(isAuto ? 2 : 1);

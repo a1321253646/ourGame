@@ -21,11 +21,26 @@ public class CardShowControl : MonoBehaviour {
     private int USER_LINE_COUNT = 4;
     private int BACK_LINE_COUNT = 4;
     private Vector2 mFri;
+
+    public void guideBack(long value)
+    {
+        for (int i = 0; i < mBackListGb.Count; i++)
+        {
+            CardUiControl ui = mBackListGb[i].GetComponent<CardUiControl>();
+            if (ui.mCardId == value)
+            {
+                GameManager.getIntance().getGuideManager().ShowGuideGrideLayoutInScroll(mBackListGb[i], mBackScroll, mBackListGl, i, 10);
+                break;
+            }
+        }
+    }
+
     LevelManager mLevelManager;
     CardManager mCardManager;
     Text mUserCount ;
     ScrollRect mUserScroll;
     ScrollRect mBackScroll;
+    Transform mRoot;
     private void Start()
     {
         mUserListGl =  GameObject.Find("user_card_list").GetComponent<GridLayoutGroup>();
@@ -35,6 +50,9 @@ public class CardShowControl : MonoBehaviour {
         mCardManager = GameObject.Find("jineng").GetComponent<CardManager>();
         mUserScroll = GameObject.Find("user_card_list_root").GetComponent<ScrollRect>();
         mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
+        mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
+        mRoot = GameObject.Find("Canvas").GetComponent<Transform>();
+        
         mFri = gameObject.transform.localPosition;
     }
 
@@ -124,6 +142,7 @@ public class CardShowControl : MonoBehaviour {
         }
 
     }
+
     private void showUi()
     {
        // upDateUi();
@@ -141,8 +160,12 @@ public class CardShowControl : MonoBehaviour {
         }
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
+        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD);
 
     }
+    bool isGuide = false;
+
+
     public void removeUi()
     {
         isShow = false;
@@ -172,7 +195,7 @@ public class CardShowControl : MonoBehaviour {
                 mUserCount.text = "已装备卡牌（" + (i+1) + "/" + JsonUtils.getIntance().getConfigValueForId(100016) + ")";
                 // item.init(id, 113, 166);
                 ItemOnDrag item = mUserListGb[i].GetComponent<ItemOnDrag>();
-                item.init(mCardManager, id, false,mCardManager.card, gameObject.transform, mUserScroll);
+                item.init(mCardManager, id, false,mCardManager.card, mRoot, mUserScroll);
                 break;
             }
         }
@@ -207,7 +230,7 @@ public class CardShowControl : MonoBehaviour {
                 ui.init(bean.goodId, 73, 108);
                 ui.init(bean.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
                 ItemOnDrag item = mBackListGb[i].GetComponent<ItemOnDrag>();
-                item.init(mCardManager, bean.goodId, true, mCardManager.card, gameObject.transform, mBackScroll);
+                item.init(mCardManager, bean.goodId, true, mCardManager.card, mRoot, mBackScroll);
                 break;
             }            
         }

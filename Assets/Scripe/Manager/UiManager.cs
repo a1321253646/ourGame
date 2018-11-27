@@ -49,10 +49,12 @@ public class UiManager
 
 
 		mStartBossBt.onClick.AddListener (() => {
-			startBoss();
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_BOSS);
+            startBoss();
 		});
 		mLvUpBt.onClick.AddListener (() => {
             Debug.Log("levelUp");
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_HERO_UP);
             levelUp();
 		});
 
@@ -60,17 +62,20 @@ public class UiManager
             BackpackManager.getIntance().heroUiShowClick();
         });
         mPackUiShow.onClick.AddListener(() => {
-            BackpackManager.getIntance().packUiShowClick();
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_OPEN_BACK);
+            BackpackManager.getIntance().packUiShowClick();            
         });
  //       mHeChengUiShow.onClick.AddListener(() => {
             //  BackpackManager.getIntance().composeUiShowClick();
   //          BackpackManager.getIntance().qianghuaClick();
    //     });
         mSamsaraUiShow.onClick.AddListener(() => {
+            
             BackpackManager.getIntance().samsaraShowClick();
         });
 
         mCardUiShow.onClick.AddListener(() => {
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_OPEN_CARD);
             BackpackManager.getIntance().cardUiShowClick();
         });
 
@@ -140,6 +145,7 @@ public class UiManager
         if (!mLvUpBt.IsInteractable() && GameManager.getIntance().mCurrentCrystal >= GameManager.getIntance().upLevelCrystal)
         {
             mLvUpBt.interactable = true;
+        
         }
         else if(mLvUpBt.IsInteractable() && GameManager.getIntance().mCurrentCrystal < GameManager.getIntance().upLevelCrystal)
         {
@@ -147,11 +153,17 @@ public class UiManager
         }
 		if (!mStartBossBt.IsInteractable() && GameManager.getIntance ().mCurrentGas >= GameManager.getIntance ().startBossGas) {
 			mStartBossBt.interactable = true;
+            if (!isGuide) {
+                isGuide = true;
+             //   GameManager.getIntance().getGuideManager().ShowGuideNormalObject(mStartBossBt.gameObject);
+            }
             if (isAuto) {
                 startBoss();
             }
         }   
 	}
+
+    bool isGuide = false;
 
     public void addGas() {
         if (GameManager.getIntance().mCurrentGas > GameManager.getIntance().startBossGas)

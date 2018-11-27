@@ -29,6 +29,7 @@ public class JsonUtils
         private string affixFile = "afffix.json";
     private string samsaraFile = "samsara.json";
     private string mapConfigFile = "mapconfig.json";
+    private string guideFile = "guide.json";
     /*private string levelFile = "level";
         private string heroFile = "hero";
         private string enemyFile = "enemy";
@@ -45,7 +46,8 @@ public class JsonUtils
         private string cardFile = "card";
         private string affixFile = "afffix";
         private string samsaraFile = "samsara";
-        private string mapConfigFile = "mapconfig";*/
+        private string mapConfigFile = "mapconfig";
+        private string guideFile = "guide";;*/
     private static JsonUtils mInance = new JsonUtils();
 
     List<Hero> heroData;
@@ -62,12 +64,14 @@ public class JsonUtils
     List<CardJsonBean> mCardDate;
     List<AffixJsonBean> mAffixDate;
     List<MapConfigBean> mMapDate;
+    List<GuideJsonBean> mguideDate;
     Dictionary<long, SamsaraJsonBean> mSamsaraDate = new Dictionary<long, SamsaraJsonBean>();
     private JsonUtils() {
         readAllFile();
     }
 
     public void readAllFile() {
+        readGuideFile();
         readMapInfoInfo();
         readResource();
         readConfig();
@@ -318,7 +322,9 @@ public class JsonUtils
         }
         return null;
     }
-
+    public List<GuideJsonBean> getGuideList() {
+        return mguideDate;
+    }
     private void readGoodInfo() {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(goodsFile));
         mGoods = arrdata.ToObject<List<GoodJsonBean>>();
@@ -349,6 +355,10 @@ public class JsonUtils
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(configeFile));
         mConfig = arrdata.ToObject<List<ConfigNote>>();
+    }
+    private void readGuideFile() {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(guideFile));
+        mguideDate = arrdata.ToObject<List<GuideJsonBean>>();
     }
 
     private void readHeroData(){

@@ -24,7 +24,7 @@ public class PlayControl : Attacker
         initEquip();
         int count = 2;
         mFightManager.registerAttacker (this);
-        if (InventoryHalper.getIntance().getInventorys().Count == 0 
+      /*  if (InventoryHalper.getIntance().getInventorys().Count == 0 
             && InventoryHalper.getIntance().getUsercard().Count == 0
             && !GameManager.getIntance().isAddGoodForTest)
         {
@@ -44,7 +44,7 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(3000013, count);
             BackpackManager.getIntance().addGoods(3000014, count);
             BackpackManager.getIntance().addGoods(3000015, count);
-        }
+        }*/
 
     }
     private void initAnimalEvent() {
@@ -52,8 +52,23 @@ public class PlayControl : Attacker
         mAnimalControl = new AnimalControlBase(resourceData, mSpriteRender);
         mAnimalControl.setStatueDelayStatue(ActionFrameBean.ACTION_ATTACK, ActionFrameBean.ACTION_STANDY);
         mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_ATTACK,(int)resourceData.attack_framce, new AnimalStatu.animalIndexCallback(fightEcent));
+        mAnimalControl.setEndCallBack(ActionFrameBean.ACTION_WIN, new AnimalStatu.animalEnd(winEnd));
         mAnimalControl.start();
         Run();
+    }
+
+    void winEnd(int status) {
+        setStatus(Attacker.PLAY_STATUS_RUN);
+        Run();
+        if (GameManager.getIntance().isGuide)
+        {
+            mBackManager.move();
+        }
+        else {
+            mBackManager.stop();
+        }
+       
+        //mFightManager.dieOrWin(true, false);
     }
 
     void fightEcent(int status) {
@@ -121,6 +136,7 @@ public class PlayControl : Attacker
                 else if (date.type == 114)
                 {
                     mEquipAttribute.attackSpeed += date.value;
+                 
                 }
             }
             Debug.Log("addSkill initEquip");
@@ -299,6 +315,7 @@ public class PlayControl : Attacker
         mBaseAttribute.readHurt = mHero.real_dam;
         mBaseAttribute.evd = mHero.dod;
         mBaseAttribute.attackSpeed = mHero.attack_speed;
+        Debug.Log("===============英雄攻速 = " + mBaseAttribute.attackSpeed);
         mAttackLeng = mHero.attack_range;
          mBloodVolume = mBloodVolume + mBaseAttribute.maxBloodVolume - mMaxTmp;
         Debug.Log("mBloodVolume = " + mBloodVolume+ " mBaseAttribute.maxBloodVolume="+ mBaseAttribute.maxBloodVolume+ " mMaxTmp"+ mMaxTmp);
@@ -316,6 +333,9 @@ public class PlayControl : Attacker
         //        Debug.Log(" isWin  ="+ isWin);
         if (isWin)
         {
+            if (GameManager.getIntance().isGuide) {
+                return;
+            }
             winrun();
             if (!isShowGuoChang && transform.position.x > 0)
             {
@@ -359,10 +379,7 @@ public class PlayControl : Attacker
     public void win()
     {
         isWin = true;
-        setStatus(Attacker.PLAY_STATUS_RUN);
-        Run();
-        mBackManager.stop();
-        mFightManager.dieOrWin(true, false);
+        setStatus(Attacker.PLAY_STATUS_WIN);
     }
     private bool isStart = false;
     public void startGame() {
@@ -373,7 +390,7 @@ public class PlayControl : Attacker
     }
 
     void winrun(){
-        Debug.Log(" run ");
+  //      Debug.Log(" run ");
         transform.Translate (Vector2.right*(2*Time.deltaTime));
 	}
 	public override float BeAttack(HurtStatus status,Attacker hurter){

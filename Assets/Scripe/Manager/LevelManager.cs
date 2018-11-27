@@ -54,6 +54,7 @@ public class LevelManager : MonoBehaviour {
         SQLHelper.getIntance().updateOutTime();
         mTime = 0;
         mGuideManager = GetComponent<GuideManager>();
+        mGuideManager.init();
         isInit = true;
        
     }

@@ -19,16 +19,20 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
 
     Vector2 mUpTarget;
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start() {
+
+    }
+
+    // Update is called once per frame
+    void Update() {
         if (mUpTarget.x != 0) {
-            if (transform.position.y >= mUpTarget.y-0.05 && transform.position.y <= mUpTarget.y + 0.05) {
+            if (transform.position.y >= mUpTarget.y - 0.05 && transform.position.y <= mUpTarget.y + 0.05)
+            {
                 Destroy(gameObject);
                 GameManager.getIntance().updateGasAndCrystal();
+                if (mId != -1) {
+                    GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_OBJECT_DROP, mId);
+                }
             }
         }
         if (!isInit) {
@@ -55,13 +59,13 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
         }
         else {
             if (mXspeed == 0) {
-                mXspeed = (mUpTarget.x - transform.position.x) / (mUpTarget.y - transform.position.y) * 
-                    JsonUtils.getIntance().getConfigValueForId(100017);
-//                Debug.Log("mUpTarget.x = " + mUpTarget.x + " mUpTarget.y=" + mUpTarget.y);
+                mXspeed = (mUpTarget.x - transform.position.x) / (mUpTarget.y - transform.position.y) *
+                    JsonUtils.getIntance().getConfigValueForId(100018);
+                //                Debug.Log("mUpTarget.x = " + mUpTarget.x + " mUpTarget.y=" + mUpTarget.y);
             }
-            float up = Time.deltaTime * JsonUtils.getIntance().getConfigValueForId(100017);
+            float up = Time.deltaTime * JsonUtils.getIntance().getConfigValueForId(100018);
             float x = Time.deltaTime * mXspeed;
-//            Debug.Log("transform.position.x = " + mUpTarget.x + " transform.position.y=" + transform.position.y+ " up="+ up);
+            //            Debug.Log("transform.position.x = " + mUpTarget.x + " transform.position.y=" + transform.position.y+ " up="+ up);
             if (transform.position.y + up > mUpTarget.y) {
                 up = mUpTarget.y - transform.position.y;
                 x = mUpTarget.x - transform.position.x;
@@ -70,8 +74,15 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
             transform.Translate(Vector2.up * (up));
             transform.Translate(Vector2.right * (x));
         }
-	}
+    }
     BackgroundManager mBackManager;
+
+
+    private long mId = -1;
+    public void init(EnemyBase enemy, int type, string imaPath, float count,long id){
+        mId = id;
+        init(enemy,type,imaPath,count);
+    }
     public void init(EnemyBase enemy,int type,string imaPath,float count) {
         List<float> list = enemy.resourceData.getTargetBorder();
         if (list != null && list.Count == 3) {

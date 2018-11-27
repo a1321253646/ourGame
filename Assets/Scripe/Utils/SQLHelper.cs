@@ -19,6 +19,7 @@ public class SQLHelper
     private long GAME_ID_LUNHUI = 4;
     private long GAME_ID_MOJING = 5;
     private long GAME_ID_TIME = 6;
+    private long GAME_ID_GUIDE = 7;
 
 
     private long TYPE_GAME = 1;
@@ -28,6 +29,7 @@ public class SQLHelper
     private long TYPE_ZHUANGBEI = 5;
     private long TYPE_LUNHUI = 6;
 
+    List<long> mGuide = new List<long>();
     List<long> mCard = new List<long>();
     List<long> mBook = new List<long>();
     List<PlayerBackpackBean> mUserZhuangbei = new List<PlayerBackpackBean>();
@@ -104,6 +106,11 @@ public class SQLHelper
                     else if (date.id == GAME_ID_TIME) {
                         mOutTime = long.Parse(date.extan);
                         Debug.Log("读取数据库 上次离线时间" + mMojing);
+                    }else if(date.id == GAME_ID_GUIDE)
+                    {
+                        long id = long.Parse(date.extan);
+                        mGuide.Add(id);
+                        Debug.Log("读取数据库 已经引导 " + id);
                     }
                 }
             }
@@ -151,6 +158,7 @@ public class SQLHelper
         return mIntance;
     }
 
+
     public long getLunhuiLevelById(long id) {
         if (mLunhuui.ContainsKey(id))
         {
@@ -164,6 +172,10 @@ public class SQLHelper
     public List<long> getBook()
     {
         return mBook;
+    }
+    public List<long> getGuide()
+    {
+        return mGuide;
     }
     public List<long> getUserCard() {
         return mCard;
@@ -288,6 +300,11 @@ public class SQLHelper
         {
             updateGame(GAME_ID_TIME, value);
         }
+    }
+
+    public void addGuide(long value) {
+        Debug.Log("addGuide  =" + value);
+        addGame(GAME_ID_GUIDE, value);
     }
 
     public void updateHeroLevel(long value)
