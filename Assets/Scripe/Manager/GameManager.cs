@@ -48,15 +48,16 @@ public class GameManager
         return mLevelManage.mGuideManager;    
     }
 
-	public void init(LevelManager levelmanage){
+	public float init(LevelManager levelmanage){
+        float outLineGet = 0f;
         if (!isInit)
         {
             isInit = true;
             mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100010);
             if (mCurrentLevel == -1) {
                 mCurrentLevel = SQLHelper.getIntance().mGameLevel;
-                if (mCurrentLevel == -1) {
-                    mCurrentLevel = 1;
+                if (mCurrentLevel == -9999) {
+                    mCurrentLevel = -(long)JsonUtils.getIntance().getConfigValueForId(100019)+1;
                 }
             }
             mHeroLv = (long)JsonUtils.getIntance().getConfigValueForId(100011);
@@ -83,7 +84,11 @@ public class GameManager
                     if (old != -1) {
                         old = TimeUtils.getTimeDistanceMin(old);
                         long levelCryStal = JsonUtils.getIntance().getLevelData(mCurrentLevel).offlinereward;
+                        outLineGet = old * levelCryStal;
                         mCurrentCrystal = mCurrentCrystal + old * levelCryStal;
+                        if(old <  5) {
+                            outLineGet = 0;
+                        }
                         SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
                     }
                 }
@@ -112,6 +117,7 @@ public class GameManager
         mLevelManage = levelmanage;
         uiLevel = 99;
         getLevelData();
+        return outLineGet;
     }
 
 	public void initUi(){

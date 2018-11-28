@@ -6,7 +6,7 @@ public class SQLHelper
 {
     List<SQLDate> mList = new List<SQLDate>();
 
-    public long mGameLevel = -1;
+    public long mGameLevel = -9999L;
     public long mHeroLevel = -1;
     public long isAutoBoss = -1;
     public long mLunhuiValue = - 1;
@@ -278,7 +278,7 @@ public class SQLHelper
     }
     public void updateGameLevel( long value)
     {
-        if (mGameLevel == -1)
+        if (mGameLevel == -9999)
         {
             addGame(GAME_ID_LEVEL, value);
             mGameLevel = value;

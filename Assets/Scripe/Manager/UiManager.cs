@@ -35,7 +35,7 @@ public class UiManager
         autoBack = auto.GetComponent<Image>();
         mAutoYes = Resources.Load("ui_new/gouxuan_yes", typeof(Sprite)) as Sprite;
         mAutoNo = Resources.Load("ui_new/gouxuan_no", typeof(Sprite)) as Sprite;
-        mGameLevelTv.text = "当前关卡:第" + GameManager.getIntance ().mCurrentLevel+"关";
+        mGameLevelTv.text = "当前关卡:" + JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).name;       
         SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
         mGasTv.text =
 			GameManager.getIntance().mCurrentGas+ 

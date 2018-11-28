@@ -2,14 +2,14 @@
 //using UnityEditor;
 using System.Collections.Generic;
 using UnityEngine.UI;
-public class BackpackManager 
+public class BackpackManager
 {
     public static long ALL_TYPE = 10;
     public static long CAILIAO_TYPE = 1;
     public static long ZHUANGBEI_TYPE = 2;
     public static long KAPAI_TYPE = 3;
 
-    private List<PlayerBackpackBean> mInventoryList ;
+    private List<PlayerBackpackBean> mInventoryList;
     private List<PlayerBackpackBean> mHeroEquip;
     private List<GoodJsonBean> mGoodInfoList;
     private List<AccouterJsonBean> mAccouterInfoList;
@@ -19,19 +19,21 @@ public class BackpackManager
     private RectTransform mTipTranform;
     private RectTransform mBackpack;
     private RectTransform mHeroTranform;
-//    private RectTransform mComposeTranform;
+    //    private RectTransform mComposeTranform;
     private RectTransform mSamsaraTranform;
     private RectTransform mLunHuiTips;
-//    private RectTransform mQiangHua;
+    private RectTransform mMessageTip;
+    //    private RectTransform mQiangHua;
 
     private IvertoryControl mInvertoryControl;
     private TipControl mTipControl;
     private HeroRoleControl mHeroControl;
     private CardShowControl mCardControl;
     private LuiHuiTips mLunhuiControl;
-//    private QiangHuaManager mQianghuaControl;
+    private MessageTips mMessageTipControl;
+    //    private QiangHuaManager mQianghuaControl;
 
-//    private ComposeControl mComposeControl;
+    //    private ComposeControl mComposeControl;
     private SamsaraManage mSamsaraControl;
 
     private ZhuangbeiUpdateControl mZhuangbeiShowControl;
@@ -57,21 +59,24 @@ public class BackpackManager
         mLunHuiTips = GameObject.Find("lunhui_tips").GetComponent<RectTransform>();
         mLunhuiControl = GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>();
 
+        mMessageTip = GameObject.Find("message_tip").GetComponent<RectTransform>();
+        mMessageTipControl = GameObject.Find("message_tip").GetComponent<MessageTips>();
+
         mHeroTranform = GameObject.Find("hero").GetComponent<RectTransform>();
         mHeroControl = mHeroTranform.GetComponent<HeroRoleControl>();
 
-      //  mComposeTranform = GameObject.Find("compose_root").GetComponent<RectTransform>();
-      //  mComposeControl = mComposeTranform.GetComponent<ComposeControl>();
+        //  mComposeTranform = GameObject.Find("compose_root").GetComponent<RectTransform>();
+        //  mComposeControl = mComposeTranform.GetComponent<ComposeControl>();
 
-//        mQiangHua = GameObject.Find("qianghua").GetComponent<RectTransform>();
-//        mQianghuaControl = mQiangHua.GetComponent<QiangHuaManager>();
+        //        mQiangHua = GameObject.Find("qianghua").GetComponent<RectTransform>();
+        //        mQianghuaControl = mQiangHua.GetComponent<QiangHuaManager>();
 
         mSamsaraTranform = GameObject.Find("lunhui").GetComponent<RectTransform>();
         mSamsaraControl = GameObject.Find("lunhui").GetComponent<SamsaraManage>();
         mCardControl = GameObject.Find("Card2").GetComponent<CardShowControl>();
 
         mZhuangbeiShowControl = GameObject.Find("jineng").GetComponent<ZhuangbeiUpdateControl>();
- //       mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
+        //       mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
     }
 
     public GoodJsonBean getGoodInfoById(long id) {
@@ -113,12 +118,12 @@ public class BackpackManager
     public List<PlayerBackpackBean> getInventoryInfos() {
         return mInventoryList;
     }
-    public List< PlayerBackpackBean> getHeroEquipInfo() {
+    public List<PlayerBackpackBean> getHeroEquipInfo() {
         return mHeroEquip;
     }
-    public void UpdateZhuangBei(PlayerBackpackBean bean, long cost,long level)
+    public void UpdateZhuangBei(PlayerBackpackBean bean, long cost, long level)
     {
-        InventoryHalper.getIntance().updateZhuangbei(bean,level);
+        InventoryHalper.getIntance().updateZhuangbei(bean, level);
         GameManager.getIntance().mCurrentCrystal -= cost;
         GameManager.getIntance().updataGasAndCrystal();
         mInvertoryControl.update();
@@ -127,7 +132,7 @@ public class BackpackManager
         mLevel.mPlayerControl.initEquip(false);
 
     }
-    public bool use(PlayerBackpackBean bean, long count,int type) {
+    public bool use(PlayerBackpackBean bean, long count, int type) {
         if (type == TipControl.USE_TYPE)
         {
             bool isUsed = InventoryHalper.getIntance().use(bean, count);
@@ -136,7 +141,7 @@ public class BackpackManager
             }
             mInvertoryControl.update();
             Debug.Log("TipControl.USE_TYPE");
-            mLevel.ChangeEquip(bean,true);
+            mLevel.ChangeEquip(bean, true);
             mHeroControl.upDateUi();
             updateZhuangbeiItem(true);
         }
@@ -144,13 +149,13 @@ public class BackpackManager
         {
             InventoryHalper.getIntance().unUse(bean, count);
             mInvertoryControl.update();
-            mLevel.ChangeEquip(bean,false);
+            mLevel.ChangeEquip(bean, false);
             mHeroControl.upDateUi();
             updateZhuangbeiItem(true);
         }
         else if (type == TipControl.COMPOSE_TYPE)
         {
-       //     composeUiShowClick();
+            //     composeUiShowClick();
         }
         else if (type == TipControl.BOOK_TYPE)
         {
@@ -165,7 +170,7 @@ public class BackpackManager
             }
             else
             {
-           ///     mComposeControl.updateListPart();
+                ///     mComposeControl.updateListPart();
             }
         }
         else if (type == TipControl.USE_CARD_TYPE)
@@ -195,16 +200,16 @@ public class BackpackManager
     }
 
     public void addGoods(long id, int count) {
-        Debug.Log("addGoods id=" + id+ " count="+ count);
+        Debug.Log("addGoods id=" + id + " count=" + count);
         bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count);
-        Debug.Log("isAddNiew ="+isAddNiew);
+        Debug.Log("isAddNiew =" + isAddNiew);
         if (isAddNiew)
         {
- //           Debug.Log("update " );
+            //           Debug.Log("update " );
             mInvertoryControl.update();
         }
         else {
-   //         Debug.Log("addGood ");
+            //         Debug.Log("addGood ");
             mInvertoryControl.addGood(id, count);
         }
         upDataComposeControl();
@@ -215,7 +220,7 @@ public class BackpackManager
     }
 
     public void upDataComposeControl() {
-      //  mComposeControl.updataUi();
+        //  mComposeControl.updataUi();
     }
 
     public void updateHeroControl() {
@@ -226,6 +231,7 @@ public class BackpackManager
         InventoryHalper.getIntance().deleteIventory(id, count);
         mInvertoryControl.deleteGood(id, count);
         upDataComposeControl();
+        removeMessageTip();
     }
 
     private static BackpackManager mIntance = new BackpackManager();
@@ -235,7 +241,7 @@ public class BackpackManager
     }
 
 
-    public void showTipUi(PlayerBackpackBean bean, long count,int type)
+    public void showTipUi(PlayerBackpackBean bean, long count, int type)
     {
         mTipControl.setShowData(bean, count, type);
         removeLunhuiTipUi();
@@ -248,20 +254,32 @@ public class BackpackManager
     {
         mLunhuiControl.showUi();
         removeTipUi();
+        removeMessageTip();
     }
     private void removeLunhuiTipUi()
     {
         mLunhuiControl.removeUi();
     }
 
-
-/*    public void composeUiShowClick()
+    public void removeMessageTip()
     {
-        mComposeControl.click();
-        removeTipUi();
-        removeLunhuiTipUi();
+        mMessageTipControl.removeUi();
     }
-    */
+
+    public void showMessageTip(int type, string str1, string str2)
+    {
+        mMessageTipControl.showUI(type, str1, str2);
+        removeTipUi();
+        mLunhuiControl.removeUi();
+    }
+
+    /*    public void composeUiShowClick()
+        {
+            mComposeControl.click();
+            removeTipUi();
+            removeLunhuiTipUi();
+        }
+        */
     public void heroUiShowClick()
     {
         mHeroControl.click();

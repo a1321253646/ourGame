@@ -98,8 +98,14 @@ public class FightManager{
             }
             level.mPlayerControl.win();
             GameManager.getIntance().mHeroIsAlive = true;
-            GameManager.getIntance().mCurrentLevel += 1;
-
+            if (GameManager.getIntance().mCurrentLevel == 0)
+            {
+                GameManager.getIntance().mCurrentLevel = 11;
+            }
+            else {
+                GameManager.getIntance().mCurrentLevel += 1;
+            }
+           
             // return;
         }
 

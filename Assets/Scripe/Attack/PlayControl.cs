@@ -231,6 +231,7 @@ public class PlayControl : Attacker
 
         mAttribute.add(mAllAttribute);
         mAttribute.chen(mAllAttributePre);
+        GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
     }
 
     public void ChangeEquip(PlayerBackpackBean bean,bool isAdd)

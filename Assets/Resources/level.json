@@ -1,5 +1,115 @@
 [
   {
+    "id": -9,
+    "name": "第-9关",
+    "wellen": "1001#1002",
+    "boss_DI": 10013001,
+    "boss_gas": 100,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 0,
+    "offlinereward": 125
+  },
+  {
+    "id": -8,
+    "name": "第-8关",
+    "wellen": "2001#2002",
+    "boss_DI": 10023001,
+    "boss_gas": 140,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 0,
+    "offlinereward": 426
+  },
+  {
+    "id": -7,
+    "name": "第-7关",
+    "wellen": "3001#3002",
+    "boss_DI": 10033001,
+    "boss_gas": 160,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 0,
+    "offlinereward": 650
+  },
+  {
+    "id": -6,
+    "name": "第-6关",
+    "wellen": "4001#4002#4003",
+    "boss_DI": 10043001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 0,
+    "offlinereward": 804
+  },
+  {
+    "id": -5,
+    "name": "第-5关",
+    "wellen": "5001#5002#5003",
+    "boss_DI": 10053001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 0,
+    "offlinereward": 1000
+  },
+  {
+    "id": -4,
+    "name": "第-4关",
+    "wellen": "6001#6002#6003",
+    "boss_DI": 10063001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 0,
+    "offlinereward": 1135
+  },
+  {
+    "id": -3,
+    "name": "第-3关",
+    "wellen": "7001#7002#7003",
+    "boss_DI": 10073001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 0,
+    "offlinereward": 1256
+  },
+  {
+    "id": -2,
+    "name": "第-2关",
+    "wellen": "8001#8002#8003",
+    "boss_DI": 10083001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 0,
+    "offlinereward": 1313
+  },
+  {
+    "id": -1,
+    "name": "第-1关",
+    "wellen": "9001#9002#9003",
+    "boss_DI": 10093001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 0,
+    "offlinereward": 1455
+  },
+  {
+    "id": 0,
+    "name": "第-0关",
+    "wellen": "10001#10002#10003",
+    "boss_DI": 10103001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 0,
+    "offlinereward": 1589
+  },
+  {
     "id": 1,
     "name": "第1关",
     "wellen": "1001#1002",
