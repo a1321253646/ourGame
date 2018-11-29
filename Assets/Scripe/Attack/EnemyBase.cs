@@ -165,7 +165,7 @@ public class EnemyBase : Attacker {
         mRunSpeed = data.monster_speed;
         mAttackLeng = data.attack_range;
         mDieGas = data.die_gas;
-        mDieCrysta = data.die_crystal;
+        mDieCrysta = data.getDieCrystal();
         
 		//toString ("enemy");
 		mState = new EnemyState (this);

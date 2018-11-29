@@ -210,13 +210,16 @@ public class GuideManager : MonoBehaviour {
             mRight.transform.localScale = new Vector2(1, 1);
             mLeft.transform.localScale = new Vector2(1, 1);
             mBotton.transform.localScale = new Vector2(1, 1);
-            mDec.transform.localScale = new Vector2(1, 1);
 
             mRight.transform.parent = mRootTransform.transform;
             mTop.transform.parent = mRootTransform.transform;
             mLeft.transform.parent = mRootTransform.transform;
             mBotton.transform.parent = mRootTransform.transform;
             mDec.transform.parent = mRootTransform.transform;
+
+
+            mDec.transform.localScale = new Vector2(1, 1);
+
         }
 
         mGanmeTarget = go;
@@ -275,8 +278,8 @@ public class GuideManager : MonoBehaviour {
         }
         float vX = 0;
         float vY = 0;
-        float w = mDec.GetComponent<RectTransform>().rect.width;
-        float h = mDec.GetComponent<RectTransform>().rect.height;
+        float w = mDec.GetComponent<RectTransform>().rect.width *mxBili;
+        float h = mDec.GetComponent<RectTransform>().rect.height * myBili;
         if (decX == 1)
         {
             vX = tX + w / 2;
@@ -300,9 +303,9 @@ public class GuideManager : MonoBehaviour {
         {
             vY = tY + h / 2;
         }
-        mDec.GetComponent<Text>().alignment = mTextAnchorList[(decY-1) * 3 + decX - 1];
+        //mDec.GetComponent<Text>().alignment = mTextAnchorList[(decY-1) * 3 + decX - 1];
         mDec.transform.position = new Vector2(vX,vY);
-        mDec.GetComponent<Text>().text = str;
+        mDec.GetComponentsInChildren<Text>()[0].text = str;
     }
 
 

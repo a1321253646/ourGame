@@ -6,9 +6,34 @@ public class BigNumber
     public List<BigNumberUnit> mList = new List<BigNumberUnit>();
 
     public static BigNumber getBigNumForString(string s) {
+        if (s.Contains("E+")) {
+            s = s.Replace("E+", "E");
+            string[] str1 = s.Split('E');
+            int count = int.Parse(str1[1]);
+            string[] str2 = str1[0].Split('.');
+            Debug.Log("===================================getBigNumForString str1 1= " + str1[0]+ " str1 2="+ str1[1]+ " str2 1="+ str2[0]+ " str2 2"+ str2[1]);
+            string str3 = "";
+            if (str2.Length == 1)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    str3 += "0";
+                }
+                s = str2[0] + str3;
+            }
+            else if (str2.Length == 2) {
+                count = count - str2[1].Length;
+                for (int i = 0; i < count; i++)
+                {
+                    str3 += "0";
+                }
+                s = str2[0] + str2[1] + str3;
+            }
+        }
+        Debug.Log("===================================getBigNumForString s= "+s);
         BigNumber big = new BigNumber();
         int index = 0;
-        while (s.Length >= 3) {
+        while (s.Length >= 4) {
             BigNumberUnit unit = new BigNumberUnit();
             s = spileNumberString(s, unit);
             unit.setUnit(index);
@@ -22,8 +47,20 @@ public class BigNumber
         return big;
     }
 
+    public bool isEmpty() {
+        if (mList.Count == 0)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
     private static string spileNumberString(string str, BigNumberUnit unit) {
-        string s1 = str.Substring(str.Length - 3, str.Length);
+        string s1 = str.Substring(str.Length - 3, 3);
+        Debug.Log("spileNumberString s="+s1);
         unit.value = int.Parse(s1);
         str = str.Substring(0, str.Length - 3);
         return str;
@@ -31,34 +68,119 @@ public class BigNumber
     public string toString() {
         string str = "";
         for (int i = mList.Count-1; i >= 0; i--) {
-            str += mList[i].value;
+            if (i == mList.Count - 1) {
+                str += mList[i].value;
+                continue;
+            }
+            if (mList[i].value > 99)
+            {
+                str += mList[i].value;
+            }
+            else if (mList[i].value > 9)
+            {
+                str = str + "0" + mList[i].value;
+            }
+            else if (mList[i].value > 0)
+            {
+                str = str + "00" + mList[i].value;
+            }
+            else {
+                str = str + "000";
+            }
         }
         return str;
     }
     public string toStringWithUnit() {
-        string str = "";
-        str += mList[mList.Count - 1];
-        if (mList.Count >= 2) {
-            str = str + "." + mList[mList.Count - 2];
+        if (isEmpty()){
+            return "0";
         }
-        str += mList[mList.Count - 1].unit;
+        string str = "";
+        str += mList[mList.Count - 1].value;
+        string strpoint = "";
+        int value2 = 0;
+        if (mList.Count >= 2) {
+            if (mList[mList.Count - 1].value > 99)
+            {
+                value2 = mList[mList.Count - 2].value / 100;
+                if (value2 != 0)
+                {
+                    strpoint = strpoint+"."+ value2;
+                }
+            }
+            else if (mList[mList.Count - 1].value > 9)
+            {
+                value2 = mList[mList.Count - 2].value / 10;
+                if (value2 > 9)
+                {
+                    if (value2 % 10 == 0)
+                    {
+                        strpoint = strpoint + "."+(value2 / 10);
+                    }
+                    else
+                    {
+                        strpoint = strpoint + "." + value2;
+                    }
+                }
+                else if (value2 > 0)
+                {
+                    strpoint = strpoint  + ".0" + value2;
+                }
+            }
+            else if (mList[mList.Count - 1].value > 0) {
+                value2 = mList[mList.Count - 2].value;
+                if (value2 > 99)
+                {
+                    if (value2 % 100 == 0)
+                    {
+                        strpoint = strpoint + "." + (value2 / 100);
+                    }
+                    else if (value2 % 10 == 0)
+                    {
+                        strpoint = strpoint + "." + (value2 / 10);
+                    }
+                    else
+                    {
+                        strpoint = strpoint + "." + value2;
+                    }
+                }
+                else if (value2 > 9)
+                {
+                    strpoint = strpoint + ".0";
+                    if (value2 % 10 == 0)
+                    {
+                        strpoint += (value2 / 10);
+                    }
+                    else
+                    {
+                        strpoint += value2;
+                    }
+                }
+                else if (value2 > 0)
+                {                    
+                    strpoint = strpoint+ ".00"+value2;
+                } 
+            }
+        }
+        str = str + strpoint + mList[mList.Count - 1].unit;
         return str;
     }
     public static BigNumber add(BigNumber big1, BigNumber big2) {
         BigNumber min, max;
         int minLeng, maxLeng;
+        Debug.Log("BigNumber add bg1= " + big1.toString() + " bg2 = " + big2.toString());
+        Debug.Log("BigNumber add bg1= " + big1.toStringWithUnit() + " bg2 = " + big2.toStringWithUnit());
         if (big1.mList.Count > big2.mList.Count)
         {
             max = big1;
             min = big2;
-            minLeng = big2.mList.Count;
-            maxLeng = big1.mList.Count;
+            minLeng = min.mList.Count;
+            maxLeng = max.mList.Count;
         }
         else {
             max = big2;
             min = big1;
-            minLeng = big1.mList.Count;
-            maxLeng = big2.mList.Count;
+            minLeng = min.mList.Count;
+            maxLeng = max.mList.Count;
         }
         BigNumber back = new BigNumber();
         int index = 0;
@@ -68,16 +190,16 @@ public class BigNumber
             if (index < minLeng)
             {
                 int value = max.mList[index].value + min.mList[index].value + up;
-                unit1.value = value / 1000;
-                up = value % 1000;
+                unit1.value = value % 1000;
+                up = value / 1000;
                 unit1.unit = big1.mList[index].unit;
                 back.mList.Add(unit1);
             }
             else {
-                int value = big2.mList[index].value + up;
-                unit1.value = value /1000;
-                unit1.unit = big2.mList[index].unit;
-                up = value % 1000;
+                int value = max.mList[index].value + up;
+                unit1.value = value % 1000;
+                unit1.unit = max.mList[index].unit;
+                up = value / 1000;
                 back.mList.Add(unit1);
             }
             index++;
@@ -104,16 +226,19 @@ public class BigNumber
         return back;
     }
 
-    public  void multiply(float multiplying) {
+    public static  BigNumber multiply(BigNumber big, float multiplying) {
         int index = 0;
-        int leng = mList.Count;
+        int leng = big.mList.Count;
         int up = 0;
         BigNumberUnit unit1;
         int value;
+        BigNumber back = new BigNumber();
         while (index < leng) {
-            unit1 = mList[index];
-            value = (int)(unit1.value * multiplying);
+            unit1 = new BigNumberUnit();
+            value = (int)(big.mList[index].value * multiplying);
             unit1.value = value % 1000;
+            unit1.unit = big.mList[index].unit;
+            back.mList.Add(unit1);
             up = value / 1000;
             index++;
         }
@@ -121,9 +246,9 @@ public class BigNumber
             unit1 = new BigNumberUnit();
             unit1.value = up;
             unit1.setUnit(index);
-            mList.Add(unit1);
+            back.mList.Add(unit1);
         }
-        return;
+        return back;
     }
 
     private static BigNumber minusZheng(BigNumber max, BigNumber min) {
@@ -145,7 +270,7 @@ public class BigNumber
                     up = -1;
                 }
                 else {
-                    value =  max.mList[index].value - up - min.mList[index].value;
+                    value =  max.mList[index].value + up - min.mList[index].value;
                     up = 0;
                 }
                 unit1.value = value;
@@ -160,6 +285,10 @@ public class BigNumber
             }
             big.mList.Add(unit1);
             index++;
+        }
+        BigNumberUnit unit2 = big.mList[big.mList.Count - 1];
+        if (unit2.value == 0) {
+            big.mList.Remove(unit2);
         }
         return big;
     }

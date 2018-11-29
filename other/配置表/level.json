@@ -1,5 +1,115 @@
 [
   {
+    "id": -9,
+    "name": "第-9关",
+    "wellen": "1001#1002",
+    "boss_DI": 10013001,
+    "boss_gas": 100,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 0,
+    "offlinereward": "125"
+  },
+  {
+    "id": -8,
+    "name": "第-8关",
+    "wellen": "2001#2002",
+    "boss_DI": 10023001,
+    "boss_gas": 140,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 0,
+    "offlinereward": "426"
+  },
+  {
+    "id": -7,
+    "name": "第-7关",
+    "wellen": "3001#3002",
+    "boss_DI": 10033001,
+    "boss_gas": 160,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 0,
+    "offlinereward": "650"
+  },
+  {
+    "id": -6,
+    "name": "第-6关",
+    "wellen": "4001#4002#4003",
+    "boss_DI": 10043001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 0,
+    "offlinereward": "804"
+  },
+  {
+    "id": -5,
+    "name": "第-5关",
+    "wellen": "5001#5002#5003",
+    "boss_DI": 10053001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 0,
+    "offlinereward": "1000"
+  },
+  {
+    "id": -4,
+    "name": "第-4关",
+    "wellen": "6001#6002#6003",
+    "boss_DI": 10063001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 0,
+    "offlinereward": "1135"
+  },
+  {
+    "id": -3,
+    "name": "第-3关",
+    "wellen": "7001#7002#7003",
+    "boss_DI": 10073001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 0,
+    "offlinereward": "1256"
+  },
+  {
+    "id": -2,
+    "name": "第-2关",
+    "wellen": "8001#8002#8003",
+    "boss_DI": 10083001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 0,
+    "offlinereward": "1313"
+  },
+  {
+    "id": -1,
+    "name": "第-1关",
+    "wellen": "9001#9002#9003",
+    "boss_DI": 10093001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 0,
+    "offlinereward": "1455"
+  },
+  {
+    "id": 0,
+    "name": "第-0关",
+    "wellen": "10001#10002#10003",
+    "boss_DI": 10103001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 0,
+    "offlinereward": "1589"
+  },
+  {
     "id": 1,
     "name": "第1关",
     "wellen": "1001#1002",
@@ -8,7 +118,18 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "125"
+  },
+  {
+    "id": 1,
+    "name": "第1关",
+    "wellen": "1001#1002",
+    "boss_DI": 10013001,
+    "boss_gas": 100,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 0,
+    "offlinereward": "63"
   },
   {
     "id": 2,
@@ -19,7 +140,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "213"
   },
   {
     "id": 3,
@@ -30,18 +151,18 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "325"
   },
   {
     "id": 4,
     "name": "第4关",
     "wellen": "4001#4002#4003",
     "boss_DI": 10043001,
-    "boss_gas": 200,
+    "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "402"
   },
   {
     "id": 5,
@@ -52,2151 +173,5451 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "500"
   },
   {
     "id": 6,
     "name": "第6关",
-    "wellen": "6001#6002#6003#6004",
+    "wellen": "6001#6002#6003",
     "boss_DI": 10063001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "568"
   },
   {
     "id": 7,
     "name": "第7关",
-    "wellen": "7001#7002#7003#7004",
+    "wellen": "7001#7002#7003",
     "boss_DI": 10073001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "628"
   },
   {
     "id": 8,
     "name": "第8关",
-    "wellen": "8001#8002#8003#8004",
+    "wellen": "8001#8002#8003",
     "boss_DI": 10083001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "657"
   },
   {
     "id": 9,
     "name": "第9关",
-    "wellen": "9001#9002#9003#9004",
+    "wellen": "9001#9002#9003",
     "boss_DI": 10093001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "727"
   },
   {
     "id": 10,
     "name": "第10关",
-    "wellen": "10001#10002#10003#10004",
+    "wellen": "10001#10002#10003",
     "boss_DI": 10103001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "795"
   },
   {
     "id": 11,
     "name": "第11关",
-    "wellen": "11001#11002#11003#11004#11005",
+    "wellen": "11001#11002#11003",
     "boss_DI": 10113001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "947"
   },
   {
     "id": 12,
     "name": "第12关",
-    "wellen": "12001#12002#12003#12004#12005",
+    "wellen": "12001#12002#12003",
     "boss_DI": 10123001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "1148"
   },
   {
     "id": 13,
     "name": "第13关",
-    "wellen": "13001#13002#13003#13004#13005",
+    "wellen": "13001#13002#13003",
     "boss_DI": 10133001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "1340"
   },
   {
     "id": 14,
     "name": "第14关",
-    "wellen": "14001#14002#14003#14004#14005",
+    "wellen": "14001#14002#14003",
     "boss_DI": 10143001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "1521"
   },
   {
     "id": 15,
     "name": "第15关",
-    "wellen": "15001#15002#15003#15004#15005",
+    "wellen": "15001#15002#15003",
     "boss_DI": 10153001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "1684"
   },
   {
     "id": 16,
     "name": "第16关",
-    "wellen": "16001#16002#16003#16004#16005",
+    "wellen": "16001#16002#16003",
     "boss_DI": 10163001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "1847"
   },
   {
     "id": 17,
     "name": "第17关",
-    "wellen": "17001#17002#17003#17004#17005",
+    "wellen": "17001#17002#17003",
     "boss_DI": 10173001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "1986"
   },
   {
     "id": 18,
     "name": "第18关",
-    "wellen": "18001#18002#18003#18004#18005",
+    "wellen": "18001#18002#18003",
     "boss_DI": 10183001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "2130"
   },
   {
     "id": 19,
     "name": "第19关",
-    "wellen": "19001#19002#19003#19004#19005",
+    "wellen": "19001#19002#19003",
     "boss_DI": 10193001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "2317"
   },
   {
     "id": 20,
     "name": "第20关",
-    "wellen": "20001#20002#20003#20004#20005",
+    "wellen": "20001#20002#20003",
     "boss_DI": 10203001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
     "Reincarnation": 0,
-    "offlinereward": 20
+    "offlinereward": "2504"
   },
   {
     "id": 21,
     "name": "第21关",
-    "wellen": "21001#21002#21003#21004#21005",
+    "wellen": "21001#21002#21003",
     "boss_DI": 10213001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
     "Reincarnation": 10,
-    "offlinereward": 20
+    "offlinereward": "2877"
   },
   {
     "id": 22,
     "name": "第22关",
-    "wellen": "22001#22002#22003#22004#22005",
+    "wellen": "22001#22002#22003",
     "boss_DI": 10223001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 10,
-    "offlinereward": 20
+    "offlinereward": "2995"
   },
   {
     "id": 23,
     "name": "第23关",
-    "wellen": "23001#23002#23003#23004#23005",
+    "wellen": "23001#23002#23003",
     "boss_DI": 10233001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 10,
-    "offlinereward": 20
+    "offlinereward": "3157"
   },
   {
     "id": 24,
     "name": "第24关",
-    "wellen": "24001#24002#24003#24004#24005",
+    "wellen": "24001#24002#24003",
     "boss_DI": 10243001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 10,
-    "offlinereward": 20
+    "offlinereward": "3313"
   },
   {
     "id": 25,
     "name": "第25关",
-    "wellen": "25001#25002#25003#25004#25005",
+    "wellen": "25001#25002#25003",
     "boss_DI": 10253001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 10,
-    "offlinereward": 20
+    "offlinereward": "3448"
   },
   {
     "id": 26,
     "name": "第26关",
-    "wellen": "26001#26002#26003#26004#26005",
+    "wellen": "26001#26002#26003",
     "boss_DI": 10263001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 10,
-    "offlinereward": 20
+    "offlinereward": "3567"
   },
   {
     "id": 27,
     "name": "第27关",
-    "wellen": "27001#27002#27003#27004#27005",
+    "wellen": "27001#27002#27003",
     "boss_DI": 10273001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 10,
-    "offlinereward": 20
+    "offlinereward": "3683"
   },
   {
     "id": 28,
     "name": "第28关",
-    "wellen": "28001#28002#28003#28004#28005",
+    "wellen": "28001#28002#28003",
     "boss_DI": 10283001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 10,
-    "offlinereward": 20
+    "offlinereward": "3853"
   },
   {
     "id": 29,
     "name": "第29关",
-    "wellen": "29001#29002#29003#29004#29005",
+    "wellen": "29001#29002#29003",
     "boss_DI": 10293001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 10,
-    "offlinereward": 20
+    "offlinereward": "4016"
   },
   {
     "id": 30,
     "name": "第30关",
-    "wellen": "30001#30002#30003#30004#30005",
+    "wellen": "30001#30002#30003",
     "boss_DI": 10303001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
     "Reincarnation": 10,
-    "offlinereward": 20
+    "offlinereward": "4160"
   },
   {
     "id": 31,
     "name": "第31关",
-    "wellen": "31001#31002#31003#31004#31005",
+    "wellen": "31001#31002#31003",
     "boss_DI": 10313001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
     "Reincarnation": 20,
-    "offlinereward": 20
+    "offlinereward": "4282"
   },
   {
     "id": 32,
     "name": "第32关",
-    "wellen": "32001#32002#32003#32004#32005",
+    "wellen": "32001#32002#32003",
     "boss_DI": 10323001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
     "Reincarnation": 20,
-    "offlinereward": 20
+    "offlinereward": "4389"
   },
   {
     "id": 33,
     "name": "第33关",
-    "wellen": "33001#33002#33003#33004#33005",
+    "wellen": "33001#33002#33003",
     "boss_DI": 10333001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
     "Reincarnation": 20,
-    "offlinereward": 20
+    "offlinereward": "4485"
   },
   {
     "id": 34,
     "name": "第34关",
-    "wellen": "34001#34002#34003#34004#34005",
+    "wellen": "34001#34002#34003",
     "boss_DI": 10343001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
     "Reincarnation": 20,
-    "offlinereward": 20
+    "offlinereward": "4550"
   },
   {
     "id": 35,
     "name": "第35关",
-    "wellen": "35001#35002#35003#35004#35005",
+    "wellen": "35001#35002#35003",
     "boss_DI": 10353001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
     "Reincarnation": 20,
-    "offlinereward": 20
+    "offlinereward": "4595"
   },
   {
     "id": 36,
     "name": "第36关",
-    "wellen": "36001#36002#36003#36004#36005",
+    "wellen": "36001#36002#36003",
     "boss_DI": 10363001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
     "Reincarnation": 20,
-    "offlinereward": 20
+    "offlinereward": "4644"
   },
   {
     "id": 37,
     "name": "第37关",
-    "wellen": "37001#37002#37003#37004#37005",
+    "wellen": "37001#37002#37003",
     "boss_DI": 10373001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
     "Reincarnation": 20,
-    "offlinereward": 20
+    "offlinereward": "4655"
   },
   {
     "id": 38,
     "name": "第38关",
-    "wellen": "38001#38002#38003#38004#38005",
+    "wellen": "38001#38002#38003",
     "boss_DI": 10383001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
     "Reincarnation": 20,
-    "offlinereward": 20
+    "offlinereward": "4758"
   },
   {
     "id": 39,
     "name": "第39关",
-    "wellen": "39001#39002#39003#39004#39005",
+    "wellen": "39001#39002#39003",
     "boss_DI": 10393001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
     "Reincarnation": 20,
-    "offlinereward": 20
+    "offlinereward": "4899"
   },
   {
     "id": 40,
     "name": "第40关",
-    "wellen": "40001#40002#40003#40004#40005",
+    "wellen": "40001#40002#40003",
     "boss_DI": 10403001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
     "Reincarnation": 20,
-    "offlinereward": 20
+    "offlinereward": "5062"
   },
   {
     "id": 41,
     "name": "第41关",
-    "wellen": "41001#41002#41003#41004#41005",
+    "wellen": "41001#41002#41003",
     "boss_DI": 10413001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
     "Reincarnation": 30,
-    "offlinereward": 20
+    "offlinereward": "5211"
   },
   {
     "id": 42,
     "name": "第42关",
-    "wellen": "42001#42002#42003#42004#42005",
+    "wellen": "42001#42002#42003",
     "boss_DI": 10423001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
     "Reincarnation": 30,
-    "offlinereward": 20
+    "offlinereward": "5360"
   },
   {
     "id": 43,
     "name": "第43关",
-    "wellen": "43001#43002#43003#43004#43005",
+    "wellen": "43001#43002#43003",
     "boss_DI": 10433001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 30,
-    "offlinereward": 20
+    "offlinereward": "5484"
   },
   {
     "id": 44,
     "name": "第44关",
-    "wellen": "44001#44002#44003#44004#44005",
+    "wellen": "44001#44002#44003",
     "boss_DI": 10443001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 30,
-    "offlinereward": 20
+    "offlinereward": "5627"
   },
   {
     "id": 45,
     "name": "第45关",
-    "wellen": "45001#45002#45003#45004#45005",
+    "wellen": "45001#45002#45003",
     "boss_DI": 10453001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 30,
-    "offlinereward": 20
+    "offlinereward": "5727"
   },
   {
     "id": 46,
     "name": "第46关",
-    "wellen": "46001#46002#46003#46004#46005",
+    "wellen": "46001#46002#46003",
     "boss_DI": 10463001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 30,
-    "offlinereward": 20
+    "offlinereward": "5848"
   },
   {
     "id": 47,
     "name": "第47关",
-    "wellen": "47001#47002#47003#47004#47005",
+    "wellen": "47001#47002#47003",
     "boss_DI": 10473001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 30,
-    "offlinereward": 20
+    "offlinereward": "5947"
   },
   {
     "id": 48,
     "name": "第48关",
-    "wellen": "48001#48002#48003#48004#48005",
+    "wellen": "48001#48002#48003",
     "boss_DI": 10483001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 30,
-    "offlinereward": 20
+    "offlinereward": "6028"
   },
   {
     "id": 49,
     "name": "第49关",
-    "wellen": "49001#49002#49003#49004#49005",
+    "wellen": "49001#49002#49003",
     "boss_DI": 10493001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 30,
-    "offlinereward": 20
+    "offlinereward": "6127"
   },
   {
     "id": 50,
     "name": "第50关",
-    "wellen": "50001#50002#50003#50004#50005",
+    "wellen": "50001#50002#50003",
     "boss_DI": 10503001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 30,
-    "offlinereward": 20
+    "offlinereward": "6201"
   },
   {
     "id": 51,
     "name": "第51关",
-    "wellen": "51001#51002#51003#51004#51005",
+    "wellen": "51001#51002#51003",
     "boss_DI": 10513001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 40,
-    "offlinereward": 20
+    "offlinereward": "6261"
   },
   {
     "id": 52,
     "name": "第52关",
-    "wellen": "52001#52002#52003#52004#52005",
+    "wellen": "52001#52002#52003",
     "boss_DI": 10523001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 40,
-    "offlinereward": 20
+    "offlinereward": "6321"
   },
   {
     "id": 53,
     "name": "第53关",
-    "wellen": "53001#53002#53003#53004#53005",
+    "wellen": "53001#53002#53003",
     "boss_DI": 10533001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 40,
-    "offlinereward": 20
+    "offlinereward": "6401"
   },
   {
     "id": 54,
     "name": "第54关",
-    "wellen": "54001#54002#54003#54004#54005",
+    "wellen": "54001#54002#54003",
     "boss_DI": 10543001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 40,
-    "offlinereward": 20
+    "offlinereward": "6514"
   },
   {
     "id": 55,
     "name": "第55关",
-    "wellen": "55001#55002#55003#55004#55005",
+    "wellen": "55001#55002#55003",
     "boss_DI": 10553001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 40,
-    "offlinereward": 20
+    "offlinereward": "6617"
   },
   {
     "id": 56,
     "name": "第56关",
-    "wellen": "56001#56002#56003#56004#56005",
+    "wellen": "56001#56002#56003",
     "boss_DI": 10563001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 40,
-    "offlinereward": 20
+    "offlinereward": "6711"
   },
   {
     "id": 57,
     "name": "第57关",
-    "wellen": "57001#57002#57003#57004#57005",
+    "wellen": "57001#57002#57003",
     "boss_DI": 10573001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 40,
-    "offlinereward": 20
+    "offlinereward": "6797"
   },
   {
     "id": 58,
     "name": "第58关",
-    "wellen": "58001#58002#58003#58004#58005",
+    "wellen": "58001#58002#58003",
     "boss_DI": 10583001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 40,
-    "offlinereward": 20
+    "offlinereward": "6892"
   },
   {
     "id": 59,
     "name": "第59关",
-    "wellen": "59001#59002#59003#59004#59005",
+    "wellen": "59001#59002#59003",
     "boss_DI": 10593001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
     "Reincarnation": 40,
-    "offlinereward": 20
+    "offlinereward": "6956"
   },
   {
     "id": 60,
     "name": "第60关",
-    "wellen": "60001#60002#60003#60004#60005",
+    "wellen": "60001#60002#60003",
     "boss_DI": 10603001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
     "Reincarnation": 40,
-    "offlinereward": 20
+    "offlinereward": "7010"
   },
   {
     "id": 61,
     "name": "第61关",
-    "wellen": "61001#61002#61003#61004#61005",
+    "wellen": "61001#61002#61003",
     "boss_DI": 10613001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
     "Reincarnation": 50,
-    "offlinereward": 20
+    "offlinereward": "7056"
   },
   {
     "id": 62,
     "name": "第62关",
-    "wellen": "62001#62002#62003#62004#62005",
+    "wellen": "62001#62002#62003",
     "boss_DI": 10623001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
     "Reincarnation": 50,
-    "offlinereward": 20
+    "offlinereward": "7092"
   },
   {
     "id": 63,
     "name": "第63关",
-    "wellen": "63001#63002#63003#63004#63005",
+    "wellen": "63001#63002#63003",
     "boss_DI": 10633001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
     "Reincarnation": 50,
-    "offlinereward": 20
+    "offlinereward": "7119"
   },
   {
     "id": 64,
     "name": "第64关",
-    "wellen": "64001#64002#64003#64004#64005",
+    "wellen": "64001#64002#64003",
     "boss_DI": 10643001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
     "Reincarnation": 50,
-    "offlinereward": 20
+    "offlinereward": "7137"
   },
   {
     "id": 65,
     "name": "第65关",
-    "wellen": "65001#65002#65003#65004#65005",
+    "wellen": "65001#65002#65003",
     "boss_DI": 10653001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
     "Reincarnation": 50,
-    "offlinereward": 20
+    "offlinereward": "7146"
   },
   {
     "id": 66,
     "name": "第66关",
-    "wellen": "66001#66002#66003#66004#66005",
+    "wellen": "66001#66002#66003",
     "boss_DI": 10663001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
     "Reincarnation": 50,
-    "offlinereward": 20
+    "offlinereward": "7146"
   },
   {
     "id": 67,
     "name": "第67关",
-    "wellen": "67001#67002#67003#67004#67005",
+    "wellen": "67001#67002#67003",
     "boss_DI": 10673001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
     "Reincarnation": 50,
-    "offlinereward": 20
+    "offlinereward": "7137"
   },
   {
     "id": 68,
     "name": "第68关",
-    "wellen": "68001#68002#68003#68004#68005",
+    "wellen": "68001#68002#68003",
     "boss_DI": 10683001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
     "Reincarnation": 50,
-    "offlinereward": 20
+    "offlinereward": "7235"
   },
   {
     "id": 69,
     "name": "第69关",
-    "wellen": "69001#69002#69003#69004#69005",
+    "wellen": "69001#69002#69003",
     "boss_DI": 10693001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
     "Reincarnation": 50,
-    "offlinereward": 20
+    "offlinereward": "7331"
   },
   {
     "id": 70,
     "name": "第70关",
-    "wellen": "70001#70002#70003#70004#70005",
+    "wellen": "70001#70002#70003",
     "boss_DI": 10703001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
     "Reincarnation": 50,
-    "offlinereward": 20
+    "offlinereward": "7423"
   },
   {
     "id": 71,
     "name": "第71关",
-    "wellen": "71001#71002#71003#71004#71005",
+    "wellen": "71001#71002#71003",
     "boss_DI": 10713001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
     "Reincarnation": 60,
-    "offlinereward": 20
+    "offlinereward": "7515"
   },
   {
     "id": 72,
     "name": "第72关",
-    "wellen": "72001#72002#72003#72004#72005",
+    "wellen": "72001#72002#72003",
     "boss_DI": 10723001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 60,
-    "offlinereward": 20
+    "offlinereward": "7609"
   },
   {
     "id": 73,
     "name": "第73关",
-    "wellen": "73001#73002#73003#73004#73005",
+    "wellen": "73001#73002#73003",
     "boss_DI": 10733001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 60,
-    "offlinereward": 20
+    "offlinereward": "7761"
   },
   {
     "id": 74,
     "name": "第74关",
-    "wellen": "74001#74002#74003#74004#74005",
+    "wellen": "74001#74002#74003",
     "boss_DI": 10743001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 60,
-    "offlinereward": 20
+    "offlinereward": "7926"
   },
   {
     "id": 75,
     "name": "第75关",
-    "wellen": "75001#75002#75003#75004#75005",
+    "wellen": "75001#75002#75003",
     "boss_DI": 10753001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 60,
-    "offlinereward": 20
+    "offlinereward": "8070"
   },
   {
     "id": 76,
     "name": "第76关",
-    "wellen": "76001#76002#76003#76004#76005",
+    "wellen": "76001#76002#76003",
     "boss_DI": 10763001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 60,
-    "offlinereward": 20
+    "offlinereward": "8212"
   },
   {
     "id": 77,
     "name": "第77关",
-    "wellen": "77001#77002#77003#77004#77005",
+    "wellen": "77001#77002#77003",
     "boss_DI": 10773001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 60,
-    "offlinereward": 20
+    "offlinereward": "8350"
   },
   {
     "id": 78,
     "name": "第78关",
-    "wellen": "78001#78002#78003#78004#78005",
+    "wellen": "78001#78002#78003",
     "boss_DI": 10783001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 60,
-    "offlinereward": 20
+    "offlinereward": "8484"
   },
   {
     "id": 79,
     "name": "第79关",
-    "wellen": "79001#79002#79003#79004#79005",
+    "wellen": "79001#79002#79003",
     "boss_DI": 10793001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 60,
-    "offlinereward": 20
+    "offlinereward": "8615"
   },
   {
     "id": 80,
     "name": "第80关",
-    "wellen": "80001#80002#80003#80004#80005",
+    "wellen": "80001#80002#80003",
     "boss_DI": 10803001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
     "Reincarnation": 60,
-    "offlinereward": 20
+    "offlinereward": "8743"
   },
   {
     "id": 81,
     "name": "第81关",
-    "wellen": "81001#81002#81003#81004#81005",
+    "wellen": "81001#81002#81003",
     "boss_DI": 10813001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
     "Reincarnation": 70,
-    "offlinereward": 20
+    "offlinereward": "8867"
   },
   {
     "id": 82,
     "name": "第82关",
-    "wellen": "82001#82002#82003#82004#82005",
+    "wellen": "82001#82002#82003",
     "boss_DI": 10823001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
     "Reincarnation": 70,
-    "offlinereward": 20
+    "offlinereward": "8988"
   },
   {
     "id": 83,
     "name": "第83关",
-    "wellen": "83001#83002#83003#83004#83005",
+    "wellen": "83001#83002#83003",
     "boss_DI": 10833001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
     "Reincarnation": 70,
-    "offlinereward": 20
+    "offlinereward": "9124"
   },
   {
     "id": 84,
     "name": "第84关",
-    "wellen": "84001#84002#84003#84004#84005",
+    "wellen": "84001#84002#84003",
     "boss_DI": 10843001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
     "Reincarnation": 70,
-    "offlinereward": 20
+    "offlinereward": "9250"
   },
   {
     "id": 85,
     "name": "第85关",
-    "wellen": "85001#85002#85003#85004#85005",
+    "wellen": "85001#85002#85003",
     "boss_DI": 10853001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
     "Reincarnation": 70,
-    "offlinereward": 20
+    "offlinereward": "9362"
   },
   {
     "id": 86,
     "name": "第86关",
-    "wellen": "86001#86002#86003#86004#86005",
+    "wellen": "86001#86002#86003",
     "boss_DI": 10863001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
     "Reincarnation": 70,
-    "offlinereward": 20
+    "offlinereward": "9469"
   },
   {
     "id": 87,
     "name": "第87关",
-    "wellen": "87001#87002#87003#87004#87005",
+    "wellen": "87001#87002#87003",
     "boss_DI": 10873001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
     "Reincarnation": 70,
-    "offlinereward": 20
+    "offlinereward": "9574"
   },
   {
     "id": 88,
     "name": "第88关",
-    "wellen": "88001#88002#88003#88004#88005",
+    "wellen": "88001#88002#88003",
     "boss_DI": 10883001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
     "Reincarnation": 70,
-    "offlinereward": 20
+    "offlinereward": "9675"
   },
   {
     "id": 89,
     "name": "第89关",
-    "wellen": "89001#89002#89003#89004#89005",
+    "wellen": "89001#89002#89003",
     "boss_DI": 10893001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
     "Reincarnation": 70,
-    "offlinereward": 20
+    "offlinereward": "9774"
   },
   {
     "id": 90,
     "name": "第90关",
-    "wellen": "90001#90002#90003#90004#90005",
+    "wellen": "90001#90002#90003",
     "boss_DI": 10903001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
     "Reincarnation": 70,
-    "offlinereward": 20
+    "offlinereward": "9898"
   },
   {
     "id": 91,
     "name": "第91关",
-    "wellen": "91001#91002#91003#91004#91005",
+    "wellen": "91001#91002#91003",
     "boss_DI": 10913001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
     "Reincarnation": 80,
-    "offlinereward": 20
+    "offlinereward": "9998"
   },
   {
     "id": 92,
     "name": "第92关",
-    "wellen": "92001#92002#92003#92004#92005",
+    "wellen": "92001#92002#92003",
     "boss_DI": 10923001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
     "Reincarnation": 80,
-    "offlinereward": 20
+    "offlinereward": "10087"
   },
   {
     "id": 93,
     "name": "第93关",
-    "wellen": "93001#93002#93003#93004#93005",
+    "wellen": "93001#93002#93003",
     "boss_DI": 10933001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 80,
-    "offlinereward": 20
+    "offlinereward": "10172"
   },
   {
     "id": 94,
     "name": "第94关",
-    "wellen": "94001#94002#94003#94004#94005",
+    "wellen": "94001#94002#94003",
     "boss_DI": 10943001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 80,
-    "offlinereward": 20
+    "offlinereward": "10254"
   },
   {
     "id": 95,
     "name": "第95关",
-    "wellen": "95001#95002#95003#95004#95005",
+    "wellen": "95001#95002#95003",
     "boss_DI": 10953001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 80,
-    "offlinereward": 20
+    "offlinereward": "10339"
   },
   {
     "id": 96,
     "name": "第96关",
-    "wellen": "96001#96002#96003#96004#96005",
+    "wellen": "96001#96002#96003",
     "boss_DI": 10963001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 80,
-    "offlinereward": 20
+    "offlinereward": "10541"
   },
   {
     "id": 97,
     "name": "第97关",
-    "wellen": "97001#97002#97003#97004#97005",
+    "wellen": "97001#97002#97003",
     "boss_DI": 10973001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 80,
-    "offlinereward": 20
+    "offlinereward": "10682"
   },
   {
     "id": 98,
     "name": "第98关",
-    "wellen": "98001#98002#98003#98004#98005",
+    "wellen": "98001#98002#98003",
     "boss_DI": 10983001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 80,
-    "offlinereward": 20
+    "offlinereward": "10818"
   },
   {
     "id": 99,
     "name": "第99关",
-    "wellen": "99001#99002#99003#99004#99005",
+    "wellen": "99001#99002#99003",
     "boss_DI": 10993001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 80,
-    "offlinereward": 20
+    "offlinereward": "10949"
   },
   {
     "id": 100,
     "name": "第100关",
-    "wellen": "100001#100002#100003#100004#100005",
+    "wellen": "100001#100002#100003",
     "boss_DI": 11003001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 80,
-    "offlinereward": 20
+    "offlinereward": "11094"
   },
   {
     "id": 101,
     "name": "第101关",
-    "wellen": "101001#101002#101003#101004#101005",
+    "wellen": "101001#101002#101003",
     "boss_DI": 11013001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 90,
-    "offlinereward": 20
+    "offlinereward": "11271"
   },
   {
     "id": 102,
     "name": "第102关",
-    "wellen": "102001#102002#102003#102004#102005",
+    "wellen": "102001#102002#102003",
     "boss_DI": 11023001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 90,
-    "offlinereward": 20
+    "offlinereward": "11388"
   },
   {
     "id": 103,
     "name": "第103关",
-    "wellen": "103001#103002#103003#103004#103005",
+    "wellen": "103001#103002#103003",
     "boss_DI": 11033001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 90,
-    "offlinereward": 20
+    "offlinereward": "11501"
   },
   {
     "id": 104,
     "name": "第104关",
-    "wellen": "104001#104002#104003#104004#104005",
+    "wellen": "104001#104002#104003",
     "boss_DI": 11043001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 90,
-    "offlinereward": 20
+    "offlinereward": "11608"
   },
   {
     "id": 105,
     "name": "第105关",
-    "wellen": "105001#105002#105003#105004#105005",
+    "wellen": "105001#105002#105003",
     "boss_DI": 11053001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 90,
-    "offlinereward": 20
+    "offlinereward": "11779"
   },
   {
     "id": 106,
     "name": "第106关",
-    "wellen": "106001#106002#106003#106004#106005",
+    "wellen": "106001#106002#106003",
     "boss_DI": 11063001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 90,
-    "offlinereward": 20
+    "offlinereward": "11890"
   },
   {
     "id": 107,
     "name": "第107关",
-    "wellen": "107001#107002#107003#107004#107005",
+    "wellen": "107001#107002#107003",
     "boss_DI": 11073001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 90,
-    "offlinereward": 20
+    "offlinereward": "11983"
   },
   {
     "id": 108,
     "name": "第108关",
-    "wellen": "108001#108002#108003#108004#108005",
+    "wellen": "108001#108002#108003",
     "boss_DI": 11083001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 90,
-    "offlinereward": 20
+    "offlinereward": "12071"
   },
   {
     "id": 109,
     "name": "第109关",
-    "wellen": "109001#109002#109003#109004#109005",
+    "wellen": "109001#109002#109003",
     "boss_DI": 11093001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
     "Reincarnation": 90,
-    "offlinereward": 20
+    "offlinereward": "12229"
   },
   {
     "id": 110,
     "name": "第110关",
-    "wellen": "110001#110002#110003#110004#110005",
+    "wellen": "110001#110002#110003",
     "boss_DI": 11103001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
     "Reincarnation": 90,
-    "offlinereward": 20
+    "offlinereward": "12324"
   },
   {
     "id": 111,
     "name": "第111关",
-    "wellen": "111001#111002#111003#111004#111005",
+    "wellen": "111001#111002#111003",
     "boss_DI": 11113001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
     "Reincarnation": 100,
-    "offlinereward": 20
+    "offlinereward": "12398"
   },
   {
     "id": 112,
     "name": "第112关",
-    "wellen": "112001#112002#112003#112004#112005",
+    "wellen": "112001#112002#112003",
     "boss_DI": 11123001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
     "Reincarnation": 100,
-    "offlinereward": 20
+    "offlinereward": "12476"
   },
   {
     "id": 113,
     "name": "第113关",
-    "wellen": "113001#113002#113003#113004#113005",
+    "wellen": "113001#113002#113003",
     "boss_DI": 11133001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
     "Reincarnation": 100,
-    "offlinereward": 20
+    "offlinereward": "12628"
   },
   {
     "id": 114,
     "name": "第114关",
-    "wellen": "114001#114002#114003#114004#114005",
+    "wellen": "114001#114002#114003",
     "boss_DI": 11143001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
     "Reincarnation": 100,
-    "offlinereward": 20
+    "offlinereward": "12688"
   },
   {
     "id": 115,
     "name": "第115关",
-    "wellen": "115001#115002#115003#115004#115005",
+    "wellen": "115001#115002#115003",
     "boss_DI": 11153001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
     "Reincarnation": 100,
-    "offlinereward": 20
+    "offlinereward": "12744"
   },
   {
     "id": 116,
     "name": "第116关",
-    "wellen": "116001#116002#116003#116004#116005",
+    "wellen": "116001#116002#116003",
     "boss_DI": 11163001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
     "Reincarnation": 100,
-    "offlinereward": 20
+    "offlinereward": "12855"
   },
   {
     "id": 117,
     "name": "第117关",
-    "wellen": "117001#117002#117003#117004#117005",
+    "wellen": "117001#117002#117003",
     "boss_DI": 11173001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
     "Reincarnation": 100,
-    "offlinereward": 20
+    "offlinereward": "12943"
   },
   {
     "id": 118,
     "name": "第118关",
-    "wellen": "118001#118002#118003#118004#118005",
+    "wellen": "118001#118002#118003",
     "boss_DI": 11183001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
     "Reincarnation": 100,
-    "offlinereward": 20
+    "offlinereward": "12985"
   },
   {
     "id": 119,
     "name": "第119关",
-    "wellen": "119001#119002#119003#119004#119005",
+    "wellen": "119001#119002#119003",
     "boss_DI": 11193001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
     "Reincarnation": 100,
-    "offlinereward": 20
+    "offlinereward": "13053"
   },
   {
     "id": 120,
     "name": "第120关",
-    "wellen": "120001#120002#120003#120004#120005",
+    "wellen": "120001#120002#120003",
     "boss_DI": 11203001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
     "Reincarnation": 100,
-    "offlinereward": 20
+    "offlinereward": "13162"
   },
   {
     "id": 121,
     "name": "第121关",
-    "wellen": "121001#121002#121003#121004#121005",
+    "wellen": "121001#121002#121003",
     "boss_DI": 11213001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
     "Reincarnation": 110,
-    "offlinereward": 20
+    "offlinereward": "13190"
   },
   {
     "id": 122,
     "name": "第122关",
-    "wellen": "122001#122002#122003#122004#122005",
+    "wellen": "122001#122002#122003",
     "boss_DI": 11223001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 110,
-    "offlinereward": 20
+    "offlinereward": "13230"
   },
   {
     "id": 123,
     "name": "第123关",
-    "wellen": "123001#123002#123003#123004#123005",
+    "wellen": "123001#123002#123003",
     "boss_DI": 11233001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 110,
-    "offlinereward": 20
+    "offlinereward": "13451"
   },
   {
     "id": 124,
     "name": "第124关",
-    "wellen": "124001#124002#124003#124004#124005",
+    "wellen": "124001#124002#124003",
     "boss_DI": 11243001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 110,
-    "offlinereward": 20
+    "offlinereward": "13522"
   },
   {
     "id": 125,
     "name": "第125关",
-    "wellen": "125001#125002#125003#125004#125005",
+    "wellen": "125001#125002#125003",
     "boss_DI": 11253001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 110,
-    "offlinereward": 20
+    "offlinereward": "13614"
   },
   {
     "id": 126,
     "name": "第126关",
-    "wellen": "126001#126002#126003#126004#126005",
+    "wellen": "126001#126002#126003",
     "boss_DI": 11263001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 110,
-    "offlinereward": 20
+    "offlinereward": "13818"
   },
   {
     "id": 127,
     "name": "第127关",
-    "wellen": "127001#127002#127003#127004#127005",
+    "wellen": "127001#127002#127003",
     "boss_DI": 11273001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 110,
-    "offlinereward": 20
+    "offlinereward": "13869"
   },
   {
     "id": 128,
     "name": "第128关",
-    "wellen": "128001#128002#128003#128004#128005",
+    "wellen": "128001#128002#128003",
     "boss_DI": 11283001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 110,
-    "offlinereward": 20
+    "offlinereward": "13965"
   },
   {
     "id": 129,
     "name": "第129关",
-    "wellen": "129001#129002#129003#129004#129005",
+    "wellen": "129001#129002#129003",
     "boss_DI": 11293001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 110,
-    "offlinereward": 20
+    "offlinereward": "14132"
   },
   {
     "id": 130,
     "name": "第130关",
-    "wellen": "130001#130002#130003#130004#130005",
+    "wellen": "130001#130002#130003",
     "boss_DI": 11303001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
     "Reincarnation": 110,
-    "offlinereward": 20
+    "offlinereward": "14162"
   },
   {
     "id": 131,
     "name": "第131关",
-    "wellen": "131001#131002#131003#131004#131005",
+    "wellen": "131001#131002#131003",
     "boss_DI": 11313001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
     "Reincarnation": 120,
-    "offlinereward": 20
+    "offlinereward": "14287"
   },
   {
     "id": 132,
     "name": "第132关",
-    "wellen": "132001#132002#132003#132004#132005",
+    "wellen": "132001#132002#132003",
     "boss_DI": 11323001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
     "Reincarnation": 120,
-    "offlinereward": 20
+    "offlinereward": "14391"
   },
   {
     "id": 133,
     "name": "第133关",
-    "wellen": "133001#133002#133003#133004#133005",
+    "wellen": "133001#133002#133003",
     "boss_DI": 11333001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
     "Reincarnation": 120,
-    "offlinereward": 20
+    "offlinereward": "14400"
   },
   {
     "id": 134,
     "name": "第134关",
-    "wellen": "134001#134002#134003#134004#134005",
+    "wellen": "134001#134002#134003",
     "boss_DI": 11343001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
     "Reincarnation": 120,
-    "offlinereward": 20
+    "offlinereward": "14577"
   },
   {
     "id": 135,
     "name": "第135关",
-    "wellen": "135001#135002#135003#135004#135005",
+    "wellen": "135001#135002#135003",
     "boss_DI": 11353001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
     "Reincarnation": 120,
-    "offlinereward": 20
+    "offlinereward": "14597"
   },
   {
     "id": 136,
     "name": "第136关",
-    "wellen": "136001#136002#136003#136004#136005",
+    "wellen": "136001#136002#136003",
     "boss_DI": 11363001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
     "Reincarnation": 120,
-    "offlinereward": 20
+    "offlinereward": "14529"
   },
   {
     "id": 137,
     "name": "第137关",
-    "wellen": "137001#137002#137003#137004#137005",
+    "wellen": "137001#137002#137003",
     "boss_DI": 11373001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
     "Reincarnation": 120,
-    "offlinereward": 20
+    "offlinereward": "14770"
   },
   {
     "id": 138,
     "name": "第138关",
-    "wellen": "138001#138002#138003#138004#138005",
+    "wellen": "138001#138002#138003",
     "boss_DI": 11383001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
     "Reincarnation": 120,
-    "offlinereward": 20
+    "offlinereward": "14873"
   },
   {
     "id": 139,
     "name": "第139关",
-    "wellen": "139001#139002#139003#139004#139005",
+    "wellen": "139001#139002#139003",
     "boss_DI": 11393001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
     "Reincarnation": 120,
-    "offlinereward": 20
+    "offlinereward": "15144"
   },
   {
     "id": 140,
     "name": "第140关",
-    "wellen": "140001#140002#140003#140004#140005",
+    "wellen": "140001#140002#140003",
     "boss_DI": 11403001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
     "Reincarnation": 120,
-    "offlinereward": 20
+    "offlinereward": "15283"
   },
   {
     "id": 141,
     "name": "第141关",
-    "wellen": "141001#141002#141003#141004#141005",
+    "wellen": "141001#141002#141003",
     "boss_DI": 11413001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
     "Reincarnation": 130,
-    "offlinereward": 20
+    "offlinereward": "15452"
   },
   {
     "id": 142,
     "name": "第142关",
-    "wellen": "142001#142002#142003#142004#142005",
+    "wellen": "142001#142002#142003",
     "boss_DI": 11423001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
     "Reincarnation": 130,
-    "offlinereward": 20
+    "offlinereward": "15693"
   },
   {
     "id": 143,
     "name": "第143关",
-    "wellen": "143001#143002#143003#143004#143005",
+    "wellen": "143001#143002#143003",
     "boss_DI": 11433001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 130,
-    "offlinereward": 20
+    "offlinereward": "15795"
   },
   {
     "id": 144,
     "name": "第144关",
-    "wellen": "144001#144002#144003#144004#144005",
+    "wellen": "144001#144002#144003",
     "boss_DI": 11443001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 130,
-    "offlinereward": 20
+    "offlinereward": "16067"
   },
   {
     "id": 145,
     "name": "第145关",
-    "wellen": "145001#145002#145003#145004#145005",
+    "wellen": "145001#145002#145003",
     "boss_DI": 11453001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 130,
-    "offlinereward": 20
+    "offlinereward": "16206"
   },
   {
     "id": 146,
     "name": "第146关",
-    "wellen": "146001#146002#146003#146004#146005",
+    "wellen": "146001#146002#146003",
     "boss_DI": 11463001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 130,
-    "offlinereward": 20
+    "offlinereward": "16375"
   },
   {
     "id": 147,
     "name": "第147关",
-    "wellen": "147001#147002#147003#147004#147005",
+    "wellen": "147001#147002#147003",
     "boss_DI": 11473001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 130,
-    "offlinereward": 20
+    "offlinereward": "16616"
   },
   {
     "id": 148,
     "name": "第148关",
-    "wellen": "148001#148002#148003#148004#148005",
+    "wellen": "148001#148002#148003",
     "boss_DI": 11483001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 130,
-    "offlinereward": 20
+    "offlinereward": "16719"
   },
   {
     "id": 149,
     "name": "第149关",
-    "wellen": "149001#149002#149003#149004#149005",
+    "wellen": "149001#149002#149003",
     "boss_DI": 11493001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 130,
-    "offlinereward": 20
+    "offlinereward": "16990"
   },
   {
     "id": 150,
     "name": "第150关",
-    "wellen": "150001#150002#150003#150004#150005",
+    "wellen": "150001#150002#150003",
     "boss_DI": 11503001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 130,
-    "offlinereward": 20
+    "offlinereward": "16984"
   },
   {
     "id": 151,
     "name": "第151关",
-    "wellen": "151001#151002#151003#151004#151005",
+    "wellen": "151001#151002#151003",
     "boss_DI": 11513001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 140,
-    "offlinereward": 20
+    "offlinereward": "17010"
   },
   {
     "id": 152,
     "name": "第152关",
-    "wellen": "152001#152002#152003#152004#152005",
+    "wellen": "152001#152002#152003",
     "boss_DI": 11523001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 140,
-    "offlinereward": 20
+    "offlinereward": "17091"
   },
   {
     "id": 153,
     "name": "第153关",
-    "wellen": "153001#153002#153003#153004#153005",
+    "wellen": "153001#153002#153003",
     "boss_DI": 11533001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 140,
-    "offlinereward": 20
+    "offlinereward": "17029"
   },
   {
     "id": 154,
     "name": "第154关",
-    "wellen": "154001#154002#154003#154004#154005",
+    "wellen": "154001#154002#154003",
     "boss_DI": 11543001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 140,
-    "offlinereward": 20
+    "offlinereward": "17167"
   },
   {
     "id": 155,
     "name": "第155关",
-    "wellen": "155001#155002#155003#155004#155005",
+    "wellen": "155001#155002#155003",
     "boss_DI": 11553001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 140,
-    "offlinereward": 20
+    "offlinereward": "17145"
   },
   {
     "id": 156,
     "name": "第156关",
-    "wellen": "156001#156002#156003#156004#156005",
+    "wellen": "156001#156002#156003",
     "boss_DI": 11563001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 140,
-    "offlinereward": 20
+    "offlinereward": "17303"
   },
   {
     "id": 157,
     "name": "第157关",
-    "wellen": "157001#157002#157003#157004#157005",
+    "wellen": "157001#157002#157003",
     "boss_DI": 11573001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 140,
-    "offlinereward": 20
+    "offlinereward": "17372"
   },
   {
     "id": 158,
     "name": "第158关",
-    "wellen": "158001#158002#158003#158004#158005",
+    "wellen": "158001#158002#158003",
     "boss_DI": 11583001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 140,
-    "offlinereward": 20
+    "offlinereward": "17423"
   },
   {
     "id": 159,
     "name": "第159关",
-    "wellen": "159001#159002#159003#159004#159005",
+    "wellen": "159001#159002#159003",
     "boss_DI": 11593001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
     "Reincarnation": 140,
-    "offlinereward": 20
+    "offlinereward": "17570"
   },
   {
     "id": 160,
     "name": "第160关",
-    "wellen": "160001#160002#160003#160004#160005",
+    "wellen": "160001#160002#160003",
     "boss_DI": 11603001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
     "Reincarnation": 140,
-    "offlinereward": 20
+    "offlinereward": "17528"
   },
   {
     "id": 161,
     "name": "第161关",
-    "wellen": "161001#161002#161003#161004#161005",
+    "wellen": "161001#161002#161003",
     "boss_DI": 11613001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
     "Reincarnation": 150,
-    "offlinereward": 20
+    "offlinereward": "17737"
   },
   {
     "id": 162,
     "name": "第162关",
-    "wellen": "162001#162002#162003#162004#162005",
+    "wellen": "162001#162002#162003",
     "boss_DI": 11623001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
     "Reincarnation": 150,
-    "offlinereward": 20
+    "offlinereward": "17630"
   },
   {
     "id": 163,
     "name": "第163关",
-    "wellen": "163001#163002#163003#163004#163005",
+    "wellen": "163001#163002#163003",
     "boss_DI": 11633001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
     "Reincarnation": 150,
-    "offlinereward": 20
+    "offlinereward": "17861"
   },
   {
     "id": 164,
     "name": "第164关",
-    "wellen": "164001#164002#164003#164004#164005",
+    "wellen": "164001#164002#164003",
     "boss_DI": 11643001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
     "Reincarnation": 150,
-    "offlinereward": 20
+    "offlinereward": "17747"
   },
   {
     "id": 165,
     "name": "第165关",
-    "wellen": "165001#165002#165003#165004#165005",
+    "wellen": "165001#165002#165003",
     "boss_DI": 11653001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
     "Reincarnation": 150,
-    "offlinereward": 20
+    "offlinereward": "17924"
   },
   {
     "id": 166,
     "name": "第166关",
-    "wellen": "166001#166002#166003#166004#166005",
+    "wellen": "166001#166002#166003",
     "boss_DI": 11663001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
     "Reincarnation": 150,
-    "offlinereward": 20
+    "offlinereward": "17833"
   },
   {
     "id": 167,
     "name": "第167关",
-    "wellen": "167001#167002#167003#167004#167005",
+    "wellen": "167001#167002#167003",
     "boss_DI": 11673001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
     "Reincarnation": 150,
-    "offlinereward": 20
+    "offlinereward": "17972"
   },
   {
     "id": 168,
     "name": "第168关",
-    "wellen": "168001#168002#168003#168004#168005",
+    "wellen": "168001#168002#168003",
     "boss_DI": 11683001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
     "Reincarnation": 150,
-    "offlinereward": 20
+    "offlinereward": "17888"
   },
   {
     "id": 169,
     "name": "第169关",
-    "wellen": "169001#169002#169003#169004#169005",
+    "wellen": "169001#169002#169003",
     "boss_DI": 11693001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
     "Reincarnation": 150,
-    "offlinereward": 20
+    "offlinereward": "18004"
   },
   {
     "id": 170,
     "name": "第170关",
-    "wellen": "170001#170002#170003#170004#170005",
+    "wellen": "170001#170002#170003",
     "boss_DI": 11703001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
     "Reincarnation": 150,
-    "offlinereward": 20
+    "offlinereward": "18096"
   },
   {
     "id": 171,
     "name": "第171关",
-    "wellen": "171001#171002#171003#171004#171005",
+    "wellen": "171001#171002#171003",
     "boss_DI": 11713001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
     "Reincarnation": 160,
-    "offlinereward": 20
+    "offlinereward": "18388"
   },
   {
     "id": 172,
     "name": "第172关",
-    "wellen": "172001#172002#172003#172004#172005",
+    "wellen": "172001#172002#172003",
     "boss_DI": 11723001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 160,
-    "offlinereward": 20
+    "offlinereward": "18481"
   },
   {
     "id": 173,
     "name": "第173关",
-    "wellen": "173001#173002#173003#173004#173005",
+    "wellen": "173001#173002#173003",
     "boss_DI": 11733001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 160,
-    "offlinereward": 20
+    "offlinereward": "18772"
   },
   {
     "id": 174,
     "name": "第174关",
-    "wellen": "174001#174002#174003#174004#174005",
+    "wellen": "174001#174002#174003",
     "boss_DI": 11743001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 160,
-    "offlinereward": 20
+    "offlinereward": "18865"
   },
   {
     "id": 175,
     "name": "第175关",
-    "wellen": "175001#175002#175003#175004#175005",
+    "wellen": "175001#175002#175003",
     "boss_DI": 11753001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 160,
-    "offlinereward": 20
+    "offlinereward": "19157"
   },
   {
     "id": 176,
     "name": "第176关",
-    "wellen": "176001#176002#176003#176004#176005",
+    "wellen": "176001#176002#176003",
     "boss_DI": 11763001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 160,
-    "offlinereward": 20
+    "offlinereward": "19249"
   },
   {
     "id": 177,
     "name": "第177关",
-    "wellen": "177001#177002#177003#177004#177005",
+    "wellen": "177001#177002#177003",
     "boss_DI": 11773001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 160,
-    "offlinereward": 20
+    "offlinereward": "19541"
   },
   {
     "id": 178,
     "name": "第178关",
-    "wellen": "178001#178002#178003#178004#178005",
+    "wellen": "178001#178002#178003",
     "boss_DI": 11783001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 160,
-    "offlinereward": 20
+    "offlinereward": "19634"
   },
   {
     "id": 179,
     "name": "第179关",
-    "wellen": "179001#179002#179003#179004#179005",
+    "wellen": "179001#179002#179003",
     "boss_DI": 11793001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 160,
-    "offlinereward": 20
+    "offlinereward": "19926"
   },
   {
     "id": 180,
     "name": "第180关",
-    "wellen": "180001#180002#180003#180004#180005",
+    "wellen": "180001#180002#180003",
     "boss_DI": 11803001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
     "Reincarnation": 160,
-    "offlinereward": 20
+    "offlinereward": "20019"
   },
   {
     "id": 181,
     "name": "第181关",
-    "wellen": "181001#181002#181003#181004#181005",
+    "wellen": "181001#181002#181003",
     "boss_DI": 11813001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
     "Reincarnation": 170,
-    "offlinereward": 20
+    "offlinereward": "20311"
   },
   {
     "id": 182,
     "name": "第182关",
-    "wellen": "182001#182002#182003#182004#182005",
+    "wellen": "182001#182002#182003",
     "boss_DI": 11823001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
     "Reincarnation": 170,
-    "offlinereward": 20
+    "offlinereward": "20403"
   },
   {
     "id": 183,
     "name": "第183关",
-    "wellen": "183001#183002#183003#183004#183005",
+    "wellen": "183001#183002#183003",
     "boss_DI": 11833001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
     "Reincarnation": 170,
-    "offlinereward": 20
+    "offlinereward": "20696"
   },
   {
     "id": 184,
     "name": "第184关",
-    "wellen": "184001#184002#184003#184004#184005",
+    "wellen": "184001#184002#184003",
     "boss_DI": 11843001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
     "Reincarnation": 170,
-    "offlinereward": 20
+    "offlinereward": "20788"
   },
   {
     "id": 185,
     "name": "第185关",
-    "wellen": "185001#185002#185003#185004#185005",
+    "wellen": "185001#185002#185003",
     "boss_DI": 11853001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
     "Reincarnation": 170,
-    "offlinereward": 20
+    "offlinereward": "21080"
   },
   {
     "id": 186,
     "name": "第186关",
-    "wellen": "186001#186002#186003#186004#186005",
+    "wellen": "186001#186002#186003",
     "boss_DI": 11863001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
     "Reincarnation": 170,
-    "offlinereward": 20
+    "offlinereward": "21172"
   },
   {
     "id": 187,
     "name": "第187关",
-    "wellen": "187001#187002#187003#187004#187005",
+    "wellen": "187001#187002#187003",
     "boss_DI": 11873001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
     "Reincarnation": 170,
-    "offlinereward": 20
+    "offlinereward": "21465"
   },
   {
     "id": 188,
     "name": "第188关",
-    "wellen": "188001#188002#188003#188004#188005",
+    "wellen": "188001#188002#188003",
     "boss_DI": 11883001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
     "Reincarnation": 170,
-    "offlinereward": 20
+    "offlinereward": "21557"
   },
   {
     "id": 189,
     "name": "第189关",
-    "wellen": "189001#189002#189003#189004#189005",
+    "wellen": "189001#189002#189003",
     "boss_DI": 11893001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
     "Reincarnation": 170,
-    "offlinereward": 20
+    "offlinereward": "21849"
   },
   {
     "id": 190,
     "name": "第190关",
-    "wellen": "190001#190002#190003#190004#190005",
+    "wellen": "190001#190002#190003",
     "boss_DI": 11903001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
     "Reincarnation": 170,
-    "offlinereward": 20
+    "offlinereward": "21941"
   },
   {
     "id": 191,
     "name": "第191关",
-    "wellen": "191001#191002#191003#191004#191005",
+    "wellen": "191001#191002#191003",
     "boss_DI": 11913001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 20
+    "offlinereward": "22234"
   },
   {
     "id": 192,
     "name": "第192关",
-    "wellen": "192001#192002#192003#192004#192005",
+    "wellen": "192001#192002#192003",
     "boss_DI": 11923001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 20
+    "offlinereward": "22326"
   },
   {
     "id": 193,
     "name": "第193关",
-    "wellen": "193001#193002#193003#193004#193005",
+    "wellen": "193001#193002#193003",
     "boss_DI": 11933001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 20
+    "offlinereward": "22618"
   },
   {
     "id": 194,
     "name": "第194关",
-    "wellen": "194001#194002#194003#194004#194005",
+    "wellen": "194001#194002#194003",
     "boss_DI": 11943001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 20
+    "offlinereward": "22757"
   },
   {
     "id": 195,
     "name": "第195关",
-    "wellen": "195001#195002#195003#195004#195005",
+    "wellen": "195001#195002#195003",
     "boss_DI": 11953001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 20
+    "offlinereward": "23195"
   },
   {
     "id": 196,
     "name": "第196关",
-    "wellen": "196001#196002#196003#196004#196005",
+    "wellen": "196001#196002#196003",
     "boss_DI": 11963001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 20
+    "offlinereward": "23333"
   },
   {
     "id": 197,
     "name": "第197关",
-    "wellen": "197001#197002#197003#197004#197005",
+    "wellen": "197001#197002#197003",
     "boss_DI": 11973001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 20
+    "offlinereward": "23771"
   },
   {
     "id": 198,
     "name": "第198关",
-    "wellen": "198001#198002#198003#198004#198005",
+    "wellen": "198001#198002#198003",
     "boss_DI": 11983001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 20
+    "offlinereward": "23910"
   },
   {
     "id": 199,
     "name": "第199关",
-    "wellen": "199001#199002#199003#199004#199005",
+    "wellen": "199001#199002#199003",
     "boss_DI": 11993001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 20
+    "offlinereward": "24349"
   },
   {
     "id": 200,
     "name": "第200关",
-    "wellen": "200001#200002#200003#200004#200005",
+    "wellen": "200001#200002#200003",
     "boss_DI": 12003001,
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 20
+    "offlinereward": "24487"
+  },
+  {
+    "id": 201,
+    "name": "第201关",
+    "wellen": "201001#201002#201003",
+    "boss_DI": 12013001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "24826"
+  },
+  {
+    "id": 202,
+    "name": "第202关",
+    "wellen": "202001#202002#202003",
+    "boss_DI": 12023001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "24857"
+  },
+  {
+    "id": 203,
+    "name": "第203关",
+    "wellen": "203001#203002#203003",
+    "boss_DI": 12033001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "25196"
+  },
+  {
+    "id": 204,
+    "name": "第204关",
+    "wellen": "204001#204002#204003",
+    "boss_DI": 12043001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "25209"
+  },
+  {
+    "id": 205,
+    "name": "第205关",
+    "wellen": "205001#205002#205003",
+    "boss_DI": 12053001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "25558"
+  },
+  {
+    "id": 206,
+    "name": "第206关",
+    "wellen": "206001#206002#206003",
+    "boss_DI": 12063001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "25543"
+  },
+  {
+    "id": 207,
+    "name": "第207关",
+    "wellen": "207001#207002#207003",
+    "boss_DI": 12073001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "25909"
+  },
+  {
+    "id": 208,
+    "name": "第208关",
+    "wellen": "208001#208002#208003",
+    "boss_DI": 12083001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "25858"
+  },
+  {
+    "id": 209,
+    "name": "第209关",
+    "wellen": "209001#209002#209003",
+    "boss_DI": 12093001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "26252"
+  },
+  {
+    "id": 210,
+    "name": "第210关",
+    "wellen": "210001#210002#210003",
+    "boss_DI": 12103001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "26154"
+  },
+  {
+    "id": 211,
+    "name": "第211关",
+    "wellen": "211001#211002#211003",
+    "boss_DI": 12113001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "26586"
+  },
+  {
+    "id": 212,
+    "name": "第212关",
+    "wellen": "212001#212002#212003",
+    "boss_DI": 12123001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "26474"
+  },
+  {
+    "id": 213,
+    "name": "第213关",
+    "wellen": "213001#213002#213003",
+    "boss_DI": 12133001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "26869"
+  },
+  {
+    "id": 214,
+    "name": "第214关",
+    "wellen": "214001#214002#214003",
+    "boss_DI": 12143001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "26796"
+  },
+  {
+    "id": 215,
+    "name": "第215关",
+    "wellen": "215001#215002#215003",
+    "boss_DI": 12153001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "27122"
+  },
+  {
+    "id": 216,
+    "name": "第216关",
+    "wellen": "216001#216002#216003",
+    "boss_DI": 12163001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "27109"
+  },
+  {
+    "id": 217,
+    "name": "第217关",
+    "wellen": "217001#217002#217003",
+    "boss_DI": 12173001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "27356"
+  },
+  {
+    "id": 218,
+    "name": "第218关",
+    "wellen": "218001#218002#218003",
+    "boss_DI": 12183001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "27412"
+  },
+  {
+    "id": 219,
+    "name": "第219关",
+    "wellen": "219001#219002#219003",
+    "boss_DI": 12193001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "27572"
+  },
+  {
+    "id": 220,
+    "name": "第220关",
+    "wellen": "220001#220002#220003",
+    "boss_DI": 12203001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "27707"
+  },
+  {
+    "id": 221,
+    "name": "第221关",
+    "wellen": "221001#221002#221003",
+    "boss_DI": 12213001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "27769"
+  },
+  {
+    "id": 222,
+    "name": "第222关",
+    "wellen": "222001#222002#222003",
+    "boss_DI": 12223001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "27992"
+  },
+  {
+    "id": 223,
+    "name": "第223关",
+    "wellen": "223001#223002#223003",
+    "boss_DI": 12233001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "27948"
+  },
+  {
+    "id": 224,
+    "name": "第224关",
+    "wellen": "224001#224002#224003",
+    "boss_DI": 12243001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "28268"
+  },
+  {
+    "id": 225,
+    "name": "第225关",
+    "wellen": "225001#225002#225003",
+    "boss_DI": 12253001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "28143"
+  },
+  {
+    "id": 226,
+    "name": "第226关",
+    "wellen": "226001#226002#226003",
+    "boss_DI": 12263001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "28500"
+  },
+  {
+    "id": 227,
+    "name": "第227关",
+    "wellen": "227001#227002#227003",
+    "boss_DI": 12273001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "28407"
+  },
+  {
+    "id": 228,
+    "name": "第228关",
+    "wellen": "228001#228002#228003",
+    "boss_DI": 12283001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "28635"
+  },
+  {
+    "id": 229,
+    "name": "第229关",
+    "wellen": "229001#229002#229003",
+    "boss_DI": 12293001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "28663"
+  },
+  {
+    "id": 230,
+    "name": "第230关",
+    "wellen": "230001#230002#230003",
+    "boss_DI": 12303001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "28752"
+  },
+  {
+    "id": 231,
+    "name": "第231关",
+    "wellen": "231001#231002#231003",
+    "boss_DI": 12313001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "28908"
+  },
+  {
+    "id": 232,
+    "name": "第232关",
+    "wellen": "232001#232002#232003",
+    "boss_DI": 12323001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "28850"
+  },
+  {
+    "id": 233,
+    "name": "第233关",
+    "wellen": "233001#233002#233003",
+    "boss_DI": 12333001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "29145"
+  },
+  {
+    "id": 234,
+    "name": "第234关",
+    "wellen": "234001#234002#234003",
+    "boss_DI": 12343001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "29011"
+  },
+  {
+    "id": 235,
+    "name": "第235关",
+    "wellen": "235001#235002#235003",
+    "boss_DI": 12353001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "29292"
+  },
+  {
+    "id": 236,
+    "name": "第236关",
+    "wellen": "236001#236002#236003",
+    "boss_DI": 12363001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "29236"
+  },
+  {
+    "id": 237,
+    "name": "第237关",
+    "wellen": "237001#237002#237003",
+    "boss_DI": 12373001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "29470"
+  },
+  {
+    "id": 238,
+    "name": "第238关",
+    "wellen": "238001#238002#238003",
+    "boss_DI": 12383001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "29696"
+  },
+  {
+    "id": 239,
+    "name": "第239关",
+    "wellen": "239001#239002#239003",
+    "boss_DI": 12393001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "29660"
+  },
+  {
+    "id": 240,
+    "name": "第240关",
+    "wellen": "240001#240002#240003",
+    "boss_DI": 12403001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "30143"
+  },
+  {
+    "id": 241,
+    "name": "第241关",
+    "wellen": "241001#241002#241003",
+    "boss_DI": 12413001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "30000"
+  },
+  {
+    "id": 242,
+    "name": "第242关",
+    "wellen": "242001#242002#242003",
+    "boss_DI": 12423001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "30399"
+  },
+  {
+    "id": 243,
+    "name": "第243关",
+    "wellen": "243001#243002#243003",
+    "boss_DI": 12433001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "30429"
+  },
+  {
+    "id": 244,
+    "name": "第244关",
+    "wellen": "244001#244002#244003",
+    "boss_DI": 12443001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "30524"
+  },
+  {
+    "id": 245,
+    "name": "第245关",
+    "wellen": "245001#245002#245003",
+    "boss_DI": 12453001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "30844"
+  },
+  {
+    "id": 246,
+    "name": "第246关",
+    "wellen": "246001#246002#246003",
+    "boss_DI": 12463001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "30694"
+  },
+  {
+    "id": 247,
+    "name": "第247关",
+    "wellen": "247001#247002#247003",
+    "boss_DI": 12473001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "31174"
+  },
+  {
+    "id": 248,
+    "name": "第248关",
+    "wellen": "248001#248002#248003",
+    "boss_DI": 12483001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "31092"
+  },
+  {
+    "id": 249,
+    "name": "第249关",
+    "wellen": "249001#249002#249003",
+    "boss_DI": 12493001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "31232"
+  },
+  {
+    "id": 250,
+    "name": "第250关",
+    "wellen": "250001#250002#250003",
+    "boss_DI": 12503001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "31476"
+  },
+  {
+    "id": 251,
+    "name": "第251关",
+    "wellen": "251001#251002#251003",
+    "boss_DI": 12513001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "31318"
+  },
+  {
+    "id": 252,
+    "name": "第252关",
+    "wellen": "252001#252002#252003",
+    "boss_DI": 12523001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "31791"
+  },
+  {
+    "id": 253,
+    "name": "第253关",
+    "wellen": "253001#253002#253003",
+    "boss_DI": 12533001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "31686"
+  },
+  {
+    "id": 254,
+    "name": "第254关",
+    "wellen": "254001#254002#254003",
+    "boss_DI": 12543001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "31785"
+  },
+  {
+    "id": 255,
+    "name": "第255关",
+    "wellen": "255001#255002#255003",
+    "boss_DI": 12553001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "32039"
+  },
+  {
+    "id": 256,
+    "name": "第256关",
+    "wellen": "256001#256002#256003",
+    "boss_DI": 12563001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "31875"
+  },
+  {
+    "id": 257,
+    "name": "第257关",
+    "wellen": "257001#257002#257003",
+    "boss_DI": 12573001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "32254"
+  },
+  {
+    "id": 258,
+    "name": "第258关",
+    "wellen": "258001#258002#258003",
+    "boss_DI": 12583001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "32211"
+  },
+  {
+    "id": 259,
+    "name": "第259关",
+    "wellen": "259001#259002#259003",
+    "boss_DI": 12593001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "32181"
+  },
+  {
+    "id": 260,
+    "name": "第260关",
+    "wellen": "260001#260002#260003",
+    "boss_DI": 12603001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "32533"
+  },
+  {
+    "id": 261,
+    "name": "第261关",
+    "wellen": "261001#261002#261003",
+    "boss_DI": 12613001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "32361"
+  },
+  {
+    "id": 262,
+    "name": "第262关",
+    "wellen": "262001#262002#262003",
+    "boss_DI": 12623001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "32561"
+  },
+  {
+    "id": 263,
+    "name": "第263关",
+    "wellen": "263001#263002#263003",
+    "boss_DI": 12633001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "32666"
+  },
+  {
+    "id": 264,
+    "name": "第264关",
+    "wellen": "264001#264002#264003",
+    "boss_DI": 12643001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "32492"
+  },
+  {
+    "id": 265,
+    "name": "第265关",
+    "wellen": "265001#265002#265003",
+    "boss_DI": 12653001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "32888"
+  },
+  {
+    "id": 266,
+    "name": "第266关",
+    "wellen": "266001#266002#266003",
+    "boss_DI": 12663001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "32779"
+  },
+  {
+    "id": 267,
+    "name": "第267关",
+    "wellen": "267001#267002#267003",
+    "boss_DI": 12673001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "32711"
+  },
+  {
+    "id": 268,
+    "name": "第268关",
+    "wellen": "268001#268002#268003",
+    "boss_DI": 12683001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "33052"
+  },
+  {
+    "id": 269,
+    "name": "第269关",
+    "wellen": "269001#269002#269003",
+    "boss_DI": 12693001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "32871"
+  },
+  {
+    "id": 270,
+    "name": "第270关",
+    "wellen": "270001#270002#270003",
+    "boss_DI": 12703001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "32949"
+  },
+  {
+    "id": 271,
+    "name": "第271关",
+    "wellen": "271001#271002#271003",
+    "boss_DI": 12713001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "33127"
+  },
+  {
+    "id": 272,
+    "name": "第272关",
+    "wellen": "272001#272002#272003",
+    "boss_DI": 12723001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "32942"
+  },
+  {
+    "id": 273,
+    "name": "第273关",
+    "wellen": "273001#273002#273003",
+    "boss_DI": 12733001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "33134"
+  },
+  {
+    "id": 274,
+    "name": "第274关",
+    "wellen": "274001#274002#274003",
+    "boss_DI": 12743001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "33181"
+  },
+  {
+    "id": 275,
+    "name": "第275关",
+    "wellen": "275001#275002#275003",
+    "boss_DI": 12753001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "32992"
+  },
+  {
+    "id": 276,
+    "name": "第276关",
+    "wellen": "276001#276002#276003",
+    "boss_DI": 12763001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "33268"
+  },
+  {
+    "id": 277,
+    "name": "第277关",
+    "wellen": "277001#277002#277003",
+    "boss_DI": 12773001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "33214"
+  },
+  {
+    "id": 278,
+    "name": "第278关",
+    "wellen": "278001#278002#278003",
+    "boss_DI": 12783001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "33022"
+  },
+  {
+    "id": 279,
+    "name": "第279关",
+    "wellen": "279001#279002#279003",
+    "boss_DI": 12793001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "33349"
+  },
+  {
+    "id": 280,
+    "name": "第280关",
+    "wellen": "280001#280002#280003",
+    "boss_DI": 12803001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "33226"
+  },
+  {
+    "id": 281,
+    "name": "第281关",
+    "wellen": "281001#281002#281003",
+    "boss_DI": 12813001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "33031"
+  },
+  {
+    "id": 282,
+    "name": "第282关",
+    "wellen": "282001#282002#282003",
+    "boss_DI": 12823001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "33379"
+  },
+  {
+    "id": 283,
+    "name": "第283关",
+    "wellen": "283001#283002#283003",
+    "boss_DI": 12833001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "33218"
+  },
+  {
+    "id": 284,
+    "name": "第284关",
+    "wellen": "284001#284002#284003",
+    "boss_DI": 12843001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "33019"
+  },
+  {
+    "id": 285,
+    "name": "第285关",
+    "wellen": "285001#285002#285003",
+    "boss_DI": 12853001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "33356"
+  },
+  {
+    "id": 286,
+    "name": "第286关",
+    "wellen": "286001#286002#286003",
+    "boss_DI": 12863001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "33189"
+  },
+  {
+    "id": 287,
+    "name": "第287关",
+    "wellen": "287001#287002#287003",
+    "boss_DI": 12873001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "32987"
+  },
+  {
+    "id": 288,
+    "name": "第288关",
+    "wellen": "288001#288002#288003",
+    "boss_DI": 12883001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "33283"
+  },
+  {
+    "id": 289,
+    "name": "第289关",
+    "wellen": "289001#289002#289003",
+    "boss_DI": 12893001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "33139"
+  },
+  {
+    "id": 290,
+    "name": "第290关",
+    "wellen": "290001#290002#290003",
+    "boss_DI": 12903001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "32933"
+  },
+  {
+    "id": 291,
+    "name": "第291关",
+    "wellen": "291001#291002#291003",
+    "boss_DI": 12913001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "33371"
+  },
+  {
+    "id": 292,
+    "name": "第292关",
+    "wellen": "292001#292002#292003",
+    "boss_DI": 12923001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "33342"
+  },
+  {
+    "id": 293,
+    "name": "第293关",
+    "wellen": "293001#293002#293003",
+    "boss_DI": 12933001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "33131"
+  },
+  {
+    "id": 294,
+    "name": "第294关",
+    "wellen": "294001#294002#294003",
+    "boss_DI": 12943001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "33413"
+  },
+  {
+    "id": 295,
+    "name": "第295关",
+    "wellen": "295001#295002#295003",
+    "boss_DI": 12953001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "33514"
+  },
+  {
+    "id": 296,
+    "name": "第296关",
+    "wellen": "296001#296002#296003",
+    "boss_DI": 12963001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "33297"
+  },
+  {
+    "id": 297,
+    "name": "第297关",
+    "wellen": "297001#297002#297003",
+    "boss_DI": 12973001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "33377"
+  },
+  {
+    "id": 298,
+    "name": "第298关",
+    "wellen": "298001#298002#298003",
+    "boss_DI": 12983001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "33654"
+  },
+  {
+    "id": 299,
+    "name": "第299关",
+    "wellen": "299001#299002#299003",
+    "boss_DI": 12993001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "33433"
+  },
+  {
+    "id": 300,
+    "name": "第300关",
+    "wellen": "300001#300002#300003",
+    "boss_DI": 13003001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "33262"
+  },
+  {
+    "id": 301,
+    "name": "第301关",
+    "wellen": "301001#301002#301003",
+    "boss_DI": 13013001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "32856"
+  },
+  {
+    "id": 302,
+    "name": "第302关",
+    "wellen": "302001#302002#302003",
+    "boss_DI": 13023001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "32856"
+  },
+  {
+    "id": 303,
+    "name": "第303关",
+    "wellen": "303001#303002#303003",
+    "boss_DI": 13033001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "32856"
+  },
+  {
+    "id": 304,
+    "name": "第304关",
+    "wellen": "304001#304002#304003",
+    "boss_DI": 13043001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "33324"
+  },
+  {
+    "id": 305,
+    "name": "第305关",
+    "wellen": "305001#305002#305003",
+    "boss_DI": 13053001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "33609"
+  },
+  {
+    "id": 306,
+    "name": "第306关",
+    "wellen": "306001#306002#306003",
+    "boss_DI": 13063001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "33609"
+  },
+  {
+    "id": 307,
+    "name": "第307关",
+    "wellen": "307001#307002#307003",
+    "boss_DI": 13073001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "33739"
+  },
+  {
+    "id": 308,
+    "name": "第308关",
+    "wellen": "308001#308002#308003",
+    "boss_DI": 13083001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "34362"
+  },
+  {
+    "id": 309,
+    "name": "第309关",
+    "wellen": "309001#309002#309003",
+    "boss_DI": 13093001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "34362"
+  },
+  {
+    "id": 310,
+    "name": "第310关",
+    "wellen": "310001#310002#310003",
+    "boss_DI": 13103001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "34362"
+  },
+  {
+    "id": 311,
+    "name": "第311关",
+    "wellen": "311001#311002#311003",
+    "boss_DI": 13113001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "34907"
+  },
+  {
+    "id": 312,
+    "name": "第312关",
+    "wellen": "312001#312002#312003",
+    "boss_DI": 13123001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "35115"
+  },
+  {
+    "id": 313,
+    "name": "第313关",
+    "wellen": "313001#313002#313003",
+    "boss_DI": 13133001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "35115"
+  },
+  {
+    "id": 314,
+    "name": "第314关",
+    "wellen": "314001#314002#314003",
+    "boss_DI": 13143001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "35323"
+  },
+  {
+    "id": 315,
+    "name": "第315关",
+    "wellen": "315001#315002#315003",
+    "boss_DI": 13153001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "35867"
+  },
+  {
+    "id": 316,
+    "name": "第316关",
+    "wellen": "316001#316002#316003",
+    "boss_DI": 13163001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "35867"
+  },
+  {
+    "id": 317,
+    "name": "第317关",
+    "wellen": "317001#317002#317003",
+    "boss_DI": 13173001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "35867"
+  },
+  {
+    "id": 318,
+    "name": "第318关",
+    "wellen": "318001#318002#318003",
+    "boss_DI": 13183001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "36491"
+  },
+  {
+    "id": 319,
+    "name": "第319关",
+    "wellen": "319001#319002#319003",
+    "boss_DI": 13193001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "34726"
+  },
+  {
+    "id": 320,
+    "name": "第320关",
+    "wellen": "320001#320002#320003",
+    "boss_DI": 13203001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "34726"
+  },
+  {
+    "id": 321,
+    "name": "第321关",
+    "wellen": "321001#321002#321003",
+    "boss_DI": 13213001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "34895"
+  },
+  {
+    "id": 322,
+    "name": "第322关",
+    "wellen": "322001#322002#322003",
+    "boss_DI": 13223001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "35440"
+  },
+  {
+    "id": 323,
+    "name": "第323关",
+    "wellen": "323001#323002#323003",
+    "boss_DI": 13233001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "35440"
+  },
+  {
+    "id": 324,
+    "name": "第324关",
+    "wellen": "324001#324002#324003",
+    "boss_DI": 13243001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "35440"
+  },
+  {
+    "id": 325,
+    "name": "第325关",
+    "wellen": "325001#325002#325003",
+    "boss_DI": 13253001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "35868"
+  },
+  {
+    "id": 326,
+    "name": "第326关",
+    "wellen": "326001#326002#326003",
+    "boss_DI": 13263001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "36154"
+  },
+  {
+    "id": 327,
+    "name": "第327关",
+    "wellen": "327001#327002#327003",
+    "boss_DI": 13273001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "36154"
+  },
+  {
+    "id": 328,
+    "name": "第328关",
+    "wellen": "328001#328002#328003",
+    "boss_DI": 13283001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "36154"
+  },
+  {
+    "id": 329,
+    "name": "第329关",
+    "wellen": "329001#329002#329003",
+    "boss_DI": 13293001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "36842"
+  },
+  {
+    "id": 330,
+    "name": "第330关",
+    "wellen": "330001#330002#330003",
+    "boss_DI": 13303001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "36868"
+  },
+  {
+    "id": 331,
+    "name": "第331关",
+    "wellen": "331001#331002#331003",
+    "boss_DI": 13313001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "36867"
+  },
+  {
+    "id": 332,
+    "name": "第332关",
+    "wellen": "332001#332002#332003",
+    "boss_DI": 13323001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "37101"
+  },
+  {
+    "id": 333,
+    "name": "第333关",
+    "wellen": "333001#333002#333003",
+    "boss_DI": 13333001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "37581"
+  },
+  {
+    "id": 334,
+    "name": "第334关",
+    "wellen": "334001#334002#334003",
+    "boss_DI": 13343001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "37581"
+  },
+  {
+    "id": 335,
+    "name": "第335关",
+    "wellen": "335001#335002#335003",
+    "boss_DI": 13353001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "37581"
+  },
+  {
+    "id": 336,
+    "name": "第336关",
+    "wellen": "336001#336002#336003",
+    "boss_DI": 13363001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "38074"
+  },
+  {
+    "id": 337,
+    "name": "第337关",
+    "wellen": "337001#337002#337003",
+    "boss_DI": 13373001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "36206"
+  },
+  {
+    "id": 338,
+    "name": "第338关",
+    "wellen": "338001#338002#338003",
+    "boss_DI": 13383001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "36206"
+  },
+  {
+    "id": 339,
+    "name": "第339关",
+    "wellen": "339001#339002#339003",
+    "boss_DI": 13393001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "36206"
+  },
+  {
+    "id": 340,
+    "name": "第340关",
+    "wellen": "340001#340002#340003",
+    "boss_DI": 13403001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "36803"
+  },
+  {
+    "id": 341,
+    "name": "第341关",
+    "wellen": "341001#341002#341003",
+    "boss_DI": 13413001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "36881"
+  },
+  {
+    "id": 342,
+    "name": "第342关",
+    "wellen": "342001#342002#342003",
+    "boss_DI": 13423001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "36881"
+  },
+  {
+    "id": 343,
+    "name": "第343关",
+    "wellen": "343001#343002#343003",
+    "boss_DI": 13433001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "36907"
+  },
+  {
+    "id": 344,
+    "name": "第344关",
+    "wellen": "344001#344002#344003",
+    "boss_DI": 13443001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "37556"
+  },
+  {
+    "id": 345,
+    "name": "第345关",
+    "wellen": "345001#345002#345003",
+    "boss_DI": 13453001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "37556"
+  },
+  {
+    "id": 346,
+    "name": "第346关",
+    "wellen": "346001#346002#346003",
+    "boss_DI": 13463001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "37556"
+  },
+  {
+    "id": 347,
+    "name": "第347关",
+    "wellen": "347001#347002#347003",
+    "boss_DI": 13473001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "37686"
+  },
+  {
+    "id": 348,
+    "name": "第348关",
+    "wellen": "348001#348002#348003",
+    "boss_DI": 13483001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "38231"
+  },
+  {
+    "id": 349,
+    "name": "第349关",
+    "wellen": "349001#349002#349003",
+    "boss_DI": 13493001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "38231"
+  },
+  {
+    "id": 350,
+    "name": "第350关",
+    "wellen": "350001#350002#350003",
+    "boss_DI": 13503001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "38231"
+  },
+  {
+    "id": 351,
+    "name": "第351关",
+    "wellen": "351001#351002#351003",
+    "boss_DI": 13513001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "38464"
+  },
+  {
+    "id": 352,
+    "name": "第352关",
+    "wellen": "352001#352002#352003",
+    "boss_DI": 13523001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "38906"
+  },
+  {
+    "id": 353,
+    "name": "第353关",
+    "wellen": "353001#353002#353003",
+    "boss_DI": 13533001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "38906"
+  },
+  {
+    "id": 354,
+    "name": "第354关",
+    "wellen": "354001#354002#354003",
+    "boss_DI": 13543001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "38906"
+  },
+  {
+    "id": 355,
+    "name": "第355关",
+    "wellen": "355001#355002#355003",
+    "boss_DI": 13553001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "36960"
+  },
+  {
+    "id": 356,
+    "name": "第356关",
+    "wellen": "356001#356002#356003",
+    "boss_DI": 13563001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "37297"
+  },
+  {
+    "id": 357,
+    "name": "第357关",
+    "wellen": "357001#357002#357003",
+    "boss_DI": 13573001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "37297"
+  },
+  {
+    "id": 358,
+    "name": "第358关",
+    "wellen": "358001#358002#358003",
+    "boss_DI": 13583001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "37297"
+  },
+  {
+    "id": 359,
+    "name": "第359关",
+    "wellen": "359001#359002#359003",
+    "boss_DI": 13593001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "37543"
+  },
+  {
+    "id": 360,
+    "name": "第360关",
+    "wellen": "360001#360002#360003",
+    "boss_DI": 13603001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "37933"
+  },
+  {
+    "id": 361,
+    "name": "第361关",
+    "wellen": "361001#361002#361003",
+    "boss_DI": 13613001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "37933"
+  },
+  {
+    "id": 362,
+    "name": "第362关",
+    "wellen": "362001#362002#362003",
+    "boss_DI": 13623001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "37933"
+  },
+  {
+    "id": 363,
+    "name": "第363关",
+    "wellen": "363001#363002#363003",
+    "boss_DI": 13633001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "38225"
+  },
+  {
+    "id": 364,
+    "name": "第364关",
+    "wellen": "364001#364002#364003",
+    "boss_DI": 13643001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "38887"
+  },
+  {
+    "id": 365,
+    "name": "第365关",
+    "wellen": "365001#365002#365003",
+    "boss_DI": 13653001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "38887"
+  },
+  {
+    "id": 366,
+    "name": "第366关",
+    "wellen": "366001#366002#366003",
+    "boss_DI": 13663001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "38887"
+  },
+  {
+    "id": 367,
+    "name": "第367关",
+    "wellen": "367001#367002#367003",
+    "boss_DI": 13673001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "39101"
+  },
+  {
+    "id": 368,
+    "name": "第368关",
+    "wellen": "368001#368002#368003",
+    "boss_DI": 13683001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "39840"
+  },
+  {
+    "id": 369,
+    "name": "第369关",
+    "wellen": "369001#369002#369003",
+    "boss_DI": 13693001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "39840"
+  },
+  {
+    "id": 370,
+    "name": "第370关",
+    "wellen": "370001#370002#370003",
+    "boss_DI": 13703001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "39840"
+  },
+  {
+    "id": 371,
+    "name": "第371关",
+    "wellen": "371001#371002#371003",
+    "boss_DI": 13713001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "39977"
+  },
+  {
+    "id": 372,
+    "name": "第372关",
+    "wellen": "372001#372002#372003",
+    "boss_DI": 13723001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "40795"
+  },
+  {
+    "id": 373,
+    "name": "第373关",
+    "wellen": "373001#373002#373003",
+    "boss_DI": 13733001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "38297"
+  },
+  {
+    "id": 374,
+    "name": "第374关",
+    "wellen": "374001#374002#374003",
+    "boss_DI": 13743001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "38297"
+  },
+  {
+    "id": 375,
+    "name": "第375关",
+    "wellen": "375001#375002#375003",
+    "boss_DI": 13753001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "38297"
+  },
+  {
+    "id": 376,
+    "name": "第376关",
+    "wellen": "376001#376002#376003",
+    "boss_DI": 13763001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "39075"
+  },
+  {
+    "id": 377,
+    "name": "第377关",
+    "wellen": "377001#377002#377003",
+    "boss_DI": 13773001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "39193"
+  },
+  {
+    "id": 378,
+    "name": "第378关",
+    "wellen": "378001#378002#378003",
+    "boss_DI": 13783001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "39193"
+  },
+  {
+    "id": 379,
+    "name": "第379关",
+    "wellen": "379001#379002#379003",
+    "boss_DI": 13793001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "39193"
+  },
+  {
+    "id": 380,
+    "name": "第380关",
+    "wellen": "380001#380002#380003",
+    "boss_DI": 13803001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "39660"
+  },
+  {
+    "id": 381,
+    "name": "第381关",
+    "wellen": "381001#381002#381003",
+    "boss_DI": 13813001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "40088"
+  },
+  {
+    "id": 382,
+    "name": "第382关",
+    "wellen": "382001#382002#382003",
+    "boss_DI": 13823001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "40088"
+  },
+  {
+    "id": 383,
+    "name": "第383关",
+    "wellen": "383001#383002#383003",
+    "boss_DI": 13833001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "40088"
+  },
+  {
+    "id": 384,
+    "name": "第384关",
+    "wellen": "384001#384002#384003",
+    "boss_DI": 13843001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "40243"
+  },
+  {
+    "id": 385,
+    "name": "第385关",
+    "wellen": "385001#385002#385003",
+    "boss_DI": 13853001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "40984"
+  },
+  {
+    "id": 386,
+    "name": "第386关",
+    "wellen": "386001#386002#386003",
+    "boss_DI": 13863001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "40984"
+  },
+  {
+    "id": 387,
+    "name": "第387关",
+    "wellen": "387001#387002#387003",
+    "boss_DI": 13873001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "40984"
+  },
+  {
+    "id": 388,
+    "name": "第388关",
+    "wellen": "388001#388002#388003",
+    "boss_DI": 13883001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "40984"
+  },
+  {
+    "id": 389,
+    "name": "第389关",
+    "wellen": "389001#389002#389003",
+    "boss_DI": 13893001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "41723"
+  },
+  {
+    "id": 390,
+    "name": "第390关",
+    "wellen": "390001#390002#390003",
+    "boss_DI": 13903001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "41879"
+  },
+  {
+    "id": 391,
+    "name": "第391关",
+    "wellen": "391001#391002#391003",
+    "boss_DI": 13913001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "39148"
+  },
+  {
+    "id": 392,
+    "name": "第392关",
+    "wellen": "392001#392002#392003",
+    "boss_DI": 13923001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "39148"
+  },
+  {
+    "id": 393,
+    "name": "第393关",
+    "wellen": "393001#393002#393003",
+    "boss_DI": 13933001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "39401"
+  },
+  {
+    "id": 394,
+    "name": "第394关",
+    "wellen": "394001#394002#394003",
+    "boss_DI": 13943001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "39985"
+  },
+  {
+    "id": 395,
+    "name": "第395关",
+    "wellen": "395001#395002#395003",
+    "boss_DI": 13953001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "39985"
+  },
+  {
+    "id": 396,
+    "name": "第396关",
+    "wellen": "396001#396002#396003",
+    "boss_DI": 13963001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "39985"
+  },
+  {
+    "id": 397,
+    "name": "第397关",
+    "wellen": "397001#397002#397003",
+    "boss_DI": 13973001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "39985"
+  },
+  {
+    "id": 398,
+    "name": "第398关",
+    "wellen": "398001#398002#398003",
+    "boss_DI": 13983001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "40530"
+  },
+  {
+    "id": 399,
+    "name": "第399关",
+    "wellen": "399001#399002#399003",
+    "boss_DI": 13993001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "40822"
+  },
+  {
+    "id": 400,
+    "name": "第400关",
+    "wellen": "400001#400002#400003",
+    "boss_DI": 14003001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "40822"
+  },
+  {
+    "id": 401,
+    "name": "第401关",
+    "wellen": "401001#401002#401003",
+    "boss_DI": 14013001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "40822"
+  },
+  {
+    "id": 402,
+    "name": "第402关",
+    "wellen": "402001#402002#402003",
+    "boss_DI": 14023001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "40822"
+  },
+  {
+    "id": 403,
+    "name": "第403关",
+    "wellen": "403001#403002#403003",
+    "boss_DI": 14033001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "41659"
+  },
+  {
+    "id": 404,
+    "name": "第404关",
+    "wellen": "404001#404002#404003",
+    "boss_DI": 14043001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "41659"
+  },
+  {
+    "id": 405,
+    "name": "第405关",
+    "wellen": "405001#405002#405003",
+    "boss_DI": 14053001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "41659"
+  },
+  {
+    "id": 406,
+    "name": "第406关",
+    "wellen": "406001#406002#406003",
+    "boss_DI": 14063001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "41659"
+  },
+  {
+    "id": 407,
+    "name": "第407关",
+    "wellen": "407001#407002#407003",
+    "boss_DI": 14073001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "41951"
+  },
+  {
+    "id": 408,
+    "name": "第408关",
+    "wellen": "408001#408002#408003",
+    "boss_DI": 14083001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "42496"
+  },
+  {
+    "id": 409,
+    "name": "第409关",
+    "wellen": "409001#409002#409003",
+    "boss_DI": 14093001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "39531"
+  },
+  {
+    "id": 410,
+    "name": "第410关",
+    "wellen": "410001#410002#410003",
+    "boss_DI": 14103001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "39531"
+  },
+  {
+    "id": 411,
+    "name": "第411关",
+    "wellen": "411001#411002#411003",
+    "boss_DI": 14113001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "39531"
+  },
+  {
+    "id": 412,
+    "name": "第412关",
+    "wellen": "412001#412002#412003",
+    "boss_DI": 14123001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "39881"
+  },
+  {
+    "id": 413,
+    "name": "第413关",
+    "wellen": "413001#413002#413003",
+    "boss_DI": 14133001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "40310"
+  },
+  {
+    "id": 414,
+    "name": "第414关",
+    "wellen": "414001#414002#414003",
+    "boss_DI": 14143001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "40310"
+  },
+  {
+    "id": 415,
+    "name": "第415关",
+    "wellen": "415001#415002#415003",
+    "boss_DI": 14153001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "40310"
+  },
+  {
+    "id": 416,
+    "name": "第416关",
+    "wellen": "416001#416002#416003",
+    "boss_DI": 14163001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "40310"
+  },
+  {
+    "id": 417,
+    "name": "第417关",
+    "wellen": "417001#417002#417003",
+    "boss_DI": 14173001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "40660"
+  },
+  {
+    "id": 418,
+    "name": "第418关",
+    "wellen": "418001#418002#418003",
+    "boss_DI": 14183001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "41089"
+  },
+  {
+    "id": 419,
+    "name": "第419关",
+    "wellen": "419001#419002#419003",
+    "boss_DI": 14193001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "41089"
+  },
+  {
+    "id": 420,
+    "name": "第420关",
+    "wellen": "420001#420002#420003",
+    "boss_DI": 14203001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "41089"
+  },
+  {
+    "id": 421,
+    "name": "第421关",
+    "wellen": "421001#421002#421003",
+    "boss_DI": 14213001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "41089"
+  },
+  {
+    "id": 422,
+    "name": "第422关",
+    "wellen": "422001#422002#422003",
+    "boss_DI": 14223001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "41439"
+  },
+  {
+    "id": 423,
+    "name": "第423关",
+    "wellen": "423001#423002#423003",
+    "boss_DI": 14233001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "41867"
+  },
+  {
+    "id": 424,
+    "name": "第424关",
+    "wellen": "424001#424002#424003",
+    "boss_DI": 14243001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "41867"
+  },
+  {
+    "id": 425,
+    "name": "第425关",
+    "wellen": "425001#425002#425003",
+    "boss_DI": 14253001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "41867"
+  },
+  {
+    "id": 426,
+    "name": "第426关",
+    "wellen": "426001#426002#426003",
+    "boss_DI": 14263001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "41867"
+  },
+  {
+    "id": 427,
+    "name": "第427关",
+    "wellen": "427001#427002#427003",
+    "boss_DI": 14273001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "39019"
+  },
+  {
+    "id": 428,
+    "name": "第428关",
+    "wellen": "428001#428002#428003",
+    "boss_DI": 14283001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "39448"
+  },
+  {
+    "id": 429,
+    "name": "第429关",
+    "wellen": "429001#429002#429003",
+    "boss_DI": 14293001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "39448"
+  },
+  {
+    "id": 430,
+    "name": "第430关",
+    "wellen": "430001#430002#430003",
+    "boss_DI": 14303001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "39448"
+  },
+  {
+    "id": 431,
+    "name": "第431关",
+    "wellen": "431001#431002#431003",
+    "boss_DI": 14313001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "39448"
+  },
+  {
+    "id": 432,
+    "name": "第432关",
+    "wellen": "432001#432002#432003",
+    "boss_DI": 14323001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "39448"
+  },
+  {
+    "id": 433,
+    "name": "第433关",
+    "wellen": "433001#433002#433003",
+    "boss_DI": 14333001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "40168"
+  },
+  {
+    "id": 434,
+    "name": "第434关",
+    "wellen": "434001#434002#434003",
+    "boss_DI": 14343001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "40168"
+  },
+  {
+    "id": 435,
+    "name": "第435关",
+    "wellen": "435001#435002#435003",
+    "boss_DI": 14353001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "40168"
+  },
+  {
+    "id": 436,
+    "name": "第436关",
+    "wellen": "436001#436002#436003",
+    "boss_DI": 14363001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "40168"
+  },
+  {
+    "id": 437,
+    "name": "第437关",
+    "wellen": "437001#437002#437003",
+    "boss_DI": 14373001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "40168"
+  },
+  {
+    "id": 438,
+    "name": "第438关",
+    "wellen": "438001#438002#438003",
+    "boss_DI": 14383001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "40596"
+  },
+  {
+    "id": 439,
+    "name": "第439关",
+    "wellen": "439001#439002#439003",
+    "boss_DI": 14393001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "40888"
+  },
+  {
+    "id": 440,
+    "name": "第440关",
+    "wellen": "440001#440002#440003",
+    "boss_DI": 14403001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "40888"
+  },
+  {
+    "id": 441,
+    "name": "第441关",
+    "wellen": "441001#441002#441003",
+    "boss_DI": 14413001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "40888"
+  },
+  {
+    "id": 442,
+    "name": "第442关",
+    "wellen": "442001#442002#442003",
+    "boss_DI": 14423001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "40888"
+  },
+  {
+    "id": 443,
+    "name": "第443关",
+    "wellen": "443001#443002#443003",
+    "boss_DI": 14433001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "41025"
+  },
+  {
+    "id": 444,
+    "name": "第444关",
+    "wellen": "444001#444002#444003",
+    "boss_DI": 14443001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "41608"
+  },
+  {
+    "id": 445,
+    "name": "第445关",
+    "wellen": "445001#445002#445003",
+    "boss_DI": 14453001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "38235"
+  },
+  {
+    "id": 446,
+    "name": "第446关",
+    "wellen": "446001#446002#446003",
+    "boss_DI": 14463001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "38235"
+  },
+  {
+    "id": 447,
+    "name": "第447关",
+    "wellen": "447001#447002#447003",
+    "boss_DI": 14473001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "38235"
+  },
+  {
+    "id": 448,
+    "name": "第448关",
+    "wellen": "448001#448002#448003",
+    "boss_DI": 14483001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "38235"
+  },
+  {
+    "id": 449,
+    "name": "第449关",
+    "wellen": "449001#449002#449003",
+    "boss_DI": 14493001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "38507"
+  },
+  {
+    "id": 450,
+    "name": "第450关",
+    "wellen": "450001#450002#450003",
+    "boss_DI": 14503001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "38896"
+  },
+  {
+    "id": 451,
+    "name": "第451关",
+    "wellen": "451001#451002#451003",
+    "boss_DI": 14513001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "38897"
+  },
+  {
+    "id": 452,
+    "name": "第452关",
+    "wellen": "452001#452002#452003",
+    "boss_DI": 14523001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "38897"
+  },
+  {
+    "id": 453,
+    "name": "第453关",
+    "wellen": "453001#453002#453003",
+    "boss_DI": 14533001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "38897"
+  },
+  {
+    "id": 454,
+    "name": "第454关",
+    "wellen": "454001#454002#454003",
+    "boss_DI": 14543001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "38897"
+  },
+  {
+    "id": 455,
+    "name": "第455关",
+    "wellen": "455001#455002#455003",
+    "boss_DI": 14553001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "39247"
+  },
+  {
+    "id": 456,
+    "name": "第456关",
+    "wellen": "456001#456002#456003",
+    "boss_DI": 14563001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "39558"
+  },
+  {
+    "id": 457,
+    "name": "第457关",
+    "wellen": "457001#457002#457003",
+    "boss_DI": 14573001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "39558"
+  },
+  {
+    "id": 458,
+    "name": "第458关",
+    "wellen": "458001#458002#458003",
+    "boss_DI": 14583001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "39558"
+  },
+  {
+    "id": 459,
+    "name": "第459关",
+    "wellen": "459001#459002#459003",
+    "boss_DI": 14593001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "39558"
+  },
+  {
+    "id": 460,
+    "name": "第460关",
+    "wellen": "460001#460002#460003",
+    "boss_DI": 14603001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "39558"
+  },
+  {
+    "id": 461,
+    "name": "第461关",
+    "wellen": "461001#461002#461003",
+    "boss_DI": 14613001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "40200"
+  },
+  {
+    "id": 462,
+    "name": "第462关",
+    "wellen": "462001#462002#462003",
+    "boss_DI": 14623001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "40551"
+  },
+  {
+    "id": 463,
+    "name": "第463关",
+    "wellen": "463001#463002#463003",
+    "boss_DI": 14633001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "36973"
+  },
+  {
+    "id": 464,
+    "name": "第464关",
+    "wellen": "464001#464002#464003",
+    "boss_DI": 14643001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "36973"
+  },
+  {
+    "id": 465,
+    "name": "第465关",
+    "wellen": "465001#465002#465003",
+    "boss_DI": 14653001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "36973"
+  },
+  {
+    "id": 466,
+    "name": "第466关",
+    "wellen": "466001#466002#466003",
+    "boss_DI": 14663001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "36973"
+  },
+  {
+    "id": 467,
+    "name": "第467关",
+    "wellen": "467001#467002#467003",
+    "boss_DI": 14673001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "37294"
+  },
+  {
+    "id": 468,
+    "name": "第468关",
+    "wellen": "468001#468002#468003",
+    "boss_DI": 14683001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "37879"
+  },
+  {
+    "id": 469,
+    "name": "第469关",
+    "wellen": "469001#469002#469003",
+    "boss_DI": 14693001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "37879"
+  },
+  {
+    "id": 470,
+    "name": "第470关",
+    "wellen": "470001#470002#470003",
+    "boss_DI": 14703001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "37879"
+  },
+  {
+    "id": 471,
+    "name": "第471关",
+    "wellen": "471001#471002#471003",
+    "boss_DI": 14713001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "37879"
+  },
+  {
+    "id": 472,
+    "name": "第472关",
+    "wellen": "472001#472002#472003",
+    "boss_DI": 14723001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "37879"
+  },
+  {
+    "id": 473,
+    "name": "第473关",
+    "wellen": "473001#473002#473003",
+    "boss_DI": 14733001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "37879"
+  },
+  {
+    "id": 474,
+    "name": "第474关",
+    "wellen": "474001#474002#474003",
+    "boss_DI": 14743001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "38696"
+  },
+  {
+    "id": 475,
+    "name": "第475关",
+    "wellen": "475001#475002#475003",
+    "boss_DI": 14753001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "38784"
+  },
+  {
+    "id": 476,
+    "name": "第476关",
+    "wellen": "476001#476002#476003",
+    "boss_DI": 14763001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "38784"
+  },
+  {
+    "id": 477,
+    "name": "第477关",
+    "wellen": "477001#477002#477003",
+    "boss_DI": 14773001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "38784"
+  },
+  {
+    "id": 478,
+    "name": "第478关",
+    "wellen": "478001#478002#478003",
+    "boss_DI": 14783001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "38784"
+  },
+  {
+    "id": 479,
+    "name": "第479关",
+    "wellen": "479001#479002#479003",
+    "boss_DI": 14793001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "38784"
+  },
+  {
+    "id": 480,
+    "name": "第480关",
+    "wellen": "480001#480002#480003",
+    "boss_DI": 14803001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_09",
+    "Reincarnation": 180,
+    "offlinereward": "39193"
+  },
+  {
+    "id": 481,
+    "name": "第481关",
+    "wellen": "481001#481002#481003",
+    "boss_DI": 14813001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_10",
+    "Reincarnation": 180,
+    "offlinereward": "35848"
+  },
+  {
+    "id": 482,
+    "name": "第482关",
+    "wellen": "482001#482002#482003",
+    "boss_DI": 14823001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_11",
+    "Reincarnation": 180,
+    "offlinereward": "35848"
+  },
+  {
+    "id": 483,
+    "name": "第483关",
+    "wellen": "483001#483002#483003",
+    "boss_DI": 14833001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_12",
+    "Reincarnation": 180,
+    "offlinereward": "35848"
+  },
+  {
+    "id": 484,
+    "name": "第484关",
+    "wellen": "484001#484002#484003",
+    "boss_DI": 14843001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_13",
+    "Reincarnation": 180,
+    "offlinereward": "35848"
+  },
+  {
+    "id": 485,
+    "name": "第485关",
+    "wellen": "485001#485002#485003",
+    "boss_DI": 14853001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_14",
+    "Reincarnation": 180,
+    "offlinereward": "35848"
+  },
+  {
+    "id": 486,
+    "name": "第486关",
+    "wellen": "486001#486002#486003",
+    "boss_DI": 14863001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_15",
+    "Reincarnation": 180,
+    "offlinereward": "35848"
+  },
+  {
+    "id": 487,
+    "name": "第487关",
+    "wellen": "487001#487002#487003",
+    "boss_DI": 14873001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_16",
+    "Reincarnation": 180,
+    "offlinereward": "36140"
+  },
+  {
+    "id": 488,
+    "name": "第488关",
+    "wellen": "488001#488002#488003",
+    "boss_DI": 14883001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_17",
+    "Reincarnation": 180,
+    "offlinereward": "36666"
+  },
+  {
+    "id": 489,
+    "name": "第489关",
+    "wellen": "489001#489002#489003",
+    "boss_DI": 14893001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_18",
+    "Reincarnation": 180,
+    "offlinereward": "36666"
+  },
+  {
+    "id": 490,
+    "name": "第490关",
+    "wellen": "490001#490002#490003",
+    "boss_DI": 14903001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_19",
+    "Reincarnation": 180,
+    "offlinereward": "36666"
+  },
+  {
+    "id": 491,
+    "name": "第491关",
+    "wellen": "491001#491002#491003",
+    "boss_DI": 14913001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_20",
+    "Reincarnation": 180,
+    "offlinereward": "36666"
+  },
+  {
+    "id": 492,
+    "name": "第492关",
+    "wellen": "492001#492002#492003",
+    "boss_DI": 14923001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_21",
+    "Reincarnation": 180,
+    "offlinereward": "36666"
+  },
+  {
+    "id": 493,
+    "name": "第493关",
+    "wellen": "493001#493002#493003",
+    "boss_DI": 14933001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 180,
+    "offlinereward": "36666"
+  },
+  {
+    "id": 494,
+    "name": "第494关",
+    "wellen": "494001#494002#494003",
+    "boss_DI": 14943001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_02",
+    "Reincarnation": 180,
+    "offlinereward": "36841"
+  },
+  {
+    "id": 495,
+    "name": "第495关",
+    "wellen": "495001#495002#495003",
+    "boss_DI": 14953001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_03",
+    "Reincarnation": 180,
+    "offlinereward": "37483"
+  },
+  {
+    "id": 496,
+    "name": "第496关",
+    "wellen": "496001#496002#496003",
+    "boss_DI": 14963001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_04",
+    "Reincarnation": 180,
+    "offlinereward": "37483"
+  },
+  {
+    "id": 497,
+    "name": "第497关",
+    "wellen": "497001#497002#497003",
+    "boss_DI": 14973001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_05",
+    "Reincarnation": 180,
+    "offlinereward": "37483"
+  },
+  {
+    "id": 498,
+    "name": "第498关",
+    "wellen": "498001#498002#498003",
+    "boss_DI": 14983001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_06",
+    "Reincarnation": 180,
+    "offlinereward": "37483"
+  },
+  {
+    "id": 499,
+    "name": "第499关",
+    "wellen": "499001#499002#499003",
+    "boss_DI": 14993001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_07",
+    "Reincarnation": 180,
+    "offlinereward": "33467"
+  },
+  {
+    "id": 500,
+    "name": "第500关",
+    "wellen": "500001#500002#500003",
+    "boss_DI": 15003001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 180,
+    "offlinereward": "33467"
   }
 ]

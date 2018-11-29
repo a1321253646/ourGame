@@ -13,28 +13,39 @@ public class AccouterJsonBean
     public string icon;
     public string attribute_type;
     public string attribute_value;
-    public long cost;
+    public string cost;
     public long quality;
     public string cost_up;
     public string strengthen;
     public string affix;
 
     private long affixAll = 0;
+    public BigNumber mCost;
 
-    public List<EquipKeyAndValue> mCostList;
-    public long getCost(long level){
-        if (mCostList == null) {
-            mCostList = EquipKeyAndValue.getListForString(cost_up);
+    public BigNumber getCost() {
+        if (mCost == null) {
+            mCost = BigNumber.getBigNumForString(cost);
         }
-        long cost = 0;
+        return mCost;
+    }
+
+    public List<EquipKeyAndBig> mCostList;
+    public BigNumber getCost(long level){
+        if (mCostList == null) {
+            mCostList = EquipKeyAndBig.getListForString(cost_up);
+        }
+        BigNumber cost = new BigNumber(); 
         long levelDo = 0;
-        foreach (EquipKeyAndValue v in mCostList) {
+        foreach (EquipKeyAndBig v in mCostList) {
             if (v.key > level)
             {
-                return cost+(level - levelDo) *v.value;
+                BigNumber mul =  BigNumber.multiply(v.value, level - levelDo);
+
+                return BigNumber.add(mul, cost);
             }
             else {
-                cost = cost+ v.value*( v.key- levelDo);
+                BigNumber mul = BigNumber.multiply(v.value, v.key - levelDo);
+                cost = BigNumber.add(mul, cost);
                 levelDo = v.key;
             }
         }

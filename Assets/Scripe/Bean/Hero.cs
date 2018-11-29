@@ -7,7 +7,7 @@ public class Hero
 	public float role_hp;
 	public float role_attack;
 	public float role_defense;
-	public float lvup_crystal;
+	public string lvup_crystal;
 	public float attack_speed;
 	public float attack_range;
     public long resource;
@@ -18,5 +18,15 @@ public class Hero
     public float speed_up;
     public float real_dam;
     public float range_type;
+
+    public BigNumber mLvupCrystal;
+    public BigNumber getLvupCrystal()
+    {
+        if (mLvupCrystal == null)
+        {
+            mLvupCrystal = BigNumber.getBigNumForString(lvup_crystal);
+        }
+        return mLvupCrystal;
+    }
 }
 

@@ -12,6 +12,16 @@ public class Level
 	public string boss_bg;
 	public string abc;
 	public long reincarnation;
-	public long offlinereward;
+	public string offlinereward;
+
+    public BigNumber mOfflinereward;
+    public BigNumber getOfflinereward()
+    {
+        if (mOfflinereward == null)
+        {
+            mOfflinereward = BigNumber.getBigNumForString(offlinereward);
+        }
+        return mOfflinereward;
+    }
 }
 

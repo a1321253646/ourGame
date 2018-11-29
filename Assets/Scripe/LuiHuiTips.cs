@@ -75,8 +75,8 @@ public class LuiHuiTips : MonoBehaviour {
         GameManager.getIntance().isAddGoodForTest = false; 
         BackpackManager.getIntance().removeAll();
         InventoryHalper.getIntance().dealClear();
-        GameManager.getIntance().mCurrentCrystal = 0;
-        SQLHelper.getIntance().updateHunJing(0);
+        GameManager.getIntance().mCurrentCrystal = new BigNumber();
+        SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
         GameManager.getIntance().mHeroLv = 1;
         SQLHelper.getIntance().updateHeroLevel(1);
         GameManager.getIntance().mCurrentLevel = 1;

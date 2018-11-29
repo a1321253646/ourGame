@@ -112,10 +112,16 @@ public class UiManager
 		mHeroLvTv.text = "英雄等级:" + GameManager.getIntance ().mHeroLv +"级";
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
-        mLvUpCrystalTv.text = "" + GameManager.getIntance ().upLevelCrystal;
-		mCurrentCrystalTv.text = "" + GameManager.getIntance ().mCurrentCrystal;
-
-        if (GameManager.getIntance ().mCurrentCrystal >= GameManager.getIntance ().upLevelCrystal) {
+        mLvUpCrystalTv.text =  GameManager.getIntance ().upLevelCrystal.toStringWithUnit();
+		mCurrentCrystalTv.text =   GameManager.getIntance ().mCurrentCrystal.toStringWithUnit();
+        Hero l = JsonUtils.getIntance().getHeroData(GameManager.getIntance().mHeroLv + 1);
+        if (l == null)
+        {
+            mLvUpBt.interactable = false;
+            mLvUpCrystalTv.text = "已满级";
+            return;
+        }
+        if (GameManager.getIntance ().mCurrentCrystal.ieEquit( GameManager.getIntance ().upLevelCrystal) != -1) {
 			mLvUpBt.interactable = true;
 		} else {
 			mLvUpBt.interactable = false;
@@ -134,14 +140,20 @@ public class UiManager
 	}
 
 	public void addGasAndCrystal(){
-		mCurrentCrystalTv.text = "" + GameManager.getIntance ().mCurrentCrystal;
+		mCurrentCrystalTv.text = GameManager.getIntance ().mCurrentCrystal.toStringWithUnit();
         addGas();
-        if (!mLvUpBt.IsInteractable() && GameManager.getIntance().mCurrentCrystal >= GameManager.getIntance().upLevelCrystal)
+        Hero l = JsonUtils.getIntance().getHeroData(GameManager.getIntance().mHeroLv + 1);
+        if (l == null) {
+            mLvUpBt.interactable = false;
+            mLvUpCrystalTv.text = "已满级";
+            return;
+        }
+        if (!mLvUpBt.IsInteractable() && GameManager.getIntance().mCurrentCrystal.ieEquit( GameManager.getIntance().upLevelCrystal) != -1)
         {
             mLvUpBt.interactable = true;
         
         }
-        else if(mLvUpBt.IsInteractable() && GameManager.getIntance().mCurrentCrystal < GameManager.getIntance().upLevelCrystal)
+        else if(mLvUpBt.IsInteractable() && GameManager.getIntance().mCurrentCrystal.ieEquit(GameManager.getIntance().upLevelCrystal) == -1)
         {
             mLvUpBt.interactable = false;
         }

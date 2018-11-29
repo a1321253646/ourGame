@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿
 
 public class BigNumberUnit 
 {
@@ -29,12 +28,12 @@ public class BigNumberUnit
         {
             unit = "T";
         }
-        else if (index > 4 && index <= 28)
+        else if (index > 4 && index <= 30)
         {
-            unit = (new char[] { (char)('a' + index - 4), (char)('a' + index - 4) }).ToString();
+            unit = new string(new char[] { (char)('a' + index - 5), (char)('a' + index - 5) });
         }
-        else if (index > 28 && index <= 52) {
-            unit = (new char[] { (char)('A' + index - 28), (char)('A' + index - 28) }).ToString();
+        else if (index >30 && index <= 56) {
+            unit = new string(new char[] { (char)('A' + index - 31), (char)('A' + index - 31) });
         }
     }
 }

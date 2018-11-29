@@ -20,7 +20,7 @@
     "icon": "card_3000002",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000002",
-    "skill_id": 100002,
+    "skill_id": 100008,
     "cost": 2
   },
   {
@@ -97,18 +97,6 @@
   },
   {
     "id": 3000009,
-    "name": "无目标治疗",
-    "stacking": 1,
-    "tabid": 3,
-    "sortID": 3000009,
-    "icon": "card_3000009",
-    "top_resource": "kapai",
-    "center_resource": "card_skill_3000009",
-    "skill_id": 100008,
-    "cost": 1
-  },
-  {
-    "id": 3000010,
     "name": "连环斩",
     "stacking": 1,
     "tabid": 3,
@@ -120,7 +108,7 @@
     "cost": 2
   },
   {
-    "id": 3000011,
+    "id": 3000010,
     "name": "恐吓",
     "stacking": 1,
     "tabid": 3,
@@ -132,7 +120,7 @@
     "cost": 3
   },
   {
-    "id": 3000012,
+    "id": 3000011,
     "name": "汲魂",
     "stacking": 1,
     "tabid": 3,
@@ -141,10 +129,10 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000012",
     "skill_id": 100011,
-    "cost": 1
+    "cost": 2
   },
   {
-    "id": 3000013,
+    "id": 3000012,
     "name": "撕裂",
     "stacking": 1,
     "tabid": 3,
@@ -156,7 +144,7 @@
     "cost": 3
   },
   {
-    "id": 3000014,
+    "id": 3000013,
     "name": "手雷",
     "stacking": 1,
     "tabid": 3,
@@ -168,7 +156,7 @@
     "cost": 3
   },
   {
-    "id": 3000015,
+    "id": 3000014,
     "name": "渴血",
     "stacking": 1,
     "tabid": 3,

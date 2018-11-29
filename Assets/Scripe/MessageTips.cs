@@ -17,7 +17,7 @@ public class MessageTips : MonoBehaviour {
 
     GameObject mCount;
 
-    private Vector2 mFri;
+//    private Vector2 mFri;
     private int mType;
 
     // Use this for initialization
@@ -31,7 +31,7 @@ public class MessageTips : MonoBehaviour {
         mSure = GameObject.Find("message_tip_sure").GetComponent<Button>();
         mButtonDec = GameObject.Find("message_tip_ButtonTx").GetComponent<Text>();
         mCountImg = GameObject.Find("message_tip_count_img").GetComponent<Image>();
-        mFri = gameObject.transform.localPosition;
+//        mFri = gameObject.transform.localPosition;
         mSure.onClick.AddListener(() =>
         {
             if (mType == TYPPE_OUT_LINE)
@@ -49,6 +49,50 @@ public class MessageTips : MonoBehaviour {
     public void showUI(int type, string str1, string str2) {
         
         mType = type;
+        if (mButtonDec == null) {
+            mButtonDec = GameObject.Find("message_tip_ButtonTx").GetComponent<Text>();
+ //           mFri = gameObject.transform.localPosition;
+        }
+        if (mCountNumber == null)
+        {
+            mCountNumber = GameObject.Find("message_tip_count_number").GetComponent<Text>();
+        }
+        if (mDec == null)
+        {
+            mDec = GameObject.Find("message_tip_des").GetComponent<Text>();
+        }
+        if (mTitle == null)
+        {
+            mTitle = GameObject.Find("message_tip_title").GetComponent<Text>();
+        }
+        if (mCountImg == null)
+        {
+            mCountImg = GameObject.Find("message_tip_count_img").GetComponent<Image>();
+        }
+        if (mSure == null)
+        {
+            mSure = GameObject.Find("message_tip_sure").GetComponent<Button>();
+            mSure.onClick.AddListener(() =>
+            {
+                Debug.Log(" message_tip_sure click");
+                if (mType == TYPPE_OUT_LINE)
+                {
+                    removeUi();
+                }
+
+            });
+           
+        }
+        
+        if (mClose == null)
+        {
+            mClose = GameObject.Find("message_tip_close").GetComponent<Button>();
+            mClose.onClick.AddListener(() =>
+            {
+                Debug.Log(" message_tip_close click");
+                removeUi();
+            });
+        }
         mButtonDec.text = "确定";
         mDec.text = str1;
         if (type == TYPPE_OUT_LINE)
@@ -56,7 +100,7 @@ public class MessageTips : MonoBehaviour {
             isFinish = false;
             mTitle.text = "离线奖励";
             mCountNumber.text = str2;
-            float x = mCountNumber.transform.position.x - mCountNumber.GetComponent<RectTransform>().rect.width / 2 - mCountImg.GetComponent<RectTransform>().rect.width / 2;
+            float x = mCountNumber.transform.position.x - mCountNumber.GetComponent<RectTransform>().rect.width / 2 - mCountImg.GetComponent<RectTransform>().rect.width / 2 -40;
             mCountImg.transform.position = new Vector2(x, mCountNumber.transform.position.y);
         }
         else {
@@ -70,7 +114,7 @@ public class MessageTips : MonoBehaviour {
 
     public void removeUi()
     {
-        gameObject.transform.localPosition = mFri;
+        gameObject.transform.localPosition = new Vector2(-982, -696);
         
     }
     private void sure() {

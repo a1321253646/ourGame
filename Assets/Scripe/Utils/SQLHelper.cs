@@ -10,7 +10,7 @@ public class SQLHelper
     public long mHeroLevel = -1;
     public long isAutoBoss = -1;
     public long mLunhuiValue = - 1;
-    public long mMojing = -1;
+    public BigNumber mMojing = new BigNumber();
     public long mOutTime = -1;
 
     private long GAME_ID_LEVEL = 1;
@@ -100,12 +100,13 @@ public class SQLHelper
                     }
                     else if (date.id == GAME_ID_MOJING)
                     {
-                        mMojing = long.Parse(date.extan);
-                        Debug.Log("读取数据库 mMojing" + mMojing);
+                        Debug.Log("读取数据库 mMojing" + date.extan);
+                        mMojing = BigNumber.getBigNumForString(date.extan);
+                       
                     }
                     else if (date.id == GAME_ID_TIME) {
                         mOutTime = long.Parse(date.extan);
-                        Debug.Log("读取数据库 上次离线时间" + mMojing);
+                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }else if(date.id == GAME_ID_GUIDE)
                     {
                         long id = long.Parse(date.extan);
@@ -332,19 +333,31 @@ public class SQLHelper
         }
        
     }
-    public void updateHunJing(long value)
+    public void updateHunJing(BigNumber value)
     {
-        if (mMojing == -1)
+        if (mMojing.isEmpty())
         {
-            addGame(GAME_ID_MOJING, value);
+            addGame(GAME_ID_MOJING, value.toString());
             mMojing = value;
         }
         else
         {
-            updateGame(GAME_ID_MOJING, value);
+            updateGame(GAME_ID_MOJING, value.toString());
         }
        
     }
+
+    private void updateGame(long id, string value)
+    {
+        Debug.Log("=================================updateGame value== " + value);
+        mManager.UpdateInto("'"+value+ "'", TYPE_GAME, id);
+    }
+    private void addGame(long id, string value)
+    {
+        Debug.Log("==================================addGame value== " + value);
+        mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, "'"+value+ "'" });
+    }
+
     public void updateLunhuiValue(long value)
     {
         if (mLunhuiValue == -1)
@@ -358,10 +371,14 @@ public class SQLHelper
             mLunhuiValue = value;
         }        
     }
+
     private void updateGame(long id, long value) {
         string value1 = "" + value;
         mManager.UpdateInto(value1, TYPE_GAME, id);
     }
+
+
+
     private void addGame(long id, long value)
     {
         string value1 = "" + value;

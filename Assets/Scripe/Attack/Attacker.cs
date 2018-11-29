@@ -30,7 +30,7 @@ public abstract class Attacker : MonoBehaviour
 	public float mRunSpeed;
 	public float mAttackLeng = 1;
 	public float mDieGas = 0;
-	public float mDieCrysta = 0;
+	public BigNumber mDieCrysta ;
 
     public AttackSkillManager mSkillManager;
 

@@ -103,7 +103,7 @@ public class ComposeControl : MonoBehaviour {
                     BackpackManager.getIntance().deleteGoods(item.id, (int)item.num);
                 }
                 Debug.Log("mCurrentCrystal = " + GameManager.getIntance().mCurrentCrystal + " cost_crystal" + mShowCompose.cost_crystal);
-                GameManager.getIntance().mCurrentCrystal = GameManager.getIntance().mCurrentCrystal - (float)mShowCompose.cost_crystal;
+               // GameManager.getIntance().mCurrentCrystal = GameManager.getIntance().mCurrentCrystal - (float)mShowCompose.cost_crystal;
                 Debug.Log("mCurrentCrystal = " + GameManager.getIntance().mCurrentCrystal);
                 GameManager.getIntance().updataGasAndCrystal();
                 showCompose(mShowCompose);
@@ -171,7 +171,7 @@ public class ComposeControl : MonoBehaviour {
          //   mNeedTextList[id].GetComponentInChildren<Text>().text = count + "/" + mNeedCountList[id];
         }
         if (isSure) {
-            isSure = GameManager.getIntance().mCurrentCrystal >= mShowCompose.cost_crystal;
+          //  isSure = GameManager.getIntance().mCurrentCrystal >= mShowCompose.cost_crystal;
         }
         mComposeSure.interactable = isSure;
     }

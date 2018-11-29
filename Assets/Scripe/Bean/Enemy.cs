@@ -10,7 +10,7 @@ public class Enemy
 	public float monster_defense;
     public float attack_speed;
     public float die_gas;
-	public float die_crystal;
+	public string die_crystal;
     public string death_fell;
     public float monster_speed;
     public float attack_range;
@@ -25,6 +25,15 @@ public class Enemy
     public float real_dam;
     public float range_type;
     public List<long> fellList = new List<long>();
+
+    public BigNumber mDieCrystal;
+
+    public BigNumber getDieCrystal() {
+        if (mDieCrystal == null) {
+            mDieCrystal = BigNumber.getBigNumForString(die_crystal);
+        }
+        return mDieCrystal;
+    }
 
     public List<FellObjectBean> fell() {
         List<FellObjectBean> list = new List<FellObjectBean>();

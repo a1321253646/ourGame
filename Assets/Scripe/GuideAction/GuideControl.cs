@@ -68,7 +68,7 @@ public class GuideControl
                 mManager,
                 null);
             item3.init(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP, GuideManager.BUTTON_CLICK_TIP_SURE, "tip_Button");
-            item3.setDecLocal(2, 3, 2, 1);
+            item3.setDecLocal(1, 1, 3, 3);
             mActionList.Add(item3);
         }
         else if (mData.id == 4)
@@ -79,7 +79,7 @@ public class GuideControl
                 , mData.getTarget(),
                 mManager,
                 mData.getQualificationList());
-            item1.setDecLocal(3, 2, 1, 2);
+            item1.setDecLocal(3, 3, 1, 3);
             mActionList.Add(item1);
         }
         else if (mData.id == 5) {//准备卡牌引导

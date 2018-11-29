@@ -10,7 +10,7 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
     Text mCost;
     long level = 0;
     public PlayerBackpackBean mBean;
-    long updateCost;
+    BigNumber updateCost;
 
     // Use this for initialization
     void Start () {
@@ -19,7 +19,7 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
     private void Update()
     {
         if (mButton != null) {
-            if (GameManager.getIntance().mCurrentCrystal >= updateCost)
+            if (GameManager.getIntance().mCurrentCrystal.ieEquit( updateCost) != -1)
             {
                 mButton.interactable = true;
             }
@@ -48,14 +48,14 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
             }
         }
         AccouterJsonBean aj = JsonUtils.getIntance().getAccouterInfoById(bean.goodId);
-        long baseCost = aj.cost;
-        long cost = aj.getCost(level);
-        updateCost = cost + baseCost;
+        BigNumber baseCost = aj.getCost();
+        BigNumber cost = aj.getCost(level);
+        updateCost = BigNumber.add( cost ,baseCost);
         if (mCost == null)
         {
             mCost = GetComponentsInChildren<Text>()[3];
         }
-        mCost.text = "" + updateCost;
+        mCost.text = "" + updateCost.toStringWithUnit();
         if (mButton == null)
         {
             mButton = GetComponentsInChildren<Button>()[1];
@@ -66,7 +66,7 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
         }
         if (mButton != null)
         {
-            if (GameManager.getIntance().mCurrentCrystal >= updateCost)
+            if (GameManager.getIntance().mCurrentCrystal.ieEquit( updateCost) != -1)
             {
                 mButton.interactable = true;
             }

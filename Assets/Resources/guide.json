@@ -1,3 +1,37 @@
 [
-
+  {
+    "id": 1,
+    "guideId": 1,
+    "qualification": "1,1001100101",
+    "guideTarget": "",
+    "str": "点击升级勇士，提升攻、防、血属性"
+  },
+  {
+    "id": 2,
+    "guideId": 2,
+    "qualification": "1,1001200101",
+    "guideTarget": "",
+    "str": "击杀小怪获得魔气，魔气已满。点击挑战BOSS"
+  },
+  {
+    "id": 3,
+    "guideId": 3,
+    "qualification": "2,241001",
+    "guideTarget": "2,241001",
+    "str": "打开背包，查看获得的装备|点击装备，查看/穿戴装备|点击穿戴，穿戴装备的勇气更加强大！"
+  },
+  {
+    "id": 4,
+    "guideId": 4,
+    "qualification": "1,10021001",
+    "guideTarget": "2,241001",
+    "str": "点击升级装备，让勇士装备更加强力"
+  },
+  {
+    "id": 5,
+    "guideId": 5,
+    "qualification": "2,3000001",
+    "guideTarget": "2,3000001",
+    "str": "点击卡牌，查看拥有的卡牌|长按卡牌将其选中|将卡牌拖动到上方区域，即可装备卡牌"
+  }
 ]

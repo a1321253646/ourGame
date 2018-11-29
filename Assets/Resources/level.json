@@ -8,7 +8,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 0,
-    "offlinereward": 125
+    "offlinereward": "125"
   },
   {
     "id": -8,
@@ -19,7 +19,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 0,
-    "offlinereward": 426
+    "offlinereward": "426"
   },
   {
     "id": -7,
@@ -30,7 +30,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 0,
-    "offlinereward": 650
+    "offlinereward": "650"
   },
   {
     "id": -6,
@@ -41,7 +41,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 0,
-    "offlinereward": 804
+    "offlinereward": "804"
   },
   {
     "id": -5,
@@ -52,7 +52,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 0,
-    "offlinereward": 1000
+    "offlinereward": "1000"
   },
   {
     "id": -4,
@@ -63,7 +63,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 0,
-    "offlinereward": 1135
+    "offlinereward": "1135"
   },
   {
     "id": -3,
@@ -74,7 +74,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 0,
-    "offlinereward": 1256
+    "offlinereward": "1256"
   },
   {
     "id": -2,
@@ -85,7 +85,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 0,
-    "offlinereward": 1313
+    "offlinereward": "1313"
   },
   {
     "id": -1,
@@ -96,7 +96,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 0,
-    "offlinereward": 1455
+    "offlinereward": "1455"
   },
   {
     "id": 0,
@@ -107,7 +107,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 0,
-    "offlinereward": 1589
+    "offlinereward": "1589"
   },
   {
     "id": 1,
@@ -118,7 +118,18 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 0,
-    "offlinereward": 125
+    "offlinereward": "125"
+  },
+  {
+    "id": 1,
+    "name": "第1关",
+    "wellen": "1001#1002",
+    "boss_DI": 10013001,
+    "boss_gas": 100,
+    "abc": "",
+    "map": "map_01",
+    "Reincarnation": 0,
+    "offlinereward": "63"
   },
   {
     "id": 2,
@@ -129,7 +140,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 0,
-    "offlinereward": 426
+    "offlinereward": "213"
   },
   {
     "id": 3,
@@ -140,7 +151,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 0,
-    "offlinereward": 650
+    "offlinereward": "325"
   },
   {
     "id": 4,
@@ -151,7 +162,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 0,
-    "offlinereward": 804
+    "offlinereward": "402"
   },
   {
     "id": 5,
@@ -162,7 +173,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 0,
-    "offlinereward": 1000
+    "offlinereward": "500"
   },
   {
     "id": 6,
@@ -173,7 +184,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 0,
-    "offlinereward": 1135
+    "offlinereward": "568"
   },
   {
     "id": 7,
@@ -184,7 +195,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 0,
-    "offlinereward": 1256
+    "offlinereward": "628"
   },
   {
     "id": 8,
@@ -195,7 +206,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 0,
-    "offlinereward": 1313
+    "offlinereward": "657"
   },
   {
     "id": 9,
@@ -206,7 +217,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 0,
-    "offlinereward": 1455
+    "offlinereward": "727"
   },
   {
     "id": 10,
@@ -217,7 +228,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 0,
-    "offlinereward": 1589
+    "offlinereward": "795"
   },
   {
     "id": 11,
@@ -228,7 +239,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 0,
-    "offlinereward": 1893
+    "offlinereward": "947"
   },
   {
     "id": 12,
@@ -239,7 +250,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 0,
-    "offlinereward": 2295
+    "offlinereward": "1148"
   },
   {
     "id": 13,
@@ -250,7 +261,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 0,
-    "offlinereward": 2680
+    "offlinereward": "1340"
   },
   {
     "id": 14,
@@ -261,7 +272,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 0,
-    "offlinereward": 3042
+    "offlinereward": "1521"
   },
   {
     "id": 15,
@@ -272,7 +283,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 0,
-    "offlinereward": 3367
+    "offlinereward": "1684"
   },
   {
     "id": 16,
@@ -283,7 +294,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 0,
-    "offlinereward": 3694
+    "offlinereward": "1847"
   },
   {
     "id": 17,
@@ -294,7 +305,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 0,
-    "offlinereward": 3972
+    "offlinereward": "1986"
   },
   {
     "id": 18,
@@ -305,7 +316,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 0,
-    "offlinereward": 4261
+    "offlinereward": "2130"
   },
   {
     "id": 19,
@@ -316,7 +327,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 0,
-    "offlinereward": 4635
+    "offlinereward": "2317"
   },
   {
     "id": 20,
@@ -327,7 +338,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 0,
-    "offlinereward": 5007
+    "offlinereward": "2504"
   },
   {
     "id": 21,
@@ -338,7 +349,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 10,
-    "offlinereward": 5754
+    "offlinereward": "2877"
   },
   {
     "id": 22,
@@ -349,7 +360,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 10,
-    "offlinereward": 5989
+    "offlinereward": "2995"
   },
   {
     "id": 23,
@@ -360,7 +371,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 10,
-    "offlinereward": 6314
+    "offlinereward": "3157"
   },
   {
     "id": 24,
@@ -371,7 +382,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 10,
-    "offlinereward": 6625
+    "offlinereward": "3313"
   },
   {
     "id": 25,
@@ -382,7 +393,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 10,
-    "offlinereward": 6895
+    "offlinereward": "3448"
   },
   {
     "id": 26,
@@ -393,7 +404,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 10,
-    "offlinereward": 7133
+    "offlinereward": "3567"
   },
   {
     "id": 27,
@@ -404,7 +415,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 10,
-    "offlinereward": 7366
+    "offlinereward": "3683"
   },
   {
     "id": 28,
@@ -415,7 +426,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 10,
-    "offlinereward": 7707
+    "offlinereward": "3853"
   },
   {
     "id": 29,
@@ -426,7 +437,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 10,
-    "offlinereward": 8033
+    "offlinereward": "4016"
   },
   {
     "id": 30,
@@ -437,7 +448,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 10,
-    "offlinereward": 8320
+    "offlinereward": "4160"
   },
   {
     "id": 31,
@@ -448,7 +459,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 20,
-    "offlinereward": 8565
+    "offlinereward": "4282"
   },
   {
     "id": 32,
@@ -459,7 +470,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 20,
-    "offlinereward": 8777
+    "offlinereward": "4389"
   },
   {
     "id": 33,
@@ -470,7 +481,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 20,
-    "offlinereward": 8969
+    "offlinereward": "4485"
   },
   {
     "id": 34,
@@ -481,7 +492,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 20,
-    "offlinereward": 9100
+    "offlinereward": "4550"
   },
   {
     "id": 35,
@@ -492,7 +503,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 20,
-    "offlinereward": 9191
+    "offlinereward": "4595"
   },
   {
     "id": 36,
@@ -503,7 +514,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 20,
-    "offlinereward": 9288
+    "offlinereward": "4644"
   },
   {
     "id": 37,
@@ -514,7 +525,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 20,
-    "offlinereward": 9311
+    "offlinereward": "4655"
   },
   {
     "id": 38,
@@ -525,7 +536,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 20,
-    "offlinereward": 9517
+    "offlinereward": "4758"
   },
   {
     "id": 39,
@@ -536,7 +547,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 20,
-    "offlinereward": 9798
+    "offlinereward": "4899"
   },
   {
     "id": 40,
@@ -547,7 +558,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 20,
-    "offlinereward": 10124
+    "offlinereward": "5062"
   },
   {
     "id": 41,
@@ -558,7 +569,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 30,
-    "offlinereward": 10422
+    "offlinereward": "5211"
   },
   {
     "id": 42,
@@ -569,7 +580,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 30,
-    "offlinereward": 10720
+    "offlinereward": "5360"
   },
   {
     "id": 43,
@@ -580,7 +591,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 30,
-    "offlinereward": 10968
+    "offlinereward": "5484"
   },
   {
     "id": 44,
@@ -591,7 +602,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 30,
-    "offlinereward": 11253
+    "offlinereward": "5627"
   },
   {
     "id": 45,
@@ -602,7 +613,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 30,
-    "offlinereward": 11455
+    "offlinereward": "5727"
   },
   {
     "id": 46,
@@ -613,7 +624,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 30,
-    "offlinereward": 11696
+    "offlinereward": "5848"
   },
   {
     "id": 47,
@@ -624,7 +635,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 30,
-    "offlinereward": 11894
+    "offlinereward": "5947"
   },
   {
     "id": 48,
@@ -635,7 +646,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 30,
-    "offlinereward": 12056
+    "offlinereward": "6028"
   },
   {
     "id": 49,
@@ -646,7 +657,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 30,
-    "offlinereward": 12254
+    "offlinereward": "6127"
   },
   {
     "id": 50,
@@ -657,7 +668,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 30,
-    "offlinereward": 12401
+    "offlinereward": "6201"
   },
   {
     "id": 51,
@@ -668,7 +679,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 40,
-    "offlinereward": 12522
+    "offlinereward": "6261"
   },
   {
     "id": 52,
@@ -679,7 +690,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 40,
-    "offlinereward": 12641
+    "offlinereward": "6321"
   },
   {
     "id": 53,
@@ -690,7 +701,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 40,
-    "offlinereward": 12803
+    "offlinereward": "6401"
   },
   {
     "id": 54,
@@ -701,7 +712,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 40,
-    "offlinereward": 13028
+    "offlinereward": "6514"
   },
   {
     "id": 55,
@@ -712,7 +723,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 40,
-    "offlinereward": 13234
+    "offlinereward": "6617"
   },
   {
     "id": 56,
@@ -723,7 +734,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 40,
-    "offlinereward": 13422
+    "offlinereward": "6711"
   },
   {
     "id": 57,
@@ -734,7 +745,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 40,
-    "offlinereward": 13593
+    "offlinereward": "6797"
   },
   {
     "id": 58,
@@ -745,7 +756,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 40,
-    "offlinereward": 13784
+    "offlinereward": "6892"
   },
   {
     "id": 59,
@@ -756,7 +767,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 40,
-    "offlinereward": 13911
+    "offlinereward": "6956"
   },
   {
     "id": 60,
@@ -767,7 +778,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 40,
-    "offlinereward": 14021
+    "offlinereward": "7010"
   },
   {
     "id": 61,
@@ -778,7 +789,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 50,
-    "offlinereward": 14111
+    "offlinereward": "7056"
   },
   {
     "id": 62,
@@ -789,7 +800,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 50,
-    "offlinereward": 14183
+    "offlinereward": "7092"
   },
   {
     "id": 63,
@@ -800,7 +811,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 50,
-    "offlinereward": 14238
+    "offlinereward": "7119"
   },
   {
     "id": 64,
@@ -811,7 +822,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 50,
-    "offlinereward": 14274
+    "offlinereward": "7137"
   },
   {
     "id": 65,
@@ -822,7 +833,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 50,
-    "offlinereward": 14292
+    "offlinereward": "7146"
   },
   {
     "id": 66,
@@ -833,7 +844,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 50,
-    "offlinereward": 14292
+    "offlinereward": "7146"
   },
   {
     "id": 67,
@@ -844,7 +855,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 50,
-    "offlinereward": 14273
+    "offlinereward": "7137"
   },
   {
     "id": 68,
@@ -855,7 +866,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 50,
-    "offlinereward": 14470
+    "offlinereward": "7235"
   },
   {
     "id": 69,
@@ -866,7 +877,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 50,
-    "offlinereward": 14662
+    "offlinereward": "7331"
   },
   {
     "id": 70,
@@ -877,7 +888,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 50,
-    "offlinereward": 14847
+    "offlinereward": "7423"
   },
   {
     "id": 71,
@@ -888,7 +899,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 60,
-    "offlinereward": 15030
+    "offlinereward": "7515"
   },
   {
     "id": 72,
@@ -899,7 +910,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 60,
-    "offlinereward": 15218
+    "offlinereward": "7609"
   },
   {
     "id": 73,
@@ -910,7 +921,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 60,
-    "offlinereward": 15521
+    "offlinereward": "7761"
   },
   {
     "id": 74,
@@ -921,7 +932,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 60,
-    "offlinereward": 15852
+    "offlinereward": "7926"
   },
   {
     "id": 75,
@@ -932,7 +943,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 60,
-    "offlinereward": 16141
+    "offlinereward": "8070"
   },
   {
     "id": 76,
@@ -943,7 +954,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 60,
-    "offlinereward": 16425
+    "offlinereward": "8212"
   },
   {
     "id": 77,
@@ -954,7 +965,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 60,
-    "offlinereward": 16699
+    "offlinereward": "8350"
   },
   {
     "id": 78,
@@ -965,7 +976,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 60,
-    "offlinereward": 16969
+    "offlinereward": "8484"
   },
   {
     "id": 79,
@@ -976,7 +987,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 60,
-    "offlinereward": 17231
+    "offlinereward": "8615"
   },
   {
     "id": 80,
@@ -987,7 +998,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 60,
-    "offlinereward": 17486
+    "offlinereward": "8743"
   },
   {
     "id": 81,
@@ -998,7 +1009,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 70,
-    "offlinereward": 17734
+    "offlinereward": "8867"
   },
   {
     "id": 82,
@@ -1009,7 +1020,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 70,
-    "offlinereward": 17975
+    "offlinereward": "8988"
   },
   {
     "id": 83,
@@ -1020,7 +1031,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 70,
-    "offlinereward": 18247
+    "offlinereward": "9124"
   },
   {
     "id": 84,
@@ -1031,7 +1042,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 70,
-    "offlinereward": 18499
+    "offlinereward": "9250"
   },
   {
     "id": 85,
@@ -1042,7 +1053,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 70,
-    "offlinereward": 18723
+    "offlinereward": "9362"
   },
   {
     "id": 86,
@@ -1053,7 +1064,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 70,
-    "offlinereward": 18939
+    "offlinereward": "9469"
   },
   {
     "id": 87,
@@ -1064,7 +1075,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 70,
-    "offlinereward": 19148
+    "offlinereward": "9574"
   },
   {
     "id": 88,
@@ -1075,7 +1086,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 70,
-    "offlinereward": 19351
+    "offlinereward": "9675"
   },
   {
     "id": 89,
@@ -1086,7 +1097,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 70,
-    "offlinereward": 19548
+    "offlinereward": "9774"
   },
   {
     "id": 90,
@@ -1097,7 +1108,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 70,
-    "offlinereward": 19796
+    "offlinereward": "9898"
   },
   {
     "id": 91,
@@ -1108,7 +1119,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 80,
-    "offlinereward": 19996
+    "offlinereward": "9998"
   },
   {
     "id": 92,
@@ -1119,7 +1130,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 80,
-    "offlinereward": 20174
+    "offlinereward": "10087"
   },
   {
     "id": 93,
@@ -1130,7 +1141,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 80,
-    "offlinereward": 20344
+    "offlinereward": "10172"
   },
   {
     "id": 94,
@@ -1141,7 +1152,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 80,
-    "offlinereward": 20508
+    "offlinereward": "10254"
   },
   {
     "id": 95,
@@ -1152,7 +1163,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 80,
-    "offlinereward": 20678
+    "offlinereward": "10339"
   },
   {
     "id": 96,
@@ -1163,7 +1174,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 80,
-    "offlinereward": 21082
+    "offlinereward": "10541"
   },
   {
     "id": 97,
@@ -1174,7 +1185,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 80,
-    "offlinereward": 21364
+    "offlinereward": "10682"
   },
   {
     "id": 98,
@@ -1185,7 +1196,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 80,
-    "offlinereward": 21637
+    "offlinereward": "10818"
   },
   {
     "id": 99,
@@ -1196,7 +1207,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 80,
-    "offlinereward": 21899
+    "offlinereward": "10949"
   },
   {
     "id": 100,
@@ -1207,7 +1218,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 80,
-    "offlinereward": 22188
+    "offlinereward": "11094"
   },
   {
     "id": 101,
@@ -1218,7 +1229,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 90,
-    "offlinereward": 22541
+    "offlinereward": "11271"
   },
   {
     "id": 102,
@@ -1229,7 +1240,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 90,
-    "offlinereward": 22777
+    "offlinereward": "11388"
   },
   {
     "id": 103,
@@ -1240,7 +1251,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 90,
-    "offlinereward": 23001
+    "offlinereward": "11501"
   },
   {
     "id": 104,
@@ -1251,7 +1262,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 90,
-    "offlinereward": 23216
+    "offlinereward": "11608"
   },
   {
     "id": 105,
@@ -1262,7 +1273,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 90,
-    "offlinereward": 23558
+    "offlinereward": "11779"
   },
   {
     "id": 106,
@@ -1273,7 +1284,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 90,
-    "offlinereward": 23779
+    "offlinereward": "11890"
   },
   {
     "id": 107,
@@ -1284,7 +1295,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 90,
-    "offlinereward": 23967
+    "offlinereward": "11983"
   },
   {
     "id": 108,
@@ -1295,7 +1306,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 90,
-    "offlinereward": 24143
+    "offlinereward": "12071"
   },
   {
     "id": 109,
@@ -1306,7 +1317,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 90,
-    "offlinereward": 24457
+    "offlinereward": "12229"
   },
   {
     "id": 110,
@@ -1317,7 +1328,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 90,
-    "offlinereward": 24648
+    "offlinereward": "12324"
   },
   {
     "id": 111,
@@ -1328,7 +1339,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 100,
-    "offlinereward": 24795
+    "offlinereward": "12398"
   },
   {
     "id": 112,
@@ -1339,7 +1350,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 100,
-    "offlinereward": 24952
+    "offlinereward": "12476"
   },
   {
     "id": 113,
@@ -1350,7 +1361,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 100,
-    "offlinereward": 25255
+    "offlinereward": "12628"
   },
   {
     "id": 114,
@@ -1361,7 +1372,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 100,
-    "offlinereward": 25376
+    "offlinereward": "12688"
   },
   {
     "id": 115,
@@ -1372,7 +1383,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 100,
-    "offlinereward": 25489
+    "offlinereward": "12744"
   },
   {
     "id": 116,
@@ -1383,7 +1394,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 100,
-    "offlinereward": 25710
+    "offlinereward": "12855"
   },
   {
     "id": 117,
@@ -1394,7 +1405,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 100,
-    "offlinereward": 25886
+    "offlinereward": "12943"
   },
   {
     "id": 118,
@@ -1405,7 +1416,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 100,
-    "offlinereward": 25970
+    "offlinereward": "12985"
   },
   {
     "id": 119,
@@ -1416,7 +1427,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 100,
-    "offlinereward": 26106
+    "offlinereward": "13053"
   },
   {
     "id": 120,
@@ -1427,7 +1438,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 100,
-    "offlinereward": 26324
+    "offlinereward": "13162"
   },
   {
     "id": 121,
@@ -1438,7 +1449,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 110,
-    "offlinereward": 26381
+    "offlinereward": "13190"
   },
   {
     "id": 122,
@@ -1449,7 +1460,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 110,
-    "offlinereward": 26461
+    "offlinereward": "13230"
   },
   {
     "id": 123,
@@ -1460,7 +1471,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 110,
-    "offlinereward": 26902
+    "offlinereward": "13451"
   },
   {
     "id": 124,
@@ -1471,7 +1482,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 110,
-    "offlinereward": 27044
+    "offlinereward": "13522"
   },
   {
     "id": 125,
@@ -1482,7 +1493,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 110,
-    "offlinereward": 27227
+    "offlinereward": "13614"
   },
   {
     "id": 126,
@@ -1493,7 +1504,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 110,
-    "offlinereward": 27636
+    "offlinereward": "13818"
   },
   {
     "id": 127,
@@ -1504,7 +1515,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 110,
-    "offlinereward": 27738
+    "offlinereward": "13869"
   },
   {
     "id": 128,
@@ -1515,7 +1526,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 110,
-    "offlinereward": 27931
+    "offlinereward": "13965"
   },
   {
     "id": 129,
@@ -1526,7 +1537,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 110,
-    "offlinereward": 28264
+    "offlinereward": "14132"
   },
   {
     "id": 130,
@@ -1537,7 +1548,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 110,
-    "offlinereward": 28323
+    "offlinereward": "14162"
   },
   {
     "id": 131,
@@ -1548,7 +1559,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 120,
-    "offlinereward": 28574
+    "offlinereward": "14287"
   },
   {
     "id": 132,
@@ -1559,7 +1570,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 120,
-    "offlinereward": 28782
+    "offlinereward": "14391"
   },
   {
     "id": 133,
@@ -1570,7 +1581,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 120,
-    "offlinereward": 28801
+    "offlinereward": "14400"
   },
   {
     "id": 134,
@@ -1581,7 +1592,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 120,
-    "offlinereward": 29154
+    "offlinereward": "14577"
   },
   {
     "id": 135,
@@ -1592,7 +1603,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 120,
-    "offlinereward": 29194
+    "offlinereward": "14597"
   },
   {
     "id": 136,
@@ -1603,7 +1614,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 120,
-    "offlinereward": 29058
+    "offlinereward": "14529"
   },
   {
     "id": 137,
@@ -1614,7 +1625,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 120,
-    "offlinereward": 29540
+    "offlinereward": "14770"
   },
   {
     "id": 138,
@@ -1625,7 +1636,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 120,
-    "offlinereward": 29745
+    "offlinereward": "14873"
   },
   {
     "id": 139,
@@ -1636,7 +1647,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 120,
-    "offlinereward": 30289
+    "offlinereward": "15144"
   },
   {
     "id": 140,
@@ -1647,7 +1658,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 120,
-    "offlinereward": 30566
+    "offlinereward": "15283"
   },
   {
     "id": 141,
@@ -1658,7 +1669,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 130,
-    "offlinereward": 30904
+    "offlinereward": "15452"
   },
   {
     "id": 142,
@@ -1669,7 +1680,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 130,
-    "offlinereward": 31387
+    "offlinereward": "15693"
   },
   {
     "id": 143,
@@ -1680,7 +1691,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 130,
-    "offlinereward": 31590
+    "offlinereward": "15795"
   },
   {
     "id": 144,
@@ -1691,7 +1702,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 130,
-    "offlinereward": 32134
+    "offlinereward": "16067"
   },
   {
     "id": 145,
@@ -1702,7 +1713,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 130,
-    "offlinereward": 32412
+    "offlinereward": "16206"
   },
   {
     "id": 146,
@@ -1713,7 +1724,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 130,
-    "offlinereward": 32750
+    "offlinereward": "16375"
   },
   {
     "id": 147,
@@ -1724,7 +1735,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 130,
-    "offlinereward": 33232
+    "offlinereward": "16616"
   },
   {
     "id": 148,
@@ -1735,7 +1746,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 130,
-    "offlinereward": 33437
+    "offlinereward": "16719"
   },
   {
     "id": 149,
@@ -1746,7 +1757,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 130,
-    "offlinereward": 33980
+    "offlinereward": "16990"
   },
   {
     "id": 150,
@@ -1757,7 +1768,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 130,
-    "offlinereward": 33969
+    "offlinereward": "16984"
   },
   {
     "id": 151,
@@ -1768,7 +1779,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 140,
-    "offlinereward": 34020
+    "offlinereward": "17010"
   },
   {
     "id": 152,
@@ -1779,7 +1790,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 140,
-    "offlinereward": 34182
+    "offlinereward": "17091"
   },
   {
     "id": 153,
@@ -1790,7 +1801,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 140,
-    "offlinereward": 34057
+    "offlinereward": "17029"
   },
   {
     "id": 154,
@@ -1801,7 +1812,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 140,
-    "offlinereward": 34334
+    "offlinereward": "17167"
   },
   {
     "id": 155,
@@ -1812,7 +1823,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 140,
-    "offlinereward": 34289
+    "offlinereward": "17145"
   },
   {
     "id": 156,
@@ -1823,7 +1834,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 140,
-    "offlinereward": 34605
+    "offlinereward": "17303"
   },
   {
     "id": 157,
@@ -1834,7 +1845,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 140,
-    "offlinereward": 34744
+    "offlinereward": "17372"
   },
   {
     "id": 158,
@@ -1845,7 +1856,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 140,
-    "offlinereward": 34846
+    "offlinereward": "17423"
   },
   {
     "id": 159,
@@ -1856,7 +1867,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 140,
-    "offlinereward": 35141
+    "offlinereward": "17570"
   },
   {
     "id": 160,
@@ -1867,7 +1878,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 140,
-    "offlinereward": 35056
+    "offlinereward": "17528"
   },
   {
     "id": 161,
@@ -1878,7 +1889,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 150,
-    "offlinereward": 35474
+    "offlinereward": "17737"
   },
   {
     "id": 162,
@@ -1889,7 +1900,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 150,
-    "offlinereward": 35260
+    "offlinereward": "17630"
   },
   {
     "id": 163,
@@ -1900,7 +1911,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 150,
-    "offlinereward": 35722
+    "offlinereward": "17861"
   },
   {
     "id": 164,
@@ -1911,7 +1922,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 150,
-    "offlinereward": 35493
+    "offlinereward": "17747"
   },
   {
     "id": 165,
@@ -1922,7 +1933,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 150,
-    "offlinereward": 35847
+    "offlinereward": "17924"
   },
   {
     "id": 166,
@@ -1933,7 +1944,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 150,
-    "offlinereward": 35666
+    "offlinereward": "17833"
   },
   {
     "id": 167,
@@ -1944,7 +1955,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 150,
-    "offlinereward": 35943
+    "offlinereward": "17972"
   },
   {
     "id": 168,
@@ -1955,7 +1966,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 150,
-    "offlinereward": 35775
+    "offlinereward": "17888"
   },
   {
     "id": 169,
@@ -1966,7 +1977,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 150,
-    "offlinereward": 36008
+    "offlinereward": "18004"
   },
   {
     "id": 170,
@@ -1977,7 +1988,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 150,
-    "offlinereward": 36192
+    "offlinereward": "18096"
   },
   {
     "id": 171,
@@ -1988,7 +1999,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 160,
-    "offlinereward": 36777
+    "offlinereward": "18388"
   },
   {
     "id": 172,
@@ -1999,7 +2010,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 160,
-    "offlinereward": 36961
+    "offlinereward": "18481"
   },
   {
     "id": 173,
@@ -2010,7 +2021,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 160,
-    "offlinereward": 37545
+    "offlinereward": "18772"
   },
   {
     "id": 174,
@@ -2021,7 +2032,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 160,
-    "offlinereward": 37729
+    "offlinereward": "18865"
   },
   {
     "id": 175,
@@ -2032,7 +2043,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 160,
-    "offlinereward": 38314
+    "offlinereward": "19157"
   },
   {
     "id": 176,
@@ -2043,7 +2054,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 160,
-    "offlinereward": 38498
+    "offlinereward": "19249"
   },
   {
     "id": 177,
@@ -2054,7 +2065,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 160,
-    "offlinereward": 39083
+    "offlinereward": "19541"
   },
   {
     "id": 178,
@@ -2065,7 +2076,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 160,
-    "offlinereward": 39267
+    "offlinereward": "19634"
   },
   {
     "id": 179,
@@ -2076,7 +2087,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 160,
-    "offlinereward": 39852
+    "offlinereward": "19926"
   },
   {
     "id": 180,
@@ -2087,7 +2098,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 160,
-    "offlinereward": 40038
+    "offlinereward": "20019"
   },
   {
     "id": 181,
@@ -2098,7 +2109,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 170,
-    "offlinereward": 40621
+    "offlinereward": "20311"
   },
   {
     "id": 182,
@@ -2109,7 +2120,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 170,
-    "offlinereward": 40807
+    "offlinereward": "20403"
   },
   {
     "id": 183,
@@ -2120,7 +2131,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 170,
-    "offlinereward": 41392
+    "offlinereward": "20696"
   },
   {
     "id": 184,
@@ -2131,7 +2142,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 170,
-    "offlinereward": 41576
+    "offlinereward": "20788"
   },
   {
     "id": 185,
@@ -2142,7 +2153,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 170,
-    "offlinereward": 42161
+    "offlinereward": "21080"
   },
   {
     "id": 186,
@@ -2153,7 +2164,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 170,
-    "offlinereward": 42345
+    "offlinereward": "21172"
   },
   {
     "id": 187,
@@ -2164,7 +2175,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 170,
-    "offlinereward": 42930
+    "offlinereward": "21465"
   },
   {
     "id": 188,
@@ -2175,7 +2186,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 170,
-    "offlinereward": 43114
+    "offlinereward": "21557"
   },
   {
     "id": 189,
@@ -2186,7 +2197,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 170,
-    "offlinereward": 43699
+    "offlinereward": "21849"
   },
   {
     "id": 190,
@@ -2197,7 +2208,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 170,
-    "offlinereward": 43883
+    "offlinereward": "21941"
   },
   {
     "id": 191,
@@ -2208,7 +2219,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 44468
+    "offlinereward": "22234"
   },
   {
     "id": 192,
@@ -2219,7 +2230,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 44652
+    "offlinereward": "22326"
   },
   {
     "id": 193,
@@ -2230,7 +2241,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 45236
+    "offlinereward": "22618"
   },
   {
     "id": 194,
@@ -2241,7 +2252,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 45513
+    "offlinereward": "22757"
   },
   {
     "id": 195,
@@ -2252,7 +2263,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 46390
+    "offlinereward": "23195"
   },
   {
     "id": 196,
@@ -2263,7 +2274,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 46666
+    "offlinereward": "23333"
   },
   {
     "id": 197,
@@ -2274,7 +2285,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 47543
+    "offlinereward": "23771"
   },
   {
     "id": 198,
@@ -2285,7 +2296,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 47820
+    "offlinereward": "23910"
   },
   {
     "id": 199,
@@ -2296,7 +2307,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 48698
+    "offlinereward": "24349"
   },
   {
     "id": 200,
@@ -2307,7 +2318,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 48974
+    "offlinereward": "24487"
   },
   {
     "id": 201,
@@ -2318,7 +2329,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 49651
+    "offlinereward": "24826"
   },
   {
     "id": 202,
@@ -2329,7 +2340,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 49715
+    "offlinereward": "24857"
   },
   {
     "id": 203,
@@ -2340,7 +2351,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 50392
+    "offlinereward": "25196"
   },
   {
     "id": 204,
@@ -2351,7 +2362,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 50419
+    "offlinereward": "25209"
   },
   {
     "id": 205,
@@ -2362,7 +2373,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 51115
+    "offlinereward": "25558"
   },
   {
     "id": 206,
@@ -2373,7 +2384,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 51086
+    "offlinereward": "25543"
   },
   {
     "id": 207,
@@ -2384,7 +2395,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 51818
+    "offlinereward": "25909"
   },
   {
     "id": 208,
@@ -2395,7 +2406,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 51716
+    "offlinereward": "25858"
   },
   {
     "id": 209,
@@ -2406,7 +2417,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 52504
+    "offlinereward": "26252"
   },
   {
     "id": 210,
@@ -2417,7 +2428,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 52309
+    "offlinereward": "26154"
   },
   {
     "id": 211,
@@ -2428,7 +2439,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 53171
+    "offlinereward": "26586"
   },
   {
     "id": 212,
@@ -2439,7 +2450,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 52949
+    "offlinereward": "26474"
   },
   {
     "id": 213,
@@ -2450,7 +2461,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 53738
+    "offlinereward": "26869"
   },
   {
     "id": 214,
@@ -2461,7 +2472,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 53592
+    "offlinereward": "26796"
   },
   {
     "id": 215,
@@ -2472,7 +2483,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 54243
+    "offlinereward": "27122"
   },
   {
     "id": 216,
@@ -2483,7 +2494,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 54218
+    "offlinereward": "27109"
   },
   {
     "id": 217,
@@ -2494,7 +2505,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 54712
+    "offlinereward": "27356"
   },
   {
     "id": 218,
@@ -2505,7 +2516,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 54825
+    "offlinereward": "27412"
   },
   {
     "id": 219,
@@ -2516,7 +2527,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 55143
+    "offlinereward": "27572"
   },
   {
     "id": 220,
@@ -2527,7 +2538,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 55414
+    "offlinereward": "27707"
   },
   {
     "id": 221,
@@ -2538,7 +2549,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 55538
+    "offlinereward": "27769"
   },
   {
     "id": 222,
@@ -2549,7 +2560,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 55984
+    "offlinereward": "27992"
   },
   {
     "id": 223,
@@ -2560,7 +2571,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 55896
+    "offlinereward": "27948"
   },
   {
     "id": 224,
@@ -2571,7 +2582,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 56536
+    "offlinereward": "28268"
   },
   {
     "id": 225,
@@ -2582,7 +2593,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 56287
+    "offlinereward": "28143"
   },
   {
     "id": 226,
@@ -2593,7 +2604,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 57000
+    "offlinereward": "28500"
   },
   {
     "id": 227,
@@ -2604,7 +2615,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 56815
+    "offlinereward": "28407"
   },
   {
     "id": 228,
@@ -2615,7 +2626,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 57271
+    "offlinereward": "28635"
   },
   {
     "id": 229,
@@ -2626,7 +2637,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 57326
+    "offlinereward": "28663"
   },
   {
     "id": 230,
@@ -2637,7 +2648,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 57504
+    "offlinereward": "28752"
   },
   {
     "id": 231,
@@ -2648,7 +2659,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 57817
+    "offlinereward": "28908"
   },
   {
     "id": 232,
@@ -2659,7 +2670,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 57701
+    "offlinereward": "28850"
   },
   {
     "id": 233,
@@ -2670,7 +2681,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 58290
+    "offlinereward": "29145"
   },
   {
     "id": 234,
@@ -2681,7 +2692,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 58021
+    "offlinereward": "29011"
   },
   {
     "id": 235,
@@ -2692,7 +2703,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 58584
+    "offlinereward": "29292"
   },
   {
     "id": 236,
@@ -2703,7 +2714,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 58471
+    "offlinereward": "29236"
   },
   {
     "id": 237,
@@ -2714,7 +2725,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 58939
+    "offlinereward": "29470"
   },
   {
     "id": 238,
@@ -2725,7 +2736,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 59392
+    "offlinereward": "29696"
   },
   {
     "id": 239,
@@ -2736,7 +2747,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 59320
+    "offlinereward": "29660"
   },
   {
     "id": 240,
@@ -2747,7 +2758,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 60286
+    "offlinereward": "30143"
   },
   {
     "id": 241,
@@ -2758,7 +2769,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 59999
+    "offlinereward": "30000"
   },
   {
     "id": 242,
@@ -2769,7 +2780,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 60799
+    "offlinereward": "30399"
   },
   {
     "id": 243,
@@ -2780,7 +2791,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 60858
+    "offlinereward": "30429"
   },
   {
     "id": 244,
@@ -2791,7 +2802,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 61047
+    "offlinereward": "30524"
   },
   {
     "id": 245,
@@ -2802,7 +2813,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 61688
+    "offlinereward": "30844"
   },
   {
     "id": 246,
@@ -2813,7 +2824,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 61388
+    "offlinereward": "30694"
   },
   {
     "id": 247,
@@ -2824,7 +2835,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 62347
+    "offlinereward": "31174"
   },
   {
     "id": 248,
@@ -2835,7 +2846,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 62184
+    "offlinereward": "31092"
   },
   {
     "id": 249,
@@ -2846,7 +2857,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 62464
+    "offlinereward": "31232"
   },
   {
     "id": 250,
@@ -2857,7 +2868,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 62952
+    "offlinereward": "31476"
   },
   {
     "id": 251,
@@ -2868,7 +2879,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 62637
+    "offlinereward": "31318"
   },
   {
     "id": 252,
@@ -2879,7 +2890,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 63582
+    "offlinereward": "31791"
   },
   {
     "id": 253,
@@ -2890,7 +2901,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 63372
+    "offlinereward": "31686"
   },
   {
     "id": 254,
@@ -2901,7 +2912,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 63569
+    "offlinereward": "31785"
   },
   {
     "id": 255,
@@ -2912,7 +2923,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 64078
+    "offlinereward": "32039"
   },
   {
     "id": 256,
@@ -2923,7 +2934,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 63750
+    "offlinereward": "31875"
   },
   {
     "id": 257,
@@ -2934,7 +2945,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 64508
+    "offlinereward": "32254"
   },
   {
     "id": 258,
@@ -2945,7 +2956,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 64421
+    "offlinereward": "32211"
   },
   {
     "id": 259,
@@ -2956,7 +2967,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 64362
+    "offlinereward": "32181"
   },
   {
     "id": 260,
@@ -2967,7 +2978,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 65066
+    "offlinereward": "32533"
   },
   {
     "id": 261,
@@ -2978,7 +2989,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 64722
+    "offlinereward": "32361"
   },
   {
     "id": 262,
@@ -2989,7 +3000,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 65121
+    "offlinereward": "32561"
   },
   {
     "id": 263,
@@ -3000,7 +3011,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 65332
+    "offlinereward": "32666"
   },
   {
     "id": 264,
@@ -3011,7 +3022,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 64984
+    "offlinereward": "32492"
   },
   {
     "id": 265,
@@ -3022,7 +3033,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 65776
+    "offlinereward": "32888"
   },
   {
     "id": 266,
@@ -3033,7 +3044,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 65557
+    "offlinereward": "32779"
   },
   {
     "id": 267,
@@ -3044,7 +3055,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 65422
+    "offlinereward": "32711"
   },
   {
     "id": 268,
@@ -3055,7 +3066,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 66105
+    "offlinereward": "33052"
   },
   {
     "id": 269,
@@ -3066,7 +3077,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 65741
+    "offlinereward": "32871"
   },
   {
     "id": 270,
@@ -3077,7 +3088,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 65898
+    "offlinereward": "32949"
   },
   {
     "id": 271,
@@ -3088,7 +3099,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 66254
+    "offlinereward": "33127"
   },
   {
     "id": 272,
@@ -3099,7 +3110,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 65884
+    "offlinereward": "32942"
   },
   {
     "id": 273,
@@ -3110,7 +3121,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 66269
+    "offlinereward": "33134"
   },
   {
     "id": 274,
@@ -3121,7 +3132,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 66363
+    "offlinereward": "33181"
   },
   {
     "id": 275,
@@ -3132,7 +3143,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 65985
+    "offlinereward": "32992"
   },
   {
     "id": 276,
@@ -3143,7 +3154,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 66536
+    "offlinereward": "33268"
   },
   {
     "id": 277,
@@ -3154,7 +3165,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 66428
+    "offlinereward": "33214"
   },
   {
     "id": 278,
@@ -3165,7 +3176,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 66044
+    "offlinereward": "33022"
   },
   {
     "id": 279,
@@ -3176,7 +3187,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 66698
+    "offlinereward": "33349"
   },
   {
     "id": 280,
@@ -3187,7 +3198,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 66453
+    "offlinereward": "33226"
   },
   {
     "id": 281,
@@ -3198,7 +3209,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 66062
+    "offlinereward": "33031"
   },
   {
     "id": 282,
@@ -3209,7 +3220,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 66758
+    "offlinereward": "33379"
   },
   {
     "id": 283,
@@ -3220,7 +3231,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 66436
+    "offlinereward": "33218"
   },
   {
     "id": 284,
@@ -3231,7 +3242,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 66038
+    "offlinereward": "33019"
   },
   {
     "id": 285,
@@ -3242,7 +3253,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 66713
+    "offlinereward": "33356"
   },
   {
     "id": 286,
@@ -3253,7 +3264,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 66379
+    "offlinereward": "33189"
   },
   {
     "id": 287,
@@ -3264,7 +3275,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 65974
+    "offlinereward": "32987"
   },
   {
     "id": 288,
@@ -3275,7 +3286,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 66565
+    "offlinereward": "33283"
   },
   {
     "id": 289,
@@ -3286,7 +3297,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 66277
+    "offlinereward": "33139"
   },
   {
     "id": 290,
@@ -3297,7 +3308,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 65866
+    "offlinereward": "32933"
   },
   {
     "id": 291,
@@ -3308,7 +3319,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 66743
+    "offlinereward": "33371"
   },
   {
     "id": 292,
@@ -3319,7 +3330,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 66683
+    "offlinereward": "33342"
   },
   {
     "id": 293,
@@ -3330,7 +3341,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 66262
+    "offlinereward": "33131"
   },
   {
     "id": 294,
@@ -3341,7 +3352,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 66825
+    "offlinereward": "33413"
   },
   {
     "id": 295,
@@ -3352,7 +3363,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 67027
+    "offlinereward": "33514"
   },
   {
     "id": 296,
@@ -3363,7 +3374,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 66594
+    "offlinereward": "33297"
   },
   {
     "id": 297,
@@ -3374,7 +3385,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 66754
+    "offlinereward": "33377"
   },
   {
     "id": 298,
@@ -3385,7 +3396,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 67308
+    "offlinereward": "33654"
   },
   {
     "id": 299,
@@ -3396,7 +3407,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 66865
+    "offlinereward": "33433"
   },
   {
     "id": 300,
@@ -3407,7 +3418,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 66525
+    "offlinereward": "33262"
   },
   {
     "id": 301,
@@ -3418,7 +3429,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 65712
+    "offlinereward": "32856"
   },
   {
     "id": 302,
@@ -3429,7 +3440,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 65712
+    "offlinereward": "32856"
   },
   {
     "id": 303,
@@ -3440,7 +3451,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 65712
+    "offlinereward": "32856"
   },
   {
     "id": 304,
@@ -3451,7 +3462,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 66648
+    "offlinereward": "33324"
   },
   {
     "id": 305,
@@ -3462,7 +3473,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 67218
+    "offlinereward": "33609"
   },
   {
     "id": 306,
@@ -3473,7 +3484,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 67218
+    "offlinereward": "33609"
   },
   {
     "id": 307,
@@ -3484,7 +3495,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 67478
+    "offlinereward": "33739"
   },
   {
     "id": 308,
@@ -3495,7 +3506,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 68723
+    "offlinereward": "34362"
   },
   {
     "id": 309,
@@ -3506,7 +3517,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 68723
+    "offlinereward": "34362"
   },
   {
     "id": 310,
@@ -3517,7 +3528,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 68723
+    "offlinereward": "34362"
   },
   {
     "id": 311,
@@ -3528,7 +3539,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 69814
+    "offlinereward": "34907"
   },
   {
     "id": 312,
@@ -3539,7 +3550,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 70230
+    "offlinereward": "35115"
   },
   {
     "id": 313,
@@ -3550,7 +3561,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 70230
+    "offlinereward": "35115"
   },
   {
     "id": 314,
@@ -3561,7 +3572,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 70646
+    "offlinereward": "35323"
   },
   {
     "id": 315,
@@ -3572,7 +3583,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 71734
+    "offlinereward": "35867"
   },
   {
     "id": 316,
@@ -3583,7 +3594,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 71734
+    "offlinereward": "35867"
   },
   {
     "id": 317,
@@ -3594,7 +3605,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 71734
+    "offlinereward": "35867"
   },
   {
     "id": 318,
@@ -3605,7 +3616,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 72982
+    "offlinereward": "36491"
   },
   {
     "id": 319,
@@ -3616,7 +3627,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 69453
+    "offlinereward": "34726"
   },
   {
     "id": 320,
@@ -3627,7 +3638,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 69453
+    "offlinereward": "34726"
   },
   {
     "id": 321,
@@ -3638,7 +3649,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 69790
+    "offlinereward": "34895"
   },
   {
     "id": 322,
@@ -3649,7 +3660,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 70879
+    "offlinereward": "35440"
   },
   {
     "id": 323,
@@ -3660,7 +3671,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 70879
+    "offlinereward": "35440"
   },
   {
     "id": 324,
@@ -3671,7 +3682,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 70879
+    "offlinereward": "35440"
   },
   {
     "id": 325,
@@ -3682,7 +3693,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 71736
+    "offlinereward": "35868"
   },
   {
     "id": 326,
@@ -3693,7 +3704,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 72307
+    "offlinereward": "36154"
   },
   {
     "id": 327,
@@ -3704,7 +3715,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 72307
+    "offlinereward": "36154"
   },
   {
     "id": 328,
@@ -3715,7 +3726,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 72307
+    "offlinereward": "36154"
   },
   {
     "id": 329,
@@ -3726,7 +3737,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 73683
+    "offlinereward": "36842"
   },
   {
     "id": 330,
@@ -3737,7 +3748,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 73736
+    "offlinereward": "36868"
   },
   {
     "id": 331,
@@ -3748,7 +3759,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 73735
+    "offlinereward": "36867"
   },
   {
     "id": 332,
@@ -3759,7 +3770,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 74201
+    "offlinereward": "37101"
   },
   {
     "id": 333,
@@ -3770,7 +3781,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 75162
+    "offlinereward": "37581"
   },
   {
     "id": 334,
@@ -3781,7 +3792,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 75162
+    "offlinereward": "37581"
   },
   {
     "id": 335,
@@ -3792,7 +3803,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 75162
+    "offlinereward": "37581"
   },
   {
     "id": 336,
@@ -3803,7 +3814,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 76148
+    "offlinereward": "38074"
   },
   {
     "id": 337,
@@ -3814,7 +3825,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 72413
+    "offlinereward": "36206"
   },
   {
     "id": 338,
@@ -3825,7 +3836,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 72413
+    "offlinereward": "36206"
   },
   {
     "id": 339,
@@ -3836,7 +3847,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 72413
+    "offlinereward": "36206"
   },
   {
     "id": 340,
@@ -3847,7 +3858,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 73606
+    "offlinereward": "36803"
   },
   {
     "id": 341,
@@ -3858,7 +3869,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 73763
+    "offlinereward": "36881"
   },
   {
     "id": 342,
@@ -3869,7 +3880,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 73763
+    "offlinereward": "36881"
   },
   {
     "id": 343,
@@ -3880,7 +3891,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 73814
+    "offlinereward": "36907"
   },
   {
     "id": 344,
@@ -3891,7 +3902,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 75112
+    "offlinereward": "37556"
   },
   {
     "id": 345,
@@ -3902,7 +3913,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 75112
+    "offlinereward": "37556"
   },
   {
     "id": 346,
@@ -3913,7 +3924,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 75112
+    "offlinereward": "37556"
   },
   {
     "id": 347,
@@ -3924,7 +3935,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 75371
+    "offlinereward": "37686"
   },
   {
     "id": 348,
@@ -3935,7 +3946,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 76462
+    "offlinereward": "38231"
   },
   {
     "id": 349,
@@ -3946,7 +3957,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 76462
+    "offlinereward": "38231"
   },
   {
     "id": 350,
@@ -3957,7 +3968,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 76462
+    "offlinereward": "38231"
   },
   {
     "id": 351,
@@ -3968,7 +3979,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 76928
+    "offlinereward": "38464"
   },
   {
     "id": 352,
@@ -3979,7 +3990,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 77811
+    "offlinereward": "38906"
   },
   {
     "id": 353,
@@ -3990,7 +4001,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 77811
+    "offlinereward": "38906"
   },
   {
     "id": 354,
@@ -4001,7 +4012,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 77811
+    "offlinereward": "38906"
   },
   {
     "id": 355,
@@ -4012,7 +4023,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 73919
+    "offlinereward": "36960"
   },
   {
     "id": 356,
@@ -4023,7 +4034,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 74594
+    "offlinereward": "37297"
   },
   {
     "id": 357,
@@ -4034,7 +4045,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 74594
+    "offlinereward": "37297"
   },
   {
     "id": 358,
@@ -4045,7 +4056,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 74594
+    "offlinereward": "37297"
   },
   {
     "id": 359,
@@ -4056,7 +4067,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 75087
+    "offlinereward": "37543"
   },
   {
     "id": 360,
@@ -4067,7 +4078,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 75866
+    "offlinereward": "37933"
   },
   {
     "id": 361,
@@ -4078,7 +4089,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 75866
+    "offlinereward": "37933"
   },
   {
     "id": 362,
@@ -4089,7 +4100,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 75866
+    "offlinereward": "37933"
   },
   {
     "id": 363,
@@ -4100,7 +4111,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 76451
+    "offlinereward": "38225"
   },
   {
     "id": 364,
@@ -4111,7 +4122,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 77774
+    "offlinereward": "38887"
   },
   {
     "id": 365,
@@ -4122,7 +4133,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 77774
+    "offlinereward": "38887"
   },
   {
     "id": 366,
@@ -4133,7 +4144,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 77774
+    "offlinereward": "38887"
   },
   {
     "id": 367,
@@ -4144,7 +4155,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 78202
+    "offlinereward": "39101"
   },
   {
     "id": 368,
@@ -4155,7 +4166,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 79681
+    "offlinereward": "39840"
   },
   {
     "id": 369,
@@ -4166,7 +4177,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 79681
+    "offlinereward": "39840"
   },
   {
     "id": 370,
@@ -4177,7 +4188,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 79681
+    "offlinereward": "39840"
   },
   {
     "id": 371,
@@ -4188,7 +4199,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 79954
+    "offlinereward": "39977"
   },
   {
     "id": 372,
@@ -4199,7 +4210,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 81589
+    "offlinereward": "40795"
   },
   {
     "id": 373,
@@ -4210,7 +4221,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 76594
+    "offlinereward": "38297"
   },
   {
     "id": 374,
@@ -4221,7 +4232,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 76594
+    "offlinereward": "38297"
   },
   {
     "id": 375,
@@ -4232,7 +4243,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 76594
+    "offlinereward": "38297"
   },
   {
     "id": 376,
@@ -4243,7 +4254,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 78151
+    "offlinereward": "39075"
   },
   {
     "id": 377,
@@ -4254,7 +4265,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 78386
+    "offlinereward": "39193"
   },
   {
     "id": 378,
@@ -4265,7 +4276,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 78386
+    "offlinereward": "39193"
   },
   {
     "id": 379,
@@ -4276,7 +4287,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 78386
+    "offlinereward": "39193"
   },
   {
     "id": 380,
@@ -4287,7 +4298,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 79319
+    "offlinereward": "39660"
   },
   {
     "id": 381,
@@ -4298,7 +4309,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 80176
+    "offlinereward": "40088"
   },
   {
     "id": 382,
@@ -4309,7 +4320,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 80176
+    "offlinereward": "40088"
   },
   {
     "id": 383,
@@ -4320,7 +4331,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 80176
+    "offlinereward": "40088"
   },
   {
     "id": 384,
@@ -4331,7 +4342,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 80487
+    "offlinereward": "40243"
   },
   {
     "id": 385,
@@ -4342,7 +4353,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 81967
+    "offlinereward": "40984"
   },
   {
     "id": 386,
@@ -4353,7 +4364,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 81967
+    "offlinereward": "40984"
   },
   {
     "id": 387,
@@ -4364,7 +4375,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 81967
+    "offlinereward": "40984"
   },
   {
     "id": 388,
@@ -4375,7 +4386,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 81967
+    "offlinereward": "40984"
   },
   {
     "id": 389,
@@ -4386,7 +4397,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 83446
+    "offlinereward": "41723"
   },
   {
     "id": 390,
@@ -4397,7 +4408,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 83757
+    "offlinereward": "41879"
   },
   {
     "id": 391,
@@ -4408,7 +4419,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 78296
+    "offlinereward": "39148"
   },
   {
     "id": 392,
@@ -4419,7 +4430,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 78296
+    "offlinereward": "39148"
   },
   {
     "id": 393,
@@ -4430,7 +4441,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 78801
+    "offlinereward": "39401"
   },
   {
     "id": 394,
@@ -4441,7 +4452,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 79969
+    "offlinereward": "39985"
   },
   {
     "id": 395,
@@ -4452,7 +4463,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 79969
+    "offlinereward": "39985"
   },
   {
     "id": 396,
@@ -4463,7 +4474,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 79969
+    "offlinereward": "39985"
   },
   {
     "id": 397,
@@ -4474,7 +4485,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 79969
+    "offlinereward": "39985"
   },
   {
     "id": 398,
@@ -4485,7 +4496,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 81060
+    "offlinereward": "40530"
   },
   {
     "id": 399,
@@ -4496,7 +4507,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 81644
+    "offlinereward": "40822"
   },
   {
     "id": 400,
@@ -4507,7 +4518,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 81644
+    "offlinereward": "40822"
   },
   {
     "id": 401,
@@ -4518,7 +4529,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 81644
+    "offlinereward": "40822"
   },
   {
     "id": 402,
@@ -4529,7 +4540,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 81644
+    "offlinereward": "40822"
   },
   {
     "id": 403,
@@ -4540,7 +4551,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 83318
+    "offlinereward": "41659"
   },
   {
     "id": 404,
@@ -4551,7 +4562,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 83318
+    "offlinereward": "41659"
   },
   {
     "id": 405,
@@ -4562,7 +4573,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 83318
+    "offlinereward": "41659"
   },
   {
     "id": 406,
@@ -4573,7 +4584,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 83318
+    "offlinereward": "41659"
   },
   {
     "id": 407,
@@ -4584,7 +4595,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 83902
+    "offlinereward": "41951"
   },
   {
     "id": 408,
@@ -4595,7 +4606,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 84991
+    "offlinereward": "42496"
   },
   {
     "id": 409,
@@ -4606,7 +4617,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 79062
+    "offlinereward": "39531"
   },
   {
     "id": 410,
@@ -4617,7 +4628,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 79062
+    "offlinereward": "39531"
   },
   {
     "id": 411,
@@ -4628,7 +4639,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 79061
+    "offlinereward": "39531"
   },
   {
     "id": 412,
@@ -4639,7 +4650,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 79763
+    "offlinereward": "39881"
   },
   {
     "id": 413,
@@ -4650,7 +4661,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 80620
+    "offlinereward": "40310"
   },
   {
     "id": 414,
@@ -4661,7 +4672,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 80620
+    "offlinereward": "40310"
   },
   {
     "id": 415,
@@ -4672,7 +4683,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 80620
+    "offlinereward": "40310"
   },
   {
     "id": 416,
@@ -4683,7 +4694,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 80620
+    "offlinereward": "40310"
   },
   {
     "id": 417,
@@ -4694,7 +4705,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 81320
+    "offlinereward": "40660"
   },
   {
     "id": 418,
@@ -4705,7 +4716,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 82178
+    "offlinereward": "41089"
   },
   {
     "id": 419,
@@ -4716,7 +4727,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 82178
+    "offlinereward": "41089"
   },
   {
     "id": 420,
@@ -4727,7 +4738,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 82178
+    "offlinereward": "41089"
   },
   {
     "id": 421,
@@ -4738,7 +4749,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 82178
+    "offlinereward": "41089"
   },
   {
     "id": 422,
@@ -4749,7 +4760,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 82878
+    "offlinereward": "41439"
   },
   {
     "id": 423,
@@ -4760,7 +4771,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 83734
+    "offlinereward": "41867"
   },
   {
     "id": 424,
@@ -4771,7 +4782,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 83734
+    "offlinereward": "41867"
   },
   {
     "id": 425,
@@ -4782,7 +4793,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 83734
+    "offlinereward": "41867"
   },
   {
     "id": 426,
@@ -4793,7 +4804,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 83734
+    "offlinereward": "41867"
   },
   {
     "id": 427,
@@ -4804,7 +4815,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 78038
+    "offlinereward": "39019"
   },
   {
     "id": 428,
@@ -4815,7 +4826,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 78895
+    "offlinereward": "39448"
   },
   {
     "id": 429,
@@ -4826,7 +4837,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 78895
+    "offlinereward": "39448"
   },
   {
     "id": 430,
@@ -4837,7 +4848,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 78895
+    "offlinereward": "39448"
   },
   {
     "id": 431,
@@ -4848,7 +4859,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 78895
+    "offlinereward": "39448"
   },
   {
     "id": 432,
@@ -4859,7 +4870,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 78895
+    "offlinereward": "39448"
   },
   {
     "id": 433,
@@ -4870,7 +4881,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 80335
+    "offlinereward": "40168"
   },
   {
     "id": 434,
@@ -4881,7 +4892,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 80335
+    "offlinereward": "40168"
   },
   {
     "id": 435,
@@ -4892,7 +4903,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 80335
+    "offlinereward": "40168"
   },
   {
     "id": 436,
@@ -4903,7 +4914,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 80335
+    "offlinereward": "40168"
   },
   {
     "id": 437,
@@ -4914,7 +4925,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 80335
+    "offlinereward": "40168"
   },
   {
     "id": 438,
@@ -4925,7 +4936,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 81192
+    "offlinereward": "40596"
   },
   {
     "id": 439,
@@ -4936,7 +4947,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 81776
+    "offlinereward": "40888"
   },
   {
     "id": 440,
@@ -4947,7 +4958,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 81776
+    "offlinereward": "40888"
   },
   {
     "id": 441,
@@ -4958,7 +4969,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 81776
+    "offlinereward": "40888"
   },
   {
     "id": 442,
@@ -4969,7 +4980,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 81776
+    "offlinereward": "40888"
   },
   {
     "id": 443,
@@ -4980,7 +4991,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 82049
+    "offlinereward": "41025"
   },
   {
     "id": 444,
@@ -4991,7 +5002,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 83217
+    "offlinereward": "41608"
   },
   {
     "id": 445,
@@ -5002,7 +5013,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 76469
+    "offlinereward": "38235"
   },
   {
     "id": 446,
@@ -5013,7 +5024,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 76469
+    "offlinereward": "38235"
   },
   {
     "id": 447,
@@ -5024,7 +5035,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 76469
+    "offlinereward": "38235"
   },
   {
     "id": 448,
@@ -5035,7 +5046,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 76469
+    "offlinereward": "38235"
   },
   {
     "id": 449,
@@ -5046,7 +5057,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 77014
+    "offlinereward": "38507"
   },
   {
     "id": 450,
@@ -5057,7 +5068,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 77793
+    "offlinereward": "38896"
   },
   {
     "id": 451,
@@ -5068,7 +5079,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 77793
+    "offlinereward": "38897"
   },
   {
     "id": 452,
@@ -5079,7 +5090,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 77793
+    "offlinereward": "38897"
   },
   {
     "id": 453,
@@ -5090,7 +5101,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 77793
+    "offlinereward": "38897"
   },
   {
     "id": 454,
@@ -5101,7 +5112,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 77793
+    "offlinereward": "38897"
   },
   {
     "id": 455,
@@ -5112,7 +5123,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 78494
+    "offlinereward": "39247"
   },
   {
     "id": 456,
@@ -5123,7 +5134,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 79117
+    "offlinereward": "39558"
   },
   {
     "id": 457,
@@ -5134,7 +5145,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 79117
+    "offlinereward": "39558"
   },
   {
     "id": 458,
@@ -5145,7 +5156,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 79117
+    "offlinereward": "39558"
   },
   {
     "id": 459,
@@ -5156,7 +5167,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 79117
+    "offlinereward": "39558"
   },
   {
     "id": 460,
@@ -5167,7 +5178,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 79117
+    "offlinereward": "39558"
   },
   {
     "id": 461,
@@ -5178,7 +5189,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 80401
+    "offlinereward": "40200"
   },
   {
     "id": 462,
@@ -5189,7 +5200,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 81102
+    "offlinereward": "40551"
   },
   {
     "id": 463,
@@ -5200,7 +5211,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 73946
+    "offlinereward": "36973"
   },
   {
     "id": 464,
@@ -5211,7 +5222,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 73946
+    "offlinereward": "36973"
   },
   {
     "id": 465,
@@ -5222,7 +5233,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 73946
+    "offlinereward": "36973"
   },
   {
     "id": 466,
@@ -5233,7 +5244,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 73946
+    "offlinereward": "36973"
   },
   {
     "id": 467,
@@ -5244,7 +5255,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 74588
+    "offlinereward": "37294"
   },
   {
     "id": 468,
@@ -5255,7 +5266,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 75757
+    "offlinereward": "37879"
   },
   {
     "id": 469,
@@ -5266,7 +5277,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 75757
+    "offlinereward": "37879"
   },
   {
     "id": 470,
@@ -5277,7 +5288,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 75757
+    "offlinereward": "37879"
   },
   {
     "id": 471,
@@ -5288,7 +5299,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 75757
+    "offlinereward": "37879"
   },
   {
     "id": 472,
@@ -5299,7 +5310,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 75757
+    "offlinereward": "37879"
   },
   {
     "id": 473,
@@ -5310,7 +5321,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 75757
+    "offlinereward": "37879"
   },
   {
     "id": 474,
@@ -5321,7 +5332,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 77392
+    "offlinereward": "38696"
   },
   {
     "id": 475,
@@ -5332,7 +5343,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 77568
+    "offlinereward": "38784"
   },
   {
     "id": 476,
@@ -5343,7 +5354,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 77568
+    "offlinereward": "38784"
   },
   {
     "id": 477,
@@ -5354,7 +5365,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 77568
+    "offlinereward": "38784"
   },
   {
     "id": 478,
@@ -5365,7 +5376,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 77568
+    "offlinereward": "38784"
   },
   {
     "id": 479,
@@ -5376,7 +5387,7 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 77568
+    "offlinereward": "38784"
   },
   {
     "id": 480,
@@ -5387,7 +5398,7 @@
     "abc": "",
     "map": "map_09",
     "Reincarnation": 180,
-    "offlinereward": 78386
+    "offlinereward": "39193"
   },
   {
     "id": 481,
@@ -5398,7 +5409,7 @@
     "abc": "",
     "map": "map_10",
     "Reincarnation": 180,
-    "offlinereward": 71696
+    "offlinereward": "35848"
   },
   {
     "id": 482,
@@ -5409,7 +5420,7 @@
     "abc": "",
     "map": "map_11",
     "Reincarnation": 180,
-    "offlinereward": 71696
+    "offlinereward": "35848"
   },
   {
     "id": 483,
@@ -5420,7 +5431,7 @@
     "abc": "",
     "map": "map_12",
     "Reincarnation": 180,
-    "offlinereward": 71696
+    "offlinereward": "35848"
   },
   {
     "id": 484,
@@ -5431,7 +5442,7 @@
     "abc": "",
     "map": "map_13",
     "Reincarnation": 180,
-    "offlinereward": 71696
+    "offlinereward": "35848"
   },
   {
     "id": 485,
@@ -5442,7 +5453,7 @@
     "abc": "",
     "map": "map_14",
     "Reincarnation": 180,
-    "offlinereward": 71696
+    "offlinereward": "35848"
   },
   {
     "id": 486,
@@ -5453,7 +5464,7 @@
     "abc": "",
     "map": "map_15",
     "Reincarnation": 180,
-    "offlinereward": 71696
+    "offlinereward": "35848"
   },
   {
     "id": 487,
@@ -5464,7 +5475,7 @@
     "abc": "",
     "map": "map_16",
     "Reincarnation": 180,
-    "offlinereward": 72280
+    "offlinereward": "36140"
   },
   {
     "id": 488,
@@ -5475,7 +5486,7 @@
     "abc": "",
     "map": "map_17",
     "Reincarnation": 180,
-    "offlinereward": 73331
+    "offlinereward": "36666"
   },
   {
     "id": 489,
@@ -5486,7 +5497,7 @@
     "abc": "",
     "map": "map_18",
     "Reincarnation": 180,
-    "offlinereward": 73331
+    "offlinereward": "36666"
   },
   {
     "id": 490,
@@ -5497,7 +5508,7 @@
     "abc": "",
     "map": "map_19",
     "Reincarnation": 180,
-    "offlinereward": 73331
+    "offlinereward": "36666"
   },
   {
     "id": 491,
@@ -5508,7 +5519,7 @@
     "abc": "",
     "map": "map_20",
     "Reincarnation": 180,
-    "offlinereward": 73331
+    "offlinereward": "36666"
   },
   {
     "id": 492,
@@ -5519,7 +5530,7 @@
     "abc": "",
     "map": "map_21",
     "Reincarnation": 180,
-    "offlinereward": 73331
+    "offlinereward": "36666"
   },
   {
     "id": 493,
@@ -5530,7 +5541,7 @@
     "abc": "",
     "map": "map_01",
     "Reincarnation": 180,
-    "offlinereward": 73331
+    "offlinereward": "36666"
   },
   {
     "id": 494,
@@ -5541,7 +5552,7 @@
     "abc": "",
     "map": "map_02",
     "Reincarnation": 180,
-    "offlinereward": 73681
+    "offlinereward": "36841"
   },
   {
     "id": 495,
@@ -5552,7 +5563,7 @@
     "abc": "",
     "map": "map_03",
     "Reincarnation": 180,
-    "offlinereward": 74966
+    "offlinereward": "37483"
   },
   {
     "id": 496,
@@ -5563,7 +5574,7 @@
     "abc": "",
     "map": "map_04",
     "Reincarnation": 180,
-    "offlinereward": 74966
+    "offlinereward": "37483"
   },
   {
     "id": 497,
@@ -5574,7 +5585,7 @@
     "abc": "",
     "map": "map_05",
     "Reincarnation": 180,
-    "offlinereward": 74966
+    "offlinereward": "37483"
   },
   {
     "id": 498,
@@ -5585,7 +5596,7 @@
     "abc": "",
     "map": "map_06",
     "Reincarnation": 180,
-    "offlinereward": 74966
+    "offlinereward": "37483"
   },
   {
     "id": 499,
@@ -5596,7 +5607,7 @@
     "abc": "",
     "map": "map_07",
     "Reincarnation": 180,
-    "offlinereward": 66934
+    "offlinereward": "33467"
   },
   {
     "id": 500,
@@ -5607,6 +5618,6 @@
     "abc": "",
     "map": "map_08",
     "Reincarnation": 180,
-    "offlinereward": 66934
+    "offlinereward": "33467"
   }
 ]

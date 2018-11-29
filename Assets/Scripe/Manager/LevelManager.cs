@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour {
         GameManager.getIntance();
         JsonUtils.getIntance().init();
         GameManager.getIntance().getLevelData();
-        float outLine = GameManager.getIntance().init(this);
+        BigNumber outLine = GameManager.getIntance().init(this);
         GameManager.getIntance().initUi();
 
         Vector3 tmp = PointUtils.screenTransToWorld(GameObject.Find("kapai_local_top").transform.position);
@@ -47,8 +47,8 @@ public class LevelManager : MonoBehaviour {
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setLoclaManager(mLocalManager);
         BackpackManager.getIntance().init(this);
-        if (outLine > 0) {
-            BackpackManager.getIntance().showMessageTip(MessageTips.TYPPE_OUT_LINE, "离线时勇士战斗获得魂晶奖励", "" + outLine);
+        if (!outLine.isEmpty()) {
+            BackpackManager.getIntance().showMessageTip(MessageTips.TYPPE_OUT_LINE, "离线时勇士战斗获得魂晶奖励", "" + outLine.toStringWithUnit());
         }
         
         nengLiangDian = 0;

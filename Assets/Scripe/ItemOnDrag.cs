@@ -15,7 +15,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     // 按下与松开鼠标之间的距离
     public float mBorderDis = 0.5f;
     // 总的按下时间
-    public float mTotalTime = 1;
+    public float mTotalTime = 0.5f;
     private float mCurTime = 0;
     // 当前鼠标位置
     public Vector3 mCurPos;
@@ -87,45 +87,48 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         if (!isInit) {
             return;
         }
-        if (isUser)
-        {
-            if (eventData.position.y > Screen.height / 2 + 30)
+        if (mIndicator != null) {
+            if (isUser)
             {
-                PlayerBackpackBean newBean = new PlayerBackpackBean();
-                newBean.goodId = mCard.id;
-                newBean.sortID = mCard.sortID;
-                newBean.count = 1;
-                newBean.tabId = mCard.tabid;
-                //  if (BackpackManager.getIntance().use(newBean, 1, TipControl.USE_CARD_TYPE))
-                //   {
-                BackpackManager.getIntance().use(newBean, 1, TipControl.USE_CARD_TYPE);
-                Destroy(mIndicator);
-                //  Destroy(gameObject);
-              
-                CardUiControl ui = mIndicator.GetComponent<CardUiControl>();
-                ui.init(-1, 0, null);
-                isWork = true;
-                //   }
+                if (eventData.position.y > Screen.height / 2 + 30)
+                {
+                    PlayerBackpackBean newBean = new PlayerBackpackBean();
+                    newBean.goodId = mCard.id;
+                    newBean.sortID = mCard.sortID;
+                    newBean.count = 1;
+                    newBean.tabId = mCard.tabid;
+                    //  if (BackpackManager.getIntance().use(newBean, 1, TipControl.USE_CARD_TYPE))
+                    //   {
+                    BackpackManager.getIntance().use(newBean, 1, TipControl.USE_CARD_TYPE);
+                    Destroy(mIndicator);
+                    //  Destroy(gameObject);
+
+                    CardUiControl ui = mIndicator.GetComponent<CardUiControl>();
+                    ui.init(-1, 0, null);
+                    isWork = true;
+                    //   }
+                }
+            }
+            else
+            {
+                if (eventData.position.y < Screen.height / 2)
+                {
+                    PlayerBackpackBean newBean = new PlayerBackpackBean();
+                    newBean.goodId = mCard.id;
+                    newBean.sortID = mCard.sortID;
+                    newBean.count = 1;
+                    newBean.tabId = mCard.tabid;
+                    BackpackManager.getIntance().use(newBean, 1, TipControl.UNUSE_CARD_TYPE);
+                    Destroy(mIndicator);
+                    // Destroy(gameObject);
+                    CardUiControl ui = mIndicator.GetComponent<CardUiControl>();
+                    ui.init(-1, 0, null);
+                    BackpackManager.getIntance().updateCardBackShow();
+                    isWork = true;
+                }
             }
         }
-        else
-        {
-            if (eventData.position.y < Screen.height / 2)
-            {
-                PlayerBackpackBean newBean = new PlayerBackpackBean();
-                newBean.goodId = mCard.id;
-                newBean.sortID = mCard.sortID;
-                newBean.count = 1;
-                newBean.tabId = mCard.tabid;
-                BackpackManager.getIntance().use(newBean, 1, TipControl.UNUSE_CARD_TYPE);
-                Destroy(mIndicator);
-                // Destroy(gameObject);
-                CardUiControl ui = mIndicator.GetComponent<CardUiControl>();
-                ui.init(-1, 0, null);
-                BackpackManager.getIntance().updateCardBackShow();
-                isWork = true;
-            }
-        }
+
         if (isWork)
         {          
             mNewDrag = null;

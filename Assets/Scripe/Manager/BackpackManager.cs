@@ -121,10 +121,10 @@ public class BackpackManager
     public List<PlayerBackpackBean> getHeroEquipInfo() {
         return mHeroEquip;
     }
-    public void UpdateZhuangBei(PlayerBackpackBean bean, long cost, long level)
+    public void UpdateZhuangBei(PlayerBackpackBean bean, BigNumber cost, long level)
     {
         InventoryHalper.getIntance().updateZhuangbei(bean, level);
-        GameManager.getIntance().mCurrentCrystal -= cost;
+        GameManager.getIntance().mCurrentCrystal = BigNumber.minus(GameManager.getIntance().mCurrentCrystal, cost);
         GameManager.getIntance().updataGasAndCrystal();
         mInvertoryControl.update();
         mHeroControl.upDateUi();
@@ -165,7 +165,7 @@ public class BackpackManager
             if (!isSuccess)
             {
                 ComposeJsonBen book = JsonUtils.getIntance().gettComposeInfoForId(id);
-                GameManager.getIntance().mCurrentCrystal += book.compensate;
+               // GameManager.getIntance().mCurrentCrystal += book.compensate;
                 GameManager.getIntance().updataGasAndCrystal();
             }
             else

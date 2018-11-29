@@ -8,10 +8,10 @@ public class GameManager
 	public long mCurrentLevel = 1;
 	public long mHeroLv = 1;
 	public float mCurrentGas = 0;
-	public float mCurrentCrystal = 0;
+	public BigNumber mCurrentCrystal = new BigNumber();
 	public bool mStartBoss = false;
 	public float startBossGas = 0;
-	public float upLevelCrystal = 0;
+	public BigNumber upLevelCrystal;
 	public long mBossId;
 	public bool mHeroIsAlive;
 	public bool isEnd = false;
@@ -33,7 +33,7 @@ public class GameManager
 
 	public void getLevelData(){
         Hero hero = JsonUtils.getIntance ().getHeroData ();
-        upLevelCrystal = hero.lvup_crystal;
+        upLevelCrystal = hero.getLvupCrystal();
     }
     private int uiLevel = 500;
     public int getUiCurrentLevel() {
@@ -48,8 +48,8 @@ public class GameManager
         return mLevelManage.mGuideManager;    
     }
 
-	public float init(LevelManager levelmanage){
-        float outLineGet = 0f;
+	public BigNumber init(LevelManager levelmanage){
+        BigNumber outLineGet = new BigNumber();
         if (!isInit)
         {
             isInit = true;
@@ -69,34 +69,24 @@ public class GameManager
                     mHeroLv = 1;
                 }
             }
-            mCurrentCrystal = (long)JsonUtils.getIntance().getConfigValueForId(100012);
-            if (mCurrentCrystal == -1)
-            {
-                mCurrentCrystal = SQLHelper.getIntance().mMojing;
-                if (mCurrentCrystal == -1)
-                {
-                    mCurrentCrystal = 0;
-                }
+
+            mCurrentCrystal = SQLHelper.getIntance().mMojing;
                
-                if (isHaveOutGet) {
-                    isHaveOutGet = false;
-                    long old = SQLHelper.getIntance().mOutTime;
-                    if (old != -1) {
-                        old = TimeUtils.getTimeDistanceMin(old);
-                        long levelCryStal = JsonUtils.getIntance().getLevelData(mCurrentLevel).offlinereward;
-                        outLineGet = old * levelCryStal;
-                        mCurrentCrystal = mCurrentCrystal + old * levelCryStal;
-                        if(old <  5) {
-                            outLineGet = 0;
-                        }
-                        SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
+            if (isHaveOutGet) {
+                isHaveOutGet = false;
+                long old = SQLHelper.getIntance().mOutTime;
+                if (old != -1) {
+                    old = TimeUtils.getTimeDistanceMin(old);
+                    BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(mCurrentLevel).getOfflinereward();
+                    outLineGet = BigNumber.multiply(levelCryStal, old);
+                    mCurrentCrystal = BigNumber.add(outLineGet,mCurrentCrystal);
+                    if(old <  5) {
+                        outLineGet = new BigNumber();
                     }
-                }
-                if (mCurrentCrystal == -1)
-                {
-                    mCurrentCrystal = 0;
+                    SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
                 }
             }
+            
             long auto = SQLHelper.getIntance().isAutoBoss;
             if (auto == -1 || auto == 1) {
                 isAuto = false;
@@ -131,10 +121,10 @@ public class GameManager
 	}
 	public void heroUp(){
 		mHeroLv += 1;
-        mCurrentCrystal = mCurrentCrystal - upLevelCrystal ;
-        SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
+        mCurrentCrystal =BigNumber.minus(mCurrentCrystal, upLevelCrystal) ;
+        SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
         getLevelData ();
-		if (mCurrentCrystal >= upLevelCrystal) {
+		if (mCurrentCrystal.ieEquit(upLevelCrystal) != -1  ) {
 			uiManager.showLevelUp (true);
 		} else {
 			uiManager.showLevelUp (false);
@@ -150,8 +140,8 @@ public class GameManager
 	}
 
 	public void enemyDeal(Attacker enemy){
-        mCurrentGas += enemy.mDieGas * JsonUtils.getIntance().getConfigValueForId(100009);
-        mCurrentCrystal += enemy.mDieCrysta * JsonUtils.getIntance().getConfigValueForId(100008);
+        mCurrentGas += enemy.mDieGas;
+        mCurrentCrystal = BigNumber.add(mCurrentCrystal, enemy.mDieCrysta); 
         uiManager.addGas();
         if (enemy is EnemyBase) {
             EnemyBase tmp = (EnemyBase)enemy;
@@ -170,7 +160,7 @@ public class GameManager
         
 	}
     public void updateGasAndCrystal() {
-        SQLHelper.getIntance().updateHunJing((long)mCurrentCrystal);
+        SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
         uiManager.addGasAndCrystal();
         BackpackManager.getIntance().upDataComposeControl();
     }

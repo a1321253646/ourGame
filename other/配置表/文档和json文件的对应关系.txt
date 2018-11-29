@@ -1,5 +1,5 @@
 d-道具配置表		item.json
-d-道具配置表		mapconfig.json
+d-地图配置表		mapconfig.json
 d-掉落器内容配置表	dropdevicedetail.json
 d-掉落器配置表		dropdevice.json
 g-攻速匹配配置表	speedvalue.json
