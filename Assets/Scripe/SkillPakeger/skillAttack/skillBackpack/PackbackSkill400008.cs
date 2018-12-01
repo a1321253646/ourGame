@@ -3,11 +3,11 @@ public class PackbackSkill400008 : PackbackSkillBase
 {
     public override void removeSkill()
     {
-        mManager.downCardCost -= value;
+        mManager.cardDownCardCost -= value;
     }
 
     public override void startSkill()
     {
-        mManager.downCardCost += value;
+        mManager.cardDownCardCost += value;
     }
 }

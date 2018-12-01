@@ -15,6 +15,7 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
 
     float mHight = 0;
     float mXspeed = 0;
+    float mYspeed = 0;
     public float mDownSpeed = 0;
 
     Vector2 mUpTarget;
@@ -58,13 +59,20 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
             }
         }
         else {
-            if (mXspeed == 0) {
-                mXspeed = (mUpTarget.x - transform.position.x) / (mUpTarget.y - transform.position.y) *
-                    JsonUtils.getIntance().getConfigValueForId(100018);
-                //                Debug.Log("mUpTarget.x = " + mUpTarget.x + " mUpTarget.y=" + mUpTarget.y);
+            if (mYspeed == 0) {
+                if (mType == SHUIJI_DIAOLUO_TYPE)
+                {
+                    mYspeed =  JsonUtils.getIntance().getConfigValueForId(100018);
+                }
+                else
+                {
+                    mYspeed =  JsonUtils.getIntance().getConfigValueForId(100030);
+                }
+                mXspeed = (mUpTarget.x - transform.position.x) / (mUpTarget.y - transform.position.y) * mYspeed;
             }
-            float up = Time.deltaTime * JsonUtils.getIntance().getConfigValueForId(100018);
+            float up = mYspeed * Time.deltaTime;
             float x = Time.deltaTime * mXspeed;
+
             //            Debug.Log("transform.position.x = " + mUpTarget.x + " transform.position.y=" + transform.position.y+ " up="+ up);
             if (transform.position.y + up > mUpTarget.y) {
                 up = mUpTarget.y - transform.position.y;
@@ -84,6 +92,7 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
         init(enemy,type,imaPath,count);
     }
     public void init(EnemyBase enemy,int type,string imaPath,float count) {
+        mType = type;
         List<float> list = enemy.resourceData.getTargetBorder();
         if (list != null && list.Count == 3) {
             mHight = list[2] / 2;

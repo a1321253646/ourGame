@@ -150,21 +150,25 @@ public class InventoryHalper
                 p2.value = 0;
                 newBean.attributeList.Add(p2);
                 Debug.Log("newBean.attributeList.Add : type=" + p2.type + " value=" + p2.value);
-                long affix = jb.getAffix();
-                AffixJsonBean bean2 = JsonUtils.getIntance().getAffixInfoById(affix);
-                long value2 = bean2.getAffixValue(jb.quality);
-                PlayerAttributeBean p3 = new PlayerAttributeBean();
-                p3.type = 10002;
-                p3.value = affix;
-                newBean.attributeList.Add(p3);
-                Debug.Log("newBean.attributeList.Add : type=" + p3.type + " value=" + p3.value);
-                PlayerAttributeBean p4 = new PlayerAttributeBean();
-                p4.type = affix;
-                p4.value = value2;
-                newBean.attributeList.Add(p4);
-                Debug.Log("newBean.attributeList.Add : type=" + p4.type + " value=" + p4.value);
-                mList.Add(newBean);
 
+                long count1 = jb.getAffixCount();
+                Debug.Log("newBean.getAffixCount " + count1);
+                for (long i = 0; i < count1; i++) {
+                    long affix = jb.getAffix();
+                    AffixJsonBean bean2 = JsonUtils.getIntance().getAffixInfoById(affix);
+                    long value2 = bean2.getAffixValue(jb.quality);
+                    PlayerAttributeBean p3 = new PlayerAttributeBean();
+                    p3.type = 10002;
+                    p3.value = affix;
+                    newBean.attributeList.Add(p3);
+                    Debug.Log("newBean.attributeList.Add : type=" + p3.type + " value=" + p3.value);
+                    PlayerAttributeBean p4 = new PlayerAttributeBean();
+                    p4.type = affix;
+                    p4.value = value2;
+                    newBean.attributeList.Add(p4);
+                    Debug.Log("newBean.attributeList.Add : type=" + p4.type + " value=" + p4.value);                 
+                }
+                mList.Add(newBean);
             }
             else if (id > TABID_3_START_ID) {
                 CardJsonBean cj = BackpackManager.getIntance().getCardInfoById(id);

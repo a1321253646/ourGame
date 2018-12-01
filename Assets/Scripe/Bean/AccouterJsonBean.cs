@@ -18,8 +18,10 @@ public class AccouterJsonBean
     public string cost_up;
     public string strengthen;
     public string affix;
+    public string affix_count;
 
     private long affixAll = 0;
+    private long affixCountAll = 0;
     public BigNumber mCost;
 
     public BigNumber getCost() {
@@ -52,7 +54,44 @@ public class AccouterJsonBean
         return cost;
     }
 
-    public List<EquipKeyAndValue> mAffix ;
+
+    public List<EquipKeyAndValue> mAffixCount;
+    public long getAffixCount() {
+        if (mAffixCount == null) {
+            mAffixCount = EquipKeyAndValue.getListForString(affix_count);
+            if (mAffixCount != null && mAffixCount.Count > 1)
+            {
+                foreach (EquipKeyAndValue k in mAffixCount)
+                {
+                    affixCountAll += k.value;
+                }
+            }
+            else if (mAffixCount != null && mAffixCount.Count == 1)
+            {
+                affixCountAll = 10000;
+            }
+        }
+        if (affixCountAll == 0)
+        {
+            return 0;
+        }
+        else {
+            int rangeRadomNum = Random.Range(0, (int)affixCountAll);
+            foreach (EquipKeyAndValue k in mAffixCount)
+            {
+                if (k.value > rangeRadomNum)
+                {
+                    return k.key;
+                }
+                else
+                {
+                    rangeRadomNum = rangeRadomNum - (int)k.value;
+                }
+            }
+        }
+        return 0;
+    }
+    public List<EquipKeyAndValue> mAffix;
     public long getAffix()
     {
         if (mAffix == null)
@@ -64,6 +103,10 @@ public class AccouterJsonBean
                 {
                     affixAll += k.value;
                 }
+            }
+            else if(mAffix != null && mAffix.Count > 1)
+            {
+                affixAll = 10000;
             }
         }
         if (affixAll == 0)

@@ -22,6 +22,26 @@ public class GameManager
     public long mReincarnation = 0;
     public bool isShowQieHuang = false;
     public bool isWinQirHuang = false;
+
+    public float mLunhuiOnlineGet = 0;
+    public float mLunhuiOutlineGet = 0;
+    public float mLunhuiLunhuiGet = 0;
+
+    public float mCardOnlineGet = 0;
+    public float mCardOutlineGet = 0;
+    public float mCardLunhuiGet = 0;
+
+    public float getOnlineGet() {
+        return 1+ mLunhuiOnlineGet+ mCardOnlineGet;
+    }
+    public float getOutlineGet()
+    {
+        return 1+ mLunhuiOutlineGet+ mCardOutlineGet;
+    }
+    public float getLunhuiGet()
+    {
+        return 1+mLunhuiLunhuiGet+ mCardLunhuiGet;
+    }
     private GameManager(){
     }
 	private static GameManager mIntance = new GameManager();
@@ -79,6 +99,7 @@ public class GameManager
                     old = TimeUtils.getTimeDistanceMin(old);
                     BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(mCurrentLevel).getOfflinereward();
                     outLineGet = BigNumber.multiply(levelCryStal, old);
+                    outLineGet = BigNumber.multiply(outLineGet, getOutlineGet());
                     mCurrentCrystal = BigNumber.add(outLineGet,mCurrentCrystal);
                     if(old <  5) {
                         outLineGet = new BigNumber();
@@ -141,7 +162,14 @@ public class GameManager
 
 	public void enemyDeal(Attacker enemy){
         mCurrentGas += enemy.mDieGas;
-        mCurrentCrystal = BigNumber.add(mCurrentCrystal, enemy.mDieCrysta); 
+        if (getOnlineGet() == 1)
+        {
+            mCurrentCrystal = BigNumber.add(mCurrentCrystal, BigNumber.multiply(enemy.mDieCrysta, getOnlineGet()));
+        }
+        else {
+            mCurrentCrystal = BigNumber.add(mCurrentCrystal, enemy.mDieCrysta);
+        }
+         
         uiManager.addGas();
         if (enemy is EnemyBase) {
             EnemyBase tmp = (EnemyBase)enemy;

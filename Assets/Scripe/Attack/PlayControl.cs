@@ -144,8 +144,12 @@ public class PlayControl : Attacker
                 }
             }
             Debug.Log("addSkill initEquip");
-            if (isAddSkill) {
+            if (isAddSkill)
+            {
                 mSkillManager.addSkill(bean, this);
+            }
+            else {
+                mSkillManager.updateSkill(bean, this);
             }
            
         }
@@ -162,6 +166,15 @@ public class PlayControl : Attacker
     {
         float mMaxTmp = mLunhuiAttribute.maxBloodVolume;
         mLunhuiAttribute.clear();
+        mLunhuiAttributePre.clear();
+        mSkillManager.lunhuiDownCardCost = 0;
+        mSkillManager.lunhuiCardHurtPre = 1;
+        mSkillManager.lunhuiHurtPre = 0;
+
+        GameManager.getIntance().mLunhuiOnlineGet = 0;
+        GameManager.getIntance().mLunhuiOutlineGet = 0;
+        GameManager.getIntance().mLunhuiLunhuiGet = 0;
+
         Dictionary<long, long>  samsaras= InventoryHalper.getIntance().getSamsaraLevelDate();
         Dictionary<long, long>.KeyCollection keys= samsaras.Keys;
         foreach (long key in keys) {
@@ -180,7 +193,7 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 102)
                     {
-                        mLunhuiAttribute.maxBloodVolume += date.value;                    
+                        mLunhuiAttribute.maxBloodVolume += date.value;
                     }
                     else if (date.type == 110)
                     {
@@ -205,6 +218,56 @@ public class PlayControl : Attacker
                     else if (date.type == 114)
                     {
                         mLunhuiAttribute.attackSpeed += date.value;
+                    }
+                    else if (date.type == 400001) {
+                        mLunhuiAttributePre.aggressivity += date.value;
+                    }
+                    else if (date.type == 400002)
+                    {
+                        mSkillManager.lunhuiHurtPre += date.value;
+                    }
+                    else if (date.type == 400003)
+                    {
+                        mLunhuiAttributePre.maxBloodVolume += date.value;
+                    }
+                    else if (date.type == 400004)
+                    {
+                        mLunhuiAttributePre.defense += date.value;
+                    }
+                    else if (date.type == 400005)
+                    {
+                        mLunhuiAttribute.crt += date.value;
+                    }
+                    else if (date.type == 400006)
+                    {
+                        mLunhuiAttribute.evd += date.value;
+                    }
+                    else if (date.type == 400007)
+                    {
+                        mSkillManager.lunhuiDownCardCost = 0;
+                        mSkillManager.lunhuiCardHurtPre = 1;
+                        mSkillManager.lunhuiCardHurtPre += date.value;
+                    }
+                    else if (date.type == 400008)
+                    {
+                        
+                        mSkillManager.lunhuiDownCardCost += date.value;
+                    }
+                    else if (date.type == 400009)
+                    {
+                        GameManager.getIntance().mLunhuiOnlineGet += ((float)date.value/10000);
+                    }
+                    else if (date.type == 400010)
+                    {
+                        GameManager.getIntance().mLunhuiOutlineGet += ((float)date.value / 10000);
+                    }
+                    else if (date.type == 400011)
+                    {
+                        GameManager.getIntance().mLunhuiLunhuiGet += ((float)date.value / 10000);
+                    }
+                    else if (date.type == 400012)
+                    {
+                        mLunhuiAttributePre.aggressivity += date.value;
                     }
                 }  
             }
@@ -401,7 +464,7 @@ public class PlayControl : Attacker
 	public override float BeAttack(HurtStatus status,Attacker hurter){
         //        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);
         mSkillManager.beforeBeHurt(status);
-        status.blood = status.blood * hurter.mSkillManager.hurtPre;
+        status.blood = status.blood * hurter.mSkillManager.getHurtPre();
         int tmp = status.blood % 1 == 0 ? 0 : 1;
         status.blood = ((int)status.blood) / 1 + tmp;
         if (JsonUtils.getIntance().getConfigValueForId(100007) != 1) {
@@ -424,7 +487,7 @@ public class PlayControl : Attacker
             HurtStatus status = new HurtStatus(value, false, true);
             if (hurt != null)
             {
-                status.blood = status.blood * hurt.mSkillManager.cardHurtPre;
+                status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
             }
             if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)
             {

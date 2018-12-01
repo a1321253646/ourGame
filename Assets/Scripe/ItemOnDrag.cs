@@ -15,7 +15,6 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     // 按下与松开鼠标之间的距离
     public float mBorderDis = 0.5f;
     // 总的按下时间
-    public float mTotalTime = 0.5f;
     private float mCurTime = 0;
     // 当前鼠标位置
     public Vector3 mCurPos;
@@ -34,7 +33,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         if (mIsDown)
         {
             mCurTime += Time.deltaTime * 1;
-            if (mCurTime >= mTotalTime)
+            if (mCurTime >= JsonUtils.getIntance().getConfigValueForId(100020)/1000)
             {
                 if (Vector3.Distance(mPrevPos, mCurPos) > mBorderDis)
                 {

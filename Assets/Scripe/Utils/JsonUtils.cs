@@ -50,6 +50,8 @@ public class JsonUtils
         private string guideFile = "guide";;*/
     private static JsonUtils mInance = new JsonUtils();
 
+
+    List<long> mAffixEnbleLevel = new List<long>();
     List<Hero> heroData;
     List<Level> levelData;
     List<ResourceBean> resourceData;
@@ -355,6 +357,13 @@ public class JsonUtils
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(configeFile));
         mConfig = arrdata.ToObject<List<ConfigNote>>();
+        for (int i = 0; i < 6; i++) {
+            foreach (ConfigNote n in mConfig) {
+                if (n.id == 100021 + i) {
+                    mAffixEnbleLevel.Add((long)n.value);
+                }
+            }
+        }
     }
     private void readGuideFile() {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(guideFile));
@@ -504,8 +513,26 @@ public class JsonUtils
         return -1;
     }
 
+    public long getAffixEnbleByLevel(long level) {
+        long count = 0;
+        foreach (long item in mAffixEnbleLevel) {
+            if (level >= item) {
+                count++;
+            }
+            else {
+                break;    
+            }
+        }
+        return count;
+    }
+    public float getAffixEnbleLevelByCount(long count)
+    {
+        return getConfigValueForId(100020+count);
+    }
 
-	public  ResourceBean getEnemyResourceData(long resourceId){
+
+
+    public  ResourceBean getEnemyResourceData(long resourceId){
 		foreach (ResourceBean resource in resourceData) {
 			if (resource.id == resourceId) {
 				return resource;

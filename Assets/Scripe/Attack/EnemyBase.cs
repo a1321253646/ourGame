@@ -178,7 +178,7 @@ public class EnemyBase : Attacker {
 	public override float BeAttack(HurtStatus status,Attacker hurter)
     {        
         mSkillManager.beforeBeHurt(status);
-        status.blood = status.blood * hurter.mSkillManager.hurtPre;
+        status.blood = status.blood * hurter.mSkillManager.getHurtPre();
         int tmp = status.blood % 1 == 0 ? 0 : 1;
         status.blood = ((int)status.blood) / 1 + tmp;
         //if (mBloodVolume == mAttribute.maxBloodVolume) {
@@ -198,7 +198,7 @@ public class EnemyBase : Attacker {
         {
             HurtStatus status = new HurtStatus(value, false, true);
             if (hurt != null) {
-                status.blood = status.blood * hurt.mSkillManager.cardHurtPre;
+                status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
             }
             mBloodVolume = mBloodVolume - status.blood;
             if (mBloodVolume <= 0)

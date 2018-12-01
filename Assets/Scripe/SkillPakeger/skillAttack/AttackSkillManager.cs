@@ -5,9 +5,13 @@ using System.Collections.Generic;
 public class AttackSkillManager 
 {
 
-    public long downCardCost = 0;
-    public float hurtPre = 1;
-    public float cardHurtPre = 1;
+    public long cardDownCardCost = 0;
+    public float carHurtPre = 0;
+    public float cardCardHurtPre = 0;
+
+    public long lunhuiDownCardCost = 0;
+    public float lunhuiHurtPre = 0;
+    public float lunhuiCardHurtPre = 0;
 
     private Attacker mAttack;
     private Attacker mAttackFight;
@@ -17,6 +21,19 @@ public class AttackSkillManager
     private List<AttackSkillNoAnimal> beforeBehurtActionSkill = new List<AttackSkillNoAnimal>();
     private List<AttackSkillNoAnimal> inFightActionSkill = new List<AttackSkillNoAnimal>();
     private Dictionary<PlayerBackpackBean, List<PackbackSkillBase>> mBackpackSkill = new Dictionary<PlayerBackpackBean, List<PackbackSkillBase>>();
+
+    public long getDownCardCost() {
+        return cardDownCardCost + lunhuiDownCardCost;
+    }
+    public float getHurtPre() {
+        return 1 + carHurtPre + lunhuiCardHurtPre;
+    }
+    public float getCardHurtPre()
+    {
+        return 1 + cardCardHurtPre + lunhuiCardHurtPre;
+    }
+
+
     public AttackSkillManager(Attacker attack) {
         mAttack = attack;
         mSkillObject  = GameObject.Find("Manager").GetComponent<LevelManager>().skillObject;
@@ -61,14 +78,29 @@ public class AttackSkillManager
         SkillJsonBean skill =JsonUtils.getIntance().getSkillInfoById(skillId);
         addSkill(skill, mAttackFight);
     }
-
+    public void updateSkill(PlayerBackpackBean bean, Attacker mAttackFight)
+    {
+        removeSkill(bean,mAttackFight);
+        addSkill(bean, mAttackFight);
+    }
     public void addSkill(PlayerBackpackBean bean, Attacker mAttackFight) {
         Debug.Log("addSkill PlayerBackpackBean");
         List<PackbackSkillBase> list = new List<PackbackSkillBase>();
         if (!(mAttack is PlayControl)) {
             return;
         }
+        long level = 0;
+        foreach (PlayerAttributeBean p in bean.attributeList)
+        {
+            if (p.type == 10001) {
+                level = (long) p.value;
+            }
+        }
+        long count = JsonUtils.getIntance().getAffixEnbleByLevel(level);
         foreach (PlayerAttributeBean p in bean.attributeList) {
+            if (count == 0) {
+                break;
+            }
             if (p.type == 10002)
             {
                 long id = p.value;
@@ -85,7 +117,9 @@ public class AttackSkillManager
                 PackbackSkillBase pb = creatPackbackSkill(id, value);
                 pb.startSkill();
                 list.Add(pb);
+                count--;
             }
+            
         }
         
         if(list != null) {
@@ -95,6 +129,7 @@ public class AttackSkillManager
             }
         }
     }
+
     private PackbackSkillBase creatPackbackSkill(long id, long value) {
         PackbackSkillBase p = null;
         if (id == 400001)

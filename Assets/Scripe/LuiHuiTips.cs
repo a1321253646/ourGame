@@ -70,7 +70,7 @@ public class LuiHuiTips : MonoBehaviour {
     }
     private void sure() {
         Level level = JsonUtils.getIntance().getLevelData();
-        GameManager.getIntance().mReincarnation += level.reincarnation;
+        GameManager.getIntance().mReincarnation +=((long) (level.reincarnation * GameManager.getIntance().getLunhuiGet()));
         SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         GameManager.getIntance().isAddGoodForTest = false; 
         BackpackManager.getIntance().removeAll();

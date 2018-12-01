@@ -95,7 +95,7 @@ public class CardControl : MonoBehaviour
     public void OnpointUp(BaseEventData date) {
         if (mStatue == STATUE_CARP_UP)
         {
-            long cost = mManager.getHero().mSkillManager.downCardCost > mCard.cost ? 0 : mCard.cost - mManager.getHero().mSkillManager.downCardCost;
+            long cost = mManager.getHero().mSkillManager.getDownCardCost() > mCard.cost ? 0 : mCard.cost - mManager.getHero().mSkillManager.getDownCardCost();
             if (mSkill.shape_type == SkillTargetManager.TYPE_SHAPE_POINT && (mTargetList == null || mTargetList.Count == 0)) {
                 setStatus(STATUE_CARP_DEFAULT);
                 GameObject obj = Resources.Load<GameObject>("prefab/hurt");

@@ -222,12 +222,24 @@ public class TipControl : MonoBehaviour {
                     str = str+ "\n";
                 }              
             }
+
+            long count = JsonUtils.getIntance().getAffixEnbleByLevel(level);
+            long showCount = 1;
             if (affixList.Count > 0) {
                 str = str+ "<color=#FF49FAFF>特殊属性</color>\n";
                 foreach (PlayerAttributeBean b in affixList) {
-                    AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
-                    float vale = (float) b.value / 100 ;
-                    str = str + a.dec +":"+ vale + "%";
+                    if (showCount <= count)
+                    {
+                        AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
+                        float vale = (float)b.value / 100;
+                        str = str + a.dec + ":" + vale + "%\n";
+                    }
+                    else {
+                        AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
+                        float vale = (float)b.value / 100;
+                        str =  str + "<color=#FFFFFF78>" + a.dec + ":" + vale + " %(+" + JsonUtils.getIntance().getAffixEnbleLevelByCount(showCount)+ ")</color>\n";
+                    }
+                    showCount++;
                 }
             }
         }
