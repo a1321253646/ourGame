@@ -14,6 +14,7 @@ public class GoodControl : MonoBehaviour {
 
     private Image mImage;
     private Image mBack;
+    private Image mPoint;
     private Text mText;
     private Text mLv;
     public long id = -1;
@@ -22,11 +23,14 @@ public class GoodControl : MonoBehaviour {
     PlayerBackpackBean bean;
     private Button mBt;
     public bool isHero = false;
+    bool isShowPoint = false;
+
     void Start()
     {
  //       Debug.Log("GoodControl Start id = " + id );
         mImage = GetComponentsInChildren<Image>()[1];
         mBack = GetComponentsInChildren<Image>()[0];
+        mPoint = GetComponentsInChildren<Image>()[2];
         mText = GetComponentsInChildren<Text>()[0];
         mBt = GetComponent<Button>();
         mLv = GetComponentsInChildren<Text>()[1];
@@ -87,7 +91,25 @@ public class GoodControl : MonoBehaviour {
         {
             type = TipControl.SHOW_COMPOSE_TYPE;
         }
+        if (isShowPoint) {
+            setPointShow(false);
+            InventoryHalper.getIntance().updatePoint(bean);
+        }
         BackpackManager.getIntance().showTipUi(bean, count, type);
+    }
+
+    public void setPointShow(bool show) {
+        isShowPoint = show;
+        if (mPoint == null) {
+            mPoint = GetComponentsInChildren<Image>()[2];
+        }
+        if (show)
+        {
+            mPoint.color = new Color(0xff, 0xff, 0xff, 0xff);
+        }
+        else {
+            mPoint.color = new Color(0xff, 0xff, 0xff, 0);
+        }
     }
 
     public bool isFull() {
@@ -141,6 +163,7 @@ public class GoodControl : MonoBehaviour {
                     level = p.value;
                 }
             }
+            
         }
         if (mLv == null) {
             mLv = GetComponentsInChildren<Text>()[1];
@@ -151,6 +174,16 @@ public class GoodControl : MonoBehaviour {
         }
         else {
             mLv.text = "" ;
+        }
+        if (bean != null) {
+            if (bean.isShowPoint == 1)
+            {
+                setPointShow(true);
+            }
+            else
+            {
+                setPointShow(false);
+            }
         }
         return setCount(count);
 

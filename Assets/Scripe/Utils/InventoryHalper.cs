@@ -100,6 +100,13 @@ public class InventoryHalper
     public static long TABID_1_START_ID = 100000;
     public static long TABID_2_START_ID = 200000;
     public static long TABID_3_START_ID = 300000;
+
+    public void updatePoint(PlayerBackpackBean bean) {
+       string extra =  SQLHelper.getIntance().getGoodExtra(bean);
+        bean.isShowPoint = 2;
+        SQLHelper.getIntance().ChangeGood(bean, extra);
+    }
+
     public bool addInventory(long id, int count)
     {
         bool isNew = true;
@@ -126,6 +133,7 @@ public class InventoryHalper
                 newBean.sortID = jb.sortID;
                 newBean.count = count;
                 newBean.tabId = jb.tabid;
+                newBean.isShowPoint = 1;
                 mList.Add(newBean);
             }
             else if (id > TABID_2_START_ID && id < TABID_3_START_ID)
@@ -136,6 +144,7 @@ public class InventoryHalper
                 newBean.sortID = jb.sortID;
                 newBean.count = count;
                 newBean.tabId = jb.tabid;
+                newBean.isShowPoint = 1;
                 newBean.attributeList = new List<PlayerAttributeBean>();
                 foreach (EquipKeyAndValue be in jb.getAttributeList())
                 {
@@ -176,13 +185,15 @@ public class InventoryHalper
                 newBean.sortID = cj.sortID;
                 newBean.count = count;
                 newBean.tabId = cj.tabid;
+                newBean.isShowPoint = 1;
                 mList.Add(newBean);
             }
             SQLHelper.getIntance().addGood(newBean);
             return true;
         }
         else {
-            SQLHelper.getIntance().ChangeGood(bean);
+            string extra = SQLHelper.getIntance().getGoodExtra(bean);
+            SQLHelper.getIntance().ChangeGood(bean, extra);
             return false;
         }
 //        Debug.Log("InventoryHalper list size  " + mList.Count);
@@ -420,8 +431,9 @@ public class InventoryHalper
                     SQLHelper.getIntance().deleteGood(bean);
                 }
                 else {
+                    string extra = SQLHelper.getIntance().getGoodExtra(bean);
                     bean.count -= count;
-                    SQLHelper.getIntance().ChangeGood(bean);
+                    SQLHelper.getIntance().ChangeGood(bean, extra);
                 }
                 break;
             }

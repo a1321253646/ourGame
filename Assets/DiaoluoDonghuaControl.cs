@@ -33,6 +33,14 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
                 GameManager.getIntance().updateGasAndCrystal();
                 if (mId != -1) {
                     GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_OBJECT_DROP, mId);
+                    if (mId < InventoryHalper.TABID_3_START_ID)
+                    {
+                        GameManager.getIntance().uiManager.setPackPointShow(1);
+                    }
+                    else
+                    {
+                        GameManager.getIntance().uiManager.setCardPointShow(1);
+                    }
                 }
             }
         }

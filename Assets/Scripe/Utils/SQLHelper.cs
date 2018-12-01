@@ -13,6 +13,12 @@ public class SQLHelper
     public BigNumber mMojing = new BigNumber();
     public long mOutTime = -1;
 
+    public long isShowCardPoint = -1;
+    public long isShowBackpackPoint = -1;
+    public long isShowLuihuiPoint = -1;
+    public long isShowPlayerPoint = -1;
+
+
     private long GAME_ID_LEVEL = 1;
     private long GAME_ID_HERO = 2;
     private long GAME_ID_AUTO = 3;
@@ -20,7 +26,10 @@ public class SQLHelper
     private long GAME_ID_MOJING = 5;
     private long GAME_ID_TIME = 6;
     private long GAME_ID_GUIDE = 7;
-
+    private long GAME_ID_POINT_PLAYER = 8;
+    private long GAME_ID_POINT_BACKPACK = 9;
+    private long GAME_ID_POINT_LUNHUI = 10;
+    private long GAME_ID_POINT_CARD = 11;
 
     private long TYPE_GAME = 1;
     private long TYPE_GOOD = 2;
@@ -28,6 +37,7 @@ public class SQLHelper
     private long TYPE_CARD = 4;
     private long TYPE_ZHUANGBEI = 5;
     private long TYPE_LUNHUI = 6;
+
 
     List<long> mGuide = new List<long>();
     List<long> mCard = new List<long>();
@@ -107,11 +117,32 @@ public class SQLHelper
                     else if (date.id == GAME_ID_TIME) {
                         mOutTime = long.Parse(date.extan);
                         Debug.Log("读取数据库 上次离线时间" + mOutTime);
-                    }else if(date.id == GAME_ID_GUIDE)
+                    }
+                    else if(date.id == GAME_ID_GUIDE)
                     {
                         long id = long.Parse(date.extan);
                         mGuide.Add(id);
                         Debug.Log("读取数据库 已经引导 " + id);
+                    }
+                    else if (date.id == GAME_ID_POINT_PLAYER)
+                    {
+                        isShowPlayerPoint = long.Parse(date.extan);
+                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                    }
+                    else if (date.id == GAME_ID_POINT_BACKPACK)
+                    {
+                        isShowBackpackPoint = long.Parse(date.extan);
+                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                    }
+                    else if (date.id == GAME_ID_POINT_LUNHUI)
+                    {
+                        isShowLuihuiPoint = long.Parse(date.extan);
+                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                    }
+                    else if (date.id == GAME_ID_POINT_CARD)
+                    {
+                        isShowCardPoint = long.Parse(date.extan);
+                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                 }
             }
@@ -138,12 +169,17 @@ public class SQLHelper
                     {
                         bean.tabId = int.Parse(ss[1]);
                     }
-                    else {
+                    else if (ss[0].Equals("showPoint")) {
+                        bean.isShowPoint = int.Parse(ss[1]);
+                    }
+                    else
+                    {
                         PlayerAttributeBean att = new PlayerAttributeBean();
                         att.type = long.Parse(ss[0]);
                         att.value = long.Parse(ss[1]);
-                        if (bean.attributeList == null) {
-                            bean.attributeList = new List<PlayerAttributeBean>();                        
+                        if (bean.attributeList == null)
+                        {
+                            bean.attributeList = new List<PlayerAttributeBean>();
                         }
                         bean.attributeList.Add(att);
                     }
@@ -260,17 +296,20 @@ public class SQLHelper
         }
         value = value + "sortID，" + good.sortID + "；";
         value = value + "tabId，" + good.tabId + "；";
+        value = value + "showPoint，" + good.isShowPoint + "；";
         return value;
     }
 
     public void updateZHUANGBEI(PlayerBackpackBean good, string extra)
     {
+        
         string value = getGoodExtra(good);
+        Debug.Log("updateZHUANGBEI  extra =" + extra + " value =" + value);
         mManager.UpdateZhuangbeiInto("'" + extra + "'", TYPE_ZHUANGBEI, good.goodId, "'" + value + "'");
     }
-    public void ChangeGood(PlayerBackpackBean good) {
+    public void ChangeGood(PlayerBackpackBean good, string extra) {
         string value = getGoodExtra(good);
-        mManager.UpdateInto( "'"+value+"'", TYPE_GOOD, good.goodId);
+        mManager.UpdateZhuangbeiInto("'" + extra + "'", TYPE_GOOD, good.goodId, "'" + value + "'");
     }
     public void ChangeLuiHui(long id,long level)
     {
@@ -320,6 +359,70 @@ public class SQLHelper
             updateGame(GAME_ID_HERO, value);
         }  
     }
+    public void updatePointPlayer(long value)
+    {
+        if (isShowCardPoint == value)
+        {
+            return;
+        }
+        if (isShowCardPoint == -1)
+        {
+            addGame(GAME_ID_POINT_PLAYER, value);
+            isShowCardPoint = value;
+        }
+        else
+        {
+            updateGame(GAME_ID_POINT_PLAYER, value);
+        }
+    }
+    public void updatePointBackpack(long value)
+    {
+        if (isShowBackpackPoint == value)
+        {
+            return;
+        }
+        if (isShowBackpackPoint == -1)
+        {
+            addGame(GAME_ID_POINT_BACKPACK, value);
+            isShowBackpackPoint = value;
+        }
+        else
+        {
+            updateGame(GAME_ID_POINT_BACKPACK, value);
+        }
+    }
+    public void updatePointLunhui(long value)
+    {
+        if (isShowLuihuiPoint == value)
+        {
+            return;
+        }
+        if (isShowLuihuiPoint == -1)
+        {
+            addGame(GAME_ID_POINT_LUNHUI, value);
+            isShowLuihuiPoint = value;
+        }
+        else
+        {
+            updateGame(GAME_ID_POINT_LUNHUI, value);
+        }
+    }
+    public void updatePointCard(long value)
+    {
+        if (isShowCardPoint == value) {
+            return;
+        }
+        if (isShowCardPoint == -1)
+        {
+            addGame(GAME_ID_POINT_CARD, value);
+            isShowCardPoint = value;
+        }
+        else
+        {
+            updateGame(GAME_ID_POINT_CARD, value);
+        }
+    }
+
     public void updateAutoBoss(long value)
     {
         if (isAutoBoss == -1)

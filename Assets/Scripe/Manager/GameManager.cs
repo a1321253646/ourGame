@@ -31,6 +31,12 @@ public class GameManager
     public float mCardOutlineGet = 0;
     public float mCardLunhuiGet = 0;
 
+    public long isShowCardPoint = 2;
+    public long isShowBackpackPoint = 2;
+    public long isShowLuihuiPoint = 2;
+    public long isShowPlayerPoint = 2;
+
+
     public float getOnlineGet() {
         return 1+ mLunhuiOnlineGet+ mCardOnlineGet;
     }
@@ -118,6 +124,26 @@ public class GameManager
             mReincarnation = SQLHelper.getIntance().mLunhuiValue;
             if (mReincarnation == -1) {
                 mReincarnation = 0;
+            }
+
+            long tmp = SQLHelper.getIntance().isShowPlayerPoint;
+            if (tmp != -1) {
+                isShowPlayerPoint = tmp;
+            }
+            tmp = SQLHelper.getIntance().isShowBackpackPoint;
+            if (tmp != -1)
+            {
+                isShowBackpackPoint = tmp;
+            }
+            tmp = SQLHelper.getIntance().isShowLuihuiPoint;
+            if (tmp != -1)
+            {
+                isShowLuihuiPoint = tmp;
+            }
+            tmp = SQLHelper.getIntance().isShowCardPoint;
+            if (tmp != -1)
+            {
+                isShowCardPoint = tmp;
             }
         }
        // mCurrentLevel = 1;

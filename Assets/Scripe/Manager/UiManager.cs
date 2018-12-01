@@ -8,6 +8,7 @@ public class UiManager
 	Slider mHpSl,mStartBossGasSl;
 	Button mStartBossBt,mLvUpBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss;
     Image autoBack;
+    Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint;
     Sprite mAutoYes, mAutoNo;
 
     bool isAuto = false;
@@ -29,6 +30,10 @@ public class UiManager
         mCardUiShow = GameObject.Find("skilcard_ui").GetComponent<Button>();
         mHpSl = GameObject.Find ("blood").GetComponent<Slider> ();
 		mStartBossGasSl = GameObject.Find ("gas_sl").GetComponent<Slider> ();
+        mRoleUiPoint = GameObject.Find ("role_ui_point").GetComponent<Image> ();
+        mPackUiPoint = GameObject.Find ("pack_ui_point").GetComponent<Image> ();
+        mSamsaraUiPoint = GameObject.Find ("lunhui_ui_point").GetComponent<Image> ();
+        mCardUiPoint = GameObject.Find ("skilcard_ui_point").GetComponent<Image> ();
 
         GameObject auto = GameObject.Find("zidong");
         mAutoBoss = auto.GetComponent<Button>();
@@ -60,10 +65,12 @@ public class UiManager
 
         mRoleUiShow.onClick.AddListener(() => {
             BackpackManager.getIntance().heroUiShowClick();
+            setRolePointShow(2);
         });
         mPackUiShow.onClick.AddListener(() => {
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_OPEN_BACK);
-            BackpackManager.getIntance().packUiShowClick();            
+            BackpackManager.getIntance().packUiShowClick();
+            setPackPointShow(2);
         });
  //       mHeChengUiShow.onClick.AddListener(() => {
             //  BackpackManager.getIntance().composeUiShowClick();
@@ -72,11 +79,13 @@ public class UiManager
         mSamsaraUiShow.onClick.AddListener(() => {
             
             BackpackManager.getIntance().samsaraShowClick();
+            setLunhuiPointShow(2);
         });
 
         mCardUiShow.onClick.AddListener(() => {
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_OPEN_CARD);
             BackpackManager.getIntance().cardUiShowClick();
+            setCardPointShow(2);
         });
 
         mAutoBoss.onClick.AddListener(() =>
@@ -90,7 +99,63 @@ public class UiManager
         refreshData ();
         isAuto = GameManager.getIntance().gettIsAutoBoss();
         clickAuto();
+        initPoint();
+    }
 
+    public void initPoint() {
+        changePointShow(mRoleUiPoint, GameManager.getIntance().isShowPlayerPoint);
+        changePointShow(mPackUiPoint, GameManager.getIntance().isShowBackpackPoint);
+        changePointShow(mSamsaraUiPoint, GameManager.getIntance().isShowLuihuiPoint);
+        changePointShow(mCardUiPoint, GameManager.getIntance().isShowCardPoint);
+    }
+
+    public void setRolePointShow(long value) {
+        if (value == GameManager.getIntance().isShowPlayerPoint) {
+            return;
+        }
+        GameManager.getIntance().isShowPlayerPoint = value;
+        changePointShow(mRoleUiPoint, value);
+        SQLHelper.getIntance().updatePointPlayer(value);
+    }
+    public void setPackPointShow(long value)
+    {
+        if (value == GameManager.getIntance().isShowBackpackPoint)
+        {
+            return;
+        }
+        GameManager.getIntance().isShowBackpackPoint = value;
+        changePointShow(mPackUiPoint, value);
+        SQLHelper.getIntance().updatePointBackpack(value);
+    }
+    public void setLunhuiPointShow(long value)
+    {
+        if (value == GameManager.getIntance().isShowLuihuiPoint)
+        {
+            return;
+        }
+        GameManager.getIntance().isShowLuihuiPoint = value;
+        changePointShow(mSamsaraUiPoint, value);
+        SQLHelper.getIntance().updatePointLunhui(value);
+    }
+    public void setCardPointShow(long value)
+    {
+        if (value == GameManager.getIntance().isShowCardPoint)
+        {
+            return;
+        }
+        GameManager.getIntance().isShowCardPoint = value;
+        changePointShow(mCardUiPoint, value);
+        SQLHelper.getIntance().updatePointCard(value);
+    }
+    private void changePointShow(Image image,long value) {
+        if (value == 1)
+        {
+            image.color = new Color(0xff, 0xff, 0xff, 0xff);
+        }
+        else
+        {
+            image.color = new Color(0xff, 0xff, 0xff, 0);
+        }
     }
 
     private void clickAuto() {    
