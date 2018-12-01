@@ -348,12 +348,53 @@ public class InventoryHalper
     private void deleteIventory(PlayerBackpackBean bean)
     {
         Debug.Log("mList size = " + mList.Count);
+        List<PlayerAttributeBean> list1 =  bean.attributeList;
+        long leng1;
+        if (list1 == null)
+        {
+            leng1 = 0;
+        }
+        else {
+            leng1 = list1.Count;
+        }
         for (int i = 0; i < mList.Count; i++)
         {
            
             if (mList[i].goodId == bean.goodId)
             {
-                mList.RemoveAt(i);
+                bool isSame = true;
+                List<PlayerAttributeBean> list2 = mList[i].attributeList;
+                long leng2;
+                if (list2 == null)
+                {
+                    leng2 = 0;
+                }
+                else
+                {
+                    leng2 = list2.Count;
+                }
+
+                if (leng1 != leng2)
+                {
+                    continue;
+                }
+                else if (leng1 == 0)
+                {
+                    isSame = true;
+                }
+                else {
+                   
+                    for (int ii = 0; ii < leng1; ii++) {
+                        if (list1[ii].type != list2[ii].type || list1[ii].value != list2[ii].value)
+                        {
+                            isSame = false;
+                            break;
+                        }
+                    }
+                }
+                if (isSame) {
+                    mList.RemoveAt(i);
+                }              
             }
         }
             //    mList.Remove(bean);

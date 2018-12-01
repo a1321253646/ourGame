@@ -30,7 +30,48 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
         if (isDelete)
         {
             mItemGameObjectList.Clear();
-            foreach (PlayerBackpackBean b in list)
+            List<PlayerBackpackBean> list2 = new List<PlayerBackpackBean>();
+            foreach (PlayerBackpackBean b in list) {
+                AccouterJsonBean a1 = JsonUtils.getIntance().getAccouterInfoById(b.goodId);
+                long level1 = getLevel(b);
+                bool isAdded = false;
+                if (list2.Count == 0)
+                {
+                    list2.Add(b);
+                }
+                else {
+                    for (int i = 0; i < list2.Count; i++) {
+                       
+                        AccouterJsonBean a2 = JsonUtils.getIntance().getAccouterInfoById(list2[i].goodId);
+                        if (a2.quality > a1.quality)
+                        {
+                            continue;
+                        }
+                        else if (a2.quality < a1.quality)
+                        {
+                            list2.Insert(i, b);
+                            isAdded = true;
+                            break;
+                        }
+                        else {
+                            long level2 = getLevel(list2[i]);
+                            if (level1 >= level2)
+                            {
+                                list2.Insert(i, b);
+                                isAdded = true;
+                                break;
+                            }
+                            else {
+                                continue;
+                            }
+                        }
+                    }
+                    if (!isAdded) {
+                        list2.Add(b);
+                    }
+                }
+            }
+            foreach (PlayerBackpackBean b in list2)
             {
                 GameObject ob = GameObject.Instantiate(Item,
                      new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
@@ -48,6 +89,16 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
                 g.GetComponent<ZhuangBeiItemShowControl>().init();
             }
         }
+    }
+
+    private long getLevel(PlayerBackpackBean p) {
+        long level = 0;
+        foreach (PlayerAttributeBean pa in p.attributeList) {
+            if (pa.type == 10001) {
+                return pa.value;
+            }
+        }
+        return level;
     }
 
     public void gui(long id) {

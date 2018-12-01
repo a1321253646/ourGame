@@ -237,7 +237,7 @@ public class TipControl : MonoBehaviour {
                     else {
                         AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
                         float vale = (float)b.value / 100;
-                        str =  str + "<color=#FFFFFF78>" + a.dec + ":" + vale + " %(+" + JsonUtils.getIntance().getAffixEnbleLevelByCount(showCount)+ ")</color>\n";
+                        str =  str + "<color=#878787FF>" + a.dec + ":" + vale + " %(+" + JsonUtils.getIntance().getAffixEnbleLevelByCount(showCount)+ "开启)</color>\n";
                     }
                     showCount++;
                 }
