@@ -2,14 +2,14 @@
   {
     "id": 1,
     "guideId": 1,
-    "qualification": "1,1001100101",
+    "qualification": "1,1001100102",
     "guideTarget": "",
     "str": "点击升级勇士，提升攻、防、血属性"
   },
   {
     "id": 2,
     "guideId": 2,
-    "qualification": "1,1001200101",
+    "qualification": "1,1001200202",
     "guideTarget": "",
     "str": "击杀小怪获得魔气，魔气已满。点击挑战BOSS"
   },
@@ -23,7 +23,7 @@
   {
     "id": 4,
     "guideId": 4,
-    "qualification": "1,10021001",
+    "qualification": "1,1002100101",
     "guideTarget": "2,241001",
     "str": "点击升级装备，让勇士装备更加强力"
   },

@@ -26,7 +26,7 @@ public class AttackSkillManager
         return cardDownCardCost + lunhuiDownCardCost;
     }
     public float getHurtPre() {
-        return 1 + carHurtPre + lunhuiCardHurtPre;
+        return 1 + carHurtPre + lunhuiHurtPre;
     }
     public float getCardHurtPre()
     {
@@ -162,6 +162,22 @@ public class AttackSkillManager
         else if (id == 400008)
         {
             p = new PackbackSkill400008();
+        }
+        else if (id == 400009)
+        {
+            p = new PackbackSkill400009();
+        }
+        else if (id == 500001)
+        {
+            p = new PackbackSkill500001();
+        }
+        else if (id == 500002)
+        {
+            p = new PackbackSkill500002();
+        }
+        else if (id == 500003)
+        {
+            p = new PackbackSkill500003();
         }
         if (p != null) {
             p.init(this, value, mAttack);

@@ -56,7 +56,7 @@
         hurt = 0;
         crtHurt = 0;
         readHurt = 0;
-        attackSpeed = 1;
+        attackSpeed = 0;
     }
     public Attribute setToPre() {
         aggressivity = 10000;

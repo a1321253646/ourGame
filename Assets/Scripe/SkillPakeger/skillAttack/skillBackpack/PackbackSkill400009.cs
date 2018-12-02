@@ -3,11 +3,21 @@ public class PackbackSkill400009 : PackbackSkillBase
 {
     public override void removeSkill()
     {
-        GameManager.getIntance().mCardOnlineGet -= (float)(value / 1000);
+        Attacker a = mManager.getAttacker();
+        if (a is PlayControl)
+        {
+            PlayControl play = (PlayControl)a;
+            play.mSkillAttributePre.attackSpeed -= value;
+        }
     }
 
     public override void startSkill()
     {
-        GameManager.getIntance().mCardOnlineGet += (float)(value / 1000);
+        Attacker a = mManager.getAttacker();
+        if (a is PlayControl)
+        {
+            PlayControl play = (PlayControl)a;
+            play.mSkillAttributePre.attackSpeed += value;
+        }
     }
 }

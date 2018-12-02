@@ -8987,6 +8987,25 @@
     "Column16": ""
   },
   {
+    "id": 300008,
+    "itemID": 214105,
+    "name": "攻击头盔",
+    "minCount": 1,
+    "maxCount": 1,
+    "weight": 10000,
+    "dropCount": 1,
+    "Column7": "",
+    "Column8": "",
+    "Column9": "",
+    "Column10": "",
+    "Column11": "",
+    "Column12": "",
+    "Column13": "",
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
+  },
+  {
     "id": 2000001,
     "itemID": 3000001,
     "name": "火柱",

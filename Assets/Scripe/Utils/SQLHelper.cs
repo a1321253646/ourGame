@@ -17,6 +17,7 @@ public class SQLHelper
     public long isShowBackpackPoint = -1;
     public long isShowLuihuiPoint = -1;
     public long isShowPlayerPoint = -1;
+    public long isFristStartGame = -1;
 
 
     private long GAME_ID_LEVEL = 1;
@@ -30,6 +31,7 @@ public class SQLHelper
     private long GAME_ID_POINT_BACKPACK = 9;
     private long GAME_ID_POINT_LUNHUI = 10;
     private long GAME_ID_POINT_CARD = 11;
+    private long GAME_ID_FRIST_START = 12;
 
     private long TYPE_GAME = 1;
     private long TYPE_GOOD = 2;
@@ -142,6 +144,11 @@ public class SQLHelper
                     else if (date.id == GAME_ID_POINT_CARD)
                     {
                         isShowCardPoint = long.Parse(date.extan);
+                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                    }
+                    else if (date.id == GAME_ID_FRIST_START)
+                    {
+                        isFristStartGame = long.Parse(date.extan);
                         Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                 }
@@ -321,12 +328,13 @@ public class SQLHelper
         if (mGameLevel == -9999)
         {
             addGame(GAME_ID_LEVEL, value);
-            mGameLevel = value;
+           
         }
         else
         {
             updateGame(GAME_ID_LEVEL, value);
         }
+        mGameLevel = value;
     }
     public void updateOutTime()
     {
@@ -334,12 +342,13 @@ public class SQLHelper
         if (mOutTime == -1)
         {
             addGame(GAME_ID_TIME, value);
-            mOutTime = value;
+         
         }
         else
         {
             updateGame(GAME_ID_TIME, value);
         }
+        mOutTime = value;
     }
 
     public void addGuide(long value) {
@@ -352,12 +361,25 @@ public class SQLHelper
         if (mHeroLevel == -1)
         {
             addGame(GAME_ID_HERO, value);
-            mHeroLevel = value;
+           
         }
         else
         {
             updateGame(GAME_ID_HERO, value);
-        }  
+        }
+        mHeroLevel = value;
+    }
+    public void updateFristStart(long value)
+    {
+        if (isFristStartGame == -1)
+        {
+            addGame(GAME_ID_FRIST_START, value);           
+        }
+        else
+        {
+            updateGame(GAME_ID_FRIST_START, value);
+        }
+        isFristStartGame = value;
     }
     public void updatePointPlayer(long value)
     {
@@ -367,13 +389,13 @@ public class SQLHelper
         }
         if (isShowCardPoint == -1)
         {
-            addGame(GAME_ID_POINT_PLAYER, value);
-            isShowCardPoint = value;
+            addGame(GAME_ID_POINT_PLAYER, value);         
         }
         else
         {
             updateGame(GAME_ID_POINT_PLAYER, value);
         }
+        isShowCardPoint = value;
     }
     public void updatePointBackpack(long value)
     {
@@ -383,13 +405,13 @@ public class SQLHelper
         }
         if (isShowBackpackPoint == -1)
         {
-            addGame(GAME_ID_POINT_BACKPACK, value);
-            isShowBackpackPoint = value;
+            addGame(GAME_ID_POINT_BACKPACK, value);           
         }
         else
         {
             updateGame(GAME_ID_POINT_BACKPACK, value);
         }
+        isShowBackpackPoint = value;
     }
     public void updatePointLunhui(long value)
     {
@@ -400,12 +422,13 @@ public class SQLHelper
         if (isShowLuihuiPoint == -1)
         {
             addGame(GAME_ID_POINT_LUNHUI, value);
-            isShowLuihuiPoint = value;
+            
         }
         else
         {
             updateGame(GAME_ID_POINT_LUNHUI, value);
         }
+        isShowLuihuiPoint = value;
     }
     public void updatePointCard(long value)
     {
@@ -415,12 +438,13 @@ public class SQLHelper
         if (isShowCardPoint == -1)
         {
             addGame(GAME_ID_POINT_CARD, value);
-            isShowCardPoint = value;
+         
         }
         else
         {
             updateGame(GAME_ID_POINT_CARD, value);
         }
+        isShowCardPoint = value;
     }
 
     public void updateAutoBoss(long value)
@@ -428,26 +452,27 @@ public class SQLHelper
         if (isAutoBoss == -1)
         {
             addGame(GAME_ID_AUTO, value);
-            isAutoBoss = value;
+           
         }
         else
         {
             updateGame(GAME_ID_AUTO, value);
         }
-       
+        isAutoBoss = value;
+
     }
     public void updateHunJing(BigNumber value)
     {
         if (mMojing.isEmpty())
         {
             addGame(GAME_ID_MOJING, value.toString());
-            mMojing = value;
+         
         }
         else
         {
             updateGame(GAME_ID_MOJING, value.toString());
         }
-       
+        mMojing = value;
     }
 
     private void updateGame(long id, string value)

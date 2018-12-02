@@ -16,11 +16,14 @@ public class TypewriterEffect : MonoBehaviour {
     public float mTime = 0;
     private List<TextColor> mTextList = new List<TextColor>();
     void Start() {
-        myText = GetComponent<Text>();
-        showText = "冰冷与黑暗并存的宇宙深处，\n九具庞大的龙尸拉着一口青铜古棺，亘古长存。\n 这是太空探测器在枯寂的宇宙中\n捕捉到的一幅极其震撼的画面。\n<color=#FF49FAFF>九龙拉棺</color>，\n究竟是回到了上古，还是来到了星空的彼岸？\n 一个浩大的<color=#FF49FAFF>仙侠世界</color>，\n光怪陆离，神秘无尽。\n热血似火山沸腾，激情若瀚海汹涌，\n欲望如深渊无止境…… 登天路，踏歌行，弹指遮天";
+        myText = GetComponent<Text>();        
+    }
+    public void init(string  str) {
+        showText = str;
         initText();
         isInit = true;
     }
+
     class TextColor {
         public string text;
         public string color;
@@ -41,8 +44,12 @@ public class TypewriterEffect : MonoBehaviour {
 
     void Update()
     {
-        if (!isInit)
+        if (!isInit && showText != null && showText.Length > 0)
         {
+            Destroy( GameObject.Find("game_begin"),0.3f);
+            SQLHelper.getIntance().updateFristStart(2);
+            showText = null;
+            GameObject.Find("Manager").GetComponent<LevelManager>().init();
             return;
         }
         mTime += Time.deltaTime;

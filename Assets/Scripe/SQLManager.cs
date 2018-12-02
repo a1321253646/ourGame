@@ -85,7 +85,7 @@ public class SQLManager : MonoBehaviour
         //#endif
         this.connection.Open();
         Debug.Log("  打开数据库 结束 ");
-        GameObject.Find("Manager").GetComponent<LevelManager>().init();
+        GameObject.Find("game_begin").GetComponent<GameBeginControl>().init();
     }
     /// <summary>
     ///执行SQL命令,并返回一个SqliteDataReader对象

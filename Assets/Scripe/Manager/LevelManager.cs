@@ -21,10 +21,7 @@ public class LevelManager : MonoBehaviour {
     MapConfigBean mMapConfig = null;
     public void init()
     {
-        SQLHelper.getIntance().init();
         Debug.Log("LevelManager Start");
-        GameManager.getIntance();
-        JsonUtils.getIntance().init();
         GameManager.getIntance().getLevelData();
         BigNumber outLine = GameManager.getIntance().init(this);
         GameManager.getIntance().initUi();

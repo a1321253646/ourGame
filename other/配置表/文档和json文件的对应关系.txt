@@ -15,5 +15,6 @@ t-特殊属性表		affix.json
 z-杂项表		config.json
 z-装备配置表		equip.json
 z-资源配置表		resource.json
+z-字符配置表		string.json
 y-引导表		guide.json
 

@@ -30,6 +30,7 @@ public class JsonUtils
     private string samsaraFile = "samsara.json";
     private string mapConfigFile = "mapconfig.json";
     private string guideFile = "guide.json";
+    private string stringFile = "string.json";
     /*private string levelFile = "level";
         private string heroFile = "hero";
         private string enemyFile = "enemy";
@@ -47,6 +48,7 @@ public class JsonUtils
         private string affixFile = "affix";
         private string samsaraFile = "samsara";
         private string mapConfigFile = "mapconfig";
+         private string stringFile = "string";
         private string guideFile = "guide";;*/
     private static JsonUtils mInance = new JsonUtils();
 
@@ -67,12 +69,14 @@ public class JsonUtils
     List<AffixJsonBean> mAffixDate;
     List<MapConfigBean> mMapDate;
     List<GuideJsonBean> mguideDate;
+    List<StringJsonBean> mStringDate;
     Dictionary<long, SamsaraJsonBean> mSamsaraDate = new Dictionary<long, SamsaraJsonBean>();
     private JsonUtils() {
         readAllFile();
     }
 
     public void readAllFile() {
+        readString();
         readGuideFile();
         readMapInfoInfo();
         readResource();
@@ -364,6 +368,26 @@ public class JsonUtils
                 }
             }
         }
+    }
+    public string getStringById(long id) {
+        if (mStringDate != null && mStringDate.Count > 0) {
+            foreach (StringJsonBean s in mStringDate) {
+                if (s.id == id) {
+                    string str = s.str;
+                    str = str.Replace("\\n","\n");
+                    Debug.Log("================================getStringById str = " + str);
+                    return str;
+                }
+            }
+        }
+        return "";
+    }
+
+    private void readString()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(stringFile));
+        mStringDate = arrdata.ToObject<List<StringJsonBean>>();
+
     }
     private void readGuideFile() {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(guideFile));

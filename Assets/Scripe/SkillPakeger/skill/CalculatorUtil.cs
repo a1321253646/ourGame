@@ -210,6 +210,10 @@ public class CalculatorUtil
             {
                 return tmp.mAttribute.maxBloodVolume;
             }
+            else if (id == 103)
+            {
+                return tmp.mBloodVolume;
+            }
             else if (id == 110)
             {
                 return tmp.mAttribute.rate;
@@ -233,10 +237,6 @@ public class CalculatorUtil
             else if (id == 114)
             {
                 return tmp.mAttribute.attackSpeed;
-            }
-            else if (id == 1)
-            {
-                return tmp.mBloodVolume;
             }
         }
         return -1;

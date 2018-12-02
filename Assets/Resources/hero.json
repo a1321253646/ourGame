@@ -1,7 +1,7 @@
 [
   {
     "role_lv": 1,
-    "role_hp": 1200,
+    "role_hp": 1001,
     "role_attack": 15,
     "role_defense": 12,
     "attack_speed": 1000,
@@ -17,9 +17,9 @@
   },
   {
     "role_lv": 2,
-    "role_hp": 2400,
-    "role_attack": 30,
-    "role_defense": 24,
+    "role_hp": 2002,
+    "role_attack": 15,
+    "role_defense": 12,
     "attack_speed": 1000,
     "attack_range": 1.45,
     "lvup_crystal": "200",
@@ -33,7 +33,7 @@
   },
   {
     "role_lv": 3,
-    "role_hp": 3600,
+    "role_hp": 3003,
     "role_attack": 45,
     "role_defense": 36,
     "attack_speed": 1000,
@@ -49,7 +49,7 @@
   },
   {
     "role_lv": 4,
-    "role_hp": 4800,
+    "role_hp": 4004,
     "role_attack": 60,
     "role_defense": 48,
     "attack_speed": 1000,
@@ -65,7 +65,7 @@
   },
   {
     "role_lv": 5,
-    "role_hp": 6000,
+    "role_hp": 5005,
     "role_attack": 75,
     "role_defense": 60,
     "attack_speed": 1000,
@@ -81,7 +81,7 @@
   },
   {
     "role_lv": 6,
-    "role_hp": 7200,
+    "role_hp": 6006,
     "role_attack": 90,
     "role_defense": 72,
     "attack_speed": 1000,
@@ -97,7 +97,7 @@
   },
   {
     "role_lv": 7,
-    "role_hp": 8400,
+    "role_hp": 7007,
     "role_attack": 105,
     "role_defense": 84,
     "attack_speed": 1000,
@@ -113,7 +113,7 @@
   },
   {
     "role_lv": 8,
-    "role_hp": 9600,
+    "role_hp": 8008,
     "role_attack": 120,
     "role_defense": 96,
     "attack_speed": 1000,
@@ -129,7 +129,7 @@
   },
   {
     "role_lv": 9,
-    "role_hp": 10800,
+    "role_hp": 9009,
     "role_attack": 135,
     "role_defense": 108,
     "attack_speed": 1000,
@@ -145,7 +145,7 @@
   },
   {
     "role_lv": 10,
-    "role_hp": 12000,
+    "role_hp": 10010,
     "role_attack": 150,
     "role_defense": 120,
     "attack_speed": 1000,
@@ -161,7 +161,7 @@
   },
   {
     "role_lv": 11,
-    "role_hp": 13200,
+    "role_hp": 11011,
     "role_attack": 165,
     "role_defense": 132,
     "attack_speed": 1000,
@@ -177,7 +177,7 @@
   },
   {
     "role_lv": 12,
-    "role_hp": 14400,
+    "role_hp": 12012,
     "role_attack": 180,
     "role_defense": 144,
     "attack_speed": 1000,
@@ -193,7 +193,7 @@
   },
   {
     "role_lv": 13,
-    "role_hp": 15600,
+    "role_hp": 13013,
     "role_attack": 195,
     "role_defense": 156,
     "attack_speed": 1000,
@@ -209,7 +209,7 @@
   },
   {
     "role_lv": 14,
-    "role_hp": 16800,
+    "role_hp": 14014,
     "role_attack": 210,
     "role_defense": 168,
     "attack_speed": 1000,
@@ -225,7 +225,7 @@
   },
   {
     "role_lv": 15,
-    "role_hp": 18000,
+    "role_hp": 15015,
     "role_attack": 225,
     "role_defense": 180,
     "attack_speed": 1000,
@@ -241,7 +241,7 @@
   },
   {
     "role_lv": 16,
-    "role_hp": 19200,
+    "role_hp": 16016,
     "role_attack": 240,
     "role_defense": 192,
     "attack_speed": 1000,
@@ -257,7 +257,7 @@
   },
   {
     "role_lv": 17,
-    "role_hp": 20400,
+    "role_hp": 17017,
     "role_attack": 255,
     "role_defense": 204,
     "attack_speed": 1000,
@@ -273,7 +273,7 @@
   },
   {
     "role_lv": 18,
-    "role_hp": 21600,
+    "role_hp": 18018,
     "role_attack": 270,
     "role_defense": 216,
     "attack_speed": 1000,
@@ -289,7 +289,7 @@
   },
   {
     "role_lv": 19,
-    "role_hp": 22800,
+    "role_hp": 19019,
     "role_attack": 285,
     "role_defense": 228,
     "attack_speed": 1000,
@@ -305,7 +305,7 @@
   },
   {
     "role_lv": 20,
-    "role_hp": 24000,
+    "role_hp": 20020,
     "role_attack": 300,
     "role_defense": 240,
     "attack_speed": 1000,
@@ -321,7 +321,7 @@
   },
   {
     "role_lv": 21,
-    "role_hp": 27000,
+    "role_hp": 22521,
     "role_attack": 336,
     "role_defense": 270,
     "attack_speed": 1000,
@@ -337,7 +337,7 @@
   },
   {
     "role_lv": 22,
-    "role_hp": 30000,
+    "role_hp": 25022,
     "role_attack": 372,
     "role_defense": 300,
     "attack_speed": 1000,
@@ -353,7 +353,7 @@
   },
   {
     "role_lv": 23,
-    "role_hp": 33000,
+    "role_hp": 27523,
     "role_attack": 408,
     "role_defense": 330,
     "attack_speed": 1000,
@@ -369,7 +369,7 @@
   },
   {
     "role_lv": 24,
-    "role_hp": 36000,
+    "role_hp": 30024,
     "role_attack": 444,
     "role_defense": 360,
     "attack_speed": 1000,
@@ -385,7 +385,7 @@
   },
   {
     "role_lv": 25,
-    "role_hp": 39000,
+    "role_hp": 32525,
     "role_attack": 480,
     "role_defense": 390,
     "attack_speed": 1000,
@@ -401,7 +401,7 @@
   },
   {
     "role_lv": 26,
-    "role_hp": 42000,
+    "role_hp": 35026,
     "role_attack": 516,
     "role_defense": 420,
     "attack_speed": 1000,
@@ -417,7 +417,7 @@
   },
   {
     "role_lv": 27,
-    "role_hp": 45000,
+    "role_hp": 37527,
     "role_attack": 552,
     "role_defense": 450,
     "attack_speed": 1000,
@@ -433,7 +433,7 @@
   },
   {
     "role_lv": 28,
-    "role_hp": 48000,
+    "role_hp": 40028,
     "role_attack": 588,
     "role_defense": 480,
     "attack_speed": 1000,
@@ -449,7 +449,7 @@
   },
   {
     "role_lv": 29,
-    "role_hp": 51000,
+    "role_hp": 42529,
     "role_attack": 624,
     "role_defense": 510,
     "attack_speed": 1000,
@@ -465,7 +465,7 @@
   },
   {
     "role_lv": 30,
-    "role_hp": 54000,
+    "role_hp": 45030,
     "role_attack": 660,
     "role_defense": 540,
     "attack_speed": 1000,
@@ -481,7 +481,7 @@
   },
   {
     "role_lv": 31,
-    "role_hp": 57000,
+    "role_hp": 47531,
     "role_attack": 696,
     "role_defense": 570,
     "attack_speed": 1000,
@@ -497,7 +497,7 @@
   },
   {
     "role_lv": 32,
-    "role_hp": 60000,
+    "role_hp": 50032,
     "role_attack": 732,
     "role_defense": 600,
     "attack_speed": 1000,
@@ -513,7 +513,7 @@
   },
   {
     "role_lv": 33,
-    "role_hp": 63000,
+    "role_hp": 52533,
     "role_attack": 768,
     "role_defense": 630,
     "attack_speed": 1000,
@@ -529,7 +529,7 @@
   },
   {
     "role_lv": 34,
-    "role_hp": 66000,
+    "role_hp": 55034,
     "role_attack": 804,
     "role_defense": 660,
     "attack_speed": 1000,
@@ -545,7 +545,7 @@
   },
   {
     "role_lv": 35,
-    "role_hp": 69000,
+    "role_hp": 57535,
     "role_attack": 840,
     "role_defense": 690,
     "attack_speed": 1000,
@@ -561,7 +561,7 @@
   },
   {
     "role_lv": 36,
-    "role_hp": 72000,
+    "role_hp": 60036,
     "role_attack": 876,
     "role_defense": 720,
     "attack_speed": 1000,
@@ -577,7 +577,7 @@
   },
   {
     "role_lv": 37,
-    "role_hp": 75000,
+    "role_hp": 62537,
     "role_attack": 912,
     "role_defense": 750,
     "attack_speed": 1000,
@@ -593,7 +593,7 @@
   },
   {
     "role_lv": 38,
-    "role_hp": 78000,
+    "role_hp": 65038,
     "role_attack": 948,
     "role_defense": 780,
     "attack_speed": 1000,
@@ -609,7 +609,7 @@
   },
   {
     "role_lv": 39,
-    "role_hp": 81000,
+    "role_hp": 67539,
     "role_attack": 984,
     "role_defense": 810,
     "attack_speed": 1000,
@@ -625,7 +625,7 @@
   },
   {
     "role_lv": 40,
-    "role_hp": 84000,
+    "role_hp": 70040,
     "role_attack": 1020,
     "role_defense": 840,
     "attack_speed": 1000,
@@ -641,7 +641,7 @@
   },
   {
     "role_lv": 41,
-    "role_hp": 88500,
+    "role_hp": 73790,
     "role_attack": 1074,
     "role_defense": 885,
     "attack_speed": 1000,
@@ -657,7 +657,7 @@
   },
   {
     "role_lv": 42,
-    "role_hp": 93000,
+    "role_hp": 77540,
     "role_attack": 1128,
     "role_defense": 930,
     "attack_speed": 1000,
@@ -673,7 +673,7 @@
   },
   {
     "role_lv": 43,
-    "role_hp": 97500,
+    "role_hp": 81290,
     "role_attack": 1182,
     "role_defense": 975,
     "attack_speed": 1000,
@@ -689,7 +689,7 @@
   },
   {
     "role_lv": 44,
-    "role_hp": 102000,
+    "role_hp": 85040,
     "role_attack": 1236,
     "role_defense": 1020,
     "attack_speed": 1000,
@@ -705,7 +705,7 @@
   },
   {
     "role_lv": 45,
-    "role_hp": 106500,
+    "role_hp": 88790,
     "role_attack": 1290,
     "role_defense": 1065,
     "attack_speed": 1000,
@@ -721,7 +721,7 @@
   },
   {
     "role_lv": 46,
-    "role_hp": 111000,
+    "role_hp": 92540,
     "role_attack": 1344,
     "role_defense": 1110,
     "attack_speed": 1000,
@@ -737,7 +737,7 @@
   },
   {
     "role_lv": 47,
-    "role_hp": 115500,
+    "role_hp": 96290,
     "role_attack": 1398,
     "role_defense": 1155,
     "attack_speed": 1000,
@@ -753,7 +753,7 @@
   },
   {
     "role_lv": 48,
-    "role_hp": 120000,
+    "role_hp": 100040,
     "role_attack": 1452,
     "role_defense": 1200,
     "attack_speed": 1000,
@@ -769,7 +769,7 @@
   },
   {
     "role_lv": 49,
-    "role_hp": 124500,
+    "role_hp": 103790,
     "role_attack": 1506,
     "role_defense": 1245,
     "attack_speed": 1000,
@@ -785,7 +785,7 @@
   },
   {
     "role_lv": 50,
-    "role_hp": 129000,
+    "role_hp": 107540,
     "role_attack": 1560,
     "role_defense": 1290,
     "attack_speed": 1000,
@@ -801,7 +801,7 @@
   },
   {
     "role_lv": 51,
-    "role_hp": 133500,
+    "role_hp": 111290,
     "role_attack": 1614,
     "role_defense": 1335,
     "attack_speed": 1000,
@@ -817,7 +817,7 @@
   },
   {
     "role_lv": 52,
-    "role_hp": 138000,
+    "role_hp": 115040,
     "role_attack": 1668,
     "role_defense": 1380,
     "attack_speed": 1000,
@@ -833,7 +833,7 @@
   },
   {
     "role_lv": 53,
-    "role_hp": 142500,
+    "role_hp": 118790,
     "role_attack": 1722,
     "role_defense": 1425,
     "attack_speed": 1000,
@@ -849,7 +849,7 @@
   },
   {
     "role_lv": 54,
-    "role_hp": 147000,
+    "role_hp": 122540,
     "role_attack": 1776,
     "role_defense": 1470,
     "attack_speed": 1000,
@@ -865,7 +865,7 @@
   },
   {
     "role_lv": 55,
-    "role_hp": 151500,
+    "role_hp": 126290,
     "role_attack": 1830,
     "role_defense": 1515,
     "attack_speed": 1000,
@@ -881,7 +881,7 @@
   },
   {
     "role_lv": 56,
-    "role_hp": 156000,
+    "role_hp": 130040,
     "role_attack": 1884,
     "role_defense": 1560,
     "attack_speed": 1000,
@@ -897,7 +897,7 @@
   },
   {
     "role_lv": 57,
-    "role_hp": 160500,
+    "role_hp": 133790,
     "role_attack": 1938,
     "role_defense": 1605,
     "attack_speed": 1000,
@@ -913,7 +913,7 @@
   },
   {
     "role_lv": 58,
-    "role_hp": 165000,
+    "role_hp": 137540,
     "role_attack": 1992,
     "role_defense": 1650,
     "attack_speed": 1000,
@@ -929,7 +929,7 @@
   },
   {
     "role_lv": 59,
-    "role_hp": 169500,
+    "role_hp": 141290,
     "role_attack": 2046,
     "role_defense": 1695,
     "attack_speed": 1000,
@@ -945,7 +945,7 @@
   },
   {
     "role_lv": 60,
-    "role_hp": 174000,
+    "role_hp": 145040,
     "role_attack": 2100,
     "role_defense": 1740,
     "attack_speed": 1000,
@@ -961,7 +961,7 @@
   },
   {
     "role_lv": 61,
-    "role_hp": 180000,
+    "role_hp": 150040,
     "role_attack": 2172,
     "role_defense": 1800,
     "attack_speed": 1000,
@@ -977,7 +977,7 @@
   },
   {
     "role_lv": 62,
-    "role_hp": 186000,
+    "role_hp": 155040,
     "role_attack": 2244,
     "role_defense": 1860,
     "attack_speed": 1000,
@@ -993,7 +993,7 @@
   },
   {
     "role_lv": 63,
-    "role_hp": 192000,
+    "role_hp": 160040,
     "role_attack": 2316,
     "role_defense": 1920,
     "attack_speed": 1000,
@@ -1009,7 +1009,7 @@
   },
   {
     "role_lv": 64,
-    "role_hp": 198000,
+    "role_hp": 165040,
     "role_attack": 2388,
     "role_defense": 1980,
     "attack_speed": 1000,
@@ -1025,7 +1025,7 @@
   },
   {
     "role_lv": 65,
-    "role_hp": 204000,
+    "role_hp": 170040,
     "role_attack": 2460,
     "role_defense": 2040,
     "attack_speed": 1000,
@@ -1041,7 +1041,7 @@
   },
   {
     "role_lv": 66,
-    "role_hp": 210000,
+    "role_hp": 175040,
     "role_attack": 2532,
     "role_defense": 2100,
     "attack_speed": 1000,
@@ -1057,7 +1057,7 @@
   },
   {
     "role_lv": 67,
-    "role_hp": 216000,
+    "role_hp": 180040,
     "role_attack": 2604,
     "role_defense": 2160,
     "attack_speed": 1000,
@@ -1073,7 +1073,7 @@
   },
   {
     "role_lv": 68,
-    "role_hp": 222000,
+    "role_hp": 185040,
     "role_attack": 2676,
     "role_defense": 2220,
     "attack_speed": 1000,
@@ -1089,7 +1089,7 @@
   },
   {
     "role_lv": 69,
-    "role_hp": 228000,
+    "role_hp": 190040,
     "role_attack": 2748,
     "role_defense": 2280,
     "attack_speed": 1000,
@@ -1105,7 +1105,7 @@
   },
   {
     "role_lv": 70,
-    "role_hp": 234000,
+    "role_hp": 195040,
     "role_attack": 2820,
     "role_defense": 2340,
     "attack_speed": 1000,
@@ -1121,7 +1121,7 @@
   },
   {
     "role_lv": 71,
-    "role_hp": 240000,
+    "role_hp": 200040,
     "role_attack": 2892,
     "role_defense": 2400,
     "attack_speed": 1000,
@@ -1137,7 +1137,7 @@
   },
   {
     "role_lv": 72,
-    "role_hp": 246000,
+    "role_hp": 205040,
     "role_attack": 2964,
     "role_defense": 2460,
     "attack_speed": 1000,
@@ -1153,7 +1153,7 @@
   },
   {
     "role_lv": 73,
-    "role_hp": 252000,
+    "role_hp": 210040,
     "role_attack": 3036,
     "role_defense": 2520,
     "attack_speed": 1000,
@@ -1169,7 +1169,7 @@
   },
   {
     "role_lv": 74,
-    "role_hp": 258000,
+    "role_hp": 215040,
     "role_attack": 3108,
     "role_defense": 2580,
     "attack_speed": 1000,
@@ -1185,7 +1185,7 @@
   },
   {
     "role_lv": 75,
-    "role_hp": 264000,
+    "role_hp": 220040,
     "role_attack": 3180,
     "role_defense": 2640,
     "attack_speed": 1000,
@@ -1201,7 +1201,7 @@
   },
   {
     "role_lv": 76,
-    "role_hp": 270000,
+    "role_hp": 225040,
     "role_attack": 3252,
     "role_defense": 2700,
     "attack_speed": 1000,
@@ -1217,7 +1217,7 @@
   },
   {
     "role_lv": 77,
-    "role_hp": 276000,
+    "role_hp": 230040,
     "role_attack": 3324,
     "role_defense": 2760,
     "attack_speed": 1000,
@@ -1233,7 +1233,7 @@
   },
   {
     "role_lv": 78,
-    "role_hp": 282000,
+    "role_hp": 235040,
     "role_attack": 3396,
     "role_defense": 2820,
     "attack_speed": 1000,
@@ -1249,7 +1249,7 @@
   },
   {
     "role_lv": 79,
-    "role_hp": 288000,
+    "role_hp": 240040,
     "role_attack": 3468,
     "role_defense": 2880,
     "attack_speed": 1000,
@@ -1265,7 +1265,7 @@
   },
   {
     "role_lv": 80,
-    "role_hp": 294000,
+    "role_hp": 245040,
     "role_attack": 3540,
     "role_defense": 2940,
     "attack_speed": 1000,
@@ -1281,7 +1281,7 @@
   },
   {
     "role_lv": 81,
-    "role_hp": 301500,
+    "role_hp": 251291,
     "role_attack": 3630,
     "role_defense": 3015,
     "attack_speed": 1000,
@@ -1297,7 +1297,7 @@
   },
   {
     "role_lv": 82,
-    "role_hp": 309000,
+    "role_hp": 257542,
     "role_attack": 3720,
     "role_defense": 3090,
     "attack_speed": 1000,
@@ -1313,7 +1313,7 @@
   },
   {
     "role_lv": 83,
-    "role_hp": 316500,
+    "role_hp": 263793,
     "role_attack": 3810,
     "role_defense": 3165,
     "attack_speed": 1000,
@@ -1329,7 +1329,7 @@
   },
   {
     "role_lv": 84,
-    "role_hp": 324000,
+    "role_hp": 270044,
     "role_attack": 3900,
     "role_defense": 3240,
     "attack_speed": 1000,
@@ -1345,7 +1345,7 @@
   },
   {
     "role_lv": 85,
-    "role_hp": 331500,
+    "role_hp": 276295,
     "role_attack": 3990,
     "role_defense": 3315,
     "attack_speed": 1000,
@@ -1361,7 +1361,7 @@
   },
   {
     "role_lv": 86,
-    "role_hp": 339000,
+    "role_hp": 282546,
     "role_attack": 4080,
     "role_defense": 3390,
     "attack_speed": 1000,
@@ -1377,7 +1377,7 @@
   },
   {
     "role_lv": 87,
-    "role_hp": 346500,
+    "role_hp": 288797,
     "role_attack": 4170,
     "role_defense": 3465,
     "attack_speed": 1000,
@@ -1393,7 +1393,7 @@
   },
   {
     "role_lv": 88,
-    "role_hp": 354000,
+    "role_hp": 295048,
     "role_attack": 4260,
     "role_defense": 3540,
     "attack_speed": 1000,
@@ -1409,7 +1409,7 @@
   },
   {
     "role_lv": 89,
-    "role_hp": 361500,
+    "role_hp": 301299,
     "role_attack": 4350,
     "role_defense": 3615,
     "attack_speed": 1000,
@@ -1425,7 +1425,7 @@
   },
   {
     "role_lv": 90,
-    "role_hp": 369000,
+    "role_hp": 307550,
     "role_attack": 4440,
     "role_defense": 3690,
     "attack_speed": 1000,
@@ -1441,7 +1441,7 @@
   },
   {
     "role_lv": 91,
-    "role_hp": 376500,
+    "role_hp": 313801,
     "role_attack": 4530,
     "role_defense": 3765,
     "attack_speed": 1000,
@@ -1457,7 +1457,7 @@
   },
   {
     "role_lv": 92,
-    "role_hp": 384000,
+    "role_hp": 320052,
     "role_attack": 4620,
     "role_defense": 3840,
     "attack_speed": 1000,
@@ -1473,7 +1473,7 @@
   },
   {
     "role_lv": 93,
-    "role_hp": 391500,
+    "role_hp": 326303,
     "role_attack": 4710,
     "role_defense": 3915,
     "attack_speed": 1000,
@@ -1489,7 +1489,7 @@
   },
   {
     "role_lv": 94,
-    "role_hp": 399000,
+    "role_hp": 332554,
     "role_attack": 4800,
     "role_defense": 3990,
     "attack_speed": 1000,
@@ -1505,7 +1505,7 @@
   },
   {
     "role_lv": 95,
-    "role_hp": 406500,
+    "role_hp": 338805,
     "role_attack": 4890,
     "role_defense": 4065,
     "attack_speed": 1000,
@@ -1521,7 +1521,7 @@
   },
   {
     "role_lv": 96,
-    "role_hp": 414000,
+    "role_hp": 345056,
     "role_attack": 4980,
     "role_defense": 4140,
     "attack_speed": 1000,
@@ -1537,7 +1537,7 @@
   },
   {
     "role_lv": 97,
-    "role_hp": 421500,
+    "role_hp": 351307,
     "role_attack": 5070,
     "role_defense": 4215,
     "attack_speed": 1000,
@@ -1553,7 +1553,7 @@
   },
   {
     "role_lv": 98,
-    "role_hp": 429000,
+    "role_hp": 357558,
     "role_attack": 5160,
     "role_defense": 4290,
     "attack_speed": 1000,
@@ -1569,7 +1569,7 @@
   },
   {
     "role_lv": 99,
-    "role_hp": 436500,
+    "role_hp": 363809,
     "role_attack": 5250,
     "role_defense": 4365,
     "attack_speed": 1000,
@@ -1585,7 +1585,7 @@
   },
   {
     "role_lv": 100,
-    "role_hp": 444000,
+    "role_hp": 370060,
     "role_attack": 5340,
     "role_defense": 4440,
     "attack_speed": 1000,
@@ -1601,7 +1601,7 @@
   },
   {
     "role_lv": 101,
-    "role_hp": 453000,
+    "role_hp": 377560,
     "role_attack": 5448,
     "role_defense": 4530,
     "attack_speed": 1000,
@@ -1617,7 +1617,7 @@
   },
   {
     "role_lv": 102,
-    "role_hp": 462000,
+    "role_hp": 385060,
     "role_attack": 5556,
     "role_defense": 4620,
     "attack_speed": 1000,
@@ -1633,7 +1633,7 @@
   },
   {
     "role_lv": 103,
-    "role_hp": 471000,
+    "role_hp": 392560,
     "role_attack": 5664,
     "role_defense": 4710,
     "attack_speed": 1000,
@@ -1649,7 +1649,7 @@
   },
   {
     "role_lv": 104,
-    "role_hp": 480000,
+    "role_hp": 400060,
     "role_attack": 5772,
     "role_defense": 4800,
     "attack_speed": 1000,
@@ -1665,7 +1665,7 @@
   },
   {
     "role_lv": 105,
-    "role_hp": 489000,
+    "role_hp": 407560,
     "role_attack": 5880,
     "role_defense": 4890,
     "attack_speed": 1000,
@@ -1681,7 +1681,7 @@
   },
   {
     "role_lv": 106,
-    "role_hp": 498000,
+    "role_hp": 415060,
     "role_attack": 5988,
     "role_defense": 4980,
     "attack_speed": 1000,
@@ -1697,7 +1697,7 @@
   },
   {
     "role_lv": 107,
-    "role_hp": 507000,
+    "role_hp": 422560,
     "role_attack": 6096,
     "role_defense": 5070,
     "attack_speed": 1000,
@@ -1713,7 +1713,7 @@
   },
   {
     "role_lv": 108,
-    "role_hp": 516000,
+    "role_hp": 430060,
     "role_attack": 6204,
     "role_defense": 5160,
     "attack_speed": 1000,
@@ -1729,7 +1729,7 @@
   },
   {
     "role_lv": 109,
-    "role_hp": 525000,
+    "role_hp": 437560,
     "role_attack": 6312,
     "role_defense": 5250,
     "attack_speed": 1000,
@@ -1745,7 +1745,7 @@
   },
   {
     "role_lv": 110,
-    "role_hp": 534000,
+    "role_hp": 445060,
     "role_attack": 6420,
     "role_defense": 5340,
     "attack_speed": 1000,
@@ -1761,7 +1761,7 @@
   },
   {
     "role_lv": 111,
-    "role_hp": 543000,
+    "role_hp": 452560,
     "role_attack": 6528,
     "role_defense": 5430,
     "attack_speed": 1000,
@@ -1777,7 +1777,7 @@
   },
   {
     "role_lv": 112,
-    "role_hp": 552000,
+    "role_hp": 460060,
     "role_attack": 6636,
     "role_defense": 5520,
     "attack_speed": 1000,
@@ -1793,7 +1793,7 @@
   },
   {
     "role_lv": 113,
-    "role_hp": 561000,
+    "role_hp": 467560,
     "role_attack": 6744,
     "role_defense": 5610,
     "attack_speed": 1000,
@@ -1809,7 +1809,7 @@
   },
   {
     "role_lv": 114,
-    "role_hp": 570000,
+    "role_hp": 475060,
     "role_attack": 6852,
     "role_defense": 5700,
     "attack_speed": 1000,
@@ -1825,7 +1825,7 @@
   },
   {
     "role_lv": 115,
-    "role_hp": 579000,
+    "role_hp": 482560,
     "role_attack": 6960,
     "role_defense": 5790,
     "attack_speed": 1000,
@@ -1841,7 +1841,7 @@
   },
   {
     "role_lv": 116,
-    "role_hp": 588000,
+    "role_hp": 490060,
     "role_attack": 7068,
     "role_defense": 5880,
     "attack_speed": 1000,
@@ -1857,7 +1857,7 @@
   },
   {
     "role_lv": 117,
-    "role_hp": 597000,
+    "role_hp": 497560,
     "role_attack": 7176,
     "role_defense": 5970,
     "attack_speed": 1000,
@@ -1873,7 +1873,7 @@
   },
   {
     "role_lv": 118,
-    "role_hp": 606000,
+    "role_hp": 505060,
     "role_attack": 7284,
     "role_defense": 6060,
     "attack_speed": 1000,
@@ -1889,7 +1889,7 @@
   },
   {
     "role_lv": 119,
-    "role_hp": 615000,
+    "role_hp": 512560,
     "role_attack": 7392,
     "role_defense": 6150,
     "attack_speed": 1000,
@@ -1905,7 +1905,7 @@
   },
   {
     "role_lv": 120,
-    "role_hp": 624000,
+    "role_hp": 520060,
     "role_attack": 7500,
     "role_defense": 6240,
     "attack_speed": 1000,
@@ -1921,7 +1921,7 @@
   },
   {
     "role_lv": 121,
-    "role_hp": 634500,
+    "role_hp": 528810,
     "role_attack": 7626,
     "role_defense": 6345,
     "attack_speed": 1000,
@@ -1937,7 +1937,7 @@
   },
   {
     "role_lv": 122,
-    "role_hp": 645000,
+    "role_hp": 537560,
     "role_attack": 7752,
     "role_defense": 6450,
     "attack_speed": 1000,
@@ -1953,7 +1953,7 @@
   },
   {
     "role_lv": 123,
-    "role_hp": 655500,
+    "role_hp": 546310,
     "role_attack": 7878,
     "role_defense": 6555,
     "attack_speed": 1000,
@@ -1969,7 +1969,7 @@
   },
   {
     "role_lv": 124,
-    "role_hp": 666000,
+    "role_hp": 555060,
     "role_attack": 8004,
     "role_defense": 6660,
     "attack_speed": 1000,
@@ -1985,7 +1985,7 @@
   },
   {
     "role_lv": 125,
-    "role_hp": 676500,
+    "role_hp": 563810,
     "role_attack": 8130,
     "role_defense": 6765,
     "attack_speed": 1000,
@@ -2001,7 +2001,7 @@
   },
   {
     "role_lv": 126,
-    "role_hp": 687000,
+    "role_hp": 572560,
     "role_attack": 8256,
     "role_defense": 6870,
     "attack_speed": 1000,
@@ -2017,7 +2017,7 @@
   },
   {
     "role_lv": 127,
-    "role_hp": 697500,
+    "role_hp": 581310,
     "role_attack": 8382,
     "role_defense": 6975,
     "attack_speed": 1000,
@@ -2033,7 +2033,7 @@
   },
   {
     "role_lv": 128,
-    "role_hp": 708000,
+    "role_hp": 590060,
     "role_attack": 8508,
     "role_defense": 7080,
     "attack_speed": 1000,
@@ -2049,7 +2049,7 @@
   },
   {
     "role_lv": 129,
-    "role_hp": 718500,
+    "role_hp": 598810,
     "role_attack": 8634,
     "role_defense": 7185,
     "attack_speed": 1000,
@@ -2065,7 +2065,7 @@
   },
   {
     "role_lv": 130,
-    "role_hp": 729000,
+    "role_hp": 607560,
     "role_attack": 8760,
     "role_defense": 7290,
     "attack_speed": 1000,
@@ -2081,7 +2081,7 @@
   },
   {
     "role_lv": 131,
-    "role_hp": 739500,
+    "role_hp": 616310,
     "role_attack": 8886,
     "role_defense": 7395,
     "attack_speed": 1000,
@@ -2097,7 +2097,7 @@
   },
   {
     "role_lv": 132,
-    "role_hp": 750000,
+    "role_hp": 625060,
     "role_attack": 9012,
     "role_defense": 7500,
     "attack_speed": 1000,
@@ -2113,7 +2113,7 @@
   },
   {
     "role_lv": 133,
-    "role_hp": 760500,
+    "role_hp": 633810,
     "role_attack": 9138,
     "role_defense": 7605,
     "attack_speed": 1000,
@@ -2129,7 +2129,7 @@
   },
   {
     "role_lv": 134,
-    "role_hp": 771000,
+    "role_hp": 642560,
     "role_attack": 9264,
     "role_defense": 7710,
     "attack_speed": 1000,
@@ -2145,7 +2145,7 @@
   },
   {
     "role_lv": 135,
-    "role_hp": 781500,
+    "role_hp": 651310,
     "role_attack": 9390,
     "role_defense": 7815,
     "attack_speed": 1000,
@@ -2161,7 +2161,7 @@
   },
   {
     "role_lv": 136,
-    "role_hp": 792000,
+    "role_hp": 660060,
     "role_attack": 9516,
     "role_defense": 7920,
     "attack_speed": 1000,
@@ -2177,7 +2177,7 @@
   },
   {
     "role_lv": 137,
-    "role_hp": 802500,
+    "role_hp": 668810,
     "role_attack": 9642,
     "role_defense": 8025,
     "attack_speed": 1000,
@@ -2193,7 +2193,7 @@
   },
   {
     "role_lv": 138,
-    "role_hp": 813000,
+    "role_hp": 677560,
     "role_attack": 9768,
     "role_defense": 8130,
     "attack_speed": 1000,
@@ -2209,7 +2209,7 @@
   },
   {
     "role_lv": 139,
-    "role_hp": 823500,
+    "role_hp": 686310,
     "role_attack": 9894,
     "role_defense": 8235,
     "attack_speed": 1000,
@@ -2225,7 +2225,7 @@
   },
   {
     "role_lv": 140,
-    "role_hp": 834000,
+    "role_hp": 695060,
     "role_attack": 10020,
     "role_defense": 8340,
     "attack_speed": 1000,
@@ -2241,7 +2241,7 @@
   },
   {
     "role_lv": 141,
-    "role_hp": 846000,
+    "role_hp": 705061,
     "role_attack": 10164,
     "role_defense": 8460,
     "attack_speed": 1000,
@@ -2257,7 +2257,7 @@
   },
   {
     "role_lv": 142,
-    "role_hp": 858000,
+    "role_hp": 715062,
     "role_attack": 10308,
     "role_defense": 8580,
     "attack_speed": 1000,
@@ -2273,7 +2273,7 @@
   },
   {
     "role_lv": 143,
-    "role_hp": 870000,
+    "role_hp": 725063,
     "role_attack": 10452,
     "role_defense": 8700,
     "attack_speed": 1000,
@@ -2289,7 +2289,7 @@
   },
   {
     "role_lv": 144,
-    "role_hp": 882000,
+    "role_hp": 735064,
     "role_attack": 10596,
     "role_defense": 8820,
     "attack_speed": 1000,
@@ -2305,7 +2305,7 @@
   },
   {
     "role_lv": 145,
-    "role_hp": 894000,
+    "role_hp": 745065,
     "role_attack": 10740,
     "role_defense": 8940,
     "attack_speed": 1000,
@@ -2321,7 +2321,7 @@
   },
   {
     "role_lv": 146,
-    "role_hp": 906000,
+    "role_hp": 755066,
     "role_attack": 10884,
     "role_defense": 9060,
     "attack_speed": 1000,
@@ -2337,7 +2337,7 @@
   },
   {
     "role_lv": 147,
-    "role_hp": 918000,
+    "role_hp": 765067,
     "role_attack": 11028,
     "role_defense": 9180,
     "attack_speed": 1000,
@@ -2353,7 +2353,7 @@
   },
   {
     "role_lv": 148,
-    "role_hp": 930000,
+    "role_hp": 775068,
     "role_attack": 11172,
     "role_defense": 9300,
     "attack_speed": 1000,
@@ -2369,7 +2369,7 @@
   },
   {
     "role_lv": 149,
-    "role_hp": 942000,
+    "role_hp": 785069,
     "role_attack": 11316,
     "role_defense": 9420,
     "attack_speed": 1000,
@@ -2385,7 +2385,7 @@
   },
   {
     "role_lv": 150,
-    "role_hp": 954000,
+    "role_hp": 795070,
     "role_attack": 11460,
     "role_defense": 9540,
     "attack_speed": 1000,
@@ -2401,7 +2401,7 @@
   },
   {
     "role_lv": 151,
-    "role_hp": 966000,
+    "role_hp": 805071,
     "role_attack": 11604,
     "role_defense": 9660,
     "attack_speed": 1000,
@@ -2417,7 +2417,7 @@
   },
   {
     "role_lv": 152,
-    "role_hp": 978000,
+    "role_hp": 815072,
     "role_attack": 11748,
     "role_defense": 9780,
     "attack_speed": 1000,
@@ -2433,7 +2433,7 @@
   },
   {
     "role_lv": 153,
-    "role_hp": 990000,
+    "role_hp": 825073,
     "role_attack": 11892,
     "role_defense": 9900,
     "attack_speed": 1000,
@@ -2449,7 +2449,7 @@
   },
   {
     "role_lv": 154,
-    "role_hp": 1002000,
+    "role_hp": 835074,
     "role_attack": 12036,
     "role_defense": 10020,
     "attack_speed": 1000,
@@ -2465,7 +2465,7 @@
   },
   {
     "role_lv": 155,
-    "role_hp": 1014000,
+    "role_hp": 845075,
     "role_attack": 12180,
     "role_defense": 10140,
     "attack_speed": 1000,
@@ -2481,7 +2481,7 @@
   },
   {
     "role_lv": 156,
-    "role_hp": 1026000,
+    "role_hp": 855076,
     "role_attack": 12324,
     "role_defense": 10260,
     "attack_speed": 1000,
@@ -2497,7 +2497,7 @@
   },
   {
     "role_lv": 157,
-    "role_hp": 1038000,
+    "role_hp": 865077,
     "role_attack": 12468,
     "role_defense": 10380,
     "attack_speed": 1000,
@@ -2513,7 +2513,7 @@
   },
   {
     "role_lv": 158,
-    "role_hp": 1050000,
+    "role_hp": 875078,
     "role_attack": 12612,
     "role_defense": 10500,
     "attack_speed": 1000,
@@ -2529,7 +2529,7 @@
   },
   {
     "role_lv": 159,
-    "role_hp": 1062000,
+    "role_hp": 885079,
     "role_attack": 12756,
     "role_defense": 10620,
     "attack_speed": 1000,
@@ -2545,7 +2545,7 @@
   },
   {
     "role_lv": 160,
-    "role_hp": 1074000,
+    "role_hp": 895080,
     "role_attack": 12900,
     "role_defense": 10740,
     "attack_speed": 1000,
@@ -2561,7 +2561,7 @@
   },
   {
     "role_lv": 161,
-    "role_hp": 1087500,
+    "role_hp": 906330,
     "role_attack": 13062,
     "role_defense": 10875,
     "attack_speed": 1000,
@@ -2577,7 +2577,7 @@
   },
   {
     "role_lv": 162,
-    "role_hp": 1101000,
+    "role_hp": 917580,
     "role_attack": 13224,
     "role_defense": 11010,
     "attack_speed": 1000,
@@ -2593,7 +2593,7 @@
   },
   {
     "role_lv": 163,
-    "role_hp": 1114500,
+    "role_hp": 928830,
     "role_attack": 13386,
     "role_defense": 11145,
     "attack_speed": 1000,
@@ -2609,7 +2609,7 @@
   },
   {
     "role_lv": 164,
-    "role_hp": 1128000,
+    "role_hp": 940080,
     "role_attack": 13548,
     "role_defense": 11280,
     "attack_speed": 1000,
@@ -2625,7 +2625,7 @@
   },
   {
     "role_lv": 165,
-    "role_hp": 1141500,
+    "role_hp": 951330,
     "role_attack": 13710,
     "role_defense": 11415,
     "attack_speed": 1000,
@@ -2641,7 +2641,7 @@
   },
   {
     "role_lv": 166,
-    "role_hp": 1155000,
+    "role_hp": 962580,
     "role_attack": 13872,
     "role_defense": 11550,
     "attack_speed": 1000,
@@ -2657,7 +2657,7 @@
   },
   {
     "role_lv": 167,
-    "role_hp": 1168500,
+    "role_hp": 973830,
     "role_attack": 14034,
     "role_defense": 11685,
     "attack_speed": 1000,
@@ -2673,7 +2673,7 @@
   },
   {
     "role_lv": 168,
-    "role_hp": 1182000,
+    "role_hp": 985080,
     "role_attack": 14196,
     "role_defense": 11820,
     "attack_speed": 1000,
@@ -2689,7 +2689,7 @@
   },
   {
     "role_lv": 169,
-    "role_hp": 1195500,
+    "role_hp": 996330,
     "role_attack": 14358,
     "role_defense": 11955,
     "attack_speed": 1000,
@@ -2705,7 +2705,7 @@
   },
   {
     "role_lv": 170,
-    "role_hp": 1209000,
+    "role_hp": 1007580,
     "role_attack": 14520,
     "role_defense": 12090,
     "attack_speed": 1000,
@@ -2721,7 +2721,7 @@
   },
   {
     "role_lv": 171,
-    "role_hp": 1222500,
+    "role_hp": 1018830,
     "role_attack": 14682,
     "role_defense": 12225,
     "attack_speed": 1000,
@@ -2737,7 +2737,7 @@
   },
   {
     "role_lv": 172,
-    "role_hp": 1236000,
+    "role_hp": 1030080,
     "role_attack": 14844,
     "role_defense": 12360,
     "attack_speed": 1000,
@@ -2753,7 +2753,7 @@
   },
   {
     "role_lv": 173,
-    "role_hp": 1249500,
+    "role_hp": 1041330,
     "role_attack": 15006,
     "role_defense": 12495,
     "attack_speed": 1000,
@@ -2769,7 +2769,7 @@
   },
   {
     "role_lv": 174,
-    "role_hp": 1263000,
+    "role_hp": 1052580,
     "role_attack": 15168,
     "role_defense": 12630,
     "attack_speed": 1000,
@@ -2785,7 +2785,7 @@
   },
   {
     "role_lv": 175,
-    "role_hp": 1276500,
+    "role_hp": 1063830,
     "role_attack": 15330,
     "role_defense": 12765,
     "attack_speed": 1000,
@@ -2801,7 +2801,7 @@
   },
   {
     "role_lv": 176,
-    "role_hp": 1290000,
+    "role_hp": 1075080,
     "role_attack": 15492,
     "role_defense": 12900,
     "attack_speed": 1000,
@@ -2817,7 +2817,7 @@
   },
   {
     "role_lv": 177,
-    "role_hp": 1303500,
+    "role_hp": 1086330,
     "role_attack": 15654,
     "role_defense": 13035,
     "attack_speed": 1000,
@@ -2833,7 +2833,7 @@
   },
   {
     "role_lv": 178,
-    "role_hp": 1317000,
+    "role_hp": 1097580,
     "role_attack": 15816,
     "role_defense": 13170,
     "attack_speed": 1000,
@@ -2849,7 +2849,7 @@
   },
   {
     "role_lv": 179,
-    "role_hp": 1330500,
+    "role_hp": 1108830,
     "role_attack": 15978,
     "role_defense": 13305,
     "attack_speed": 1000,
@@ -2865,7 +2865,7 @@
   },
   {
     "role_lv": 180,
-    "role_hp": 1344000,
+    "role_hp": 1120080,
     "role_attack": 16140,
     "role_defense": 13440,
     "attack_speed": 1000,
@@ -2881,7 +2881,7 @@
   },
   {
     "role_lv": 181,
-    "role_hp": 1359000,
+    "role_hp": 1132580,
     "role_attack": 16320,
     "role_defense": 13590,
     "attack_speed": 1000,
@@ -2897,7 +2897,7 @@
   },
   {
     "role_lv": 182,
-    "role_hp": 1374000,
+    "role_hp": 1145080,
     "role_attack": 16500,
     "role_defense": 13740,
     "attack_speed": 1000,
@@ -2913,7 +2913,7 @@
   },
   {
     "role_lv": 183,
-    "role_hp": 1389000,
+    "role_hp": 1157580,
     "role_attack": 16680,
     "role_defense": 13890,
     "attack_speed": 1000,
@@ -2929,7 +2929,7 @@
   },
   {
     "role_lv": 184,
-    "role_hp": 1404000,
+    "role_hp": 1170080,
     "role_attack": 16860,
     "role_defense": 14040,
     "attack_speed": 1000,
@@ -2945,7 +2945,7 @@
   },
   {
     "role_lv": 185,
-    "role_hp": 1419000,
+    "role_hp": 1182580,
     "role_attack": 17040,
     "role_defense": 14190,
     "attack_speed": 1000,
@@ -2961,7 +2961,7 @@
   },
   {
     "role_lv": 186,
-    "role_hp": 1434000,
+    "role_hp": 1195080,
     "role_attack": 17220,
     "role_defense": 14340,
     "attack_speed": 1000,
@@ -2977,7 +2977,7 @@
   },
   {
     "role_lv": 187,
-    "role_hp": 1449000,
+    "role_hp": 1207580,
     "role_attack": 17400,
     "role_defense": 14490,
     "attack_speed": 1000,
@@ -2993,7 +2993,7 @@
   },
   {
     "role_lv": 188,
-    "role_hp": 1464000,
+    "role_hp": 1220080,
     "role_attack": 17580,
     "role_defense": 14640,
     "attack_speed": 1000,
@@ -3009,7 +3009,7 @@
   },
   {
     "role_lv": 189,
-    "role_hp": 1479000,
+    "role_hp": 1232580,
     "role_attack": 17760,
     "role_defense": 14790,
     "attack_speed": 1000,
@@ -3025,7 +3025,7 @@
   },
   {
     "role_lv": 190,
-    "role_hp": 1494000,
+    "role_hp": 1245080,
     "role_attack": 17940,
     "role_defense": 14940,
     "attack_speed": 1000,
@@ -3041,7 +3041,7 @@
   },
   {
     "role_lv": 191,
-    "role_hp": 1509000,
+    "role_hp": 1257580,
     "role_attack": 18120,
     "role_defense": 15090,
     "attack_speed": 1000,
@@ -3057,7 +3057,7 @@
   },
   {
     "role_lv": 192,
-    "role_hp": 1524000,
+    "role_hp": 1270080,
     "role_attack": 18300,
     "role_defense": 15240,
     "attack_speed": 1000,
@@ -3073,7 +3073,7 @@
   },
   {
     "role_lv": 193,
-    "role_hp": 1539000,
+    "role_hp": 1282580,
     "role_attack": 18480,
     "role_defense": 15390,
     "attack_speed": 1000,
@@ -3089,7 +3089,7 @@
   },
   {
     "role_lv": 194,
-    "role_hp": 1554000,
+    "role_hp": 1295080,
     "role_attack": 18660,
     "role_defense": 15540,
     "attack_speed": 1000,
@@ -3105,7 +3105,7 @@
   },
   {
     "role_lv": 195,
-    "role_hp": 1569000,
+    "role_hp": 1307580,
     "role_attack": 18840,
     "role_defense": 15690,
     "attack_speed": 1000,
@@ -3121,7 +3121,7 @@
   },
   {
     "role_lv": 196,
-    "role_hp": 1584000,
+    "role_hp": 1320080,
     "role_attack": 19020,
     "role_defense": 15840,
     "attack_speed": 1000,
@@ -3137,7 +3137,7 @@
   },
   {
     "role_lv": 197,
-    "role_hp": 1599000,
+    "role_hp": 1332580,
     "role_attack": 19200,
     "role_defense": 15990,
     "attack_speed": 1000,
@@ -3153,7 +3153,7 @@
   },
   {
     "role_lv": 198,
-    "role_hp": 1614000,
+    "role_hp": 1345080,
     "role_attack": 19380,
     "role_defense": 16140,
     "attack_speed": 1000,
@@ -3169,7 +3169,7 @@
   },
   {
     "role_lv": 199,
-    "role_hp": 1629000,
+    "role_hp": 1357580,
     "role_attack": 19560,
     "role_defense": 16290,
     "attack_speed": 1000,
@@ -3185,7 +3185,7 @@
   },
   {
     "role_lv": 200,
-    "role_hp": 1644000,
+    "role_hp": 1370080,
     "role_attack": 19740,
     "role_defense": 16440,
     "attack_speed": 1000,
@@ -3201,7 +3201,7 @@
   },
   {
     "role_lv": 201,
-    "role_hp": 1660500,
+    "role_hp": 1383831,
     "role_attack": 19938,
     "role_defense": 16605,
     "attack_speed": 1000,
@@ -3217,7 +3217,7 @@
   },
   {
     "role_lv": 202,
-    "role_hp": 1677000,
+    "role_hp": 1397582,
     "role_attack": 20136,
     "role_defense": 16770,
     "attack_speed": 1000,
@@ -3233,7 +3233,7 @@
   },
   {
     "role_lv": 203,
-    "role_hp": 1693500,
+    "role_hp": 1411333,
     "role_attack": 20334,
     "role_defense": 16935,
     "attack_speed": 1000,
@@ -3249,7 +3249,7 @@
   },
   {
     "role_lv": 204,
-    "role_hp": 1710000,
+    "role_hp": 1425084,
     "role_attack": 20532,
     "role_defense": 17100,
     "attack_speed": 1000,
@@ -3265,7 +3265,7 @@
   },
   {
     "role_lv": 205,
-    "role_hp": 1726500,
+    "role_hp": 1438835,
     "role_attack": 20730,
     "role_defense": 17265,
     "attack_speed": 1000,
@@ -3281,7 +3281,7 @@
   },
   {
     "role_lv": 206,
-    "role_hp": 1743000,
+    "role_hp": 1452586,
     "role_attack": 20928,
     "role_defense": 17430,
     "attack_speed": 1000,
@@ -3297,7 +3297,7 @@
   },
   {
     "role_lv": 207,
-    "role_hp": 1759500,
+    "role_hp": 1466337,
     "role_attack": 21126,
     "role_defense": 17595,
     "attack_speed": 1000,
@@ -3313,7 +3313,7 @@
   },
   {
     "role_lv": 208,
-    "role_hp": 1776000,
+    "role_hp": 1480088,
     "role_attack": 21324,
     "role_defense": 17760,
     "attack_speed": 1000,
@@ -3329,7 +3329,7 @@
   },
   {
     "role_lv": 209,
-    "role_hp": 1792500,
+    "role_hp": 1493839,
     "role_attack": 21522,
     "role_defense": 17925,
     "attack_speed": 1000,
@@ -3345,7 +3345,7 @@
   },
   {
     "role_lv": 210,
-    "role_hp": 1809000,
+    "role_hp": 1507590,
     "role_attack": 21720,
     "role_defense": 18090,
     "attack_speed": 1000,
@@ -3361,7 +3361,7 @@
   },
   {
     "role_lv": 211,
-    "role_hp": 1825500,
+    "role_hp": 1521341,
     "role_attack": 21918,
     "role_defense": 18255,
     "attack_speed": 1000,
@@ -3377,7 +3377,7 @@
   },
   {
     "role_lv": 212,
-    "role_hp": 1842000,
+    "role_hp": 1535092,
     "role_attack": 22116,
     "role_defense": 18420,
     "attack_speed": 1000,
@@ -3393,7 +3393,7 @@
   },
   {
     "role_lv": 213,
-    "role_hp": 1858500,
+    "role_hp": 1548843,
     "role_attack": 22314,
     "role_defense": 18585,
     "attack_speed": 1000,
@@ -3409,7 +3409,7 @@
   },
   {
     "role_lv": 214,
-    "role_hp": 1875000,
+    "role_hp": 1562594,
     "role_attack": 22512,
     "role_defense": 18750,
     "attack_speed": 1000,
@@ -3425,7 +3425,7 @@
   },
   {
     "role_lv": 215,
-    "role_hp": 1891500,
+    "role_hp": 1576345,
     "role_attack": 22710,
     "role_defense": 18915,
     "attack_speed": 1000,
@@ -3441,7 +3441,7 @@
   },
   {
     "role_lv": 216,
-    "role_hp": 1908000,
+    "role_hp": 1590096,
     "role_attack": 22908,
     "role_defense": 19080,
     "attack_speed": 1000,
@@ -3457,7 +3457,7 @@
   },
   {
     "role_lv": 217,
-    "role_hp": 1924500,
+    "role_hp": 1603847,
     "role_attack": 23106,
     "role_defense": 19245,
     "attack_speed": 1000,
@@ -3473,7 +3473,7 @@
   },
   {
     "role_lv": 218,
-    "role_hp": 1941000,
+    "role_hp": 1617598,
     "role_attack": 23304,
     "role_defense": 19410,
     "attack_speed": 1000,
@@ -3489,7 +3489,7 @@
   },
   {
     "role_lv": 219,
-    "role_hp": 1957500,
+    "role_hp": 1631349,
     "role_attack": 23502,
     "role_defense": 19575,
     "attack_speed": 1000,
@@ -3505,7 +3505,7 @@
   },
   {
     "role_lv": 220,
-    "role_hp": 1974000,
+    "role_hp": 1645100,
     "role_attack": 23700,
     "role_defense": 19740,
     "attack_speed": 1000,
@@ -3521,7 +3521,7 @@
   },
   {
     "role_lv": 221,
-    "role_hp": 1992000,
+    "role_hp": 1660100,
     "role_attack": 23916,
     "role_defense": 19920,
     "attack_speed": 1000,
@@ -3537,7 +3537,7 @@
   },
   {
     "role_lv": 222,
-    "role_hp": 2010000,
+    "role_hp": 1675100,
     "role_attack": 24132,
     "role_defense": 20100,
     "attack_speed": 1000,
@@ -3553,7 +3553,7 @@
   },
   {
     "role_lv": 223,
-    "role_hp": 2028000,
+    "role_hp": 1690100,
     "role_attack": 24348,
     "role_defense": 20280,
     "attack_speed": 1000,
@@ -3569,7 +3569,7 @@
   },
   {
     "role_lv": 224,
-    "role_hp": 2046000,
+    "role_hp": 1705100,
     "role_attack": 24564,
     "role_defense": 20460,
     "attack_speed": 1000,
@@ -3585,7 +3585,7 @@
   },
   {
     "role_lv": 225,
-    "role_hp": 2064000,
+    "role_hp": 1720100,
     "role_attack": 24780,
     "role_defense": 20640,
     "attack_speed": 1000,
@@ -3601,7 +3601,7 @@
   },
   {
     "role_lv": 226,
-    "role_hp": 2082000,
+    "role_hp": 1735100,
     "role_attack": 24996,
     "role_defense": 20820,
     "attack_speed": 1000,
@@ -3617,7 +3617,7 @@
   },
   {
     "role_lv": 227,
-    "role_hp": 2100000,
+    "role_hp": 1750100,
     "role_attack": 25212,
     "role_defense": 21000,
     "attack_speed": 1000,
@@ -3633,7 +3633,7 @@
   },
   {
     "role_lv": 228,
-    "role_hp": 2118000,
+    "role_hp": 1765100,
     "role_attack": 25428,
     "role_defense": 21180,
     "attack_speed": 1000,
@@ -3649,7 +3649,7 @@
   },
   {
     "role_lv": 229,
-    "role_hp": 2136000,
+    "role_hp": 1780100,
     "role_attack": 25644,
     "role_defense": 21360,
     "attack_speed": 1000,
@@ -3665,7 +3665,7 @@
   },
   {
     "role_lv": 230,
-    "role_hp": 2154000,
+    "role_hp": 1795100,
     "role_attack": 25860,
     "role_defense": 21540,
     "attack_speed": 1000,
@@ -3681,7 +3681,7 @@
   },
   {
     "role_lv": 231,
-    "role_hp": 2172000,
+    "role_hp": 1810100,
     "role_attack": 26076,
     "role_defense": 21720,
     "attack_speed": 1000,
@@ -3697,7 +3697,7 @@
   },
   {
     "role_lv": 232,
-    "role_hp": 2190000,
+    "role_hp": 1825100,
     "role_attack": 26292,
     "role_defense": 21900,
     "attack_speed": 1000,
@@ -3713,7 +3713,7 @@
   },
   {
     "role_lv": 233,
-    "role_hp": 2208000,
+    "role_hp": 1840100,
     "role_attack": 26508,
     "role_defense": 22080,
     "attack_speed": 1000,
@@ -3729,7 +3729,7 @@
   },
   {
     "role_lv": 234,
-    "role_hp": 2226000,
+    "role_hp": 1855100,
     "role_attack": 26724,
     "role_defense": 22260,
     "attack_speed": 1000,
@@ -3745,7 +3745,7 @@
   },
   {
     "role_lv": 235,
-    "role_hp": 2244000,
+    "role_hp": 1870100,
     "role_attack": 26940,
     "role_defense": 22440,
     "attack_speed": 1000,
@@ -3761,7 +3761,7 @@
   },
   {
     "role_lv": 236,
-    "role_hp": 2262000,
+    "role_hp": 1885100,
     "role_attack": 27156,
     "role_defense": 22620,
     "attack_speed": 1000,
@@ -3777,7 +3777,7 @@
   },
   {
     "role_lv": 237,
-    "role_hp": 2280000,
+    "role_hp": 1900100,
     "role_attack": 27372,
     "role_defense": 22800,
     "attack_speed": 1000,
@@ -3793,7 +3793,7 @@
   },
   {
     "role_lv": 238,
-    "role_hp": 2298000,
+    "role_hp": 1915100,
     "role_attack": 27588,
     "role_defense": 22980,
     "attack_speed": 1000,
@@ -3809,7 +3809,7 @@
   },
   {
     "role_lv": 239,
-    "role_hp": 2316000,
+    "role_hp": 1930100,
     "role_attack": 27804,
     "role_defense": 23160,
     "attack_speed": 1000,
@@ -3825,7 +3825,7 @@
   },
   {
     "role_lv": 240,
-    "role_hp": 2334000,
+    "role_hp": 1945100,
     "role_attack": 28020,
     "role_defense": 23340,
     "attack_speed": 1000,
@@ -3841,7 +3841,7 @@
   },
   {
     "role_lv": 241,
-    "role_hp": 2353500,
+    "role_hp": 1961350,
     "role_attack": 28254,
     "role_defense": 23535,
     "attack_speed": 1000,
@@ -3857,7 +3857,7 @@
   },
   {
     "role_lv": 242,
-    "role_hp": 2373000,
+    "role_hp": 1977600,
     "role_attack": 28488,
     "role_defense": 23730,
     "attack_speed": 1000,
@@ -3873,7 +3873,7 @@
   },
   {
     "role_lv": 243,
-    "role_hp": 2392500,
+    "role_hp": 1993850,
     "role_attack": 28722,
     "role_defense": 23925,
     "attack_speed": 1000,
@@ -3889,7 +3889,7 @@
   },
   {
     "role_lv": 244,
-    "role_hp": 2412000,
+    "role_hp": 2010100,
     "role_attack": 28956,
     "role_defense": 24120,
     "attack_speed": 1000,
@@ -3905,7 +3905,7 @@
   },
   {
     "role_lv": 245,
-    "role_hp": 2431500,
+    "role_hp": 2026350,
     "role_attack": 29190,
     "role_defense": 24315,
     "attack_speed": 1000,
@@ -3921,7 +3921,7 @@
   },
   {
     "role_lv": 246,
-    "role_hp": 2451000,
+    "role_hp": 2042600,
     "role_attack": 29424,
     "role_defense": 24510,
     "attack_speed": 1000,
@@ -3937,7 +3937,7 @@
   },
   {
     "role_lv": 247,
-    "role_hp": 2470500,
+    "role_hp": 2058850,
     "role_attack": 29658,
     "role_defense": 24705,
     "attack_speed": 1000,
@@ -3953,7 +3953,7 @@
   },
   {
     "role_lv": 248,
-    "role_hp": 2490000,
+    "role_hp": 2075100,
     "role_attack": 29892,
     "role_defense": 24900,
     "attack_speed": 1000,
@@ -3969,7 +3969,7 @@
   },
   {
     "role_lv": 249,
-    "role_hp": 2509500,
+    "role_hp": 2091350,
     "role_attack": 30126,
     "role_defense": 25095,
     "attack_speed": 1000,
@@ -3985,7 +3985,7 @@
   },
   {
     "role_lv": 250,
-    "role_hp": 2529000,
+    "role_hp": 2107600,
     "role_attack": 30360,
     "role_defense": 25290,
     "attack_speed": 1000,
@@ -4001,7 +4001,7 @@
   },
   {
     "role_lv": 251,
-    "role_hp": 2548500,
+    "role_hp": 2123850,
     "role_attack": 30594,
     "role_defense": 25485,
     "attack_speed": 1000,
@@ -4017,7 +4017,7 @@
   },
   {
     "role_lv": 252,
-    "role_hp": 2568000,
+    "role_hp": 2140100,
     "role_attack": 30828,
     "role_defense": 25680,
     "attack_speed": 1000,
@@ -4033,7 +4033,7 @@
   },
   {
     "role_lv": 253,
-    "role_hp": 2587500,
+    "role_hp": 2156350,
     "role_attack": 31062,
     "role_defense": 25875,
     "attack_speed": 1000,
@@ -4049,7 +4049,7 @@
   },
   {
     "role_lv": 254,
-    "role_hp": 2607000,
+    "role_hp": 2172600,
     "role_attack": 31296,
     "role_defense": 26070,
     "attack_speed": 1000,
@@ -4065,7 +4065,7 @@
   },
   {
     "role_lv": 255,
-    "role_hp": 2626500,
+    "role_hp": 2188850,
     "role_attack": 31530,
     "role_defense": 26265,
     "attack_speed": 1000,
@@ -4081,7 +4081,7 @@
   },
   {
     "role_lv": 256,
-    "role_hp": 2646000,
+    "role_hp": 2205100,
     "role_attack": 31764,
     "role_defense": 26460,
     "attack_speed": 1000,
@@ -4097,7 +4097,7 @@
   },
   {
     "role_lv": 257,
-    "role_hp": 2665500,
+    "role_hp": 2221350,
     "role_attack": 31998,
     "role_defense": 26655,
     "attack_speed": 1000,
@@ -4113,7 +4113,7 @@
   },
   {
     "role_lv": 258,
-    "role_hp": 2685000,
+    "role_hp": 2237600,
     "role_attack": 32232,
     "role_defense": 26850,
     "attack_speed": 1000,
@@ -4129,7 +4129,7 @@
   },
   {
     "role_lv": 259,
-    "role_hp": 2704500,
+    "role_hp": 2253850,
     "role_attack": 32466,
     "role_defense": 27045,
     "attack_speed": 1000,
@@ -4145,7 +4145,7 @@
   },
   {
     "role_lv": 260,
-    "role_hp": 2724000,
+    "role_hp": 2270100,
     "role_attack": 32700,
     "role_defense": 27240,
     "attack_speed": 1000,
@@ -4161,7 +4161,7 @@
   },
   {
     "role_lv": 261,
-    "role_hp": 2745000,
+    "role_hp": 2287601,
     "role_attack": 32952,
     "role_defense": 27450,
     "attack_speed": 1000,
@@ -4177,7 +4177,7 @@
   },
   {
     "role_lv": 262,
-    "role_hp": 2766000,
+    "role_hp": 2305102,
     "role_attack": 33204,
     "role_defense": 27660,
     "attack_speed": 1000,
@@ -4193,7 +4193,7 @@
   },
   {
     "role_lv": 263,
-    "role_hp": 2787000,
+    "role_hp": 2322603,
     "role_attack": 33456,
     "role_defense": 27870,
     "attack_speed": 1000,
@@ -4209,7 +4209,7 @@
   },
   {
     "role_lv": 264,
-    "role_hp": 2808000,
+    "role_hp": 2340104,
     "role_attack": 33708,
     "role_defense": 28080,
     "attack_speed": 1000,
@@ -4225,7 +4225,7 @@
   },
   {
     "role_lv": 265,
-    "role_hp": 2829000,
+    "role_hp": 2357605,
     "role_attack": 33960,
     "role_defense": 28290,
     "attack_speed": 1000,
@@ -4241,7 +4241,7 @@
   },
   {
     "role_lv": 266,
-    "role_hp": 2850000,
+    "role_hp": 2375106,
     "role_attack": 34212,
     "role_defense": 28500,
     "attack_speed": 1000,
@@ -4257,7 +4257,7 @@
   },
   {
     "role_lv": 267,
-    "role_hp": 2871000,
+    "role_hp": 2392607,
     "role_attack": 34464,
     "role_defense": 28710,
     "attack_speed": 1000,
@@ -4273,7 +4273,7 @@
   },
   {
     "role_lv": 268,
-    "role_hp": 2892000,
+    "role_hp": 2410108,
     "role_attack": 34716,
     "role_defense": 28920,
     "attack_speed": 1000,
@@ -4289,7 +4289,7 @@
   },
   {
     "role_lv": 269,
-    "role_hp": 2913000,
+    "role_hp": 2427609,
     "role_attack": 34968,
     "role_defense": 29130,
     "attack_speed": 1000,
@@ -4305,7 +4305,7 @@
   },
   {
     "role_lv": 270,
-    "role_hp": 2934000,
+    "role_hp": 2445110,
     "role_attack": 35220,
     "role_defense": 29340,
     "attack_speed": 1000,
@@ -4321,7 +4321,7 @@
   },
   {
     "role_lv": 271,
-    "role_hp": 2955000,
+    "role_hp": 2462611,
     "role_attack": 35472,
     "role_defense": 29550,
     "attack_speed": 1000,
@@ -4337,7 +4337,7 @@
   },
   {
     "role_lv": 272,
-    "role_hp": 2976000,
+    "role_hp": 2480112,
     "role_attack": 35724,
     "role_defense": 29760,
     "attack_speed": 1000,
@@ -4353,7 +4353,7 @@
   },
   {
     "role_lv": 273,
-    "role_hp": 2997000,
+    "role_hp": 2497613,
     "role_attack": 35976,
     "role_defense": 29970,
     "attack_speed": 1000,
@@ -4369,7 +4369,7 @@
   },
   {
     "role_lv": 274,
-    "role_hp": 3018000,
+    "role_hp": 2515114,
     "role_attack": 36228,
     "role_defense": 30180,
     "attack_speed": 1000,
@@ -4385,7 +4385,7 @@
   },
   {
     "role_lv": 275,
-    "role_hp": 3039000,
+    "role_hp": 2532615,
     "role_attack": 36480,
     "role_defense": 30390,
     "attack_speed": 1000,
@@ -4401,7 +4401,7 @@
   },
   {
     "role_lv": 276,
-    "role_hp": 3060000,
+    "role_hp": 2550116,
     "role_attack": 36732,
     "role_defense": 30600,
     "attack_speed": 1000,
@@ -4417,7 +4417,7 @@
   },
   {
     "role_lv": 277,
-    "role_hp": 3081000,
+    "role_hp": 2567617,
     "role_attack": 36984,
     "role_defense": 30810,
     "attack_speed": 1000,
@@ -4433,7 +4433,7 @@
   },
   {
     "role_lv": 278,
-    "role_hp": 3102000,
+    "role_hp": 2585118,
     "role_attack": 37236,
     "role_defense": 31020,
     "attack_speed": 1000,
@@ -4449,7 +4449,7 @@
   },
   {
     "role_lv": 279,
-    "role_hp": 3123000,
+    "role_hp": 2602619,
     "role_attack": 37488,
     "role_defense": 31230,
     "attack_speed": 1000,
@@ -4465,7 +4465,7 @@
   },
   {
     "role_lv": 280,
-    "role_hp": 3144000,
+    "role_hp": 2620120,
     "role_attack": 37740,
     "role_defense": 31440,
     "attack_speed": 1000,
@@ -4481,7 +4481,7 @@
   },
   {
     "role_lv": 281,
-    "role_hp": 3166500,
+    "role_hp": 2638870,
     "role_attack": 38010,
     "role_defense": 31665,
     "attack_speed": 1000,
@@ -4497,7 +4497,7 @@
   },
   {
     "role_lv": 282,
-    "role_hp": 3189000,
+    "role_hp": 2657620,
     "role_attack": 38280,
     "role_defense": 31890,
     "attack_speed": 1000,
@@ -4513,7 +4513,7 @@
   },
   {
     "role_lv": 283,
-    "role_hp": 3211500,
+    "role_hp": 2676370,
     "role_attack": 38550,
     "role_defense": 32115,
     "attack_speed": 1000,
@@ -4529,7 +4529,7 @@
   },
   {
     "role_lv": 284,
-    "role_hp": 3234000,
+    "role_hp": 2695120,
     "role_attack": 38820,
     "role_defense": 32340,
     "attack_speed": 1000,
@@ -4545,7 +4545,7 @@
   },
   {
     "role_lv": 285,
-    "role_hp": 3256500,
+    "role_hp": 2713870,
     "role_attack": 39090,
     "role_defense": 32565,
     "attack_speed": 1000,
@@ -4561,7 +4561,7 @@
   },
   {
     "role_lv": 286,
-    "role_hp": 3279000,
+    "role_hp": 2732620,
     "role_attack": 39360,
     "role_defense": 32790,
     "attack_speed": 1000,
@@ -4577,7 +4577,7 @@
   },
   {
     "role_lv": 287,
-    "role_hp": 3301500,
+    "role_hp": 2751370,
     "role_attack": 39630,
     "role_defense": 33015,
     "attack_speed": 1000,
@@ -4593,7 +4593,7 @@
   },
   {
     "role_lv": 288,
-    "role_hp": 3324000,
+    "role_hp": 2770120,
     "role_attack": 39900,
     "role_defense": 33240,
     "attack_speed": 1000,
@@ -4609,7 +4609,7 @@
   },
   {
     "role_lv": 289,
-    "role_hp": 3346500,
+    "role_hp": 2788870,
     "role_attack": 40170,
     "role_defense": 33465,
     "attack_speed": 1000,
@@ -4625,7 +4625,7 @@
   },
   {
     "role_lv": 290,
-    "role_hp": 3369000,
+    "role_hp": 2807620,
     "role_attack": 40440,
     "role_defense": 33690,
     "attack_speed": 1000,
@@ -4641,7 +4641,7 @@
   },
   {
     "role_lv": 291,
-    "role_hp": 3391500,
+    "role_hp": 2826370,
     "role_attack": 40710,
     "role_defense": 33915,
     "attack_speed": 1000,
@@ -4657,7 +4657,7 @@
   },
   {
     "role_lv": 292,
-    "role_hp": 3414000,
+    "role_hp": 2845120,
     "role_attack": 40980,
     "role_defense": 34140,
     "attack_speed": 1000,
@@ -4673,7 +4673,7 @@
   },
   {
     "role_lv": 293,
-    "role_hp": 3436500,
+    "role_hp": 2863870,
     "role_attack": 41250,
     "role_defense": 34365,
     "attack_speed": 1000,
@@ -4689,7 +4689,7 @@
   },
   {
     "role_lv": 294,
-    "role_hp": 3459000,
+    "role_hp": 2882620,
     "role_attack": 41520,
     "role_defense": 34590,
     "attack_speed": 1000,
@@ -4705,7 +4705,7 @@
   },
   {
     "role_lv": 295,
-    "role_hp": 3481500,
+    "role_hp": 2901370,
     "role_attack": 41790,
     "role_defense": 34815,
     "attack_speed": 1000,
@@ -4721,7 +4721,7 @@
   },
   {
     "role_lv": 296,
-    "role_hp": 3504000,
+    "role_hp": 2920120,
     "role_attack": 42060,
     "role_defense": 35040,
     "attack_speed": 1000,
@@ -4737,7 +4737,7 @@
   },
   {
     "role_lv": 297,
-    "role_hp": 3526500,
+    "role_hp": 2938870,
     "role_attack": 42330,
     "role_defense": 35265,
     "attack_speed": 1000,
@@ -4753,7 +4753,7 @@
   },
   {
     "role_lv": 298,
-    "role_hp": 3549000,
+    "role_hp": 2957620,
     "role_attack": 42600,
     "role_defense": 35490,
     "attack_speed": 1000,
@@ -4769,7 +4769,7 @@
   },
   {
     "role_lv": 299,
-    "role_hp": 3571500,
+    "role_hp": 2976370,
     "role_attack": 42870,
     "role_defense": 35715,
     "attack_speed": 1000,
@@ -4785,7 +4785,7 @@
   },
   {
     "role_lv": 300,
-    "role_hp": 3594000,
+    "role_hp": 2995120,
     "role_attack": 43140,
     "role_defense": 35940,
     "attack_speed": 1000,
@@ -4801,7 +4801,7 @@
   },
   {
     "role_lv": 301,
-    "role_hp": 3618000,
+    "role_hp": 3015120,
     "role_attack": 43428,
     "role_defense": 36180,
     "attack_speed": 1000,
@@ -4817,7 +4817,7 @@
   },
   {
     "role_lv": 302,
-    "role_hp": 3642000,
+    "role_hp": 3035120,
     "role_attack": 43716,
     "role_defense": 36420,
     "attack_speed": 1000,
@@ -4833,7 +4833,7 @@
   },
   {
     "role_lv": 303,
-    "role_hp": 3666000,
+    "role_hp": 3055120,
     "role_attack": 44004,
     "role_defense": 36660,
     "attack_speed": 1000,
@@ -4849,7 +4849,7 @@
   },
   {
     "role_lv": 304,
-    "role_hp": 3690000,
+    "role_hp": 3075120,
     "role_attack": 44292,
     "role_defense": 36900,
     "attack_speed": 1000,
@@ -4865,7 +4865,7 @@
   },
   {
     "role_lv": 305,
-    "role_hp": 3714000,
+    "role_hp": 3095120,
     "role_attack": 44580,
     "role_defense": 37140,
     "attack_speed": 1000,
@@ -4881,7 +4881,7 @@
   },
   {
     "role_lv": 306,
-    "role_hp": 3738000,
+    "role_hp": 3115120,
     "role_attack": 44868,
     "role_defense": 37380,
     "attack_speed": 1000,
@@ -4897,7 +4897,7 @@
   },
   {
     "role_lv": 307,
-    "role_hp": 3762000,
+    "role_hp": 3135120,
     "role_attack": 45156,
     "role_defense": 37620,
     "attack_speed": 1000,
@@ -4913,7 +4913,7 @@
   },
   {
     "role_lv": 308,
-    "role_hp": 3786000,
+    "role_hp": 3155120,
     "role_attack": 45444,
     "role_defense": 37860,
     "attack_speed": 1000,
@@ -4929,7 +4929,7 @@
   },
   {
     "role_lv": 309,
-    "role_hp": 3810000,
+    "role_hp": 3175120,
     "role_attack": 45732,
     "role_defense": 38100,
     "attack_speed": 1000,
@@ -4945,7 +4945,7 @@
   },
   {
     "role_lv": 310,
-    "role_hp": 3834000,
+    "role_hp": 3195120,
     "role_attack": 46020,
     "role_defense": 38340,
     "attack_speed": 1000,
@@ -4961,7 +4961,7 @@
   },
   {
     "role_lv": 311,
-    "role_hp": 3858000,
+    "role_hp": 3215120,
     "role_attack": 46308,
     "role_defense": 38580,
     "attack_speed": 1000,
@@ -4977,7 +4977,7 @@
   },
   {
     "role_lv": 312,
-    "role_hp": 3882000,
+    "role_hp": 3235120,
     "role_attack": 46596,
     "role_defense": 38820,
     "attack_speed": 1000,
@@ -4993,7 +4993,7 @@
   },
   {
     "role_lv": 313,
-    "role_hp": 3906000,
+    "role_hp": 3255120,
     "role_attack": 46884,
     "role_defense": 39060,
     "attack_speed": 1000,
@@ -5009,7 +5009,7 @@
   },
   {
     "role_lv": 314,
-    "role_hp": 3930000,
+    "role_hp": 3275120,
     "role_attack": 47172,
     "role_defense": 39300,
     "attack_speed": 1000,
@@ -5025,7 +5025,7 @@
   },
   {
     "role_lv": 315,
-    "role_hp": 3954000,
+    "role_hp": 3295120,
     "role_attack": 47460,
     "role_defense": 39540,
     "attack_speed": 1000,
@@ -5041,7 +5041,7 @@
   },
   {
     "role_lv": 316,
-    "role_hp": 3978000,
+    "role_hp": 3315120,
     "role_attack": 47748,
     "role_defense": 39780,
     "attack_speed": 1000,
@@ -5057,7 +5057,7 @@
   },
   {
     "role_lv": 317,
-    "role_hp": 4002000,
+    "role_hp": 3335120,
     "role_attack": 48036,
     "role_defense": 40020,
     "attack_speed": 1000,
@@ -5073,7 +5073,7 @@
   },
   {
     "role_lv": 318,
-    "role_hp": 4026000,
+    "role_hp": 3355120,
     "role_attack": 48324,
     "role_defense": 40260,
     "attack_speed": 1000,
@@ -5089,7 +5089,7 @@
   },
   {
     "role_lv": 319,
-    "role_hp": 4050000,
+    "role_hp": 3375120,
     "role_attack": 48612,
     "role_defense": 40500,
     "attack_speed": 1000,
@@ -5105,7 +5105,7 @@
   },
   {
     "role_lv": 320,
-    "role_hp": 4074000,
+    "role_hp": 3395120,
     "role_attack": 48900,
     "role_defense": 40740,
     "attack_speed": 1000,
@@ -5121,7 +5121,7 @@
   },
   {
     "role_lv": 321,
-    "role_hp": 4099500,
+    "role_hp": 3416371,
     "role_attack": 49206,
     "role_defense": 40995,
     "attack_speed": 1000,
@@ -5137,7 +5137,7 @@
   },
   {
     "role_lv": 322,
-    "role_hp": 4125000,
+    "role_hp": 3437622,
     "role_attack": 49512,
     "role_defense": 41250,
     "attack_speed": 1000,
@@ -5153,7 +5153,7 @@
   },
   {
     "role_lv": 323,
-    "role_hp": 4150500,
+    "role_hp": 3458873,
     "role_attack": 49818,
     "role_defense": 41505,
     "attack_speed": 1000,
@@ -5169,7 +5169,7 @@
   },
   {
     "role_lv": 324,
-    "role_hp": 4176000,
+    "role_hp": 3480124,
     "role_attack": 50124,
     "role_defense": 41760,
     "attack_speed": 1000,
@@ -5185,7 +5185,7 @@
   },
   {
     "role_lv": 325,
-    "role_hp": 4201500,
+    "role_hp": 3501375,
     "role_attack": 50430,
     "role_defense": 42015,
     "attack_speed": 1000,
@@ -5201,7 +5201,7 @@
   },
   {
     "role_lv": 326,
-    "role_hp": 4227000,
+    "role_hp": 3522626,
     "role_attack": 50736,
     "role_defense": 42270,
     "attack_speed": 1000,
@@ -5217,7 +5217,7 @@
   },
   {
     "role_lv": 327,
-    "role_hp": 4252500,
+    "role_hp": 3543877,
     "role_attack": 51042,
     "role_defense": 42525,
     "attack_speed": 1000,
@@ -5233,7 +5233,7 @@
   },
   {
     "role_lv": 328,
-    "role_hp": 4278000,
+    "role_hp": 3565128,
     "role_attack": 51348,
     "role_defense": 42780,
     "attack_speed": 1000,
@@ -5249,7 +5249,7 @@
   },
   {
     "role_lv": 329,
-    "role_hp": 4303500,
+    "role_hp": 3586379,
     "role_attack": 51654,
     "role_defense": 43035,
     "attack_speed": 1000,
@@ -5265,7 +5265,7 @@
   },
   {
     "role_lv": 330,
-    "role_hp": 4329000,
+    "role_hp": 3607630,
     "role_attack": 51960,
     "role_defense": 43290,
     "attack_speed": 1000,
@@ -5281,7 +5281,7 @@
   },
   {
     "role_lv": 331,
-    "role_hp": 4354500,
+    "role_hp": 3628881,
     "role_attack": 52266,
     "role_defense": 43545,
     "attack_speed": 1000,
@@ -5297,7 +5297,7 @@
   },
   {
     "role_lv": 332,
-    "role_hp": 4380000,
+    "role_hp": 3650132,
     "role_attack": 52572,
     "role_defense": 43800,
     "attack_speed": 1000,
@@ -5313,7 +5313,7 @@
   },
   {
     "role_lv": 333,
-    "role_hp": 4405500,
+    "role_hp": 3671383,
     "role_attack": 52878,
     "role_defense": 44055,
     "attack_speed": 1000,
@@ -5329,7 +5329,7 @@
   },
   {
     "role_lv": 334,
-    "role_hp": 4431000,
+    "role_hp": 3692634,
     "role_attack": 53184,
     "role_defense": 44310,
     "attack_speed": 1000,
@@ -5345,7 +5345,7 @@
   },
   {
     "role_lv": 335,
-    "role_hp": 4456500,
+    "role_hp": 3713885,
     "role_attack": 53490,
     "role_defense": 44565,
     "attack_speed": 1000,
@@ -5361,7 +5361,7 @@
   },
   {
     "role_lv": 336,
-    "role_hp": 4482000,
+    "role_hp": 3735136,
     "role_attack": 53796,
     "role_defense": 44820,
     "attack_speed": 1000,
@@ -5377,7 +5377,7 @@
   },
   {
     "role_lv": 337,
-    "role_hp": 4507500,
+    "role_hp": 3756387,
     "role_attack": 54102,
     "role_defense": 45075,
     "attack_speed": 1000,
@@ -5393,7 +5393,7 @@
   },
   {
     "role_lv": 338,
-    "role_hp": 4533000,
+    "role_hp": 3777638,
     "role_attack": 54408,
     "role_defense": 45330,
     "attack_speed": 1000,
@@ -5409,7 +5409,7 @@
   },
   {
     "role_lv": 339,
-    "role_hp": 4558500,
+    "role_hp": 3798889,
     "role_attack": 54714,
     "role_defense": 45585,
     "attack_speed": 1000,
@@ -5425,7 +5425,7 @@
   },
   {
     "role_lv": 340,
-    "role_hp": 4584000,
+    "role_hp": 3820140,
     "role_attack": 55020,
     "role_defense": 45840,
     "attack_speed": 1000,
@@ -5441,7 +5441,7 @@
   },
   {
     "role_lv": 341,
-    "role_hp": 4611000,
+    "role_hp": 3842640,
     "role_attack": 55344,
     "role_defense": 46110,
     "attack_speed": 1000,
@@ -5457,7 +5457,7 @@
   },
   {
     "role_lv": 342,
-    "role_hp": 4638000,
+    "role_hp": 3865140,
     "role_attack": 55668,
     "role_defense": 46380,
     "attack_speed": 1000,
@@ -5473,7 +5473,7 @@
   },
   {
     "role_lv": 343,
-    "role_hp": 4665000,
+    "role_hp": 3887640,
     "role_attack": 55992,
     "role_defense": 46650,
     "attack_speed": 1000,
@@ -5489,7 +5489,7 @@
   },
   {
     "role_lv": 344,
-    "role_hp": 4692000,
+    "role_hp": 3910140,
     "role_attack": 56316,
     "role_defense": 46920,
     "attack_speed": 1000,
@@ -5505,7 +5505,7 @@
   },
   {
     "role_lv": 345,
-    "role_hp": 4719000,
+    "role_hp": 3932640,
     "role_attack": 56640,
     "role_defense": 47190,
     "attack_speed": 1000,
@@ -5521,7 +5521,7 @@
   },
   {
     "role_lv": 346,
-    "role_hp": 4746000,
+    "role_hp": 3955140,
     "role_attack": 56964,
     "role_defense": 47460,
     "attack_speed": 1000,
@@ -5537,7 +5537,7 @@
   },
   {
     "role_lv": 347,
-    "role_hp": 4773000,
+    "role_hp": 3977640,
     "role_attack": 57288,
     "role_defense": 47730,
     "attack_speed": 1000,
@@ -5553,7 +5553,7 @@
   },
   {
     "role_lv": 348,
-    "role_hp": 4800000,
+    "role_hp": 4000140,
     "role_attack": 57612,
     "role_defense": 48000,
     "attack_speed": 1000,
@@ -5569,7 +5569,7 @@
   },
   {
     "role_lv": 349,
-    "role_hp": 4827000,
+    "role_hp": 4022640,
     "role_attack": 57936,
     "role_defense": 48270,
     "attack_speed": 1000,
@@ -5585,7 +5585,7 @@
   },
   {
     "role_lv": 350,
-    "role_hp": 4854000,
+    "role_hp": 4045140,
     "role_attack": 58260,
     "role_defense": 48540,
     "attack_speed": 1000,
@@ -5601,7 +5601,7 @@
   },
   {
     "role_lv": 351,
-    "role_hp": 4881000,
+    "role_hp": 4067640,
     "role_attack": 58584,
     "role_defense": 48810,
     "attack_speed": 1000,
@@ -5617,7 +5617,7 @@
   },
   {
     "role_lv": 352,
-    "role_hp": 4908000,
+    "role_hp": 4090140,
     "role_attack": 58908,
     "role_defense": 49080,
     "attack_speed": 1000,
@@ -5633,7 +5633,7 @@
   },
   {
     "role_lv": 353,
-    "role_hp": 4935000,
+    "role_hp": 4112640,
     "role_attack": 59232,
     "role_defense": 49350,
     "attack_speed": 1000,
@@ -5649,7 +5649,7 @@
   },
   {
     "role_lv": 354,
-    "role_hp": 4962000,
+    "role_hp": 4135140,
     "role_attack": 59556,
     "role_defense": 49620,
     "attack_speed": 1000,
@@ -5665,7 +5665,7 @@
   },
   {
     "role_lv": 355,
-    "role_hp": 4989000,
+    "role_hp": 4157640,
     "role_attack": 59880,
     "role_defense": 49890,
     "attack_speed": 1000,
@@ -5681,7 +5681,7 @@
   },
   {
     "role_lv": 356,
-    "role_hp": 5016000,
+    "role_hp": 4180140,
     "role_attack": 60204,
     "role_defense": 50160,
     "attack_speed": 1000,
@@ -5697,7 +5697,7 @@
   },
   {
     "role_lv": 357,
-    "role_hp": 5043000,
+    "role_hp": 4202640,
     "role_attack": 60528,
     "role_defense": 50430,
     "attack_speed": 1000,
@@ -5713,7 +5713,7 @@
   },
   {
     "role_lv": 358,
-    "role_hp": 5070000,
+    "role_hp": 4225140,
     "role_attack": 60852,
     "role_defense": 50700,
     "attack_speed": 1000,
@@ -5729,7 +5729,7 @@
   },
   {
     "role_lv": 359,
-    "role_hp": 5097000,
+    "role_hp": 4247640,
     "role_attack": 61176,
     "role_defense": 50970,
     "attack_speed": 1000,
@@ -5745,7 +5745,7 @@
   },
   {
     "role_lv": 360,
-    "role_hp": 5124000,
+    "role_hp": 4270140,
     "role_attack": 61500,
     "role_defense": 51240,
     "attack_speed": 1000,
@@ -5761,7 +5761,7 @@
   },
   {
     "role_lv": 361,
-    "role_hp": 5152500,
+    "role_hp": 4293890,
     "role_attack": 61842,
     "role_defense": 51525,
     "attack_speed": 1000,
@@ -5777,7 +5777,7 @@
   },
   {
     "role_lv": 362,
-    "role_hp": 5181000,
+    "role_hp": 4317640,
     "role_attack": 62184,
     "role_defense": 51810,
     "attack_speed": 1000,
@@ -5793,7 +5793,7 @@
   },
   {
     "role_lv": 363,
-    "role_hp": 5209500,
+    "role_hp": 4341390,
     "role_attack": 62526,
     "role_defense": 52095,
     "attack_speed": 1000,
@@ -5809,7 +5809,7 @@
   },
   {
     "role_lv": 364,
-    "role_hp": 5238000,
+    "role_hp": 4365140,
     "role_attack": 62868,
     "role_defense": 52380,
     "attack_speed": 1000,
@@ -5825,7 +5825,7 @@
   },
   {
     "role_lv": 365,
-    "role_hp": 5266500,
+    "role_hp": 4388890,
     "role_attack": 63210,
     "role_defense": 52665,
     "attack_speed": 1000,
@@ -5841,7 +5841,7 @@
   },
   {
     "role_lv": 366,
-    "role_hp": 5295000,
+    "role_hp": 4412640,
     "role_attack": 63552,
     "role_defense": 52950,
     "attack_speed": 1000,
@@ -5857,7 +5857,7 @@
   },
   {
     "role_lv": 367,
-    "role_hp": 5323500,
+    "role_hp": 4436390,
     "role_attack": 63894,
     "role_defense": 53235,
     "attack_speed": 1000,
@@ -5873,7 +5873,7 @@
   },
   {
     "role_lv": 368,
-    "role_hp": 5352000,
+    "role_hp": 4460140,
     "role_attack": 64236,
     "role_defense": 53520,
     "attack_speed": 1000,
@@ -5889,7 +5889,7 @@
   },
   {
     "role_lv": 369,
-    "role_hp": 5380500,
+    "role_hp": 4483890,
     "role_attack": 64578,
     "role_defense": 53805,
     "attack_speed": 1000,
@@ -5905,7 +5905,7 @@
   },
   {
     "role_lv": 370,
-    "role_hp": 5409000,
+    "role_hp": 4507640,
     "role_attack": 64920,
     "role_defense": 54090,
     "attack_speed": 1000,
@@ -5921,7 +5921,7 @@
   },
   {
     "role_lv": 371,
-    "role_hp": 5437500,
+    "role_hp": 4531390,
     "role_attack": 65262,
     "role_defense": 54375,
     "attack_speed": 1000,
@@ -5937,7 +5937,7 @@
   },
   {
     "role_lv": 372,
-    "role_hp": 5466000,
+    "role_hp": 4555140,
     "role_attack": 65604,
     "role_defense": 54660,
     "attack_speed": 1000,
@@ -5953,7 +5953,7 @@
   },
   {
     "role_lv": 373,
-    "role_hp": 5494500,
+    "role_hp": 4578890,
     "role_attack": 65946,
     "role_defense": 54945,
     "attack_speed": 1000,
@@ -5969,7 +5969,7 @@
   },
   {
     "role_lv": 374,
-    "role_hp": 5523000,
+    "role_hp": 4602640,
     "role_attack": 66288,
     "role_defense": 55230,
     "attack_speed": 1000,
@@ -5985,7 +5985,7 @@
   },
   {
     "role_lv": 375,
-    "role_hp": 5551500,
+    "role_hp": 4626390,
     "role_attack": 66630,
     "role_defense": 55515,
     "attack_speed": 1000,
@@ -6001,7 +6001,7 @@
   },
   {
     "role_lv": 376,
-    "role_hp": 5580000,
+    "role_hp": 4650140,
     "role_attack": 66972,
     "role_defense": 55800,
     "attack_speed": 1000,
@@ -6017,7 +6017,7 @@
   },
   {
     "role_lv": 377,
-    "role_hp": 5608500,
+    "role_hp": 4673890,
     "role_attack": 67314,
     "role_defense": 56085,
     "attack_speed": 1000,
@@ -6033,7 +6033,7 @@
   },
   {
     "role_lv": 378,
-    "role_hp": 5637000,
+    "role_hp": 4697640,
     "role_attack": 67656,
     "role_defense": 56370,
     "attack_speed": 1000,
@@ -6049,7 +6049,7 @@
   },
   {
     "role_lv": 379,
-    "role_hp": 5665500,
+    "role_hp": 4721390,
     "role_attack": 67998,
     "role_defense": 56655,
     "attack_speed": 1000,
@@ -6065,7 +6065,7 @@
   },
   {
     "role_lv": 380,
-    "role_hp": 5694000,
+    "role_hp": 4745140,
     "role_attack": 68340,
     "role_defense": 56940,
     "attack_speed": 1000,
@@ -6081,7 +6081,7 @@
   },
   {
     "role_lv": 381,
-    "role_hp": 5724000,
+    "role_hp": 4770141,
     "role_attack": 68700,
     "role_defense": 57240,
     "attack_speed": 1000,
@@ -6097,7 +6097,7 @@
   },
   {
     "role_lv": 382,
-    "role_hp": 5754000,
+    "role_hp": 4795142,
     "role_attack": 69060,
     "role_defense": 57540,
     "attack_speed": 1000,
@@ -6113,7 +6113,7 @@
   },
   {
     "role_lv": 383,
-    "role_hp": 5784000,
+    "role_hp": 4820143,
     "role_attack": 69420,
     "role_defense": 57840,
     "attack_speed": 1000,
@@ -6129,7 +6129,7 @@
   },
   {
     "role_lv": 384,
-    "role_hp": 5814000,
+    "role_hp": 4845144,
     "role_attack": 69780,
     "role_defense": 58140,
     "attack_speed": 1000,
@@ -6145,7 +6145,7 @@
   },
   {
     "role_lv": 385,
-    "role_hp": 5844000,
+    "role_hp": 4870145,
     "role_attack": 70140,
     "role_defense": 58440,
     "attack_speed": 1000,
@@ -6161,7 +6161,7 @@
   },
   {
     "role_lv": 386,
-    "role_hp": 5874000,
+    "role_hp": 4895146,
     "role_attack": 70500,
     "role_defense": 58740,
     "attack_speed": 1000,
@@ -6177,7 +6177,7 @@
   },
   {
     "role_lv": 387,
-    "role_hp": 5904000,
+    "role_hp": 4920147,
     "role_attack": 70860,
     "role_defense": 59040,
     "attack_speed": 1000,
@@ -6193,7 +6193,7 @@
   },
   {
     "role_lv": 388,
-    "role_hp": 5934000,
+    "role_hp": 4945148,
     "role_attack": 71220,
     "role_defense": 59340,
     "attack_speed": 1000,
@@ -6209,7 +6209,7 @@
   },
   {
     "role_lv": 389,
-    "role_hp": 5964000,
+    "role_hp": 4970149,
     "role_attack": 71580,
     "role_defense": 59640,
     "attack_speed": 1000,
@@ -6225,7 +6225,7 @@
   },
   {
     "role_lv": 390,
-    "role_hp": 5994000,
+    "role_hp": 4995150,
     "role_attack": 71940,
     "role_defense": 59940,
     "attack_speed": 1000,
@@ -6241,7 +6241,7 @@
   },
   {
     "role_lv": 391,
-    "role_hp": 6024000,
+    "role_hp": 5020151,
     "role_attack": 72300,
     "role_defense": 60240,
     "attack_speed": 1000,
@@ -6257,7 +6257,7 @@
   },
   {
     "role_lv": 392,
-    "role_hp": 6054000,
+    "role_hp": 5045152,
     "role_attack": 72660,
     "role_defense": 60540,
     "attack_speed": 1000,
@@ -6273,7 +6273,7 @@
   },
   {
     "role_lv": 393,
-    "role_hp": 6084000,
+    "role_hp": 5070153,
     "role_attack": 73020,
     "role_defense": 60840,
     "attack_speed": 1000,
@@ -6289,7 +6289,7 @@
   },
   {
     "role_lv": 394,
-    "role_hp": 6114000,
+    "role_hp": 5095154,
     "role_attack": 73380,
     "role_defense": 61140,
     "attack_speed": 1000,
@@ -6305,7 +6305,7 @@
   },
   {
     "role_lv": 395,
-    "role_hp": 6144000,
+    "role_hp": 5120155,
     "role_attack": 73740,
     "role_defense": 61440,
     "attack_speed": 1000,
@@ -6321,7 +6321,7 @@
   },
   {
     "role_lv": 396,
-    "role_hp": 6174000,
+    "role_hp": 5145156,
     "role_attack": 74100,
     "role_defense": 61740,
     "attack_speed": 1000,
@@ -6337,7 +6337,7 @@
   },
   {
     "role_lv": 397,
-    "role_hp": 6204000,
+    "role_hp": 5170157,
     "role_attack": 74460,
     "role_defense": 62040,
     "attack_speed": 1000,
@@ -6353,7 +6353,7 @@
   },
   {
     "role_lv": 398,
-    "role_hp": 6234000,
+    "role_hp": 5195158,
     "role_attack": 74820,
     "role_defense": 62340,
     "attack_speed": 1000,
@@ -6369,7 +6369,7 @@
   },
   {
     "role_lv": 399,
-    "role_hp": 6264000,
+    "role_hp": 5220159,
     "role_attack": 75180,
     "role_defense": 62640,
     "attack_speed": 1000,
@@ -6385,7 +6385,7 @@
   },
   {
     "role_lv": 400,
-    "role_hp": 6294000,
+    "role_hp": 5245160,
     "role_attack": 75540,
     "role_defense": 62940,
     "attack_speed": 1000,
@@ -6401,7 +6401,7 @@
   },
   {
     "role_lv": 401,
-    "role_hp": 6325500,
+    "role_hp": 5271410,
     "role_attack": 75918,
     "role_defense": 63255,
     "attack_speed": 1000,
@@ -6417,7 +6417,7 @@
   },
   {
     "role_lv": 402,
-    "role_hp": 6357000,
+    "role_hp": 5297660,
     "role_attack": 76296,
     "role_defense": 63570,
     "attack_speed": 1000,
@@ -6433,7 +6433,7 @@
   },
   {
     "role_lv": 403,
-    "role_hp": 6388500,
+    "role_hp": 5323910,
     "role_attack": 76674,
     "role_defense": 63885,
     "attack_speed": 1000,
@@ -6449,7 +6449,7 @@
   },
   {
     "role_lv": 404,
-    "role_hp": 6420000,
+    "role_hp": 5350160,
     "role_attack": 77052,
     "role_defense": 64200,
     "attack_speed": 1000,
@@ -6465,7 +6465,7 @@
   },
   {
     "role_lv": 405,
-    "role_hp": 6451500,
+    "role_hp": 5376410,
     "role_attack": 77430,
     "role_defense": 64515,
     "attack_speed": 1000,
@@ -6481,7 +6481,7 @@
   },
   {
     "role_lv": 406,
-    "role_hp": 6483000,
+    "role_hp": 5402660,
     "role_attack": 77808,
     "role_defense": 64830,
     "attack_speed": 1000,
@@ -6497,7 +6497,7 @@
   },
   {
     "role_lv": 407,
-    "role_hp": 6514500,
+    "role_hp": 5428910,
     "role_attack": 78186,
     "role_defense": 65145,
     "attack_speed": 1000,
@@ -6513,7 +6513,7 @@
   },
   {
     "role_lv": 408,
-    "role_hp": 6546000,
+    "role_hp": 5455160,
     "role_attack": 78564,
     "role_defense": 65460,
     "attack_speed": 1000,
@@ -6529,7 +6529,7 @@
   },
   {
     "role_lv": 409,
-    "role_hp": 6577500,
+    "role_hp": 5481410,
     "role_attack": 78942,
     "role_defense": 65775,
     "attack_speed": 1000,
@@ -6545,7 +6545,7 @@
   },
   {
     "role_lv": 410,
-    "role_hp": 6609000,
+    "role_hp": 5507660,
     "role_attack": 79320,
     "role_defense": 66090,
     "attack_speed": 1000,
@@ -6561,7 +6561,7 @@
   },
   {
     "role_lv": 411,
-    "role_hp": 6640500,
+    "role_hp": 5533910,
     "role_attack": 79698,
     "role_defense": 66405,
     "attack_speed": 1000,
@@ -6577,7 +6577,7 @@
   },
   {
     "role_lv": 412,
-    "role_hp": 6672000,
+    "role_hp": 5560160,
     "role_attack": 80076,
     "role_defense": 66720,
     "attack_speed": 1000,
@@ -6593,7 +6593,7 @@
   },
   {
     "role_lv": 413,
-    "role_hp": 6703500,
+    "role_hp": 5586410,
     "role_attack": 80454,
     "role_defense": 67035,
     "attack_speed": 1000,
@@ -6609,7 +6609,7 @@
   },
   {
     "role_lv": 414,
-    "role_hp": 6735000,
+    "role_hp": 5612660,
     "role_attack": 80832,
     "role_defense": 67350,
     "attack_speed": 1000,
@@ -6625,7 +6625,7 @@
   },
   {
     "role_lv": 415,
-    "role_hp": 6766500,
+    "role_hp": 5638910,
     "role_attack": 81210,
     "role_defense": 67665,
     "attack_speed": 1000,
@@ -6641,7 +6641,7 @@
   },
   {
     "role_lv": 416,
-    "role_hp": 6798000,
+    "role_hp": 5665160,
     "role_attack": 81588,
     "role_defense": 67980,
     "attack_speed": 1000,
@@ -6657,7 +6657,7 @@
   },
   {
     "role_lv": 417,
-    "role_hp": 6829500,
+    "role_hp": 5691410,
     "role_attack": 81966,
     "role_defense": 68295,
     "attack_speed": 1000,
@@ -6673,7 +6673,7 @@
   },
   {
     "role_lv": 418,
-    "role_hp": 6861000,
+    "role_hp": 5717660,
     "role_attack": 82344,
     "role_defense": 68610,
     "attack_speed": 1000,
@@ -6689,7 +6689,7 @@
   },
   {
     "role_lv": 419,
-    "role_hp": 6892500,
+    "role_hp": 5743910,
     "role_attack": 82722,
     "role_defense": 68925,
     "attack_speed": 1000,
@@ -6705,7 +6705,7 @@
   },
   {
     "role_lv": 420,
-    "role_hp": 6924000,
+    "role_hp": 5770160,
     "role_attack": 83100,
     "role_defense": 69240,
     "attack_speed": 1000,
@@ -6721,7 +6721,7 @@
   },
   {
     "role_lv": 421,
-    "role_hp": 6957000,
+    "role_hp": 5797660,
     "role_attack": 83496,
     "role_defense": 69570,
     "attack_speed": 1000,
@@ -6737,7 +6737,7 @@
   },
   {
     "role_lv": 422,
-    "role_hp": 6990000,
+    "role_hp": 5825160,
     "role_attack": 83892,
     "role_defense": 69900,
     "attack_speed": 1000,
@@ -6753,7 +6753,7 @@
   },
   {
     "role_lv": 423,
-    "role_hp": 7023000,
+    "role_hp": 5852660,
     "role_attack": 84288,
     "role_defense": 70230,
     "attack_speed": 1000,
@@ -6769,7 +6769,7 @@
   },
   {
     "role_lv": 424,
-    "role_hp": 7056000,
+    "role_hp": 5880160,
     "role_attack": 84684,
     "role_defense": 70560,
     "attack_speed": 1000,
@@ -6785,7 +6785,7 @@
   },
   {
     "role_lv": 425,
-    "role_hp": 7089000,
+    "role_hp": 5907660,
     "role_attack": 85080,
     "role_defense": 70890,
     "attack_speed": 1000,
@@ -6801,7 +6801,7 @@
   },
   {
     "role_lv": 426,
-    "role_hp": 7122000,
+    "role_hp": 5935160,
     "role_attack": 85476,
     "role_defense": 71220,
     "attack_speed": 1000,
@@ -6817,7 +6817,7 @@
   },
   {
     "role_lv": 427,
-    "role_hp": 7155000,
+    "role_hp": 5962660,
     "role_attack": 85872,
     "role_defense": 71550,
     "attack_speed": 1000,
@@ -6833,7 +6833,7 @@
   },
   {
     "role_lv": 428,
-    "role_hp": 7188000,
+    "role_hp": 5990160,
     "role_attack": 86268,
     "role_defense": 71880,
     "attack_speed": 1000,
@@ -6849,7 +6849,7 @@
   },
   {
     "role_lv": 429,
-    "role_hp": 7221000,
+    "role_hp": 6017660,
     "role_attack": 86664,
     "role_defense": 72210,
     "attack_speed": 1000,
@@ -6865,7 +6865,7 @@
   },
   {
     "role_lv": 430,
-    "role_hp": 7254000,
+    "role_hp": 6045160,
     "role_attack": 87060,
     "role_defense": 72540,
     "attack_speed": 1000,
@@ -6881,7 +6881,7 @@
   },
   {
     "role_lv": 431,
-    "role_hp": 7287000,
+    "role_hp": 6072660,
     "role_attack": 87456,
     "role_defense": 72870,
     "attack_speed": 1000,
@@ -6897,7 +6897,7 @@
   },
   {
     "role_lv": 432,
-    "role_hp": 7320000,
+    "role_hp": 6100160,
     "role_attack": 87852,
     "role_defense": 73200,
     "attack_speed": 1000,
@@ -6913,7 +6913,7 @@
   },
   {
     "role_lv": 433,
-    "role_hp": 7353000,
+    "role_hp": 6127660,
     "role_attack": 88248,
     "role_defense": 73530,
     "attack_speed": 1000,
@@ -6929,7 +6929,7 @@
   },
   {
     "role_lv": 434,
-    "role_hp": 7386000,
+    "role_hp": 6155160,
     "role_attack": 88644,
     "role_defense": 73860,
     "attack_speed": 1000,
@@ -6945,7 +6945,7 @@
   },
   {
     "role_lv": 435,
-    "role_hp": 7419000,
+    "role_hp": 6182660,
     "role_attack": 89040,
     "role_defense": 74190,
     "attack_speed": 1000,
@@ -6961,7 +6961,7 @@
   },
   {
     "role_lv": 436,
-    "role_hp": 7452000,
+    "role_hp": 6210160,
     "role_attack": 89436,
     "role_defense": 74520,
     "attack_speed": 1000,
@@ -6977,7 +6977,7 @@
   },
   {
     "role_lv": 437,
-    "role_hp": 7485000,
+    "role_hp": 6237660,
     "role_attack": 89832,
     "role_defense": 74850,
     "attack_speed": 1000,
@@ -6993,7 +6993,7 @@
   },
   {
     "role_lv": 438,
-    "role_hp": 7518000,
+    "role_hp": 6265160,
     "role_attack": 90228,
     "role_defense": 75180,
     "attack_speed": 1000,
@@ -7009,7 +7009,7 @@
   },
   {
     "role_lv": 439,
-    "role_hp": 7551000,
+    "role_hp": 6292660,
     "role_attack": 90624,
     "role_defense": 75510,
     "attack_speed": 1000,
@@ -7025,7 +7025,7 @@
   },
   {
     "role_lv": 440,
-    "role_hp": 7584000,
+    "role_hp": 6320160,
     "role_attack": 91020,
     "role_defense": 75840,
     "attack_speed": 1000,
@@ -7041,7 +7041,7 @@
   },
   {
     "role_lv": 441,
-    "role_hp": 7618500,
+    "role_hp": 6348911,
     "role_attack": 91434,
     "role_defense": 76185,
     "attack_speed": 1000,
@@ -7057,7 +7057,7 @@
   },
   {
     "role_lv": 442,
-    "role_hp": 7653000,
+    "role_hp": 6377662,
     "role_attack": 91848,
     "role_defense": 76530,
     "attack_speed": 1000,
@@ -7073,7 +7073,7 @@
   },
   {
     "role_lv": 443,
-    "role_hp": 7687500,
+    "role_hp": 6406413,
     "role_attack": 92262,
     "role_defense": 76875,
     "attack_speed": 1000,
@@ -7089,7 +7089,7 @@
   },
   {
     "role_lv": 444,
-    "role_hp": 7722000,
+    "role_hp": 6435164,
     "role_attack": 92676,
     "role_defense": 77220,
     "attack_speed": 1000,
@@ -7105,7 +7105,7 @@
   },
   {
     "role_lv": 445,
-    "role_hp": 7756500,
+    "role_hp": 6463915,
     "role_attack": 93090,
     "role_defense": 77565,
     "attack_speed": 1000,
@@ -7121,7 +7121,7 @@
   },
   {
     "role_lv": 446,
-    "role_hp": 7791000,
+    "role_hp": 6492666,
     "role_attack": 93504,
     "role_defense": 77910,
     "attack_speed": 1000,
@@ -7137,7 +7137,7 @@
   },
   {
     "role_lv": 447,
-    "role_hp": 7825500,
+    "role_hp": 6521417,
     "role_attack": 93918,
     "role_defense": 78255,
     "attack_speed": 1000,
@@ -7153,7 +7153,7 @@
   },
   {
     "role_lv": 448,
-    "role_hp": 7860000,
+    "role_hp": 6550168,
     "role_attack": 94332,
     "role_defense": 78600,
     "attack_speed": 1000,
@@ -7169,7 +7169,7 @@
   },
   {
     "role_lv": 449,
-    "role_hp": 7894500,
+    "role_hp": 6578919,
     "role_attack": 94746,
     "role_defense": 78945,
     "attack_speed": 1000,
@@ -7185,7 +7185,7 @@
   },
   {
     "role_lv": 450,
-    "role_hp": 7929000,
+    "role_hp": 6607670,
     "role_attack": 95160,
     "role_defense": 79290,
     "attack_speed": 1000,
@@ -7201,7 +7201,7 @@
   },
   {
     "role_lv": 451,
-    "role_hp": 7963500,
+    "role_hp": 6636421,
     "role_attack": 95574,
     "role_defense": 79635,
     "attack_speed": 1000,
@@ -7217,7 +7217,7 @@
   },
   {
     "role_lv": 452,
-    "role_hp": 7998000,
+    "role_hp": 6665172,
     "role_attack": 95988,
     "role_defense": 79980,
     "attack_speed": 1000,
@@ -7233,7 +7233,7 @@
   },
   {
     "role_lv": 453,
-    "role_hp": 8032500,
+    "role_hp": 6693923,
     "role_attack": 96402,
     "role_defense": 80325,
     "attack_speed": 1000,
@@ -7249,7 +7249,7 @@
   },
   {
     "role_lv": 454,
-    "role_hp": 8067000,
+    "role_hp": 6722674,
     "role_attack": 96816,
     "role_defense": 80670,
     "attack_speed": 1000,
@@ -7265,7 +7265,7 @@
   },
   {
     "role_lv": 455,
-    "role_hp": 8101500,
+    "role_hp": 6751425,
     "role_attack": 97230,
     "role_defense": 81015,
     "attack_speed": 1000,
@@ -7281,7 +7281,7 @@
   },
   {
     "role_lv": 456,
-    "role_hp": 8136000,
+    "role_hp": 6780176,
     "role_attack": 97644,
     "role_defense": 81360,
     "attack_speed": 1000,
@@ -7297,7 +7297,7 @@
   },
   {
     "role_lv": 457,
-    "role_hp": 8170500,
+    "role_hp": 6808927,
     "role_attack": 98058,
     "role_defense": 81705,
     "attack_speed": 1000,
@@ -7313,7 +7313,7 @@
   },
   {
     "role_lv": 458,
-    "role_hp": 8205000,
+    "role_hp": 6837678,
     "role_attack": 98472,
     "role_defense": 82050,
     "attack_speed": 1000,
@@ -7329,7 +7329,7 @@
   },
   {
     "role_lv": 459,
-    "role_hp": 8239500,
+    "role_hp": 6866429,
     "role_attack": 98886,
     "role_defense": 82395,
     "attack_speed": 1000,
@@ -7345,7 +7345,7 @@
   },
   {
     "role_lv": 460,
-    "role_hp": 8274000,
+    "role_hp": 6895180,
     "role_attack": 99300,
     "role_defense": 82740,
     "attack_speed": 1000,
@@ -7361,7 +7361,7 @@
   },
   {
     "role_lv": 461,
-    "role_hp": 8310000,
+    "role_hp": 6925180,
     "role_attack": 99732,
     "role_defense": 83100,
     "attack_speed": 1000,
@@ -7377,7 +7377,7 @@
   },
   {
     "role_lv": 462,
-    "role_hp": 8346000,
+    "role_hp": 6955180,
     "role_attack": 100164,
     "role_defense": 83460,
     "attack_speed": 1000,
@@ -7393,7 +7393,7 @@
   },
   {
     "role_lv": 463,
-    "role_hp": 8382000,
+    "role_hp": 6985180,
     "role_attack": 100596,
     "role_defense": 83820,
     "attack_speed": 1000,
@@ -7409,7 +7409,7 @@
   },
   {
     "role_lv": 464,
-    "role_hp": 8418000,
+    "role_hp": 7015180,
     "role_attack": 101028,
     "role_defense": 84180,
     "attack_speed": 1000,
@@ -7425,7 +7425,7 @@
   },
   {
     "role_lv": 465,
-    "role_hp": 8454000,
+    "role_hp": 7045180,
     "role_attack": 101460,
     "role_defense": 84540,
     "attack_speed": 1000,
@@ -7441,7 +7441,7 @@
   },
   {
     "role_lv": 466,
-    "role_hp": 8490000,
+    "role_hp": 7075180,
     "role_attack": 101892,
     "role_defense": 84900,
     "attack_speed": 1000,
@@ -7457,7 +7457,7 @@
   },
   {
     "role_lv": 467,
-    "role_hp": 8526000,
+    "role_hp": 7105180,
     "role_attack": 102324,
     "role_defense": 85260,
     "attack_speed": 1000,
@@ -7473,7 +7473,7 @@
   },
   {
     "role_lv": 468,
-    "role_hp": 8562000,
+    "role_hp": 7135180,
     "role_attack": 102756,
     "role_defense": 85620,
     "attack_speed": 1000,
@@ -7489,7 +7489,7 @@
   },
   {
     "role_lv": 469,
-    "role_hp": 8598000,
+    "role_hp": 7165180,
     "role_attack": 103188,
     "role_defense": 85980,
     "attack_speed": 1000,
@@ -7505,7 +7505,7 @@
   },
   {
     "role_lv": 470,
-    "role_hp": 8634000,
+    "role_hp": 7195180,
     "role_attack": 103620,
     "role_defense": 86340,
     "attack_speed": 1000,
@@ -7521,7 +7521,7 @@
   },
   {
     "role_lv": 471,
-    "role_hp": 8670000,
+    "role_hp": 7225180,
     "role_attack": 104052,
     "role_defense": 86700,
     "attack_speed": 1000,
@@ -7537,7 +7537,7 @@
   },
   {
     "role_lv": 472,
-    "role_hp": 8706000,
+    "role_hp": 7255180,
     "role_attack": 104484,
     "role_defense": 87060,
     "attack_speed": 1000,
@@ -7553,7 +7553,7 @@
   },
   {
     "role_lv": 473,
-    "role_hp": 8742000,
+    "role_hp": 7285180,
     "role_attack": 104916,
     "role_defense": 87420,
     "attack_speed": 1000,
@@ -7569,7 +7569,7 @@
   },
   {
     "role_lv": 474,
-    "role_hp": 8778000,
+    "role_hp": 7315180,
     "role_attack": 105348,
     "role_defense": 87780,
     "attack_speed": 1000,
@@ -7585,7 +7585,7 @@
   },
   {
     "role_lv": 475,
-    "role_hp": 8814000,
+    "role_hp": 7345180,
     "role_attack": 105780,
     "role_defense": 88140,
     "attack_speed": 1000,
@@ -7601,7 +7601,7 @@
   },
   {
     "role_lv": 476,
-    "role_hp": 8850000,
+    "role_hp": 7375180,
     "role_attack": 106212,
     "role_defense": 88500,
     "attack_speed": 1000,
@@ -7617,7 +7617,7 @@
   },
   {
     "role_lv": 477,
-    "role_hp": 8886000,
+    "role_hp": 7405180,
     "role_attack": 106644,
     "role_defense": 88860,
     "attack_speed": 1000,
@@ -7633,7 +7633,7 @@
   },
   {
     "role_lv": 478,
-    "role_hp": 8922000,
+    "role_hp": 7435180,
     "role_attack": 107076,
     "role_defense": 89220,
     "attack_speed": 1000,
@@ -7649,7 +7649,7 @@
   },
   {
     "role_lv": 479,
-    "role_hp": 8958000,
+    "role_hp": 7465180,
     "role_attack": 107508,
     "role_defense": 89580,
     "attack_speed": 1000,
@@ -7665,7 +7665,7 @@
   },
   {
     "role_lv": 480,
-    "role_hp": 8994000,
+    "role_hp": 7495180,
     "role_attack": 107940,
     "role_defense": 89940,
     "attack_speed": 1000,
@@ -7681,7 +7681,7 @@
   },
   {
     "role_lv": 481,
-    "role_hp": 9031500,
+    "role_hp": 7526430,
     "role_attack": 108390,
     "role_defense": 90315,
     "attack_speed": 1000,
@@ -7697,7 +7697,7 @@
   },
   {
     "role_lv": 482,
-    "role_hp": 9069000,
+    "role_hp": 7557680,
     "role_attack": 108840,
     "role_defense": 90690,
     "attack_speed": 1000,
@@ -7713,7 +7713,7 @@
   },
   {
     "role_lv": 483,
-    "role_hp": 9106500,
+    "role_hp": 7588930,
     "role_attack": 109290,
     "role_defense": 91065,
     "attack_speed": 1000,
@@ -7729,7 +7729,7 @@
   },
   {
     "role_lv": 484,
-    "role_hp": 9144000,
+    "role_hp": 7620180,
     "role_attack": 109740,
     "role_defense": 91440,
     "attack_speed": 1000,
@@ -7745,7 +7745,7 @@
   },
   {
     "role_lv": 485,
-    "role_hp": 9181500,
+    "role_hp": 7651430,
     "role_attack": 110190,
     "role_defense": 91815,
     "attack_speed": 1000,
@@ -7761,7 +7761,7 @@
   },
   {
     "role_lv": 486,
-    "role_hp": 9219000,
+    "role_hp": 7682680,
     "role_attack": 110640,
     "role_defense": 92190,
     "attack_speed": 1000,
@@ -7777,7 +7777,7 @@
   },
   {
     "role_lv": 487,
-    "role_hp": 9256500,
+    "role_hp": 7713930,
     "role_attack": 111090,
     "role_defense": 92565,
     "attack_speed": 1000,
@@ -7793,7 +7793,7 @@
   },
   {
     "role_lv": 488,
-    "role_hp": 9294000,
+    "role_hp": 7745180,
     "role_attack": 111540,
     "role_defense": 92940,
     "attack_speed": 1000,
@@ -7809,7 +7809,7 @@
   },
   {
     "role_lv": 489,
-    "role_hp": 9331500,
+    "role_hp": 7776430,
     "role_attack": 111990,
     "role_defense": 93315,
     "attack_speed": 1000,
@@ -7825,7 +7825,7 @@
   },
   {
     "role_lv": 490,
-    "role_hp": 9369000,
+    "role_hp": 7807680,
     "role_attack": 112440,
     "role_defense": 93690,
     "attack_speed": 1000,
@@ -7841,7 +7841,7 @@
   },
   {
     "role_lv": 491,
-    "role_hp": 9406500,
+    "role_hp": 7838930,
     "role_attack": 112890,
     "role_defense": 94065,
     "attack_speed": 1000,
@@ -7857,7 +7857,7 @@
   },
   {
     "role_lv": 492,
-    "role_hp": 9444000,
+    "role_hp": 7870180,
     "role_attack": 113340,
     "role_defense": 94440,
     "attack_speed": 1000,
@@ -7873,7 +7873,7 @@
   },
   {
     "role_lv": 493,
-    "role_hp": 9481500,
+    "role_hp": 7901430,
     "role_attack": 113790,
     "role_defense": 94815,
     "attack_speed": 1000,
@@ -7889,7 +7889,7 @@
   },
   {
     "role_lv": 494,
-    "role_hp": 9519000,
+    "role_hp": 7932680,
     "role_attack": 114240,
     "role_defense": 95190,
     "attack_speed": 1000,
@@ -7905,7 +7905,7 @@
   },
   {
     "role_lv": 495,
-    "role_hp": 9556500,
+    "role_hp": 7963930,
     "role_attack": 114690,
     "role_defense": 95565,
     "attack_speed": 1000,
@@ -7921,7 +7921,7 @@
   },
   {
     "role_lv": 496,
-    "role_hp": 9594000,
+    "role_hp": 7995180,
     "role_attack": 115140,
     "role_defense": 95940,
     "attack_speed": 1000,
@@ -7937,7 +7937,7 @@
   },
   {
     "role_lv": 497,
-    "role_hp": 9631500,
+    "role_hp": 8026430,
     "role_attack": 115590,
     "role_defense": 96315,
     "attack_speed": 1000,
@@ -7953,7 +7953,7 @@
   },
   {
     "role_lv": 498,
-    "role_hp": 9669000,
+    "role_hp": 8057680,
     "role_attack": 116040,
     "role_defense": 96690,
     "attack_speed": 1000,
@@ -7969,7 +7969,7 @@
   },
   {
     "role_lv": 499,
-    "role_hp": 9706500,
+    "role_hp": 8088930,
     "role_attack": 116490,
     "role_defense": 97065,
     "attack_speed": 1000,
@@ -7985,7 +7985,7 @@
   },
   {
     "role_lv": 500,
-    "role_hp": 9744000,
+    "role_hp": 8120180,
     "role_attack": 116940,
     "role_defense": 97440,
     "attack_speed": 1000,

@@ -24,7 +24,7 @@ public class PlayControl : Attacker
         initEquip();
         int count = 2;
         mFightManager.registerAttacker (this);
-      /*  if (InventoryHalper.getIntance().getInventorys().Count == 0 
+        if (InventoryHalper.getIntance().getInventorys().Count == 0 
             && InventoryHalper.getIntance().getUsercard().Count == 0
             && !GameManager.getIntance().isAddGoodForTest)
         {
@@ -44,7 +44,7 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(3000013, count);
             BackpackManager.getIntance().addGoods(3000014, count);
             BackpackManager.getIntance().addGoods(3000015, count);
-        }*/
+        }
 
     }
     private void initAnimalEvent() {
@@ -168,7 +168,7 @@ public class PlayControl : Attacker
         mLunhuiAttribute.clear();
         mLunhuiAttributePre.clear();
         mSkillManager.lunhuiDownCardCost = 0;
-        mSkillManager.lunhuiCardHurtPre = 1;
+        mSkillManager.lunhuiCardHurtPre = 0;
         mSkillManager.lunhuiHurtPre = 0;
 
         GameManager.getIntance().mLunhuiOnlineGet = 0;
@@ -244,8 +244,6 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 400007)
                     {
-                        mSkillManager.lunhuiDownCardCost = 0;
-                        mSkillManager.lunhuiCardHurtPre = 1;
                         mSkillManager.lunhuiCardHurtPre += date.value;
                     }
                     else if (date.type == 400008)
@@ -253,22 +251,23 @@ public class PlayControl : Attacker
                         
                         mSkillManager.lunhuiDownCardCost += date.value;
                     }
-                    else if (date.type == 400009)
+                    else if (date.type == 400012)
+                    {
+                        mLunhuiAttributePre.attackSpeed += date.value;
+                    }
+                    else if (date.type == 500001)
                     {
                         GameManager.getIntance().mLunhuiOnlineGet += ((float)date.value/10000);
                     }
-                    else if (date.type == 400010)
+                    else if (date.type == 500002)
                     {
                         GameManager.getIntance().mLunhuiOutlineGet += ((float)date.value / 10000);
                     }
-                    else if (date.type == 400011)
+                    else if (date.type == 500003)
                     {
                         GameManager.getIntance().mLunhuiLunhuiGet += ((float)date.value / 10000);
                     }
-                    else if (date.type == 400012)
-                    {
-                        mLunhuiAttributePre.aggressivity += date.value;
-                    }
+                   
                 }  
             }
         }

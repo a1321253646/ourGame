@@ -2,112 +2,112 @@
   {
     "id": -9,
     "name": "第-9关",
-    "wellen": "1001#1002",
-    "boss_DI": 10013001,
+    "wellen": "100101#100102",
+    "boss_DI": "1001300101",
     "boss_gas": 100,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 0,
-    "offlinereward": "125"
+    "Reincarnation": 1,
+    "offlinereward": "63"
   },
   {
     "id": -8,
-    "name": "第-8关",
-    "wellen": "2001#2002",
-    "boss_DI": 10023001,
+    "name": "第2关",
+    "wellen": "200101#200102",
+    "boss_DI": "1002300101",
     "boss_gas": 140,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 0,
-    "offlinereward": "426"
+    "Reincarnation": 2,
+    "offlinereward": "213"
   },
   {
     "id": -7,
-    "name": "第-7关",
-    "wellen": "3001#3002",
-    "boss_DI": 10033001,
+    "name": "第3关",
+    "wellen": "300101#300102",
+    "boss_DI": "1003300101",
     "boss_gas": 160,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 0,
-    "offlinereward": "650"
+    "Reincarnation": 3,
+    "offlinereward": "325"
   },
   {
     "id": -6,
-    "name": "第-6关",
-    "wellen": "4001#4002#4003",
-    "boss_DI": 10043001,
-    "boss_gas": 240,
+    "name": "第4关",
+    "wellen": "400101#400102#400103",
+    "boss_DI": "1004300101",
+    "boss_gas": 200,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 0,
-    "offlinereward": "804"
+    "Reincarnation": 4,
+    "offlinereward": "402"
   },
   {
     "id": -5,
-    "name": "第-5关",
-    "wellen": "5001#5002#5003",
-    "boss_DI": 10053001,
+    "name": "第5关",
+    "wellen": "500101#500102#500103",
+    "boss_DI": "1005300101",
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 0,
-    "offlinereward": "1000"
+    "Reincarnation": 5,
+    "offlinereward": "500"
   },
   {
     "id": -4,
-    "name": "第-4关",
-    "wellen": "6001#6002#6003",
-    "boss_DI": 10063001,
+    "name": "第6关",
+    "wellen": "600101#600102#600103",
+    "boss_DI": "1006300101",
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 0,
-    "offlinereward": "1135"
+    "Reincarnation": 6,
+    "offlinereward": "568"
   },
   {
     "id": -3,
-    "name": "第-3关",
-    "wellen": "7001#7002#7003",
-    "boss_DI": 10073001,
+    "name": "第7关",
+    "wellen": "700101#700102#700103",
+    "boss_DI": "1007300101",
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 0,
-    "offlinereward": "1256"
+    "Reincarnation": 7,
+    "offlinereward": "628"
   },
   {
     "id": -2,
-    "name": "第-2关",
-    "wellen": "8001#8002#8003",
-    "boss_DI": 10083001,
+    "name": "第8关",
+    "wellen": "800101#800102#800103",
+    "boss_DI": "1008300101",
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 0,
-    "offlinereward": "1313"
+    "Reincarnation": 8,
+    "offlinereward": "657"
   },
   {
     "id": -1,
-    "name": "第-1关",
-    "wellen": "9001#9002#9003",
-    "boss_DI": 10093001,
+    "name": "第9关",
+    "wellen": "900101#900102#900103",
+    "boss_DI": "1009300101",
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 0,
-    "offlinereward": "1455"
+    "Reincarnation": 9,
+    "offlinereward": "727"
   },
   {
     "id": 0,
-    "name": "第-0关",
-    "wellen": "10001#10002#10003",
-    "boss_DI": 10103001,
+    "name": "第10关",
+    "wellen": "1000101#1000102#1000103",
+    "boss_DI": "1010300101",
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 0,
-    "offlinereward": "1589"
+    "Reincarnation": 10,
+    "offlinereward": "795"
   },
   {
     "id": 1,
@@ -117,18 +117,7 @@
     "boss_gas": 100,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 0,
-    "offlinereward": "125"
-  },
-  {
-    "id": 1,
-    "name": "第1关",
-    "wellen": "1001#1002",
-    "boss_DI": 10013001,
-    "boss_gas": 100,
-    "abc": "",
-    "map": "map_01",
-    "Reincarnation": 0,
+    "Reincarnation": 1,
     "offlinereward": "63"
   },
   {
@@ -139,7 +128,7 @@
     "boss_gas": 140,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 0,
+    "Reincarnation": 2,
     "offlinereward": "213"
   },
   {
@@ -150,7 +139,7 @@
     "boss_gas": 160,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 0,
+    "Reincarnation": 3,
     "offlinereward": "325"
   },
   {
@@ -158,10 +147,10 @@
     "name": "第4关",
     "wellen": "4001#4002#4003",
     "boss_DI": 10043001,
-    "boss_gas": 240,
+    "boss_gas": 200,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 0,
+    "Reincarnation": 4,
     "offlinereward": "402"
   },
   {
@@ -172,7 +161,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 0,
+    "Reincarnation": 5,
     "offlinereward": "500"
   },
   {
@@ -183,7 +172,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 0,
+    "Reincarnation": 6,
     "offlinereward": "568"
   },
   {
@@ -194,7 +183,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 0,
+    "Reincarnation": 7,
     "offlinereward": "628"
   },
   {
@@ -205,7 +194,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 0,
+    "Reincarnation": 8,
     "offlinereward": "657"
   },
   {
@@ -216,7 +205,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 0,
+    "Reincarnation": 9,
     "offlinereward": "727"
   },
   {
@@ -227,7 +216,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 0,
+    "Reincarnation": 10,
     "offlinereward": "795"
   },
   {
@@ -238,7 +227,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 0,
+    "Reincarnation": 11,
     "offlinereward": "947"
   },
   {
@@ -249,7 +238,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 0,
+    "Reincarnation": 12,
     "offlinereward": "1148"
   },
   {
@@ -260,7 +249,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 0,
+    "Reincarnation": 13,
     "offlinereward": "1340"
   },
   {
@@ -271,7 +260,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 0,
+    "Reincarnation": 14,
     "offlinereward": "1521"
   },
   {
@@ -282,7 +271,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 0,
+    "Reincarnation": 15,
     "offlinereward": "1684"
   },
   {
@@ -293,7 +282,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 0,
+    "Reincarnation": 16,
     "offlinereward": "1847"
   },
   {
@@ -304,7 +293,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 0,
+    "Reincarnation": 17,
     "offlinereward": "1986"
   },
   {
@@ -315,7 +304,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 0,
+    "Reincarnation": 18,
     "offlinereward": "2130"
   },
   {
@@ -326,7 +315,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 0,
+    "Reincarnation": 19,
     "offlinereward": "2317"
   },
   {
@@ -337,7 +326,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 0,
+    "Reincarnation": 20,
     "offlinereward": "2504"
   },
   {
@@ -348,7 +337,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 10,
+    "Reincarnation": 21,
     "offlinereward": "2877"
   },
   {
@@ -359,7 +348,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 10,
+    "Reincarnation": 22,
     "offlinereward": "2995"
   },
   {
@@ -370,7 +359,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 10,
+    "Reincarnation": 23,
     "offlinereward": "3157"
   },
   {
@@ -381,7 +370,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 10,
+    "Reincarnation": 24,
     "offlinereward": "3313"
   },
   {
@@ -392,7 +381,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 10,
+    "Reincarnation": 25,
     "offlinereward": "3448"
   },
   {
@@ -403,7 +392,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 10,
+    "Reincarnation": 26,
     "offlinereward": "3567"
   },
   {
@@ -414,7 +403,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 10,
+    "Reincarnation": 27,
     "offlinereward": "3683"
   },
   {
@@ -425,7 +414,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 10,
+    "Reincarnation": 28,
     "offlinereward": "3853"
   },
   {
@@ -436,7 +425,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 10,
+    "Reincarnation": 29,
     "offlinereward": "4016"
   },
   {
@@ -447,7 +436,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 10,
+    "Reincarnation": 30,
     "offlinereward": "4160"
   },
   {
@@ -458,7 +447,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 20,
+    "Reincarnation": 31,
     "offlinereward": "4282"
   },
   {
@@ -469,7 +458,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 20,
+    "Reincarnation": 32,
     "offlinereward": "4389"
   },
   {
@@ -480,7 +469,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 20,
+    "Reincarnation": 33,
     "offlinereward": "4485"
   },
   {
@@ -491,7 +480,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 20,
+    "Reincarnation": 34,
     "offlinereward": "4550"
   },
   {
@@ -502,7 +491,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 20,
+    "Reincarnation": 35,
     "offlinereward": "4595"
   },
   {
@@ -513,7 +502,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 20,
+    "Reincarnation": 36,
     "offlinereward": "4644"
   },
   {
@@ -524,7 +513,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 20,
+    "Reincarnation": 37,
     "offlinereward": "4655"
   },
   {
@@ -535,7 +524,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 20,
+    "Reincarnation": 38,
     "offlinereward": "4758"
   },
   {
@@ -546,7 +535,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 20,
+    "Reincarnation": 39,
     "offlinereward": "4899"
   },
   {
@@ -557,7 +546,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 20,
+    "Reincarnation": 40,
     "offlinereward": "5062"
   },
   {
@@ -568,7 +557,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 30,
+    "Reincarnation": 41,
     "offlinereward": "5211"
   },
   {
@@ -579,7 +568,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 30,
+    "Reincarnation": 42,
     "offlinereward": "5360"
   },
   {
@@ -590,7 +579,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 30,
+    "Reincarnation": 43,
     "offlinereward": "5484"
   },
   {
@@ -601,7 +590,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 30,
+    "Reincarnation": 44,
     "offlinereward": "5627"
   },
   {
@@ -612,7 +601,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 30,
+    "Reincarnation": 45,
     "offlinereward": "5727"
   },
   {
@@ -623,7 +612,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 30,
+    "Reincarnation": 46,
     "offlinereward": "5848"
   },
   {
@@ -634,7 +623,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 30,
+    "Reincarnation": 47,
     "offlinereward": "5947"
   },
   {
@@ -645,7 +634,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 30,
+    "Reincarnation": 48,
     "offlinereward": "6028"
   },
   {
@@ -656,7 +645,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 30,
+    "Reincarnation": 49,
     "offlinereward": "6127"
   },
   {
@@ -667,7 +656,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 30,
+    "Reincarnation": 50,
     "offlinereward": "6201"
   },
   {
@@ -678,7 +667,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 40,
+    "Reincarnation": 51,
     "offlinereward": "6261"
   },
   {
@@ -689,7 +678,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 40,
+    "Reincarnation": 52,
     "offlinereward": "6321"
   },
   {
@@ -700,7 +689,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 40,
+    "Reincarnation": 53,
     "offlinereward": "6401"
   },
   {
@@ -711,7 +700,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 40,
+    "Reincarnation": 54,
     "offlinereward": "6514"
   },
   {
@@ -722,7 +711,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 40,
+    "Reincarnation": 55,
     "offlinereward": "6617"
   },
   {
@@ -733,7 +722,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 40,
+    "Reincarnation": 56,
     "offlinereward": "6711"
   },
   {
@@ -744,7 +733,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 40,
+    "Reincarnation": 57,
     "offlinereward": "6797"
   },
   {
@@ -755,7 +744,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 40,
+    "Reincarnation": 58,
     "offlinereward": "6892"
   },
   {
@@ -766,7 +755,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 40,
+    "Reincarnation": 59,
     "offlinereward": "6956"
   },
   {
@@ -777,7 +766,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 40,
+    "Reincarnation": 60,
     "offlinereward": "7010"
   },
   {
@@ -788,7 +777,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 50,
+    "Reincarnation": 61,
     "offlinereward": "7056"
   },
   {
@@ -799,7 +788,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 50,
+    "Reincarnation": 62,
     "offlinereward": "7092"
   },
   {
@@ -810,7 +799,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 50,
+    "Reincarnation": 63,
     "offlinereward": "7119"
   },
   {
@@ -821,7 +810,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 50,
+    "Reincarnation": 64,
     "offlinereward": "7137"
   },
   {
@@ -832,8 +821,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 50,
-    "offlinereward": "7146"
+    "Reincarnation": 65,
+    "offlinereward": "7219"
   },
   {
     "id": 66,
@@ -843,8 +832,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 50,
-    "offlinereward": "7146"
+    "Reincarnation": 66,
+    "offlinereward": "7148"
   },
   {
     "id": 67,
@@ -854,8 +843,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 50,
-    "offlinereward": "7137"
+    "Reincarnation": 67,
+    "offlinereward": "7138"
   },
   {
     "id": 68,
@@ -865,8 +854,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 50,
-    "offlinereward": "7235"
+    "Reincarnation": 68,
+    "offlinereward": "7236"
   },
   {
     "id": 69,
@@ -876,8 +865,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 50,
-    "offlinereward": "7331"
+    "Reincarnation": 69,
+    "offlinereward": "7332"
   },
   {
     "id": 70,
@@ -887,8 +876,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 50,
-    "offlinereward": "7423"
+    "Reincarnation": 70,
+    "offlinereward": "7425"
   },
   {
     "id": 71,
@@ -898,8 +887,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 60,
-    "offlinereward": "7515"
+    "Reincarnation": 71,
+    "offlinereward": "7517"
   },
   {
     "id": 72,
@@ -909,8 +898,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 60,
-    "offlinereward": "7609"
+    "Reincarnation": 72,
+    "offlinereward": "7612"
   },
   {
     "id": 73,
@@ -920,8 +909,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 60,
-    "offlinereward": "7761"
+    "Reincarnation": 73,
+    "offlinereward": "7762"
   },
   {
     "id": 74,
@@ -931,8 +920,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 60,
-    "offlinereward": "7926"
+    "Reincarnation": 74,
+    "offlinereward": "7927"
   },
   {
     "id": 75,
@@ -942,8 +931,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 60,
-    "offlinereward": "8070"
+    "Reincarnation": 75,
+    "offlinereward": "8073"
   },
   {
     "id": 76,
@@ -953,8 +942,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 60,
-    "offlinereward": "8212"
+    "Reincarnation": 76,
+    "offlinereward": "8214"
   },
   {
     "id": 77,
@@ -964,8 +953,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 60,
-    "offlinereward": "8350"
+    "Reincarnation": 77,
+    "offlinereward": "8352"
   },
   {
     "id": 78,
@@ -975,8 +964,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 60,
-    "offlinereward": "8484"
+    "Reincarnation": 78,
+    "offlinereward": "8487"
   },
   {
     "id": 79,
@@ -986,8 +975,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 60,
-    "offlinereward": "8615"
+    "Reincarnation": 79,
+    "offlinereward": "8618"
   },
   {
     "id": 80,
@@ -997,8 +986,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 60,
-    "offlinereward": "8743"
+    "Reincarnation": 80,
+    "offlinereward": "8745"
   },
   {
     "id": 81,
@@ -1008,8 +997,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 70,
-    "offlinereward": "8867"
+    "Reincarnation": 81,
+    "offlinereward": "8869"
   },
   {
     "id": 82,
@@ -1019,8 +1008,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 70,
-    "offlinereward": "8988"
+    "Reincarnation": 82,
+    "offlinereward": "8990"
   },
   {
     "id": 83,
@@ -1030,7 +1019,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 70,
+    "Reincarnation": 83,
     "offlinereward": "9124"
   },
   {
@@ -1041,8 +1030,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 70,
-    "offlinereward": "9250"
+    "Reincarnation": 84,
+    "offlinereward": "9252"
   },
   {
     "id": 85,
@@ -1052,8 +1041,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 70,
-    "offlinereward": "9362"
+    "Reincarnation": 85,
+    "offlinereward": "9364"
   },
   {
     "id": 86,
@@ -1063,8 +1052,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 70,
-    "offlinereward": "9469"
+    "Reincarnation": 86,
+    "offlinereward": "9472"
   },
   {
     "id": 87,
@@ -1074,8 +1063,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 70,
-    "offlinereward": "9574"
+    "Reincarnation": 87,
+    "offlinereward": "9576"
   },
   {
     "id": 88,
@@ -1085,8 +1074,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 70,
-    "offlinereward": "9675"
+    "Reincarnation": 88,
+    "offlinereward": "9678"
   },
   {
     "id": 89,
@@ -1096,8 +1085,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 70,
-    "offlinereward": "9774"
+    "Reincarnation": 89,
+    "offlinereward": "9776"
   },
   {
     "id": 90,
@@ -1107,7 +1096,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 70,
+    "Reincarnation": 90,
     "offlinereward": "9898"
   },
   {
@@ -1118,8 +1107,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 80,
-    "offlinereward": "9998"
+    "Reincarnation": 91,
+    "offlinereward": "10000"
   },
   {
     "id": 92,
@@ -1129,8 +1118,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 80,
-    "offlinereward": "10087"
+    "Reincarnation": 92,
+    "offlinereward": "10089"
   },
   {
     "id": 93,
@@ -1140,8 +1129,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 80,
-    "offlinereward": "10172"
+    "Reincarnation": 93,
+    "offlinereward": "10174"
   },
   {
     "id": 94,
@@ -1151,8 +1140,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 80,
-    "offlinereward": "10254"
+    "Reincarnation": 94,
+    "offlinereward": "10256"
   },
   {
     "id": 95,
@@ -1162,7 +1151,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 80,
+    "Reincarnation": 95,
     "offlinereward": "10339"
   },
   {
@@ -1173,8 +1162,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 80,
-    "offlinereward": "10541"
+    "Reincarnation": 96,
+    "offlinereward": "10544"
   },
   {
     "id": 97,
@@ -1184,8 +1173,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 80,
-    "offlinereward": "10682"
+    "Reincarnation": 97,
+    "offlinereward": "10685"
   },
   {
     "id": 98,
@@ -1195,8 +1184,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 80,
-    "offlinereward": "10818"
+    "Reincarnation": 98,
+    "offlinereward": "10821"
   },
   {
     "id": 99,
@@ -1206,8 +1195,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 80,
-    "offlinereward": "10949"
+    "Reincarnation": 99,
+    "offlinereward": "10952"
   },
   {
     "id": 100,
@@ -1217,7 +1206,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 80,
+    "Reincarnation": 100,
     "offlinereward": "11094"
   },
   {
@@ -1228,8 +1217,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 90,
-    "offlinereward": "11271"
+    "Reincarnation": 102,
+    "offlinereward": "11274"
   },
   {
     "id": 102,
@@ -1239,8 +1228,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 90,
-    "offlinereward": "11388"
+    "Reincarnation": 104,
+    "offlinereward": "11392"
   },
   {
     "id": 103,
@@ -1250,8 +1239,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 90,
-    "offlinereward": "11501"
+    "Reincarnation": 106,
+    "offlinereward": "11504"
   },
   {
     "id": 104,
@@ -1261,8 +1250,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 90,
-    "offlinereward": "11608"
+    "Reincarnation": 108,
+    "offlinereward": "11610"
   },
   {
     "id": 105,
@@ -1272,7 +1261,7 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 90,
+    "Reincarnation": 110,
     "offlinereward": "11779"
   },
   {
@@ -1283,8 +1272,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 90,
-    "offlinereward": "11890"
+    "Reincarnation": 112,
+    "offlinereward": "11893"
   },
   {
     "id": 107,
@@ -1294,8 +1283,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 90,
-    "offlinereward": "11983"
+    "Reincarnation": 114,
+    "offlinereward": "11987"
   },
   {
     "id": 108,
@@ -1305,8 +1294,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 90,
-    "offlinereward": "12071"
+    "Reincarnation": 116,
+    "offlinereward": "12157"
   },
   {
     "id": 109,
@@ -1316,8 +1305,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 90,
-    "offlinereward": "12229"
+    "Reincarnation": 118,
+    "offlinereward": "12394"
   },
   {
     "id": 110,
@@ -1327,8 +1316,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 90,
-    "offlinereward": "12324"
+    "Reincarnation": 120,
+    "offlinereward": "12585"
   },
   {
     "id": 111,
@@ -1338,8 +1327,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 100,
-    "offlinereward": "12398"
+    "Reincarnation": 122,
+    "offlinereward": "12756"
   },
   {
     "id": 112,
@@ -1349,8 +1338,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 100,
-    "offlinereward": "12476"
+    "Reincarnation": 124,
+    "offlinereward": "12926"
   },
   {
     "id": 113,
@@ -1360,8 +1349,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 100,
-    "offlinereward": "12628"
+    "Reincarnation": 126,
+    "offlinereward": "13163"
   },
   {
     "id": 114,
@@ -1371,8 +1360,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 100,
-    "offlinereward": "12688"
+    "Reincarnation": 128,
+    "offlinereward": "13354"
   },
   {
     "id": 115,
@@ -1382,8 +1371,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 100,
-    "offlinereward": "12744"
+    "Reincarnation": 130,
+    "offlinereward": "13525"
   },
   {
     "id": 116,
@@ -1393,8 +1382,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 100,
-    "offlinereward": "12855"
+    "Reincarnation": 132,
+    "offlinereward": "13696"
   },
   {
     "id": 117,
@@ -1404,8 +1393,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 100,
-    "offlinereward": "12943"
+    "Reincarnation": 134,
+    "offlinereward": "13932"
   },
   {
     "id": 118,
@@ -1415,8 +1404,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 100,
-    "offlinereward": "12985"
+    "Reincarnation": 136,
+    "offlinereward": "14123"
   },
   {
     "id": 119,
@@ -1426,8 +1415,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 100,
-    "offlinereward": "13053"
+    "Reincarnation": 138,
+    "offlinereward": "14294"
   },
   {
     "id": 120,
@@ -1437,8 +1426,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 100,
-    "offlinereward": "13162"
+    "Reincarnation": 140,
+    "offlinereward": "14465"
   },
   {
     "id": 121,
@@ -1448,8 +1437,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 110,
-    "offlinereward": "13190"
+    "Reincarnation": 142,
+    "offlinereward": "14701"
   },
   {
     "id": 122,
@@ -1459,8 +1448,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 110,
-    "offlinereward": "13230"
+    "Reincarnation": 144,
+    "offlinereward": "14988"
   },
   {
     "id": 123,
@@ -1470,8 +1459,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 110,
-    "offlinereward": "13451"
+    "Reincarnation": 146,
+    "offlinereward": "15244"
   },
   {
     "id": 124,
@@ -1481,8 +1470,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 110,
-    "offlinereward": "13522"
+    "Reincarnation": 148,
+    "offlinereward": "15501"
   },
   {
     "id": 125,
@@ -1492,8 +1481,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 110,
-    "offlinereward": "13614"
+    "Reincarnation": 150,
+    "offlinereward": "15854"
   },
   {
     "id": 126,
@@ -1503,8 +1492,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 110,
-    "offlinereward": "13818"
+    "Reincarnation": 152,
+    "offlinereward": "16142"
   },
   {
     "id": 127,
@@ -1514,8 +1503,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 110,
-    "offlinereward": "13869"
+    "Reincarnation": 154,
+    "offlinereward": "16397"
   },
   {
     "id": 128,
@@ -1525,8 +1514,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 110,
-    "offlinereward": "13965"
+    "Reincarnation": 156,
+    "offlinereward": "16654"
   },
   {
     "id": 129,
@@ -1536,8 +1525,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 110,
-    "offlinereward": "14132"
+    "Reincarnation": 158,
+    "offlinereward": "17008"
   },
   {
     "id": 130,
@@ -1547,8 +1536,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 110,
-    "offlinereward": "14162"
+    "Reincarnation": 160,
+    "offlinereward": "17295"
   },
   {
     "id": 131,
@@ -1558,8 +1547,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 120,
-    "offlinereward": "14287"
+    "Reincarnation": 162,
+    "offlinereward": "17552"
   },
   {
     "id": 132,
@@ -1569,8 +1558,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 120,
-    "offlinereward": "14391"
+    "Reincarnation": 164,
+    "offlinereward": "17808"
   },
   {
     "id": 133,
@@ -1580,8 +1569,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 120,
-    "offlinereward": "14400"
+    "Reincarnation": 166,
+    "offlinereward": "18162"
   },
   {
     "id": 134,
@@ -1591,8 +1580,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 120,
-    "offlinereward": "14577"
+    "Reincarnation": 168,
+    "offlinereward": "18448"
   },
   {
     "id": 135,
@@ -1602,8 +1591,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 120,
-    "offlinereward": "14597"
+    "Reincarnation": 170,
+    "offlinereward": "18705"
   },
   {
     "id": 136,
@@ -1613,8 +1602,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 120,
-    "offlinereward": "14529"
+    "Reincarnation": 172,
+    "offlinereward": "18961"
   },
   {
     "id": 137,
@@ -1624,8 +1613,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 120,
-    "offlinereward": "14770"
+    "Reincarnation": 174,
+    "offlinereward": "19315"
   },
   {
     "id": 138,
@@ -1635,8 +1624,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 120,
-    "offlinereward": "14873"
+    "Reincarnation": 176,
+    "offlinereward": "19602"
   },
   {
     "id": 139,
@@ -1646,8 +1635,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 120,
-    "offlinereward": "15144"
+    "Reincarnation": 178,
+    "offlinereward": "19858"
   },
   {
     "id": 140,
@@ -1657,8 +1646,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 120,
-    "offlinereward": "15283"
+    "Reincarnation": 180,
+    "offlinereward": "20115"
   },
   {
     "id": 141,
@@ -1668,8 +1657,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 130,
-    "offlinereward": "15452"
+    "Reincarnation": 182,
+    "offlinereward": "20469"
   },
   {
     "id": 142,
@@ -1679,8 +1668,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 130,
-    "offlinereward": "15693"
+    "Reincarnation": 184,
+    "offlinereward": "20756"
   },
   {
     "id": 143,
@@ -1690,8 +1679,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 130,
-    "offlinereward": "15795"
+    "Reincarnation": 186,
+    "offlinereward": "21012"
   },
   {
     "id": 144,
@@ -1701,8 +1690,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 130,
-    "offlinereward": "16067"
+    "Reincarnation": 188,
+    "offlinereward": "21269"
   },
   {
     "id": 145,
@@ -1712,8 +1701,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 130,
-    "offlinereward": "16206"
+    "Reincarnation": 190,
+    "offlinereward": "21622"
   },
   {
     "id": 146,
@@ -1723,8 +1712,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 130,
-    "offlinereward": "16375"
+    "Reincarnation": 192,
+    "offlinereward": "21909"
   },
   {
     "id": 147,
@@ -1734,8 +1723,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 130,
-    "offlinereward": "16616"
+    "Reincarnation": 194,
+    "offlinereward": "22166"
   },
   {
     "id": 148,
@@ -1745,8 +1734,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 130,
-    "offlinereward": "16719"
+    "Reincarnation": 196,
+    "offlinereward": "22438"
   },
   {
     "id": 149,
@@ -1756,8 +1745,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 130,
-    "offlinereward": "16990"
+    "Reincarnation": 198,
+    "offlinereward": "22968"
   },
   {
     "id": 150,
@@ -1767,8 +1756,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 130,
-    "offlinereward": "16984"
+    "Reincarnation": 200,
+    "offlinereward": "23398"
   },
   {
     "id": 151,
@@ -1778,8 +1767,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 140,
-    "offlinereward": "17010"
+    "Reincarnation": 202,
+    "offlinereward": "23783"
   },
   {
     "id": 152,
@@ -1789,8 +1778,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 140,
-    "offlinereward": "17091"
+    "Reincarnation": 204,
+    "offlinereward": "24167"
   },
   {
     "id": 153,
@@ -1800,8 +1789,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 140,
-    "offlinereward": "17029"
+    "Reincarnation": 206,
+    "offlinereward": "24698"
   },
   {
     "id": 154,
@@ -1811,8 +1800,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 140,
-    "offlinereward": "17167"
+    "Reincarnation": 208,
+    "offlinereward": "25129"
   },
   {
     "id": 155,
@@ -1822,8 +1811,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 140,
-    "offlinereward": "17145"
+    "Reincarnation": 210,
+    "offlinereward": "25513"
   },
   {
     "id": 156,
@@ -1833,8 +1822,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 140,
-    "offlinereward": "17303"
+    "Reincarnation": 212,
+    "offlinereward": "25898"
   },
   {
     "id": 157,
@@ -1844,8 +1833,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 140,
-    "offlinereward": "17372"
+    "Reincarnation": 214,
+    "offlinereward": "26428"
   },
   {
     "id": 158,
@@ -1855,8 +1844,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 140,
-    "offlinereward": "17423"
+    "Reincarnation": 216,
+    "offlinereward": "26860"
   },
   {
     "id": 159,
@@ -1866,8 +1855,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 140,
-    "offlinereward": "17570"
+    "Reincarnation": 218,
+    "offlinereward": "27244"
   },
   {
     "id": 160,
@@ -1877,8 +1866,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 140,
-    "offlinereward": "17528"
+    "Reincarnation": 220,
+    "offlinereward": "27628"
   },
   {
     "id": 161,
@@ -1888,8 +1877,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 150,
-    "offlinereward": "17737"
+    "Reincarnation": 222,
+    "offlinereward": "28159"
   },
   {
     "id": 162,
@@ -1899,8 +1888,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 150,
-    "offlinereward": "17630"
+    "Reincarnation": 224,
+    "offlinereward": "28590"
   },
   {
     "id": 163,
@@ -1910,8 +1899,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 150,
-    "offlinereward": "17861"
+    "Reincarnation": 226,
+    "offlinereward": "28974"
   },
   {
     "id": 164,
@@ -1921,8 +1910,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 150,
-    "offlinereward": "17747"
+    "Reincarnation": 228,
+    "offlinereward": "29359"
   },
   {
     "id": 165,
@@ -1932,8 +1921,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 150,
-    "offlinereward": "17924"
+    "Reincarnation": 230,
+    "offlinereward": "29889"
   },
   {
     "id": 166,
@@ -1943,8 +1932,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 150,
-    "offlinereward": "17833"
+    "Reincarnation": 232,
+    "offlinereward": "30321"
   },
   {
     "id": 167,
@@ -1954,8 +1943,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 150,
-    "offlinereward": "17972"
+    "Reincarnation": 234,
+    "offlinereward": "30705"
   },
   {
     "id": 168,
@@ -1965,8 +1954,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 150,
-    "offlinereward": "17888"
+    "Reincarnation": 236,
+    "offlinereward": "31089"
   },
   {
     "id": 169,
@@ -1976,8 +1965,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 150,
-    "offlinereward": "18004"
+    "Reincarnation": 238,
+    "offlinereward": "31620"
   },
   {
     "id": 170,
@@ -1987,8 +1976,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 150,
-    "offlinereward": "18096"
+    "Reincarnation": 240,
+    "offlinereward": "32051"
   },
   {
     "id": 171,
@@ -1998,8 +1987,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 160,
-    "offlinereward": "18388"
+    "Reincarnation": 242,
+    "offlinereward": "32435"
   },
   {
     "id": 172,
@@ -2009,8 +1998,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 160,
-    "offlinereward": "18481"
+    "Reincarnation": 244,
+    "offlinereward": "32820"
   },
   {
     "id": 173,
@@ -2020,8 +2009,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 160,
-    "offlinereward": "18772"
+    "Reincarnation": 246,
+    "offlinereward": "33350"
   },
   {
     "id": 174,
@@ -2031,8 +2020,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 160,
-    "offlinereward": "18865"
+    "Reincarnation": 248,
+    "offlinereward": "33781"
   },
   {
     "id": 175,
@@ -2042,8 +2031,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 160,
-    "offlinereward": "19157"
+    "Reincarnation": 250,
+    "offlinereward": "34285"
   },
   {
     "id": 176,
@@ -2053,8 +2042,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 160,
-    "offlinereward": "19249"
+    "Reincarnation": 252,
+    "offlinereward": "34862"
   },
   {
     "id": 177,
@@ -2064,8 +2053,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 160,
-    "offlinereward": "19541"
+    "Reincarnation": 254,
+    "offlinereward": "35657"
   },
   {
     "id": 178,
@@ -2075,8 +2064,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 160,
-    "offlinereward": "19634"
+    "Reincarnation": 256,
+    "offlinereward": "36304"
   },
   {
     "id": 179,
@@ -2086,8 +2075,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 160,
-    "offlinereward": "19926"
+    "Reincarnation": 258,
+    "offlinereward": "36880"
   },
   {
     "id": 180,
@@ -2097,8 +2086,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 160,
-    "offlinereward": "20019"
+    "Reincarnation": 260,
+    "offlinereward": "37457"
   },
   {
     "id": 181,
@@ -2108,8 +2097,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 170,
-    "offlinereward": "20311"
+    "Reincarnation": 262,
+    "offlinereward": "38253"
   },
   {
     "id": 182,
@@ -2119,8 +2108,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 170,
-    "offlinereward": "20403"
+    "Reincarnation": 264,
+    "offlinereward": "38899"
   },
   {
     "id": 183,
@@ -2130,8 +2119,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 170,
-    "offlinereward": "20696"
+    "Reincarnation": 266,
+    "offlinereward": "39476"
   },
   {
     "id": 184,
@@ -2141,8 +2130,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 170,
-    "offlinereward": "20788"
+    "Reincarnation": 268,
+    "offlinereward": "40052"
   },
   {
     "id": 185,
@@ -2152,8 +2141,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 170,
-    "offlinereward": "21080"
+    "Reincarnation": 270,
+    "offlinereward": "40849"
   },
   {
     "id": 186,
@@ -2163,8 +2152,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 170,
-    "offlinereward": "21172"
+    "Reincarnation": 272,
+    "offlinereward": "41494"
   },
   {
     "id": 187,
@@ -2174,8 +2163,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 170,
-    "offlinereward": "21465"
+    "Reincarnation": 274,
+    "offlinereward": "42071"
   },
   {
     "id": 188,
@@ -2185,8 +2174,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 170,
-    "offlinereward": "21557"
+    "Reincarnation": 276,
+    "offlinereward": "42649"
   },
   {
     "id": 189,
@@ -2196,8 +2185,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 170,
-    "offlinereward": "21849"
+    "Reincarnation": 278,
+    "offlinereward": "43444"
   },
   {
     "id": 190,
@@ -2207,8 +2196,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 170,
-    "offlinereward": "21941"
+    "Reincarnation": 280,
+    "offlinereward": "44091"
   },
   {
     "id": 191,
@@ -2218,8 +2207,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "22234"
+    "Reincarnation": 282,
+    "offlinereward": "44667"
   },
   {
     "id": 192,
@@ -2229,8 +2218,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "22326"
+    "Reincarnation": 284,
+    "offlinereward": "45244"
   },
   {
     "id": 193,
@@ -2240,8 +2229,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "22618"
+    "Reincarnation": 286,
+    "offlinereward": "46040"
   },
   {
     "id": 194,
@@ -2251,8 +2240,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "22757"
+    "Reincarnation": 288,
+    "offlinereward": "46686"
   },
   {
     "id": 195,
@@ -2262,8 +2251,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "23195"
+    "Reincarnation": 290,
+    "offlinereward": "47263"
   },
   {
     "id": 196,
@@ -2273,8 +2262,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "23333"
+    "Reincarnation": 292,
+    "offlinereward": "47839"
   },
   {
     "id": 197,
@@ -2284,8 +2273,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "23771"
+    "Reincarnation": 294,
+    "offlinereward": "48636"
   },
   {
     "id": 198,
@@ -2295,8 +2284,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "23910"
+    "Reincarnation": 296,
+    "offlinereward": "49281"
   },
   {
     "id": 199,
@@ -2306,8 +2295,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "24349"
+    "Reincarnation": 298,
+    "offlinereward": "49858"
   },
   {
     "id": 200,
@@ -2317,8 +2306,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "24487"
+    "Reincarnation": 300,
+    "offlinereward": "50435"
   },
   {
     "id": 201,
@@ -2328,8 +2317,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "24826"
+    "Reincarnation": 303,
+    "offlinereward": "51231"
   },
   {
     "id": 202,
@@ -2339,8 +2328,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "24857"
+    "Reincarnation": 306,
+    "offlinereward": "52200"
   },
   {
     "id": 203,
@@ -2350,8 +2339,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "25196"
+    "Reincarnation": 309,
+    "offlinereward": "53065"
   },
   {
     "id": 204,
@@ -2361,8 +2350,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "25209"
+    "Reincarnation": 312,
+    "offlinereward": "53930"
   },
   {
     "id": 205,
@@ -2372,8 +2361,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "25558"
+    "Reincarnation": 315,
+    "offlinereward": "55125"
   },
   {
     "id": 206,
@@ -2383,8 +2372,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "25543"
+    "Reincarnation": 318,
+    "offlinereward": "56094"
   },
   {
     "id": 207,
@@ -2394,8 +2383,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "25909"
+    "Reincarnation": 321,
+    "offlinereward": "56959"
   },
   {
     "id": 208,
@@ -2405,8 +2394,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "25858"
+    "Reincarnation": 324,
+    "offlinereward": "57823"
   },
   {
     "id": 209,
@@ -2416,8 +2405,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "26252"
+    "Reincarnation": 327,
+    "offlinereward": "59018"
   },
   {
     "id": 210,
@@ -2427,8 +2416,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "26154"
+    "Reincarnation": 330,
+    "offlinereward": "59987"
   },
   {
     "id": 211,
@@ -2438,8 +2427,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "26586"
+    "Reincarnation": 333,
+    "offlinereward": "60852"
   },
   {
     "id": 212,
@@ -2449,8 +2438,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "26474"
+    "Reincarnation": 336,
+    "offlinereward": "61717"
   },
   {
     "id": 213,
@@ -2460,8 +2449,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "26869"
+    "Reincarnation": 339,
+    "offlinereward": "62912"
   },
   {
     "id": 214,
@@ -2471,8 +2460,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "26796"
+    "Reincarnation": 342,
+    "offlinereward": "63880"
   },
   {
     "id": 215,
@@ -2482,8 +2471,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "27122"
+    "Reincarnation": 345,
+    "offlinereward": "64746"
   },
   {
     "id": 216,
@@ -2493,8 +2482,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "27109"
+    "Reincarnation": 348,
+    "offlinereward": "65610"
   },
   {
     "id": 217,
@@ -2504,8 +2493,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "27356"
+    "Reincarnation": 351,
+    "offlinereward": "66805"
   },
   {
     "id": 218,
@@ -2515,8 +2504,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "27412"
+    "Reincarnation": 354,
+    "offlinereward": "67774"
   },
   {
     "id": 219,
@@ -2526,8 +2515,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "27572"
+    "Reincarnation": 357,
+    "offlinereward": "68638"
   },
   {
     "id": 220,
@@ -2537,8 +2526,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "27707"
+    "Reincarnation": 360,
+    "offlinereward": "69504"
   },
   {
     "id": 221,
@@ -2548,8 +2537,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "27769"
+    "Reincarnation": 363,
+    "offlinereward": "70698"
   },
   {
     "id": 222,
@@ -2559,8 +2548,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "27992"
+    "Reincarnation": 366,
+    "offlinereward": "71667"
   },
   {
     "id": 223,
@@ -2570,8 +2559,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "27948"
+    "Reincarnation": 369,
+    "offlinereward": "72533"
   },
   {
     "id": 224,
@@ -2581,8 +2570,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "28268"
+    "Reincarnation": 372,
+    "offlinereward": "73397"
   },
   {
     "id": 225,
@@ -2592,8 +2581,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "28143"
+    "Reincarnation": 375,
+    "offlinereward": "74591"
   },
   {
     "id": 226,
@@ -2603,8 +2592,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "28500"
+    "Reincarnation": 378,
+    "offlinereward": "75560"
   },
   {
     "id": 227,
@@ -2614,8 +2603,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "28407"
+    "Reincarnation": 381,
+    "offlinereward": "76425"
   },
   {
     "id": 228,
@@ -2625,8 +2614,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "28635"
+    "Reincarnation": 384,
+    "offlinereward": "77343"
   },
   {
     "id": 229,
@@ -2636,8 +2625,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "28663"
+    "Reincarnation": 387,
+    "offlinereward": "79134"
   },
   {
     "id": 230,
@@ -2647,8 +2636,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "28752"
+    "Reincarnation": 390,
+    "offlinereward": "80588"
   },
   {
     "id": 231,
@@ -2658,8 +2647,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "28908"
+    "Reincarnation": 393,
+    "offlinereward": "81885"
   },
   {
     "id": 232,
@@ -2669,8 +2658,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "28850"
+    "Reincarnation": 396,
+    "offlinereward": "83183"
   },
   {
     "id": 233,
@@ -2680,8 +2669,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "29145"
+    "Reincarnation": 399,
+    "offlinereward": "84973"
   },
   {
     "id": 234,
@@ -2691,8 +2680,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "29011"
+    "Reincarnation": 402,
+    "offlinereward": "86428"
   },
   {
     "id": 235,
@@ -2702,8 +2691,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "29292"
+    "Reincarnation": 405,
+    "offlinereward": "87725"
   },
   {
     "id": 236,
@@ -2713,8 +2702,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "29236"
+    "Reincarnation": 408,
+    "offlinereward": "89023"
   },
   {
     "id": 237,
@@ -2724,8 +2713,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "29470"
+    "Reincarnation": 411,
+    "offlinereward": "90814"
   },
   {
     "id": 238,
@@ -2735,8 +2724,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "29696"
+    "Reincarnation": 414,
+    "offlinereward": "92267"
   },
   {
     "id": 239,
@@ -2746,8 +2735,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "29660"
+    "Reincarnation": 417,
+    "offlinereward": "93565"
   },
   {
     "id": 240,
@@ -2757,8 +2746,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "30143"
+    "Reincarnation": 420,
+    "offlinereward": "94863"
   },
   {
     "id": 241,
@@ -2768,8 +2757,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "30000"
+    "Reincarnation": 423,
+    "offlinereward": "96654"
   },
   {
     "id": 242,
@@ -2779,8 +2768,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "30399"
+    "Reincarnation": 426,
+    "offlinereward": "98107"
   },
   {
     "id": 243,
@@ -2790,8 +2779,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "30429"
+    "Reincarnation": 429,
+    "offlinereward": "99405"
   },
   {
     "id": 244,
@@ -2801,8 +2790,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "30524"
+    "Reincarnation": 432,
+    "offlinereward": "100703"
   },
   {
     "id": 245,
@@ -2812,8 +2801,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "30844"
+    "Reincarnation": 435,
+    "offlinereward": "102495"
   },
   {
     "id": 246,
@@ -2823,8 +2812,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "30694"
+    "Reincarnation": 438,
+    "offlinereward": "103948"
   },
   {
     "id": 247,
@@ -2834,8 +2823,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "31174"
+    "Reincarnation": 441,
+    "offlinereward": "105246"
   },
   {
     "id": 248,
@@ -2845,8 +2834,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "31092"
+    "Reincarnation": 444,
+    "offlinereward": "106543"
   },
   {
     "id": 249,
@@ -2856,8 +2845,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "31232"
+    "Reincarnation": 447,
+    "offlinereward": "108334"
   },
   {
     "id": 250,
@@ -2867,8 +2856,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "31476"
+    "Reincarnation": 450,
+    "offlinereward": "109788"
   },
   {
     "id": 251,
@@ -2878,8 +2867,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "31318"
+    "Reincarnation": 453,
+    "offlinereward": "111086"
   },
   {
     "id": 252,
@@ -2889,8 +2878,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "31791"
+    "Reincarnation": 456,
+    "offlinereward": "112383"
   },
   {
     "id": 253,
@@ -2900,8 +2889,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "31686"
+    "Reincarnation": 459,
+    "offlinereward": "114174"
   },
   {
     "id": 254,
@@ -2911,8 +2900,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "31785"
+    "Reincarnation": 462,
+    "offlinereward": "115628"
   },
   {
     "id": 255,
@@ -2922,8 +2911,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "32039"
+    "Reincarnation": 465,
+    "offlinereward": "117328"
   },
   {
     "id": 256,
@@ -2933,8 +2922,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "31875"
+    "Reincarnation": 468,
+    "offlinereward": "119275"
   },
   {
     "id": 257,
@@ -2944,8 +2933,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "32254"
+    "Reincarnation": 471,
+    "offlinereward": "121961"
   },
   {
     "id": 258,
@@ -2955,8 +2944,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "32211"
+    "Reincarnation": 474,
+    "offlinereward": "124142"
   },
   {
     "id": 259,
@@ -2966,8 +2955,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "32181"
+    "Reincarnation": 477,
+    "offlinereward": "126088"
   },
   {
     "id": 260,
@@ -2977,8 +2966,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "32533"
+    "Reincarnation": 480,
+    "offlinereward": "128034"
   },
   {
     "id": 261,
@@ -2988,8 +2977,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "32361"
+    "Reincarnation": 483,
+    "offlinereward": "130721"
   },
   {
     "id": 262,
@@ -2999,8 +2988,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "32561"
+    "Reincarnation": 486,
+    "offlinereward": "132902"
   },
   {
     "id": 263,
@@ -3010,8 +2999,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "32666"
+    "Reincarnation": 489,
+    "offlinereward": "134848"
   },
   {
     "id": 264,
@@ -3021,8 +3010,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "32492"
+    "Reincarnation": 492,
+    "offlinereward": "136795"
   },
   {
     "id": 265,
@@ -3032,8 +3021,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "32888"
+    "Reincarnation": 495,
+    "offlinereward": "139481"
   },
   {
     "id": 266,
@@ -3043,8 +3032,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "32779"
+    "Reincarnation": 498,
+    "offlinereward": "141662"
   },
   {
     "id": 267,
@@ -3054,8 +3043,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "32711"
+    "Reincarnation": 501,
+    "offlinereward": "143608"
   },
   {
     "id": 268,
@@ -3065,8 +3054,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "33052"
+    "Reincarnation": 504,
+    "offlinereward": "145555"
   },
   {
     "id": 269,
@@ -3076,8 +3065,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "32871"
+    "Reincarnation": 507,
+    "offlinereward": "148241"
   },
   {
     "id": 270,
@@ -3087,8 +3076,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "32949"
+    "Reincarnation": 510,
+    "offlinereward": "150422"
   },
   {
     "id": 271,
@@ -3098,8 +3087,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "33127"
+    "Reincarnation": 513,
+    "offlinereward": "152368"
   },
   {
     "id": 272,
@@ -3109,8 +3098,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "32942"
+    "Reincarnation": 516,
+    "offlinereward": "154315"
   },
   {
     "id": 273,
@@ -3120,8 +3109,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "33134"
+    "Reincarnation": 519,
+    "offlinereward": "157002"
   },
   {
     "id": 274,
@@ -3131,8 +3120,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "33181"
+    "Reincarnation": 522,
+    "offlinereward": "159182"
   },
   {
     "id": 275,
@@ -3142,8 +3131,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "32992"
+    "Reincarnation": 525,
+    "offlinereward": "161129"
   },
   {
     "id": 276,
@@ -3153,8 +3142,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "33268"
+    "Reincarnation": 528,
+    "offlinereward": "163076"
   },
   {
     "id": 277,
@@ -3164,8 +3153,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "33214"
+    "Reincarnation": 531,
+    "offlinereward": "165762"
   },
   {
     "id": 278,
@@ -3175,8 +3164,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "33022"
+    "Reincarnation": 534,
+    "offlinereward": "167942"
   },
   {
     "id": 279,
@@ -3186,8 +3175,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "33349"
+    "Reincarnation": 537,
+    "offlinereward": "169889"
   },
   {
     "id": 280,
@@ -3197,8 +3186,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "33226"
+    "Reincarnation": 540,
+    "offlinereward": "171836"
   },
   {
     "id": 281,
@@ -3208,8 +3197,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "33031"
+    "Reincarnation": 543,
+    "offlinereward": "174522"
   },
   {
     "id": 282,
@@ -3219,8 +3208,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "33379"
+    "Reincarnation": 546,
+    "offlinereward": "177793"
   },
   {
     "id": 283,
@@ -3230,8 +3219,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "33218"
+    "Reincarnation": 549,
+    "offlinereward": "180713"
   },
   {
     "id": 284,
@@ -3241,8 +3230,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "33019"
+    "Reincarnation": 552,
+    "offlinereward": "183632"
   },
   {
     "id": 285,
@@ -3252,8 +3241,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "33356"
+    "Reincarnation": 555,
+    "offlinereward": "187662"
   },
   {
     "id": 286,
@@ -3263,8 +3252,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "33189"
+    "Reincarnation": 558,
+    "offlinereward": "190933"
   },
   {
     "id": 287,
@@ -3274,8 +3263,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "32987"
+    "Reincarnation": 561,
+    "offlinereward": "193853"
   },
   {
     "id": 288,
@@ -3285,8 +3274,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "33283"
+    "Reincarnation": 564,
+    "offlinereward": "196773"
   },
   {
     "id": 289,
@@ -3296,8 +3285,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "33139"
+    "Reincarnation": 567,
+    "offlinereward": "200803"
   },
   {
     "id": 290,
@@ -3307,8 +3296,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "32933"
+    "Reincarnation": 570,
+    "offlinereward": "204073"
   },
   {
     "id": 291,
@@ -3318,8 +3307,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "33371"
+    "Reincarnation": 573,
+    "offlinereward": "206993"
   },
   {
     "id": 292,
@@ -3329,8 +3318,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "33342"
+    "Reincarnation": 576,
+    "offlinereward": "209913"
   },
   {
     "id": 293,
@@ -3340,8 +3329,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "33131"
+    "Reincarnation": 579,
+    "offlinereward": "213943"
   },
   {
     "id": 294,
@@ -3351,8 +3340,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "33413"
+    "Reincarnation": 582,
+    "offlinereward": "217213"
   },
   {
     "id": 295,
@@ -3362,8 +3351,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "33514"
+    "Reincarnation": 585,
+    "offlinereward": "220133"
   },
   {
     "id": 296,
@@ -3373,8 +3362,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "33297"
+    "Reincarnation": 588,
+    "offlinereward": "223054"
   },
   {
     "id": 297,
@@ -3384,8 +3373,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "33377"
+    "Reincarnation": 591,
+    "offlinereward": "227083"
   },
   {
     "id": 298,
@@ -3395,8 +3384,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "33654"
+    "Reincarnation": 594,
+    "offlinereward": "230353"
   },
   {
     "id": 299,
@@ -3406,8 +3395,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "33433"
+    "Reincarnation": 597,
+    "offlinereward": "233273"
   },
   {
     "id": 300,
@@ -3417,8 +3406,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "33262"
+    "Reincarnation": 600,
+    "offlinereward": "236194"
   },
   {
     "id": 301,
@@ -3428,8 +3417,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "32856"
+    "Reincarnation": 603,
+    "offlinereward": "240223"
   },
   {
     "id": 302,
@@ -3439,8 +3428,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "32856"
+    "Reincarnation": 606,
+    "offlinereward": "243493"
   },
   {
     "id": 303,
@@ -3450,8 +3439,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "32856"
+    "Reincarnation": 609,
+    "offlinereward": "246414"
   },
   {
     "id": 304,
@@ -3461,8 +3450,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "33324"
+    "Reincarnation": 612,
+    "offlinereward": "249334"
   },
   {
     "id": 305,
@@ -3472,8 +3461,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "33609"
+    "Reincarnation": 615,
+    "offlinereward": "253363"
   },
   {
     "id": 306,
@@ -3483,8 +3472,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "33609"
+    "Reincarnation": 618,
+    "offlinereward": "256633"
   },
   {
     "id": 307,
@@ -3494,8 +3483,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "33739"
+    "Reincarnation": 621,
+    "offlinereward": "259554"
   },
   {
     "id": 308,
@@ -3505,8 +3494,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "34362"
+    "Reincarnation": 624,
+    "offlinereward": "262650"
   },
   {
     "id": 309,
@@ -3516,8 +3505,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "34362"
+    "Reincarnation": 627,
+    "offlinereward": "268693"
   },
   {
     "id": 310,
@@ -3527,8 +3516,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "34362"
+    "Reincarnation": 630,
+    "offlinereward": "273600"
   },
   {
     "id": 311,
@@ -3538,8 +3527,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "34907"
+    "Reincarnation": 633,
+    "offlinereward": "277979"
   },
   {
     "id": 312,
@@ -3549,8 +3538,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "35115"
+    "Reincarnation": 636,
+    "offlinereward": "282360"
   },
   {
     "id": 313,
@@ -3560,8 +3549,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "35115"
+    "Reincarnation": 639,
+    "offlinereward": "288404"
   },
   {
     "id": 314,
@@ -3571,8 +3560,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "35323"
+    "Reincarnation": 642,
+    "offlinereward": "293310"
   },
   {
     "id": 315,
@@ -3582,8 +3571,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "35867"
+    "Reincarnation": 645,
+    "offlinereward": "297690"
   },
   {
     "id": 316,
@@ -3593,8 +3582,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "35867"
+    "Reincarnation": 648,
+    "offlinereward": "302070"
   },
   {
     "id": 317,
@@ -3604,8 +3593,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "35867"
+    "Reincarnation": 651,
+    "offlinereward": "308115"
   },
   {
     "id": 318,
@@ -3615,8 +3604,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "36491"
+    "Reincarnation": 654,
+    "offlinereward": "313020"
   },
   {
     "id": 319,
@@ -3626,8 +3615,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "34726"
+    "Reincarnation": 657,
+    "offlinereward": "317400"
   },
   {
     "id": 320,
@@ -3637,8 +3626,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "34726"
+    "Reincarnation": 660,
+    "offlinereward": "321780"
   },
   {
     "id": 321,
@@ -3648,8 +3637,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "34895"
+    "Reincarnation": 663,
+    "offlinereward": "327825"
   },
   {
     "id": 322,
@@ -3659,8 +3648,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "35440"
+    "Reincarnation": 666,
+    "offlinereward": "332730"
   },
   {
     "id": 323,
@@ -3670,8 +3659,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "35440"
+    "Reincarnation": 669,
+    "offlinereward": "337110"
   },
   {
     "id": 324,
@@ -3681,8 +3670,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "35440"
+    "Reincarnation": 672,
+    "offlinereward": "341491"
   },
   {
     "id": 325,
@@ -3692,8 +3681,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "35868"
+    "Reincarnation": 675,
+    "offlinereward": "347535"
   },
   {
     "id": 326,
@@ -3703,8 +3692,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "36154"
+    "Reincarnation": 678,
+    "offlinereward": "352440"
   },
   {
     "id": 327,
@@ -3714,8 +3703,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "36154"
+    "Reincarnation": 681,
+    "offlinereward": "356820"
   },
   {
     "id": 328,
@@ -3725,8 +3714,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "36154"
+    "Reincarnation": 684,
+    "offlinereward": "361201"
   },
   {
     "id": 329,
@@ -3736,8 +3725,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "36842"
+    "Reincarnation": 687,
+    "offlinereward": "367245"
   },
   {
     "id": 330,
@@ -3747,8 +3736,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "36868"
+    "Reincarnation": 690,
+    "offlinereward": "372151"
   },
   {
     "id": 331,
@@ -3758,8 +3747,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "36867"
+    "Reincarnation": 693,
+    "offlinereward": "376531"
   },
   {
     "id": 332,
@@ -3769,8 +3758,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "37101"
+    "Reincarnation": 696,
+    "offlinereward": "380912"
   },
   {
     "id": 333,
@@ -3780,8 +3769,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "37581"
+    "Reincarnation": 699,
+    "offlinereward": "386955"
   },
   {
     "id": 334,
@@ -3791,8 +3780,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "37581"
+    "Reincarnation": 702,
+    "offlinereward": "391862"
   },
   {
     "id": 335,
@@ -3802,8 +3791,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "37581"
+    "Reincarnation": 705,
+    "offlinereward": "397599"
   },
   {
     "id": 336,
@@ -3813,8 +3802,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "38074"
+    "Reincarnation": 708,
+    "offlinereward": "404169"
   },
   {
     "id": 337,
@@ -3824,8 +3813,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "36206"
+    "Reincarnation": 711,
+    "offlinereward": "413236"
   },
   {
     "id": 338,
@@ -3835,8 +3824,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "36206"
+    "Reincarnation": 714,
+    "offlinereward": "420595"
   },
   {
     "id": 339,
@@ -3846,8 +3835,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "36206"
+    "Reincarnation": 717,
+    "offlinereward": "427165"
   },
   {
     "id": 340,
@@ -3857,8 +3846,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "36803"
+    "Reincarnation": 720,
+    "offlinereward": "433735"
   },
   {
     "id": 341,
@@ -3868,8 +3857,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "36881"
+    "Reincarnation": 723,
+    "offlinereward": "442802"
   },
   {
     "id": 342,
@@ -3879,8 +3868,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "36881"
+    "Reincarnation": 726,
+    "offlinereward": "450160"
   },
   {
     "id": 343,
@@ -3890,8 +3879,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "36907"
+    "Reincarnation": 729,
+    "offlinereward": "456731"
   },
   {
     "id": 344,
@@ -3901,8 +3890,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "37556"
+    "Reincarnation": 732,
+    "offlinereward": "463301"
   },
   {
     "id": 345,
@@ -3912,8 +3901,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "37556"
+    "Reincarnation": 735,
+    "offlinereward": "472367"
   },
   {
     "id": 346,
@@ -3923,8 +3912,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "37556"
+    "Reincarnation": 738,
+    "offlinereward": "479726"
   },
   {
     "id": 347,
@@ -3934,8 +3923,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "37686"
+    "Reincarnation": 741,
+    "offlinereward": "486296"
   },
   {
     "id": 348,
@@ -3945,8 +3934,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "38231"
+    "Reincarnation": 744,
+    "offlinereward": "492866"
   },
   {
     "id": 349,
@@ -3956,8 +3945,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "38231"
+    "Reincarnation": 747,
+    "offlinereward": "501932"
   },
   {
     "id": 350,
@@ -3967,8 +3956,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "38231"
+    "Reincarnation": 750,
+    "offlinereward": "509291"
   },
   {
     "id": 351,
@@ -3978,8 +3967,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "38464"
+    "Reincarnation": 753,
+    "offlinereward": "515862"
   },
   {
     "id": 352,
@@ -3989,8 +3978,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "38906"
+    "Reincarnation": 756,
+    "offlinereward": "522432"
   },
   {
     "id": 353,
@@ -4000,8 +3989,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "38906"
+    "Reincarnation": 759,
+    "offlinereward": "531499"
   },
   {
     "id": 354,
@@ -4011,8 +4000,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "38906"
+    "Reincarnation": 762,
+    "offlinereward": "538857"
   },
   {
     "id": 355,
@@ -4022,8 +4011,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "36960"
+    "Reincarnation": 765,
+    "offlinereward": "545427"
   },
   {
     "id": 356,
@@ -4033,8 +4022,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "37297"
+    "Reincarnation": 768,
+    "offlinereward": "551997"
   },
   {
     "id": 357,
@@ -4044,8 +4033,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "37297"
+    "Reincarnation": 771,
+    "offlinereward": "561064"
   },
   {
     "id": 358,
@@ -4055,8 +4044,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "37297"
+    "Reincarnation": 774,
+    "offlinereward": "568423"
   },
   {
     "id": 359,
@@ -4066,8 +4055,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "37543"
+    "Reincarnation": 777,
+    "offlinereward": "574993"
   },
   {
     "id": 360,
@@ -4077,8 +4066,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "37933"
+    "Reincarnation": 780,
+    "offlinereward": "581563"
   },
   {
     "id": 361,
@@ -4088,8 +4077,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "37933"
+    "Reincarnation": 783,
+    "offlinereward": "590629"
   },
   {
     "id": 362,
@@ -4099,8 +4088,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "37933"
+    "Reincarnation": 786,
+    "offlinereward": "601667"
   },
   {
     "id": 363,
@@ -4110,8 +4099,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "38225"
+    "Reincarnation": 789,
+    "offlinereward": "611522"
   },
   {
     "id": 364,
@@ -4121,8 +4110,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "38887"
+    "Reincarnation": 792,
+    "offlinereward": "621377"
   },
   {
     "id": 365,
@@ -4132,8 +4121,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "38887"
+    "Reincarnation": 795,
+    "offlinereward": "634978"
   },
   {
     "id": 366,
@@ -4143,8 +4132,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "38887"
+    "Reincarnation": 798,
+    "offlinereward": "646016"
   },
   {
     "id": 367,
@@ -4154,8 +4143,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "39101"
+    "Reincarnation": 801,
+    "offlinereward": "655871"
   },
   {
     "id": 368,
@@ -4165,8 +4154,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "39840"
+    "Reincarnation": 804,
+    "offlinereward": "665726"
   },
   {
     "id": 369,
@@ -4176,8 +4165,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "39840"
+    "Reincarnation": 807,
+    "offlinereward": "679326"
   },
   {
     "id": 370,
@@ -4187,8 +4176,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "39840"
+    "Reincarnation": 810,
+    "offlinereward": "690364"
   },
   {
     "id": 371,
@@ -4198,8 +4187,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "39977"
+    "Reincarnation": 813,
+    "offlinereward": "700219"
   },
   {
     "id": 372,
@@ -4209,8 +4198,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "40795"
+    "Reincarnation": 816,
+    "offlinereward": "710074"
   },
   {
     "id": 373,
@@ -4220,8 +4209,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "38297"
+    "Reincarnation": 819,
+    "offlinereward": "723675"
   },
   {
     "id": 374,
@@ -4231,8 +4220,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "38297"
+    "Reincarnation": 822,
+    "offlinereward": "734713"
   },
   {
     "id": 375,
@@ -4242,8 +4231,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "38297"
+    "Reincarnation": 825,
+    "offlinereward": "744568"
   },
   {
     "id": 376,
@@ -4253,8 +4242,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "39075"
+    "Reincarnation": 828,
+    "offlinereward": "754423"
   },
   {
     "id": 377,
@@ -4264,8 +4253,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "39193"
+    "Reincarnation": 831,
+    "offlinereward": "768023"
   },
   {
     "id": 378,
@@ -4275,8 +4264,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "39193"
+    "Reincarnation": 834,
+    "offlinereward": "779061"
   },
   {
     "id": 379,
@@ -4286,8 +4275,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "39193"
+    "Reincarnation": 837,
+    "offlinereward": "788916"
   },
   {
     "id": 380,
@@ -4297,8 +4286,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "39660"
+    "Reincarnation": 840,
+    "offlinereward": "798771"
   },
   {
     "id": 381,
@@ -4308,8 +4297,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "40088"
+    "Reincarnation": 843,
+    "offlinereward": "812372"
   },
   {
     "id": 382,
@@ -4319,8 +4308,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "40088"
+    "Reincarnation": 846,
+    "offlinereward": "823410"
   },
   {
     "id": 383,
@@ -4330,8 +4319,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "40088"
+    "Reincarnation": 849,
+    "offlinereward": "833265"
   },
   {
     "id": 384,
@@ -4341,8 +4330,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "40243"
+    "Reincarnation": 852,
+    "offlinereward": "843120"
   },
   {
     "id": 385,
@@ -4352,8 +4341,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "40984"
+    "Reincarnation": 855,
+    "offlinereward": "856720"
   },
   {
     "id": 386,
@@ -4363,8 +4352,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "40984"
+    "Reincarnation": 858,
+    "offlinereward": "867758"
   },
   {
     "id": 387,
@@ -4374,8 +4363,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "40984"
+    "Reincarnation": 861,
+    "offlinereward": "877613"
   },
   {
     "id": 388,
@@ -4385,8 +4374,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "40984"
+    "Reincarnation": 864,
+    "offlinereward": "888060"
   },
   {
     "id": 389,
@@ -4396,8 +4385,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "41723"
+    "Reincarnation": 867,
+    "offlinereward": "908460"
   },
   {
     "id": 390,
@@ -4407,8 +4396,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "41879"
+    "Reincarnation": 870,
+    "offlinereward": "925016"
   },
   {
     "id": 391,
@@ -4418,8 +4407,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "39148"
+    "Reincarnation": 873,
+    "offlinereward": "939799"
   },
   {
     "id": 392,
@@ -4429,8 +4418,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "39148"
+    "Reincarnation": 876,
+    "offlinereward": "954582"
   },
   {
     "id": 393,
@@ -4440,8 +4429,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "39401"
+    "Reincarnation": 879,
+    "offlinereward": "974982"
   },
   {
     "id": 394,
@@ -4451,8 +4440,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "39985"
+    "Reincarnation": 882,
+    "offlinereward": "991539"
   },
   {
     "id": 395,
@@ -4462,8 +4451,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "39985"
+    "Reincarnation": 885,
+    "offlinereward": "1006322"
   },
   {
     "id": 396,
@@ -4473,8 +4462,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "39985"
+    "Reincarnation": 888,
+    "offlinereward": "1021104"
   },
   {
     "id": 397,
@@ -4484,8 +4473,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "39985"
+    "Reincarnation": 891,
+    "offlinereward": "1041505"
   },
   {
     "id": 398,
@@ -4495,8 +4484,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "40530"
+    "Reincarnation": 894,
+    "offlinereward": "1058062"
   },
   {
     "id": 399,
@@ -4506,8 +4495,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "40822"
+    "Reincarnation": 897,
+    "offlinereward": "1072845"
   },
   {
     "id": 400,
@@ -4517,8 +4506,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "40822"
+    "Reincarnation": 900,
+    "offlinereward": "1087627"
   },
   {
     "id": 401,
@@ -4528,8 +4517,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "40822"
+    "Reincarnation": 903,
+    "offlinereward": "1108028"
   },
   {
     "id": 402,
@@ -4539,8 +4528,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "40822"
+    "Reincarnation": 906,
+    "offlinereward": "1124584"
   },
   {
     "id": 403,
@@ -4550,8 +4539,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "41659"
+    "Reincarnation": 909,
+    "offlinereward": "1139367"
   },
   {
     "id": 404,
@@ -4561,8 +4550,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "41659"
+    "Reincarnation": 912,
+    "offlinereward": "1154150"
   },
   {
     "id": 405,
@@ -4572,8 +4561,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "41659"
+    "Reincarnation": 915,
+    "offlinereward": "1174550"
   },
   {
     "id": 406,
@@ -4583,8 +4572,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "41659"
+    "Reincarnation": 918,
+    "offlinereward": "1191107"
   },
   {
     "id": 407,
@@ -4594,8 +4583,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "41951"
+    "Reincarnation": 921,
+    "offlinereward": "1205890"
   },
   {
     "id": 408,
@@ -4605,8 +4594,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "42496"
+    "Reincarnation": 924,
+    "offlinereward": "1220672"
   },
   {
     "id": 409,
@@ -4616,8 +4605,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "39531"
+    "Reincarnation": 927,
+    "offlinereward": "1241072"
   },
   {
     "id": 410,
@@ -4627,8 +4616,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "39531"
+    "Reincarnation": 930,
+    "offlinereward": "1257630"
   },
   {
     "id": 411,
@@ -4638,8 +4627,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "39531"
+    "Reincarnation": 933,
+    "offlinereward": "1272413"
   },
   {
     "id": 412,
@@ -4649,8 +4638,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "39881"
+    "Reincarnation": 936,
+    "offlinereward": "1287195"
   },
   {
     "id": 413,
@@ -4660,8 +4649,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "40310"
+    "Reincarnation": 939,
+    "offlinereward": "1307595"
   },
   {
     "id": 414,
@@ -4671,8 +4660,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "40310"
+    "Reincarnation": 942,
+    "offlinereward": "1324152"
   },
   {
     "id": 415,
@@ -4682,8 +4671,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "40310"
+    "Reincarnation": 945,
+    "offlinereward": "1343518"
   },
   {
     "id": 416,
@@ -4693,8 +4682,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "40310"
+    "Reincarnation": 948,
+    "offlinereward": "1365692"
   },
   {
     "id": 417,
@@ -4704,8 +4693,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "40660"
+    "Reincarnation": 951,
+    "offlinereward": "1396292"
   },
   {
     "id": 418,
@@ -4715,8 +4704,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "41089"
+    "Reincarnation": 954,
+    "offlinereward": "1421128"
   },
   {
     "id": 419,
@@ -4726,8 +4715,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "41089"
+    "Reincarnation": 957,
+    "offlinereward": "1443302"
   },
   {
     "id": 420,
@@ -4737,8 +4726,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "41089"
+    "Reincarnation": 960,
+    "offlinereward": "1465475"
   },
   {
     "id": 421,
@@ -4748,8 +4737,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "41089"
+    "Reincarnation": 963,
+    "offlinereward": "1496076"
   },
   {
     "id": 422,
@@ -4759,8 +4748,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "41439"
+    "Reincarnation": 966,
+    "offlinereward": "1520911"
   },
   {
     "id": 423,
@@ -4770,8 +4759,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "41867"
+    "Reincarnation": 969,
+    "offlinereward": "1543086"
   },
   {
     "id": 424,
@@ -4781,8 +4770,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "41867"
+    "Reincarnation": 972,
+    "offlinereward": "1565260"
   },
   {
     "id": 425,
@@ -4792,8 +4781,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "41867"
+    "Reincarnation": 975,
+    "offlinereward": "1595860"
   },
   {
     "id": 426,
@@ -4803,8 +4792,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "41867"
+    "Reincarnation": 978,
+    "offlinereward": "1620695"
   },
   {
     "id": 427,
@@ -4814,8 +4803,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "39019"
+    "Reincarnation": 981,
+    "offlinereward": "1642869"
   },
   {
     "id": 428,
@@ -4825,8 +4814,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "39448"
+    "Reincarnation": 984,
+    "offlinereward": "1665043"
   },
   {
     "id": 429,
@@ -4836,8 +4825,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "39448"
+    "Reincarnation": 987,
+    "offlinereward": "1695643"
   },
   {
     "id": 430,
@@ -4847,8 +4836,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "39448"
+    "Reincarnation": 990,
+    "offlinereward": "1720479"
   },
   {
     "id": 431,
@@ -4858,8 +4847,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "39448"
+    "Reincarnation": 993,
+    "offlinereward": "1742653"
   },
   {
     "id": 432,
@@ -4869,8 +4858,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "39448"
+    "Reincarnation": 996,
+    "offlinereward": "1764827"
   },
   {
     "id": 433,
@@ -4880,8 +4869,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "40168"
+    "Reincarnation": 999,
+    "offlinereward": "1795427"
   },
   {
     "id": 434,
@@ -4891,8 +4880,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "40168"
+    "Reincarnation": 1002,
+    "offlinereward": "1820263"
   },
   {
     "id": 435,
@@ -4902,8 +4891,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "40168"
+    "Reincarnation": 1005,
+    "offlinereward": "1842437"
   },
   {
     "id": 436,
@@ -4913,8 +4902,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "40168"
+    "Reincarnation": 1008,
+    "offlinereward": "1864611"
   },
   {
     "id": 437,
@@ -4924,8 +4913,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "40168"
+    "Reincarnation": 1011,
+    "offlinereward": "1895212"
   },
   {
     "id": 438,
@@ -4935,8 +4924,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "40596"
+    "Reincarnation": 1014,
+    "offlinereward": "1920047"
   },
   {
     "id": 439,
@@ -4946,8 +4935,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "40888"
+    "Reincarnation": 1017,
+    "offlinereward": "1942221"
   },
   {
     "id": 440,
@@ -4957,8 +4946,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "40888"
+    "Reincarnation": 1020,
+    "offlinereward": "1964395"
   },
   {
     "id": 441,
@@ -4968,8 +4957,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "40888"
+    "Reincarnation": 1023,
+    "offlinereward": "1994996"
   },
   {
     "id": 442,
@@ -4979,8 +4968,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "40888"
+    "Reincarnation": 1026,
+    "offlinereward": "2032248"
   },
   {
     "id": 443,
@@ -4990,8 +4979,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "41025"
+    "Reincarnation": 1029,
+    "offlinereward": "2065509"
   },
   {
     "id": 444,
@@ -5001,8 +4990,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "41608"
+    "Reincarnation": 1032,
+    "offlinereward": "2098770"
   },
   {
     "id": 445,
@@ -5012,8 +5001,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "38235"
+    "Reincarnation": 1035,
+    "offlinereward": "2144671"
   },
   {
     "id": 446,
@@ -5023,8 +5012,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "38235"
+    "Reincarnation": 1038,
+    "offlinereward": "2181924"
   },
   {
     "id": 447,
@@ -5034,8 +5023,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "38235"
+    "Reincarnation": 1041,
+    "offlinereward": "2215185"
   },
   {
     "id": 448,
@@ -5045,8 +5034,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "38235"
+    "Reincarnation": 1044,
+    "offlinereward": "2248447"
   },
   {
     "id": 449,
@@ -5056,8 +5045,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "38507"
+    "Reincarnation": 1047,
+    "offlinereward": "2294347"
   },
   {
     "id": 450,
@@ -5067,8 +5056,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "38896"
+    "Reincarnation": 1050,
+    "offlinereward": "2331600"
   },
   {
     "id": 451,
@@ -5078,8 +5067,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "38897"
+    "Reincarnation": 1053,
+    "offlinereward": "2364861"
   },
   {
     "id": 452,
@@ -5089,8 +5078,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "38897"
+    "Reincarnation": 1056,
+    "offlinereward": "2398123"
   },
   {
     "id": 453,
@@ -5100,8 +5089,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "38897"
+    "Reincarnation": 1059,
+    "offlinereward": "2444023"
   },
   {
     "id": 454,
@@ -5111,8 +5100,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "38897"
+    "Reincarnation": 1062,
+    "offlinereward": "2481276"
   },
   {
     "id": 455,
@@ -5122,8 +5111,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "39247"
+    "Reincarnation": 1065,
+    "offlinereward": "2514537"
   },
   {
     "id": 456,
@@ -5133,8 +5122,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "39558"
+    "Reincarnation": 1068,
+    "offlinereward": "2547799"
   },
   {
     "id": 457,
@@ -5144,8 +5133,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "39558"
+    "Reincarnation": 1071,
+    "offlinereward": "2593699"
   },
   {
     "id": 458,
@@ -5155,8 +5144,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "39558"
+    "Reincarnation": 1074,
+    "offlinereward": "2630952"
   },
   {
     "id": 459,
@@ -5166,8 +5155,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "39558"
+    "Reincarnation": 1077,
+    "offlinereward": "2664213"
   },
   {
     "id": 460,
@@ -5177,8 +5166,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "39558"
+    "Reincarnation": 1080,
+    "offlinereward": "2697474"
   },
   {
     "id": 461,
@@ -5188,8 +5177,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "40200"
+    "Reincarnation": 1083,
+    "offlinereward": "2743375"
   },
   {
     "id": 462,
@@ -5199,8 +5188,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "40551"
+    "Reincarnation": 1086,
+    "offlinereward": "2780627"
   },
   {
     "id": 463,
@@ -5210,8 +5199,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "36973"
+    "Reincarnation": 1089,
+    "offlinereward": "2813889"
   },
   {
     "id": 464,
@@ -5221,8 +5210,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "36973"
+    "Reincarnation": 1092,
+    "offlinereward": "2847150"
   },
   {
     "id": 465,
@@ -5232,8 +5221,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "36973"
+    "Reincarnation": 1095,
+    "offlinereward": "2893050"
   },
   {
     "id": 466,
@@ -5243,8 +5232,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "36973"
+    "Reincarnation": 1098,
+    "offlinereward": "2930303"
   },
   {
     "id": 467,
@@ -5254,8 +5243,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "37294"
+    "Reincarnation": 1101,
+    "offlinereward": "2963565"
   },
   {
     "id": 468,
@@ -5265,8 +5254,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "37879"
+    "Reincarnation": 1104,
+    "offlinereward": "2998821"
   },
   {
     "id": 469,
@@ -5276,8 +5265,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "37879"
+    "Reincarnation": 1107,
+    "offlinereward": "3067672"
   },
   {
     "id": 470,
@@ -5287,8 +5276,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "37879"
+    "Reincarnation": 1110,
+    "offlinereward": "3123551"
   },
   {
     "id": 471,
@@ -5298,8 +5287,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "37879"
+    "Reincarnation": 1113,
+    "offlinereward": "3173443"
   },
   {
     "id": 472,
@@ -5309,8 +5298,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "37879"
+    "Reincarnation": 1116,
+    "offlinereward": "3223335"
   },
   {
     "id": 473,
@@ -5320,8 +5309,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "37879"
+    "Reincarnation": 1119,
+    "offlinereward": "3292187"
   },
   {
     "id": 474,
@@ -5331,8 +5320,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "38696"
+    "Reincarnation": 1122,
+    "offlinereward": "3348065"
   },
   {
     "id": 475,
@@ -5342,8 +5331,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "38784"
+    "Reincarnation": 1125,
+    "offlinereward": "3397957"
   },
   {
     "id": 476,
@@ -5353,8 +5342,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "38784"
+    "Reincarnation": 1128,
+    "offlinereward": "3447849"
   },
   {
     "id": 477,
@@ -5364,8 +5353,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "38784"
+    "Reincarnation": 1131,
+    "offlinereward": "3516700"
   },
   {
     "id": 478,
@@ -5375,8 +5364,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "38784"
+    "Reincarnation": 1134,
+    "offlinereward": "3572579"
   },
   {
     "id": 479,
@@ -5386,8 +5375,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_08",
-    "Reincarnation": 180,
-    "offlinereward": "38784"
+    "Reincarnation": 1137,
+    "offlinereward": "3622471"
   },
   {
     "id": 480,
@@ -5397,8 +5386,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_09",
-    "Reincarnation": 180,
-    "offlinereward": "39193"
+    "Reincarnation": 1140,
+    "offlinereward": "3672363"
   },
   {
     "id": 481,
@@ -5408,8 +5397,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_10",
-    "Reincarnation": 180,
-    "offlinereward": "35848"
+    "Reincarnation": 1143,
+    "offlinereward": "3741214"
   },
   {
     "id": 482,
@@ -5419,8 +5408,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_11",
-    "Reincarnation": 180,
-    "offlinereward": "35848"
+    "Reincarnation": 1146,
+    "offlinereward": "3797093"
   },
   {
     "id": 483,
@@ -5430,8 +5419,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_12",
-    "Reincarnation": 180,
-    "offlinereward": "35848"
+    "Reincarnation": 1149,
+    "offlinereward": "3846985"
   },
   {
     "id": 484,
@@ -5441,8 +5430,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_13",
-    "Reincarnation": 180,
-    "offlinereward": "35848"
+    "Reincarnation": 1152,
+    "offlinereward": "3896876"
   },
   {
     "id": 485,
@@ -5452,8 +5441,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_14",
-    "Reincarnation": 180,
-    "offlinereward": "35848"
+    "Reincarnation": 1155,
+    "offlinereward": "3965728"
   },
   {
     "id": 486,
@@ -5463,8 +5452,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_15",
-    "Reincarnation": 180,
-    "offlinereward": "35848"
+    "Reincarnation": 1158,
+    "offlinereward": "4021607"
   },
   {
     "id": 487,
@@ -5474,8 +5463,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_16",
-    "Reincarnation": 180,
-    "offlinereward": "36140"
+    "Reincarnation": 1161,
+    "offlinereward": "4071499"
   },
   {
     "id": 488,
@@ -5485,8 +5474,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_17",
-    "Reincarnation": 180,
-    "offlinereward": "36666"
+    "Reincarnation": 1164,
+    "offlinereward": "4121390"
   },
   {
     "id": 489,
@@ -5496,8 +5485,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_18",
-    "Reincarnation": 180,
-    "offlinereward": "36666"
+    "Reincarnation": 1167,
+    "offlinereward": "4190241"
   },
   {
     "id": 490,
@@ -5507,8 +5496,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_19",
-    "Reincarnation": 180,
-    "offlinereward": "36666"
+    "Reincarnation": 1170,
+    "offlinereward": "4246120"
   },
   {
     "id": 491,
@@ -5518,8 +5507,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_20",
-    "Reincarnation": 180,
-    "offlinereward": "36666"
+    "Reincarnation": 1173,
+    "offlinereward": "4296013"
   },
   {
     "id": 492,
@@ -5529,8 +5518,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_21",
-    "Reincarnation": 180,
-    "offlinereward": "36666"
+    "Reincarnation": 1176,
+    "offlinereward": "4345905"
   },
   {
     "id": 493,
@@ -5540,8 +5529,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_01",
-    "Reincarnation": 180,
-    "offlinereward": "36666"
+    "Reincarnation": 1179,
+    "offlinereward": "4414755"
   },
   {
     "id": 494,
@@ -5551,8 +5540,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_02",
-    "Reincarnation": 180,
-    "offlinereward": "36841"
+    "Reincarnation": 1182,
+    "offlinereward": "4470634"
   },
   {
     "id": 495,
@@ -5562,8 +5551,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_03",
-    "Reincarnation": 180,
-    "offlinereward": "37483"
+    "Reincarnation": 1185,
+    "offlinereward": "4535993"
   },
   {
     "id": 496,
@@ -5573,8 +5562,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_04",
-    "Reincarnation": 180,
-    "offlinereward": "37483"
+    "Reincarnation": 1188,
+    "offlinereward": "4610831"
   },
   {
     "id": 497,
@@ -5584,8 +5573,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_05",
-    "Reincarnation": 180,
-    "offlinereward": "37483"
+    "Reincarnation": 1191,
+    "offlinereward": "4714107"
   },
   {
     "id": 498,
@@ -5595,8 +5584,8 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_06",
-    "Reincarnation": 180,
-    "offlinereward": "37483"
+    "Reincarnation": 1194,
+    "offlinereward": "4797925"
   },
   {
     "id": 499,
@@ -5606,8 +5595,19 @@
     "boss_gas": 240,
     "abc": "",
     "map": "map_07",
-    "Reincarnation": 180,
-    "offlinereward": "33467"
+    "Reincarnation": 1197,
+    "offlinereward": "4872763"
+  },
+  {
+    "id": 500,
+    "name": "第500关",
+    "wellen": "500001#500002#500003",
+    "boss_DI": 15003001,
+    "boss_gas": 240,
+    "abc": "",
+    "map": "map_08",
+    "Reincarnation": 1200,
+    "offlinereward": "4947602"
   },
   {
     "id": 500,

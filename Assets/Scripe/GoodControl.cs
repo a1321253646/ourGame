@@ -159,6 +159,7 @@ public class GoodControl : MonoBehaviour {
         long level = 0;
         if (bean != null && bean.attributeList != null && bean.attributeList.Count > 0) {
             foreach (PlayerAttributeBean p in bean.attributeList) {
+                Debug.Log("type = " + p.type + "value = " + p.value);
                 if (p.type == 10001) {
                     level = p.value;
                 }

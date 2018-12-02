@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public class PackbackSkill400010 : PackbackSkillBase
+public class PackbackSkill500002 : PackbackSkillBase
 {
     public override void removeSkill()
     {
