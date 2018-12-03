@@ -417,24 +417,27 @@ public class InventoryHalper
         mList.Add(bean);
         SQLHelper.getIntance().addGood(bean);
     }
+    public void deleteIventory(PlayerBackpackBean bean, int count) {
+        if (bean.count == count)
+        {
+            mList.Remove(bean);
+            SQLHelper.getIntance().deleteGood(bean);
+        }
+        else
+        {
+            string extra = SQLHelper.getIntance().getGoodExtra(bean);
+            bean.count -= count;
+            SQLHelper.getIntance().ChangeGood(bean, extra);
+        }
+    }
+
     public void deleteIventory(long id, int count) {
         Debug.Log("deleteIventory id=" + id + " count=" + count);
-        PlayerBackpackBean bean = null;
         for(int i =0;i< mList.Count; i++) {
             PlayerBackpackBean tmp = mList[i];
             if (tmp.goodId == id)
             {
-                bean = tmp;
-                if (bean.count == count)
-                {
-                    mList.Remove(bean);
-                    SQLHelper.getIntance().deleteGood(bean);
-                }
-                else {
-                    string extra = SQLHelper.getIntance().getGoodExtra(bean);
-                    bean.count -= count;
-                    SQLHelper.getIntance().ChangeGood(bean, extra);
-                }
+                deleteIventory(tmp,count);
                 break;
             }
         }

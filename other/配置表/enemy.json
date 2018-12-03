@@ -37502,7 +37502,7 @@
   {
     "id": 10013001,
     "monster_hp": 280,
-    "monster_attack": 149,
+    "monster_attack": 108,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37527,7 +37527,7 @@
   {
     "id": 10023001,
     "monster_hp": 1200,
-    "monster_attack": 246,
+    "monster_attack": 195,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37552,7 +37552,7 @@
   {
     "id": 10033001,
     "monster_hp": 3375,
-    "monster_attack": 431,
+    "monster_attack": 330,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37577,7 +37577,7 @@
   {
     "id": 10043001,
     "monster_hp": 5130,
-    "monster_attack": 493,
+    "monster_attack": 387,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37602,7 +37602,7 @@
   {
     "id": 10053001,
     "monster_hp": 8160,
-    "monster_attack": 1019,
+    "monster_attack": 743,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37627,7 +37627,7 @@
   {
     "id": 10063001,
     "monster_hp": 11040,
-    "monster_attack": 1201,
+    "monster_attack": 900,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37652,7 +37652,7 @@
   {
     "id": 10073001,
     "monster_hp": 16500,
-    "monster_attack": 1261,
+    "monster_attack": 972,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37677,7 +37677,7 @@
   {
     "id": 10083001,
     "monster_hp": 19200,
-    "monster_attack": 1471,
+    "monster_attack": 1134,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37702,7 +37702,7 @@
   {
     "id": 10093001,
     "monster_hp": 21000,
-    "monster_attack": 1611,
+    "monster_attack": 1242,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37727,7 +37727,7 @@
   {
     "id": 10103001,
     "monster_hp": 28440,
-    "monster_attack": 3382,
+    "monster_attack": 2340,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37752,7 +37752,7 @@
   {
     "id": 10113001,
     "monster_hp": 4000,
-    "monster_attack": 3837,
+    "monster_attack": 2655,
     "monster_defense": 3500,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37777,7 +37777,7 @@
   {
     "id": 10123001,
     "monster_hp": 6000,
-    "monster_attack": 4422,
+    "monster_attack": 3060,
     "monster_defense": 4000,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37802,7 +37802,7 @@
   {
     "id": 10133001,
     "monster_hp": 8000,
-    "monster_attack": 4812,
+    "monster_attack": 3330,
     "monster_defense": 5000,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37827,7 +37827,7 @@
   {
     "id": 10143001,
     "monster_hp": 15050,
-    "monster_attack": 5397,
+    "monster_attack": 3735,
     "monster_defense": 904,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37852,7 +37852,7 @@
   {
     "id": 10153001,
     "monster_hp": 40020,
-    "monster_attack": 4256,
+    "monster_attack": 3105,
     "monster_defense": 1001,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37877,7 +37877,7 @@
   {
     "id": 10163001,
     "monster_hp": 42600,
-    "monster_attack": 3513,
+    "monster_attack": 2695,
     "monster_defense": 1066,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37902,7 +37902,7 @@
   {
     "id": 10173001,
     "monster_hp": 45240,
-    "monster_attack": 3728,
+    "monster_attack": 2860,
     "monster_defense": 1130,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37927,7 +37927,7 @@
   {
     "id": 10183001,
     "monster_hp": 49080,
-    "monster_attack": 4050,
+    "monster_attack": 3108,
     "monster_defense": 1228,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37952,7 +37952,7 @@
   {
     "id": 10193001,
     "monster_hp": 52140,
-    "monster_attack": 4301,
+    "monster_attack": 3300,
     "monster_defense": 1303,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -37977,7 +37977,7 @@
   {
     "id": 10203001,
     "monster_hp": 95500,
-    "monster_attack": 6932,
+    "monster_attack": 4950,
     "monster_defense": 1433,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38002,7 +38002,7 @@
   {
     "id": 10213001,
     "monster_hp": 70910,
-    "monster_attack": 7102,
+    "monster_attack": 5100,
     "monster_defense": 1519,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38027,7 +38027,7 @@
   {
     "id": 10223001,
     "monster_hp": 74900,
-    "monster_attack": 7507,
+    "monster_attack": 5392,
     "monster_defense": 1606,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38052,7 +38052,7 @@
   {
     "id": 10233001,
     "monster_hp": 78960,
-    "monster_attack": 7913,
+    "monster_attack": 5683,
     "monster_defense": 1692,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38077,7 +38077,7 @@
   {
     "id": 10243001,
     "monster_hp": 84980,
-    "monster_attack": 8522,
+    "monster_attack": 6120,
     "monster_defense": 1822,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38102,7 +38102,7 @@
   {
     "id": 10253001,
     "monster_hp": 127200,
-    "monster_attack": 9242,
+    "monster_attack": 6600,
     "monster_defense": 1908,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38127,7 +38127,7 @@
   {
     "id": 10263001,
     "monster_hp": 97090,
-    "monster_attack": 9063,
+    "monster_attack": 6541,
     "monster_defense": 1994,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38152,7 +38152,7 @@
   {
     "id": 10273001,
     "monster_hp": 101251,
-    "monster_attack": 9457,
+    "monster_attack": 6826,
     "monster_defense": 2081,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38177,7 +38177,7 @@
   {
     "id": 10283001,
     "monster_hp": 105996,
-    "monster_attack": 9900,
+    "monster_attack": 7146,
     "monster_defense": 2178,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38202,7 +38202,7 @@
   {
     "id": 10293001,
     "monster_hp": 111252,
-    "monster_attack": 10393,
+    "monster_attack": 7501,
     "monster_defense": 2286,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38227,7 +38227,7 @@
   {
     "id": 10303001,
     "monster_hp": 164388,
-    "monster_attack": 11363,
+    "monster_attack": 8143,
     "monster_defense": 2394,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38252,7 +38252,7 @@
   {
     "id": 10313001,
     "monster_hp": 126768,
-    "monster_attack": 11445,
+    "monster_attack": 8253,
     "monster_defense": 2502,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38277,7 +38277,7 @@
   {
     "id": 10323001,
     "monster_hp": 129504,
-    "monster_attack": 11693,
+    "monster_attack": 8431,
     "monster_defense": 2556,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38302,7 +38302,7 @@
   {
     "id": 10333001,
     "monster_hp": 134976,
-    "monster_attack": 12189,
+    "monster_attack": 8789,
     "monster_defense": 2664,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38327,7 +38327,7 @@
   {
     "id": 10343001,
     "monster_hp": 140448,
-    "monster_attack": 12684,
+    "monster_attack": 9146,
     "monster_defense": 2772,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38352,7 +38352,7 @@
   {
     "id": 10353001,
     "monster_hp": 203520,
-    "monster_attack": 13716,
+    "monster_attack": 9825,
     "monster_defense": 2880,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38377,7 +38377,7 @@
   {
     "id": 10363001,
     "monster_hp": 154524,
-    "monster_attack": 13072,
+    "monster_attack": 9468,
     "monster_defense": 2934,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38402,7 +38402,7 @@
   {
     "id": 10373001,
     "monster_hp": 160212,
-    "monster_attack": 13554,
+    "monster_attack": 9818,
     "monster_defense": 3042,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38427,7 +38427,7 @@
   {
     "id": 10383001,
     "monster_hp": 163056,
-    "monster_attack": 13795,
+    "monster_attack": 9992,
     "monster_defense": 3096,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38452,7 +38452,7 @@
   {
     "id": 10393001,
     "monster_hp": 168744,
-    "monster_attack": 14278,
+    "monster_attack": 10342,
     "monster_defense": 3204,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38477,7 +38477,7 @@
   {
     "id": 10403001,
     "monster_hp": 237511,
-    "monster_attack": 15268,
+    "monster_attack": 10972,
     "monster_defense": 3269,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38502,7 +38502,7 @@
   {
     "id": 10413001,
     "monster_hp": 185812,
-    "monster_attack": 15243,
+    "monster_attack": 11029,
     "monster_defense": 3398,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38527,7 +38527,7 @@
   {
     "id": 10423001,
     "monster_hp": 189338,
-    "monster_attack": 15534,
+    "monster_attack": 11240,
     "monster_defense": 3463,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38552,7 +38552,7 @@
   {
     "id": 10433001,
     "monster_hp": 196390,
-    "monster_attack": 16116,
+    "monster_attack": 11661,
     "monster_defense": 3593,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38577,7 +38577,7 @@
   {
     "id": 10443001,
     "monster_hp": 199916,
-    "monster_attack": 16407,
+    "monster_attack": 11872,
     "monster_defense": 3658,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38602,7 +38602,7 @@
   {
     "id": 10453001,
     "monster_hp": 277984,
-    "monster_attack": 17448,
+    "monster_attack": 12532,
     "monster_defense": 3722,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38627,7 +38627,7 @@
   {
     "id": 10463001,
     "monster_hp": 218280,
-    "monster_attack": 16860,
+    "monster_attack": 12251,
     "monster_defense": 3852,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38652,7 +38652,7 @@
   {
     "id": 10473001,
     "monster_hp": 221935,
-    "monster_attack": 17144,
+    "monster_attack": 12458,
     "monster_defense": 3917,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38677,7 +38677,7 @@
   {
     "id": 10483001,
     "monster_hp": 225590,
-    "monster_attack": 17428,
+    "monster_attack": 12664,
     "monster_defense": 3982,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38702,7 +38702,7 @@
   {
     "id": 10493001,
     "monster_hp": 232985,
-    "monster_attack": 17996,
+    "monster_attack": 13077,
     "monster_defense": 4111,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38727,7 +38727,7 @@
   {
     "id": 10503001,
     "monster_hp": 320160,
-    "monster_attack": 19218,
+    "monster_attack": 13846,
     "monster_defense": 4176,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38752,7 +38752,7 @@
   {
     "id": 10513001,
     "monster_hp": 248776,
-    "monster_attack": 18689,
+    "monster_attack": 13565,
     "monster_defense": 4241,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38777,7 +38777,7 @@
   {
     "id": 10523001,
     "monster_hp": 256432,
-    "monster_attack": 19261,
+    "monster_attack": 13980,
     "monster_defense": 4370,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38802,7 +38802,7 @@
   {
     "id": 10533001,
     "monster_hp": 260216,
-    "monster_attack": 19547,
+    "monster_attack": 14187,
     "monster_defense": 4435,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38827,7 +38827,7 @@
   {
     "id": 10543001,
     "monster_hp": 264000,
-    "monster_attack": 19833,
+    "monster_attack": 14395,
     "monster_defense": 4500,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38852,7 +38852,7 @@
   {
     "id": 10553001,
     "monster_hp": 359900,
-    "monster_attack": 21134,
+    "monster_attack": 15218,
     "monster_defense": 4576,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38877,7 +38877,7 @@
   {
     "id": 10563001,
     "monster_hp": 282191,
-    "monster_attack": 20037,
+    "monster_attack": 14602,
     "monster_defense": 4651,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38902,7 +38902,7 @@
   {
     "id": 10573001,
     "monster_hp": 291382,
-    "monster_attack": 20689,
+    "monster_attack": 15077,
     "monster_defense": 4802,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38927,7 +38927,7 @@
   {
     "id": 10583001,
     "monster_hp": 295932,
-    "monster_attack": 21016,
+    "monster_attack": 15315,
     "monster_defense": 4878,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38952,7 +38952,7 @@
   {
     "id": 10593001,
     "monster_hp": 300482,
-    "monster_attack": 21342,
+    "monster_attack": 15552,
     "monster_defense": 4954,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -38977,7 +38977,7 @@
   {
     "id": 10603001,
     "monster_hp": 405713,
-    "monster_attack": 22829,
+    "monster_attack": 16487,
     "monster_defense": 5029,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39002,7 +39002,7 @@
   {
     "id": 10613001,
     "monster_hp": 319882,
-    "monster_attack": 22146,
+    "monster_attack": 16119,
     "monster_defense": 5105,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39027,7 +39027,7 @@
   {
     "id": 10623001,
     "monster_hp": 324676,
-    "monster_attack": 22474,
+    "monster_attack": 16358,
     "monster_defense": 5180,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39052,7 +39052,7 @@
   {
     "id": 10633001,
     "monster_hp": 329376,
-    "monster_attack": 22803,
+    "monster_attack": 16597,
     "monster_defense": 5256,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39077,7 +39077,7 @@
   {
     "id": 10643001,
     "monster_hp": 334076,
-    "monster_attack": 23131,
+    "monster_attack": 16836,
     "monster_defense": 5332,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39102,7 +39102,7 @@
   {
     "id": 10653001,
     "monster_hp": 447020,
-    "monster_attack": 24639,
+    "monster_attack": 17783,
     "monster_defense": 5407,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39127,7 +39127,7 @@
   {
     "id": 10663001,
     "monster_hp": 354535,
-    "monster_attack": 23287,
+    "monster_attack": 17014,
     "monster_defense": 5483,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39152,7 +39152,7 @@
   {
     "id": 10673001,
     "monster_hp": 359482,
-    "monster_attack": 23609,
+    "monster_attack": 17249,
     "monster_defense": 5558,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39177,7 +39177,7 @@
   {
     "id": 10683001,
     "monster_hp": 364332,
-    "monster_attack": 23930,
+    "monster_attack": 17484,
     "monster_defense": 5634,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39202,7 +39202,7 @@
   {
     "id": 10693001,
     "monster_hp": 369182,
-    "monster_attack": 24252,
+    "monster_attack": 17718,
     "monster_defense": 5710,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39227,7 +39227,7 @@
   {
     "id": 10703001,
     "monster_hp": 489839,
-    "monster_attack": 25931,
+    "monster_attack": 18768,
     "monster_defense": 5785,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39252,7 +39252,7 @@
   {
     "id": 10713001,
     "monster_hp": 390700,
-    "monster_attack": 25069,
+    "monster_attack": 18293,
     "monster_defense": 5861,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39277,7 +39277,7 @@
   {
     "id": 10723001,
     "monster_hp": 395800,
-    "monster_attack": 25393,
+    "monster_attack": 18529,
     "monster_defense": 5936,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39302,7 +39302,7 @@
   {
     "id": 10733001,
     "monster_hp": 400800,
-    "monster_attack": 25717,
+    "monster_attack": 18765,
     "monster_defense": 6012,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39327,7 +39327,7 @@
   {
     "id": 10743001,
     "monster_hp": 400800,
-    "monster_attack": 25717,
+    "monster_attack": 18765,
     "monster_defense": 6012,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39352,7 +39352,7 @@
   {
     "id": 10753001,
     "monster_hp": 528580,
-    "monster_attack": 27443,
+    "monster_attack": 19849,
     "monster_defense": 6098,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39377,7 +39377,7 @@
   {
     "id": 10763001,
     "monster_hp": 424669,
-    "monster_attack": 25936,
+    "monster_attack": 18993,
     "monster_defense": 6185,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39402,7 +39402,7 @@
   {
     "id": 10773001,
     "monster_hp": 430643,
-    "monster_attack": 26299,
+    "monster_attack": 19259,
     "monster_defense": 6271,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39427,7 +39427,7 @@
   {
     "id": 10783001,
     "monster_hp": 436514,
-    "monster_attack": 26662,
+    "monster_attack": 19524,
     "monster_defense": 6358,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39452,7 +39452,7 @@
   {
     "id": 10793001,
     "monster_hp": 442488,
-    "monster_attack": 27025,
+    "monster_attack": 19790,
     "monster_defense": 6444,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39477,7 +39477,7 @@
   {
     "id": 10803001,
     "monster_hp": 579082,
-    "monster_attack": 28931,
+    "monster_attack": 20982,
     "monster_defense": 6530,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39502,7 +39502,7 @@
   {
     "id": 10813001,
     "monster_hp": 467566,
-    "monster_attack": 27946,
+    "monster_attack": 20439,
     "monster_defense": 6617,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39527,7 +39527,7 @@
   {
     "id": 10823001,
     "monster_hp": 473714,
-    "monster_attack": 28312,
+    "monster_attack": 20706,
     "monster_defense": 6703,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39552,7 +39552,7 @@
   {
     "id": 10833001,
     "monster_hp": 473714,
-    "monster_attack": 28312,
+    "monster_attack": 20706,
     "monster_defense": 6703,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39577,7 +39577,7 @@
   {
     "id": 10843001,
     "monster_hp": 479756,
-    "monster_attack": 28677,
+    "monster_attack": 20973,
     "monster_defense": 6790,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39602,7 +39602,7 @@
   {
     "id": 10853001,
     "monster_hp": 623424,
-    "monster_attack": 30586,
+    "monster_attack": 22167,
     "monster_defense": 6876,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39627,7 +39627,7 @@
   {
     "id": 10863001,
     "monster_hp": 505978,
-    "monster_attack": 28864,
+    "monster_attack": 21182,
     "monster_defense": 6962,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39652,7 +39652,7 @@
   {
     "id": 10873001,
     "monster_hp": 512191,
-    "monster_attack": 29223,
+    "monster_attack": 21445,
     "monster_defense": 7049,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39677,7 +39677,7 @@
   {
     "id": 10883001,
     "monster_hp": 518513,
-    "monster_attack": 29581,
+    "monster_attack": 21708,
     "monster_defense": 7135,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39702,7 +39702,7 @@
   {
     "id": 10893001,
     "monster_hp": 524726,
-    "monster_attack": 29940,
+    "monster_attack": 21971,
     "monster_defense": 7222,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39727,7 +39727,7 @@
   {
     "id": 10903001,
     "monster_hp": 669146,
-    "monster_attack": 31648,
+    "monster_attack": 22996,
     "monster_defense": 7222,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39752,7 +39752,7 @@
   {
     "id": 10913001,
     "monster_hp": 545664,
-    "monster_attack": 30513,
+    "monster_attack": 22363,
     "monster_defense": 7308,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39777,7 +39777,7 @@
   {
     "id": 10923001,
     "monster_hp": 552160,
-    "monster_attack": 30874,
+    "monster_attack": 22627,
     "monster_defense": 7394,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39802,7 +39802,7 @@
   {
     "id": 10933001,
     "monster_hp": 558544,
-    "monster_attack": 31235,
+    "monster_attack": 22892,
     "monster_defense": 7481,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39827,7 +39827,7 @@
   {
     "id": 10943001,
     "monster_hp": 565040,
-    "monster_attack": 31596,
+    "monster_attack": 23157,
     "monster_defense": 7567,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39852,7 +39852,7 @@
   {
     "id": 10953001,
     "monster_hp": 716390,
-    "monster_attack": 33302,
+    "monster_attack": 24180,
     "monster_defense": 7567,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39877,7 +39877,7 @@
   {
     "id": 10963001,
     "monster_hp": 586730,
-    "monster_attack": 31401,
+    "monster_attack": 23087,
     "monster_defense": 7654,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39902,7 +39902,7 @@
   {
     "id": 10973001,
     "monster_hp": 593400,
-    "monster_attack": 31755,
+    "monster_attack": 23348,
     "monster_defense": 7740,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39927,7 +39927,7 @@
   {
     "id": 10983001,
     "monster_hp": 600875,
-    "monster_attack": 32155,
+    "monster_attack": 23642,
     "monster_defense": 7837,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39952,7 +39952,7 @@
   {
     "id": 10993001,
     "monster_hp": 608350,
-    "monster_attack": 32554,
+    "monster_attack": 23935,
     "monster_defense": 7934,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -39977,7 +39977,7 @@
   {
     "id": 11003001,
     "monster_hp": 767050,
-    "monster_attack": 34425,
+    "monster_attack": 25058,
     "monster_defense": 7934,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40002,7 +40002,7 @@
   {
     "id": 11013001,
     "monster_hp": 631772,
-    "monster_attack": 33186,
+    "monster_attack": 24368,
     "monster_defense": 8032,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40027,7 +40027,7 @@
   {
     "id": 11023001,
     "monster_hp": 639442,
-    "monster_attack": 33587,
+    "monster_attack": 24664,
     "monster_defense": 8129,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40052,7 +40052,7 @@
   {
     "id": 11033001,
     "monster_hp": 647112,
-    "monster_attack": 33989,
+    "monster_attack": 24959,
     "monster_defense": 8226,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40077,7 +40077,7 @@
   {
     "id": 11043001,
     "monster_hp": 654782,
-    "monster_attack": 34391,
+    "monster_attack": 25254,
     "monster_defense": 8323,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40102,7 +40102,7 @@
   {
     "id": 11053001,
     "monster_hp": 821252,
-    "monster_attack": 36265,
+    "monster_attack": 26378,
     "monster_defense": 8323,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40127,7 +40127,7 @@
   {
     "id": 11063001,
     "monster_hp": 679294,
-    "monster_attack": 34220,
+    "monster_attack": 25205,
     "monster_defense": 8420,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40152,7 +40152,7 @@
   {
     "id": 11073001,
     "monster_hp": 687038,
-    "monster_attack": 34616,
+    "monster_attack": 25497,
     "monster_defense": 8518,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40177,7 +40177,7 @@
   {
     "id": 11083001,
     "monster_hp": 694903,
-    "monster_attack": 35011,
+    "monster_attack": 25788,
     "monster_defense": 8615,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40202,7 +40202,7 @@
   {
     "id": 11093001,
     "monster_hp": 694903,
-    "monster_attack": 35011,
+    "monster_attack": 25788,
     "monster_defense": 8615,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40227,7 +40227,7 @@
   {
     "id": 11103001,
     "monster_hp": 877008,
-    "monster_attack": 37447,
+    "monster_attack": 27303,
     "monster_defense": 8712,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40252,7 +40252,7 @@
   {
     "id": 11113001,
     "monster_hp": 728252,
-    "monster_attack": 36053,
+    "monster_attack": 26521,
     "monster_defense": 8809,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40277,7 +40277,7 @@
   {
     "id": 11123001,
     "monster_hp": 736312,
-    "monster_attack": 36451,
+    "monster_attack": 26814,
     "monster_defense": 8906,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40302,7 +40302,7 @@
   {
     "id": 11133001,
     "monster_hp": 736312,
-    "monster_attack": 36451,
+    "monster_attack": 26814,
     "monster_defense": 8906,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40327,7 +40327,7 @@
   {
     "id": 11143001,
     "monster_hp": 744248,
-    "monster_attack": 36849,
+    "monster_attack": 27107,
     "monster_defense": 9004,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40352,7 +40352,7 @@
   {
     "id": 11153001,
     "monster_hp": 934318,
-    "monster_attack": 39287,
+    "monster_attack": 28623,
     "monster_defense": 9101,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40377,7 +40377,7 @@
   {
     "id": 11163001,
     "monster_hp": 778764,
-    "monster_attack": 37058,
+    "monster_attack": 27340,
     "monster_defense": 9198,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40402,7 +40402,7 @@
   {
     "id": 11173001,
     "monster_hp": 778764,
-    "monster_attack": 37058,
+    "monster_attack": 27340,
     "monster_defense": 9198,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40427,7 +40427,7 @@
   {
     "id": 11183001,
     "monster_hp": 787019,
-    "monster_attack": 37450,
+    "monster_attack": 27629,
     "monster_defense": 9295,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40452,7 +40452,7 @@
   {
     "id": 11193001,
     "monster_hp": 795274,
-    "monster_attack": 37841,
+    "monster_attack": 27918,
     "monster_defense": 9392,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40477,7 +40477,7 @@
   {
     "id": 11203001,
     "monster_hp": 993182,
-    "monster_attack": 40435,
+    "monster_attack": 29528,
     "monster_defense": 9490,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40502,7 +40502,7 @@
   {
     "id": 11213001,
     "monster_hp": 822380,
-    "monster_attack": 38499,
+    "monster_attack": 28367,
     "monster_defense": 9490,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40527,7 +40527,7 @@
   {
     "id": 11223001,
     "monster_hp": 830830,
-    "monster_attack": 38894,
+    "monster_attack": 28657,
     "monster_defense": 9587,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40552,7 +40552,7 @@
   {
     "id": 11233001,
     "monster_hp": 839280,
-    "monster_attack": 39288,
+    "monster_attack": 28948,
     "monster_defense": 9684,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40577,7 +40577,7 @@
   {
     "id": 11243001,
     "monster_hp": 848640,
-    "monster_attack": 39727,
+    "monster_attack": 29271,
     "monster_defense": 9792,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40602,7 +40602,7 @@
   {
     "id": 11253001,
     "monster_hp": 1044480,
-    "monster_attack": 41905,
+    "monster_attack": 30578,
     "monster_defense": 9792,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40627,7 +40627,7 @@
   {
     "id": 11263001,
     "monster_hp": 877800,
-    "monster_attack": 39569,
+    "monster_attack": 29237,
     "monster_defense": 9900,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40652,7 +40652,7 @@
   {
     "id": 11273001,
     "monster_hp": 887376,
-    "monster_attack": 40001,
+    "monster_attack": 29556,
     "monster_defense": 10008,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40677,7 +40677,7 @@
   {
     "id": 11283001,
     "monster_hp": 896952,
-    "monster_attack": 40433,
+    "monster_attack": 29875,
     "monster_defense": 10116,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40702,7 +40702,7 @@
   {
     "id": 11293001,
     "monster_hp": 896952,
-    "monster_attack": 40433,
+    "monster_attack": 29875,
     "monster_defense": 10116,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40727,7 +40727,7 @@
   {
     "id": 11303001,
     "monster_hp": 1111008,
-    "monster_attack": 43211,
+    "monster_attack": 31602,
     "monster_defense": 10224,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40752,7 +40752,7 @@
   {
     "id": 11313001,
     "monster_hp": 936768,
-    "monster_attack": 41581,
+    "monster_attack": 30684,
     "monster_defense": 10332,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40777,7 +40777,7 @@
   {
     "id": 11323001,
     "monster_hp": 946560,
-    "monster_attack": 42016,
+    "monster_attack": 31005,
     "monster_defense": 10440,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40802,7 +40802,7 @@
   {
     "id": 11333001,
     "monster_hp": 946560,
-    "monster_attack": 42016,
+    "monster_attack": 31005,
     "monster_defense": 10440,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40827,7 +40827,7 @@
   {
     "id": 11343001,
     "monster_hp": 956352,
-    "monster_attack": 42451,
+    "monster_attack": 31326,
     "monster_defense": 10548,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40852,7 +40852,7 @@
   {
     "id": 11353001,
     "monster_hp": 1179264,
-    "monster_attack": 45234,
+    "monster_attack": 33055,
     "monster_defense": 10656,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40877,7 +40877,7 @@
   {
     "id": 11363001,
     "monster_hp": 997464,
-    "monster_attack": 42708,
+    "monster_attack": 31600,
     "monster_defense": 10764,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40902,7 +40902,7 @@
   {
     "id": 11373001,
     "monster_hp": 997464,
-    "monster_attack": 42708,
+    "monster_attack": 31600,
     "monster_defense": 10764,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40927,7 +40927,7 @@
   {
     "id": 11383001,
     "monster_hp": 1007472,
-    "monster_attack": 43137,
+    "monster_attack": 31917,
     "monster_defense": 10872,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40952,7 +40952,7 @@
   {
     "id": 11393001,
     "monster_hp": 1017480,
-    "monster_attack": 43566,
+    "monster_attack": 32235,
     "monster_defense": 10980,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -40977,7 +40977,7 @@
   {
     "id": 11403001,
     "monster_hp": 1249248,
-    "monster_attack": 46506,
+    "monster_attack": 34059,
     "monster_defense": 11088,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41002,7 +41002,7 @@
   {
     "id": 11413001,
     "monster_hp": 1049664,
-    "monster_attack": 44294,
+    "monster_attack": 32731,
     "monster_defense": 11088,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41027,7 +41027,7 @@
   {
     "id": 11423001,
     "monster_hp": 1059888,
-    "monster_attack": 44725,
+    "monster_attack": 33050,
     "monster_defense": 11196,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41052,7 +41052,7 @@
   {
     "id": 11433001,
     "monster_hp": 1070112,
-    "monster_attack": 45157,
+    "monster_attack": 33369,
     "monster_defense": 11304,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41077,7 +41077,7 @@
   {
     "id": 11443001,
     "monster_hp": 1080336,
-    "monster_attack": 45589,
+    "monster_attack": 33688,
     "monster_defense": 11412,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41102,7 +41102,7 @@
   {
     "id": 11453001,
     "monster_hp": 1308576,
-    "monster_attack": 48075,
+    "monster_attack": 35180,
     "monster_defense": 11412,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41127,7 +41127,7 @@
   {
     "id": 11463001,
     "monster_hp": 1113600,
-    "monster_attack": 45399,
+    "monster_attack": 33635,
     "monster_defense": 11520,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41152,7 +41152,7 @@
   {
     "id": 11473001,
     "monster_hp": 1124040,
-    "monster_attack": 45825,
+    "monster_attack": 33950,
     "monster_defense": 11628,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41177,7 +41177,7 @@
   {
     "id": 11483001,
     "monster_hp": 1134480,
-    "monster_attack": 46251,
+    "monster_attack": 34266,
     "monster_defense": 11736,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41202,7 +41202,7 @@
   {
     "id": 11493001,
     "monster_hp": 1134480,
-    "monster_attack": 46251,
+    "monster_attack": 34266,
     "monster_defense": 11736,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41227,7 +41227,7 @@
   {
     "id": 11503001,
     "monster_hp": 1381800,
-    "monster_attack": 49322,
+    "monster_attack": 36168,
     "monster_defense": 11844,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41252,7 +41252,7 @@
   {
     "id": 11513001,
     "monster_hp": 1180300,
-    "monster_attack": 47461,
+    "monster_attack": 35118,
     "monster_defense": 11963,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41277,7 +41277,7 @@
   {
     "id": 11523001,
     "monster_hp": 1191992,
-    "monster_attack": 47933,
+    "monster_attack": 35467,
     "monster_defense": 12082,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41302,7 +41302,7 @@
   {
     "id": 11533001,
     "monster_hp": 1191992,
-    "monster_attack": 47933,
+    "monster_attack": 35467,
     "monster_defense": 12082,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41327,7 +41327,7 @@
   {
     "id": 11543001,
     "monster_hp": 1203832,
-    "monster_attack": 48404,
+    "monster_attack": 35816,
     "monster_defense": 12200,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41352,7 +41352,7 @@
   {
     "id": 11553001,
     "monster_hp": 1461914,
-    "monster_attack": 51527,
+    "monster_attack": 37755,
     "monster_defense": 12319,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41377,7 +41377,7 @@
   {
     "id": 11563001,
     "monster_hp": 1252092,
-    "monster_attack": 48710,
+    "monster_attack": 36131,
     "monster_defense": 12438,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41402,7 +41402,7 @@
   {
     "id": 11573001,
     "monster_hp": 1252092,
-    "monster_attack": 48710,
+    "monster_attack": 36131,
     "monster_defense": 12438,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41427,7 +41427,7 @@
   {
     "id": 11583001,
     "monster_hp": 1264021,
-    "monster_attack": 49176,
+    "monster_attack": 36477,
     "monster_defense": 12557,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41452,7 +41452,7 @@
   {
     "id": 11593001,
     "monster_hp": 1275950,
-    "monster_attack": 49641,
+    "monster_attack": 36822,
     "monster_defense": 12676,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41477,7 +41477,7 @@
   {
     "id": 11603001,
     "monster_hp": 1543930,
-    "monster_attack": 52923,
+    "monster_attack": 38857,
     "monster_defense": 12794,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41502,7 +41502,7 @@
   {
     "id": 11613001,
     "monster_hp": 1313620,
-    "monster_attack": 50438,
+    "monster_attack": 37366,
     "monster_defense": 12794,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41527,7 +41527,7 @@
   {
     "id": 11623001,
     "monster_hp": 1325786,
-    "monster_attack": 50906,
+    "monster_attack": 37713,
     "monster_defense": 12913,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41552,7 +41552,7 @@
   {
     "id": 11633001,
     "monster_hp": 1337952,
-    "monster_attack": 51375,
+    "monster_attack": 38060,
     "monster_defense": 13032,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41577,7 +41577,7 @@
   {
     "id": 11643001,
     "monster_hp": 1350118,
-    "monster_attack": 51844,
+    "monster_attack": 38407,
     "monster_defense": 13151,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41602,7 +41602,7 @@
   {
     "id": 11653001,
     "monster_hp": 1613128,
-    "monster_attack": 54635,
+    "monster_attack": 40082,
     "monster_defense": 13151,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41627,7 +41627,7 @@
   {
     "id": 11663001,
     "monster_hp": 1388822,
-    "monster_attack": 51665,
+    "monster_attack": 38366,
     "monster_defense": 13270,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41652,7 +41652,7 @@
   {
     "id": 11673001,
     "monster_hp": 1401382,
-    "monster_attack": 52127,
+    "monster_attack": 38709,
     "monster_defense": 13388,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41677,7 +41677,7 @@
   {
     "id": 11683001,
     "monster_hp": 1413785,
-    "monster_attack": 52590,
+    "monster_attack": 39053,
     "monster_defense": 13507,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41702,7 +41702,7 @@
   {
     "id": 11693001,
     "monster_hp": 1413785,
-    "monster_attack": 52590,
+    "monster_attack": 39053,
     "monster_defense": 13507,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41727,7 +41727,7 @@
   {
     "id": 11703001,
     "monster_hp": 1698708,
-    "monster_attack": 56006,
+    "monster_attack": 41168,
     "monster_defense": 13626,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41752,7 +41752,7 @@
   {
     "id": 11713001,
     "monster_hp": 1466080,
-    "monster_attack": 53864,
+    "monster_attack": 39949,
     "monster_defense": 13745,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41777,7 +41777,7 @@
   {
     "id": 11723001,
     "monster_hp": 1478720,
-    "monster_attack": 54330,
+    "monster_attack": 40295,
     "monster_defense": 13864,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41802,7 +41802,7 @@
   {
     "id": 11733001,
     "monster_hp": 1478720,
-    "monster_attack": 54330,
+    "monster_attack": 40295,
     "monster_defense": 13864,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41827,7 +41827,7 @@
   {
     "id": 11743001,
     "monster_hp": 1491520,
-    "monster_attack": 54795,
+    "monster_attack": 40640,
     "monster_defense": 13982,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41852,7 +41852,7 @@
   {
     "id": 11753001,
     "monster_hp": 1786190,
-    "monster_attack": 58213,
+    "monster_attack": 42756,
     "monster_defense": 14101,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41877,7 +41877,7 @@
   {
     "id": 11763001,
     "monster_hp": 1545240,
-    "monster_attack": 55065,
+    "monster_attack": 40934,
     "monster_defense": 14220,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41902,7 +41902,7 @@
   {
     "id": 11773001,
     "monster_hp": 1545240,
-    "monster_attack": 55065,
+    "monster_attack": 40934,
     "monster_defense": 14220,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41927,7 +41927,7 @@
   {
     "id": 11783001,
     "monster_hp": 1559258,
-    "monster_attack": 55567,
+    "monster_attack": 41307,
     "monster_defense": 14350,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41952,7 +41952,7 @@
   {
     "id": 11793001,
     "monster_hp": 1573439,
-    "monster_attack": 56069,
+    "monster_attack": 41680,
     "monster_defense": 14479,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -41977,7 +41977,7 @@
   {
     "id": 11803001,
     "monster_hp": 1879627,
-    "monster_attack": 59687,
+    "monster_attack": 43923,
     "monster_defense": 14609,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42002,7 +42002,7 @@
   {
     "id": 11813001,
     "monster_hp": 1616674,
-    "monster_attack": 56933,
+    "monster_attack": 42271,
     "monster_defense": 14609,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42027,7 +42027,7 @@
   {
     "id": 11823001,
     "monster_hp": 1631116,
-    "monster_attack": 57439,
+    "monster_attack": 42646,
     "monster_defense": 14738,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42052,7 +42052,7 @@
   {
     "id": 11833001,
     "monster_hp": 1645392,
-    "monster_attack": 57944,
+    "monster_attack": 43021,
     "monster_defense": 14868,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42077,7 +42077,7 @@
   {
     "id": 11843001,
     "monster_hp": 1659668,
-    "monster_attack": 58449,
+    "monster_attack": 43396,
     "monster_defense": 14998,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42102,7 +42102,7 @@
   {
     "id": 11853001,
     "monster_hp": 1959608,
-    "monster_attack": 61542,
+    "monster_attack": 45252,
     "monster_defense": 14998,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42127,7 +42127,7 @@
   {
     "id": 11863001,
     "monster_hp": 1704365,
-    "monster_attack": 58281,
+    "monster_attack": 43367,
     "monster_defense": 15127,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42152,7 +42152,7 @@
   {
     "id": 11873001,
     "monster_hp": 1718899,
-    "monster_attack": 58780,
+    "monster_attack": 43739,
     "monster_defense": 15257,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42177,7 +42177,7 @@
   {
     "id": 11883001,
     "monster_hp": 1733602,
-    "monster_attack": 59280,
+    "monster_attack": 44111,
     "monster_defense": 15386,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42202,7 +42202,7 @@
   {
     "id": 11893001,
     "monster_hp": 1733602,
-    "monster_attack": 59280,
+    "monster_attack": 44111,
     "monster_defense": 15386,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42227,7 +42227,7 @@
   {
     "id": 11903001,
     "monster_hp": 2058456,
-    "monster_attack": 63035,
+    "monster_attack": 46436,
     "monster_defense": 15516,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42252,7 +42252,7 @@
   {
     "id": 11913001,
     "monster_hp": 1793960,
-    "monster_attack": 60659,
+    "monster_attack": 45082,
     "monster_defense": 15646,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42277,7 +42277,7 @@
   {
     "id": 11923001,
     "monster_hp": 1808924,
-    "monster_attack": 61161,
+    "monster_attack": 45456,
     "monster_defense": 15775,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42302,7 +42302,7 @@
   {
     "id": 11933001,
     "monster_hp": 1808924,
-    "monster_attack": 61161,
+    "monster_attack": 45456,
     "monster_defense": 15775,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42327,7 +42327,7 @@
   {
     "id": 11943001,
     "monster_hp": 1823716,
-    "monster_attack": 61664,
+    "monster_attack": 45829,
     "monster_defense": 15905,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42352,7 +42352,7 @@
   {
     "id": 11953001,
     "monster_hp": 2159380,
-    "monster_attack": 65424,
+    "monster_attack": 48157,
     "monster_defense": 16034,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42377,7 +42377,7 @@
   {
     "id": 11963001,
     "monster_hp": 1885800,
-    "monster_attack": 61980,
+    "monster_attack": 46163,
     "monster_defense": 16164,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42402,7 +42402,7 @@
   {
     "id": 11973001,
     "monster_hp": 1885800,
-    "monster_attack": 61980,
+    "monster_attack": 46163,
     "monster_defense": 16164,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42427,7 +42427,7 @@
   {
     "id": 11983001,
     "monster_hp": 1900850,
-    "monster_attack": 62477,
+    "monster_attack": 46533,
     "monster_defense": 16294,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42452,7 +42452,7 @@
   {
     "id": 11993001,
     "monster_hp": 1916075,
-    "monster_attack": 62974,
+    "monster_attack": 46903,
     "monster_defense": 16423,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42477,7 +42477,7 @@
   {
     "id": 12003001,
     "monster_hp": 2262175,
-    "monster_attack": 66888,
+    "monster_attack": 49323,
     "monster_defense": 16553,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42502,7 +42502,7 @@
   {
     "id": 12013001,
     "monster_hp": 1964230,
-    "monster_attack": 63865,
+    "monster_attack": 47510,
     "monster_defense": 16553,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42527,7 +42527,7 @@
   {
     "id": 12023001,
     "monster_hp": 1979716,
-    "monster_attack": 64365,
+    "monster_attack": 47882,
     "monster_defense": 16682,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42552,7 +42552,7 @@
   {
     "id": 12033001,
     "monster_hp": 1995024,
-    "monster_attack": 64865,
+    "monster_attack": 48254,
     "monster_defense": 16812,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42577,7 +42577,7 @@
   {
     "id": 12043001,
     "monster_hp": 2011756,
-    "monster_attack": 65407,
+    "monster_attack": 48657,
     "monster_defense": 16952,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42602,7 +42602,7 @@
   {
     "id": 12053001,
     "monster_hp": 2350816,
-    "monster_attack": 68797,
+    "monster_attack": 50691,
     "monster_defense": 16952,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42627,7 +42627,7 @@
   {
     "id": 12063001,
     "monster_hp": 2062495,
-    "monster_attack": 65249,
+    "monster_attack": 48640,
     "monster_defense": 17093,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42652,7 +42652,7 @@
   {
     "id": 12073001,
     "monster_hp": 2079509,
-    "monster_attack": 65785,
+    "monster_attack": 49040,
     "monster_defense": 17233,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42677,7 +42677,7 @@
   {
     "id": 12083001,
     "monster_hp": 2096342,
-    "monster_attack": 66321,
+    "monster_attack": 49440,
     "monster_defense": 17374,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42702,7 +42702,7 @@
   {
     "id": 12093001,
     "monster_hp": 2096342,
-    "monster_attack": 66321,
+    "monster_attack": 49440,
     "monster_defense": 17374,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42727,7 +42727,7 @@
   {
     "id": 12103001,
     "monster_hp": 2463636,
-    "monster_attack": 70413,
+    "monster_attack": 51972,
     "monster_defense": 17514,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42752,7 +42752,7 @@
   {
     "id": 12113001,
     "monster_hp": 2165680,
-    "monster_attack": 67805,
+    "monster_attack": 50486,
     "monster_defense": 17654,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42777,7 +42777,7 @@
   {
     "id": 12123001,
     "monster_hp": 2182792,
-    "monster_attack": 68344,
+    "monster_attack": 50887,
     "monster_defense": 17795,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42802,7 +42802,7 @@
   {
     "id": 12133001,
     "monster_hp": 2182792,
-    "monster_attack": 68344,
+    "monster_attack": 50887,
     "monster_defense": 17795,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42827,7 +42827,7 @@
   {
     "id": 12143001,
     "monster_hp": 2200088,
-    "monster_attack": 68884,
+    "monster_attack": 51289,
     "monster_defense": 17935,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42852,7 +42852,7 @@
   {
     "id": 12153001,
     "monster_hp": 2578700,
-    "monster_attack": 72982,
+    "monster_attack": 53826,
     "monster_defense": 18076,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42877,7 +42877,7 @@
   {
     "id": 12163001,
     "monster_hp": 2270928,
-    "monster_attack": 69246,
+    "monster_attack": 51662,
     "monster_defense": 18216,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42902,7 +42902,7 @@
   {
     "id": 12173001,
     "monster_hp": 2270928,
-    "monster_attack": 69246,
+    "monster_attack": 51662,
     "monster_defense": 18216,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42927,7 +42927,7 @@
   {
     "id": 12183001,
     "monster_hp": 2288506,
-    "monster_attack": 69780,
+    "monster_attack": 52061,
     "monster_defense": 18356,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42952,7 +42952,7 @@
   {
     "id": 12193001,
     "monster_hp": 2305897,
-    "monster_attack": 70314,
+    "monster_attack": 52459,
     "monster_defense": 18497,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -42977,7 +42977,7 @@
   {
     "id": 12203001,
     "monster_hp": 2696225,
-    "monster_attack": 74567,
+    "monster_attack": 55089,
     "monster_defense": 18637,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43002,7 +43002,7 @@
   {
     "id": 12213001,
     "monster_hp": 2360750,
-    "monster_attack": 71272,
+    "monster_attack": 53112,
     "monster_defense": 18637,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43027,7 +43027,7 @@
   {
     "id": 12223001,
     "monster_hp": 2378420,
-    "monster_attack": 71809,
+    "monster_attack": 53513,
     "monster_defense": 18778,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43052,7 +43052,7 @@
   {
     "id": 12233001,
     "monster_hp": 2396280,
-    "monster_attack": 72347,
+    "monster_attack": 53913,
     "monster_defense": 18918,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43077,7 +43077,7 @@
   {
     "id": 12243001,
     "monster_hp": 2414140,
-    "monster_attack": 72884,
+    "monster_attack": 54313,
     "monster_defense": 19058,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43102,7 +43102,7 @@
   {
     "id": 12253001,
     "monster_hp": 2795320,
-    "monster_attack": 76576,
+    "monster_attack": 56529,
     "monster_defense": 19058,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43127,7 +43127,7 @@
   {
     "id": 12263001,
     "monster_hp": 2470207,
-    "monster_attack": 72694,
+    "monster_attack": 54277,
     "monster_defense": 19199,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43152,7 +43152,7 @@
   {
     "id": 12273001,
     "monster_hp": 2488349,
-    "monster_attack": 73226,
+    "monster_attack": 54674,
     "monster_defense": 19339,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43177,7 +43177,7 @@
   {
     "id": 12283001,
     "monster_hp": 2506298,
-    "monster_attack": 73757,
+    "monster_attack": 55071,
     "monster_defense": 19480,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43202,7 +43202,7 @@
   {
     "id": 12293001,
     "monster_hp": 2506298,
-    "monster_attack": 73757,
+    "monster_attack": 55071,
     "monster_defense": 19480,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43227,7 +43227,7 @@
   {
     "id": 12303001,
     "monster_hp": 2916840,
-    "monster_attack": 78140,
+    "monster_attack": 57779,
     "monster_defense": 19620,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43252,7 +43252,7 @@
   {
     "id": 12313001,
     "monster_hp": 2583476,
-    "monster_attack": 75303,
+    "monster_attack": 56161,
     "monster_defense": 19771,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43277,7 +43277,7 @@
   {
     "id": 12323001,
     "monster_hp": 2603272,
-    "monster_attack": 75879,
+    "monster_attack": 56591,
     "monster_defense": 19922,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43302,7 +43302,7 @@
   {
     "id": 12333001,
     "monster_hp": 2603272,
-    "monster_attack": 75879,
+    "monster_attack": 56591,
     "monster_defense": 19922,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43327,7 +43327,7 @@
   {
     "id": 12343001,
     "monster_hp": 2622872,
-    "monster_attack": 76456,
+    "monster_attack": 57020,
     "monster_defense": 20074,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43352,7 +43352,7 @@
   {
     "id": 12353001,
     "monster_hp": 3047158,
-    "monster_attack": 80888,
+    "monster_attack": 59764,
     "monster_defense": 20225,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43377,7 +43377,7 @@
   {
     "id": 12363001,
     "monster_hp": 2703216,
-    "monster_attack": 76864,
+    "monster_attack": 57433,
     "monster_defense": 20376,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43402,7 +43402,7 @@
   {
     "id": 12373001,
     "monster_hp": 2703216,
-    "monster_attack": 76864,
+    "monster_attack": 57433,
     "monster_defense": 20376,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43427,7 +43427,7 @@
   {
     "id": 12383001,
     "monster_hp": 2723315,
-    "monster_attack": 77435,
+    "monster_attack": 57860,
     "monster_defense": 20527,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43452,7 +43452,7 @@
   {
     "id": 12393001,
     "monster_hp": 2743414,
-    "monster_attack": 78005,
+    "monster_attack": 58286,
     "monster_defense": 20678,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43477,7 +43477,7 @@
   {
     "id": 12403001,
     "monster_hp": 3179894,
-    "monster_attack": 82595,
+    "monster_attack": 61124,
     "monster_defense": 20830,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43502,7 +43502,7 @@
   {
     "id": 12413001,
     "monster_hp": 2804972,
-    "monster_attack": 79032,
+    "monster_attack": 58986,
     "monster_defense": 20830,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43527,7 +43527,7 @@
   {
     "id": 12423001,
     "monster_hp": 2825374,
-    "monster_attack": 79606,
+    "monster_attack": 59414,
     "monster_defense": 20981,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43552,7 +43552,7 @@
   {
     "id": 12433001,
     "monster_hp": 2845776,
-    "monster_attack": 80179,
+    "monster_attack": 59842,
     "monster_defense": 21132,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43577,7 +43577,7 @@
   {
     "id": 12443001,
     "monster_hp": 2866178,
-    "monster_attack": 80753,
+    "monster_attack": 60271,
     "monster_defense": 21283,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43602,7 +43602,7 @@
   {
     "id": 12453001,
     "monster_hp": 3291848,
-    "monster_attack": 84747,
+    "monster_attack": 62667,
     "monster_defense": 21283,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43627,7 +43627,7 @@
   {
     "id": 12463001,
     "monster_hp": 2929450,
-    "monster_attack": 80573,
+    "monster_attack": 60246,
     "monster_defense": 21434,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43652,7 +43652,7 @@
   {
     "id": 12473001,
     "monster_hp": 2949950,
-    "monster_attack": 81141,
+    "monster_attack": 60671,
     "monster_defense": 21586,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43677,7 +43677,7 @@
   {
     "id": 12483001,
     "monster_hp": 2970655,
-    "monster_attack": 81710,
+    "monster_attack": 61097,
     "monster_defense": 21737,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43702,7 +43702,7 @@
   {
     "id": 12493001,
     "monster_hp": 2970655,
-    "monster_attack": 81710,
+    "monster_attack": 61097,
     "monster_defense": 21737,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43727,7 +43727,7 @@
   {
     "id": 12503001,
     "monster_hp": 3429120,
-    "monster_attack": 86431,
+    "monster_attack": 64013,
     "monster_defense": 21888,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43752,7 +43752,7 @@
   {
     "id": 12513001,
     "monster_hp": 3056144,
-    "monster_attack": 83319,
+    "monster_attack": 62230,
     "monster_defense": 22039,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43777,7 +43777,7 @@
   {
     "id": 12523001,
     "monster_hp": 3077152,
-    "monster_attack": 83891,
+    "monster_attack": 62657,
     "monster_defense": 22190,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43802,7 +43802,7 @@
   {
     "id": 12533001,
     "monster_hp": 3077152,
-    "monster_attack": 83891,
+    "monster_attack": 62657,
     "monster_defense": 22190,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43827,7 +43827,7 @@
   {
     "id": 12543001,
     "monster_hp": 3097952,
-    "monster_attack": 84463,
+    "monster_attack": 63084,
     "monster_defense": 22342,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43852,7 +43852,7 @@
   {
     "id": 12553001,
     "monster_hp": 3568810,
-    "monster_attack": 89188,
+    "monster_attack": 66003,
     "monster_defense": 22493,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43877,7 +43877,7 @@
   {
     "id": 12563001,
     "monster_hp": 3185256,
-    "monster_attack": 84836,
+    "monster_attack": 63477,
     "monster_defense": 22644,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43902,7 +43902,7 @@
   {
     "id": 12573001,
     "monster_hp": 3185256,
-    "monster_attack": 84836,
+    "monster_attack": 63477,
     "monster_defense": 22644,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43927,7 +43927,7 @@
   {
     "id": 12583001,
     "monster_hp": 3208044,
-    "monster_attack": 85443,
+    "monster_attack": 63931,
     "monster_defense": 22806,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43952,7 +43952,7 @@
   {
     "id": 12593001,
     "monster_hp": 3230832,
-    "monster_attack": 86051,
+    "monster_attack": 64385,
     "monster_defense": 22968,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -43977,7 +43977,7 @@
   {
     "id": 12603001,
     "monster_hp": 3716220,
-    "monster_attack": 90973,
+    "monster_attack": 67429,
     "monster_defense": 23130,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44002,7 +44002,7 @@
   {
     "id": 12613001,
     "monster_hp": 3299880,
-    "monster_attack": 87144,
+    "monster_attack": 65131,
     "monster_defense": 23130,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44027,7 +44027,7 @@
   {
     "id": 12623001,
     "monster_hp": 3322992,
-    "monster_attack": 87754,
+    "monster_attack": 65587,
     "monster_defense": 23292,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44052,7 +44052,7 @@
   {
     "id": 12633001,
     "monster_hp": 3346104,
-    "monster_attack": 88365,
+    "monster_attack": 66044,
     "monster_defense": 23454,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44077,7 +44077,7 @@
   {
     "id": 12643001,
     "monster_hp": 3369216,
-    "monster_attack": 88975,
+    "monster_attack": 66500,
     "monster_defense": 23616,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44102,7 +44102,7 @@
   {
     "id": 12653001,
     "monster_hp": 3841536,
-    "monster_attack": 93267,
+    "monster_attack": 69075,
     "monster_defense": 23616,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44127,7 +44127,7 @@
   {
     "id": 12663001,
     "monster_hp": 3439884,
-    "monster_attack": 88804,
+    "monster_attack": 66487,
     "monster_defense": 23778,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44152,7 +44152,7 @@
   {
     "id": 12673001,
     "monster_hp": 3463320,
-    "monster_attack": 89409,
+    "monster_attack": 66940,
     "monster_defense": 23940,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44177,7 +44177,7 @@
   {
     "id": 12683001,
     "monster_hp": 3486756,
-    "monster_attack": 90014,
+    "monster_attack": 67393,
     "monster_defense": 24102,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44202,7 +44202,7 @@
   {
     "id": 12693001,
     "monster_hp": 3486756,
-    "monster_attack": 90014,
+    "monster_attack": 67393,
     "monster_defense": 24102,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44227,7 +44227,7 @@
   {
     "id": 12703001,
     "monster_hp": 3995472,
-    "monster_attack": 95072,
+    "monster_attack": 70518,
     "monster_defense": 24264,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44252,7 +44252,7 @@
   {
     "id": 12713001,
     "monster_hp": 3582480,
-    "monster_attack": 91728,
+    "monster_attack": 68601,
     "monster_defense": 24426,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44277,7 +44277,7 @@
   {
     "id": 12723001,
     "monster_hp": 3606240,
-    "monster_attack": 92336,
+    "monster_attack": 69056,
     "monster_defense": 24588,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44302,7 +44302,7 @@
   {
     "id": 12733001,
     "monster_hp": 3606240,
-    "monster_attack": 92336,
+    "monster_attack": 69056,
     "monster_defense": 24588,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44327,7 +44327,7 @@
   {
     "id": 12743001,
     "monster_hp": 3630000,
-    "monster_attack": 92945,
+    "monster_attack": 69512,
     "monster_defense": 24750,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44352,7 +44352,7 @@
   {
     "id": 12753001,
     "monster_hp": 4152000,
-    "monster_attack": 98008,
+    "monster_attack": 72639,
     "monster_defense": 24912,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44377,7 +44377,7 @@
   {
     "id": 12763001,
     "monster_hp": 3727668,
-    "monster_attack": 93363,
+    "monster_attack": 69943,
     "monster_defense": 25074,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44402,7 +44402,7 @@
   {
     "id": 12773001,
     "monster_hp": 3727668,
-    "monster_attack": 93363,
+    "monster_attack": 69943,
     "monster_defense": 25074,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44427,7 +44427,7 @@
   {
     "id": 12783001,
     "monster_hp": 3751752,
-    "monster_attack": 93967,
+    "monster_attack": 70395,
     "monster_defense": 25236,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44452,7 +44452,7 @@
   {
     "id": 12793001,
     "monster_hp": 3775836,
-    "monster_attack": 94570,
+    "monster_attack": 70847,
     "monster_defense": 25398,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44477,7 +44477,7 @@
   {
     "id": 12803001,
     "monster_hp": 4311120,
-    "monster_attack": 99787,
+    "monster_attack": 74067,
     "monster_defense": 25560,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44502,7 +44502,7 @@
   {
     "id": 12813001,
     "monster_hp": 3851040,
-    "monster_attack": 95690,
+    "monster_attack": 71609,
     "monster_defense": 25560,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44527,7 +44527,7 @@
   {
     "id": 12823001,
     "monster_hp": 3875448,
-    "monster_attack": 96296,
+    "monster_attack": 72063,
     "monster_defense": 25722,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44552,7 +44552,7 @@
   {
     "id": 12833001,
     "monster_hp": 3899856,
-    "monster_attack": 96903,
+    "monster_attack": 72517,
     "monster_defense": 25884,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44577,7 +44577,7 @@
   {
     "id": 12843001,
     "monster_hp": 3925846,
-    "monster_attack": 97550,
+    "monster_attack": 73001,
     "monster_defense": 26057,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44602,7 +44602,7 @@
   {
     "id": 12853001,
     "monster_hp": 4446976,
-    "monster_attack": 102136,
+    "monster_attack": 75752,
     "monster_defense": 26057,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44627,7 +44627,7 @@
   {
     "id": 12863001,
     "monster_hp": 4004294,
-    "monster_attack": 97388,
+    "monster_attack": 73000,
     "monster_defense": 26230,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44652,7 +44652,7 @@
   {
     "id": 12873001,
     "monster_hp": 4030858,
-    "monster_attack": 98030,
+    "monster_attack": 73481,
     "monster_defense": 26402,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44677,7 +44677,7 @@
   {
     "id": 12883001,
     "monster_hp": 4057193,
-    "monster_attack": 98671,
+    "monster_attack": 73962,
     "monster_defense": 26575,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44702,7 +44702,7 @@
   {
     "id": 12893001,
     "monster_hp": 4057193,
-    "monster_attack": 98671,
+    "monster_attack": 73962,
     "monster_defense": 26575,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44727,7 +44727,7 @@
   {
     "id": 12903001,
     "monster_hp": 4618488,
-    "monster_attack": 104062,
+    "monster_attack": 77292,
     "monster_defense": 26748,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44752,7 +44752,7 @@
   {
     "id": 12913001,
     "monster_hp": 4163704,
-    "monster_attack": 100489,
+    "monster_attack": 75244,
     "monster_defense": 26921,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44777,7 +44777,7 @@
   {
     "id": 12923001,
     "monster_hp": 4190384,
-    "monster_attack": 101134,
+    "monster_attack": 75727,
     "monster_defense": 27094,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44802,7 +44802,7 @@
   {
     "id": 12933001,
     "monster_hp": 4190384,
-    "monster_attack": 101134,
+    "monster_attack": 75727,
     "monster_defense": 27094,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44827,7 +44827,7 @@
   {
     "id": 12943001,
     "monster_hp": 4217296,
-    "monster_attack": 101779,
+    "monster_attack": 76210,
     "monster_defense": 27266,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44852,7 +44852,7 @@
   {
     "id": 12953001,
     "monster_hp": 4792766,
-    "monster_attack": 107178,
+    "monster_attack": 79545,
     "monster_defense": 27439,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44877,7 +44877,7 @@
   {
     "id": 12963001,
     "monster_hp": 4325880,
-    "monster_attack": 102243,
+    "monster_attack": 76680,
     "monster_defense": 27612,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44902,7 +44902,7 @@
   {
     "id": 12973001,
     "monster_hp": 4325880,
-    "monster_attack": 102243,
+    "monster_attack": 76680,
     "monster_defense": 27612,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44927,7 +44927,7 @@
   {
     "id": 12983001,
     "monster_hp": 4352905,
-    "monster_attack": 102883,
+    "monster_attack": 77160,
     "monster_defense": 27785,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44952,7 +44952,7 @@
   {
     "id": 12993001,
     "monster_hp": 4379930,
-    "monster_attack": 103523,
+    "monster_attack": 77640,
     "monster_defense": 27958,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -44977,7 +44977,7 @@
   {
     "id": 13003001,
     "monster_hp": 4969810,
-    "monster_attack": 109076,
+    "monster_attack": 81068,
     "monster_defense": 28130,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45002,7 +45002,7 @@
   {
     "id": 13013001,
     "monster_hp": 4463452,
-    "monster_attack": 104710,
+    "monster_attack": 78449,
     "monster_defense": 28130,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45027,7 +45027,7 @@
   {
     "id": 13023001,
     "monster_hp": 4490822,
-    "monster_attack": 105353,
+    "monster_attack": 78931,
     "monster_defense": 28303,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45052,7 +45052,7 @@
   {
     "id": 13033001,
     "monster_hp": 4518192,
-    "monster_attack": 105997,
+    "monster_attack": 79413,
     "monster_defense": 28476,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45077,7 +45077,7 @@
   {
     "id": 13043001,
     "monster_hp": 4545562,
-    "monster_attack": 106640,
+    "monster_attack": 79895,
     "monster_defense": 28649,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45102,7 +45102,7 @@
   {
     "id": 13053001,
     "monster_hp": 5118532,
-    "monster_attack": 111526,
+    "monster_attack": 82826,
     "monster_defense": 28649,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45127,7 +45127,7 @@
   {
     "id": 13063001,
     "monster_hp": 4630574,
-    "monster_attack": 106446,
+    "monster_attack": 79874,
     "monster_defense": 28822,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45152,7 +45152,7 @@
   {
     "id": 13073001,
     "monster_hp": 4658530,
-    "monster_attack": 107084,
+    "monster_attack": 80353,
     "monster_defense": 28994,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45177,7 +45177,7 @@
   {
     "id": 13083001,
     "monster_hp": 4686245,
-    "monster_attack": 107723,
+    "monster_attack": 80832,
     "monster_defense": 29167,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45202,7 +45202,7 @@
   {
     "id": 13093001,
     "monster_hp": 4686245,
-    "monster_attack": 107723,
+    "monster_attack": 80832,
     "monster_defense": 29167,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45227,7 +45227,7 @@
   {
     "id": 13103001,
     "monster_hp": 5300760,
-    "monster_attack": 113404,
+    "monster_attack": 84337,
     "monster_defense": 29340,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45252,7 +45252,7 @@
   {
     "id": 13113001,
     "monster_hp": 4802408,
-    "monster_attack": 109603,
+    "monster_attack": 82159,
     "monster_defense": 29524,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45277,7 +45277,7 @@
   {
     "id": 13123001,
     "monster_hp": 4832420,
-    "monster_attack": 110285,
+    "monster_attack": 82670,
     "monster_defense": 29707,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45302,7 +45302,7 @@
   {
     "id": 13133001,
     "monster_hp": 4832420,
-    "monster_attack": 110285,
+    "monster_attack": 82670,
     "monster_defense": 29707,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45327,7 +45327,7 @@
   {
     "id": 13143001,
     "monster_hp": 4862188,
-    "monster_attack": 110966,
+    "monster_attack": 83181,
     "monster_defense": 29891,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45352,7 +45352,7 @@
   {
     "id": 13153001,
     "monster_hp": 5493700,
-    "monster_attack": 116697,
+    "monster_attack": 86721,
     "monster_defense": 30074,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45377,7 +45377,7 @@
   {
     "id": 13163001,
     "monster_hp": 4982484,
-    "monster_attack": 111476,
+    "monster_attack": 83690,
     "monster_defense": 30258,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45402,7 +45402,7 @@
   {
     "id": 13173001,
     "monster_hp": 4982484,
-    "monster_attack": 111476,
+    "monster_attack": 83690,
     "monster_defense": 30258,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45427,7 +45427,7 @@
   {
     "id": 13183001,
     "monster_hp": 5012618,
-    "monster_attack": 112153,
+    "monster_attack": 84198,
     "monster_defense": 30442,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45452,7 +45452,7 @@
   {
     "id": 13193001,
     "monster_hp": 5042999,
-    "monster_attack": 112829,
+    "monster_attack": 84706,
     "monster_defense": 30625,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45477,7 +45477,7 @@
   {
     "id": 13203001,
     "monster_hp": 5689303,
-    "monster_attack": 118716,
+    "monster_attack": 88340,
     "monster_defense": 30809,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45502,7 +45502,7 @@
   {
     "id": 13213001,
     "monster_hp": 5134750,
-    "monster_attack": 114083,
+    "monster_attack": 85560,
     "monster_defense": 30809,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45527,7 +45527,7 @@
   {
     "id": 13223001,
     "monster_hp": 5165500,
-    "monster_attack": 114763,
+    "monster_attack": 86070,
     "monster_defense": 30992,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45552,7 +45552,7 @@
   {
     "id": 13233001,
     "monster_hp": 5196000,
-    "monster_attack": 115443,
+    "monster_attack": 86580,
     "monster_defense": 31176,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45577,7 +45577,7 @@
   {
     "id": 13243001,
     "monster_hp": 5226500,
-    "monster_attack": 116123,
+    "monster_attack": 87090,
     "monster_defense": 31360,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45602,7 +45602,7 @@
   {
     "id": 13253001,
     "monster_hp": 5853680,
-    "monster_attack": 121307,
+    "monster_attack": 90201,
     "monster_defense": 31360,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45627,7 +45627,7 @@
   {
     "id": 13263001,
     "monster_hp": 5320337,
-    "monster_attack": 115937,
+    "monster_attack": 87081,
     "monster_defense": 31543,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45652,7 +45652,7 @@
   {
     "id": 13273001,
     "monster_hp": 5351203,
-    "monster_attack": 116612,
+    "monster_attack": 87588,
     "monster_defense": 31727,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45677,7 +45677,7 @@
   {
     "id": 13283001,
     "monster_hp": 5382322,
-    "monster_attack": 117287,
+    "monster_attack": 88095,
     "monster_defense": 31910,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45702,7 +45702,7 @@
   {
     "id": 13293001,
     "monster_hp": 5382322,
-    "monster_attack": 117287,
+    "monster_attack": 88095,
     "monster_defense": 31910,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45727,7 +45727,7 @@
   {
     "id": 13303001,
     "monster_hp": 6055068,
-    "monster_attack": 123305,
+    "monster_attack": 91808,
     "monster_defense": 32094,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45752,7 +45752,7 @@
   {
     "id": 13313001,
     "monster_hp": 5508608,
-    "monster_attack": 119231,
+    "monster_attack": 89465,
     "monster_defense": 32278,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45777,7 +45777,7 @@
   {
     "id": 13323001,
     "monster_hp": 5540096,
-    "monster_attack": 119910,
+    "monster_attack": 89974,
     "monster_defense": 32461,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45802,7 +45802,7 @@
   {
     "id": 13333001,
     "monster_hp": 5540096,
-    "monster_attack": 119910,
+    "monster_attack": 89974,
     "monster_defense": 32461,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45827,7 +45827,7 @@
   {
     "id": 13343001,
     "monster_hp": 5571328,
-    "monster_attack": 120588,
+    "monster_attack": 90483,
     "monster_defense": 32645,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45852,7 +45852,7 @@
   {
     "id": 13353001,
     "monster_hp": 6259396,
-    "monster_attack": 126611,
+    "monster_attack": 94199,
     "monster_defense": 32828,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45877,7 +45877,7 @@
   {
     "id": 13363001,
     "monster_hp": 5700072,
-    "monster_attack": 121063,
+    "monster_attack": 90973,
     "monster_defense": 33012,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45902,7 +45902,7 @@
   {
     "id": 13373001,
     "monster_hp": 5700072,
-    "monster_attack": 121063,
+    "monster_attack": 90973,
     "monster_defense": 33012,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45927,7 +45927,7 @@
   {
     "id": 13383001,
     "monster_hp": 5733742,
-    "monster_attack": 121776,
+    "monster_attack": 91508,
     "monster_defense": 33206,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45952,7 +45952,7 @@
   {
     "id": 13393001,
     "monster_hp": 5767153,
-    "monster_attack": 122489,
+    "monster_attack": 92044,
     "monster_defense": 33401,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -45977,7 +45977,7 @@
   {
     "id": 13403001,
     "monster_hp": 6472733,
-    "monster_attack": 128708,
+    "monster_attack": 95883,
     "monster_defense": 33595,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46002,7 +46002,7 @@
   {
     "id": 13413001,
     "monster_hp": 5868014,
-    "monster_attack": 123810,
+    "monster_attack": 92944,
     "monster_defense": 33595,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46027,7 +46027,7 @@
   {
     "id": 13423001,
     "monster_hp": 5901812,
-    "monster_attack": 124526,
+    "monster_attack": 93482,
     "monster_defense": 33790,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46052,7 +46052,7 @@
   {
     "id": 13433001,
     "monster_hp": 5935872,
-    "monster_attack": 125243,
+    "monster_attack": 94020,
     "monster_defense": 33984,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46077,7 +46077,7 @@
   {
     "id": 13443001,
     "monster_hp": 5969932,
-    "monster_attack": 125959,
+    "monster_attack": 94558,
     "monster_defense": 34178,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46102,7 +46102,7 @@
   {
     "id": 13453001,
     "monster_hp": 6653512,
-    "monster_attack": 131439,
+    "monster_attack": 97846,
     "monster_defense": 34178,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46127,7 +46127,7 @@
   {
     "id": 13463001,
     "monster_hp": 6072475,
-    "monster_attack": 125782,
+    "monster_attack": 94560,
     "monster_defense": 34373,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46152,7 +46152,7 @@
   {
     "id": 13473001,
     "monster_hp": 6106925,
-    "monster_attack": 126494,
+    "monster_attack": 95095,
     "monster_defense": 34567,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46177,7 +46177,7 @@
   {
     "id": 13483001,
     "monster_hp": 6141110,
-    "monster_attack": 127205,
+    "monster_attack": 95630,
     "monster_defense": 34762,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46202,7 +46202,7 @@
   {
     "id": 13493001,
     "monster_hp": 6141110,
-    "monster_attack": 127205,
+    "monster_attack": 95630,
     "monster_defense": 34762,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46227,7 +46227,7 @@
   {
     "id": 13503001,
     "monster_hp": 6874680,
-    "monster_attack": 133557,
+    "monster_attack": 99549,
     "monster_defense": 34956,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46252,7 +46252,7 @@
   {
     "id": 13513001,
     "monster_hp": 6280312,
-    "monster_attack": 129253,
+    "monster_attack": 97074,
     "monster_defense": 35150,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46277,7 +46277,7 @@
   {
     "id": 13523001,
     "monster_hp": 6314884,
-    "monster_attack": 129968,
+    "monster_attack": 97611,
     "monster_defense": 35345,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46302,7 +46302,7 @@
   {
     "id": 13533001,
     "monster_hp": 6314884,
-    "monster_attack": 129968,
+    "monster_attack": 97611,
     "monster_defense": 35345,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46327,7 +46327,7 @@
   {
     "id": 13543001,
     "monster_hp": 6349724,
-    "monster_attack": 130683,
+    "monster_attack": 98148,
     "monster_defense": 35539,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46352,7 +46352,7 @@
   {
     "id": 13553001,
     "monster_hp": 7098956,
-    "monster_attack": 137041,
+    "monster_attack": 102071,
     "monster_defense": 35734,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46377,7 +46377,7 @@
   {
     "id": 13563001,
     "monster_hp": 6490992,
-    "monster_attack": 131202,
+    "monster_attack": 98676,
     "monster_defense": 35928,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46402,7 +46402,7 @@
   {
     "id": 13573001,
     "monster_hp": 6490992,
-    "monster_attack": 131202,
+    "monster_attack": 98676,
     "monster_defense": 35928,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46427,7 +46427,7 @@
   {
     "id": 13583001,
     "monster_hp": 6526222,
-    "monster_attack": 131912,
+    "monster_attack": 99210,
     "monster_defense": 36122,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46452,7 +46452,7 @@
   {
     "id": 13593001,
     "monster_hp": 6561181,
-    "monster_attack": 132622,
+    "monster_attack": 99744,
     "monster_defense": 36317,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46477,7 +46477,7 @@
   {
     "id": 13603001,
     "monster_hp": 7326641,
-    "monster_attack": 139134,
+    "monster_attack": 103759,
     "monster_defense": 36511,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46502,7 +46502,7 @@
   {
     "id": 13613001,
     "monster_hp": 6669434,
-    "monster_attack": 133970,
+    "monster_attack": 100660,
     "monster_defense": 36511,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46527,7 +46527,7 @@
   {
     "id": 13623001,
     "monster_hp": 6704780,
-    "monster_attack": 134683,
+    "monster_attack": 101196,
     "monster_defense": 36706,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46552,7 +46552,7 @@
   {
     "id": 13633001,
     "monster_hp": 6740400,
-    "monster_attack": 135397,
+    "monster_attack": 101732,
     "monster_defense": 36900,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46577,7 +46577,7 @@
   {
     "id": 13643001,
     "monster_hp": 6777938,
-    "monster_attack": 136150,
+    "monster_attack": 102298,
     "monster_defense": 37105,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46602,7 +46602,7 @@
   {
     "id": 13653001,
     "monster_hp": 7520048,
-    "monster_attack": 141923,
+    "monster_attack": 105762,
     "monster_defense": 37105,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46627,7 +46627,7 @@
   {
     "id": 13663001,
     "monster_hp": 6890098,
-    "monster_attack": 135981,
+    "monster_attack": 102311,
     "monster_defense": 37310,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46652,7 +46652,7 @@
   {
     "id": 13673001,
     "monster_hp": 6927770,
-    "monster_attack": 136729,
+    "monster_attack": 102874,
     "monster_defense": 37516,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46677,7 +46677,7 @@
   {
     "id": 13683001,
     "monster_hp": 6965719,
-    "monster_attack": 137477,
+    "monster_attack": 103437,
     "monster_defense": 37721,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46702,7 +46702,7 @@
   {
     "id": 13693001,
     "monster_hp": 6965719,
-    "monster_attack": 137477,
+    "monster_attack": 103437,
     "monster_defense": 37721,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46727,7 +46727,7 @@
   {
     "id": 13703001,
     "monster_hp": 7762188,
-    "monster_attack": 144160,
+    "monster_attack": 107561,
     "monster_defense": 37926,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46752,7 +46752,7 @@
   {
     "id": 13713001,
     "monster_hp": 7117880,
-    "monster_attack": 139627,
+    "monster_attack": 104955,
     "monster_defense": 38131,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46777,7 +46777,7 @@
   {
     "id": 13723001,
     "monster_hp": 7156240,
-    "monster_attack": 140379,
+    "monster_attack": 105520,
     "monster_defense": 38336,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46802,7 +46802,7 @@
   {
     "id": 13733001,
     "monster_hp": 7156240,
-    "monster_attack": 140379,
+    "monster_attack": 105520,
     "monster_defense": 38336,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46827,7 +46827,7 @@
   {
     "id": 13743001,
     "monster_hp": 7194320,
-    "monster_attack": 141130,
+    "monster_attack": 106085,
     "monster_defense": 38542,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46852,7 +46852,7 @@
   {
     "id": 13753001,
     "monster_hp": 8007610,
-    "monster_attack": 147823,
+    "monster_attack": 110214,
     "monster_defense": 38747,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46877,7 +46877,7 @@
   {
     "id": 13763001,
     "monster_hp": 7348944,
-    "monster_attack": 141695,
+    "monster_attack": 106651,
     "monster_defense": 38952,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46902,7 +46902,7 @@
   {
     "id": 13773001,
     "monster_hp": 7348944,
-    "monster_attack": 141695,
+    "monster_attack": 106651,
     "monster_defense": 38952,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46927,7 +46927,7 @@
   {
     "id": 13783001,
     "monster_hp": 7387715,
-    "monster_attack": 142441,
+    "monster_attack": 107213,
     "monster_defense": 39157,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46952,7 +46952,7 @@
   {
     "id": 13793001,
     "monster_hp": 7426486,
-    "monster_attack": 143188,
+    "monster_attack": 107775,
     "monster_defense": 39362,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -46977,7 +46977,7 @@
   {
     "id": 13803001,
     "monster_hp": 8256314,
-    "monster_attack": 150034,
+    "monster_attack": 111997,
     "monster_defense": 39568,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47002,7 +47002,7 @@
   {
     "id": 13813001,
     "monster_hp": 7544108,
-    "monster_attack": 144602,
+    "monster_attack": 108738,
     "monster_defense": 39568,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47027,7 +47027,7 @@
   {
     "id": 13823001,
     "monster_hp": 7583290,
-    "monster_attack": 145352,
+    "monster_attack": 109302,
     "monster_defense": 39773,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47052,7 +47052,7 @@
   {
     "id": 13833001,
     "monster_hp": 7622472,
-    "monster_attack": 146102,
+    "monster_attack": 109866,
     "monster_defense": 39978,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47077,7 +47077,7 @@
   {
     "id": 13843001,
     "monster_hp": 7661654,
-    "monster_attack": 146852,
+    "monster_attack": 110430,
     "monster_defense": 40183,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47102,7 +47102,7 @@
   {
     "id": 13853001,
     "monster_hp": 8465324,
-    "monster_attack": 152924,
+    "monster_attack": 114073,
     "monster_defense": 40183,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47127,7 +47127,7 @@
   {
     "id": 13863001,
     "monster_hp": 7781614,
-    "monster_attack": 146652,
+    "monster_attack": 110424,
     "monster_defense": 40388,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47152,7 +47152,7 @@
   {
     "id": 13873001,
     "monster_hp": 7820918,
-    "monster_attack": 147397,
+    "monster_attack": 110985,
     "monster_defense": 40594,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47177,7 +47177,7 @@
   {
     "id": 13883001,
     "monster_hp": 7860511,
-    "monster_attack": 148143,
+    "monster_attack": 111546,
     "monster_defense": 40799,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47202,7 +47202,7 @@
   {
     "id": 13893001,
     "monster_hp": 7860511,
-    "monster_attack": 148143,
+    "monster_attack": 111546,
     "monster_defense": 40799,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47227,7 +47227,7 @@
   {
     "id": 13903001,
     "monster_hp": 8720184,
-    "monster_attack": 155116,
+    "monster_attack": 115844,
     "monster_defense": 41004,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47252,7 +47252,7 @@
   {
     "id": 13913001,
     "monster_hp": 8024160,
-    "monster_attack": 150356,
+    "monster_attack": 113108,
     "monster_defense": 41220,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47277,7 +47277,7 @@
   {
     "id": 13923001,
     "monster_hp": 8066208,
-    "monster_attack": 151144,
+    "monster_attack": 113701,
     "monster_defense": 41436,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47302,7 +47302,7 @@
   {
     "id": 13933001,
     "monster_hp": 8066208,
-    "monster_attack": 151144,
+    "monster_attack": 113701,
     "monster_defense": 41436,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47327,7 +47327,7 @@
   {
     "id": 13943001,
     "monster_hp": 8108256,
-    "monster_attack": 151932,
+    "monster_attack": 114294,
     "monster_defense": 41652,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47352,7 +47352,7 @@
   {
     "id": 13953001,
     "monster_hp": 8987664,
-    "monster_attack": 158956,
+    "monster_attack": 118628,
     "monster_defense": 41868,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47377,7 +47377,7 @@
   {
     "id": 13963001,
     "monster_hp": 8276520,
-    "monster_attack": 152542,
+    "monster_attack": 114899,
     "monster_defense": 42084,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47402,7 +47402,7 @@
   {
     "id": 13973001,
     "monster_hp": 8276520,
-    "monster_attack": 152542,
+    "monster_attack": 114899,
     "monster_defense": 42084,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47427,7 +47427,7 @@
   {
     "id": 13983001,
     "monster_hp": 8319000,
-    "monster_attack": 153325,
+    "monster_attack": 115489,
     "monster_defense": 42300,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47452,7 +47452,7 @@
   {
     "id": 13993001,
     "monster_hp": 8361480,
-    "monster_attack": 154108,
+    "monster_attack": 116079,
     "monster_defense": 42516,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47477,7 +47477,7 @@
   {
     "id": 14003001,
     "monster_hp": 9258600,
-    "monster_attack": 161287,
+    "monster_attack": 120506,
     "monster_defense": 42732,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47502,7 +47502,7 @@
   {
     "id": 14013001,
     "monster_hp": 8489424,
-    "monster_attack": 155588,
+    "monster_attack": 117087,
     "monster_defense": 42732,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47527,7 +47527,7 @@
   {
     "id": 14023001,
     "monster_hp": 8532336,
-    "monster_attack": 156375,
+    "monster_attack": 117679,
     "monster_defense": 42948,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47552,7 +47552,7 @@
   {
     "id": 14033001,
     "monster_hp": 8575248,
-    "monster_attack": 157162,
+    "monster_attack": 118271,
     "monster_defense": 43164,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47577,7 +47577,7 @@
   {
     "id": 14043001,
     "monster_hp": 8618160,
-    "monster_attack": 157948,
+    "monster_attack": 118863,
     "monster_defense": 43380,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47602,7 +47602,7 @@
   {
     "id": 14053001,
     "monster_hp": 9485760,
-    "monster_attack": 164317,
+    "monster_attack": 122684,
     "monster_defense": 43380,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47627,7 +47627,7 @@
   {
     "id": 14063001,
     "monster_hp": 8748264,
-    "monster_attack": 157756,
+    "monster_attack": 118868,
     "monster_defense": 43596,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47652,7 +47652,7 @@
   {
     "id": 14073001,
     "monster_hp": 8791608,
-    "monster_attack": 158538,
+    "monster_attack": 119457,
     "monster_defense": 43812,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47677,7 +47677,7 @@
   {
     "id": 14083001,
     "monster_hp": 8834952,
-    "monster_attack": 159320,
+    "monster_attack": 120046,
     "monster_defense": 44028,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47702,7 +47702,7 @@
   {
     "id": 14093001,
     "monster_hp": 8834952,
-    "monster_attack": 159320,
+    "monster_attack": 120046,
     "monster_defense": 44028,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47727,7 +47727,7 @@
   {
     "id": 14103001,
     "monster_hp": 9763176,
-    "monster_attack": 166628,
+    "monster_attack": 124551,
     "monster_defense": 44244,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47752,7 +47752,7 @@
   {
     "id": 14113001,
     "monster_hp": 9010560,
-    "monster_attack": 161597,
+    "monster_attack": 121653,
     "monster_defense": 44460,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47777,7 +47777,7 @@
   {
     "id": 14123001,
     "monster_hp": 9054336,
-    "monster_attack": 162382,
+    "monster_attack": 122244,
     "monster_defense": 44676,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47802,7 +47802,7 @@
   {
     "id": 14133001,
     "monster_hp": 9054336,
-    "monster_attack": 162382,
+    "monster_attack": 122244,
     "monster_defense": 44676,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47827,7 +47827,7 @@
   {
     "id": 14143001,
     "monster_hp": 9098112,
-    "monster_attack": 163168,
+    "monster_attack": 122835,
     "monster_defense": 44892,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47852,7 +47852,7 @@
   {
     "id": 14153001,
     "monster_hp": 10044048,
-    "monster_attack": 170482,
+    "monster_attack": 127343,
     "monster_defense": 45108,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47877,7 +47877,7 @@
   {
     "id": 14163001,
     "monster_hp": 9276312,
-    "monster_attack": 163743,
+    "monster_attack": 123420,
     "monster_defense": 45324,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47902,7 +47902,7 @@
   {
     "id": 14173001,
     "monster_hp": 9276312,
-    "monster_attack": 163743,
+    "monster_attack": 123420,
     "monster_defense": 45324,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47927,7 +47927,7 @@
   {
     "id": 14183001,
     "monster_hp": 9322669,
-    "monster_attack": 164563,
+    "monster_attack": 124038,
     "monster_defense": 45551,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47952,7 +47952,7 @@
   {
     "id": 14193001,
     "monster_hp": 9369026,
-    "monster_attack": 165382,
+    "monster_attack": 124656,
     "monster_defense": 45778,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -47977,7 +47977,7 @@
   {
     "id": 14203001,
     "monster_hp": 10335790,
-    "monster_attack": 172891,
+    "monster_attack": 129287,
     "monster_defense": 46004,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48002,7 +48002,7 @@
   {
     "id": 14213001,
     "monster_hp": 9507700,
-    "monster_attack": 166929,
+    "monster_attack": 125710,
     "monster_defense": 46004,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48027,7 +48027,7 @@
   {
     "id": 14223001,
     "monster_hp": 9554510,
-    "monster_attack": 167752,
+    "monster_attack": 126330,
     "monster_defense": 46231,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48052,7 +48052,7 @@
   {
     "id": 14233001,
     "monster_hp": 9601320,
-    "monster_attack": 168575,
+    "monster_attack": 126949,
     "monster_defense": 46458,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48077,7 +48077,7 @@
   {
     "id": 14243001,
     "monster_hp": 9648130,
-    "monster_attack": 169398,
+    "monster_attack": 127569,
     "monster_defense": 46685,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48102,7 +48102,7 @@
   {
     "id": 14253001,
     "monster_hp": 10581820,
-    "monster_attack": 176062,
+    "monster_attack": 131567,
     "monster_defense": 46685,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48127,7 +48127,7 @@
   {
     "id": 14263001,
     "monster_hp": 9788762,
-    "monster_attack": 169214,
+    "monster_attack": 127585,
     "monster_defense": 46912,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48152,7 +48152,7 @@
   {
     "id": 14273001,
     "monster_hp": 9836338,
-    "monster_attack": 170032,
+    "monster_attack": 128202,
     "monster_defense": 47138,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48177,7 +48177,7 @@
   {
     "id": 14283001,
     "monster_hp": 9883601,
-    "monster_attack": 170850,
+    "monster_attack": 128819,
     "monster_defense": 47365,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48202,7 +48202,7 @@
   {
     "id": 14293001,
     "monster_hp": 9883601,
-    "monster_attack": 170850,
+    "monster_attack": 128819,
     "monster_defense": 47365,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48227,7 +48227,7 @@
   {
     "id": 14303001,
     "monster_hp": 10882704,
-    "monster_attack": 178492,
+    "monster_attack": 133529,
     "monster_defense": 47592,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48252,7 +48252,7 @@
   {
     "id": 14313001,
     "monster_hp": 10073764,
-    "monster_attack": 173231,
+    "monster_attack": 130499,
     "monster_defense": 47819,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48277,7 +48277,7 @@
   {
     "id": 14323001,
     "monster_hp": 10121480,
-    "monster_attack": 174053,
+    "monster_attack": 131118,
     "monster_defense": 48046,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48302,7 +48302,7 @@
   {
     "id": 14333001,
     "monster_hp": 10121480,
-    "monster_attack": 174053,
+    "monster_attack": 131118,
     "monster_defense": 48046,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48327,7 +48327,7 @@
   {
     "id": 14343001,
     "monster_hp": 10169512,
-    "monster_attack": 174874,
+    "monster_attack": 131737,
     "monster_defense": 48272,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48352,7 +48352,7 @@
   {
     "id": 14353001,
     "monster_hp": 11187218,
-    "monster_attack": 182524,
+    "monster_attack": 136452,
     "monster_defense": 48499,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48377,7 +48377,7 @@
   {
     "id": 14363001,
     "monster_hp": 10362396,
-    "monster_attack": 175494,
+    "monster_attack": 132361,
     "monster_defense": 48726,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48402,7 +48402,7 @@
   {
     "id": 14373001,
     "monster_hp": 10362396,
-    "monster_attack": 175494,
+    "monster_attack": 132361,
     "monster_defense": 48726,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48427,7 +48427,7 @@
   {
     "id": 14383001,
     "monster_hp": 10410565,
-    "monster_attack": 176311,
+    "monster_attack": 132977,
     "monster_defense": 48953,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48452,7 +48452,7 @@
   {
     "id": 14393001,
     "monster_hp": 10458734,
-    "monster_attack": 177128,
+    "monster_attack": 133593,
     "monster_defense": 49180,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48477,7 +48477,7 @@
   {
     "id": 14403001,
     "monster_hp": 11495362,
-    "monster_attack": 184930,
+    "monster_attack": 138400,
     "monster_defense": 49406,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48502,7 +48502,7 @@
   {
     "id": 14413001,
     "monster_hp": 10606036,
-    "monster_attack": 178702,
+    "monster_attack": 134664,
     "monster_defense": 49406,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48527,7 +48527,7 @@
   {
     "id": 14423001,
     "monster_hp": 10654658,
-    "monster_attack": 179523,
+    "monster_attack": 135282,
     "monster_defense": 49633,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48552,7 +48552,7 @@
   {
     "id": 14433001,
     "monster_hp": 10703280,
-    "monster_attack": 180343,
+    "monster_attack": 135900,
     "monster_defense": 49860,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48577,7 +48577,7 @@
   {
     "id": 14443001,
     "monster_hp": 10754156,
-    "monster_attack": 181202,
+    "monster_attack": 136548,
     "monster_defense": 50098,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48602,7 +48602,7 @@
   {
     "id": 14453001,
     "monster_hp": 11756096,
-    "monster_attack": 188159,
+    "monster_attack": 140722,
     "monster_defense": 50098,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48627,7 +48627,7 @@
   {
     "id": 14463001,
     "monster_hp": 10906025,
-    "monster_attack": 181027,
+    "monster_attack": 136574,
     "monster_defense": 50335,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48652,7 +48652,7 @@
   {
     "id": 14473001,
     "monster_hp": 10957375,
-    "monster_attack": 181881,
+    "monster_attack": 137219,
     "monster_defense": 50573,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48677,7 +48677,7 @@
   {
     "id": 14483001,
     "monster_hp": 11009050,
-    "monster_attack": 182736,
+    "monster_attack": 137864,
     "monster_defense": 50810,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48702,7 +48702,7 @@
   {
     "id": 14493001,
     "monster_hp": 11009050,
-    "monster_attack": 182736,
+    "monster_attack": 137864,
     "monster_defense": 50810,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48727,7 +48727,7 @@
   {
     "id": 14503001,
     "monster_hp": 12081360,
-    "monster_attack": 190708,
+    "monster_attack": 142779,
     "monster_defense": 51048,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48752,7 +48752,7 @@
   {
     "id": 14513001,
     "monster_hp": 11214320,
-    "monster_attack": 185219,
+    "monster_attack": 139618,
     "monster_defense": 51286,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48777,7 +48777,7 @@
   {
     "id": 14523001,
     "monster_hp": 11266472,
-    "monster_attack": 186077,
+    "monster_attack": 140265,
     "monster_defense": 51523,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48802,7 +48802,7 @@
   {
     "id": 14533001,
     "monster_hp": 11266472,
-    "monster_attack": 186077,
+    "monster_attack": 140265,
     "monster_defense": 51523,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48827,7 +48827,7 @@
   {
     "id": 14543001,
     "monster_hp": 11318296,
-    "monster_attack": 186935,
+    "monster_attack": 140912,
     "monster_defense": 51761,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48852,7 +48852,7 @@
   {
     "id": 14553001,
     "monster_hp": 12410428,
-    "monster_attack": 194917,
+    "monster_attack": 145832,
     "monster_defense": 51998,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48877,7 +48877,7 @@
   {
     "id": 14563001,
     "monster_hp": 11526744,
-    "monster_attack": 187599,
+    "monster_attack": 141574,
     "monster_defense": 52236,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48902,7 +48902,7 @@
   {
     "id": 14573001,
     "monster_hp": 11526744,
-    "monster_attack": 187599,
+    "monster_attack": 141574,
     "monster_defense": 52236,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48927,7 +48927,7 @@
   {
     "id": 14583001,
     "monster_hp": 11579042,
-    "monster_attack": 188453,
+    "monster_attack": 142218,
     "monster_defense": 52474,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48952,7 +48952,7 @@
   {
     "id": 14593001,
     "monster_hp": 11631671,
-    "monster_attack": 189306,
+    "monster_attack": 142862,
     "monster_defense": 52711,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -48977,7 +48977,7 @@
   {
     "id": 14603001,
     "monster_hp": 12742939,
-    "monster_attack": 197442,
+    "monster_attack": 147875,
     "monster_defense": 52949,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49002,7 +49002,7 @@
   {
     "id": 14613001,
     "monster_hp": 11789866,
-    "monster_attack": 190947,
+    "monster_attack": 143978,
     "monster_defense": 52949,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49027,7 +49027,7 @@
   {
     "id": 14623001,
     "monster_hp": 11842972,
-    "monster_attack": 191804,
+    "monster_attack": 144625,
     "monster_defense": 53186,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49052,7 +49052,7 @@
   {
     "id": 14633001,
     "monster_hp": 11895744,
-    "monster_attack": 192661,
+    "monster_attack": 145271,
     "monster_defense": 53424,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49077,7 +49077,7 @@
   {
     "id": 14643001,
     "monster_hp": 11948516,
-    "monster_attack": 193518,
+    "monster_attack": 145917,
     "monster_defense": 53662,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49102,7 +49102,7 @@
   {
     "id": 14653001,
     "monster_hp": 13021736,
-    "monster_attack": 200771,
+    "monster_attack": 150269,
     "monster_defense": 53662,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49127,7 +49127,7 @@
   {
     "id": 14663001,
     "monster_hp": 12109421,
-    "monster_attack": 193311,
+    "monster_attack": 145925,
     "monster_defense": 53899,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49152,7 +49152,7 @@
   {
     "id": 14673001,
     "monster_hp": 12162667,
-    "monster_attack": 194163,
+    "monster_attack": 146568,
     "monster_defense": 54137,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49177,7 +49177,7 @@
   {
     "id": 14683001,
     "monster_hp": 12216250,
-    "monster_attack": 195015,
+    "monster_attack": 147211,
     "monster_defense": 54374,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49202,7 +49202,7 @@
   {
     "id": 14693001,
     "monster_hp": 12216250,
-    "monster_attack": 195015,
+    "monster_attack": 147211,
     "monster_defense": 54374,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49227,7 +49227,7 @@
   {
     "id": 14703001,
     "monster_hp": 13361736,
-    "monster_attack": 203277,
+    "monster_attack": 152300,
     "monster_defense": 54612,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49252,7 +49252,7 @@
   {
     "id": 14713001,
     "monster_hp": 12435160,
-    "monster_attack": 197562,
+    "monster_attack": 149009,
     "monster_defense": 54860,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49277,7 +49277,7 @@
   {
     "id": 14723001,
     "monster_hp": 12491260,
-    "monster_attack": 198456,
+    "monster_attack": 149684,
     "monster_defense": 55109,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49302,7 +49302,7 @@
   {
     "id": 14733001,
     "monster_hp": 12491260,
-    "monster_attack": 198456,
+    "monster_attack": 149684,
     "monster_defense": 55109,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49327,7 +49327,7 @@
   {
     "id": 14743001,
     "monster_hp": 12547700,
-    "monster_attack": 199351,
+    "monster_attack": 150359,
     "monster_defense": 55357,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49352,7 +49352,7 @@
   {
     "id": 14753001,
     "monster_hp": 13715900,
-    "monster_attack": 207663,
+    "monster_attack": 155484,
     "monster_defense": 55606,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49377,7 +49377,7 @@
   {
     "id": 14763001,
     "monster_hp": 12771948,
-    "monster_attack": 200060,
+    "monster_attack": 151060,
     "monster_defense": 55854,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49402,7 +49402,7 @@
   {
     "id": 14773001,
     "monster_hp": 12771948,
-    "monster_attack": 200060,
+    "monster_attack": 151060,
     "monster_defense": 55854,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49427,7 +49427,7 @@
   {
     "id": 14783001,
     "monster_hp": 12828886,
-    "monster_attack": 200949,
+    "monster_attack": 151732,
     "monster_defense": 56102,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49452,7 +49452,7 @@
   {
     "id": 14793001,
     "monster_hp": 12885481,
-    "monster_attack": 201839,
+    "monster_attack": 152404,
     "monster_defense": 56351,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49477,7 +49477,7 @@
   {
     "id": 14803001,
     "monster_hp": 14074409,
-    "monster_attack": 210306,
+    "monster_attack": 157622,
     "monster_defense": 56599,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49502,7 +49502,7 @@
   {
     "id": 14813001,
     "monster_hp": 13055618,
-    "monster_attack": 203546,
+    "monster_attack": 153566,
     "monster_defense": 56599,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49527,7 +49527,7 @@
   {
     "id": 14823001,
     "monster_hp": 13112708,
-    "monster_attack": 204439,
+    "monster_attack": 154240,
     "monster_defense": 56848,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49552,7 +49552,7 @@
   {
     "id": 14833001,
     "monster_hp": 13170144,
-    "monster_attack": 205333,
+    "monster_attack": 154914,
     "monster_defense": 57096,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49577,7 +49577,7 @@
   {
     "id": 14843001,
     "monster_hp": 13227580,
-    "monster_attack": 206226,
+    "monster_attack": 155588,
     "monster_defense": 57344,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49602,7 +49602,7 @@
   {
     "id": 14853001,
     "monster_hp": 14374480,
-    "monster_attack": 213776,
+    "monster_attack": 160118,
     "monster_defense": 57344,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49627,7 +49627,7 @@
   {
     "id": 14863001,
     "monster_hp": 13399855,
-    "monster_attack": 206027,
+    "monster_attack": 155606,
     "monster_defense": 57593,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49652,7 +49652,7 @@
   {
     "id": 14873001,
     "monster_hp": 13457789,
-    "monster_attack": 206915,
+    "monster_attack": 156278,
     "monster_defense": 57841,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49677,7 +49677,7 @@
   {
     "id": 14883001,
     "monster_hp": 13515374,
-    "monster_attack": 207804,
+    "monster_attack": 156949,
     "monster_defense": 58090,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49702,7 +49702,7 @@
   {
     "id": 14893001,
     "monster_hp": 13515374,
-    "monster_attack": 207804,
+    "monster_attack": 156949,
     "monster_defense": 58090,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49727,7 +49727,7 @@
   {
     "id": 14903001,
     "monster_hp": 14740068,
-    "monster_attack": 216400,
+    "monster_attack": 162244,
     "monster_defense": 58338,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49752,7 +49752,7 @@
   {
     "id": 14913001,
     "monster_hp": 13748416,
-    "monster_attack": 210415,
+    "monster_attack": 158791,
     "monster_defense": 58586,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49777,7 +49777,7 @@
   {
     "id": 14923001,
     "monster_hp": 13806496,
-    "monster_attack": 211307,
+    "monster_attack": 159465,
     "monster_defense": 58835,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49802,7 +49802,7 @@
   {
     "id": 14933001,
     "monster_hp": 13806496,
-    "monster_attack": 211307,
+    "monster_attack": 159465,
     "monster_defense": 58835,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49827,7 +49827,7 @@
   {
     "id": 14943001,
     "monster_hp": 13864928,
-    "monster_attack": 212199,
+    "monster_attack": 160138,
     "monster_defense": 59083,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49852,7 +49852,7 @@
   {
     "id": 14953001,
     "monster_hp": 15109628,
-    "monster_attack": 220803,
+    "monster_attack": 165438,
     "monster_defense": 59332,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49877,7 +49877,7 @@
   {
     "id": 14963001,
     "monster_hp": 14100600,
-    "monster_attack": 212875,
+    "monster_attack": 160819,
     "monster_defense": 59580,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49902,7 +49902,7 @@
   {
     "id": 14973001,
     "monster_hp": 14100600,
-    "monster_attack": 212875,
+    "monster_attack": 160819,
     "monster_defense": 59580,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49927,7 +49927,7 @@
   {
     "id": 14983001,
     "monster_hp": 14162015,
-    "monster_attack": 213801,
+    "monster_attack": 161519,
     "monster_defense": 59839,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49952,7 +49952,7 @@
   {
     "id": 14993001,
     "monster_hp": 14223430,
-    "monster_attack": 214727,
+    "monster_attack": 162219,
     "monster_defense": 60098,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -49977,7 +49977,7 @@
   {
     "id": 15003001,
     "monster_hp": 15491630,
-    "monster_attack": 223524,
+    "monster_attack": 167640,
     "monster_defense": 60358,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -50802,7 +50802,7 @@
   {
     "id": "1001300101",
     "monster_hp": 280,
-    "monster_attack": 149,
+    "monster_attack": 108,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -50827,7 +50827,7 @@
   {
     "id": "1002300101",
     "monster_hp": 1200,
-    "monster_attack": 246,
+    "monster_attack": 195,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -50852,7 +50852,7 @@
   {
     "id": "1003300101",
     "monster_hp": 3375,
-    "monster_attack": 431,
+    "monster_attack": 330,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -50877,7 +50877,7 @@
   {
     "id": "1004300101",
     "monster_hp": 5130,
-    "monster_attack": 493,
+    "monster_attack": 387,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -50902,7 +50902,7 @@
   {
     "id": "1005300101",
     "monster_hp": 8160,
-    "monster_attack": 1019,
+    "monster_attack": 743,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -50927,7 +50927,7 @@
   {
     "id": "1006300101",
     "monster_hp": 11040,
-    "monster_attack": 1201,
+    "monster_attack": 900,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -50952,7 +50952,7 @@
   {
     "id": "1007300101",
     "monster_hp": 16500,
-    "monster_attack": 1261,
+    "monster_attack": 972,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -50977,7 +50977,7 @@
   {
     "id": "1008300101",
     "monster_hp": 19200,
-    "monster_attack": 1471,
+    "monster_attack": 1134,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -51002,7 +51002,7 @@
   {
     "id": "1009300101",
     "monster_hp": 21000,
-    "monster_attack": 1611,
+    "monster_attack": 1242,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,
@@ -51027,7 +51027,7 @@
   {
     "id": "1010300101",
     "monster_hp": 28440,
-    "monster_attack": 3382,
+    "monster_attack": 2340,
     "monster_defense": 0,
     "attack_speed": 1500,
     "die_gas": 0,

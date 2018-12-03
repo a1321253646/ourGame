@@ -170,9 +170,10 @@ public class FightManager{
 				hurtBlood = attackBllod (attacker, tager);
 				tager.BeAttack (hurtBlood, attacker);
 				hurtBloodAll += hurtBlood.blood;
-                if (size == attacker.mAttackerTargets.Count) {
-                    i++;
-                }
+                i++;
+             //   if (size == attacker.mAttackerTargets.Count) {
+                    
+             //   }
 			}
 			return hurtBloodAll;
 		}
@@ -192,20 +193,30 @@ public class FightManager{
         if (!isHurt(attacker, beAttacker)) {
             return new HurtStatus(0, false, false);
         }
-
+        Debug.Log("attackBllod attacker.mAttribute.aggressivity = " + attacker.mAttribute.aggressivity);
+        Debug.Log(" beAttacker.mAttribute.defense = " + beAttacker.mAttribute.defense);
 		float hurt= attacker.mAttribute.aggressivity - beAttacker.mAttribute.defense;
 		if (hurt <= attacker.mAttribute.aggressivity /10) {
             int tmp = attacker.mAttribute.aggressivity % 10 == 0 ? 0 : 1;
             hurt = ((int)attacker.mAttribute.aggressivity )/ 10+ tmp;
 		}
+        Debug.Log(" hurt = " + hurt);
         bool crt = isCrt(attacker);
+        Debug.Log(" crt = " + crt);
         if (crt)
         {
-    //        Debug.Log("hurt =" + hurt + " attacker.mCrtHurt=" + attacker.mCrtHurt + " attacker.mReadHurt=" + attacker.mReadHurt);
+            //        Debug.Log("hurt =" + hurt + " attacker.mCrtHurt=" + attacker.mCrtHurt + " attacker.mReadHurt=" + attacker.mReadHurt);
+            Debug.Log(" attacker.mAttribute.crtHurt = " + attacker.mAttribute.crtHurt);
+            Debug.Log(" attacker.mAttribute.readHurt = " + attacker.mAttribute.readHurt);
+            Debug.Log(" hurt * 2 = " + hurt * 2);
             hurt = hurt * 2 + attacker.mAttribute.crtHurt + attacker.mAttribute.readHurt;
+            Debug.Log(" hurt  = " + hurt);
         }
         else {
+            Debug.Log(" attacker.mAttribute.readHurt = " + attacker.mAttribute.readHurt);
+            Debug.Log(" hurt  = " + hurt);
             hurt = hurt + attacker.mAttribute.readHurt;
+            Debug.Log(" hurt  = " + hurt);
         }
 		return new HurtStatus(hurt, crt,true);
 	}

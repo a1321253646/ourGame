@@ -97,7 +97,7 @@ public class EnemyFactory : MonoBehaviour {
     }
     private float getYRamdom() {
         float y = Random.Range(mMapConfig.y_min+ mBottom, mMapConfig.y_max+ mBottom);
-        Debug.Log("==================getYRamdom  y = " + y+ " mBottom="+ mBottom);
+//        Debug.Log("==================getYRamdom  y = " + y+ " mBottom="+ mBottom);
 
         return y;
     }

@@ -14,7 +14,7 @@ public class EnemyBase : Attacker {
         mTarger = v;
         mTarger.x = mTarger.x + mAttackLeng;
         mTarger.y = mTarger.y - resourceData.idel_y;
-        Debug.Log("mTarger x = " + mTarger.x + "  mTarger y =" + mTarger.y);
+//        Debug.Log("mTarger x = " + mTarger.x + "  mTarger y =" + mTarger.y);
     }
 
 	void Start () {

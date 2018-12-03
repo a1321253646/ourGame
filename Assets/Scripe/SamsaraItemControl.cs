@@ -55,7 +55,10 @@ public class SamsaraItemControl : MonoBehaviour {
         if (mLevel == 0)
         {
             mSamsaraNameAndLevel.text = "" + mJsonBean.name ;
-            mSamsaraValue.text = "未学习";
+            string str = "学习效果 ";
+            str = str + getAttribute(1);
+            Debug.Log(str);
+            mSamsaraValue.text = str;
         }
         else {
             mSamsaraNameAndLevel.text = " " + mJsonBean.name + " Lv:" + mLevel;
@@ -77,8 +80,18 @@ public class SamsaraItemControl : MonoBehaviour {
     }
 
     private string getAttribute() {
-        List<SamsaraValueBean>  list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(mId, mLevel);
+        return getAttribute(mLevel);
+    }
+
+    private string getAttribute(long level) {
+        List<SamsaraValueBean>  list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(mId, level);
+        Debug.Log("====================================================================getAttribute id= " + mId + " level= " + level);
+        foreach (SamsaraValueBean ssv in list)
+        {
+            Debug.Log("type = " + ssv.type + " value = " + ssv.value);
+        }
         string text = "";
+
         for (int i = 0 ; i < list.Count;i++ ) {
             SamsaraValueBean bean = list[i];
 
@@ -114,14 +127,18 @@ public class SamsaraItemControl : MonoBehaviour {
             {
                 text += "攻速: " + bean.value;
             }
-            else if (bean.type == 121)
+            else if (bean.type > 400000)
             {
-                text += "真实伤害: " + bean.value;
+                AffixJsonBean aj = JsonUtils.getIntance().getAffixInfoById(bean.type);
+                text +=(aj.dec+ ":" + (bean.value/100f)+"%");
+                Debug.Log(text);
             }
-            if(i < list.Count - 1) {
+
+            if (i < list.Count - 1) {
                 text += "\n";
             }
         }
+        Debug.Log(text);
         return text;
     }
 }

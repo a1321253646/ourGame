@@ -176,10 +176,11 @@ public class JsonUtils
                     samsaraId.costList.Add(bean.level, bean.coast);
                 }
             }
+            tmpList = new List<SamsaraValueBean>();
+            
             if (samsaraId.levelList == null)
             {
-                samsaraId.levelList = new Dictionary<long, List<SamsaraValueBean>>();
-                tmpList = new List<SamsaraValueBean>();
+                samsaraId.levelList = new Dictionary<long, List<SamsaraValueBean>>();               
                 samsaraId.levelList.Add(bean.level, tmpList);
             }
             else {

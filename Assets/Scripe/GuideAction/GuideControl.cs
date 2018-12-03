@@ -67,11 +67,11 @@ public class GuideControl
                 , null,
                 mManager,
                 null);
-            item3.init(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP, GuideManager.BUTTON_CLICK_TIP_SURE, "tip_Button");
+            item3.init(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP, GuideManager.BUTTON_CLICK_TIP_SURE, "tip_button_list1_1");
             item3.setDecLocal(1, 1, 3, 3);
             mActionList.Add(item3);
         }
-        else if (mData.id == 4)
+        else if (mData.id == 4)//升级装备引导
         {
             GuideActionEquiteUp item1 = new GuideActionEquiteUp();
             item1.init(

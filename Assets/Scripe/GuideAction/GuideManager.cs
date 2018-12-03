@@ -156,7 +156,7 @@ public class GuideManager : MonoBehaviour {
         Debug.Log(" rd x = " + rd.x + " rd y=" + rd.y);
         showGuide(ob, lu, rd);
     }
-    public void ShowGuideHorizontalLayoutGroupInScroll(GameObject ob, ScrollRect mBackScroll, HorizontalLayoutGroup mBackListGl,int item) {
+    /*public void ShowGuideHorizontalLayoutGroupInScroll(GameObject ob, ScrollRect mBackScroll, HorizontalLayoutGroup mBackListGl,int item) {
         Transform tf = ob.transform;
         float sx = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.x;
         float sy = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.y;
@@ -174,8 +174,39 @@ public class GuideManager : MonoBehaviour {
         Debug.Log(" lu x = " + lu.x + " lu y=" + lu.y);
         Debug.Log(" rd x = " + rd.x + " rd y=" + rd.y);
         showGuide(ob, lu, rd);
-    }
+    }*/
+    public void ShowGuideHorizontalLayoutGroupInScroll(GameObject ob, ScrollRect mBackScroll, HorizontalLayoutGroup mBackListGl, int item,int childindex)
+    {
+        Transform tf = ob.transform;
+        float sx = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.x;
+        float sy = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.y;
 
+        Debug.Log(" sw = " + mBackScroll.GetComponent<RectTransform>().rect.width + " sh=" + mBackScroll.GetComponent<RectTransform>().rect.height);
+        Debug.Log(" x = " + mBackScroll.transform.position.x + " y=" + mBackScroll.transform.position.y);
+        float x = mBackScroll.transform.position.x - (mBackScroll.GetComponent<RectTransform>().rect.width / 2) * mxBili;
+        float y = mBackScroll.transform.position.y + (mBackScroll.GetComponent<RectTransform>().rect.height / 2) * myBili;
+        x = x + (mBackListGl.padding.left + ob.GetComponent<RectTransform>().rect.width * item + mBackListGl.spacing * item) * mxBili;
+        y = y - (mBackListGl.padding.top) * myBili;
+
+        Vector2 lu = new Vector2(x, y);
+        Vector2 rd = new Vector2(x + ob.GetComponent<RectTransform>().rect.width * mxBili, y - ob.GetComponent<RectTransform>().rect.height * myBili);
+
+        if (childindex != -1) {
+            Transform child = ob.transform.GetChild(childindex);
+            float y1, y2, x1, x2;
+            y1 = (lu.y + rd.y) / 2 + child.gameObject.GetComponent<RectTransform>().localPosition.y * mxBili + child.gameObject.GetComponent<RectTransform>().rect.height * mxBili / 2;
+            y2 = (lu.y + rd.y) / 2 + child.gameObject.GetComponent<RectTransform>().localPosition.y * mxBili - child.gameObject.GetComponent<RectTransform>().rect.height * mxBili / 2;
+            x1 = (lu.x + rd.x) / 2 + child.gameObject.GetComponent<RectTransform>().localPosition.x - child.gameObject.GetComponent<RectTransform>().rect.width * mxBili / 2;
+            x2 = (lu.x + rd.x) / 2 + child.gameObject.GetComponent<RectTransform>().localPosition.x + child.gameObject.GetComponent<RectTransform>().rect.width * mxBili / 2;
+            lu.y = y1;
+            lu.x = x1;
+            rd.y = y2;
+            rd.x = x2;
+        }
+        Debug.Log(" lu x = " + lu.x + " lu y=" + lu.y);
+        Debug.Log(" rd x = " + rd.x + " rd y=" + rd.y);
+        showGuide(ob, lu, rd);
+    }
     public void ShowGuideNormalObject(GameObject ob)
     {
         Transform tf = ob.transform;

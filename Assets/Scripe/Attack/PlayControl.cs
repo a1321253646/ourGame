@@ -22,31 +22,31 @@ public class PlayControl : Attacker
         setHeroData ();
         upLunhui();
         initEquip();
-        int count = 2;
+        int count = 50;
         mFightManager.registerAttacker (this);
-        if (InventoryHalper.getIntance().getInventorys().Count == 0 
-            && InventoryHalper.getIntance().getUsercard().Count == 0
-            && !GameManager.getIntance().isAddGoodForTest)
-        {
-            GameManager.getIntance().isAddGoodForTest = true;
-            BackpackManager.getIntance().addGoods(3000001, count);
-            BackpackManager.getIntance().addGoods(3000002, count);
-            BackpackManager.getIntance().addGoods(3000003, count);
-            BackpackManager.getIntance().addGoods(3000004, count);
-            BackpackManager.getIntance().addGoods(3000005, count);
-            BackpackManager.getIntance().addGoods(3000006, count);
-            BackpackManager.getIntance().addGoods(3000007, count);
-            BackpackManager.getIntance().addGoods(3000008, count);
-            BackpackManager.getIntance().addGoods(3000009, count);
-            BackpackManager.getIntance().addGoods(3000010, count);
-            BackpackManager.getIntance().addGoods(3000011, count);
-            BackpackManager.getIntance().addGoods(3000012, count);
-            BackpackManager.getIntance().addGoods(3000013, count);
-            BackpackManager.getIntance().addGoods(3000014, count);
-            BackpackManager.getIntance().addGoods(3000015, count);
-        }
+            /* if (InventoryHalper.getIntance().getInventorys().Count == 0 
+                 && InventoryHalper.getIntance().getUsercard().Count == 0
+                 && !GameManager.getIntance().isAddGoodForTest)
+             {
+                 GameManager.getIntance().isAddGoodForTest = true;
+                 BackpackManager.getIntance().addGoods(3000001, count);
+                 BackpackManager.getIntance().addGoods(3000002, count);
+                 BackpackManager.getIntance().addGoods(3000003, count);
+                 BackpackManager.getIntance().addGoods(3000004, count);
+                 BackpackManager.getIntance().addGoods(3000005, count);
+                 BackpackManager.getIntance().addGoods(3000006, count);
+                 BackpackManager.getIntance().addGoods(3000007, count);
+                 BackpackManager.getIntance().addGoods(3000008, count);
+                 BackpackManager.getIntance().addGoods(3000009, count);
+                 BackpackManager.getIntance().addGoods(3000010, count);
+                 BackpackManager.getIntance().addGoods(3000011, count);
+                 BackpackManager.getIntance().addGoods(3000012, count);
+                 BackpackManager.getIntance().addGoods(3000013, count);
+                 BackpackManager.getIntance().addGoods(3000014, count);
+                 BackpackManager.getIntance().addGoods(3000015, count);
+             }*/
 
-    }
+        }
     private void initAnimalEvent() {
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
         mAnimalControl = new AnimalControlBase(resourceData, mSpriteRender);

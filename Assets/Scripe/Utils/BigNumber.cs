@@ -6,6 +6,9 @@ public class BigNumber
     public List<BigNumberUnit> mList = new List<BigNumberUnit>();
 
     public static BigNumber getBigNumForString(string s) {
+        if (s == null || s.Length == 0) {
+            return new BigNumber();
+        }
         if (s.Contains("E+")) {
             s = s.Replace("E+", "E");
             string[] str1 = s.Split('E');
@@ -167,8 +170,8 @@ public class BigNumber
     public static BigNumber add(BigNumber big1, BigNumber big2) {
         BigNumber min, max;
         int minLeng, maxLeng;
-        Debug.Log("BigNumber add bg1= " + big1.toString() + " bg2 = " + big2.toString());
-        Debug.Log("BigNumber add bg1= " + big1.toStringWithUnit() + " bg2 = " + big2.toStringWithUnit());
+//        Debug.Log("BigNumber add bg1= " + big1.toString() + " bg2 = " + big2.toString());
+//        Debug.Log("BigNumber add bg1= " + big1.toStringWithUnit() + " bg2 = " + big2.toStringWithUnit());
         if (big1.mList.Count > big2.mList.Count)
         {
             max = big1;

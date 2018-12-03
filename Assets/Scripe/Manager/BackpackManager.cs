@@ -136,7 +136,8 @@ public class BackpackManager
         if (type == TipControl.USE_TYPE)
         {
             bool isUsed = InventoryHalper.getIntance().use(bean, count);
-            if (!isUsed) {
+            if (!isUsed)
+            {
                 return false;
             }
             mInvertoryControl.update();
@@ -144,6 +145,30 @@ public class BackpackManager
             mLevel.ChangeEquip(bean, true);
             mHeroControl.upDateUi();
             updateZhuangbeiItem(true);
+        }
+        else if (type == TipControl.SALE_TYPE) {
+            AccouterJsonBean aj =  JsonUtils.getIntance().getAccouterInfoById(bean.goodId);
+            List<PlayerAttributeBean> list = bean.attributeList;
+            long level = 0;
+            foreach (PlayerAttributeBean p in list) {
+                if (p.type == 10001) {
+                    level = p.value;
+                    break;
+                }
+            }
+            BigNumber b1 = aj.getSale();
+            BigNumber b2 = aj.getSaleLevel();
+            if (!b2.isEmpty()) {
+                b2 = BigNumber.multiply(b2, level);
+                b1 = BigNumber.add(b1, b2);
+            }
+            if (!b1.isEmpty()) {
+                GameManager.getIntance().mCurrentCrystal = BigNumber.add(GameManager.getIntance().mCurrentCrystal, b1);
+                GameManager.getIntance().updataGasAndCrystal();
+            }            
+            InventoryHalper.getIntance().deleteIventory(bean,(int) count);
+            mInvertoryControl.update();
+            
         }
         else if (type == TipControl.UNUSE_TYPE)
         {
@@ -165,7 +190,7 @@ public class BackpackManager
             if (!isSuccess)
             {
                 ComposeJsonBen book = JsonUtils.getIntance().gettComposeInfoForId(id);
-               // GameManager.getIntance().mCurrentCrystal += book.compensate;
+                // GameManager.getIntance().mCurrentCrystal += book.compensate;
                 GameManager.getIntance().updataGasAndCrystal();
             }
             else
@@ -179,14 +204,16 @@ public class BackpackManager
             float maxCount = JsonUtils.getIntance().getConfigValueForId(100016);
             Debug.Log("userCardCount== " + userCardCount + " maxCount==" + maxCount);
 
-            if (userCardCount >= maxCount) {
+            if (userCardCount >= maxCount)
+            {
                 return false;
             }
             InventoryHalper.getIntance().useCard(bean, count);
             mInvertoryControl.update();
             mCardControl.upDateUi();
         }
-        else if (type == TipControl.UNUSE_CARD_TYPE) {
+        else if (type == TipControl.UNUSE_CARD_TYPE)
+        {
             InventoryHalper.getIntance().removeUserCard(bean.goodId);
             mInvertoryControl.update();
             mCardControl.upDateUi();

@@ -19,8 +19,10 @@ public class TipControl : MonoBehaviour {
     AccouterJsonBean mAccouter = null;
     GoodJsonBean mGoodJson = null;
     CardJsonBean mCardJson = null;
-    private Button mClose, mActionClick;
+    private Button mClose, mActionClick, mClickList1Click1, mClickList1Click2;
     private Text mClickText;
+    private Text mClickList1Text1;
+    private Text mClickList1Text2;
     public static int COMPOSE_TYPE = 1;
     public static int USE_TYPE = 2;
     public static int UNUSE_TYPE = 3;
@@ -28,28 +30,50 @@ public class TipControl : MonoBehaviour {
     public static int USE_CARD_TYPE = 5;
     public static int UNUSE_CARD_TYPE = 6;
     public static int SHOW_COMPOSE_TYPE = 7;
+    public static int SALE_TYPE = 7;
 
     public long mCardId = -1;
     LevelManager mLevelManager;
     private int mCurrentType = 1;
     private Vector2 mFri;
+    GameObject mButtonList1;
     void Start()
     {
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mActionClick = GameObject.Find("tip_Button").GetComponent<Button>();
+        mClickList1Click1 = GameObject.Find("tip_button_list1_1").GetComponent<Button>();
+        mClickList1Click2 = GameObject.Find("tip_button_list1_2").GetComponent<Button>();
         mClose = GameObject.Find("tip_close").GetComponent<Button>();
         mClickText = GameObject.Find("tipButtonTx").GetComponent<Text>();
+        mClickList1Text1 = GameObject.Find("tip_button_list1_1").GetComponentInChildren<Text>();
+        mClickList1Text2 = GameObject.Find("tip_button_list1_2").GetComponentInChildren<Text>();
         mTipName = GameObject.Find("tipName").GetComponent<Text>();
+        mButtonList1 = GameObject.Find("tip_button_list1");
         mActionClick.onClick.AddListener(() =>
         {
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_TIP_SURE);
             use();
+        });
+        mClickList1Click1.onClick.AddListener(() =>
+        {
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_TIP_SURE);
+            use();
+        });
+        mClickList1Click2.onClick.AddListener(() =>
+        {
+            //  GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_TIP_SURE);
+            sale();
         });
         mClose.onClick.AddListener(() =>
         {
             removeUi();
         });
         mFri = gameObject.transform.localPosition;
+    }
+
+    private void sale() {
+        BackpackManager.getIntance().use(mBean, count, SALE_TYPE);
+        removeUi();
     }
 
     private void use()
@@ -87,7 +111,9 @@ public class TipControl : MonoBehaviour {
         }
         else if (mCurrentType == USE_TYPE)
         {
-            mClickText.text = "穿戴";
+            mClickList1Text1.text = "穿戴";
+            mClickList1Text2.text = "出售";
+            
         }
         else if (mCurrentType == UNUSE_TYPE)
         {
@@ -106,6 +132,15 @@ public class TipControl : MonoBehaviour {
         }
         else if (mCurrentType == SHOW_COMPOSE_TYPE) {
             mClickText.text = "关闭";
+        }
+        if (mCurrentType == USE_TYPE)
+        {
+            mActionClick.gameObject.transform.localScale = new Vector3(0, 0, 0);
+            mButtonList1.transform.localScale = new Vector3(1, 1, 1);
+        }
+        else {
+            mButtonList1.transform.localScale = new Vector3(0, 0, 0);
+            mActionClick.gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
         mBean = bean;
         this.id = bean.goodId;

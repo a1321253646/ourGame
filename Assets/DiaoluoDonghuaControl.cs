@@ -111,14 +111,14 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
         Vector3 v2 = PointUtils.worldTransToScreen(new Vector3(enemy.mLocalBean.mCurrentX + enemy.resourceData.getHurtOffset().x,
             enemy.mLocalBean.mCurrentY + enemy.resourceData.getHurtOffset().y - mHight , 0));
         mHight = v1.y - v2.y;
-        Debug.Log("mHight = " + mHight);
+//        Debug.Log("mHight = " + mHight);
         Vector2 v = v1;
         transform.position = v;
         
         if (type == SHUIJI_DIAOLUO_TYPE) {
             imaPath = "ui_new/mojing";
         }
-        Debug.Log("DiaoluoDonghuaControl imaPath = " + imaPath);
+//        Debug.Log("DiaoluoDonghuaControl imaPath = " + imaPath);
         GetComponent<Image>().sprite = Resources.Load(imaPath, typeof(Sprite)) as Sprite;
         mBackManager = enemy.mBackManager;
         isInit = true;

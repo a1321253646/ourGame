@@ -105,7 +105,7 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
         for(int i = 0; i< mItemGameObjectList.Count; i++) {
             if (mItemGameObjectList[i].GetComponent<ZhuangBeiItemShowControl>().mBean.goodId == id) {
                 GameManager.getIntance().getGuideManager().ShowGuideHorizontalLayoutGroupInScroll(mItemGameObjectList[i], 
-                    GameObject.Find("di_2").GetComponent<ScrollRect>(), mZhuangbeiList,i);
+                    GameObject.Find("di_2").GetComponent<ScrollRect>(), mZhuangbeiList,i,1);
                 break;
             }
         }

@@ -19,14 +19,50 @@ public class AccouterJsonBean
     public string strengthen;
     public string affix;
     public string affix_count;
+    public string sale;
+    public string sale_level;
+
 
     private long affixAll = 0;
     private long affixCountAll = 0;
     public BigNumber mCost;
+    public BigNumber mSale;
+    public BigNumber mSaleLevel;
+
+    public BigNumber getSale()
+    {
+        if (mSale == null && sale!= null && sale.Length > 0)
+        {
+            mSale = BigNumber.getBigNumForString(sale);
+            sale = null;
+        }
+        if (mSale == null) {
+            mSale = new BigNumber();
+        }
+        return mSale;
+    }
+    public BigNumber getSaleLevel()
+    {
+        if (mSaleLevel == null && sale_level != null && sale_level.Length > 0)
+        {
+            mSaleLevel = BigNumber.getBigNumForString(sale_level);
+            sale_level = null;
+        }
+        if (mSaleLevel == null)
+        {
+            mSaleLevel = new BigNumber();
+        }
+        return mSaleLevel;
+    }
+
 
     public BigNumber getCost() {
-        if (mCost == null) {
+        if (mCost == null && cost != null && cost.Length > 0) {
             mCost = BigNumber.getBigNumForString(cost);
+            cost = null;
+        }
+        if (mCost == null) {
+            mCost = new BigNumber();
         }
         return mCost;
     }
