@@ -75,6 +75,7 @@ public class GameManager
     }
 
 	public BigNumber init(LevelManager levelmanage){
+
         BigNumber outLineGet = new BigNumber();
         if (!isInit)
         {
