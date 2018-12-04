@@ -207,6 +207,9 @@ public class IvertoryControl : MonoBehaviour {
 
     public void update()
     {
+        if (GameManager.getIntance().getUiCurrentLevel() > mLevel) {
+            return;
+        }
         upDateData();
         int mGoodIndex = 0;
         //        Debug.Log("IvertoryControl mGoodDic containsKey " + mShowUiType);

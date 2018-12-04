@@ -80,6 +80,10 @@ public class HeroRoleControl : MonoBehaviour {
 
     public void upDateUi()
     {
+        if (mLevel < GameManager.getIntance().getUiCurrentLevel()) {
+            return;
+        }
+
         mHeroEquipl = BackpackManager.getIntance().getHeroEquipInfo();
         GoodControl goodIcon = null;
         PlayerBackpackBean bean = null;

@@ -105,7 +105,7 @@ public class FightManager{
             else {
                 Level l = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel + 1);
                 if (l != null) {
-                 //   GameManager.getIntance().mCurrentLevel += 1;
+                    GameManager.getIntance().mCurrentLevel += 1;
                 }
             }
            

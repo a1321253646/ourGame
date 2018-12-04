@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Threading;
 using Mono.Data.Sqlite;
 using UnityEngine;
 public class SQLManager : MonoBehaviour
@@ -24,6 +25,8 @@ public class SQLManager : MonoBehaviour
     public string sqlName;
     public string tabName;
 
+    object mLock = new object();
+
     private static int IDCount;
     public void Start()
     {
@@ -33,6 +36,8 @@ public class SQLManager : MonoBehaviour
         this.CreateSQL();
 //#endif
         this.OpenSQLaAndConnect();
+        Thread th1 = new Thread(threadRun) ;
+        th1.Start();
     }
     //创建数据库文件
     public void CreateSQL()
@@ -166,7 +171,7 @@ public class SQLManager : MonoBehaviour
     /// <summary>
     /// 向数据库中添加数据文件
     /// </summary>
-    public SqliteDataReader InsertDataToSQL( string[] insertValues)
+    public void InsertDataToSQL( string[] insertValues)
     {
         string commandString = "INSERT INTO " + tabName + " VALUES (" + insertValues[0];
         for (int i = 1; i < insertValues.Length; i++)
@@ -174,7 +179,8 @@ public class SQLManager : MonoBehaviour
             commandString += "," + insertValues[i];
         }
         commandString += ")";
-        return ExecuteSQLCommand(commandString);
+        // return ExecuteSQLCommand(commandString);
+        addList(commandString);
     }
     public void delete(long type, long id,string extan)
     {
@@ -182,7 +188,8 @@ public class SQLManager : MonoBehaviour
         if (id != -1) {
             commandString = commandString + " AND ID =" + id;
         }
-        ExecuteSQLCommand(commandString);
+        // ExecuteSQLCommand(commandString);
+        addList(commandString);
     }
     public void delete(long type, long id)
     {
@@ -191,7 +198,8 @@ public class SQLManager : MonoBehaviour
         {
             commandString = commandString + " AND ID =" + id;
         }
-        ExecuteSQLCommand(commandString);
+        // ExecuteSQLCommand(commandString);
+        addList(commandString);
     }
     /// <summary>
     /// 更新表中数据
@@ -206,7 +214,8 @@ public class SQLManager : MonoBehaviour
     {
         string commPath = "UPDATE " + tabName + " SET EXTAN=" + extan;
         commPath += " WHERE Type=" + type + " AND ID=" + id+ " And EXTAN=" + oldextan;
-        ExecuteSQLCommand(commPath);
+        // ExecuteSQLCommand(commPath);
+        addList(commPath);
         Debug.Log("更新数据成功!");
         return true;
     }
@@ -215,9 +224,53 @@ public class SQLManager : MonoBehaviour
     {
         string commPath = "UPDATE " + tabName + " SET EXTAN=" + extan;
         commPath += " WHERE Type=" + type + " AND ID=" + id;
-        ExecuteSQLCommand(commPath);
+        // ExecuteSQLCommand(commPath);
+        addList(commPath);
       //  Debug.Log("更新数据成功!");
         return true;
+    }
+
+
+    private List<string> mWaitList = new List<string>();
+
+    private void addList(string command) {
+        lock (mLock) {
+            mWaitList.Add(command);
+        }
+    }
+    private void removeList(string command) {
+        lock (mLock)
+        {
+            mWaitList.Remove(command);
+        }
+    }
+
+    private string getList(int index) {
+        lock (mLock)
+        {
+            return mWaitList[index];
+        }
+    }
+
+    private bool listIsEmpty() {
+        lock (mLock)
+        {
+            return mWaitList.Count == 0;
+        }
+    }
+
+    private void threadRun() {
+        while (true) {
+            if (listIsEmpty())
+            {
+                Thread.Sleep(1000);
+            }
+            else {
+                string command = getList(0);
+                ExecuteSQLCommand(command);
+                removeList(command);
+            }
+        }
     }
 
     /// <summary>
