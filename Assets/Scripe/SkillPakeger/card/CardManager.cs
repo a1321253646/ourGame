@@ -105,7 +105,7 @@ public class CardManager : MonoBehaviour {
 	void Update () {
         if (mCount > 0) {
             mOutSendCardTime += Time.deltaTime;
-            if (mOutSendCardTime >= OUT_CREADT_CARD_TIME) {
+            if (mOutSendCardTime >= OUT_CREADT_CARD_TIME && mList.Count < JsonUtils.getIntance().getConfigValueForId(100015)) {
                 mOutSendCardTime -= OUT_CREADT_CARD_TIME;
                 mCount--;
                 long random = getRandomCard();
@@ -117,7 +117,7 @@ public class CardManager : MonoBehaviour {
             return;
         }
         mTime += Time.deltaTime;
-        if (mTime >= CREADT_CARD_TIME) {
+        if (mTime >= CREADT_CARD_TIME && mList.Count < JsonUtils.getIntance().getConfigValueForId(100015)) {
             long random = getRandomCard();
             if (random != 0)
             {
@@ -134,9 +134,6 @@ public class CardManager : MonoBehaviour {
 
     private void addCard(long id) {
         mTime = 0;
-        if (mList.Count >= JsonUtils.getIntance().getConfigValueForId(100015)) {
-            return;
-         }
 
         GameObject newobj = GameObject.Instantiate(
             card, new Vector2(2500, mYdel-23), Quaternion.Euler(0.0f, 0f, 0.0f));

@@ -105,7 +105,7 @@ public class FightManager{
             else {
                 Level l = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel + 1);
                 if (l != null) {
-                    GameManager.getIntance().mCurrentLevel += 1;
+                 //   GameManager.getIntance().mCurrentLevel += 1;
                 }
             }
            
@@ -193,30 +193,30 @@ public class FightManager{
         if (!isHurt(attacker, beAttacker)) {
             return new HurtStatus(0, false, false);
         }
-        Debug.Log("attackBllod attacker.mAttribute.aggressivity = " + attacker.mAttribute.aggressivity);
-        Debug.Log(" beAttacker.mAttribute.defense = " + beAttacker.mAttribute.defense);
+//        Debug.Log("attackBllod attacker.mAttribute.aggressivity = " + attacker.mAttribute.aggressivity);
+//        Debug.Log(" beAttacker.mAttribute.defense = " + beAttacker.mAttribute.defense);
 		float hurt= attacker.mAttribute.aggressivity - beAttacker.mAttribute.defense;
 		if (hurt <= attacker.mAttribute.aggressivity /10) {
             int tmp = attacker.mAttribute.aggressivity % 10 == 0 ? 0 : 1;
             hurt = ((int)attacker.mAttribute.aggressivity )/ 10+ tmp;
 		}
-        Debug.Log(" hurt = " + hurt);
+//        Debug.Log(" hurt = " + hurt);
         bool crt = isCrt(attacker);
-        Debug.Log(" crt = " + crt);
+//        Debug.Log(" crt = " + crt);
         if (crt)
         {
             //        Debug.Log("hurt =" + hurt + " attacker.mCrtHurt=" + attacker.mCrtHurt + " attacker.mReadHurt=" + attacker.mReadHurt);
-            Debug.Log(" attacker.mAttribute.crtHurt = " + attacker.mAttribute.crtHurt);
-            Debug.Log(" attacker.mAttribute.readHurt = " + attacker.mAttribute.readHurt);
-            Debug.Log(" hurt * 2 = " + hurt * 2);
+//            Debug.Log(" attacker.mAttribute.crtHurt = " + attacker.mAttribute.crtHurt);
+//            Debug.Log(" attacker.mAttribute.readHurt = " + attacker.mAttribute.readHurt);
+//            Debug.Log(" hurt * 2 = " + hurt * 2);
             hurt = hurt * 2 + attacker.mAttribute.crtHurt + attacker.mAttribute.readHurt;
-            Debug.Log(" hurt  = " + hurt);
+//            Debug.Log(" hurt  = " + hurt);
         }
         else {
-            Debug.Log(" attacker.mAttribute.readHurt = " + attacker.mAttribute.readHurt);
-            Debug.Log(" hurt  = " + hurt);
+//            Debug.Log(" attacker.mAttribute.readHurt = " + attacker.mAttribute.readHurt);
+//            Debug.Log(" hurt  = " + hurt);
             hurt = hurt + attacker.mAttribute.readHurt;
-            Debug.Log(" hurt  = " + hurt);
+//            Debug.Log(" hurt  = " + hurt);
         }
 		return new HurtStatus(hurt, crt,true);
 	}
@@ -224,8 +224,8 @@ public class FightManager{
         return randomResult(10000,(int) attacker.mAttribute.crt,false);
     }
     private bool isHurt(Attacker attacker, Attacker beAttacker) {
-        int max =(int) (attacker.mAttribute.rate + beAttacker.mAttribute.evd);
-        return randomResult(max,(int) attacker.mAttribute.rate,false);
+       // int max =(int) (attacker.mAttribute.rate + beAttacker.mAttribute.evd);
+        return !randomResult(10000,(int)beAttacker.mAttribute.evd, false);
     }
     private bool randomResult(int max ,int value,bool isPri) {
         int rangeRadomNum = Random.Range(0, max);

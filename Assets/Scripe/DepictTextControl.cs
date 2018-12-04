@@ -29,7 +29,7 @@ public class DepictTextControl : MonoBehaviour {
     {       
         if ( !isChange)
         {
-            float h = mRect.rect.height;
+            float h = mText.preferredHeight;
             if (h != 0 && mStr != null) {
                 if (h < 224.4f)
                 {

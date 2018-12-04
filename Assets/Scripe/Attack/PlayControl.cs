@@ -22,9 +22,9 @@ public class PlayControl : Attacker
         setHeroData ();
         upLunhui();
         initEquip();
-        int count = 50;
+        int count = 2;
         mFightManager.registerAttacker (this);
-            /* if (InventoryHalper.getIntance().getInventorys().Count == 0 
+          /*   if (InventoryHalper.getIntance().getInventorys().Count == 0 
                  && InventoryHalper.getIntance().getUsercard().Count == 0
                  && !GameManager.getIntance().isAddGoodForTest)
              {

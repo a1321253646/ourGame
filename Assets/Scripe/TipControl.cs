@@ -30,7 +30,7 @@ public class TipControl : MonoBehaviour {
     public static int USE_CARD_TYPE = 5;
     public static int UNUSE_CARD_TYPE = 6;
     public static int SHOW_COMPOSE_TYPE = 7;
-    public static int SALE_TYPE = 7;
+    public static int SALE_TYPE = 8;
 
     public long mCardId = -1;
     LevelManager mLevelManager;
@@ -54,12 +54,12 @@ public class TipControl : MonoBehaviour {
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_TIP_SURE);
             use();
         });
-        mClickList1Click1.onClick.AddListener(() =>
+        mClickList1Click2.onClick.AddListener(() =>
         {
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_TIP_SURE);
             use();
         });
-        mClickList1Click2.onClick.AddListener(() =>
+        mClickList1Click1.onClick.AddListener(() =>
         {
             //  GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_TIP_SURE);
             sale();
@@ -111,8 +111,8 @@ public class TipControl : MonoBehaviour {
         }
         else if (mCurrentType == USE_TYPE)
         {
-            mClickList1Text1.text = "穿戴";
-            mClickList1Text2.text = "出售";
+            mClickList1Text2.text = "穿戴";
+            mClickList1Text1.text = "出售";
             
         }
         else if (mCurrentType == UNUSE_TYPE)
@@ -272,7 +272,7 @@ public class TipControl : MonoBehaviour {
                     else {
                         AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
                         float vale = (float)b.value / 100;
-                        str =  str + "<color=#878787FF>" + a.dec + ":" + vale + " %(+" + JsonUtils.getIntance().getAffixEnbleLevelByCount(showCount)+ "开启)</color>\n";
+                        str =  str + "<color=#878787FF>"  + a.dec + ":" + vale + " %(+" + JsonUtils.getIntance().getAffixEnbleLevelByCount(showCount)+ "开启)</color>\n";
                     }
                     showCount++;
                 }

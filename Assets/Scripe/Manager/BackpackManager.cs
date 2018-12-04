@@ -126,7 +126,7 @@ public class BackpackManager
         InventoryHalper.getIntance().updateZhuangbei(bean, level);
         GameManager.getIntance().mCurrentCrystal = BigNumber.minus(GameManager.getIntance().mCurrentCrystal, cost);
         GameManager.getIntance().updataGasAndCrystal();
-        mInvertoryControl.update();
+       // mInvertoryControl.update();
         mHeroControl.upDateUi();
         updateZhuangbeiItem(false);
         mLevel.mPlayerControl.initEquip(false);

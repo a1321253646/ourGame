@@ -304,13 +304,18 @@ public class BigNumber
         else if (big.mList.Count < mList.Count) {
             return 1;
         }else{
-            if (big.mList[big.mList.Count - 1].value > mList[mList.Count - 1].value)
-            {
-                return -1;
+            for (int i = big.mList.Count - 1; i >= 0; i--) {
+                if (big.mList[i].value > mList[i].value)
+                {
+                    return -1;
+                }
+                else if (big.mList[i].value < mList[i].value)
+                {
+                    return 1;
+                }
             }
-            else if(big.mList[big.mList.Count - 1].value < mList[mList.Count - 1].value){
-                return 1;
-            }
+
+
             return 0;
         }
     }

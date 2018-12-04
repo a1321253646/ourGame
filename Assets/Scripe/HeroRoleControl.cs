@@ -107,13 +107,15 @@ public class HeroRoleControl : MonoBehaviour {
         PlayControl plya = BackpackManager.getIntance().getHero();
         mHeroLvTx.text = "英雄等级：Lv." + GameManager.getIntance().mHeroLv;
         mText.text =
-            "攻    击：" + plya.mAttribute.aggressivity +"\n"+
-            "防    御：" + plya.mAttribute.defense +"\n"+
-            "生    命：" + plya.mAttribute.maxBloodVolume +"\n"+
-            "命    中：" + plya.mAttribute.rate +"\n"+
-            "闪    避：" + plya.mAttribute.evd +"\n"+
-            "暴    击：" + plya.mAttribute.crt +"\n"+
+            "攻    击：" + plya.mAttribute.aggressivity + "\n" +
+            "防    御：" + plya.mAttribute.defense + "\n" +
+            "生    命：" + plya.mAttribute.maxBloodVolume + "\n" +
+            "闪    避：" + (plya.mAttribute.evd/100 )+"%\n"+
+            "暴    击：" + (plya.mAttribute.crt / 100 )+"%\n" +
+            "攻    速：" + plya.mAttribute.attackSpeed + "\n" +
             "暴击伤害：" + plya.mAttribute.crtHurt +"\n"+
             "真实伤害：" + plya.mAttribute.readHurt +"\n";
     }
+
+
 }

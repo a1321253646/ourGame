@@ -93,6 +93,7 @@ public class JsonUtils
         readSkillInfo();
         readCardInfo();
         readSamsaraInfo();
+        getEnemyDate();
     }
 
     public static JsonUtils getIntance() {
@@ -596,8 +597,6 @@ public class JsonUtils
 	public void init (){
 		Debug.Log ("JsonUtils init");
 		mCurrentLevelWellent = null;
-		mWellentList = null;
-		mEnemys = null;
 		mCurrentLevel = 0;
 		bossId = 0;
 		bossGas = 0;
@@ -608,85 +607,81 @@ public class JsonUtils
 	Dictionary<long,Enemy> mEnemys;
 	long bossId;
 	float bossGas;
-	public List<LevelEnemyWellen> getWellenEnemy(){
-		
-		if (mCurrentLevelWellent == null || mCurrentLevelWellent.Count == 0) {
-			mCurrentLevelWellent = new List<long>();
-			Level level = getLevelData ();
-			bossId = level.boss_DI;
-			bossGas = level.boss_gas;
-			string[] wellenStr = level.wellen.Split ('#');
-			foreach (string str in wellenStr) {
-				mCurrentLevelWellent.Add ( int.Parse (str));
-			}
-		}
+
+    Dictionary<long, List<long>> mLevelWellenDate;
+
+
+    public List<LevelEnemyWellen> getWellenEnemy(){
+        Level lv = getLevelData();
+        if (mCurrentLevelWellent == null || mCurrentLevelWellent.Count == 0) {          
+            mCurrentLevelWellent = mLevelWellenDate[lv.id];
+            bossId = lv.boss_DI;
+            bossGas = lv.boss_gas;
+        }
+        long wellent = mCurrentLevelWellent[(int)mCurrentLevel];
+        List<LevelEnemyWellen> back = mWellentList [wellent];
+		mCurrentLevel++;
 		if (mCurrentLevel >= mCurrentLevelWellent.Count) {
 			mCurrentLevel = 0;
 		}
-		long wellent = mCurrentLevelWellent [(int)mCurrentLevel];
-	//	Debug.Log ("getWellenEnemy :wellent="+wellent);
-		if (mWellentList == null || mWellentList.Count == 0) {
-			mWellentList = new Dictionary<long,List<LevelEnemyWellen>> ();
-			mEnemys = new Dictionary<long,Enemy> ();
-			List<Enemy> enemydata = readEnemyData ();
-			List<LevelEnemy> levelList = readLevelEnemyData ();
-			mWellentList = new Dictionary<long, List<LevelEnemyWellen>> ();
-
-
-			foreach (Enemy tmp3 in  enemydata) {
-			//	Debug.Log ("enemydata id="+tmp3.id +" bossId="+bossId );
-
-				if (tmp3.id == bossId) {
-					mEnemys.Add ( bossId, tmp3);
-					break;
-				}
-			}
-
-
-			foreach(long tmp in mCurrentLevelWellent){
-				foreach(LevelEnemy wellen in levelList){
-					if (wellen.wellen== tmp) {
-						List<LevelEnemyWellen> list = new List<LevelEnemyWellen> ();
-						string str = wellen.collocation;
-						string[] array = str.Split('}');
-						foreach(string str2 in array){
-							if (str2 == null || str2.Length < 1) {
-								continue;
-							}
-							string str3 = str2.Replace ("{", "");
-							if (str3 == null || str3.Length < 1) {
-								continue;
-							}
-							string[] array2 = str3.Split (',');
-							LevelEnemyWellen enemy = new LevelEnemyWellen ();
-							enemy.id =  long.Parse (array2 [0]);
-							enemy.time =  int.Parse (array2 [1]);
-							list.Add (enemy);
-							if (!mEnemys.ContainsKey (enemy.id)) {
-								foreach (Enemy tmp3 in  enemydata) {
-									if (tmp3.id == enemy.id) {
-										mEnemys.Add (enemy.id, tmp3);
-										break;
-									}
-								}
-							}
-						}
-                        mWellentList.Add (tmp, list);
-						break;
-					}
-				}
-			}
-		}
-       // Debug.Log("getWellenEnemy :wellent=" + wellent);
-        List<LevelEnemyWellen> back = mWellentList [wellent];
-		//Debug.Log ("getWellenEnemy :back size="+back.Count);
-		mCurrentLevel++;
-		if (mCurrentLevel > mCurrentLevelWellent.Count) {
-			mCurrentLevel = 0;
-		}
 		return back;
-	}	
+	}
 
+    private void getEnemyDate()
+    {
+        if (mLevelWellenDate == null || mLevelWellenDate.Count == 0)
+        {//关卡ID找波次列表
+            mLevelWellenDate = new Dictionary<long, List<long>>();
+            foreach (Level lv in levelData) {
+                List<long> levelWellent = new List<long>();
+                string[] wellenStr = lv.wellen.Split('#');
+                foreach (string str in wellenStr)
+                {
+                    levelWellent.Add(int.Parse(str));
+                }
+                Debug.Log("=========getEnemyDate lv.id = "+ lv.id);
+                mLevelWellenDate.Add(lv.id, levelWellent);
+            }
+        }
+
+        if (mWellentList == null || mWellentList.Count == 0) {//波次ID找怪物列表
+            mWellentList = new Dictionary<long, List<LevelEnemyWellen>>();
+            List<LevelEnemy> levelList = readLevelEnemyData();
+            foreach (LevelEnemy wellen in levelList)
+            {
+
+                List<LevelEnemyWellen> list = new List<LevelEnemyWellen>();
+                string str = wellen.collocation;
+                string[] array = str.Split('}');
+                foreach (string str2 in array)
+                {
+                    if (str2 == null || str2.Length < 1)
+                    {
+                        continue;
+                    }
+                    string str3 = str2.Replace("{", "");
+                    if (str3 == null || str3.Length < 1)
+                    {
+                        continue;
+                    }
+                    string[] array2 = str3.Split(',');
+                    LevelEnemyWellen enemy = new LevelEnemyWellen();
+                    enemy.id = long.Parse(array2[0]);
+                    enemy.time = int.Parse(array2[1]);
+                    list.Add(enemy);
+                }
+                mWellentList.Add(wellen.wellen, list);              
+            }
+        }
+
+        if (mEnemys == null || mEnemys.Count == 0) {
+            mEnemys = new Dictionary<long, Enemy>();
+            List<Enemy> enemydata = readEnemyData();
+            foreach (Enemy ey in enemydata) {
+                mEnemys.Add(ey.id, ey);
+            }
+        }
+    }
 	public Enemy getEnemyById(long id){
 		return mEnemys [id];
 	}

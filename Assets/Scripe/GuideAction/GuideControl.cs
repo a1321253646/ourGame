@@ -67,7 +67,7 @@ public class GuideControl
                 , null,
                 mManager,
                 null);
-            item3.init(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP, GuideManager.BUTTON_CLICK_TIP_SURE, "tip_button_list1_1");
+            item3.init(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP, GuideManager.BUTTON_CLICK_TIP_SURE, "tip_button_list1_2");
             item3.setDecLocal(1, 1, 3, 3);
             mActionList.Add(item3);
         }
