@@ -33,7 +33,7 @@ public class SQLManager : MonoBehaviour
 //#if UNITY_ANDROID
 
 //#else
-        this.CreateSQL();
+//        this.CreateSQL();
 //#endif
         this.OpenSQLaAndConnect();
         Thread th1 = new Thread(threadRun) ;
@@ -67,7 +67,7 @@ public class SQLManager : MonoBehaviour
     public void OpenSQLaAndConnect()
     {
 //#if UNITY_ANDROID
- /*        string appDBPath = Application.persistentDataPath + "/" + sqlName;
+       string appDBPath = Application.persistentDataPath + "/" + sqlName;
         if (!File.Exists(appDBPath))
         {
             //用www先从Unity中下载到数据库
@@ -81,11 +81,11 @@ public class SQLManager : MonoBehaviour
 
         }
         Debug.Log("  Android 打开数据库 = ");
-        this.connection = new SqliteConnection("URI=file:" + appDBPath);*/
+        this.connection = new SqliteConnection("URI=file:" + appDBPath);
 
         //#else
-               Debug.Log("  打开数据库 = ");
-                this.connection = new SqliteConnection("data source=" + Application.dataPath + "/Resources/" + this.sqlName);
+      /*           Debug.Log("  打开数据库 = ");
+                this.connection = new SqliteConnection("data source=" + Application.dataPath + "/Resources/" + this.sqlName);*/
                 
         //#endif
         this.connection.Open();
