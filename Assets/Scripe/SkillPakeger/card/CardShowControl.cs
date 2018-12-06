@@ -323,7 +323,10 @@ public class CardShowControl : MonoBehaviour {
         grid.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 113* count+10*(count-1)+10);
     }
 
-    public  void updateBack()
+    public void updateBack() {
+        updateBack(true);
+    }
+    public  void updateBack(bool isMust)
     {
         int count = 0;
         foreach (GameObject good in mBackListGb) {

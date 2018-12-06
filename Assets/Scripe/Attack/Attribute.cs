@@ -15,7 +15,7 @@
         aggressivity += adder.aggressivity;
         defense += adder.defense;
         rate += adder.rate;
-        evd += adder.aggressivity;
+        evd += adder.evd;
         maxBloodVolume += adder.maxBloodVolume;
         crt += adder.crt;
         hurt += adder.hurt;

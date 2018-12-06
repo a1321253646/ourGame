@@ -80,7 +80,12 @@ public class HeroRoleControl : MonoBehaviour {
 
     public void upDateUi()
     {
-        if (mLevel < GameManager.getIntance().getUiCurrentLevel()) {
+        upDateUi(true);
+    }
+
+    public void upDateUi(bool must)
+    {
+        if (!must && mLevel < GameManager.getIntance().getUiCurrentLevel()) {
             return;
         }
 

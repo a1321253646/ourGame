@@ -62,6 +62,7 @@ public class PlayControl : Attacker
         mFightManager.dieOrWin(false, false);
     }
     void winEnd(int status) {
+        isWinEnd = true;
         setStatus(Attacker.PLAY_STATUS_RUN);
         Run();
         if (GameManager.getIntance().isGuide)
@@ -283,16 +284,24 @@ public class PlayControl : Attacker
         mAllAttributePre.setToPre();
 
         mAllAttribute.add(mBaseAttribute);
+        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
         mAllAttribute.add(mEquipAttribute);
+        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
         mAllAttribute.add(mLunhuiAttribute);
+        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
         mAllAttribute.add(mSkillAttribute);
+        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
+
 
         mAllAttributePre.add(mEquipAttributePre);
         mAllAttributePre.add(mLunhuiAttributePre);
         mAllAttributePre.add(mSkillAttributePre);
 
+
+
         mAttribute.add(mAllAttribute);
         mAttribute.chen(mAllAttributePre);
+        Debug.Log("===============mAttribute.evd = " + mAttribute.evd);
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
     }
 
@@ -381,6 +390,7 @@ public class PlayControl : Attacker
         mBaseAttribute.rate = mHero.hit;
         mBaseAttribute.readHurt = mHero.real_dam;
         mBaseAttribute.evd = mHero.dod;
+        Debug.Log("===============英雄mHero.dod = " + mHero.dod);
         mBaseAttribute.attackSpeed = mHero.attack_speed;
         Debug.Log("===============英雄攻速 = " + mBaseAttribute.attackSpeed);
         mAttackLeng = mHero.attack_range;
@@ -443,9 +453,11 @@ public class PlayControl : Attacker
         mAnimalControl.update();
     }
     private bool isWin = false;
+    private bool isWinEnd = false;
     public void win()
     {
         isWin = true;
+        mBackManager.stop();
         setStatus(Attacker.PLAY_STATUS_WIN);
     }
     private bool isStart = false;
@@ -457,8 +469,11 @@ public class PlayControl : Attacker
     }
 
     void winrun(){
-  //      Debug.Log(" run ");
-        transform.Translate (Vector2.right*(2*Time.deltaTime));
+        //      Debug.Log(" run ");
+        if (isWinEnd || isStart) {
+            transform.Translate(Vector2.right * (2 * Time.deltaTime));
+        }
+        
 	}
 	public override float BeAttack(HurtStatus status,Attacker hurter){
         //        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);

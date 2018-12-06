@@ -108,7 +108,7 @@ public class GameManager
                     outLineGet = BigNumber.multiply(levelCryStal, old);
                     outLineGet = BigNumber.multiply(outLineGet, getOutlineGet());
                     mCurrentCrystal = BigNumber.add(outLineGet,mCurrentCrystal);
-                    if(old <  5) {
+                    if(old <  JsonUtils.getIntance().getConfigValueForId(100032)) {
                         outLineGet = new BigNumber();
                     }
                     SQLHelper.getIntance().updateHunJing(mCurrentCrystal);

@@ -12,7 +12,7 @@ public class TypewriterEffect : MonoBehaviour {
     private string showText = "";
     private int listIndex = 0;
     private int strIndex = 0;
-    public float charsPerSecond = 0.2f;//打字时间间隔
+    public float charsPerSecond = -1;//打字时间间隔
     public float mTime = 0;
     private List<TextColor> mTextList = new List<TextColor>();
     void Start() {
@@ -53,6 +53,9 @@ public class TypewriterEffect : MonoBehaviour {
             return;
         }
         mTime += Time.deltaTime;
+        if (charsPerSecond == -1) {
+            charsPerSecond = JsonUtils.getIntance().getConfigValueForId(100031) / 1000;
+        }
         if (mTime >= charsPerSecond) {
             mTime = mTime - charsPerSecond;
             showTextByTime();

@@ -11,7 +11,7 @@
     "fight_offset": "0.32,-0.28",
     "idel_y": -0.69,
     "action_list": "1,2,3,4,5,6",
-    "action_frame": "7,7,4,6,8,5",
+    "action_frame": "7,7,4,6,8,8",
     "target_border": "0.38,0.45,1.1",
     "animation_speed": 1
   },
@@ -1020,6 +1020,22 @@
     "idel_y": 0,
     "action_list": 0,
     "action_frame": 8,
+    "target_border": "",
+    "animation_speed": 1
+  },
+  {
+    "id": 40002,
+    "name": "Effect_lvup",
+    "zoom": 1,
+    "attack_framce": 0,
+    "attack_all_framce": 0.0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "0,-0.57",
+    "fight_offset": "0,0",
+    "idel_y": 0,
+    "action_list": 0,
+    "action_frame": 13,
     "target_border": "",
     "animation_speed": 1
   }

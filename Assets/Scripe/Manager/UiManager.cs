@@ -35,9 +35,9 @@ public class UiManager
         mSamsaraUiPoint = GameObject.Find ("lunhui_ui_point").GetComponent<Image> ();
         mCardUiPoint = GameObject.Find ("skilcard_ui_point").GetComponent<Image> ();
 
-        GameObject auto = GameObject.Find("zidong");
+        GameObject auto = GameObject.Find("zidongAuto");
         mAutoBoss = auto.GetComponent<Button>();
-        autoBack = auto.GetComponent<Image>();
+        autoBack = GameObject.Find("zidong").GetComponent<Image>();
         mAutoYes = Resources.Load("ui_new/gouxuan_yes", typeof(Sprite)) as Sprite;
         mAutoNo = Resources.Load("ui_new/gouxuan_no", typeof(Sprite)) as Sprite;
         mGameLevelTv.text = "当前关卡:" + JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).name;       

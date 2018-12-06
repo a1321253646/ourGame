@@ -61,7 +61,7 @@ public class SamsaraItemControl : MonoBehaviour {
             mSamsaraValue.text = str;
         }
         else {
-            mSamsaraNameAndLevel.text = " " + mJsonBean.name + " Lv:" + mLevel;
+            mSamsaraNameAndLevel.text = "" + mJsonBean.name + " Lv:" + mLevel;
             mSamsaraValue.text = getAttribute();
         }       
         mLvelUpCost.text = "消耗：" + JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, mLevel+1) + "轮回点";

@@ -122,8 +122,36 @@ public class LevelManager : MonoBehaviour {
 	// Update is called once per frame
 	bool starBoss = false;
     public float nengLiangDian = 0;
-    public float mTime = 0; 
-	void Update () {
+    public float mTime = 0;
+    private long mOld = -1;
+    private void OnApplicationPause(bool pause)
+    {
+        Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++pause = "+ pause + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        if (pause)
+        {
+            SQLHelper.getIntance().updateOutTime();
+            mOld = TimeUtils.GetTimeStamp();
+        }
+        else {
+            if (mOld != -1)
+            {
+                long outTime = TimeUtils.getTimeDistanceMin(mOld);
+                BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).getOfflinereward();
+                BigNumber  outLineGet = BigNumber.multiply(levelCryStal, outTime);
+                outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
+                GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
+                if(outTime >= JsonUtils.getIntance().getConfigValueForId(100032))
+                {
+                    BackpackManager.getIntance().showMessageTip(MessageTips.TYPPE_OUT_LINE, "离线时勇士战斗获得魂晶奖励", "" + outLineGet.toStringWithUnit());
+                }
+                GameManager.getIntance().updateGasAndCrystal();
+                SQLHelper.getIntance().updateOutTime();
+            }
+        }
+    }
+
+
+    void Update () {
         if (!isInit) {
             return;
         }

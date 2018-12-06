@@ -205,9 +205,13 @@ public class IvertoryControl : MonoBehaviour {
         }
     }
 
-    public void update()
+    public void update() {
+        update(true);
+    }
+
+    public void update(bool must)
     {
-        if (GameManager.getIntance().getUiCurrentLevel() > mLevel) {
+        if (!must && GameManager.getIntance().getUiCurrentLevel() > mLevel) {
             return;
         }
         upDateData();

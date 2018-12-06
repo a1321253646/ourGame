@@ -97,11 +97,8 @@ public class MessageTips : MonoBehaviour {
         mDec.text = str1;
         if (type == TYPPE_OUT_LINE)
         {
-            isFinish = false;
             mTitle.text = "离线奖励";
             mCountNumber.text = str2;
-            float x = mCountNumber.transform.position.x - mCountNumber.GetComponent<RectTransform>().rect.width / 2 - mCountImg.GetComponent<RectTransform>().rect.width / 2 -40;
-            mCountImg.transform.position = new Vector2(x, mCountNumber.transform.position.y);
         }
         else {
 
@@ -119,15 +116,5 @@ public class MessageTips : MonoBehaviour {
     }
     private void sure() {
 
-    }
-    private bool isFinish = true;
-    // Update is called once per frame
-    void Update () {
-        if (!isFinish && mType == TYPPE_OUT_LINE && mCountNumber.GetComponent<RectTransform>().rect.width != 0 && mCountImg.GetComponent<RectTransform>().rect.width != 0)
-        {            
-            isFinish = true;
-            float x = mCountNumber.transform.position.x - mCountNumber.GetComponent<RectTransform>().rect.width / 2 - mCountImg.GetComponent<RectTransform>().rect.width / 2-10;
-            mCountImg.transform.position = new Vector2(x, mCountNumber.transform.position.y);
-        }
     }
 }

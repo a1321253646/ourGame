@@ -31,6 +31,7 @@ public class TipControl : MonoBehaviour {
     public static int UNUSE_CARD_TYPE = 6;
     public static int SHOW_COMPOSE_TYPE = 7;
     public static int SALE_TYPE = 8;
+    public static int SALE_ZHUANGBEI_TYPE = 9;
 
     public long mCardId = -1;
     LevelManager mLevelManager;
@@ -72,6 +73,13 @@ public class TipControl : MonoBehaviour {
     }
 
     private void sale() {
+        if (mCurrentType == UNUSE_TYPE)
+        {
+            BackpackManager.getIntance().use(mBean, count, SALE_ZHUANGBEI_TYPE);
+        }
+        else {
+            BackpackManager.getIntance().use(mBean, count, SALE_TYPE);
+        }
         BackpackManager.getIntance().use(mBean, count, SALE_TYPE);
         removeUi();
     }
@@ -117,7 +125,8 @@ public class TipControl : MonoBehaviour {
         }
         else if (mCurrentType == UNUSE_TYPE)
         {
-            mClickText.text = "脱下";
+            mClickList1Text2.text = "脱下";
+            mClickList1Text1.text = "出售";
         }
         else if (mCurrentType == BOOK_TYPE)
         {
@@ -133,7 +142,7 @@ public class TipControl : MonoBehaviour {
         else if (mCurrentType == SHOW_COMPOSE_TYPE) {
             mClickText.text = "关闭";
         }
-        if (mCurrentType == USE_TYPE)
+        if (mCurrentType == USE_TYPE || mCurrentType == UNUSE_TYPE)
         {
             mActionClick.gameObject.transform.localScale = new Vector3(0, 0, 0);
             mButtonList1.transform.localScale = new Vector3(1, 1, 1);

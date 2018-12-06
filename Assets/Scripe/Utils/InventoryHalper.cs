@@ -325,6 +325,13 @@ public class InventoryHalper
         return false;
     }
 
+    public void delectZhuangbei(PlayerBackpackBean bean, long count) {
+        if (mRoleUseList.Remove(bean))
+        {
+            SQLHelper.getIntance().deleteZuangbei(bean.goodId);
+        }
+    }
+
     public void unUse(PlayerBackpackBean bean, long count) {
         if (mRoleUseList.Remove(bean))
         {
