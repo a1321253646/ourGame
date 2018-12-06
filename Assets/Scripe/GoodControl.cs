@@ -126,18 +126,18 @@ public class GoodControl : MonoBehaviour {
           //  if (img == null) {
                 if (bean.tabId == TABID_EQUIP_TYPY)
                 {
-                    img = BackpackManager.getIntance().getAccouterInfoById(id).icon;
+                    img = InventoryHalper.getIntance().getIcon(id);
                     mMaxCout = BackpackManager.getIntance().getAccouterInfoById(id).stacking;
-                back = "ui_new/box_gride0" + BackpackManager.getIntance().getAccouterInfoById(id).quality;
+                    back = "ui_new/box_gride0" + BackpackManager.getIntance().getAccouterInfoById(id).quality;
                 }
                 else if (bean.tabId == TABID_ITEM_TYPE)
                 {
-                    img = BackpackManager.getIntance().getGoodInfoById(id).icon;
+                    img = InventoryHalper.getIntance().getIcon(id);
                     mMaxCout = BackpackManager.getIntance().getGoodInfoById(id).stacking;
                 }
                 else if (bean.tabId == TABID_CARD_TYPE)
                 {
-                    img = BackpackManager.getIntance().getCardInfoById(id).icon;
+                    img = InventoryHalper.getIntance().getIcon(id);
                     mMaxCout = BackpackManager.getIntance().getCardInfoById(id).stacking;
                 }
        //     }
@@ -145,7 +145,7 @@ public class GoodControl : MonoBehaviour {
             // SpriteRenderer sp1 = mImage.GetComponent<SpriteRenderer>();
             //            Debug.Log("icon = " + mGoodInfo.icon + "mImage = " + mImage);
             mImage.sprite = Resources.
-                Load("backpackIcon/" + img, typeof(Sprite)) as Sprite;
+                Load( img, typeof(Sprite)) as Sprite;
             mImage.color = Color.white;
             mBack.sprite = Resources.
                 Load(back, typeof(Sprite)) as Sprite;
@@ -159,7 +159,7 @@ public class GoodControl : MonoBehaviour {
         long level = 0;
         if (bean != null && bean.attributeList != null && bean.attributeList.Count > 0) {
             foreach (PlayerAttributeBean p in bean.attributeList) {
-                Debug.Log("type = " + p.type + "value = " + p.value);
+//                Debug.Log("type = " + p.type + "value = " + p.value);
                 if (p.type == 10001) {
                     level = p.value;
                 }

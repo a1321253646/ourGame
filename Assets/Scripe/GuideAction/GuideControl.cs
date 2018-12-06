@@ -25,10 +25,11 @@ public class GuideControl
                 mData.getDecString()[0]
                 , null,
                 mManager,
-                null);
+                null, this);
             item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_ENEMY_DEAL, GuideManager.BUTTON_START_HERO_UP, "Button_lvup");
             item1.setDecLocal(2, 1, 2, 3);
             mActionList.Add(item1);
+            GameManager.getIntance().uiManager.seHeroUpShow(false);
         }
         else if (mData.id == 2)
         {//boss引导
@@ -37,10 +38,11 @@ public class GuideControl
                 mData.getDecString()[0]
                 , null,
                 mManager,
-                null);
+                null, this);
             item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_ENEMY_DEAL, GuideManager.BUTTON_START_BOSS, "Button_boss");
             item1.setDecLocal(3, 3, 3, 1);
             mActionList.Add(item1);
+            GameManager.getIntance().uiManager.setAutoStartBossShow(false);
         }
         else if (mData.id == 3)
         {//准备穿戴
@@ -49,7 +51,7 @@ public class GuideControl
                 mData.getDecString()[0]
                 , null,
                 mManager,
-                null);
+                null,this);
             item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_OBJECT_DROP, GuideManager.BUTTON_START_OPEN_BACK, "pack_ui");
             item1.setDecLocal(3, 2, 1, 2);
             mActionList.Add(item1);
@@ -58,7 +60,7 @@ public class GuideControl
                 mData.getDecString()[1]
                 , mData.getTarget(),
                 mManager,
-                null);
+                null, this);
             mActionList.Add(item2);
             item2.setDecLocal(2, 3, 2, 1);
             ShowGuideBySelf item3 = new ShowGuideBySelf();
@@ -66,10 +68,11 @@ public class GuideControl
                 mData.getDecString()[2]
                 , null,
                 mManager,
-                null);
+                null, this);
             item3.init(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP, GuideManager.BUTTON_CLICK_TIP_SURE, "tip_button_list1_2");
             item3.setDecLocal(1, 1, 3, 3);
             mActionList.Add(item3);
+            GameManager.getIntance().uiManager.setBackpackShow(false);
         }
         else if (mData.id == 4)//升级装备引导
         {
@@ -78,7 +81,7 @@ public class GuideControl
                 mData.getDecString()[0]
                 , mData.getTarget(),
                 mManager,
-                mData.getQualificationList());
+                mData.getQualificationList(), this);
             item1.setDecLocal(3, 3, 1, 3);
             mActionList.Add(item1);
         }
@@ -88,7 +91,7 @@ public class GuideControl
                 mData.getDecString()[0]
                 , null,
                 mManager,
-                null);
+                null, this);
             item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_OBJECT_DROP, GuideManager.BUTTON_CLICK_OPEN_CARD, "skilcard_ui");
             item1.setDecLocal(3, 2, 1, 2);
             mActionList.Add(item1);
@@ -97,7 +100,7 @@ public class GuideControl
                 mData.getDecString()[1]
                 , mData.getTarget(),
                 mManager,
-                null);
+                null, this);
             item2.setDecLocal(2, 3, 2, 1);
             mActionList.Add(item2);
 /*            GuideActionCardUiShowInfo item3 = new GuideActionCardUiShowInfo();
@@ -112,9 +115,10 @@ public class GuideControl
                 mData.getDecString()[2]
                 ,null,
                 mManager,
-                null);
+                null, this);
             item4.setDecLocal(3, 3, 3, 1);
             mActionList.Add(item4);
+            GameManager.getIntance().uiManager.setCardShow(false);
         }
     }
 

@@ -11,7 +11,7 @@
     "fight_offset": "0.32,-0.28",
     "idel_y": -0.69,
     "action_list": "1,2,3,4,5,6",
-    "action_frame": "7,7,4,6,8,8",
+    "action_frame": "7,7,4,6,8,5",
     "target_border": "0.38,0.45,1.1",
     "animation_speed": 1
   },

@@ -284,13 +284,13 @@ public class PlayControl : Attacker
         mAllAttributePre.setToPre();
 
         mAllAttribute.add(mBaseAttribute);
-        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
+//        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
         mAllAttribute.add(mEquipAttribute);
-        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
+//        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
         mAllAttribute.add(mLunhuiAttribute);
-        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
+//        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
         mAllAttribute.add(mSkillAttribute);
-        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
+//        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
 
 
         mAllAttributePre.add(mEquipAttributePre);
@@ -390,12 +390,12 @@ public class PlayControl : Attacker
         mBaseAttribute.rate = mHero.hit;
         mBaseAttribute.readHurt = mHero.real_dam;
         mBaseAttribute.evd = mHero.dod;
-        Debug.Log("===============英雄mHero.dod = " + mHero.dod);
+//        Debug.Log("===============英雄mHero.dod = " + mHero.dod);
         mBaseAttribute.attackSpeed = mHero.attack_speed;
-        Debug.Log("===============英雄攻速 = " + mBaseAttribute.attackSpeed);
+//        Debug.Log("===============英雄攻速 = " + mBaseAttribute.attackSpeed);
         mAttackLeng = mHero.attack_range;
          mBloodVolume = mBloodVolume + mBaseAttribute.maxBloodVolume - mMaxTmp;
-        Debug.Log("mBloodVolume = " + mBloodVolume+ " mBaseAttribute.maxBloodVolume="+ mBaseAttribute.maxBloodVolume+ " mMaxTmp"+ mMaxTmp);
+//        Debug.Log("mBloodVolume = " + mBloodVolume+ " mBaseAttribute.maxBloodVolume="+ mBaseAttribute.maxBloodVolume+ " mMaxTmp"+ mMaxTmp);
         mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);
         getAttribute();

@@ -87,6 +87,9 @@ public class LocalManager{
 		}
 	}
 	private void heroAttackTarget(){
+        if (mLocalLink == null) {
+            return;
+        }
 		LocalBean tmp = mLocalLink.next;
 
 		while (tmp != null) {
@@ -153,6 +156,9 @@ public class LocalManager{
 		}
 	}
 	private void dealMultiple(){
+        if(mLocalLink == null) {
+            return;    
+        }
 		LocalBean tmp = mLocalLink.next;
 		while (tmp != null) {
 			bool isAdd = false;

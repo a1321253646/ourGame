@@ -28,6 +28,7 @@ public class InventoryHalper
                 mRoleUseList.Add(b);
             }
         }
+        mDropDeviceUsed = SQLHelper.getIntance().getDropDevice();
     }
 
 
@@ -35,6 +36,7 @@ public class InventoryHalper
         mRoleUseList.Clear();
         SQLHelper.getIntance().deleteAllZuangbei();
         mDropDeviceUsed.Clear();
+        SQLHelper.getIntance().deleteAllDropDevice();
         mList.Clear();
       /*  for (int i = 0; i < mList.Count;) {
             PlayerBackpackBean bean = mList[i];
@@ -84,17 +86,21 @@ public class InventoryHalper
         if (id > TABID_1_START_ID && id < TABID_2_START_ID)
         {
             path = BackpackManager.getIntance().getGoodInfoById(id).icon;
+            path = "backpackIcon/" + path;
         }
         else if (id > TABID_2_START_ID && id < TABID_3_START_ID)
         {
             path = BackpackManager.getIntance().getAccouterInfoById(id).icon;
+            
+            path = "icon/equipicon/" + path;
         }
         else if (id > TABID_3_START_ID)
         {
             path = BackpackManager.getIntance().getCardInfoById(id).icon;
-            
+            path = "backpackIcon/" + path;
+
         }
-        path = "backpackIcon/" + path;
+        
         return path;
     }
     public static long TABID_1_START_ID = 100000;
@@ -234,6 +240,8 @@ public class InventoryHalper
     }
     public void clearDropDeviceUseCount(long id) {
         mDropDeviceUsed[id] = 0;
+        Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
+        SQLHelper.getIntance().updateDropValue(id, 0);
     }
     private void addDropDeviceUseCount(long id) {
         if (mDropDeviceUsed.ContainsKey(id))
@@ -243,6 +251,9 @@ public class InventoryHalper
         else {
             mDropDeviceUsed.Add(id,  1);
         }
+        Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
+        SQLHelper.getIntance().updateDropValue(id, mDropDeviceUsed[id]);
+
         
     }
 

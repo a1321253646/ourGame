@@ -4,12 +4,14 @@ using System.Collections;
 public class GuideActionButton : GuideActionItem
 {
 
+   
     public override long notificationDeal(int eventID, long eventValue)
     {
         if (eventID == mValueType && eventValue == mValue) {
-                start();
-                return 0;
-        } else if (eventID == GuideManager.EVENT_CLICK_BUTTON && eventValue == mId) {
+            isStart = true;
+            start();
+            return 0;
+        } else if (isStart && eventID == GuideManager.EVENT_CLICK_BUTTON && eventValue == mId) {
             Time.timeScale = 1;
             mManager.disableGuide();
             return -2;
@@ -20,6 +22,7 @@ public class GuideActionButton : GuideActionItem
 
     public override void start()
     {
+        setUiShow();
         Time.timeScale = 0;
         GameObject ob = GameObject.Find(mStr);
         mManager.ShowGuideNormalObject(ob);

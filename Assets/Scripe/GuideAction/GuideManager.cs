@@ -66,6 +66,10 @@ public class GuideManager : MonoBehaviour {
     private long notificationDeal(int eventID, long eventValue) {
         Debug.Log("notificationDeal mCurrentGuide eventID= "+ eventID+ " eventValue= "+ eventValue);
         long back = -1;
+        if (mGuideList.Count == 0)
+        {
+            return -1;
+        }
         if (mCurrentGuide != null) {
             back =  mCurrentGuide.notificationDeal(eventID, eventValue);
             if (back == -2) {
@@ -73,6 +77,8 @@ public class GuideManager : MonoBehaviour {
                 mGuideList.Remove(mCurrentGuide);
                 mCurrentGuide = null;
                 back = 0;
+               
+
             }
             return back;
         }else if (mGuideList.Count > 0) {

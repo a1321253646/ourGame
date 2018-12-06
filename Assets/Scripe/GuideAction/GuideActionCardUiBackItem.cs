@@ -7,10 +7,11 @@ public class GuideActionCardUiBackItem : GuideActionItem
     {
         if (eventID == GuideManager.EVENT_SHOW && eventValue == GuideManager.SHOW_CARD)
         {
+            isStart = true;
             start();
             return 0;
         }
-        else if (eventID == GuideManager.EVENT_OBJECT_CLICK && eventValue == mTarget.value)
+        else if (isStart && eventID == GuideManager.EVENT_OBJECT_CLICK && eventValue == mTarget.value)
         {
             GameManager.getIntance().isGuide = false;
             mManager.disableGuide();

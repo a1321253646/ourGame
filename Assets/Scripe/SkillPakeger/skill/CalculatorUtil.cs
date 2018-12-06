@@ -10,7 +10,8 @@ public class CalculatorUtil
     Dictionary<string, float> parameter = new Dictionary<string, float>();
     Attacker firer;
     Attacker target;
-    CalculatorUtilBean mBean;
+    List<CalculatorUtilBean> mBean = new List<CalculatorUtilBean>();
+
     AttackSkillBase attackSkill;
 
     public void setSkill(AttackSkillBase attackSkill) {
@@ -21,34 +22,55 @@ public class CalculatorUtil
         mStr = str;
         mParameter = parStr;
         getParList();
-        getBean();
+
+        string[] strs = mStr.Split('|');
+        foreach (string s in strs) {
+            if (s != null && s.Length > 0) {
+                CalculatorUtilBean bean = getBean(s);
+                if (bean != null) {
+                    mBean.Add(bean);
+                }
+            }
+        }
+        
     }
     public  float getValue(Attacker firer, Attacker target) {
         this.firer = firer;
         this.target = target;
+        float value = -1;
+        foreach (CalculatorUtilBean bean in mBean) {
+            if (bean == null)
+            {
+                continue;
+            }
+            if (bean.bean == -1)
+            {
+                continue;
+            }
 
-
-        if (mBean == null) {
-            return -1;
+            value = getValue(bean);
+            Debug.Log("float value = " + value);
+            if (value <= 0)
+            {
+                continue;
+            }
+            else {
+                return value;
+            }
         }
-        if (mBean.bean == -1) {
-            return -1;
-        }
-
-        float value = getValue(mBean);
-        Debug.Log("float value = " + value);
         return value;
     }
-    private void getBean()
+    private CalculatorUtilBean getBean(string str)
     {
         //Debug.Log("mStr ="+ mStr);
-        char[] chars = mStr.ToCharArray();
-        mBean = new CalculatorUtilBean();
-        if (getListBean(chars, mBean, 0) == -1)
+        char[] chars = str.ToCharArray();
+        CalculatorUtilBean bean = new CalculatorUtilBean();
+        if (getListBean(chars, bean, 0) == -1)
         {
-            mBean = null;
+            bean = null;
             //Debug.Log("getListBean == null");
         }
+        return bean;
        // if (mBean != null) {
        //     printfBean(mBean, "    ");
        // }
@@ -89,7 +111,7 @@ public class CalculatorUtil
         int start = 0;
         int tmp = 1;
         while (true) {
-          //  Debug.Log("value.bean =" + value.bean);
+            Debug.Log("value.bean =" + value.bean);
             tmp = start + 1;
             if (value.type == 0) {
                 break;

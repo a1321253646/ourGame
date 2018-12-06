@@ -7,10 +7,11 @@ public class GuideActionEquiteUp : GuideActionItem
     {
         if (eventID == GuideManager.EVENT_ENEMY_DEAL && eventValue == mList[0].value)
         {
+            isStart = true;
             start();
             return 0;
         }
-        else if (eventID == GuideManager.EVENT_EQUITE_UP_CLICK && eventValue == mTarget.value)
+        else if (isStart && eventID == GuideManager.EVENT_EQUITE_UP_CLICK && eventValue == mTarget.value)
         {
             Time.timeScale = 1;
             mManager.disableGuide();

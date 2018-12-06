@@ -7,10 +7,11 @@ public class GuideActionBackpackItem : GuideActionItem
     {
         if (eventID == GuideManager.EVENT_SHOW && eventValue == GuideManager.SHOW_BACK)
         {
+            isStart = true;
             start();
             return 0;
         }
-        else if (eventID == GuideManager.EVENT_OBJECT_CLICK && eventValue == mTarget.value)
+        else if (isStart && eventID == GuideManager.EVENT_OBJECT_CLICK && eventValue == mTarget.value)
         {
             Time.timeScale = 1;
             mManager.disableGuide();
@@ -19,7 +20,6 @@ public class GuideActionBackpackItem : GuideActionItem
 
         return -1;
     }
-
 
     public override void start()
     {

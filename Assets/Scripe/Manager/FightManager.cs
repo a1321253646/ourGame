@@ -106,6 +106,10 @@ public class FightManager{
                 Level l = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel + 1);
                 if (l != null) {
                     GameManager.getIntance().mCurrentLevel += 1;
+                    if (GameManager.getIntance().mCurrentLevel == JsonUtils.getIntance().getConfigValueForId(100017))
+                    {
+                        GameManager.getIntance().uiManager.setLunhuiPointShow(1);
+                    }
                 }
             }
            

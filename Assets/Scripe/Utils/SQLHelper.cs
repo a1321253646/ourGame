@@ -32,6 +32,7 @@ public class SQLHelper
     private long GAME_ID_POINT_LUNHUI = 10;
     private long GAME_ID_POINT_CARD = 11;
     private long GAME_ID_FRIST_START = 12;
+   
 
     private long TYPE_GAME = 1;
     private long TYPE_GOOD = 2;
@@ -39,6 +40,8 @@ public class SQLHelper
     private long TYPE_CARD = 4;
     private long TYPE_ZHUANGBEI = 5;
     private long TYPE_LUNHUI = 6;
+    private long TYPE_DROP = 7;
+
 
 
     List<long> mGuide = new List<long>();
@@ -47,6 +50,7 @@ public class SQLHelper
     List<PlayerBackpackBean> mUserZhuangbei = new List<PlayerBackpackBean>();
     List<PlayerBackpackBean> mALLGood = new List<PlayerBackpackBean>();
     Dictionary<long,long> mLunhuui = new Dictionary<long, long>();
+    Dictionary<long,long> mDropDeviceCount = new Dictionary<long, long>();
 
    SQLManager mManager = null;
     private SQLHelper()
@@ -61,6 +65,7 @@ public class SQLHelper
         mUserZhuangbei.Clear();
         mCard.Clear();
         mBook.Clear();
+        mDropDeviceCount.Clear();
         if (mList != null && mList.Count > 0)
         {
             foreach (SQLDate date in mList)
@@ -70,11 +75,21 @@ public class SQLHelper
                 {
                     mLunhuui.Add(date.id, long.Parse(date.extan));
                 }
+                else if (date.type == TYPE_DROP) {
+                    if (mDropDeviceCount.ContainsKey(date.id))
+                    {
+                        mDropDeviceCount[date.id] = long.Parse(date.extan);
+                    }
+                    else {
+                        mDropDeviceCount.Add(date.id, long.Parse(date.extan));
+                    }
+                    Debug.Log("读取数据库  掉落器 id= " + date.id + " count =" + mDropDeviceCount[date.id]);
+                }
                 else if (date.type == TYPE_GOOD)
                 {
                     PlayerBackpackBean bean = getBeanFromStr(date.extan);
                     bean.goodId = date.id;
-                    Debug.Log("读取数据库  id= " +bean.goodId+" count ="+bean.count);
+                    Debug.Log("读取数据库  id= " + bean.goodId + " count =" + bean.count);
                     mALLGood.Add(bean);
                 }
                 else if (date.type == TYPE_ZHUANGBEI)
@@ -114,13 +129,13 @@ public class SQLHelper
                     {
                         Debug.Log("读取数据库 mMojing" + date.extan);
                         mMojing = BigNumber.getBigNumForString(date.extan);
-                       
+
                     }
                     else if (date.id == GAME_ID_TIME) {
                         mOutTime = long.Parse(date.extan);
                         Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
-                    else if(date.id == GAME_ID_GUIDE)
+                    else if (date.id == GAME_ID_GUIDE)
                     {
                         long id = long.Parse(date.extan);
                         mGuide.Add(id);
@@ -235,6 +250,11 @@ public class SQLHelper
     {
         return mLunhuui;
     }
+    public Dictionary<long, long> getDropDevice()
+    {
+        return mDropDeviceCount;
+    }
+
     public void addGood(PlayerBackpackBean good) {
         string value = getGoodExtra(good);
         mManager.InsertDataToSQL(new[] { "" + TYPE_GOOD, "" + good.goodId, "'" + value + "'" });
@@ -291,6 +311,8 @@ public class SQLHelper
     {
                 mManager.delete(TYPE_ZHUANGBEI, -1);
     }
+
+
 
     public string getGoodExtra(PlayerBackpackBean good) {
         string value = "count，" + good.count + "；";
@@ -500,16 +522,47 @@ public class SQLHelper
         }        
     }
 
-    private void updateGame(long id, long value) {
-        string value1 = "" + value;
-        mManager.UpdateInto(value1, TYPE_GAME, id);
+    public void updateDropValue(long drop, long value)
+    {
+        if (mDropDeviceCount.ContainsKey(drop))
+        {
+          //  mDropDeviceCount[drop] = value;
+            addDrop( drop, value);
+            
+        }
+        else
+        {
+            //mDropDeviceCount.Add(drop, value);
+            updateDrop( drop, value);
+        }
     }
 
 
+    public void deleteAllDropDevice()
+    {
+        mDropDeviceCount.Clear();
+        mManager.delete(TYPE_DROP, -1);
+    }
 
+    private void updateDrop(long id, long value) {
+        string value1 = ""+ value;
+        mManager.UpdateInto("'" + value1 + "'", TYPE_DROP, id);
+    }
+
+    private void addDrop(long id, long value)
+    {
+        string value1 = ""+ value;
+        mManager.InsertDataToSQL(new[] { "" + TYPE_DROP, "" + id, "'" + value1 + "'" });
+    }
+
+    private void updateGame(long id, long value)
+    {
+        string value1 = "" + value;
+        mManager.UpdateInto(value1, TYPE_GAME, id);
+    }
     private void addGame(long id, long value)
     {
         string value1 = "" + value;
-                   mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, value1 });
+        mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, value1 });
     }
 }

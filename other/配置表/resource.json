@@ -1022,5 +1022,21 @@
     "action_frame": 8,
     "target_border": "",
     "animation_speed": 1
+  },
+  {
+    "id": 40002,
+    "name": "Effect_lvup",
+    "zoom": 1,
+    "attack_framce": 0,
+    "attack_all_framce": 0.0,
+    "blood_offset": 0,
+    "blood_witch": 0,
+    "hurt_offset": "0,-0.57",
+    "fight_offset": "0,0",
+    "idel_y": 0,
+    "action_list": 0,
+    "action_frame": 13,
+    "target_border": "",
+    "animation_speed": 1
   }
 ]

@@ -10,7 +10,7 @@ public class UiManager
     Image autoBack;
     Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint;
     Sprite mAutoYes, mAutoNo;
-
+  
     bool isAuto = false;
 	public void init(){
 		mHeroLvTv = GameObject.Find ("lv_labe").GetComponent<Text> ();
@@ -40,7 +40,16 @@ public class UiManager
         autoBack = GameObject.Find("zidong").GetComponent<Image>();
         mAutoYes = Resources.Load("ui_new/gouxuan_yes", typeof(Sprite)) as Sprite;
         mAutoNo = Resources.Load("ui_new/gouxuan_no", typeof(Sprite)) as Sprite;
-        mGameLevelTv.text = "当前关卡:" + JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).name;       
+        mGameLevelTv.text = "当前关卡:" + JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).name;
+
+        if (GameManager.getIntance().mCurrentLevel < JsonUtils.getIntance().getConfigValueForId(100017))
+        {
+            setLunhuiShow(false);
+        }
+        else {
+            setLunhuiShow(true);
+        }
+
         SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
         mGasTv.text =
 			GameManager.getIntance().mCurrentGas+ 
@@ -315,6 +324,38 @@ public class UiManager
             return mHuanjingVect;
         }
         return new Vector2(0, 0);
+    }
+
+
+    public void setAutoStartBossShow(bool isShow) {
+        setShow("zidongAuto", isShow);
+    }
+    public void setBackpackShow(bool isShow)
+    {
+        setShow("pack_ui", isShow);
+    }
+    public void setLunhuiShow(bool isShow)
+    {
+        setShow("lunhui_ui", isShow);
+    }
+    public void setCardShow(bool isShow)
+    {
+        setShow("skilcard_ui", isShow);
+    }
+    public void seHeroUpShow(bool isShow)
+    {
+        setShow("Button_lvup", isShow);
+    }
+
+    private void setShow(string obId, bool isShow) {
+        Transform transfor = GameObject.Find(obId).transform;
+        if (isShow)
+        {
+            transfor.localScale = new Vector3(1, 1, 1);
+        }
+        else {
+            transfor.localScale = new Vector3(0, 0, 0);
+        }
     }
 }
 
