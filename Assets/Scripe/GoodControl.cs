@@ -209,7 +209,7 @@ public class GoodControl : MonoBehaviour {
 
     public long updateUi(long id, long count, PlayerBackpackBean bean)
     {
- //       Debug.Log("GoodControl updateUi id = " + id);
+        //       Debug.Log("GoodControl updateUi id = " + id);
         this.bean = bean;
         return updateUi(id, count);
     }

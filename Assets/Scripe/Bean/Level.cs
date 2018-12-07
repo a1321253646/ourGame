@@ -11,10 +11,21 @@ public class Level
 	public string map;
 	public string boss_bg;
 	public string abc;
-	public long reincarnation;
+	public string reincarnation;
 	public string offlinereward;
 
     public BigNumber mOfflinereward;
+    public BigNumber mReincarnation;
+
+    public BigNumber getReincarnation()
+    {
+        if (mReincarnation == null)
+        {
+            mReincarnation = BigNumber.getBigNumForString(reincarnation);
+        }
+        return mReincarnation;
+    }
+
     public BigNumber getOfflinereward()
     {
         if (mOfflinereward == null)

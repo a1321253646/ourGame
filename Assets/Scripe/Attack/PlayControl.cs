@@ -22,9 +22,9 @@ public class PlayControl : Attacker
         setHeroData ();
         upLunhui();
         initEquip();
-        int count = 2;
+        int count = 10;
         mFightManager.registerAttacker (this);
-          /*   if (InventoryHalper.getIntance().getInventorys().Count == 0 
+             if (InventoryHalper.getIntance().getInventorys().Count == 0 
                  && InventoryHalper.getIntance().getUsercard().Count == 0
                  && !GameManager.getIntance().isAddGoodForTest)
              {
@@ -43,8 +43,8 @@ public class PlayControl : Attacker
                  BackpackManager.getIntance().addGoods(3000012, count);
                  BackpackManager.getIntance().addGoods(3000013, count);
                  BackpackManager.getIntance().addGoods(3000014, count);
-                 BackpackManager.getIntance().addGoods(3000015, count);
-             }*/
+    //             BackpackManager.getIntance().addGoods(3000015, count);
+             }
 
         }
     private void initAnimalEvent() {
@@ -499,10 +499,37 @@ public class PlayControl : Attacker
         if (effect == 1 || effect == 6 || effect == 4 || effect == 30001)
         {
             HurtStatus status = new HurtStatus(value, false, true);
-            if (hurt != null)
+            if (hurt != null && hurt.mAttackType != ATTACK_TYPE_HERO)
             {
-                status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
+                Debug.Log(" hurt.mAttackType != ATTACK_TYPE_HERO");
             }
+            else if (hurt != null && hurt.mAttackType == ATTACK_TYPE_HERO)
+            {
+                Debug.Log(" hurt.mAttackType == ATTACK_TYPE_HERO");
+            }
+            else if (hurt.mAttackType == ATTACK_TYPE_HERO) {
+                Debug.Log("hurt == null &&  hurt.mAttackType == ATTACK_TYPE_HERO");
+            }
+
+            if (hurt != null && hurt.mAttackType != ATTACK_TYPE_HERO) {
+                    status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
+            }
+
+            int tmp = status.blood % 1 == 0 ? 0 : 1;
+            status.blood = ((int)status.blood) / 1 + tmp;
+            if (hurt != null && hurt.mAttackType == ATTACK_TYPE_HERO && status.blood >= mBloodVolume)
+            {
+                if (mBloodVolume > 1)
+                {
+                    status.blood = mBloodVolume - 1;
+                }
+                else if(mBloodVolume == 1)
+                {
+                    status.blood = 1;
+                }
+                
+            }
+
             if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)
             {
                 mBloodVolume = mBloodVolume - status.blood;

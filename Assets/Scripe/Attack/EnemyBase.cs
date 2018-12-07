@@ -120,14 +120,28 @@ public class EnemyBase : Attacker {
         }
 
 
-
+        
         if (mLocalBean.mTargetX != -9999 && mLocalBean.mTargetY != -9999)
         {
-            xy = (mLocalBean.mCurrentY-mLocalBean.mTargetY ) / (mLocalBean.mCurrentX-mLocalBean.mTargetX );
+            if (mLocalBean.mCurrentX - mLocalBean.mTargetX == 0)
+            {
+                xy = 0;
+            }
+            else {
+                xy = (mLocalBean.mCurrentY - mLocalBean.mTargetY) / (mLocalBean.mCurrentX - mLocalBean.mTargetX);
+            }
+                         
         }
         else if (mTarger.x != -9999 && mTarger.y != -9999 )
         {
-            xy = (mLocalBean.mCurrentY-mTarger.y ) / (mLocalBean.mCurrentX-mTarger.x );
+            if (mLocalBean.mCurrentX - mTarger.x == 0)
+            {
+                xy = 0;
+            }
+            else {
+                xy = (mLocalBean.mCurrentY - mTarger.y) / (mLocalBean.mCurrentX - mTarger.x);
+            }
+            
         }
 
 

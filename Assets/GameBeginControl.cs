@@ -22,6 +22,7 @@ public class GameBeginControl : MonoBehaviour {
         {
             Destroy(GameObject.Find("game_begin_loading"));
             GetComponentInChildren<TypewriterEffect>().init(JsonUtils.getIntance().getStringById(100001));
+           
         }
         else {
             Destroy(gameObject);

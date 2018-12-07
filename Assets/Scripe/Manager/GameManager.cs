@@ -19,7 +19,7 @@ public class GameManager
 	public bool isLvUp = false;
     public bool isInit = false;
     public LevelManager mLevelManage= null;
-    public long mReincarnation = 0;
+    public BigNumber mReincarnation = new BigNumber();
     public bool isShowQieHuang = false;
     public bool isWinQirHuang = false;
 

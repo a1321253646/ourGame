@@ -8,12 +8,23 @@ public class SamsaraJsonBean
     public long level;
     public string type;
     public string value;
-    public long coast;
+    public string coast;
     public long sort;
     public string name;
     public string icon;
     public Dictionary<long, List<SamsaraValueBean>> levelList;
-    public Dictionary<long, long> costList;
+    public Dictionary<long, BigNumber> costList;
+
+    public BigNumber mCost;
+    public BigNumber getCoast()
+    {
+        if (mCost == null)
+        {
+            mCost = BigNumber.getBigNumForString(coast);
+        }
+        return mCost;
+    }
+
     public List<SamsaraValueBean>  getKeyAndValueList(List<SamsaraValueBean> back) {
         back.Clear();
         string[] types;
