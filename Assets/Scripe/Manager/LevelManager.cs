@@ -23,7 +23,7 @@ public class LevelManager : MonoBehaviour {
     {
         Debug.Log("LevelManager Start");
         GameManager.getIntance().getLevelData();
-        BigNumber outLine = GameManager.getIntance().init(this);
+        long old = GameManager.getIntance().init(this);
         GameManager.getIntance().initUi();
 
         Vector3 tmp = PointUtils.screenTransToWorld(GameObject.Find("kapai_local_top").transform.position);
@@ -44,8 +44,28 @@ public class LevelManager : MonoBehaviour {
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setLoclaManager(mLocalManager);
         BackpackManager.getIntance().init(this);
-        if (!outLine.isEmpty()) {
-            BackpackManager.getIntance().showMessageTip(MessageTips.TYPPE_OUT_LINE, "离线时勇士战斗获得魂晶奖励", "" + outLine.toStringWithUnit());
+        if (old > JsonUtils.getIntance().getConfigValueForId(100032)) {
+            Level level = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel);
+            BigNumber outLine = BigNumber.multiply(level.getOfflinereward(), old);
+            long h = old / 60;
+            long min = old % 60;
+            string str = "";
+            if (h > 9)
+            {
+                str += h+":";
+            }
+            else {
+                str =str +"0"+ h + ":";
+            }
+            if (min > 9)
+            {
+                str += min;
+            }
+            else
+            {
+                str = str + "0" + min;
+            }
+            BackpackManager.getIntance().showMessageTip(MessageTips.TYPPE_OUT_LINE, "欢迎回来，您在离线的"+str+"里", "" + outLine.toStringWithUnit());
         }
         
         nengLiangDian = 0;
@@ -140,9 +160,28 @@ public class LevelManager : MonoBehaviour {
                 BigNumber  outLineGet = BigNumber.multiply(levelCryStal, outTime);
                 outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
                 GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
-                if(outTime >= JsonUtils.getIntance().getConfigValueForId(100032))
+                if (outTime > JsonUtils.getIntance().getConfigValueForId(100032))
                 {
-                    BackpackManager.getIntance().showMessageTip(MessageTips.TYPPE_OUT_LINE, "离线时勇士战斗获得魂晶奖励", "" + outLineGet.toStringWithUnit());
+                    long h = outTime / 60;
+                    long min = outTime % 60;
+                    string str = "";
+                    if (h > 9)
+                    {
+                        str += h+":";
+                    }
+                    else
+                    {
+                        str = str+"0" + h + ":";
+                    }
+                    if (min > 9)
+                    {
+                        str += min;
+                    }
+                    else
+                    {
+                        str = str+ "0" + min;
+                    }
+                    BackpackManager.getIntance().showMessageTip(MessageTips.TYPPE_OUT_LINE, "欢迎回来，您在离线的" + str + "里", "" + outLineGet.toStringWithUnit());
                 }
                 GameManager.getIntance().updateGasAndCrystal();
                 SQLHelper.getIntance().updateOutTime();

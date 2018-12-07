@@ -175,7 +175,7 @@ public class UiManager
     }
 
 	public void refreshData(){
-		mHeroLvTv.text = "英雄等级:" + GameManager.getIntance ().mHeroLv +"级";
+		mHeroLvTv.text = "勇士等级:" + GameManager.getIntance ().mHeroLv +"级";
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         mLvUpCrystalTv.text =  GameManager.getIntance ().upLevelCrystal.toStringWithUnit();

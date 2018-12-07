@@ -74,9 +74,8 @@ public class GameManager
         return mLevelManage.mGuideManager;    
     }
 
-	public BigNumber init(LevelManager levelmanage){
-
-        BigNumber outLineGet = new BigNumber();
+	public long init(LevelManager levelmanage){     
+        long old = 0;
         if (!isInit)
         {
             isInit = true;
@@ -100,17 +99,15 @@ public class GameManager
             mCurrentCrystal = SQLHelper.getIntance().mMojing;
                
             if (isHaveOutGet) {
+                BigNumber outLineGet = new BigNumber();
                 isHaveOutGet = false;
-                long old = SQLHelper.getIntance().mOutTime;
+                old = SQLHelper.getIntance().mOutTime;
                 if (old != -1) {
                     old = TimeUtils.getTimeDistanceMin(old);
                     BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(mCurrentLevel).getOfflinereward();
                     outLineGet = BigNumber.multiply(levelCryStal, old);
                     outLineGet = BigNumber.multiply(outLineGet, getOutlineGet());
                     mCurrentCrystal = BigNumber.add(outLineGet,mCurrentCrystal);
-                    if(old <  JsonUtils.getIntance().getConfigValueForId(100032)) {
-                        outLineGet = new BigNumber();
-                    }
                     SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
                 }
             }
@@ -152,7 +149,8 @@ public class GameManager
         mLevelManage = levelmanage;
         uiLevel = 99;
         getLevelData();
-        return outLineGet;
+        
+        return old;
     }
 
 	public void initUi(){
@@ -244,6 +242,18 @@ public class GameManager
     public bool gettIsAutoBoss()
     {
         return isAuto;
+    }
+    private bool isPlayBgm = false;
+    public void playBgm(AudioSource source) {
+        if(isPlayBgm)
+        {
+            return;
+        }
+        isPlayBgm = false;
+        AudioClip clip = Resources.Load("Sounds/全局BGM") as AudioClip;
+        source.clip = clip;
+        source.loop = true;
+        source.Play();
     }
 }
 

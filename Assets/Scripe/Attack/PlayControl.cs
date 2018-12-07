@@ -506,36 +506,31 @@ public class PlayControl : Attacker
         if (effect == 1 || effect == 6 || effect == 4 || effect == 30001)
         {
             HurtStatus status = new HurtStatus(value, false, true);
-            if (hurt != null && hurt.mAttackType != ATTACK_TYPE_HERO)
-            {
-                Debug.Log(" hurt.mAttackType != ATTACK_TYPE_HERO");
-            }
-            else if (hurt != null && hurt.mAttackType == ATTACK_TYPE_HERO)
-            {
-                Debug.Log(" hurt.mAttackType == ATTACK_TYPE_HERO");
-            }
-            else if (hurt.mAttackType == ATTACK_TYPE_HERO) {
-                Debug.Log("hurt == null &&  hurt.mAttackType == ATTACK_TYPE_HERO");
-            }
 
-            if (hurt != null && hurt.mAttackType != ATTACK_TYPE_HERO) {
-                    status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
-            }
 
-            int tmp = status.blood % 1 == 0 ? 0 : 1;
-            status.blood = ((int)status.blood) / 1 + tmp;
+
             if (hurt != null && hurt.mAttackType == ATTACK_TYPE_HERO && status.blood >= mBloodVolume)
             {
                 if (mBloodVolume > 1)
                 {
                     status.blood = mBloodVolume - 1;
                 }
-                else if(mBloodVolume == 1)
+                else if (mBloodVolume == 1)
                 {
                     status.blood = 1;
                 }
-                
             }
+            else if (hurt != null)
+            {
+                status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
+                int tmp = status.blood % 1 == 0 ? 0 : 1;
+                status.blood = ((int)status.blood) / 1 + tmp;
+            }
+            else {
+                int tmp = status.blood % 1 == 0 ? 0 : 1;
+                status.blood = ((int)status.blood) / 1 + tmp;
+            }
+
 
             if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)
             {

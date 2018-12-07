@@ -14,7 +14,6 @@ public class TypewriterEffect : MonoBehaviour {
     private int strIndex = 0;
     public float charsPerSecond = -1;//打字时间间隔
     public float mTime = 0;
-    AudioSource  source;
     private List<TextColor> mTextList = new List<TextColor>();
     void Start() {
         myText = GetComponent<Text>();        
@@ -23,10 +22,7 @@ public class TypewriterEffect : MonoBehaviour {
         showText = str;
         initText();
 
-        AudioClip clip = Resources.Load("Sounds/BOSS战背景音") as AudioClip;
-        source =  GetComponent<AudioSource>();
-        source.clip = clip;
-        source.Play();
+
         isInit = true;
     }
 
@@ -52,7 +48,6 @@ public class TypewriterEffect : MonoBehaviour {
     {
         if (!isInit && showText != null && showText.Length > 0)
         {
-            source.Stop();
             Destroy( GameObject.Find("game_begin"),0.3f);
             SQLHelper.getIntance().updateFristStart(2);
             showText = null;

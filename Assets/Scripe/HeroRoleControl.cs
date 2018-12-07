@@ -114,7 +114,7 @@ public class HeroRoleControl : MonoBehaviour {
             mHeroLvTx = GameObject.Find("hero_lv_tx").GetComponent<Text>();
         }
         PlayControl plya = BackpackManager.getIntance().getHero();
-        mHeroLvTx.text = "英雄等级：Lv." + GameManager.getIntance().mHeroLv;
+        mHeroLvTx.text = "勇士等级：Lv." + GameManager.getIntance().mHeroLv;
         mText.text =
             "攻    击：" + plya.mAttribute.aggressivity + "\n" +
             "防    御：" + plya.mAttribute.defense + "\n" +

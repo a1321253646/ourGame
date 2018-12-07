@@ -6,8 +6,8 @@ public class GameBeginControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -15,8 +15,9 @@ public class GameBeginControl : MonoBehaviour {
 	}
 
     public void init() {
+        AudioSource source = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        GameManager.getIntance().playBgm(source);
         SQLHelper.getIntance().init();
-        GameManager.getIntance();
         JsonUtils.getIntance().init();
         if (SQLHelper.getIntance().isFristStartGame == -1)
         {

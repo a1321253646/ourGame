@@ -85,6 +85,16 @@ public class FightManager{
         }
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
         {
+            if (GameManager.getIntance().mCurrentLevel == 0)
+            {
+                GameManager.getIntance().mCurrentLevel = 11;
+                SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
+            }
+            else
+            {
+                GameManager.getIntance().mCurrentLevel += 1;
+                SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
+            }
             LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
             GameManager.getIntance().isEnd = true;
             GameObject.Find("Manager").GetComponent<LevelManager>().getBackManager().stop();
@@ -98,20 +108,7 @@ public class FightManager{
             }
             level.mPlayerControl.win();
             GameManager.getIntance().mHeroIsAlive = true;
-            if (GameManager.getIntance().mCurrentLevel == 0)
-            {
-                GameManager.getIntance().mCurrentLevel = 11;
-            }
-            else {
-                Level l = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel + 1);
-                if (l != null) {
-                    GameManager.getIntance().mCurrentLevel += 1;
-                    if (GameManager.getIntance().mCurrentLevel == JsonUtils.getIntance().getConfigValueForId(100017))
-                    {
-                        GameManager.getIntance().uiManager.setLunhuiPointShow(1);
-                    }
-                }
-            }
+
            
             // return;
         }

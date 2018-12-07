@@ -142,7 +142,7 @@ public class CardControl : MonoBehaviour
                     float a1 = mSkill.getSpecialParameterValue()[0];
                     float a2 = mSkill.getSpecialParameterValue()[1];
                     GameObject.Find("Manager").GetComponent<LevelManager>().addNengliangDian(a1);
-                    mManager.getHero().BeKillAttack(mSkill.effects, mManager.getHero().mAttribute.maxBloodVolume * (a2/100), null);
+                    mManager.getHero().BeKillAttack(mSkill.effects, mManager.getHero().mAttribute.maxBloodVolume * (a2/100), mManager.getHero());
 
                 }
                 else if (mSkill.effects == 5)
