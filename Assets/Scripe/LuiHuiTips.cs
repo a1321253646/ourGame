@@ -59,7 +59,7 @@ public class LuiHuiTips : MonoBehaviour {
         string dec = mDes.text;
         Level level2 = JsonUtils.getIntance().getLevelData();
 
-        dec =dec.Replace("%D", level2.reincarnation + "");
+        dec =dec.Replace("%D", level2.getReincarnation().toStringWithUnit() + "");
         mButtonDec.text = "轮回";
         mDes.text = dec;
     }
@@ -71,8 +71,9 @@ public class LuiHuiTips : MonoBehaviour {
     private void sure() {
         GameManager.getIntance().uiManager.setLunhuiPointShow(1);
         Level level = JsonUtils.getIntance().getLevelData();
-        GameManager.getIntance().mReincarnation +=((long) (level.reincarnation * GameManager.getIntance().getLunhuiGet()));
 
+        BigNumber tmp = BigNumber.multiply(level.getReincarnation(), GameManager.getIntance().getLunhuiGet());
+        GameManager.getIntance().mReincarnation = BigNumber.add(GameManager.getIntance().mReincarnation, tmp);
 
         SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         GameManager.getIntance().isAddGoodForTest = false; 

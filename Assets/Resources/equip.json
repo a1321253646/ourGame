@@ -153,7 +153,7 @@
   },
   {
     "id": 241009,
-    "name": "生命之剑",
+    "name": "生命之锤",
     "type": 4,
     "quality": 1,
     "stacking": 1,
@@ -172,7 +172,7 @@
   },
   {
     "id": 242010,
-    "name": "生命之剑",
+    "name": "生命之锤",
     "type": 4,
     "quality": 2,
     "stacking": 1,
@@ -191,7 +191,7 @@
   },
   {
     "id": 243011,
-    "name": "生命之剑",
+    "name": "生命之锤",
     "type": 4,
     "quality": 3,
     "stacking": 1,
@@ -210,7 +210,7 @@
   },
   {
     "id": 244012,
-    "name": "生命之剑",
+    "name": "生命之锤",
     "type": 4,
     "quality": 4,
     "stacking": 1,
@@ -229,7 +229,7 @@
   },
   {
     "id": 241013,
-    "name": "暴伤之剑",
+    "name": "暴伤之镰",
     "type": 4,
     "quality": 1,
     "stacking": 1,
@@ -248,7 +248,7 @@
   },
   {
     "id": 242014,
-    "name": "暴伤之剑",
+    "name": "暴伤之镰",
     "type": 4,
     "quality": 2,
     "stacking": 1,
@@ -267,7 +267,7 @@
   },
   {
     "id": 243015,
-    "name": "暴伤之剑",
+    "name": "暴伤之镰",
     "type": 4,
     "quality": 3,
     "stacking": 1,
@@ -286,7 +286,7 @@
   },
   {
     "id": 244016,
-    "name": "暴伤之剑",
+    "name": "暴伤之镰",
     "type": 4,
     "quality": 4,
     "stacking": 1,
@@ -381,7 +381,7 @@
   },
   {
     "id": 241021,
-    "name": "重伤之剑",
+    "name": "重伤之斧",
     "type": 4,
     "quality": 1,
     "stacking": 1,
@@ -400,7 +400,7 @@
   },
   {
     "id": 242022,
-    "name": "重伤之剑",
+    "name": "重伤之斧",
     "type": 4,
     "quality": 2,
     "stacking": 1,
@@ -419,7 +419,7 @@
   },
   {
     "id": 243023,
-    "name": "重伤之剑",
+    "name": "重伤之斧",
     "type": 4,
     "quality": 3,
     "stacking": 1,
@@ -438,7 +438,7 @@
   },
   {
     "id": 244024,
-    "name": "重伤之剑",
+    "name": "重伤之斧",
     "type": 4,
     "quality": 4,
     "stacking": 1,

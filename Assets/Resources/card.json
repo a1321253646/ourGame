@@ -45,11 +45,11 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000004",
     "skill_id": 100005,
-    "cost": 4
+    "cost": 5
   },
   {
     "id": 3000005,
-    "name": "痛击",
+    "name": "碎骨",
     "stacking": 1,
     "tabid": 3,
     "sortID": 3000005,
@@ -57,7 +57,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000005",
     "skill_id": 100006,
-    "cost": 2
+    "cost": 3
   },
   {
     "id": 3000006,

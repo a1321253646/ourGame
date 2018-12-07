@@ -164,17 +164,17 @@ public class JsonUtils
                 mSamsaraDate.Add(bean.id, samsaraId);
             }
             if (samsaraId.costList == null) {
-                samsaraId.costList = new Dictionary<long, long>();
-                samsaraId.costList.Add(bean.level, bean.coast);
+                samsaraId.costList = new Dictionary<long, BigNumber>();
+                samsaraId.costList.Add(bean.level, bean.getCoast());
             }
             else{
                 if (samsaraId.costList.ContainsKey(bean.level))
                 {
-                   samsaraId.costList[bean.level]= bean.coast;
+                   samsaraId.costList[bean.level]= bean.getCoast();
                 }
                 else
                 {
-                    samsaraId.costList.Add(bean.level, bean.coast);
+                    samsaraId.costList.Add(bean.level, bean.getCoast());
                 }
             }
             tmpList = new List<SamsaraValueBean>();
@@ -221,7 +221,7 @@ public class JsonUtils
             return null;
         }
     }
-    public long getSamsaraCostByIdAndLevel(long id, long level)
+    public BigNumber getSamsaraCostByIdAndLevel(long id, long level)
     {
         if (mSamsaraDate.ContainsKey(id))
         {
@@ -231,7 +231,7 @@ public class JsonUtils
                 return tmp.costList[level];
             }
         }
-        return -1;
+        return new BigNumber();
     }
 
     public List<SamsaraValueBean> getSamsaraVulueInfoByIdAndLevel(long id, long level) {

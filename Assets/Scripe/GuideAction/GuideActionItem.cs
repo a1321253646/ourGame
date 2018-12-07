@@ -43,6 +43,7 @@ public abstract class GuideActionItem
         else if (mControl.mData.id == 5)
         {
             GameManager.getIntance().uiManager.setCardShow(true);
+            GameManager.getIntance().uiManager.setLunhuiShow(true);
         }
     }
 

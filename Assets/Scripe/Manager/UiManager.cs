@@ -42,14 +42,6 @@ public class UiManager
         mAutoNo = Resources.Load("ui_new/gouxuan_no", typeof(Sprite)) as Sprite;
         mGameLevelTv.text = "当前关卡:" + JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).name;
 
-        if (GameManager.getIntance().mCurrentLevel < JsonUtils.getIntance().getConfigValueForId(100017))
-        {
-            setLunhuiShow(false);
-        }
-        else {
-            setLunhuiShow(true);
-        }
-
         SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
         mGasTv.text =
 			GameManager.getIntance().mCurrentGas+ 

@@ -119,6 +119,7 @@ public class GuideControl
             item4.setDecLocal(3, 3, 3, 1);
             mActionList.Add(item4);
             GameManager.getIntance().uiManager.setCardShow(false);
+            GameManager.getIntance().uiManager.setLunhuiShow(false);
         }
     }
 

@@ -7,8 +7,12 @@ public class PlayControl : Attacker
 
     // Use this for initialization
 
+    public GameObject mLevelAnimal;
+
     private HeroState mState;
     private LevelManager mLevelManager;
+    HeroLevelUpAnimal mLevelAnimalControl;
+
     void Start () {
         startComment();
         mAttackType = Attacker.ATTACK_TYPE_HERO;
@@ -24,6 +28,7 @@ public class PlayControl : Attacker
         initEquip();
         int count = 10;
         mFightManager.registerAttacker (this);
+        mLevelAnimalControl = new HeroLevelUpAnimal(mLevelAnimal, JsonUtils.getIntance().getEnemyResourceData(40002),this);
              if (InventoryHalper.getIntance().getInventorys().Count == 0 
                  && InventoryHalper.getIntance().getUsercard().Count == 0
                  && !GameManager.getIntance().isAddGoodForTest)
@@ -45,8 +50,8 @@ public class PlayControl : Attacker
                  BackpackManager.getIntance().addGoods(3000014, count);
     //             BackpackManager.getIntance().addGoods(3000015, count);
              }
-
-        }
+            
+    }
     private void initAnimalEvent() {
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
         mAnimalControl = new AnimalControlBase(resourceData, mSpriteRender);
@@ -366,6 +371,7 @@ public class PlayControl : Attacker
         upDataSpeed();
     }
     public void heroUp() {
+        mLevelAnimalControl.levelUp();
         setHeroData();
     }
 
@@ -451,6 +457,7 @@ public class PlayControl : Attacker
 
         mSkillManager.upDate();
         mAnimalControl.update();
+        mLevelAnimalControl.updateAnimal();
     }
     private bool isWin = false;
     private bool isWinEnd = false;

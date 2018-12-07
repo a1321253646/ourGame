@@ -9,7 +9,7 @@ public class SQLHelper
     public long mGameLevel = -9999L;
     public long mHeroLevel = -1;
     public long isAutoBoss = -1;
-    public long mLunhuiValue = - 1;
+    public BigNumber mLunhuiValue = new BigNumber();
     public BigNumber mMojing = new BigNumber();
     public long mOutTime = -1;
 
@@ -122,7 +122,7 @@ public class SQLHelper
                     }
                     else if (date.id == GAME_ID_LUNHUI)
                     {
-                        mLunhuiValue = long.Parse(date.extan);
+                        mLunhuiValue = BigNumber.getBigNumForString(date.extan); 
 
                     }
                     else if (date.id == GAME_ID_MOJING)
@@ -508,18 +508,19 @@ public class SQLHelper
         mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, "'"+value+ "'" });
     }
 
-    public void updateLunhuiValue(long value)
+    public void updateLunhuiValue(BigNumber value)
     {
-        if (mLunhuiValue == -1)
+
+        if (mMojing.isEmpty())
         {
-            addGame(GAME_ID_LUNHUI, value);
-            mLunhuiValue = value;
+            addGame(GAME_ID_LUNHUI, value.toString());
+
         }
         else
         {
-            updateGame(GAME_ID_LUNHUI, value);
-            mLunhuiValue = value;
-        }        
+            updateGame(GAME_ID_LUNHUI, value.toString());
+        }
+        mLunhuiValue = value;     
     }
 
     public void updateDropValue(long drop, long value)

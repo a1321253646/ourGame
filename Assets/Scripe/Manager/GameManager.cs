@@ -123,9 +123,6 @@ public class GameManager
                 isAuto = true;  
             }
             mReincarnation = SQLHelper.getIntance().mLunhuiValue;
-            if (mReincarnation == -1) {
-                mReincarnation = 0;
-            }
 
             long tmp = SQLHelper.getIntance().isShowPlayerPoint;
             if (tmp != -1) {
@@ -216,7 +213,10 @@ public class GameManager
 	}
     public void updateGasAndCrystal() {
         SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
-        uiManager.addGasAndCrystal();
+        if (uiManager != null) {
+            uiManager.addGasAndCrystal();
+        }
+        
         BackpackManager.getIntance().upDataComposeControl();
     }
     private void showDIaoLuo(EnemyBase e, int type, string path, float count,long id)
