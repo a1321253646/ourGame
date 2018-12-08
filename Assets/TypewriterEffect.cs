@@ -19,6 +19,8 @@ public class TypewriterEffect : MonoBehaviour {
         myText = GetComponent<Text>();        
     }
     public void init(string  str) {
+        AudioSource source = GameObject.Find("information").GetComponent<AudioSource>();
+        GameManager.getIntance().playBgm(source, "Sounds/开场旁白背景音");
         showText = str;
         initText();
 
@@ -48,6 +50,8 @@ public class TypewriterEffect : MonoBehaviour {
     {
         if (!isInit && showText != null && showText.Length > 0)
         {
+            AudioSource source = GameObject.Find("information").GetComponent<AudioSource>();
+            GameManager.getIntance().playBgm(source, "Sounds/关卡背景音");
             Destroy( GameObject.Find("game_begin"),0.3f);
             SQLHelper.getIntance().updateFristStart(2);
             showText = null;

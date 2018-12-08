@@ -216,6 +216,7 @@ public class EnemyBase : Attacker {
             if (hurt != null) {
                 Debug.Log(" status.blood == " + status.blood);
                 status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
+                Debug.Log("  hurt.mSkillManager.getCardHurtPre() == " + hurt.mSkillManager.getCardHurtPre());
                 int tmp = status.blood % 1 == 0 ? 0 : 1;
                 status.blood = ((int)status.blood) / 1 + tmp;
                 Debug.Log(" status.blood == " + status.blood);

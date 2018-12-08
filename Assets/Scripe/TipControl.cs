@@ -73,6 +73,7 @@ public class TipControl : MonoBehaviour {
     }
 
     private void sale() {
+        GameManager.getIntance().showDIaoLuo(mClickList1Click1.transform.position, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", 0,-1);
         if (mCurrentType == UNUSE_TYPE)
         {
             BackpackManager.getIntance().use(mBean, count, SALE_ZHUANGBEI_TYPE);

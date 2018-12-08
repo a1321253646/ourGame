@@ -51,8 +51,9 @@ public class EnemyState{
 		EnemySceenPosition = Camera.main.WorldToScreenPoint (mEnemy.transform.position);
 		GameObject text = GameObject.Instantiate(obj,
 			new Vector2 (EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
-		text.transform.SetParent(HP_Parent); 
-		Text tv= text.GetComponent<Text> ();
+		text.transform.SetParent(HP_Parent);
+        text.transform.localScale = new Vector3(1, 1, 1);
+        Text tv= text.GetComponent<Text> ();
         if (!status.isRate)
         {
             tv.text = "闪避" ;
@@ -93,6 +94,7 @@ public class EnemyState{
         GameObject text = GameObject.Instantiate(obj,
             new Vector2(EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
         text.transform.SetParent(HP_Parent);
+        text.transform.localScale = new Vector3(1, 1, 1);
         Text tv = text.GetComponent<Text>();
         tv.text = "" + blood;
         tv.color = Color.green;

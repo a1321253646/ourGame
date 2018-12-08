@@ -15,8 +15,7 @@ public class GameBeginControl : MonoBehaviour {
 	}
 
     public void init() {
-        AudioSource source = GameObject.Find("Main Camera").GetComponent<AudioSource>();
-        GameManager.getIntance().playBgm(source);
+        
         SQLHelper.getIntance().init();
         JsonUtils.getIntance().init();
         if (SQLHelper.getIntance().isFristStartGame == -1)
@@ -26,6 +25,8 @@ public class GameBeginControl : MonoBehaviour {
            
         }
         else {
+            AudioSource source = GameObject.Find("information").GetComponent<AudioSource>();
+            GameManager.getIntance().playBgm(source, "Sounds/关卡背景音");
             Destroy(gameObject);
             GameObject.Find("Manager").GetComponent<LevelManager>().init();
         }

@@ -225,6 +225,16 @@ public class GameManager
         DiaoluoDonghuaControl control = obj.GetComponent<DiaoluoDonghuaControl>();
         control.init(e, type, path, count,id);
     }
+
+    public void showDIaoLuo(Vector2 e, int type, string path, float count, long id)
+    {
+        GameObject obj = Object.Instantiate(Resources.Load("prefab/diaoluodonghua")) as GameObject;//Resources.Load<GameObject>();
+        obj.transform.SetParent(GameObject.Find("enemyStatePlane").transform);
+        obj.transform.localScale = new Vector3(1, 1, 1);
+        DiaoluoDonghuaControl control = obj.GetComponent<DiaoluoDonghuaControl>();
+        control.init(e, type, path, count, id);
+    }
+
     private void  showDIaoLuo(EnemyBase e,int type,string path,float count) {
         showDIaoLuo(e, type, path, count,-1);
     }
@@ -243,14 +253,14 @@ public class GameManager
     {
         return isAuto;
     }
-    private bool isPlayBgm = false;
-    public void playBgm(AudioSource source) {
-        if(isPlayBgm)
+  //  private bool isPlayBgm = false;
+    public void playBgm(AudioSource source,string bgm) {
+/*        if(isPlayBgm)
         {
             return;
-        }
-        isPlayBgm = false;
-        AudioClip clip = Resources.Load("Sounds/全局BGM") as AudioClip;
+        }*/
+//        isPlayBgm = false;
+        AudioClip clip = Resources.Load(bgm) as AudioClip;
         source.clip = clip;
         source.loop = true;
         source.Play();

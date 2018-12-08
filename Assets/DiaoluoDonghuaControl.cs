@@ -61,7 +61,7 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
                 isDown = false;
             }
             transform.Translate(Vector2.down * down);
-            if (mBackManager.isRun)
+            if (mBackManager != null && mBackManager.isRun)
             {
                 transform.Translate(Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
             }
@@ -93,6 +93,21 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
     }
     BackgroundManager mBackManager;
 
+    public void init(Vector2 v, int type, string imaPath, float count, long id) {
+        mId = id;
+        mType = type;
+        mUpTarget = GameManager.getIntance().uiManager.mgetTarget(type);
+        transform.position = v;
+
+        if (type == SHUIJI_DIAOLUO_TYPE)
+        {
+            imaPath = "ui_new/mojing";
+        }
+        //        Debug.Log("DiaoluoDonghuaControl imaPath = " + imaPath);
+        GetComponent<Image>().sprite = Resources.Load(imaPath, typeof(Sprite)) as Sprite;
+        isInit = true;
+    }
+
 
     private long mId = -1;
     public void init(EnemyBase enemy, int type, string imaPath, float count,long id){
@@ -123,4 +138,6 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
         mBackManager = enemy.mBackManager;
         isInit = true;
     }
+
+    
 }
