@@ -43,36 +43,11 @@ public class LevelManager : MonoBehaviour {
       //  creatEnemyFactory(cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setLoclaManager(mLocalManager);
-        BackpackManager.getIntance().init(this);
-        if (old > JsonUtils.getIntance().getConfigValueForId(100032)) {
-            Level level = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel);
-            BigNumber outLine = BigNumber.multiply(level.getOfflinereward(), old);
-            long h = old / 60;
-            long min = old % 60;
-            string str = "";
-            if (h > 9)
-            {
-                str += h+":";
-            }
-            else {
-                str =str +"0"+ h + ":";
-            }
-            if (min > 9)
-            {
-                str += min;
-            }
-            else
-            {
-                str = str + "0" + min;
-            }
-            BackpackManager.getIntance().showMessageTip(MessageTips.TYPPE_OUT_LINE, "欢迎回来，您在离线的"+str+"里", "" + outLine.toStringWithUnit());
-        }
-        
+        BackpackManager.getIntance().init(this);        
         nengLiangDian = 0;
         mNengLiangKuai.Clear();
         initNengliangkuai();
         BackpackManager.getIntance().updateZhuangbeiItem(true);
-        SQLHelper.getIntance().updateOutTime();
         mTime = 0;
         mGuideManager = GetComponent<GuideManager>();
         mGuideManager.init();

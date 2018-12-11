@@ -18,6 +18,10 @@ public class TimeUtils
     public static long getTimeDistanceMin(long oldTime)
     {
         long distance = GetTimeStamp() - oldTime;
+        if (distance < 0) {
+            return 0;
+        }
+        Debug.Log("distance = " + distance);
         long back = distance / 60000;
         if (back * 60000 < distance) {
             back++;

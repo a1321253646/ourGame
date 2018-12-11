@@ -204,6 +204,9 @@ public class FightManager{
             int tmp = attacker.mAttribute.aggressivity % 10 == 0 ? 0 : 1;
             hurt = ((int)attacker.mAttribute.aggressivity )/ 10+ tmp;
 		}
+
+        /*float hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);*/
+
 //        Debug.Log(" hurt = " + hurt);
         bool crt = isCrt(attacker);
 //        Debug.Log(" crt = " + crt);

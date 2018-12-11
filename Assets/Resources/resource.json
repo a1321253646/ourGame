@@ -98,7 +98,7 @@
   {
     "id": 20006,
     "name": "Monster_006",
-    "zoom": 1,
+    "zoom": 1.6,
     "attack_framce": 5,
     "attack_all_framce": 8,
     "blood_offset": "-0.26,0.4",
@@ -146,7 +146,7 @@
   {
     "id": 20009,
     "name": "Monster_009",
-    "zoom": 1,
+    "zoom": 1.6,
     "attack_framce": 3,
     "attack_all_framce": 6,
     "blood_offset": "-0.06,0.4",
@@ -322,7 +322,7 @@
   {
     "id": 20020,
     "name": "Monster_020",
-    "zoom": 1,
+    "zoom": 1.6,
     "attack_framce": 4,
     "attack_all_framce": 11,
     "blood_offset": "-0.14,0.95",
@@ -338,7 +338,7 @@
   {
     "id": 20021,
     "name": "Monster_021",
-    "zoom": 1,
+    "zoom": 1.6,
     "attack_framce": 4,
     "attack_all_framce": 8,
     "blood_offset": "-0.14,0.2",
@@ -386,7 +386,7 @@
   {
     "id": 20024,
     "name": "Monster_024",
-    "zoom": 1,
+    "zoom": 1.6,
     "attack_framce": 6,
     "attack_all_framce": 9,
     "blood_offset": "-0.12,0.3",
@@ -498,7 +498,7 @@
   {
     "id": 20031,
     "name": "Monster_031",
-    "zoom": 1,
+    "zoom": 1.6,
     "attack_framce": 4,
     "attack_all_framce": 8,
     "blood_offset": "-0.21,0.47",
@@ -514,7 +514,7 @@
   {
     "id": 20032,
     "name": "Monster_032",
-    "zoom": 1,
+    "zoom": 1.6,
     "attack_framce": 4,
     "attack_all_framce": 7,
     "blood_offset": "0,0.8",
@@ -530,7 +530,7 @@
   {
     "id": 20033,
     "name": "Monster_033",
-    "zoom": 1,
+    "zoom": 1.6,
     "attack_framce": 5,
     "attack_all_framce": 8,
     "blood_offset": "-0.121,0.546",
@@ -562,7 +562,7 @@
   {
     "id": 20035,
     "name": "Monster_035",
-    "zoom": 1,
+    "zoom": 1.6,
     "attack_framce": 4,
     "attack_all_framce": 5,
     "blood_offset": "-0.05,0.5",
@@ -882,7 +882,7 @@
   {
     "id": 35006,
     "name": "Effect_1006",
-    "zoom": 1,
+    "zoom": 1.5,
     "attack_framce": 2,
     "attack_all_framce": 0.0,
     "blood_offset": 0,
@@ -946,7 +946,7 @@
   {
     "id": 35010,
     "name": "Effect_1010",
-    "zoom": 1,
+    "zoom": 3,
     "attack_framce": 5,
     "attack_all_framce": 0.0,
     "blood_offset": 0,

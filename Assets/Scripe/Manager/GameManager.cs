@@ -36,7 +36,7 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = true;
+    public static bool isAndroid = false;
     public static bool isAdd = false;
 
 
@@ -71,7 +71,7 @@ public class GameManager
     public int getUiLevel() {
         return ++uiLevel;
     }
-    private bool isHaveOutGet = true;
+    public bool isHaveOutGet = true;
 
     public GuideManager getGuideManager() {
         return mLevelManage.mGuideManager;    
@@ -81,6 +81,7 @@ public class GameManager
         long old = 0;
         if (!isInit)
         {
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
             isInit = true;
             mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100010);
             if (mCurrentLevel == -1) {
@@ -99,21 +100,7 @@ public class GameManager
                 }
             }
 
-            mCurrentCrystal = SQLHelper.getIntance().mMojing;
-            if (isHaveOutGet) {
-                BigNumber outLineGet = new BigNumber();
-                isHaveOutGet = false;
-                old = SQLHelper.getIntance().mOutTime;
-                if (old != -1) {
-                    old = TimeUtils.getTimeDistanceMin(old);
-                    BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(mCurrentLevel).getOfflinereward();
-                    outLineGet = BigNumber.multiply(levelCryStal, old);
-                    outLineGet = BigNumber.multiply(outLineGet, getOutlineGet());
-                    mCurrentCrystal = BigNumber.add(outLineGet,mCurrentCrystal);
-                    SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
-                }
-            }
-            
+            mCurrentCrystal = SQLHelper.getIntance().mMojing;            
             long auto = SQLHelper.getIntance().isAutoBoss;
             if (auto == -1 || auto == 1) {
                 isAuto = false;
@@ -152,7 +139,7 @@ public class GameManager
         uiLevel = 99;
         getLevelData();
         
-        return old;
+        return 0;
     }
 
 	public void initUi(){
@@ -186,14 +173,19 @@ public class GameManager
 
 	public void enemyDeal(Attacker enemy){
         mCurrentGas += enemy.mDieGas;
-        if (getOnlineGet() == 1)
+        //Debug.Log("=============enemy.mDieCrysta=" + enemy.mDieCrysta.toString());
+        //Debug.Log("=============mCurrentCrystal=" + mCurrentCrystal.toString());
+        //Debug.Log("============= getOnlineGet()=" + getOnlineGet());
+
+        if (getOnlineGet() != 1)
         {
             mCurrentCrystal = BigNumber.add(mCurrentCrystal, BigNumber.multiply(enemy.mDieCrysta, getOnlineGet()));
         }
         else {
             mCurrentCrystal = BigNumber.add(mCurrentCrystal, enemy.mDieCrysta);
         }
-         
+       // Debug.Log("=============mCurrentCrystal=" + mCurrentCrystal.toString());
+
         uiManager.addGas();
         if (enemy is EnemyBase) {
             EnemyBase tmp = (EnemyBase)enemy;

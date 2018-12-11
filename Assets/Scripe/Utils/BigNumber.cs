@@ -9,6 +9,14 @@ public class BigNumber
         if (s == null || s.Length == 0) {
             return new BigNumber();
         }
+        if (s.Contains("-")) {
+            BigNumber big3 = new BigNumber();
+            BigNumberUnit unit3 = new BigNumberUnit();
+            unit3.value = 0;
+            unit3.setUnit(0);
+            big3.mList.Add(unit3);
+            return new BigNumber();
+        }
         if (s.Contains("E+")) {
             s = s.Replace("E+", "E");
             string[] str1 = s.Split('E');
@@ -238,7 +246,22 @@ public class BigNumber
         BigNumber back = new BigNumber();
         while (index < leng) {
             unit1 = new BigNumberUnit();
-            value = (int)(big.mList[index].value * multiplying);
+            float v = big.mList[index].value * multiplying;
+            int v2 = (int)v;
+            float v3 = v - v2;
+            if (index > 0 && v3 > 0) {
+                int v4 = (int)(v3 * 1000);
+                int v5 = big.mList[index - 1].value + v4;
+                if (v5 > 1000)
+                {
+                    big.mList[index - 1].value = v5 % 1000;
+                    up = up + v5 / 1000;
+                }
+                else {
+                    big.mList[index - 1].value = v5;
+                }
+            }
+            value = (int)(big.mList[index].value * multiplying)+up;
             unit1.value = value % 1000;
             unit1.unit = big.mList[index].unit;
             back.mList.Add(unit1);

@@ -13,7 +13,11 @@ public class AttackSkill20001 : AttackSkillNoAnimal
 
     public override float beAction(HurtStatus status)
     {
-        float hurt = calcuator.getValue(mManager.getAttacker(), mFight);
+        Debug.Log("====================AttackSkill20001 beAction value =" + value);
+        Debug.Log("====================AttackSkill20001 beAction  mSkillJson.getEffectsParameterValue()[0]=" + mSkillJson.getEffectsParameterValue()[0]);
+
+        float hurt = status.blood * mSkillJson.getEffectsParameterValue()[0] * value;
+        Debug.Log("====================AttackSkill20001 beAction =" + hurt);
         return hurt;
     }
 

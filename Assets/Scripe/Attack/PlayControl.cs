@@ -29,10 +29,10 @@ public class PlayControl : Attacker
         int count = 2;
         mFightManager.registerAttacker (this);
         mLevelAnimalControl = new HeroLevelUpAnimal(mLevelAnimal, JsonUtils.getIntance().getEnemyResourceData(40002),this);
-                if (GameManager.isAdd
-                    &&InventoryHalper.getIntance().getInventorys().Count == 0 
-                     && InventoryHalper.getIntance().getUsercard().Count == 0
-                     && !GameManager.getIntance().isAddGoodForTest)
+                if (GameManager.isAdd)
+                  //  &&InventoryHalper.getIntance().getInventorys().Count == 0 
+                  //   && InventoryHalper.getIntance().getUsercard().Count == 0
+                  //   && !GameManager.getIntance().isAddGoodForTest)
                  {
                      GameManager.getIntance().isAddGoodForTest = true;
                      BackpackManager.getIntance().addGoods(3000001, count);
@@ -51,7 +51,51 @@ public class PlayControl : Attacker
                      BackpackManager.getIntance().addGoods(3000014, count);
         //             BackpackManager.getIntance().addGoods(3000015, count);
                  }
-
+        if (GameManager.getIntance().isHaveOutGet)
+        {
+            BigNumber outLineGet = new BigNumber();
+            GameManager.getIntance().isHaveOutGet = false;
+            long old = SQLHelper.getIntance().mOutTime;
+            Debug.Log("========old = " + old);
+            if (old != -1)
+            {
+                old = TimeUtils.getTimeDistanceMin(old);
+                Debug.Log("========old = " + old);
+                BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).getOfflinereward();
+                outLineGet = BigNumber.multiply(levelCryStal, old);
+                outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
+                GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
+                GameManager.getIntance().updataGasAndCrystal();
+                SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
+                if (old > JsonUtils.getIntance().getConfigValueForId(100032))
+                {
+                    Level level = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel);
+                    BigNumber outLine = BigNumber.multiply(level.getOfflinereward(), old);
+                    outLine = BigNumber.multiply(outLine, GameManager.getIntance().getOutlineGet());
+                    long h = old / 60;
+                    long min = old % 60;
+                    string str = "";
+                    if (h > 9)
+                    {
+                        str += h + ":";
+                    }
+                    else
+                    {
+                        str = str + "0" + h + ":";
+                    }
+                    if (min > 9)
+                    {
+                        str += min;
+                    }
+                    else
+                    {
+                        str = str + "0" + min;
+                    }
+                    BackpackManager.getIntance().showMessageTip(MessageTips.TYPPE_OUT_LINE, "欢迎回来，您在离线的" + str + "里", "" + outLine.toStringWithUnit());
+                }
+            }
+        }
+        SQLHelper.getIntance().updateOutTime();
     }
     private void initAnimalEvent() {
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
@@ -278,6 +322,9 @@ public class PlayControl : Attacker
                 }  
             }
         }
+        Debug.Log("GameManager.getIntance().mLunhuiOnlineGet =" + GameManager.getIntance().mLunhuiOnlineGet);
+        Debug.Log("GameManager.getIntance().mLunhuiOutlineGet =" + GameManager.getIntance().mLunhuiOutlineGet);
+        Debug.Log("GameManager.getIntance().mLunhuiLunhuiGet =" + GameManager.getIntance().mLunhuiLunhuiGet);
         mBloodVolume = mBloodVolume + mLunhuiAttribute.maxBloodVolume - mMaxTmp;
         getAttribute();
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
