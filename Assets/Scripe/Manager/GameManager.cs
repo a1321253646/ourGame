@@ -36,6 +36,9 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
+    public static bool isAndroid = true;
+    public static bool isAdd = false;
+
 
     public float getOnlineGet() {
         return 1+ mLunhuiOnlineGet+ mCardOnlineGet;
@@ -97,7 +100,6 @@ public class GameManager
             }
 
             mCurrentCrystal = SQLHelper.getIntance().mMojing;
-               
             if (isHaveOutGet) {
                 BigNumber outLineGet = new BigNumber();
                 isHaveOutGet = false;

@@ -12,7 +12,7 @@ public class JsonUtils
     //private  string resourceFile = "config/resource";
     //private string configeFile = "config/config";
     //private string goodsFile = "config/goods";
-    /*         private string levelFile = "level.json";
+             private string levelFile = "level.json";
         private string heroFile = "hero.json";
         private string enemyFile = "enemy.json";
         private string levelEnemyFile = "levelenemy.json";
@@ -30,8 +30,8 @@ public class JsonUtils
     private string samsaraFile = "samsara.json";
     private string mapConfigFile = "mapconfig.json";
     private string guideFile = "guide.json";
-    private string stringFile = "string.json";*/
-    private string levelFile = "level";
+    private string stringFile = "string.json";
+    /*private string levelFile = "level";
         private string heroFile = "hero";
         private string enemyFile = "enemy";
         private string levelEnemyFile = "levelenemy";
@@ -49,7 +49,7 @@ public class JsonUtils
         private string samsaraFile = "samsara";
         private string mapConfigFile = "mapconfig";
          private string stringFile = "string";
-        private string guideFile = "guide";
+        private string guideFile = "guide";*/
     private static JsonUtils mInance = new JsonUtils();
 
 
@@ -72,6 +72,27 @@ public class JsonUtils
     List<StringJsonBean> mStringDate;
     Dictionary<long, SamsaraJsonBean> mSamsaraDate = new Dictionary<long, SamsaraJsonBean>();
     private JsonUtils() {
+        if (GameManager.isAndroid) {
+            levelFile = "level";
+            heroFile = "hero";
+            enemyFile = "enemy";
+            levelEnemyFile = "levelenemy";
+            resourceFile = "resource";
+            configeFile = "config";
+            goodsFile = "item";
+            attributeFile = "equip";
+            composeFile = "compose";
+            dropDeviceDetailFile = "dropdevicedetail";
+            dropDeviceFile = "dropdevice";
+            speedValueFile = "speedvalue";
+            skillFile = "skill";
+            cardFile = "card";
+            affixFile = "affix";
+            samsaraFile = "samsara";
+            mapConfigFile = "mapconfig";
+            stringFile = "string";
+            guideFile = "guide";
+        }
         readAllFile();
     }
 
@@ -125,8 +146,16 @@ public class JsonUtils
 
     private string readFile(string fileName) {
         //TextAsset jsonText = Resources.Load(fileName) as TextAsset;
+        string str = null;
+        if (GameManager.isAndroid)
+        {
+            str = Resources.Load<TextAsset>(fileName).text;
+        }
+        else {
+            str = loadFile(Application.dataPath + "/Resources", fileName);
+        }
         //string str = loadFile(Application.dataPath + "/Resources", fileName);
-        string str = Resources.Load<TextAsset>(  fileName).text;
+        //string str = Resources.Load<TextAsset>(  fileName).text;
         Debug.Log("readFile :" + fileName + "\n " + str);
         return str;
     }

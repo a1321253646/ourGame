@@ -129,7 +129,7 @@ public class GuideControl
         if (mCurrentAction != null)
         {
             long back =  mCurrentAction.notificationDeal(eventID, eventValue);
-            Debug.Log("notificationDeal back = " + back);
+//            Debug.Log("notificationDeal back = " + back);
             if (back <= -1000)
             {
                 back = -back-1000;
@@ -172,7 +172,7 @@ public class GuideControl
             mCurrentIndex = 0;
             mCurrentAction = mActionList[0];
             long back = mCurrentAction.notificationDeal(eventID, eventValue);
-            Debug.Log("notificationDeal back = " + back);
+//            Debug.Log("notificationDeal back = " + back);
             return mCurrentAction.notificationDeal(eventID, eventValue);
         }
     }

@@ -146,7 +146,7 @@ public class LevelManager : MonoBehaviour {
     private long mOld = -1;
     private void OnApplicationPause(bool pause)
     {
-        Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++pause = "+ pause + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+//        Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++pause = "+ pause + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         if (pause)
         {
             SQLHelper.getIntance().updateOutTime();

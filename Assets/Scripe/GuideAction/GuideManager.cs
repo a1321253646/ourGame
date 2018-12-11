@@ -82,10 +82,10 @@ public class GuideManager : MonoBehaviour {
             }
             return back;
         }else if (mGuideList.Count > 0) {
-            Debug.Log("notificationDeal mCurrentGuide == null");
+  //          Debug.Log("notificationDeal mCurrentGuide == null");
             foreach (GuideControl c in mGuideList) {
                 back = c.notificationDeal(eventID, eventValue);
-                Debug.Log("notificationDeal back == "+ back);
+//                Debug.Log("notificationDeal back == "+ back);
                 if (back != -1) {
                 
                     mCurrentGuide = c;

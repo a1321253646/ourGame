@@ -96,7 +96,7 @@ public class FightManager{
                 SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
             }
             if (GameManager.getIntance().mCurrentLevel == JsonUtils.getIntance().getConfigValueForId(100017)) {
-                GameManager.getIntance().uiManager.setLunhuiShow(true);
+                GameManager.getIntance().uiManager.setLunhuiPointShow(1);
             }
             LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
             GameManager.getIntance().isEnd = true;

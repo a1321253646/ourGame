@@ -151,7 +151,7 @@
     "calculator": "",
     "special_parameter_value": "3,4",
     "next_skill": "200001,",
-    "skill_describe": "使范围内目标易伤+3，若目标生命值不为满，易伤额外+1",
+    "skill_describe": "使范围内目标易伤+3，若目标生命值不为满，易伤额外+1,每层易伤受到额外1%攻击力伤害",
     "skill_resource": 35008,
     "shape_type": 1,
     "shape_resource_id": "shape_1",

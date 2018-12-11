@@ -499,12 +499,12 @@ public class SQLHelper
 
     private void updateGame(long id, string value)
     {
-        Debug.Log("=================================updateGame value== " + value);
+//        Debug.Log("=================================updateGame value== " + value);
         mManager.UpdateInto("'"+value+ "'", TYPE_GAME, id);
     }
     private void addGame(long id, string value)
     {
-        Debug.Log("==================================addGame value== " + value);
+//        Debug.Log("==================================addGame value== " + value);
         mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, "'"+value+ "'" });
     }
 

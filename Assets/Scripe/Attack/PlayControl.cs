@@ -29,7 +29,8 @@ public class PlayControl : Attacker
         int count = 2;
         mFightManager.registerAttacker (this);
         mLevelAnimalControl = new HeroLevelUpAnimal(mLevelAnimal, JsonUtils.getIntance().getEnemyResourceData(40002),this);
-        /*         if (InventoryHalper.getIntance().getInventorys().Count == 0 
+                if (GameManager.isAdd
+                    &&InventoryHalper.getIntance().getInventorys().Count == 0 
                      && InventoryHalper.getIntance().getUsercard().Count == 0
                      && !GameManager.getIntance().isAddGoodForTest)
                  {
@@ -49,7 +50,7 @@ public class PlayControl : Attacker
                      BackpackManager.getIntance().addGoods(3000013, count);
                      BackpackManager.getIntance().addGoods(3000014, count);
         //             BackpackManager.getIntance().addGoods(3000015, count);
-                 }*/
+                 }
 
     }
     private void initAnimalEvent() {
