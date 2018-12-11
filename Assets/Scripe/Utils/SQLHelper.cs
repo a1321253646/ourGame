@@ -9,6 +9,7 @@ public class SQLHelper
     public long mGameLevel = -9999L;
     public long mHeroLevel = -1;
     public long isAutoBoss = -1;
+    public long isLuiHui = -1;
     public BigNumber mLunhuiValue = new BigNumber();
     public BigNumber mMojing = new BigNumber();
     public long mOutTime = -1;
@@ -32,6 +33,7 @@ public class SQLHelper
     private long GAME_ID_POINT_LUNHUI = 10;
     private long GAME_ID_POINT_CARD = 11;
     private long GAME_ID_FRIST_START = 12;
+    private long GAME_ID_NO_LUNHUI = 13;
    
 
     private long TYPE_GAME = 1;
@@ -165,6 +167,11 @@ public class SQLHelper
                     {
                         isFristStartGame = long.Parse(date.extan);
                         Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                    }
+                    else if (date.id == GAME_ID_NO_LUNHUI)
+                    {
+                        isLuiHui = long.Parse(date.extan);
+                        Debug.Log("读取数据库 是否轮回 " + mOutTime);
                     }
                 }
             }
@@ -483,6 +490,22 @@ public class SQLHelper
         isAutoBoss = value;
 
     }
+
+    public void updateIsLunhuiValue(long value)
+    {
+
+        if (isLuiHui == -1)
+        {
+            addGame(GAME_ID_NO_LUNHUI, value);
+
+        }
+        else
+        {
+            updateGame(GAME_ID_NO_LUNHUI, value);
+        }
+        isLuiHui = value;
+    }
+
     public void updateHunJing(BigNumber value)
     {
         if (mMojing.isEmpty())

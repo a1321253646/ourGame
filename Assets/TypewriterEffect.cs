@@ -19,6 +19,7 @@ public class TypewriterEffect : MonoBehaviour {
         myText = GetComponent<Text>();        
     }
     public void init(string  str) {
+        Debug.Log("TypewriterEffect str = " + str);
         AudioSource source = GameObject.Find("information").GetComponent<AudioSource>();
         GameManager.getIntance().playBgm(source, "Sounds/开场旁白背景音");
         showText = str;
@@ -97,23 +98,33 @@ public class TypewriterEffect : MonoBehaviour {
 
     private void initText()
     {
+        Debug.Log("1");
+        if (myText == null) {
+            myText = GetComponent<Text>();
+        }
+        Debug.Log("2");
         myText.text = "";
+         Debug.Log("3");
         bool isEndColor =  showText.EndsWith("</color>");
         string[] list = Regex.Split(showText, "</color>", RegexOptions.IgnoreCase);
         int count = list.Length;
         if (isEndColor) {
+            Debug.Log("4");
             count = list.Length;
         }
         else {
+            Debug.Log("5");
             count = list.Length - 1;
         }
 
         for(int i = 0; i< count; i++) {
+            Debug.Log("6");
             if (list[i] == null || list[i].Length == 0) {
                 continue;
             }
             getTextColor(list[i]);
         }
+        Debug.Log("7");
         if (!isEndColor) {
             TextColor tx = new TextColor();
             tx.color = null;
@@ -121,10 +132,13 @@ public class TypewriterEffect : MonoBehaviour {
             tx.leng = tx.text.Length;
             mTextList.Add(tx);
         }
+        Debug.Log("8");
         showText = "";
         foreach (TextColor t in mTextList) {
+            Debug.Log("9");
             Debug.Log("TextColor text = " + t.text + " color = " + t.color);
         }
+        Debug.Log("10");
     }
 
     private void getTextColor(string str) {

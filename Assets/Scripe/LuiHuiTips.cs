@@ -91,6 +91,7 @@ public class LuiHuiTips : MonoBehaviour {
         GameManager.getIntance().mCurrentLevel = 1;
         SQLHelper.getIntance().updateGameLevel(1);
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
+        SQLHelper.getIntance().updateIsLunhuiValue((long)level.levelspeedup);
     }
 
     // Update is called once per frame

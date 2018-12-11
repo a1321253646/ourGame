@@ -52,6 +52,13 @@ public class LevelManager : MonoBehaviour {
         mGuideManager = GetComponent<GuideManager>();
         mGuideManager.init();
         isInit = true;
+        if (SQLHelper.getIntance().isLuiHui != -1 && GameManager.getIntance().mCurrentLevel <= SQLHelper.getIntance().isLuiHui)
+        {
+            Time.timeScale = 2;
+        }
+        else {
+            Time.timeScale = 1;
+        }
        
     }
     void Start () {

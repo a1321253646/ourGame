@@ -13,6 +13,7 @@ public class Level
 	public string abc;
 	public string reincarnation;
 	public string offlinereward;
+	public float levelspeedup;
 
     public BigNumber mOfflinereward;
     public BigNumber mReincarnation;

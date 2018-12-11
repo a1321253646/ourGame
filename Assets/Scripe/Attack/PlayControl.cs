@@ -190,8 +190,7 @@ public class PlayControl : Attacker
                 }
                 else if (date.type == 114)
                 {
-                    mEquipAttribute.attackSpeed += date.value;
-                 
+                    mEquipAttribute.attackSpeed += date.value;                 
                 }
             }
             Debug.Log("addSkill initEquip");
@@ -271,11 +270,12 @@ public class PlayControl : Attacker
                         mLunhuiAttribute.attackSpeed += date.value;
                     }
                     else if (date.type == 400001) {
-                        mLunhuiAttributePre.aggressivity += date.value;
+                        mSkillManager.lunhuiHurtPre += ((float)date.value / 10000);
+                        
                     }
                     else if (date.type == 400002)
                     {
-                        mSkillManager.lunhuiHurtPre += date.value;
+                        mLunhuiAttributePre.aggressivity += ((float)date.value / 10000);
                     }
                     else if (date.type == 400003)
                     {
@@ -361,13 +361,14 @@ public class PlayControl : Attacker
     public void ChangeEquip(PlayerBackpackBean bean,bool isAdd)
     {        
         float bili = 1;
-        bili = mBloodVolume / (mBaseAttribute.maxBloodVolume+ mEquipAttribute.maxBloodVolume);
+        bili =mBloodVolume / mAttribute.maxBloodVolume; ;
         mEquipAttribute.clear();
+        List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();
         Debug.Log("bili = " + bili);
-        long fuhao = isAdd ? 1 : -1;
-        if (isAdd)
+        long fuhao = isAdd ? 1 : -1;       
+        foreach (PlayerBackpackBean bean2 in list)
         {
-            foreach (PlayerAttributeBean date in bean.attributeList)
+            foreach (PlayerAttributeBean date in bean2.attributeList)
             {
                 if (date.type == 100)
                 {
@@ -406,7 +407,10 @@ public class PlayControl : Attacker
                     mEquipAttribute.attackSpeed += date.value;
                 }
             }
-            Debug.Log("addSkill ChangeEquip");
+            Debug.Log("addSkill ChangeEquip");          
+        }
+        if (isAdd)
+        {
             mSkillManager.addSkill(bean, this);
         }
         else
