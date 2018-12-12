@@ -72241,7 +72241,7 @@
   },
   {
     "id": 10113001,
-    "monster_hp": 16000,
+    "monster_hp": 12000,
     "monster_attack": 1992,
     "monster_defense": 1000,
     "attack_speed": 1500,
@@ -72265,7 +72265,7 @@
   },
   {
     "id": 10123001,
-    "monster_hp": 24000,
+    "monster_hp": 16000,
     "monster_attack": 1977,
     "monster_defense": 1200,
     "attack_speed": 1500,
@@ -72289,7 +72289,7 @@
   },
   {
     "id": 10133001,
-    "monster_hp": 35000,
+    "monster_hp": 25000,
     "monster_attack": 2151,
     "monster_defense": 1400,
     "attack_speed": 1500,

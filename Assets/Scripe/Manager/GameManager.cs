@@ -258,6 +258,26 @@ public class GameManager
         source.clip = clip;
         source.loop = true;
         source.Play();
+        long isVoice = SQLHelper.getIntance().isVoice;
+        if (isVoice == -1 || isVoice == 1)
+        {
+            setVoice(source, true, false);
+        }
+        else {
+            setVoice(source, false, false);
+        }
+    }
+    public void setVoice(AudioSource source,bool isVoice,bool isSave) {
+        if (isVoice)
+        {
+            source.volume = 1;
+        }
+        else {
+            source.volume = 0;
+        }
+        if (isSave) {
+            SQLHelper.getIntance().updateIsVoice(isVoice ? 1 : 2);
+        }
     }
 }
 

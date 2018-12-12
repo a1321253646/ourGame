@@ -30,13 +30,18 @@ public class SQLManager : MonoBehaviour
     private static int IDCount;
     public void Start()
     {
-        if (!GameManager.isAndroid) {
+
+    }
+    public void init() {
+        if (!GameManager.isAndroid)
+        {
             this.CreateSQL();
         }
         this.OpenSQLaAndConnect();
-        Thread th1 = new Thread(threadRun) ;
+        Thread th1 = new Thread(threadRun);
         th1.Start();
     }
+
     //创建数据库文件
     public void CreateSQL()
     {
@@ -89,7 +94,7 @@ public class SQLManager : MonoBehaviour
         }
         this.connection.Open();
         Debug.Log("  打开数据库 结束 ");
-        GameObject.Find("game_begin").GetComponent<GameBeginControl>().init();
+    //    GameObject.Find("game_begin").GetComponent<GameBeginControl>().init();
     }
     /// <summary>
     ///执行SQL命令,并返回一个SqliteDataReader对象

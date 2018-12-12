@@ -10,7 +10,7 @@ public class GameStartLoadingImage : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        GameObject.Find("game_begin").GetComponent<GameBeginControl>().init();
 	}
 	
 	// Update is called once per frame

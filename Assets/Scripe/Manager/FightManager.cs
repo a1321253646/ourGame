@@ -197,17 +197,17 @@ public class FightManager{
         if (!isHurt(attacker, beAttacker)) {
             return new HurtStatus(0, false, false);
         }
-//        Debug.Log("attackBllod attacker.mAttribute.aggressivity = " + attacker.mAttribute.aggressivity);
-//        Debug.Log(" beAttacker.mAttribute.defense = " + beAttacker.mAttribute.defense);
-		float hurt= attacker.mAttribute.aggressivity - beAttacker.mAttribute.defense;
+        //        Debug.Log("attackBllod attacker.mAttribute.aggressivity = " + attacker.mAttribute.aggressivity);
+        //        Debug.Log(" beAttacker.mAttribute.defense = " + beAttacker.mAttribute.defense);
+        float hurt= attacker.mAttribute.aggressivity - beAttacker.mAttribute.defense;
 		if (hurt <= attacker.mAttribute.aggressivity /10) {
             int tmp = attacker.mAttribute.aggressivity % 10 == 0 ? 0 : 1;
             hurt = ((int)attacker.mAttribute.aggressivity )/ 10+ tmp;
 		}
 
-        /*float hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);*/
+       /* float hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);*/
 
-//        Debug.Log(" hurt = " + hurt);
+        //        Debug.Log(" hurt = " + hurt);
         bool crt = isCrt(attacker);
 //        Debug.Log(" crt = " + crt);
         if (crt)

@@ -19,6 +19,7 @@ public class SQLHelper
     public long isShowLuihuiPoint = -1;
     public long isShowPlayerPoint = -1;
     public long isFristStartGame = -1;
+    public long isVoice = -1;
 
 
     private long GAME_ID_LEVEL = 1;
@@ -34,6 +35,7 @@ public class SQLHelper
     private long GAME_ID_POINT_CARD = 11;
     private long GAME_ID_FRIST_START = 12;
     private long GAME_ID_NO_LUNHUI = 13;
+    private long GAME_ID_IS_VOICE = 14;
    
 
     private long TYPE_GAME = 1;
@@ -172,6 +174,11 @@ public class SQLHelper
                     {
                         isLuiHui = long.Parse(date.extan);
                         Debug.Log("读取数据库 是否轮回 " + mOutTime);
+                    }
+                    else if (date.id == GAME_ID_IS_VOICE)
+                    {
+                        isVoice = long.Parse(date.extan);
+                        Debug.Log("读取数据库 是否开启音量 " + mOutTime);
                     }
                 }
             }
@@ -410,6 +417,20 @@ public class SQLHelper
         }
         isFristStartGame = value;
     }
+    public void updateIsVoice(long value)
+    {
+        if (isVoice == -1)
+        {
+            addGame(GAME_ID_IS_VOICE, value);
+        }
+        else
+        {
+            updateGame(GAME_ID_IS_VOICE, value);
+        }
+        isVoice = value;
+    }
+
+
     public void updatePointPlayer(long value)
     {
         if (isShowCardPoint == value)
