@@ -58,8 +58,8 @@ public class QieHuangChangJing : MonoBehaviour {
                 mTimeText.text = "" + count;
             }
         }*/
-        Debug.Log("Time.deltaTime == " + Time.deltaTime);
-        Debug.Log("Update eveyTime== " + eveyTime+ " mTime2== "+ mTime2+ " friColor== "+ friColor);
+//        Debug.Log("Time.deltaTime == " + Time.deltaTime);
+//        Debug.Log("Update eveyTime== " + eveyTime+ " mTime2== "+ mTime2+ " friColor== "+ friColor);
         int count1 =(int) (Time.deltaTime / eveyTime);
         if (mTime2 > eveyTime) {
             mTime2 -= eveyTime;

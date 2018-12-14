@@ -253,17 +253,25 @@ public class GoodControl : MonoBehaviour {
             mText = GetComponentsInChildren<Text>()[0];
         }
         if (bean != null) {
-            if (bean.tabId == TABID_EQUIP_TYPY || bean.tabId == TABID_CARD_TYPE)
+            if (bean.tabId == TABID_EQUIP_TYPY )
             {
                 mText.text = "";
                 value = 0;
-                if (count > mMaxCout) {
+                if (count > mMaxCout)
+                {
                     value = count - mMaxCout;
                     count = mMaxCout;
                 }
-                else {
+                else
+                {
                     value = 0;
                 }
+                return value;
+            }
+            else if (bean.tabId == TABID_CARD_TYPE)
+            {
+                mText.text = ""+ count2;
+                value = 0;
                 return value;
             }
         }

@@ -22,6 +22,8 @@ public class GameManager
     public BigNumber mReincarnation = new BigNumber();
     public bool isShowQieHuang = false;
     public bool isWinQirHuang = false;
+    public bool isLuihuiIng = false;
+
 
     public float mLunhuiOnlineGet = 0;
     public float mLunhuiOutlineGet = 0;
@@ -38,7 +40,7 @@ public class GameManager
 
     public static bool isAndroid = true;
     public static bool isAdd = false;
-
+    
 
     public float getOnlineGet() {
         return 1+ mLunhuiOnlineGet+ mCardOnlineGet;
@@ -100,7 +102,8 @@ public class GameManager
                 }
             }
 
-            mCurrentCrystal = SQLHelper.getIntance().mMojing;            
+               mCurrentCrystal = SQLHelper.getIntance().mMojing;   
+            //mCurrentCrystal = BigNumber.getBigNumForString("20000000000000000");
             long auto = SQLHelper.getIntance().isAutoBoss;
             if (auto == -1 || auto == 1) {
                 isAuto = false;
@@ -172,6 +175,10 @@ public class GameManager
 	}
 
 	public void enemyDeal(Attacker enemy){
+        if (isLuihuiIng) {
+            return;
+        }
+
         mCurrentGas += enemy.mDieGas;
         //Debug.Log("=============enemy.mDieCrysta=" + enemy.mDieCrysta.toString());
         //Debug.Log("=============mCurrentCrystal=" + mCurrentCrystal.toString());

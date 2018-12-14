@@ -58,7 +58,23 @@ public class FightManager{
                 }
                 ((EnemyBase)a).Standy();
             }
-         
+            if (SQLHelper.getIntance().isLuiHui != -1 && GameManager.getIntance().mCurrentLevel <= SQLHelper.getIntance().isLuiHui) {
+                long deal = SQLHelper.getIntance().isLuiHuiDeal;
+                if (deal == -1)
+                {
+                    SQLHelper.getIntance().updateIsLunhuiDealValue(1);
+                }
+                else
+                {
+                    SQLHelper.getIntance().updateIsLunhuiDealValue(deal + 1);
+                }
+                deal = SQLHelper.getIntance().isLuiHuiDeal;
+                if (JsonUtils.getIntance().getConfigValueForId(100033) <= deal)
+                {
+                    SQLHelper.getIntance().updateIsLunhuiValue(0);
+                }
+            }
+
             //return;
         }
         if (attcker.id == -1 || mAliveActtackers.Count < 1)
@@ -199,13 +215,13 @@ public class FightManager{
         }
         //        Debug.Log("attackBllod attacker.mAttribute.aggressivity = " + attacker.mAttribute.aggressivity);
         //        Debug.Log(" beAttacker.mAttribute.defense = " + beAttacker.mAttribute.defense);
-        float hurt= attacker.mAttribute.aggressivity - beAttacker.mAttribute.defense;
+       /*  float hurt= attacker.mAttribute.aggressivity - beAttacker.mAttribute.defense;
 		if (hurt <= attacker.mAttribute.aggressivity /10) {
             int tmp = attacker.mAttribute.aggressivity % 10 == 0 ? 0 : 1;
             hurt = ((int)attacker.mAttribute.aggressivity )/ 10+ tmp;
-		}
+		}*/
 
-       /* float hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);*/
+       float hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);
 
         //        Debug.Log(" hurt = " + hurt);
         bool crt = isCrt(attacker);

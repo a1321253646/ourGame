@@ -19,6 +19,13 @@ public class GameBeginControl : MonoBehaviour {
             GameObject.Find("Canvas").GetComponent<CanvasScaler>().matchWidthOrHeight = 0;
         }*/
         gameObject.transform.SetSiblingIndex(GameManager.getIntance().getUiLevel());
+
+        Resolution[] resolutions = Screen.resolutions;
+        //设置当前分辨率  
+        Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);
+
+        Screen.fullScreen = true;
+
     }
 	
 	// Update is called once per frame

@@ -15,4 +15,5 @@ public class GameOverManager : MonoBehaviour {
 	void Start () {
         SceneManager.LoadScene(0);
     }
+
 }

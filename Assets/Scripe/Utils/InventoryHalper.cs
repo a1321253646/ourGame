@@ -70,6 +70,11 @@ public class InventoryHalper
             if (item == id) {
                 mUserCardId.Remove(item);
                 SQLHelper.getIntance().deleteUserCard(id);
+                foreach (long save in mUserCardId) {
+                    if (save == id) {
+                        SQLHelper.getIntance().addUserCard(save);
+                    }                   
+                }
                 addInventory(item, 1);
                 return;
             }
@@ -117,7 +122,7 @@ public class InventoryHalper
     {
         bool isNew = true;
         PlayerBackpackBean bean = null;
-        if (id <= TABID_2_START_ID )
+        if (id <= TABID_2_START_ID || id >= TABID_3_START_ID )
         {
             foreach (PlayerBackpackBean tmp in mList)
             {

@@ -32,7 +32,7 @@ public class SkillObject8 : SkillObject
                 float blood = attack.mBloodVolume;
                 attack.skillAttack(mBean.effects, hurt, mAttacker);
                 if (attack.getStatus() == ActionFrameBean.ACTION_DIE) {
-                    mAttacker.AddBlood(blood);
+                    mAttacker.AddBlood(mAttacker.mAttribute.aggressivity * 3);
                 }
             }
 

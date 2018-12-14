@@ -11,7 +11,8 @@ public class GameCamera : MonoBehaviour
     void Start()
     {
 
-        float screenHeight = Screen.height;
+        float screenHeight = this.GetComponent<Camera>().pixelHeight;
+        float width = this.GetComponent<Camera>().pixelWidth;
 
         Debug.Log("screenHeight = " + screenHeight);
         Debug.Log("screenwidth = " + Screen.width);
@@ -20,7 +21,7 @@ public class GameCamera : MonoBehaviour
 
         float orthographicSize = this.GetComponent<Camera>().orthographicSize;
 
-        float aspectRatio = Screen.width * 1.0f / Screen.height;
+        float aspectRatio = width * 1.0f / screenHeight;
 
         float cameraWidth = orthographicSize * 2 * aspectRatio;
 

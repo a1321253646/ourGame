@@ -63,7 +63,7 @@ public class LuiHuiTips : MonoBehaviour {
         BigNumber tmp = BigNumber.multiply(level2.getReincarnation(), GameManager.getIntance().getLunhuiGet());
         Debug.Log("============================轮回点获得 GameManager.getIntance().getLunhuiGet()= " + GameManager.getIntance().getLunhuiGet());
         Debug.Log("============================轮回点获得= " + tmp.toString());
-        dec =dec.Replace("%D", level2.getReincarnation().toStringWithUnit() + "");
+        dec =dec.Replace("%D", tmp.toStringWithUnit() + "");
         mButtonDec.text = "轮回";
         mDes.text = dec;
     }
@@ -73,16 +73,19 @@ public class LuiHuiTips : MonoBehaviour {
         
     }
     private void sure() {
+
+        GameManager.getIntance().isLuihuiIng = true;
         GameManager.getIntance().uiManager.setLunhuiPointShow(1);
         Level level = JsonUtils.getIntance().getLevelData();
 
         BigNumber tmp = BigNumber.multiply(level.getReincarnation(), GameManager.getIntance().getLunhuiGet());
         Debug.Log("============================轮回点获得= " + tmp.toString());
         GameManager.getIntance().mReincarnation = BigNumber.add(GameManager.getIntance().mReincarnation, tmp);
-
         SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
-        GameManager.getIntance().isAddGoodForTest = false; 
+        GameManager.getIntance().isAddGoodForTest = false;
         BackpackManager.getIntance().removeAll();
+        SQLHelper.getIntance().updateIsLunhuiValue((long)level.levelspeedup);
+        
         InventoryHalper.getIntance().dealClear();
         GameManager.getIntance().mCurrentCrystal = new BigNumber();
         SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
@@ -91,7 +94,7 @@ public class LuiHuiTips : MonoBehaviour {
         GameManager.getIntance().mCurrentLevel = 1;
         SQLHelper.getIntance().updateGameLevel(1);
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
-        SQLHelper.getIntance().updateIsLunhuiValue((long)level.levelspeedup);
+        
     }
 
     // Update is called once per frame

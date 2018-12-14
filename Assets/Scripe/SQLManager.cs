@@ -36,6 +36,11 @@ public class SQLManager : MonoBehaviour
         if (!GameManager.isAndroid)
         {
             this.CreateSQL();
+
+        }
+        else {
+            sqlName = "local88";
+            tabName = "local88";
         }
         this.OpenSQLaAndConnect();
         Thread th1 = new Thread(threadRun);
@@ -201,7 +206,9 @@ public class SQLManager : MonoBehaviour
         if (id != -1)
         {
             commandString = commandString + " AND ID =" + id;
+         //   commandString = commandString + " AND ROWNUM =1";
         }
+        
         // ExecuteSQLCommand(commandString);
         addList(commandString);
     }
@@ -238,6 +245,7 @@ public class SQLManager : MonoBehaviour
     private List<string> mWaitList = new List<string>();
 
     private void addList(string command) {
+
         lock (mLock) {
             mWaitList.Add(command);
         }

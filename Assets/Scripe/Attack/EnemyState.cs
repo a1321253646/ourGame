@@ -57,7 +57,7 @@ public class EnemyState{
         if (!status.isRate)
         {
             tv.text = "闪避" ;
-            tv.color = Color.yellow;
+            tv.color = new Color(0x0, 0xf9, 0xff, 0xff);
         }
         else if (status.isCrt)
         {

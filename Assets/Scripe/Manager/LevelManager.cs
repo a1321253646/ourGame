@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour {
         else {
             Time.timeScale = 1;
         }
-       
+        GameManager.getIntance().isLuihuiIng = false;
     }
     void Start () {
         //init();

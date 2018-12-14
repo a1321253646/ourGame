@@ -88,7 +88,7 @@ public class TipControl : MonoBehaviour {
     private void use()
     {
         if (mCurrentType != SHOW_COMPOSE_TYPE) {
-            if (BackpackManager.getIntance().use(mBean, count, mCurrentType))
+            if (BackpackManager.getIntance().use(mBean, 1, mCurrentType))
             {
                 removeUi();
             }
@@ -310,7 +310,7 @@ public class TipControl : MonoBehaviour {
     private void showUi()
     {
        
-        gameObject.transform.localPosition = new Vector2(0, 0);
+        gameObject.transform.localPosition = new Vector2(0,0);
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP);
