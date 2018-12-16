@@ -31,7 +31,6 @@ public class TipControl : MonoBehaviour {
     public static int UNUSE_CARD_TYPE = 6;
     public static int SHOW_COMPOSE_TYPE = 7;
     public static int SALE_TYPE = 8;
-    public static int SALE_ZHUANGBEI_TYPE = 9;
 
     public long mCardId = -1;
     LevelManager mLevelManager;
@@ -74,13 +73,6 @@ public class TipControl : MonoBehaviour {
 
     private void sale() {
         GameManager.getIntance().showDIaoLuo(mClickList1Click1.transform.position, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", 0,-1);
-        if (mCurrentType == UNUSE_TYPE)
-        {
-            BackpackManager.getIntance().use(mBean, count, SALE_ZHUANGBEI_TYPE);
-        }
-        else {
-            BackpackManager.getIntance().use(mBean, count, SALE_TYPE);
-        }
         BackpackManager.getIntance().use(mBean, count, SALE_TYPE);
         removeUi();
     }

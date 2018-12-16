@@ -35,9 +35,11 @@ public class GameBeginControl : MonoBehaviour {
         initEnd();
     }
     private void initEnd() {
+        JsonUtils.getIntance().init();
+
         GameObject.Find("Manager").GetComponent<SQLManager>().init();
         SQLHelper.getIntance().init();
-        JsonUtils.getIntance().init();
+        
         if (SQLHelper.getIntance().isFristStartGame == -1)
         {
             Destroy(GameObject.Find("game_begin_loading"));

@@ -102,11 +102,11 @@ public class CardShowControl : MonoBehaviour {
             setWitch(mUserListGl, mUserListGb.Count);
         }
         mUserCount.text = "已装备卡牌（" + mUserListGb.Count + "/30）";
-        List<long> user = InventoryHalper.getIntance().getUsercard();
+        List<PlayerBackpackBean> user = InventoryHalper.getIntance().getUsercard();
 
-        foreach (long id in user)
+        foreach (PlayerBackpackBean bean in user)
         {
-            addUserUi(id);
+            addUserUi(bean);
         }
     }
 
@@ -183,19 +183,20 @@ public class CardShowControl : MonoBehaviour {
             Destroy(goj);
         }
     }
-    private void addUserUi(long id)
+    private void addUserUi(PlayerBackpackBean card)
     {
         mUserUiCount += 1;       
         for (int i = 0; i < JsonUtils.getIntance().getConfigValueForId(100016); i++) {
             CardUiControl ui = mUserListGb[i].GetComponent<CardUiControl>();
             if (ui.mCardId == -1) {
-                ui.init(id, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
-                ui.init(id, 113, 166);
+                ui.init(card.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
+                ui.init(card.goodId, 113, 166);
                 
                 mUserCount.text = "已装备卡牌（" + (i+1) + "/" + JsonUtils.getIntance().getConfigValueForId(100016) + ")";
                 // item.init(id, 113, 166);
                 ItemOnDrag item = mUserListGb[i].GetComponent<ItemOnDrag>();
-                item.init(mCardManager, id, false,mCardManager.card, mRoot, mUserScroll);
+                item.init(mCardManager, card.goodId, false,mCardManager.card, mRoot, mUserScroll);
+                item.mBean = card;
                 break;
             }
         }

@@ -146,7 +146,7 @@ public class BackpackManager
             mHeroControl.upDateUi();
             updateZhuangbeiItem(true);
         }
-        else if (type == TipControl.SALE_TYPE || type == TipControl.SALE_ZHUANGBEI_TYPE) {
+        else if (type == TipControl.SALE_TYPE ) {
             AccouterJsonBean aj =  JsonUtils.getIntance().getAccouterInfoById(bean.goodId);
             List<PlayerAttributeBean> list = bean.attributeList;
             long level = 0;
@@ -166,15 +166,7 @@ public class BackpackManager
                 GameManager.getIntance().mCurrentCrystal = BigNumber.add(GameManager.getIntance().mCurrentCrystal, b1);
                 GameManager.getIntance().updataGasAndCrystal();
             }
-            if (type == TipControl.SALE_TYPE)
-            {
-                InventoryHalper.getIntance().deleteIventory(bean, (int)count);
-            }
-            else if (type == TipControl.SALE_ZHUANGBEI_TYPE)
-            {
-                InventoryHalper.getIntance().delectZhuangbei(bean, (int)count);
-            }
-            
+            InventoryHalper.getIntance().deleteIventory(bean, (int)count);            
             mInvertoryControl.update();
             mHeroControl.upDateUi();
             updateZhuangbeiItem(true);
@@ -223,7 +215,7 @@ public class BackpackManager
         }
         else if (type == TipControl.UNUSE_CARD_TYPE)
         {
-            InventoryHalper.getIntance().removeUserCard(bean.goodId);
+            InventoryHalper.getIntance().removeUserCard(bean);
             mInvertoryControl.update();
             mCardControl.upDateUi();
         }

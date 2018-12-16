@@ -5,36 +5,29 @@ using System;
 public class InventoryHalper 
 {
     List<PlayerBackpackBean> mList = new List<PlayerBackpackBean>();
-    private List< PlayerBackpackBean> mRoleUseList = new List<PlayerBackpackBean>();
+    List<PlayerBackpackBean> mUser = new List<PlayerBackpackBean>();
+    List<PlayerBackpackBean> mCard = new List<PlayerBackpackBean>();
     private Dictionary<long, long> mDropDeviceUsed = new Dictionary<long, long>();
     private List<long> mHaveBookId = new List<long>();
+    private int mZhuangbeiCount = 0;
+    private int mCount = -1;
+
+
 
     private Dictionary<long, long> mSamsaraLevel = new Dictionary<long, long>();
     public static InventoryHalper mIntance = new InventoryHalper();
-
-    private List<long> mUserCardId = new List<long>();
     public static InventoryHalper getIntance() {
         return mIntance;
     }
     private InventoryHalper() {
         //读数据库中的玩家拥有的物品
-        mUserCardId = SQLHelper.getIntance().getUserCard();
         mList = SQLHelper.getIntance().getAllGood();
         mSamsaraLevel = SQLHelper.getIntance().getLunHui();
-        List<PlayerBackpackBean> list = SQLHelper.getIntance().getPlayUserZhuangbei();
-        if (list != null && list.Count > 0) {
-            foreach (PlayerBackpackBean b in list) {
-       //         AccouterJsonBean acc = BackpackManager.getIntance().getAccouterInfoById(b.goodId);
-                mRoleUseList.Add(b);
-            }
-        }
         mDropDeviceUsed = SQLHelper.getIntance().getDropDevice();
     }
 
 
     public void dealClear() {
-        mRoleUseList.Clear();
-        SQLHelper.getIntance().deleteAllZuangbei();
         mDropDeviceUsed.Clear();
         SQLHelper.getIntance().deleteAllDropDevice();
         mList.Clear();
@@ -50,41 +43,36 @@ public class InventoryHalper
             }
         }*/
         SQLHelper.getIntance().deleteAllGood();
-        mUserCardId.Clear();
-        SQLHelper.getIntance().deleteAllUserCard();
-
     }
     public void useCard(PlayerBackpackBean bean, long count)
     {
+        bean.count -= (int)count;
+        SQLHelper.getIntance().ChangeGoodExtra(bean);
         for (int i = 0; i < count; i++)
         {
-            mUserCardId.Add(bean.goodId);
-            SQLHelper.getIntance().addUserCard(bean.goodId);
-            deleteIventory(bean.goodId,1);
+            PlayerBackpackBean beantmp = new PlayerBackpackBean();
+            beantmp.copyBean(bean);
+            beantmp.count = 1;
+            beantmp.goodType = SQLDate.GOOD_TYPE_CARD;
+            beantmp.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();
+            SQLHelper.getIntance().addGood(beantmp);
+            mList.Add(beantmp);
+            mCard.Add(beantmp);
         }
     }
-    public void removeUserCard(long id)
+    public void removeUserCard(PlayerBackpackBean bean)
     {
-        for (int i = 0 ; i < mUserCardId.Count;i++) {
-            long item = mUserCardId[i];
-            if (item == id) {
-                mUserCardId.Remove(item);
-                SQLHelper.getIntance().deleteUserCard(id);
-                foreach (long save in mUserCardId) {
-                    if (save == id) {
-                        SQLHelper.getIntance().addUserCard(save);
-                    }                   
-                }
-                addInventory(item, 1);
-                return;
+        foreach (PlayerBackpackBean b in mList) {
+            if (b.goodId == bean.goodId) {
+                b.count++;
+                SQLHelper.getIntance().ChangeGoodExtra(b);               
+                SQLHelper.getIntance().deleteGood(bean);
+                mList.Remove(bean);
+                mCard.Remove(bean);
+                break;
             }
         }
     }
-
-    public List<long> getUsercard() {
-        return mUserCardId;
-    }
-
     public string getIcon(long id)
     {
         string path = "";
@@ -113,9 +101,8 @@ public class InventoryHalper
     public static long TABID_3_START_ID = 300000;
 
     public void updatePoint(PlayerBackpackBean bean) {
-       string extra =  SQLHelper.getIntance().getGoodExtra(bean);
         bean.isShowPoint = 2;
-        SQLHelper.getIntance().ChangeGood(bean, extra);
+        SQLHelper.getIntance().ChangeGoodExtra(bean);
     }
 
     public bool addInventory(long id, int count)
@@ -195,16 +182,17 @@ public class InventoryHalper
                 newBean.goodId = id;
                 newBean.sortID = cj.sortID;
                 newBean.count = count;
-                newBean.tabId = cj.tabid;
+                newBean.tabId = cj.tabid;           
                 newBean.isShowPoint = 1;
                 mList.Add(newBean);
             }
+            newBean.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();
+            newBean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
             SQLHelper.getIntance().addGood(newBean);
             return true;
         }
         else {
-            string extra = SQLHelper.getIntance().getGoodExtra(bean);
-            SQLHelper.getIntance().ChangeGood(bean, extra);
+            SQLHelper.getIntance().ChangeGoodExtra(bean);
             return false;
         }
 //        Debug.Log("InventoryHalper list size  " + mList.Count);
@@ -262,17 +250,13 @@ public class InventoryHalper
         
     }
 
-
-    public List< PlayerBackpackBean> getRoleUseList() {
-        return mRoleUseList;
-    }
     public List<long> getHaveBookId() {
         return mHaveBookId;
     }
     public void updateZhuangbei(PlayerBackpackBean bean, long level)
     {
         level = level + 1;
-       string extan =  SQLHelper.getIntance().getGoodExtra(bean);
+       string extan =  SQLHelper.getGoodExtra(bean);
         AccouterJsonBean ac = JsonUtils.getIntance().getAccouterInfoById(bean.goodId);
         foreach (PlayerAttributeBean p in bean.attributeList){
             if (p.type >= 100 && p.type <= 999 &&
@@ -295,7 +279,7 @@ public class InventoryHalper
                 p.value = level;
             }
         }
-        SQLHelper.getIntance().updateZHUANGBEI(bean, extan);
+        SQLHelper.getIntance().updateZHUANGBEI(bean);
        
     }
     public bool use(PlayerBackpackBean bean, long count)
@@ -340,39 +324,18 @@ public class InventoryHalper
         }
         return false;
     }
-
-    public void delectZhuangbei(PlayerBackpackBean bean, long count) {
-        if (mRoleUseList.Remove(bean))
-        {
-            SQLHelper.getIntance().deleteZuangbei(bean.goodId);
-        }
-    }
-
     public void unUse(PlayerBackpackBean bean, long count) {
-        if (mRoleUseList.Remove(bean))
-        {
-            SQLHelper.getIntance().deleteZuangbei(bean.goodId);
-            addIventory(bean);
-        }
+        mZhuangbeiCount--;
+        bean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
+        SQLHelper.getIntance().changeGoodTyppe(bean.sqlGoodId, bean.goodType);
     }
 
-    private bool deleteRoleUse( PlayerBackpackBean bean)
-    {
-        if (mRoleUseList.Remove(bean)) {
-            SQLHelper.getIntance().deleteZuangbei(bean.goodId);
-            
-            return true;
-        }
-        return false;
-        
-        
-    }
     private bool addRoleUse(PlayerBackpackBean bean)
     {
-        if (mRoleUseList.Count < 6) {
-            mRoleUseList.Add( bean);
-            deleteIventory(bean);
-            SQLHelper.getIntance().addZHUANGBEI(bean);
+        if (mZhuangbeiCount < 7) {
+            mZhuangbeiCount++;
+            bean.goodType = SQLDate.GOOD_TYPE_ZHUANGBEI;
+            SQLHelper.getIntance().changeGoodTyppe(bean.sqlGoodId, bean.goodType);
             return true;
         }
         return false;
@@ -448,9 +411,8 @@ public class InventoryHalper
         }
         else
         {
-            string extra = SQLHelper.getIntance().getGoodExtra(bean);
             bean.count -= count;
-            SQLHelper.getIntance().ChangeGood(bean, extra);
+            SQLHelper.getIntance().ChangeGoodExtra(bean);
         }
     }
 
@@ -467,5 +429,14 @@ public class InventoryHalper
     }
     public List<PlayerBackpackBean> getInventorys() {
         return mList;
+    }
+
+    public List<PlayerBackpackBean> getRoleUseList()
+    {
+        return mUser;
+    }
+    public List<PlayerBackpackBean> getUsercard()
+    {
+        return mCard;
     }
 }

@@ -42,14 +42,14 @@ public class CardManager : MonoBehaviour {
     private List<CardUser> mCardList = new List<CardUser>();
 
     private long getRandomCard() {
-        List<long> list =  InventoryHalper.getIntance().getUsercard();
+        List<PlayerBackpackBean> list =  InventoryHalper.getIntance().getUsercard();
         if (list.Count == 0) {
             return 0;
         }
         if (mCardList.Count != list.Count) {
             for (int i = mCardList.Count; i < list.Count; i++) {
                 CardUser tmp = new CardUser();
-                tmp.id = list[i];
+                tmp.id = list[i].goodId;
                 mCardList.Add(tmp);
             }
         }

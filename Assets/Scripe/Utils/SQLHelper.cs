@@ -21,39 +21,39 @@ public class SQLHelper
     public long isShowPlayerPoint = -1;
     public long isFristStartGame = -1;
     public long isVoice = -1;
+    public long mMaxGoodId = -1;
 
 
-    private long GAME_ID_LEVEL = 1;
-    private long GAME_ID_HERO = 2;
-    private long GAME_ID_AUTO = 3;
-    private long GAME_ID_LUNHUI = 4;
-    private long GAME_ID_MOJING = 5;
-    private long GAME_ID_TIME = 6;
-    private long GAME_ID_GUIDE = 7;
-    private long GAME_ID_POINT_PLAYER = 8;
-    private long GAME_ID_POINT_BACKPACK = 9;
-    private long GAME_ID_POINT_LUNHUI = 10;
-    private long GAME_ID_POINT_CARD = 11;
-    private long GAME_ID_FRIST_START = 12;
-    private long GAME_ID_NO_LUNHUI = 13;
-    private long GAME_ID_IS_VOICE = 14;
-    private long GAME_ID_LUNHUI_DEAL = 15;
-   
+    public static long GAME_ID_LEVEL = 1;
+    public static long GAME_ID_HERO = 2;
+    public static long GAME_ID_AUTO = 3;
+    public static long GAME_ID_LUNHUI = 4;
+    public static long GAME_ID_MOJING = 5;
+    public static long GAME_ID_TIME = 6;
+    public static long GAME_ID_GUIDE = 7;
+    public static long GAME_ID_POINT_PLAYER = 8;
+    public static long GAME_ID_POINT_BACKPACK = 9;
+    public static long GAME_ID_POINT_LUNHUI = 10;
+    public static long GAME_ID_POINT_CARD = 11;
+    public static long GAME_ID_FRIST_START = 12;
+    public static long GAME_ID_NO_LUNHUI = 13;
+    public static long GAME_ID_IS_VOICE = 14;
+    public static long GAME_ID_LUNHUI_DEAL = 15;
+    public static long GAME_ID_GOOD_MAXID = 16;
 
-    private long TYPE_GAME = 1;
-    private long TYPE_GOOD = 2;
-    private long TYPE_BOOK = 3;
-    private long TYPE_CARD = 4;
-    private long TYPE_ZHUANGBEI = 5;
-    private long TYPE_LUNHUI = 6;
-    private long TYPE_DROP = 7;
+
+    public static long TYPE_GAME = 1;
+    public static long TYPE_GOOD = 2;
+    public static long TYPE_BOOK = 3;
+    public static long TYPE_CARD = 4;
+    public static long TYPE_ZHUANGBEI = 5;
+    public static long TYPE_LUNHUI = 6;
+    public static long TYPE_DROP = 7;
 
 
 
     List<long> mGuide = new List<long>();
-    List<long> mCard = new List<long>();
     List<long> mBook = new List<long>();
-    List<PlayerBackpackBean> mUserZhuangbei = new List<PlayerBackpackBean>();
     List<PlayerBackpackBean> mALLGood = new List<PlayerBackpackBean>();
     Dictionary<long,long> mLunhuui = new Dictionary<long, long>();
     Dictionary<long,long> mDropDeviceCount = new Dictionary<long, long>();
@@ -68,8 +68,6 @@ public class SQLHelper
         mList =  mManager.readAllTable();
         mLunhuui.Clear();
         mALLGood.Clear();
-        mUserZhuangbei.Clear();
-        mCard.Clear();
         mBook.Clear();
         mDropDeviceCount.Clear();
         if (mList != null && mList.Count > 0)
@@ -97,16 +95,6 @@ public class SQLHelper
                     bean.goodId = date.id;
                     Debug.Log("读取数据库  id= " + bean.goodId + " count =" + bean.count);
                     mALLGood.Add(bean);
-                }
-                else if (date.type == TYPE_ZHUANGBEI)
-                {
-                    PlayerBackpackBean bean = getBeanFromStr(date.extan);
-                    bean.goodId = date.id;
-                    mUserZhuangbei.Add(bean);
-                }
-                else if (date.type == TYPE_CARD)
-                {
-                    mCard.Add(date.id);
                 }
                 else if (date.type == TYPE_BOOK)
                 {
@@ -239,6 +227,19 @@ public class SQLHelper
     }
 
 
+    public long getCurrentGoodId() {
+        if (mMaxGoodId == -1)
+        {
+            mMaxGoodId = 1;
+            addGame(GAME_ID_GOOD_MAXID, mMaxGoodId);
+        }
+        else {
+            mMaxGoodId++;
+            updateGame(GAME_ID_GOOD_MAXID, mMaxGoodId);
+        }
+        return mMaxGoodId;
+    }
+
     public long getLunhuiLevelById(long id) {
         if (mLunhuui.ContainsKey(id))
         {
@@ -256,12 +257,6 @@ public class SQLHelper
     public List<long> getGuide()
     {
         return mGuide;
-    }
-    public List<long> getUserCard() {
-        return mCard;
-    }
-    public List<PlayerBackpackBean> getPlayUserZhuangbei() {
-        return mUserZhuangbei;
     }
     public List<PlayerBackpackBean> getAllGood()
     {
@@ -285,15 +280,6 @@ public class SQLHelper
     {
                 mManager.InsertDataToSQL( new[] { "" + TYPE_BOOK, "" + book, "1" });
     }
-    public void addUserCard(long card)
-    {
-               mManager.InsertDataToSQL( new[] { "" + TYPE_CARD, "" + card, "1" });
-    }
-    public void addZHUANGBEI(PlayerBackpackBean good)
-    {
-        string value = getGoodExtra(good);
-        mManager.InsertDataToSQL( new[] { "" + TYPE_ZHUANGBEI, "" + good.goodId, "'" + value + "'" });
-    }
     public void addLunhui(long id)
     {
                 mManager.InsertDataToSQL( new[] { "" + TYPE_LUNHUI, "" + id, "1" });
@@ -302,40 +288,26 @@ public class SQLHelper
     public void deleteGood(PlayerBackpackBean good)
     {
         string value = getGoodExtra(good);
-        mManager.delete(TYPE_GOOD, good.goodId,"'"+ value+"'");
+        mManager.deleteGood(good.sqlGoodId);
     }
     public void deleteAllGood()
     {
-               mManager.delete(TYPE_GOOD, -1);
+        mManager.deleteAllType(TYPE_GOOD);
     }
     public void deleteBook(long book)
     {
-                mManager.delete( TYPE_BOOK, book);
+//      mManager.delete( TYPE_BOOK, book);
     }
     public void deleteAllBook()
     {
-                       mManager.delete(TYPE_BOOK, -1);
-    }
-    public void deleteUserCard(long card)
-    {
-                      mManager.delete( TYPE_CARD, card);
-    }
-    public void deleteAllUserCard()
-    {
-                        mManager.delete(TYPE_CARD, -1);
-    }
-    public void deleteZuangbei(long goodId)
-    {
-                  mManager.delete( TYPE_ZHUANGBEI, goodId);
-    }
-    public void deleteAllZuangbei()
-    {
-                mManager.delete(TYPE_ZHUANGBEI, -1);
+        mManager.deleteAllType(TYPE_BOOK);
     }
 
+    public void changeGoodTyppe(long goodId,long goodType) {
+        mManager.changeGoodType(goodId, goodType);
+    }
 
-
-    public string getGoodExtra(PlayerBackpackBean good) {
+    public static string getGoodExtra(PlayerBackpackBean good) {
         string value = "count，" + good.count + "；";
         if (good.attributeList != null && good.attributeList.Count > 0)
         {
@@ -350,16 +322,14 @@ public class SQLHelper
         return value;
     }
 
-    public void updateZHUANGBEI(PlayerBackpackBean good, string extra)
-    {
-        
+    public void updateZHUANGBEI(PlayerBackpackBean good)
+    {       
         string value = getGoodExtra(good);
-        Debug.Log("updateZHUANGBEI  extra =" + extra + " value =" + value);
-        mManager.UpdateZhuangbeiInto("'" + extra + "'", TYPE_ZHUANGBEI, good.goodId, "'" + value + "'");
+        mManager.UpdateZhuangbeiInto(good.sqlGoodId, "'" + value + "'");
     }
-    public void ChangeGood(PlayerBackpackBean good, string extra) {
+    public void ChangeGoodExtra(PlayerBackpackBean good) {
         string value = getGoodExtra(good);
-        mManager.UpdateZhuangbeiInto("'" + extra + "'", TYPE_GOOD, good.goodId, "'" + value + "'");
+        mManager.UpdateZhuangbeiInto(good.sqlGoodId, "'" + value + "'");
     }
     public void ChangeLuiHui(long id,long level)
     {
@@ -608,7 +578,7 @@ public class SQLHelper
     public void deleteAllDropDevice()
     {
         mDropDeviceCount.Clear();
-        mManager.delete(TYPE_DROP, -1);
+        mManager.deleteAllType(TYPE_DROP);
     }
 
     private void updateDrop(long id, long value) {
@@ -625,11 +595,11 @@ public class SQLHelper
     private void updateGame(long id, long value)
     {
         string value1 = "" + value;
-        mManager.UpdateInto(value1, TYPE_GAME, id);
+        mManager.UpdateInto("'" + value1+"'" , TYPE_GAME, id);
     }
     private void addGame(long id, long value)
     {
         string value1 = "" + value;
-        mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, value1 });
+        mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, "'" + value1 + "'" });
     }
 }
