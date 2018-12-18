@@ -668,7 +668,7 @@ public class JsonUtils
                 {
                     levelWellent.Add(int.Parse(str));
                 }
-                Debug.Log("=========getEnemyDate lv.id = "+ lv.id);
+//                Debug.Log("=========getEnemyDate lv.id = "+ lv.id);
                 mLevelWellenDate.Add(lv.id, levelWellent);
             }
         }

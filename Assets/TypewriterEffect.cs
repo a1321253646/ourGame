@@ -98,33 +98,33 @@ public class TypewriterEffect : MonoBehaviour {
 
     private void initText()
     {
-        Debug.Log("1");
+//        Debug.Log("1");
         if (myText == null) {
             myText = GetComponent<Text>();
         }
-        Debug.Log("2");
+//        Debug.Log("2");
         myText.text = "";
-         Debug.Log("3");
+//         Debug.Log("3");
         bool isEndColor =  showText.EndsWith("</color>");
         string[] list = Regex.Split(showText, "</color>", RegexOptions.IgnoreCase);
         int count = list.Length;
         if (isEndColor) {
-            Debug.Log("4");
+//            Debug.Log("4");
             count = list.Length;
         }
         else {
-            Debug.Log("5");
+//            Debug.Log("5");
             count = list.Length - 1;
         }
 
         for(int i = 0; i< count; i++) {
-            Debug.Log("6");
+//            Debug.Log("6");
             if (list[i] == null || list[i].Length == 0) {
                 continue;
             }
             getTextColor(list[i]);
         }
-        Debug.Log("7");
+ //       Debug.Log("7");
         if (!isEndColor) {
             TextColor tx = new TextColor();
             tx.color = null;
@@ -132,13 +132,13 @@ public class TypewriterEffect : MonoBehaviour {
             tx.leng = tx.text.Length;
             mTextList.Add(tx);
         }
-        Debug.Log("8");
+//        Debug.Log("8");
         showText = "";
-        foreach (TextColor t in mTextList) {
-            Debug.Log("9");
-            Debug.Log("TextColor text = " + t.text + " color = " + t.color);
-        }
-        Debug.Log("10");
+ //       foreach (TextColor t in mTextList) {
+//            Debug.Log("9");
+//            Debug.Log("TextColor text = " + t.text + " color = " + t.color);
+ //       }
+ //       Debug.Log("10");
     }
 
     private void getTextColor(string str) {

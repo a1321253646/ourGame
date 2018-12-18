@@ -162,13 +162,18 @@ public class IvertoryControl : MonoBehaviour {
     float time = 0;
 
     private void upDateData() {
-        List<PlayerBackpackBean> list = BackpackManager.getIntance().getInventoryInfos();
+        List<PlayerBackpackBean> list = InventoryHalper.getIntance().getInventorys();
         List<PlayerBackpackBean> goodList;
         if (list == null)
             return;
         mGoodDic.Clear();
+        Debug.Log("=11111=============================================================list = " + list.Count);
         foreach (PlayerBackpackBean bean in list)
         {
+            Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count=="+ bean.count+" goodId = "+bean.goodId);
+            if (bean.goodType != SQLDate.GOOD_TYPE_BACKPACK || bean.count == 0) {
+                continue;
+            }
  //           Debug.Log("bean = " + bean.toString());
             if (mGoodDic.ContainsKey(bean.tabId))
             {
@@ -248,6 +253,20 @@ public class IvertoryControl : MonoBehaviour {
             while (addCount != 0) {
                 if (mGoodIndex >= mGoodsControl.Length) {
                     addGoodUi(LinCount);
+                }
+                if (bean.goodId > InventoryHalper.TABID_3_START_ID) {
+                    bool isHave = false;
+                    for (int iii = 0; iii < mGoodIndex;iii++) {
+                        if (mGoodsControl[mGoodIndex].id == bean.goodId) {
+                            mGoodsControl[mGoodIndex].addCount(bean.count);
+                            addCount = 0;
+                            isHave = true;
+                            break;
+                        }
+                    }
+                    if (isHave) {
+                        continue;
+                    }
                 }
                 GoodControl good = mGoodsControl[mGoodIndex];
                 addCount = good.updateUi(bean.goodId, addCount, bean);

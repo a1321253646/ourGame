@@ -134,7 +134,7 @@ public class CardShowControl : MonoBehaviour {
         }
         List<PlayerBackpackBean> list =  InventoryHalper.getIntance().getInventorys();
         foreach (PlayerBackpackBean bean in list) {
-            if (bean.tabId == GoodControl.TABID_CARD_TYPE) {
+            if (bean.tabId == GoodControl.TABID_CARD_TYPE && bean.goodType == SQLDate.GOOD_TYPE_BACKPACK) {
                 for(int i = 0; i< bean.count; i++) {
                     addBackUi(bean);
                 }              
@@ -195,8 +195,9 @@ public class CardShowControl : MonoBehaviour {
                 mUserCount.text = "已装备卡牌（" + (i+1) + "/" + JsonUtils.getIntance().getConfigValueForId(100016) + ")";
                 // item.init(id, 113, 166);
                 ItemOnDrag item = mUserListGb[i].GetComponent<ItemOnDrag>();
-                item.init(mCardManager, card.goodId, false,mCardManager.card, mRoot, mUserScroll);
                 item.mBean = card;
+                item.init(mCardManager, card.goodId, false,mCardManager.card, mRoot, mUserScroll);
+                
                 break;
             }
         }
@@ -231,6 +232,7 @@ public class CardShowControl : MonoBehaviour {
                 ui.init(bean.goodId, 73, 108);
                 ui.init(bean.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
                 ItemOnDrag item = mBackListGb[i].GetComponent<ItemOnDrag>();
+                item.mBean = bean;
                 item.init(mCardManager, bean.goodId, true, mCardManager.card, mRoot, mBackScroll);
                 break;
             }            

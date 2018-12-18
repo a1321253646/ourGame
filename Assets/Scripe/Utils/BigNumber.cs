@@ -71,7 +71,7 @@ public class BigNumber
 
     private static string spileNumberString(string str, BigNumberUnit unit) {
         string s1 = str.Substring(str.Length - 3, 3);
-        Debug.Log("spileNumberString s="+s1);
+//        Debug.Log("spileNumberString s="+s1);
         unit.value = int.Parse(s1);
         str = str.Substring(0, str.Length - 3);
         return str;

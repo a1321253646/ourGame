@@ -40,6 +40,7 @@ public class SQLHelper
     public static long GAME_ID_IS_VOICE = 14;
     public static long GAME_ID_LUNHUI_DEAL = 15;
     public static long GAME_ID_GOOD_MAXID = 16;
+    public static long GAME_ID_IS_NET = 17;
 
 
     public static long TYPE_GAME = 1;
@@ -50,22 +51,25 @@ public class SQLHelper
     public static long TYPE_LUNHUI = 6;
     public static long TYPE_DROP = 7;
 
-
-
     List<long> mGuide = new List<long>();
     List<long> mBook = new List<long>();
     List<PlayerBackpackBean> mALLGood = new List<PlayerBackpackBean>();
     Dictionary<long,long> mLunhuui = new Dictionary<long, long>();
     Dictionary<long,long> mDropDeviceCount = new Dictionary<long, long>();
+    NetHelper mNetHelp = new NetHelper();
 
-   SQLManager mManager = null;
+    SQLManager mManager = null;
     private SQLHelper()
     {
         mManager = GameObject.Find("Manager").GetComponent<SQLManager>();
     }
 
     public void init() {
-        mList =  mManager.readAllTable();
+        mList = mManager.readAllTable();
+        if (mList != null) {
+            Debug.Log("SQLHelper init mlist coutn =  " + mList.Count);
+        }
+        
         mLunhuui.Clear();
         mALLGood.Clear();
         mBook.Clear();
@@ -93,6 +97,8 @@ public class SQLHelper
                 {
                     PlayerBackpackBean bean = getBeanFromStr(date.extan);
                     bean.goodId = date.id;
+                    bean.sqlGoodId = date.goodId;
+                    bean.goodType = date.goodType;
                     Debug.Log("读取数据库  id= " + bean.goodId + " count =" + bean.count);
                     mALLGood.Add(bean);
                 }
@@ -174,6 +180,11 @@ public class SQLHelper
                     {
                         isLuiHuiDeal = long.Parse(date.extan);
                         Debug.Log("读取数据库 轮回后死亡 " + isLuiHuiDeal);
+                    }
+                    else if (date.id == GAME_ID_GOOD_MAXID)
+                    {
+                        mMaxGoodId = long.Parse(date.extan);
+                        Debug.Log("读取数据库 最大物品id " + mMaxGoodId);
                     }
                 }
             }
@@ -272,39 +283,58 @@ public class SQLHelper
     }
 
     public void addGood(PlayerBackpackBean good) {
-        string value = getGoodExtra(good);
-        mManager.InsertDataToSQL(new[] { "" + TYPE_GOOD, "" + good.goodId, "'" + value + "'" });
+        SQLDate date = new SQLDate();
+        date.extan = getGoodExtra(good);
+        date.type = TYPE_GOOD;
+        date.id = good.goodId;
+        date.goodId = good.sqlGoodId;
+        date.isClean = SQLDate.CLEAR;
+        date.goodType = SQLDate.GOOD_TYPE_BACKPACK;
+        mManager.InsertDataToSQL(date);
+        
 
     }
     public void addBook(long book)
     {
-                mManager.InsertDataToSQL( new[] { "" + TYPE_BOOK, "" + book, "1" });
+            //    mManager.InsertDataToSQL( new[] { "" + TYPE_BOOK, "" + book, "1", "" + SQLDate.DEFAULT_GOOD_ID, "" + SQLDate.GOOD_TYPE_NOGOOD, isclean });
     }
     public void addLunhui(long id)
     {
-                mManager.InsertDataToSQL( new[] { "" + TYPE_LUNHUI, "" + id, "1" });
+        SQLDate date = new SQLDate();
+        date.extan = "1";
+        date.type = TYPE_LUNHUI;
+        date.id = id;
+        date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+        date.goodId = SQLDate.DEFAULT_GOOD_ID;
+        date.getClean();
+        mManager.InsertDataToSQL(date);
     }
 
     public void deleteGood(PlayerBackpackBean good)
     {
-        string value = getGoodExtra(good);
-        mManager.deleteGood(good.sqlGoodId);
-    }
-    public void deleteAllGood()
-    {
-        mManager.deleteAllType(TYPE_GOOD);
-    }
-    public void deleteBook(long book)
-    {
-//      mManager.delete( TYPE_BOOK, book);
-    }
-    public void deleteAllBook()
-    {
-        mManager.deleteAllType(TYPE_BOOK);
+        SQLDate date = new SQLDate();
+        date.goodId = good.sqlGoodId;
+        date.type = TYPE_GOOD;
+        date.getClean();
+        mManager.deleteGood(date);
     }
 
-    public void changeGoodTyppe(long goodId,long goodType) {
-        mManager.changeGoodType(goodId, goodType);
+    public void deleteLuihui() {
+        mDropDeviceCount.Clear();
+        mManager.deleteLuiHui();
+    }
+
+    public void changeGoodTyppe(PlayerBackpackBean good) {
+        SQLDate date = new SQLDate();
+        date.type = TYPE_GOOD;
+        date.id = good.goodId;
+        date.goodId = good.sqlGoodId;
+        date.goodType = good.goodType;
+        date.extan = getGoodExtra(good);
+        date.getClean();
+        mManager.changeGoodType(date);
+        Debug.Log("==============================================================bean goodType= " + good.goodType + " bean.count==" + good.count + " goodId = " + good.goodId);
+
     }
 
     public static string getGoodExtra(PlayerBackpackBean good) {
@@ -324,17 +354,31 @@ public class SQLHelper
 
     public void updateZHUANGBEI(PlayerBackpackBean good)
     {       
-        string value = getGoodExtra(good);
-        mManager.UpdateZhuangbeiInto(good.sqlGoodId, "'" + value + "'");
+        SQLDate date = new SQLDate();
+        date.type = TYPE_GOOD;
+        date.id = good.goodId;
+        date.extan = getGoodExtra(good);
+        date.goodId = good.sqlGoodId;
+        date.getClean();
+        mManager.UpdateZhuangbeiInto(date);
     }
     public void ChangeGoodExtra(PlayerBackpackBean good) {
-        string value = getGoodExtra(good);
-        mManager.UpdateZhuangbeiInto(good.sqlGoodId, "'" + value + "'");
+        SQLDate date = new SQLDate();
+        date.type = TYPE_GOOD;
+        date.id = good.goodId;
+        date.extan = getGoodExtra(good);
+        date.goodId = good.sqlGoodId;
+        date.getClean();
+        mManager.UpdateZhuangbeiInto(date);
     }
     public void ChangeLuiHui(long id,long level)
     {
-        string value = "" + level;
-        mManager.UpdateInto( value, TYPE_LUNHUI, id);
+        SQLDate date = new SQLDate();
+        date.extan = "" + level;
+        date.type = TYPE_LUNHUI;
+        date.id = id;
+        date.getClean();
+        mManager.UpdateInto(date);
     }
     public void updateGameLevel( long value)
     {
@@ -362,6 +406,7 @@ public class SQLHelper
             updateGame(GAME_ID_TIME, value);
         }
         mOutTime = value;
+        mManager.updateToNet();
     }
 
     public void addGuide(long value) {
@@ -535,13 +580,25 @@ public class SQLHelper
 
     private void updateGame(long id, string value)
     {
-//        Debug.Log("=================================updateGame value== " + value+ "id="+id);
-        mManager.UpdateInto("'"+value+ "'", TYPE_GAME, id);
+        //        Debug.Log("=================================updateGame value== " + value+ "id="+id);
+        SQLDate date = new SQLDate();
+        date.extan = value;
+        date.type = TYPE_GAME;
+        date.id = id;
+        date.getClean();
+        mManager.UpdateInto(date);
+
     }
     private void addGame(long id, string value)
     {
-//        Debug.Log("==================================addGame value== " + value);
-        mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, "'"+value+ "'" });
+        //        Debug.Log("==================================addGame value== " + value);
+        SQLDate date = new SQLDate();
+        date.extan =  value ;
+        date.type = TYPE_GAME;
+        date.id = id;
+        date.getClean();
+        mManager.InsertDataToSQL(date);
+
     }
 
     public void updateLunhuiValue(BigNumber value)
@@ -575,31 +632,58 @@ public class SQLHelper
     }
 
 
-    public void deleteAllDropDevice()
-    {
-        mDropDeviceCount.Clear();
-        mManager.deleteAllType(TYPE_DROP);
-    }
-
     private void updateDrop(long id, long value) {
         string value1 = ""+ value;
-        mManager.UpdateInto("'" + value1 + "'", TYPE_DROP, id);
+        SQLDate date = new SQLDate();
+        date.extan = "" + value;
+        date.type = TYPE_DROP;
+        date.id = id;
+        date.getClean();
+        mManager.UpdateInto(date);
     }
 
     private void addDrop(long id, long value)
     {
-        string value1 = ""+ value;
-        mManager.InsertDataToSQL(new[] { "" + TYPE_DROP, "" + id, "'" + value1 + "'" });
+        SQLDate date = new SQLDate();
+        date.extan = "" + value;
+        date.type = TYPE_DROP;
+        date.id = id;
+        date.getClean();
+        mManager.InsertDataToSQL(date);
     }
 
     private void updateGame(long id, long value)
     {
-        string value1 = "" + value;
-        mManager.UpdateInto("'" + value1+"'" , TYPE_GAME, id);
+        SQLDate date = new SQLDate();
+        date.extan = "" + value;
+        date.type = TYPE_GAME;
+        date.id = id;
+        date.getClean();
+        mManager.UpdateInto(date);
     }
     private void addGame(long id, long value)
     {
-        string value1 = "" + value;
-        mManager.InsertDataToSQL(new[] { "" + TYPE_GAME, "" + id, "'" + value1 + "'" });
+/*        string value1 = "" + value;
+        string isclean = "";
+        if (id == SQLHelper.GAME_ID_AUTO ||
+           id == SQLHelper.GAME_ID_LUNHUI ||
+           id == SQLHelper.GAME_ID_TIME ||
+           id == SQLHelper.GAME_ID_GUIDE ||
+           id == SQLHelper.GAME_ID_POINT_LUNHUI ||
+           id == SQLHelper.GAME_ID_NO_LUNHUI ||
+           id == SQLHelper.GAME_ID_IS_VOICE)
+        {
+            isclean = isclean+ SQLDate.CLEAR_NO;
+        }
+        else
+        {
+            isclean = isclean + SQLDate.CLEAR;
+        }*/
+        SQLDate date = new SQLDate();
+        date.extan = "" + value;
+        date.type = TYPE_GAME;
+        date.id = id;
+        date.getClean();
+        mManager.InsertDataToSQL(date);
     }
 }

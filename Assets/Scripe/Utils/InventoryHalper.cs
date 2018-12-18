@@ -22,6 +22,16 @@ public class InventoryHalper
     private InventoryHalper() {
         //读数据库中的玩家拥有的物品
         mList = SQLHelper.getIntance().getAllGood();
+        foreach (PlayerBackpackBean bean in mList) {
+            if (bean.goodType == SQLDate.GOOD_TYPE_CARD)
+            {
+                mCard.Add(bean);
+            }
+            else if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI)
+            {
+                mUser.Add(bean);
+            }
+        }
         mSamsaraLevel = SQLHelper.getIntance().getLunHui();
         mDropDeviceUsed = SQLHelper.getIntance().getDropDevice();
     }
@@ -29,49 +39,32 @@ public class InventoryHalper
 
     public void dealClear() {
         mDropDeviceUsed.Clear();
-        SQLHelper.getIntance().deleteAllDropDevice();
         mList.Clear();
-      /*  for (int i = 0; i < mList.Count;) {
-            PlayerBackpackBean bean = mList[i];
-            if (bean.goodId >= 3000001)
-            {
-                i++;
-                continue;
-            }
-            else {
-                mList.Remove(bean);
-            }
-        }*/
-        SQLHelper.getIntance().deleteAllGood();
+        mUser.Clear();
+        mCard.Clear();
+        SQLHelper.getIntance().deleteLuihui();
     }
-    public void useCard(PlayerBackpackBean bean, long count)
+    public void useCard(PlayerBackpackBean bean)
     {
-        bean.count -= (int)count;
-        SQLHelper.getIntance().ChangeGoodExtra(bean);
-        for (int i = 0; i < count; i++)
-        {
-            PlayerBackpackBean beantmp = new PlayerBackpackBean();
-            beantmp.copyBean(bean);
-            beantmp.count = 1;
-            beantmp.goodType = SQLDate.GOOD_TYPE_CARD;
-            beantmp.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();
-            SQLHelper.getIntance().addGood(beantmp);
-            mList.Add(beantmp);
-            mCard.Add(beantmp);
-        }
+        bean.goodType = SQLDate.GOOD_TYPE_CARD;
+        SQLHelper.getIntance().changeGoodTyppe(bean);
+        mCard.Add(bean);
+        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
     }
     public void removeUserCard(PlayerBackpackBean bean)
     {
-        foreach (PlayerBackpackBean b in mList) {
-            if (b.goodId == bean.goodId) {
-                b.count++;
-                SQLHelper.getIntance().ChangeGoodExtra(b);               
-                SQLHelper.getIntance().deleteGood(bean);
-                mList.Remove(bean);
-                mCard.Remove(bean);
-                break;
+        bean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
+        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
+        SQLHelper.getIntance().changeGoodTyppe(bean);
+        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
+        foreach (PlayerBackpackBean b in mList)
+        {
+            if (b.sqlGoodId == bean.sqlGoodId) {
+                b.goodType = bean.goodType;
             }
         }
+        mCard.Remove(bean);
+        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
     }
     public string getIcon(long id)
     {
@@ -109,7 +102,7 @@ public class InventoryHalper
     {
         bool isNew = true;
         PlayerBackpackBean bean = null;
-        if (id <= TABID_2_START_ID || id >= TABID_3_START_ID )
+        if (id <= TABID_2_START_ID )
         {
             foreach (PlayerBackpackBean tmp in mList)
             {
@@ -282,7 +275,7 @@ public class InventoryHalper
         SQLHelper.getIntance().updateZHUANGBEI(bean);
        
     }
-    public bool use(PlayerBackpackBean bean, long count)
+    public bool use(PlayerBackpackBean bean)
     {        
         return addRoleUse(bean);
     }
@@ -324,10 +317,21 @@ public class InventoryHalper
         }
         return false;
     }
-    public void unUse(PlayerBackpackBean bean, long count) {
+    public void unUse(PlayerBackpackBean bean) {
         mZhuangbeiCount--;
         bean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
-        SQLHelper.getIntance().changeGoodTyppe(bean.sqlGoodId, bean.goodType);
+        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
+        mUser.Remove(bean);
+        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
+        SQLHelper.getIntance().changeGoodTyppe(bean);
+        foreach (PlayerBackpackBean b in mList)
+        {
+            if (b.sqlGoodId == bean.sqlGoodId)
+            {
+                b.goodType = bean.goodType;
+            }
+        }
+        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
     }
 
     private bool addRoleUse(PlayerBackpackBean bean)
@@ -335,7 +339,8 @@ public class InventoryHalper
         if (mZhuangbeiCount < 7) {
             mZhuangbeiCount++;
             bean.goodType = SQLDate.GOOD_TYPE_ZHUANGBEI;
-            SQLHelper.getIntance().changeGoodTyppe(bean.sqlGoodId, bean.goodType);
+            SQLHelper.getIntance().changeGoodTyppe(bean);
+            mUser.Add(bean);
             return true;
         }
         return false;
@@ -413,6 +418,14 @@ public class InventoryHalper
         {
             bean.count -= count;
             SQLHelper.getIntance().ChangeGoodExtra(bean);
+        }
+        for (int i = 0; i < mUser.Count; i++) {
+            PlayerBackpackBean bean2 = mUser[i];
+            if (bean2 == bean)
+            {
+                mUser.Remove(bean2);
+                break;
+            }
         }
     }
 

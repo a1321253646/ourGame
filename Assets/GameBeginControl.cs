@@ -20,11 +20,11 @@ public class GameBeginControl : MonoBehaviour {
         }*/
         gameObject.transform.SetSiblingIndex(GameManager.getIntance().getUiLevel());
 
-        Resolution[] resolutions = Screen.resolutions;
+     //   Resolution[] resolutions = Screen.resolutions;
         //设置当前分辨率  
-        Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);
+     //   Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);
 
-        Screen.fullScreen = true;
+       // Screen.fullScreen = true;
 
     }
 	

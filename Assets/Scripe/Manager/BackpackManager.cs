@@ -114,10 +114,6 @@ public class BackpackManager
     public PlayControl getHero() {
         return mLevel.mPlayerControl;
     }
-
-    public List<PlayerBackpackBean> getInventoryInfos() {
-        return mInventoryList;
-    }
     public List<PlayerBackpackBean> getHeroEquipInfo() {
         return mHeroEquip;
     }
@@ -135,7 +131,7 @@ public class BackpackManager
     public bool use(PlayerBackpackBean bean, long count, int type) {
         if (type == TipControl.USE_TYPE)
         {
-            bool isUsed = InventoryHalper.getIntance().use(bean, count);
+            bool isUsed = InventoryHalper.getIntance().use(bean);
             if (!isUsed)
             {
                 return false;
@@ -166,14 +162,14 @@ public class BackpackManager
                 GameManager.getIntance().mCurrentCrystal = BigNumber.add(GameManager.getIntance().mCurrentCrystal, b1);
                 GameManager.getIntance().updataGasAndCrystal();
             }
-            InventoryHalper.getIntance().deleteIventory(bean, (int)count);            
+            InventoryHalper.getIntance().deleteIventory(bean, (int)1);            
             mInvertoryControl.update();
             mHeroControl.upDateUi();
             updateZhuangbeiItem(true);
         }
         else if (type == TipControl.UNUSE_TYPE)
         {
-            InventoryHalper.getIntance().unUse(bean, count);
+            InventoryHalper.getIntance().unUse(bean);
             mInvertoryControl.update();
             mLevel.ChangeEquip(bean, false);
             mHeroControl.upDateUi();
@@ -209,7 +205,7 @@ public class BackpackManager
             {
                 return false;
             }
-            InventoryHalper.getIntance().useCard(bean, count);
+            InventoryHalper.getIntance().useCard(bean);
             mInvertoryControl.update();
             mCardControl.upDateUi();
         }
