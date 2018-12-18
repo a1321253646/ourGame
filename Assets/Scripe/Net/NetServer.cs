@@ -53,7 +53,7 @@ public class NetServer
         if (www.error == null) 
         {
             Debug.Log("Upload complete!");
-            if (www.text != null && www.text != "")
+            if (www.text != null && www.text.Equals("ok"))
             {
                 SQLNetManager.getIntance().updateDate(mList,true);
                 mList = null;             

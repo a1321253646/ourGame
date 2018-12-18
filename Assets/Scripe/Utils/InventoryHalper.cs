@@ -49,14 +49,11 @@ public class InventoryHalper
         bean.goodType = SQLDate.GOOD_TYPE_CARD;
         SQLHelper.getIntance().changeGoodTyppe(bean);
         mCard.Add(bean);
-        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
     }
     public void removeUserCard(PlayerBackpackBean bean)
     {
         bean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
-        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
         SQLHelper.getIntance().changeGoodTyppe(bean);
-        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
         foreach (PlayerBackpackBean b in mList)
         {
             if (b.sqlGoodId == bean.sqlGoodId) {
@@ -64,7 +61,6 @@ public class InventoryHalper
             }
         }
         mCard.Remove(bean);
-        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
     }
     public string getIcon(long id)
     {
@@ -320,9 +316,7 @@ public class InventoryHalper
     public void unUse(PlayerBackpackBean bean) {
         mZhuangbeiCount--;
         bean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
-        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
         mUser.Remove(bean);
-        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
         SQLHelper.getIntance().changeGoodTyppe(bean);
         foreach (PlayerBackpackBean b in mList)
         {
@@ -331,7 +325,6 @@ public class InventoryHalper
                 b.goodType = bean.goodType;
             }
         }
-        Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count==" + bean.count + " goodId = " + bean.goodId);
     }
 
     private bool addRoleUse(PlayerBackpackBean bean)

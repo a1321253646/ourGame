@@ -72,16 +72,16 @@ public class SQLNetManager
     {
         while (true)
         {
-            Debug.Log("======================================SQLNetManager threadRun command count");
+     //       Debug.Log("======================================SQLNetManager threadRun command count");
             if (listIsEmpty())
             {
-                Debug.Log("======================================SQLNetManager Sleep");
+      //          Debug.Log("======================================SQLNetManager Sleep");
                 Thread.Sleep(1000);
             }
             else
             {
                 SqlNetDate command = getList(0);
-                Debug.Log("======================================SQLNetManager command.action = "+ command.action);
+       //         Debug.Log("======================================SQLNetManager command.action = "+ command.action);
                 if (command.action == 1)
                 {
                     changeInto(command.date);
@@ -205,7 +205,7 @@ public class SQLNetManager
     private int mNetFault = 0;
     public bool isNet = true;
     public void updateToNet() {
-        Debug.Log("======================updateToNet!");
+       // Debug.Log("======================updateToNet!");
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             Debug.Log("updateToNet 没有网络连接");
@@ -263,22 +263,22 @@ public class SQLNetManager
 
     public void changeInto(SQLDate data)
     {
-        Debug.Log("======================================SQLNetManager changeInto ");
+        //Debug.Log("======================================SQLNetManager changeInto ");
         if (data.type != SQLHelper.TYPE_GOOD)
         {
-            Debug.Log("======================================SQLNetManager data.type != SQLHelper.TYPE_GOOD ");
+           // Debug.Log("======================================SQLNetManager data.type != SQLHelper.TYPE_GOOD ");
           //  string commPath = "SELECT TYPE=" + data.type + " AND ID=" + data.id + " from " + tabName;
             string commPath = "SELECT* FROM " + tabName + " WHERE  ID=" + data.id + " AND TYPE="+ data.type; //SELECT* FROM Persons WHERE firstname = 'Thomas' OR lastname = 'Carter'
             SqliteDataReader reader = ExecuteSQLCommand(commPath);
-            Debug.Log("======================================SQLNetManager ExecuteSQLCommand end");
+           // Debug.Log("======================================SQLNetManager ExecuteSQLCommand end");
           
             int count = 0;
             while (this.reader.Read()) {
-                Debug.Log("======================================SQLNetManager this.reader.Read()");
+           //     Debug.Log("======================================SQLNetManager this.reader.Read()");
                 count++;
             }
-            Debug.Log("======================================SQLNetManager reader.Read() end count = "+ count);
-            Debug.Log(count);
+         //   Debug.Log("======================================SQLNetManager reader.Read() end count = "+ count);
+         //   Debug.Log(count);
             if (count < 1)
             {
                 commPath = getInsertComm(data);
@@ -288,24 +288,24 @@ public class SQLNetManager
                 commPath = "UPDATE " + tabName + " SET EXTAN='" + data.extan+"'" + ", ACTION=1";
                 commPath += " WHERE TYPE=" + data.type + " AND ID=" + data.id;
             }
-            Debug.Log("======================================SQLNetManager ExecuteSQLCommand start");
+         //   Debug.Log("======================================SQLNetManager ExecuteSQLCommand start");
             ExecuteSQLCommand(commPath);
-            Debug.Log("======================================SQLNetManager ExecuteSQLCommand ");
+          //  Debug.Log("======================================SQLNetManager ExecuteSQLCommand ");
         }
         else {
-            Debug.Log("======================================SQLNetManager data.type == SQLHelper.TYPE_GOOD ");
+          //  Debug.Log("======================================SQLNetManager data.type == SQLHelper.TYPE_GOOD ");
         //    string commPath = "SELECT GOODID=" + data.goodId +" from " + tabName;
             string commPath = "SELECT* FROM " + tabName + " WHERE  GOODID=" + data.goodId;
-            Debug.Log("======================================SQLNetManager ExecuteSQLCommand start");
+           // Debug.Log("======================================SQLNetManager ExecuteSQLCommand start");
             SqliteDataReader reader = ExecuteSQLCommand(commPath);
-            Debug.Log("======================================SQLNetManager ExecuteSQLCommand ");
+           // Debug.Log("======================================SQLNetManager ExecuteSQLCommand ");
             int count = 0;
             while (this.reader.Read())
             {
-                Debug.Log("======================================SQLNetManager this.reader.Read()");
+            //    Debug.Log("======================================SQLNetManager this.reader.Read()");
                 count++;
             }
-            Debug.Log("======================================SQLNetManager reader.Read() end count = " + count);
+            //Debug.Log("======================================SQLNetManager reader.Read() end count = " + count);
             if (count < 1)
             {
                 commPath = getInsertComm(data);
@@ -315,9 +315,9 @@ public class SQLNetManager
                 commPath = "UPDATE " + tabName + " SET EXTAN='" + data.extan + "', ACTION=1"+", GOODTYPE="+data.goodType;
                 commPath += " WHERE GOODID=" + data.goodId;
             }
-            Debug.Log("======================================SQLNetManager ExecuteSQLCommand start");
+       //     Debug.Log("======================================SQLNetManager ExecuteSQLCommand start");
             ExecuteSQLCommand(commPath);
-            Debug.Log("======================================SQLNetManager ExecuteSQLCommand ");
+         //   Debug.Log("======================================SQLNetManager ExecuteSQLCommand ");
         }
     }
     

@@ -64,7 +64,7 @@ public class CardUiControl : MonoBehaviour {
       //  {
         calcuator = new CalculatorUtil(mSkill.calculator, mSkill.effects_parameter);
       //  }
-        if (mBt == null) {
+   /*     if (mBt == null) {
             mBt = transform.GetComponent<Button>();
             if (type == TYPE_CARD_ITME)
             {
@@ -98,7 +98,7 @@ public class CardUiControl : MonoBehaviour {
                 mBt.GetComponent<Button>().enabled = false;
             }
            
-        }
+        }*/
         update();
     }
     private void onClick()

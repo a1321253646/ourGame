@@ -26,7 +26,6 @@ public class SQLDate
             if (id == SQLHelper.GAME_ID_AUTO ||
                id == SQLHelper.GAME_ID_LUNHUI ||
                id == SQLHelper.GAME_ID_TIME ||
-               id == SQLHelper.GAME_ID_GUIDE ||
                id == SQLHelper.GAME_ID_POINT_LUNHUI ||
                id == SQLHelper.GAME_ID_NO_LUNHUI ||
                id == SQLHelper.GAME_ID_IS_VOICE) 
@@ -34,7 +33,7 @@ public class SQLDate
                 isClean = SQLDate.CLEAR_NO;
             }
         }
-        else if (type == SQLHelper.TYPE_LUNHUI) {
+        else if (type == SQLHelper.TYPE_LUNHUI || type == SQLHelper.TYPE_GUIDE) {
             isClean = SQLDate.CLEAR_NO;
         }
     }

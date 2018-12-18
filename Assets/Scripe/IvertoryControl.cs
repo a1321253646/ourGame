@@ -247,6 +247,10 @@ public class IvertoryControl : MonoBehaviour {
         PlayerBackpackBean bean;
         long addCount = 0;
         mGoodsControl = GetComponentsInChildren<GoodControl>();
+        foreach (GoodControl g in mGoodsControl) {
+            g.id = -1;
+        }
+
         for (int i = 0; i < goodList.Count; i++) {
             bean = goodList[i];
             addCount = bean.count;

@@ -30,7 +30,7 @@ public class SQLHelper
     public static long GAME_ID_LUNHUI = 4;
     public static long GAME_ID_MOJING = 5;
     public static long GAME_ID_TIME = 6;
-    public static long GAME_ID_GUIDE = 7;
+//    public static long GAME_ID_GUIDE = 7;
     public static long GAME_ID_POINT_PLAYER = 8;
     public static long GAME_ID_POINT_BACKPACK = 9;
     public static long GAME_ID_POINT_LUNHUI = 10;
@@ -50,6 +50,7 @@ public class SQLHelper
     public static long TYPE_ZHUANGBEI = 5;
     public static long TYPE_LUNHUI = 6;
     public static long TYPE_DROP = 7;
+    public static long TYPE_GUIDE = 8;
 
     List<long> mGuide = new List<long>();
     List<long> mBook = new List<long>();
@@ -106,6 +107,12 @@ public class SQLHelper
                 {
                     mBook.Add(date.id);
                 }
+                else if (date.type == TYPE_GUIDE)
+                {
+                  //  long id = long.Parse(date.extan);
+                    mGuide.Add(date.id);
+                    Debug.Log("读取数据库 已经引导 " + date.id);
+                }
                 else if (date.type == TYPE_GAME)
                 {
                     if (date.id == GAME_ID_LEVEL)
@@ -135,12 +142,12 @@ public class SQLHelper
                         mOutTime = long.Parse(date.extan);
                         Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
-                    else if (date.id == GAME_ID_GUIDE)
+                 /*   else if (date.id == GAME_ID_GUIDE)
                     {
                         long id = long.Parse(date.extan);
                         mGuide.Add(id);
                         Debug.Log("读取数据库 已经引导 " + id);
-                    }
+                    }*/
                     else if (date.id == GAME_ID_POINT_PLAYER)
                     {
                         isShowPlayerPoint = long.Parse(date.extan);
@@ -333,7 +340,6 @@ public class SQLHelper
         date.extan = getGoodExtra(good);
         date.getClean();
         mManager.changeGoodType(date);
-        Debug.Log("==============================================================bean goodType= " + good.goodType + " bean.count==" + good.count + " goodId = " + good.goodId);
 
     }
 
@@ -359,6 +365,7 @@ public class SQLHelper
         date.id = good.goodId;
         date.extan = getGoodExtra(good);
         date.goodId = good.sqlGoodId;
+        date.goodType = good.goodType;
         date.getClean();
         mManager.UpdateZhuangbeiInto(date);
     }
@@ -368,6 +375,7 @@ public class SQLHelper
         date.id = good.goodId;
         date.extan = getGoodExtra(good);
         date.goodId = good.sqlGoodId;
+        date.goodType = good.goodType;
         date.getClean();
         mManager.UpdateZhuangbeiInto(date);
     }
@@ -411,7 +419,13 @@ public class SQLHelper
 
     public void addGuide(long value) {
         Debug.Log("addGuide  =" + value);
-        addGame(GAME_ID_GUIDE, value);
+        SQLDate date = new SQLDate();
+        date.extan = "-1";
+        date.type = TYPE_GUIDE;
+        date.id = value;
+        date.getClean();
+        mManager.InsertDataToSQL(date);
+       // addGame(GAME_ID_GUIDE, value);
     }
 
     public void updateHeroLevel(long value)

@@ -176,6 +176,12 @@ public class SQLManager : MonoBehaviour
                     date.goodId = SQLDate.DEFAULT_GOOD_ID;
                     date.isClean = SQLDate.CLEAR;
                 }
+                else if (date.type == SQLHelper.TYPE_GUIDE)
+                {
+                    date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                    date.goodId = SQLDate.DEFAULT_GOOD_ID;
+                    date.isClean = SQLDate.CLEAR_NO;
+                }
                 else if (date.type == SQLHelper.TYPE_GAME)
                 {
                     date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
@@ -183,7 +189,7 @@ public class SQLManager : MonoBehaviour
                     if (date.id == SQLHelper.GAME_ID_AUTO ||
                        date.id == SQLHelper.GAME_ID_LUNHUI ||
                        date.id == SQLHelper.GAME_ID_TIME ||
-                       date.id == SQLHelper.GAME_ID_GUIDE ||
+                      // date.id == SQLHelper.GAME_ID_GUIDE ||
                        date.id == SQLHelper.GAME_ID_POINT_LUNHUI ||
                        date.id == SQLHelper.GAME_ID_NO_LUNHUI ||
                        date.id == SQLHelper.GAME_ID_IS_VOICE)
@@ -249,14 +255,14 @@ public class SQLManager : MonoBehaviour
     /// <param name="queryString"></param>
     public SqliteDataReader ExecuteSQLCommand(string queryString)
     {
-        Debug.Log("ExecuteSQLCommand command  "+ queryString);
-        Debug.Log("ExecuteSQLCommand connection  =" + connection);
-        Debug.Log("ExecuteSQLCommand connection  =" + connection.State);
+ //       Debug.Log("ExecuteSQLCommand command  "+ queryString);
+ //       Debug.Log("ExecuteSQLCommand connection  =" + connection);
+ //       Debug.Log("ExecuteSQLCommand connection  =" + connection.State);
         command = connection.CreateCommand();
-        Debug.Log("ExecuteSQLCommand  connection.CreateCommand()");
+ //       Debug.Log("ExecuteSQLCommand  connection.CreateCommand()");
         this.command.CommandText = queryString;
         this.reader = this.command.ExecuteReader();
-        Debug.Log("ExecuteSQLCommand  reader = "+ reader.ToString());
+ //       Debug.Log("ExecuteSQLCommand  reader = "+ reader.ToString());
         return this.reader;
     }
 
@@ -414,16 +420,16 @@ public class SQLManager : MonoBehaviour
 
     private void threadRun() {
         while (connection != null) {
-            Debug.Log("======================================threadRun command count");
+            //Debug.Log("======================================threadRun command count");
             if (listIsEmpty())
             {
                 Thread.Sleep(1000);
             }
             else {
                 string command = getList(0);
-                Debug.Log("threadRun command = " + command);
+            //    Debug.Log("threadRun command = " + command);
                 ExecuteSQLCommand(command);
-                Debug.Log("threadRun command success " );
+             //   Debug.Log("threadRun command success " );
                 removeList(command);
             }
         }
