@@ -70,6 +70,7 @@ public class LevelManager : MonoBehaviour {
         for (int i = 1; i <= 10; i++)
         {
             NengliangkuaiControl tmp1 = GameObject.Find("nengliangkuai_" + i).GetComponent<NengliangkuaiControl>();
+            tmp1.init();
             tmp1.setCount(nengLiangDian);
             mNengLiangKuai.Add(tmp1);
         }

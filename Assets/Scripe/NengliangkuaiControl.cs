@@ -9,18 +9,24 @@ public class NengliangkuaiControl : MonoBehaviour {
     private Image mImage;
     AnimalControlBase mAnimalControl;
     Sprite endSprite;
+    bool isInit = false;
     void Start () {
+
+    }
+
+    public void init() {
         if (mAnimalControl == null)
         {
             creatAnimal();
         }
+        isInit = true;
     }
 
     void Update()
     {
-        if (mAnimalControl == null)
+        if (!isInit)
         {
-            creatAnimal();
+            return;
         }
         mAnimalControl.update();
     }
@@ -37,8 +43,8 @@ public class NengliangkuaiControl : MonoBehaviour {
     }
 
     public void setCount(float count) {
-        if (mAnimalControl == null) {
-            creatAnimal();
+        if (!isInit) {
+            return;
         }
         if (count >= index)
         {

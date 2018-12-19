@@ -62,6 +62,9 @@ public class CardControl : MonoBehaviour
         }
         else if (STATUE_CARP_UP == mStatue)
         {
+            Debug.Log(" mManager=   " + mManager);
+            Debug.Log(" mManager.getLocalManager()=   " + mManager.getLocalManager());
+
             LocalBean mLocalLink = mManager.getLocalManager().mLocalLink;
             SkillLocalBean bean = new SkillLocalBean();
             

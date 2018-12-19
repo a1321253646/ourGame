@@ -18,6 +18,10 @@ public class HeroRoleControl : MonoBehaviour {
     ResourceBean resourceData;
     private void Start()
     {
+
+    }
+    bool isInit = false;
+    public void init() {
         Hero mHero = JsonUtils.getIntance().getHeroData();
         resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
         mRoleShow = GameObject.Find("heroRole").GetComponent<Image>();
@@ -26,6 +30,7 @@ public class HeroRoleControl : MonoBehaviour {
         mAnimalControl.start();
         mFri = gameObject.transform.localPosition;
     }
+
     private void Update()
     {
         if (isShow) {
@@ -56,6 +61,9 @@ public class HeroRoleControl : MonoBehaviour {
     private void showUi()
     {
         isShow = true;
+        if (!isInit) {
+            init();
+        }
         //gameObject.transform.TransformPoint(new Vector2(0,0));
         
         gameObject.transform.localPosition = new Vector2(0, 0);

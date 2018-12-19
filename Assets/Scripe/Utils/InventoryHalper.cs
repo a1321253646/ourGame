@@ -22,21 +22,11 @@ public class InventoryHalper
     private InventoryHalper() {
         //读数据库中的玩家拥有的物品
         mList = SQLHelper.getIntance().getAllGood();
-        foreach (PlayerBackpackBean bean in mList) {
-            if (bean.goodType == SQLDate.GOOD_TYPE_CARD)
-            {
-                mCard.Add(bean);
-            }
-            else if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI)
-            {
-                mUser.Add(bean);
-            }
-        }
+        mCard = SQLHelper.getIntance().getCard();
+        mUser = SQLHelper.getIntance().getUserd();
         mSamsaraLevel = SQLHelper.getIntance().getLunHui();
         mDropDeviceUsed = SQLHelper.getIntance().getDropDevice();
     }
-
-
     public void dealClear() {
         mDropDeviceUsed.Clear();
         mList.Clear();

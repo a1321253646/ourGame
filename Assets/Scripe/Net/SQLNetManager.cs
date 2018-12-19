@@ -81,7 +81,7 @@ public class SQLNetManager
             else
             {
                 SqlNetDate command = getList(0);
-       //         Debug.Log("======================================SQLNetManager command.action = "+ command.action);
+                //         Debug.Log("======================================SQLNetManager command.action = "+ command.action);
                 if (command.action == 1)
                 {
                     changeInto(command.date);
@@ -98,8 +98,16 @@ public class SQLNetManager
                 {
                     cleanAll();
                 }
-                else if (command.action == 5) {
+                else if (command.action == 5)
+                {
                     updateToNet();
+                }
+                else if (command.action == 6)
+                {
+                    cleanAllNet();
+                }
+                else if (command.action == 7) {
+
                 }
                 removeList(command);
             }
@@ -226,39 +234,46 @@ public class SQLNetManager
         if (NetServer.getIntance().isUpdate) {
             return;
         }
-        List<SqlNetDate> all = readAllTable();
-        NetServer.getIntance().updateNet(all);
+        readAllTable();
+        NetServer.getIntance().updateNet(mUpAll);
 
     }
-    public void updateDate(List<SqlNetDate> list , bool isSuccess) {
-        if (list != null && list.Count > 0) {
-            foreach (SqlNetDate data in list) {
-                string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + data.date.type +
-                                                                  " AND ACTION=" + data.action +
-                                                                  " AND ID=" + data.date.id+
-                                                                  " AND EXTAN='" + data.date.extan +"'"+
-                                                                  " AND GOODID=" + data.date.goodId +
-                                                                  " AND GOODTYPE=" + data.date.goodType;
-                ExecuteSQLCommand(commandString);
+    List<SqlNetDate> mUpAll = new List<SqlNetDate>();
+    Object mUpdateLock = new Object();
+
+    public void updateDate( bool isSuccess) {
+        lock (mUpdateLock) {
+            if (mUpAll != null && mUpAll.Count > 0)
+            {
+                foreach (SqlNetDate data in mUpAll)
+                {
+                    string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + data.date.type +
+                                                                      " AND ACTION=" + data.action +
+                                                                      " AND ID=" + data.date.id +
+                                                                      " AND EXTAN='" + data.date.extan + "'" +
+                                                                      " AND GOODID=" + data.date.goodId +
+                                                                      " AND GOODTYPE=" + data.date.goodType;
+                    ExecuteSQLCommand(commandString);
+                }
+            }
+            if (isSuccess)
+            {
+                SQLDate date = new SQLDate();
+                date.type = SQLHelper.TYPE_GAME;
+                date.id = SQLHelper.GAME_ID_IS_NET;
+                date.extan = "" + 1;
+                date.goodId = -1;
+                date.goodType = -1;
+                date.isClean = SQLDate.CLEAR_NO;
+                changeInto(date);
+                isNet = true;
+                mNetFault = 0;
+            }
+            else
+            {
+                mNetFault++;
             }
         }
-        if (isSuccess)
-        {
-            SQLDate date = new SQLDate();
-            date.type = SQLHelper.TYPE_GAME;
-            date.id = SQLHelper.GAME_ID_IS_NET;
-            date.extan = "" + 1;
-            date.goodId = -1;
-            date.goodType = -1;
-            date.isClean = SQLDate.CLEAR_NO;
-            changeInto(date);
-            isNet = true;
-            mNetFault = 0;
-        }
-        else {
-            mNetFault++;
-        }
-
     }
 
     public void changeInto(SQLDate data)
@@ -336,6 +351,15 @@ public class SQLNetManager
         ExecuteSQLCommand(commandString);
     }
     public void cleanAll() {
+        cleanAllLocal();
+        cleanAllNet();
+    }
+    public void cleanAllLocal()
+    {
+        string commandString = "DELETE FROM  " + tabName;
+        ExecuteSQLCommand(commandString);
+    }
+    public void cleanAllNet() {
         string commandString = "INSERT INTO " + tabName + " VALUES (4,-1,-1,'0',-1,-1,2)";
         ExecuteSQLCommand(commandString);
     }
@@ -352,33 +376,28 @@ public class SQLNetManager
         return commandString;
     }
 
-    public List<SqlNetDate> readAllTable() {
-        this.command = this.connection.CreateCommand();
-        this.command.CommandText = "select * from "+tabName;
-        this.reader = this.command.ExecuteReader();
-        List<SqlNetDate> list = new List<SqlNetDate>();
-        while (this.reader.Read())
-        {
-            SqlNetDate net = new SqlNetDate();
-            net.action = reader.GetInt64(reader.GetOrdinal("ACTION"));
-            SQLDate date = new SQLDate();
-            date.type = reader.GetInt64(reader.GetOrdinal("TYPE"));
-            date.id = reader.GetInt64(reader.GetOrdinal("ID"));
-            date.extan = reader.GetString(reader.GetOrdinal("EXTAN"));
-            date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
-            date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
-            date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
-            Debug.Log("SqlNetDate readAllTable" + date.toString());
-            net.date = date;
-            list.Add(net);
-        }
-        Debug.Log("SqlNetDate readAllTable list " + list.Count);
-        if (list.Count > 0)
-        {
-            return list;
-        }
-        else {
-            return null;
+    public void readAllTable() {
+        lock (mUpdateLock) {
+            this.command = this.connection.CreateCommand();
+            this.command.CommandText = "select * from " + tabName;
+            this.reader = this.command.ExecuteReader();
+            mUpAll.Clear();
+            mUpAll = new List<SqlNetDate>();
+            while (this.reader.Read())
+            {
+                SqlNetDate net = new SqlNetDate();
+                net.action = reader.GetInt64(reader.GetOrdinal("ACTION"));
+                SQLDate date = new SQLDate();
+                date.type = reader.GetInt64(reader.GetOrdinal("TYPE"));
+                date.id = reader.GetInt64(reader.GetOrdinal("ID"));
+                date.extan = reader.GetString(reader.GetOrdinal("EXTAN"));
+                date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
+                date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
+                date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
+                Debug.Log("SqlNetDate readAllTable" + date.toString());
+                net.date = date;
+                mUpAll.Add(net);
+            }
         }
     }
 

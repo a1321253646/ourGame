@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Newtonsoft.Json.Linq;
+using System;
 
 public class NetServer 
 {
@@ -20,7 +21,8 @@ public class NetServer
         json.Add("user", SystemInfo.deviceUniqueIdentifier);
         if (mList != null && mList.Count > 0) {
             JArray array = new JArray();
-            foreach (SqlNetDate date in mList) {
+            for (int i = 0; i< mList.Count;i++) {
+                SqlNetDate date = mList[i];
                 if (date.date.type == SQLHelper.TYPE_GAME && date.date.id == SQLHelper.GAME_ID_IS_NET) {
                     mList.Remove(date);
                     continue;
@@ -50,12 +52,13 @@ public class NetServer
         while (!www.isDone) {
             Thread.Sleep(100);
         }
+
         if (www.error == null) 
         {
-            Debug.Log("Upload complete!");
+            Debug.Log("Upload complete! "+ www.text);
             if (www.text != null && www.text.Equals("ok"))
             {
-                SQLNetManager.getIntance().updateDate(mList,true);
+                SQLNetManager.getIntance().updateDate(true);
                 mList = null;             
             }
             isUpdate = false;
@@ -63,12 +66,50 @@ public class NetServer
         else
         {
             isUpdate = false;
-            SQLNetManager.getIntance().updateDate(null,false);
+            SQLNetManager.getIntance().updateDate(false);
             mList = null;
             Debug.Log("Http错误代码:" + www.error);
 
         }
 
+    }
+    public string mLocal;
+
+    public void clearAllNet() {
+        JObject json = new JObject();
+        json.Add("user", SystemInfo.deviceUniqueIdentifier);
+        JArray array = new JArray();
+        JObject jb = new JObject();
+        jb.Add("action", 4);
+        jb.Add("type", -1);
+        jb.Add("id", -1);
+        jb.Add("goodId", -1);
+        jb.Add("goodtype", -1);
+        jb.Add("isclean", -1);
+        jb.Add("extra", "-1");
+        array.Add(jb);
+        json.Add("date", array);
+        Dictionary<string, string> dir = new Dictionary<string, string>();
+        dir.Add("Content-Type", "application/json");
+        //   dir.Add("Connection", "close");
+        byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
+
+        WWW www = new WWW("http://192.168.0.111:8809/ourgame", pData, dir);
+        while (!www.isDone)
+        {
+            Thread.Sleep(100);
+        }
+        if (www.error == null && www.text != null && www.text.Equals("ok"))
+        {
+            Debug.Log("Upload complete!");
+        }
+        else
+        {
+            Debug.Log("Http错误代码:" + www.error);
+            SqlNetDate date = new SqlNetDate();
+            date.action = 6;
+            SQLNetManager.getIntance().addList(date);
+        }
     }
 
     private NetServer() {
@@ -78,5 +119,60 @@ public class NetServer
     public static NetServer  getIntance()
     {
         return mIntance;
+    }
+    public void getLocl()
+    {
+        JObject json = new JObject();
+        json.Add("user", SystemInfo.deviceUniqueIdentifier);
+        JArray array = new JArray();
+        JObject jb = new JObject();
+        jb.Add("action", 5);
+        jb.Add("type", -1);
+        jb.Add("id", -1);
+        jb.Add("goodId", -1);
+        jb.Add("goodtype", -1);
+        jb.Add("isclean", -1);
+        jb.Add("extra", "-1");
+        array.Add(jb);
+        json.Add("date", array);
+        Dictionary<string, string> dir = new Dictionary<string, string>();
+        dir.Add("Content-Type", "application/json");
+        //   dir.Add("Connection", "close");
+        byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
+
+        WWW www = new WWW("http://192.168.0.111:8809/ourgame", pData, dir);
+        while (!www.isDone)
+        {
+            Thread.Sleep(100);
+        }
+        if (www.error == null )
+        {
+            Debug.Log("Upload complete! www.text ="+ www.text);
+           
+            if (www.text != null && !www.text.Equals("error"))
+            {
+                Debug.Log("Upload complete! www.text leng = " + www.text.Length);
+                mLocal = www.text;
+            }
+            else {
+                mLocal = null;
+            }
+        }
+        else
+        {
+            Debug.Log("Http错误代码:" + www.error);
+            mLocal = null;
+        }
+    }
+    public bool isHaveLocal() {
+        if (mLocal != null && mLocal.Length > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public string getLocal()
+    {
+        return mLocal;
     }
 }

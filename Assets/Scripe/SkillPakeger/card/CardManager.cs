@@ -22,7 +22,7 @@ public class CardManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         mCanvas = GameObject.Find("Canvas").transform;
-        mLocalManage = GameObject.Find("Manager").GetComponent<LevelManager>().getLocalManager();
+        
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         for (int i = 1; i <= 8; i++ ){
             mCardLoaclList.Add(GameObject.Find("kapai_local_"+i));
@@ -164,6 +164,9 @@ public class CardManager : MonoBehaviour {
         return true;
     }
     public LocalManager getLocalManager() {
+        if (mLocalManage == null) {
+            mLocalManage = GameObject.Find("Manager").GetComponent<LevelManager>().getLocalManager();
+        }
         return mLocalManage;
     }
     public Attacker getHero() {

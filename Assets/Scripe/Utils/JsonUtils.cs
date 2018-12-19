@@ -72,7 +72,12 @@ public class JsonUtils
     List<StringJsonBean> mStringDate;
     Dictionary<long, SamsaraJsonBean> mSamsaraDate = new Dictionary<long, SamsaraJsonBean>();
     private JsonUtils() {
-        if (GameManager.isAndroid) {
+
+    }
+
+    public void initBefore() {
+        if (GameManager.isAndroid)
+        {
             levelFile = "level";
             heroFile = "hero";
             enemyFile = "enemy";
@@ -588,6 +593,9 @@ public class JsonUtils
 
 
     public  ResourceBean getEnemyResourceData(long resourceId){
+        if(resourceData == null) {
+            return null;
+        }
 		foreach (ResourceBean resource in resourceData) {
 			if (resource.id == resourceId) {
 				return resource;

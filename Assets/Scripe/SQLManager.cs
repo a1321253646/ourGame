@@ -36,19 +36,27 @@ public class SQLManager : MonoBehaviour
     private static int IDCount;
     Thread th1 = null;
     NetHelper mNetHelper = new NetHelper();
-    public void Start()
-    {
+
+    private SQLManager() {
 
     }
-    public void init() {
+
+    private static SQLManager mIntance = new SQLManager();
+    public static SQLManager getIntance() {
+        return mIntance;
+    }
+
+    public int init(string sqlName, string tabName) {
         if (!GameManager.isAndroid)
         {
+            this.sqlName = sqlName;
+            this.tabName = tabName;
             this.CreateSQL();
-
         }
-        this.OpenSQLaAndConnect();
+        int updateStatus = this.OpenSQLaAndConnect();
         th1 = new Thread(threadRun);
         th1.Start();
+        return updateStatus;
     }
 
     //创建数据库文件
@@ -78,8 +86,9 @@ public class SQLManager : MonoBehaviour
         }
     }
     //打开数据库
-    public void OpenSQLaAndConnect()
+    public int OpenSQLaAndConnect()
     {
+        bool isHaveLocal = false;
         if (GameManager.isAndroid)
         {
             sqlName = sqlName_new;
@@ -87,7 +96,7 @@ public class SQLManager : MonoBehaviour
             string appDBPath = Application.persistentDataPath + "/" + sqlName;
             if (!File.Exists(appDBPath))//创建新的数据库
             {
-                creatLocalAndroid();
+                isHaveLocal= creatLocalAndroid();
                 //用www先从Unity中下载到数据库
                 /*               Debug.Log("  Android 拷贝数据库 = ");
                                WWW loadDB = new WWW("jar:file://" + Application.dataPath + "!/assets/" + sqlName);
@@ -100,6 +109,7 @@ public class SQLManager : MonoBehaviour
 
             }
             else {
+                isHaveLocal = true;
                 this.connection = new SqliteConnection("URI=file:" + appDBPath);
             }
         }
@@ -109,15 +119,45 @@ public class SQLManager : MonoBehaviour
         }
         this.connection.Open();
         Debug.Log("  打开数据库 结束 ");
+        if (GameManager.isAndroid)
+        {
+            string commPath = "SELECT* FROM " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_IS_UPDATE + " AND TYPE=" + SQLHelper.TYPE_GAME; //SELECT* FROM Persons WHERE firstname = 'Thomas' OR lastname = 'Carter'
+            SqliteDataReader reader = ExecuteSQLCommand(commPath);
+            int count = 0;
+            while (this.reader.Read())
+            {
+                count++;
+            }
+            if (count > 0)
+            {
+                return 0;
+            }
+            else
+            {
+                if (isHaveLocal)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        }
+        else {
+            return 0;
+        }
      //   GameObject.Find("game_begin").GetComponent<GameBeginControl>().init();
     }
 
-    private void creatLocalAndroid (){
+    private bool creatLocalAndroid (){
+        bool isHavaLocal = false;
         sqlName = sqlName_old;
         tabName = tabName_old;
         string appDBPath = Application.persistentDataPath + "/" + sqlName;
         if (File.Exists(appDBPath))
         {//有旧的存档
+            isHavaLocal = true;
             this.connection = new SqliteConnection("URI=file:" + appDBPath);
             this.connection.Open();
             List<SQLDate> list = readAllTableOld();
@@ -186,20 +226,7 @@ public class SQLManager : MonoBehaviour
                 {
                     date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
                     date.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    if (date.id == SQLHelper.GAME_ID_AUTO ||
-                       date.id == SQLHelper.GAME_ID_LUNHUI ||
-                       date.id == SQLHelper.GAME_ID_TIME ||
-                      // date.id == SQLHelper.GAME_ID_GUIDE ||
-                       date.id == SQLHelper.GAME_ID_POINT_LUNHUI ||
-                       date.id == SQLHelper.GAME_ID_NO_LUNHUI ||
-                       date.id == SQLHelper.GAME_ID_IS_VOICE)
-                    {
-                        date.isClean = SQLDate.CLEAR_NO;
-                    }
-                    else {
-                        date.isClean = SQLDate.CLEAR ;
-                    }
-                    date.isClean = SQLDate.CLEAR;
+                    date.getClean();
                 }
                 InsertDataToSQL(date, true);
             }
@@ -219,6 +246,7 @@ public class SQLManager : MonoBehaviour
             appDBPath = Application.persistentDataPath + "/" + sqlName;
             this.connection = new SqliteConnection("URI=file:" + appDBPath);
         }
+        return isHavaLocal;
     }
 
     private void creatLocl888Android() {
@@ -255,14 +283,14 @@ public class SQLManager : MonoBehaviour
     /// <param name="queryString"></param>
     public SqliteDataReader ExecuteSQLCommand(string queryString)
     {
- //       Debug.Log("ExecuteSQLCommand command  "+ queryString);
- //       Debug.Log("ExecuteSQLCommand connection  =" + connection);
- //       Debug.Log("ExecuteSQLCommand connection  =" + connection.State);
+        Debug.Log("ExecuteSQLCommand command  "+ queryString);
+        Debug.Log("ExecuteSQLCommand connection  =" + connection);
+        Debug.Log("ExecuteSQLCommand connection  =" + connection.State);
         command = connection.CreateCommand();
- //       Debug.Log("ExecuteSQLCommand  connection.CreateCommand()");
+        Debug.Log("ExecuteSQLCommand  connection.CreateCommand()");
         this.command.CommandText = queryString;
         this.reader = this.command.ExecuteReader();
- //       Debug.Log("ExecuteSQLCommand  reader = "+ reader.ToString());
+        Debug.Log("ExecuteSQLCommand  reader = "+ reader.ToString());
         return this.reader;
     }
 
@@ -308,9 +336,13 @@ public class SQLManager : MonoBehaviour
     /// </summary>
     /// 
     public void InsertDataToSQL(SQLDate date) {
-        InsertDataToSQL(date, false);
+        InsertDataToSQL(date, false,true);
     }
-    public void InsertDataToSQL(SQLDate data, bool isNow)
+    public void InsertDataToSQL(SQLDate data, bool isNow) {
+        InsertDataToSQL(data, isNow, true);
+    }
+
+    public void InsertDataToSQL(SQLDate data, bool isNow,bool isUpToNet)
     {
         string commandString = "INSERT INTO " + tabName + " VALUES (";
 
@@ -327,7 +359,9 @@ public class SQLManager : MonoBehaviour
         else {
             addList(commandString);
         }
-        mNetHelper.changeInto(data);
+        if (isUpToNet) {
+            mNetHelper.changeInto(data);
+        }       
         //     
     }
     public void changeGoodType(SQLDate date)
@@ -388,6 +422,25 @@ public class SQLManager : MonoBehaviour
         mNetHelper.changeInto(date);
         return true;
     }
+
+    public void saveLocal(string str) {
+        Debug.Log("saveLocal");
+        Newtonsoft.Json.Linq.JObject jb = Newtonsoft.Json.Linq.JObject.Parse(str);
+        var arrdata = jb.Value<Newtonsoft.Json.Linq.JArray>("date");
+        Debug.Log(" Newtonsoft.Json.Linq.JArray.Parse(str);");
+        List<SQLDate> list = arrdata.ToObject<List<SQLDate>>();
+        Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
+
+        string comm = "DELETE FROM " + tabName;
+        ExecuteSQLCommand(comm);
+        SQLNetManager.getIntance().cleanAllLocal();
+        foreach (SQLDate date in list) {
+            Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
+            InsertDataToSQL(date, true,false);
+        }
+        Debug.Log("saveLocal end");
+    }
+
 
     private List<string> mWaitList = new List<string>();
 

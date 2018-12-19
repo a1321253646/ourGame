@@ -28,6 +28,8 @@ public class SQLDate
                id == SQLHelper.GAME_ID_TIME ||
                id == SQLHelper.GAME_ID_POINT_LUNHUI ||
                id == SQLHelper.GAME_ID_NO_LUNHUI ||
+               id == SQLHelper.GAME_ID_FRIST_START||
+               id == SQLHelper.GAME_ID_IS_UPDATE ||
                id == SQLHelper.GAME_ID_IS_VOICE) 
             {
                 isClean = SQLDate.CLEAR_NO;

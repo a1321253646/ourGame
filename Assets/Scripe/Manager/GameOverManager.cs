@@ -13,6 +13,7 @@ public class GameOverManager : MonoBehaviour {
     private Button  mShowBt, mWinBt, mLoseBt;
 	// Use this for initialization
 	void Start () {
+        GameManager.getIntance().mInitStatus = 10;
         SceneManager.LoadScene(0);
     }
 
