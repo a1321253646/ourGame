@@ -15,14 +15,12 @@ public class GoodControl : MonoBehaviour {
     private Image mImage;
     private Image mBack;
     private Image mPoint;
-    private Text mText;
     private Text mLv;
     public long id = -1;
     private long count;
     private long mMaxCout = 1;
     PlayerBackpackBean bean;
     private Button mBt;
-    public bool isHero = false;
     bool isShowPoint = false;
 
     void Start()
@@ -31,24 +29,12 @@ public class GoodControl : MonoBehaviour {
         mImage = GetComponentsInChildren<Image>()[1];
         mBack = GetComponentsInChildren<Image>()[0];
         mPoint = GetComponentsInChildren<Image>()[2];
-        mText = GetComponentsInChildren<Text>()[0];
         mBt = GetComponent<Button>();
-        mLv = GetComponentsInChildren<Text>()[1];
+        mLv = GetComponentsInChildren<Text>()[0];
         //        Debug.Log("mBt = " + mBt);
         if (mImage != null)
         {
-            if (id == -1)
-            {
-                mImage.sprite = null;
-                if (mText != null) {
-                    mText.text = "";
-                }
-               
-            }
-            else
-            {
-                updateUi(id, count);
-            }
+            updateUi(id, count);
         }
         if (mBt != null) {
 //            Debug.Log("mBt != null ");
@@ -68,28 +54,13 @@ public class GoodControl : MonoBehaviour {
         }
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_OBJECT_CLICK, bean.goodId);
         int type = TipControl.COMPOSE_TYPE;
-        if (isHero)
+        if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI)
         {
             type = TipControl.UNUSE_TYPE;
         }
-        else if (bean.tabId == TABID_EQUIP_TYPY)
+        else if (bean.goodType == SQLDate.GOOD_TYPE_BACKPACK)
         {
             type = TipControl.USE_TYPE;
-        }
-        else if (bean.tabId == TABID_ITEM_TYPE && bean.goodId > 1900000)
-        {
-            type = TipControl.BOOK_TYPE;
-        }
-        else if (bean.tabId == TABID_ITEM_TYPE)
-        {
-            type = TipControl.COMPOSE_TYPE;
-        }
-        else if (bean.tabId == TABID_CARD_TYPE) {
-            type = TipControl.USE_CARD_TYPE;
-        }
-        else if (bean.tabId == TABID_COMPOSE_TYPE)
-        {
-            type = TipControl.SHOW_COMPOSE_TYPE;
         }
         if (isShowPoint) {
             setPointShow(false);
@@ -167,7 +138,7 @@ public class GoodControl : MonoBehaviour {
             
         }
         if (mLv == null) {
-            mLv = GetComponentsInChildren<Text>()[1];
+            mLv = GetComponentsInChildren<Text>()[0];
         }
         if (level != 0)
         {
@@ -186,26 +157,11 @@ public class GoodControl : MonoBehaviour {
                 setPointShow(false);
             }
         }
-        return setCount(count);
+        return 0;
 
     }
     long mNeed = 0;
     bool isCompose = false;
-
-    public void updateCount(long count, long need) {
-        mNeed = need;
-        setCount(count);
-    }
-
-    public void updateUi(long id,long count, long need,string im) {
-        isCompose = true;
-        img = im;
-        PlayerBackpackBean bean = new PlayerBackpackBean();
-        mNeed = need;
-        bean.tabId = TABID_COMPOSE_TYPE;
-        bean.goodId = id;
-        updateUi(id, count,bean);
-    } 
 
     public long updateUi(long id, long count, PlayerBackpackBean bean)
     {
@@ -214,105 +170,4 @@ public class GoodControl : MonoBehaviour {
         return updateUi(id, count);
     }
 
-    public bool deleteCount(long count) {
-        if (count >= this.count)
-        {
-            return false;
-        }
-        else {
-            this.count -= count;
-            mText.text = "" + this.count;
-            return true;
-        }
-    }
-
-    public long addCount(long count)
-    {
-        long tmp = count + this.count;
-        if (tmp > mMaxCout)
-        {
-            this.count = mMaxCout;
-            mText.text = "" + this.count;
-            return tmp - mMaxCout;
-        }
-        else
-        {
-            this.count = tmp;
-            mText.text = "" + this.count;
-            return 0;
-        }
-    }
-
-    public long setCount(long count2)
-    {
-        count = count2;
-
-        string text;
-        long value ;
-        if (mText == null) {
-            mText = GetComponentsInChildren<Text>()[0];
-        }
-        if (bean != null) {
-            if (bean.tabId == TABID_EQUIP_TYPY )
-            {
-                mText.text = "";
-                value = 0;
-                if (count > mMaxCout)
-                {
-                    value = count - mMaxCout;
-                    count = mMaxCout;
-                }
-                else
-                {
-                    value = 0;
-                }
-                return value;
-            }
-            else if (bean.tabId == TABID_CARD_TYPE)
-            {
-                mText.text = ""+ count2;
-                value = 0;
-                return value;
-            }
-        }
-
-        if (isCompose ) {
-            if (mNeed != 0)
-            {
-                mText.text = count + "/" + mNeed;
-                if (count >= mNeed)
-                {
-                    mText.color = Color.green;
-                }
-                else {
-                    mText.color = Color.red;
-                }
-            }
-            else {
-                mText.text = "";
-            }
-            return 0;
-        }
-        if (id != -1 && count > mMaxCout)
-        {
-            value = count - mMaxCout;
-            this.count = mMaxCout;
-            text = "" + this.count;
-            
-        }
-        else if (count == 0) {
-            text = "" ;
-            value = 0;
-        }
-        else
-        {
-            this.count = count;
-            text = "" + this.count;
-            value =  0;
-        }
-        if (mText != null) {
-            mText.text = text;
-        }
-        return value;
-    }
 }

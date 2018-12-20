@@ -40,7 +40,6 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
             mGoodControl = GetComponentInChildren<GoodControl>();
         }
         mGoodControl.updateUi(bean.goodId,0,bean);
-        mGoodControl.isHero = true;
         foreach (PlayerAttributeBean b in bean.attributeList) {
             if (b.type == 10001) {
                 level = b.value;
@@ -53,7 +52,7 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
         updateCost = BigNumber.add( cost ,baseCost);
         if (mCost == null)
         {
-            mCost = GetComponentsInChildren<Text>()[3];
+            mCost = GetComponentsInChildren<Text>()[1];
         }
         mCost.text = "" + updateCost.toStringWithUnit();
         if (mButton == null)

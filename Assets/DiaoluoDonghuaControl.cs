@@ -37,9 +37,13 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
                     {
                         GameManager.getIntance().uiManager.setPackPointShow(1);
                     }
-                    else
+                    else if (mId > InventoryHalper.TABID_3_START_ID && mId < InventoryHalper.TABID_4_START_ID)
                     {
                         GameManager.getIntance().uiManager.setCardPointShow(1);
+                    }
+                    else if (mId > InventoryHalper.TABID_4_START_ID)
+                    {
+                        GameManager.getIntance().uiManager.setRolePointShow(1);
                     }
                 }
             }
@@ -101,7 +105,7 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
 
         if (type == SHUIJI_DIAOLUO_TYPE)
         {
-            imaPath = "ui_new/mojing";
+            imaPath = "zhujiemian/03";
         }
         //        Debug.Log("DiaoluoDonghuaControl imaPath = " + imaPath);
         GetComponent<Image>().sprite = Resources.Load(imaPath, typeof(Sprite)) as Sprite;
@@ -131,7 +135,7 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
         transform.position = v;
         
         if (type == SHUIJI_DIAOLUO_TYPE) {
-            imaPath = "ui_new/mojing";
+            imaPath = "UI_yellow/zhujiemian/03";
         }
 //        Debug.Log("DiaoluoDonghuaControl imaPath = " + imaPath);
         GetComponent<Image>().sprite = Resources.Load(imaPath, typeof(Sprite)) as Sprite;

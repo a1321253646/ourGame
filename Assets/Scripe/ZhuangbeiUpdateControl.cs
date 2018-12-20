@@ -119,7 +119,7 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
             w = 85 * count + 20 * (count - 1) + 40;
         }
         else {
-            w = 476;
+            w = 603.7f;
         }
         grid.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, w);
         grid.transform.Translate(Vector2.right * (w));

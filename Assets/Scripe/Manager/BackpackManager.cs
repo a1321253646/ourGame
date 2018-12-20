@@ -30,7 +30,7 @@ public class BackpackManager
     private HeroRoleControl mHeroControl;
     private CardShowControl mCardControl;
     private LuiHuiTips mLunhuiControl;
-    private MessageTips mMessageTipControl;
+    private OutLineGetMessage mMessageTipControl;
     //    private QiangHuaManager mQianghuaControl;
 
     //    private ComposeControl mComposeControl;
@@ -60,7 +60,7 @@ public class BackpackManager
         mLunhuiControl = GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>();
 
         mMessageTip = GameObject.Find("message_tip").GetComponent<RectTransform>();
-        mMessageTipControl = GameObject.Find("message_tip").GetComponent<MessageTips>();
+        mMessageTipControl = GameObject.Find("message_tip").GetComponent<OutLineGetMessage>();
 
         mHeroTranform = GameObject.Find("hero").GetComponent<RectTransform>();
         mHeroControl = mHeroTranform.GetComponent<HeroRoleControl>();
@@ -227,15 +227,7 @@ public class BackpackManager
         Debug.Log("addGoods id=" + id + " count=" + count);
         bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count);
         Debug.Log("isAddNiew =" + isAddNiew);
-        if (isAddNiew)
-        {
-            //           Debug.Log("update " );
-            mInvertoryControl.update();
-        }
-        else {
-            //         Debug.Log("addGood ");
-            mInvertoryControl.addGood(id, count);
-        }
+        mInvertoryControl.update();
         upDataComposeControl();
     }
 
@@ -250,14 +242,6 @@ public class BackpackManager
     public void updateHeroControl() {
         mHeroControl.upDateUi();
     }
-
-    public void deleteGoods(long id, int count) {
-        InventoryHalper.getIntance().deleteIventory(id, count);
-        mInvertoryControl.deleteGood(id, count);
-        upDataComposeControl();
-        removeMessageTip();
-    }
-
     private static BackpackManager mIntance = new BackpackManager();
     public static BackpackManager getIntance()
     {

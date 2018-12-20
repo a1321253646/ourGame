@@ -108,7 +108,7 @@ public class SQLHelper
                     bean.goodType = date.goodType;
                     Debug.Log("读取数据库  id= " + bean.goodId + " count =" + bean.count);
                     mALLGood.Add(bean);
-                    if (bean.goodType == SQLDate.GOOD_TYPE_CARD)
+                    if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD)
                     {
                         mCard.Add(bean);
                     }
@@ -321,7 +321,7 @@ public class SQLHelper
         date.id = good.goodId;
         date.goodId = good.sqlGoodId;
         date.isClean = SQLDate.CLEAR;
-        date.goodType = SQLDate.GOOD_TYPE_BACKPACK;
+        date.goodType = good.goodType;
         SQLManager.getIntance().InsertDataToSQL(date);
         
 

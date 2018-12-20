@@ -36,13 +36,13 @@ public class InventoryHalper
     }
     public void useCard(PlayerBackpackBean bean)
     {
-        bean.goodType = SQLDate.GOOD_TYPE_CARD;
+        bean.goodType = SQLDate.GOOD_TYPE_USER_CARD;
         SQLHelper.getIntance().changeGoodTyppe(bean);
         mCard.Add(bean);
     }
     public void removeUserCard(PlayerBackpackBean bean)
     {
-        bean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
+        bean.goodType = SQLDate.GOOD_TYPE_CARD;
         SQLHelper.getIntance().changeGoodTyppe(bean);
         foreach (PlayerBackpackBean b in mList)
         {
@@ -63,13 +63,15 @@ public class InventoryHalper
         else if (id > TABID_2_START_ID && id < TABID_3_START_ID)
         {
             path = BackpackManager.getIntance().getAccouterInfoById(id).icon;
-            
+
             path = "icon/equipicon/" + path;
         }
-        else if (id > TABID_3_START_ID)
+        else if (id > TABID_3_START_ID && id < TABID_4_START_ID)
         {
             path = BackpackManager.getIntance().getCardInfoById(id).icon;
             path = "backpackIcon/" + path;
+        }
+        else if (id > TABID_4_START_ID) {
 
         }
         
@@ -78,6 +80,7 @@ public class InventoryHalper
     public static long TABID_1_START_ID = 100000;
     public static long TABID_2_START_ID = 200000;
     public static long TABID_3_START_ID = 300000;
+    public static long TABID_4_START_ID = 400000;
 
     public void updatePoint(PlayerBackpackBean bean) {
         bean.isShowPoint = 2;
@@ -154,19 +157,30 @@ public class InventoryHalper
                     newBean.attributeList.Add(p4);
                     Debug.Log("newBean.attributeList.Add : type=" + p4.type + " value=" + p4.value);                 
                 }
+                newBean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
                 mList.Add(newBean);
             }
-            else if (id > TABID_3_START_ID) {
+            else if (id > TABID_3_START_ID && id < TABID_4_START_ID) {
                 CardJsonBean cj = BackpackManager.getIntance().getCardInfoById(id);
                 newBean.goodId = id;
                 newBean.sortID = cj.sortID;
                 newBean.count = count;
                 newBean.tabId = cj.tabid;           
                 newBean.isShowPoint = 1;
+                newBean.goodType = SQLDate.GOOD_TYPE_CARD;
                 mList.Add(newBean);
             }
-            newBean.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();
-            newBean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
+            else if (id > TABID_4_START_ID)
+            {
+                newBean.goodId = id;
+                newBean.sortID = -1;
+                newBean.count = count;
+                newBean.tabId = -1;
+                newBean.isShowPoint = 1;
+                newBean.goodType = SQLDate.GOOD_TYPE_PET;
+                mList.Add(newBean);
+            }
+            newBean.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();          
             SQLHelper.getIntance().addGood(newBean);
             return true;
         }
@@ -385,11 +399,6 @@ public class InventoryHalper
             //    mList.Remove(bean);
         SQLHelper.getIntance().deleteGood(bean);
         Debug.Log("mList size = " + mList.Count);
-    }
-    private void addIventory(PlayerBackpackBean bean)
-    {
-        mList.Add(bean);
-        SQLHelper.getIntance().addGood(bean);
     }
     public void deleteIventory(PlayerBackpackBean bean, int count) {
         if (bean.count == count)

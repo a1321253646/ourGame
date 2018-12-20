@@ -172,7 +172,14 @@ public class SQLManager : MonoBehaviour
             foreach (SQLDate date in list) {
                 if (date.type == SQLHelper.TYPE_GOOD)
                 {
-                    date.goodType = SQLDate.GOOD_TYPE_BACKPACK;
+                    if (date.id > InventoryHalper.TABID_3_START_ID)
+                    {
+                        date.goodType = SQLDate.GOOD_TYPE_CARD;
+                    }
+                    else {
+                        date.goodType = SQLDate.GOOD_TYPE_BACKPACK;
+                    }
+                    
                     goodId++;
                     date.goodId = goodId;
                     
@@ -191,7 +198,7 @@ public class SQLManager : MonoBehaviour
 
                     date.extan = SQLHelper.getGoodExtra(newBean);
                     date.type = SQLHelper.TYPE_GOOD;
-                    date.goodType = SQLDate.GOOD_TYPE_CARD;
+                    date.goodType = SQLDate.GOOD_TYPE_USER_CARD;
                     goodId++;
                     date.goodId = goodId;
                     date.isClean = SQLDate.CLEAR;

@@ -98,10 +98,10 @@ public class ComposeControl : MonoBehaviour {
             mComposeSure.onClick.AddListener(() =>
             {
                 BackpackManager.getIntance().addGoods(mShowCompose.tid, 1);
-                foreach (ComposeNeedItemBean item in bean.getNeedList())
+ /*               foreach (ComposeNeedItemBean item in bean.getNeedList())
                 {
                     BackpackManager.getIntance().deleteGoods(item.id, (int)item.num);
-                }
+                }*/
                 Debug.Log("mCurrentCrystal = " + GameManager.getIntance().mCurrentCrystal + " cost_crystal" + mShowCompose.cost_crystal);
                // GameManager.getIntance().mCurrentCrystal = GameManager.getIntance().mCurrentCrystal - (float)mShowCompose.cost_crystal;
                 Debug.Log("mCurrentCrystal = " + GameManager.getIntance().mCurrentCrystal);
@@ -130,7 +130,7 @@ public class ComposeControl : MonoBehaviour {
             name = JsonUtils.getIntance().getCardInfoById(bean.tid).name;
         }
         mQuitName.text = name;
-        mShowTarget.updateUi(bean.tid, 0, 0,icon);
+//        mShowTarget.updateUi(bean.tid, 0, 0,icon);
        // mShowTarget.sprite = Resources.Load("backpackIcon/" + icon, typeof(Sprite)) as Sprite;
         if (mCost == null)
         {
@@ -167,7 +167,7 @@ public class ComposeControl : MonoBehaviour {
             {
                 isSure = false;         
             }
-            mNeedTextList[id].GetComponent<GoodControl>().updateCount(count, mNeedCountList[id]);
+//            mNeedTextList[id].GetComponent<GoodControl>().updateCount(count, mNeedCountList[id]);
          //   mNeedTextList[id].GetComponentInChildren<Text>().text = count + "/" + mNeedCountList[id];
         }
         if (isSure) {
@@ -211,7 +211,7 @@ public class ComposeControl : MonoBehaviour {
             mNeedTextList.Add(been.id, ob);
             mNeedCountList.Add(been.id, been.num);
             //   Debug.Log("合成材料icon= " + "backpackIcon/" + icon);
-            ob.GetComponent<GoodControl>().updateUi(been.id, 0, 0, icon);
+//            ob.GetComponent<GoodControl>().updateUi(been.id, 0, 0, icon);
             mNeedListObject.Add(ob);
         }
         Debug.Log("isSure = =" + isSure);

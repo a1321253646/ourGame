@@ -4,19 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class IvertoryControl : MonoBehaviour {
-    private static int ALL_TYPE = 10;
-    private static int[] OTHER_TYPE = { 1,2,3};
-    private long mShowUiType = -1;
     public GameObject mGood;
     private GameObject mGoods;
     private GridLayoutGroup mGrilLayout;
     private List<GameObject> mGoodsGameObject = new List<GameObject>();
-    private Button mFirBt, mSecBt, mThiBt, mFouBt, mCloBt;
-    private GameObject mFir, mSec, mThi, mFou, mClo;
-    private Button mFirBtNo, mSecBtNo, mThiBtNo, mFouBtNo;
-    private GameObject mFirNo, mSecNo, mThiNo, mFouNo;
+    private Button mCloBt;
+    private GameObject  mClo;
     private int MinCount = 6;
-    private int LinCount = 9;
+    private int LinCount = 8;
     GoodControl[] mGoodsControl;
     private int mLevel;
     public bool isShow = false;
@@ -34,23 +29,7 @@ public class IvertoryControl : MonoBehaviour {
         Debug.Log("------------------------------------IvertoryControl isInit " + isInit);
         mGoods = GameObject.Find("Goods");
         mGrilLayout = mGoods.GetComponentInChildren<GridLayoutGroup>();
-        mFirBt = GameObject.Find("pack_frist_bt").GetComponent<Button>();
-        mSecBt = GameObject.Find("pack_second_bt").GetComponent<Button>();
-        mThiBt = GameObject.Find("pack_third_bt").GetComponent<Button>();
-        mFouBt = GameObject.Find("pack_four_bt").GetComponent<Button>();
-        mFirBtNo = GameObject.Find("pack_frist_bt_no").GetComponent<Button>();
-        mSecBtNo = GameObject.Find("pack_second_bt_no").GetComponent<Button>();
-        mThiBtNo = GameObject.Find("pack_third_bt_no").GetComponent<Button>();
-        mFouBtNo = GameObject.Find("pack_four_bt_no").GetComponent<Button>();
 
-        mFir = GameObject.Find("pack_frist_bt");
-        mSec = GameObject.Find("pack_second_bt");
-        mThi = GameObject.Find("pack_third_bt");
-        mFou = GameObject.Find("pack_four_bt");
-        mFirNo = GameObject.Find("pack_frist_bt_no");
-        mSecNo = GameObject.Find("pack_second_bt_no");
-        mThiNo = GameObject.Find("pack_third_bt_no");
-        mFouNo = GameObject.Find("pack_four_bt_no");
         mScroll = GameObject.Find("backpack_scroll").GetComponent<ScrollRect>();
         mCloBt = GameObject.Find("pack_close").GetComponent<Button>();
 
@@ -58,157 +37,9 @@ public class IvertoryControl : MonoBehaviour {
         {
             removeUi();
         });
-
-        mFirBtNo.onClick.AddListener(() => {
-            chageTabShow((int)mShowUiType, false);
-            chageTabShow(ALL_TYPE, true);
-           
-        });
-        mSecBtNo.onClick.AddListener(() => {
-            chageTabShow((int)mShowUiType, false);
-            chageTabShow(1, true);
-        });
-        mThiBtNo.onClick.AddListener(() => {
-            chageTabShow((int)mShowUiType, false);
-            chageTabShow(2, true);
-        });
-        mFouBtNo.onClick.AddListener(() => {
-            chageTabShow((int)mShowUiType, false);
-            chageTabShow(3, true);
-        });
         addGoodUi(MinCount* LinCount);
-        //update();
-        chageTabShow(ALL_TYPE, false); 
-        chageTabShow(1, false);
-        chageTabShow(2, false);
-        chageTabShow(3, false);
-        chageTabShow(ALL_TYPE, true);
-    }
-
-    private void chageTabShow(int type, bool show)
-    {
-        if (type == mShowUiType && show) {
-            return;
-        }
-        if (show)
-        {
-            changeType(type);
-        }
-        if (show)
-        {
-            switch (type)
-            {
-                case 10:
-                    mFir.SetActive(true);
-                    mFirNo.SetActive(false);
-                    break;
-                case 1:
-                    mSec.SetActive(true);
-                    mSecNo.SetActive(false);
-                    break;
-                case 2:
-                    mThi.SetActive(true);
-                    mThiNo.SetActive(false);
-                    break;
-                case 3:
-                    mFou.SetActive(true);
-                    mFouNo.SetActive(false);
-                    break;
-                default:
-                    break;
-            }
-        }
-        else
-        {
-            switch (type)
-            {
-                case 10:
-                    mFir.SetActive(false);
-                    mFirNo.SetActive(true);
-                    break;
-                case 1:
-                    mSec.SetActive(false);
-                    mSecNo.SetActive(true);
-                    break;
-                case 2:
-                    mThi.SetActive(false);
-                    mThiNo.SetActive(true);
-                    break;
-                case 3:
-                    mFou.SetActive(false);
-                    mFouNo.SetActive(true);
-                    break;
-                default:
-                    break;
-            }
-
-
-        }
-    }
-   
-    private void changeType(int type) {
-        mShowUiType = type;
-        update();
-    }
-
-    public void showTypeUi(long type)
-    {
-        if (mShowUiType == type) {
-            return;
-        }
-        mShowUiType = type;
-        update();
     }
     float time = 0;
-
-    private void upDateData() {
-        List<PlayerBackpackBean> list = InventoryHalper.getIntance().getInventorys();
-        List<PlayerBackpackBean> goodList;
-        if (list == null)
-            return;
-        mGoodDic.Clear();
-        Debug.Log("=11111=============================================================list = " + list.Count);
-        foreach (PlayerBackpackBean bean in list)
-        {
-            Debug.Log("=11111=============================================================bean goodType= " + bean.goodType + " bean.count=="+ bean.count+" goodId = "+bean.goodId);
-            if (bean.goodType != SQLDate.GOOD_TYPE_BACKPACK || bean.count == 0) {
-                continue;
-            }
- //           Debug.Log("bean = " + bean.toString());
-            if (mGoodDic.ContainsKey(bean.tabId))
-            {
- //               Debug.Log("mGoodDic do have" + bean.tabId);
-                goodList = mGoodDic[bean.tabId];
-            }
-            else
-            {
-     //           Debug.Log("mGoodDic don't have" + bean.tabId);
-                goodList = new List<PlayerBackpackBean>();
-                mGoodDic.Add(bean.tabId, goodList);
-            }
-            if (goodList.Count < 1)
-            {
-                goodList.Add(bean);
-            }
-            else
-            {
-                bool isAdd = false;
-                for (int i = 0; i < goodList.Count; i++)
-                {
-                    if (bean.sortID < goodList[i].sortID)
-                    {
-                        goodList.Insert(i, bean);
-                        isAdd = true;
-                        break;
-                    }
-                }
-                if (!isAdd) {
-                    goodList.Add(bean);
-                }
-             
-            }
-        }
-    }
 
     public void update() {
         update(true);
@@ -219,30 +50,7 @@ public class IvertoryControl : MonoBehaviour {
         if (!must && GameManager.getIntance().getUiCurrentLevel() > mLevel) {
             return;
         }
-        upDateData();
         int mGoodIndex = 0;
-        //        Debug.Log("IvertoryControl mGoodDic containsKey " + mShowUiType);
-        List<PlayerBackpackBean> goodList = null;
-        if (mShowUiType == ALL_TYPE)
-        {
-            goodList = new List<PlayerBackpackBean>();
-            foreach (int i in OTHER_TYPE)
-            {
-           //     Debug.Log("ContainsKey" + i);
-                if (mGoodDic.ContainsKey(i)) {
-                    goodList.AddRange(mGoodDic[i]);
-             //       Debug.Log("goodList leng" + goodList.Count);
-                }
-                    
-            }
-        }
-        else if (mGoodDic.ContainsKey(mShowUiType))
-        {
-            goodList = mGoodDic[mShowUiType];
-        }
-        else {
-            goodList = new List<PlayerBackpackBean>();
-        }
         
         PlayerBackpackBean bean;
         long addCount = 0;
@@ -250,27 +58,16 @@ public class IvertoryControl : MonoBehaviour {
         foreach (GoodControl g in mGoodsControl) {
             g.id = -1;
         }
-
-        for (int i = 0; i < goodList.Count; i++) {
-            bean = goodList[i];
+        List<PlayerBackpackBean> list = InventoryHalper.getIntance().getInventorys();
+        for (int i = 0; i < list.Count; i++) {
+            bean = list[i];
+            if (bean.goodType != SQLDate.GOOD_TYPE_BACKPACK) {
+                continue;
+            }
             addCount = bean.count;
             while (addCount != 0) {
                 if (mGoodIndex >= mGoodsControl.Length) {
                     addGoodUi(LinCount);
-                }
-                if (bean.goodId > InventoryHalper.TABID_3_START_ID) {
-                    bool isHave = false;
-                    for (int iii = 0; iii < mGoodIndex;iii++) {
-                        if (mGoodsControl[mGoodIndex].id == bean.goodId) {
-                            mGoodsControl[mGoodIndex].addCount(bean.count);
-                            addCount = 0;
-                            isHave = true;
-                            break;
-                        }
-                    }
-                    if (isHave) {
-                        continue;
-                    }
                 }
                 GoodControl good = mGoodsControl[mGoodIndex];
                 addCount = good.updateUi(bean.goodId, addCount, bean);
@@ -374,40 +171,6 @@ public class IvertoryControl : MonoBehaviour {
         gameObject.transform.localPosition = mFri;
     }
 
-    public void addGood(long id, long count) {
-        long tabid = -1;
-        if (JsonUtils.getIntance().getGoodInfoById(id) == null)
-        {
-            if (JsonUtils.getIntance().getAccouterInfoById(id) == null)
-            {
-                tabid = JsonUtils.getIntance().getCardInfoById(id).tabid;
-            }
-            else {
-                tabid = JsonUtils.getIntance().getAccouterInfoById(id).tabid;
-            }
-            
-        }
-        else {
-            tabid = JsonUtils.getIntance().getGoodInfoById(id).tabid;
-        }
-        if (mShowUiType != ALL_TYPE && tabid != mShowUiType) {
-            return;
-        }
-        foreach (GoodControl good in mGoodsControl) {
-            if ( good.id == id && !good.isFull()) {
-                long addReturn = good.addCount(count);;
-                if (addReturn != 0)
-                {                 ;
-                    update();
-                    return;
-                }
-                else {
-                    return;
-                }
-            }
-        }
-        update();
-    }
     public void guide(long target) {
         for (int i = 0; i < mGoodsGameObject.Count; i++)
         {
@@ -416,31 +179,6 @@ public class IvertoryControl : MonoBehaviour {
             {
                 GameManager.getIntance().getGuideManager().ShowGuideGrideLayoutInScroll(mGoodsGameObject[i], mScroll, mGrilLayout, i, 9);
                 break;
-            }
-        }
-    }
-
-    public void deleteGood(long id, long count)
-    {
-        bool isSuccess = false;
-        for (int i = 0; i < mGoodsControl.Length; i++) {
-            GoodControl good = mGoodsControl[i];
-            if (good.id == id)
-            {
-                while (i < mGoodsControl.Length && mGoodsControl[i].id == id)
-                {
-                    i++;
-                }
-                if (i >= mGoodsControl.Length)
-                {
-                    isSuccess = mGoodsControl[mGoodsControl.Length - 1].deleteCount(count);
-                }
-                else {
-                    isSuccess = mGoodsControl[i - 1].deleteCount(count);
-                }
-                if (!isSuccess) {
-                    update();
-                }
             }
         }
     }

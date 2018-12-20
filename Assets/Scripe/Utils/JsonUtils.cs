@@ -31,6 +31,7 @@ public class JsonUtils
     private string mapConfigFile = "mapconfig.json";
     private string guideFile = "guide.json";
     private string stringFile = "string.json";
+    private string petFile = "pet.json";
     /*private string levelFile = "level";
         private string heroFile = "hero";
         private string enemyFile = "enemy";
@@ -70,6 +71,7 @@ public class JsonUtils
     List<MapConfigBean> mMapDate;
     List<GuideJsonBean> mguideDate;
     List<StringJsonBean> mStringDate;
+    List<PetJsonBean> mPetDate;
     Dictionary<long, SamsaraJsonBean> mSamsaraDate = new Dictionary<long, SamsaraJsonBean>();
     private JsonUtils() {
 
@@ -97,6 +99,7 @@ public class JsonUtils
             mapConfigFile = "mapconfig";
             stringFile = "string";
             guideFile = "guide";
+            petFile = "pet";
         }
         readAllFile();
     }
@@ -174,6 +177,11 @@ public class JsonUtils
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(mapConfigFile));
         mMapDate = arrdata.ToObject<List<MapConfigBean>>();
     }
+    private void readPetInfo() {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(petFile));
+        mPetDate = arrdata.ToObject<List<PetJsonBean>>();
+    }
+
     private void readCardInfo()
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(cardFile));
@@ -255,6 +263,27 @@ public class JsonUtils
             return null;
         }
     }
+    public PetJsonBean getPetInfoById(long id)
+    {
+        foreach (PetJsonBean bean in mPetDate) {
+            if (bean.id == id) {
+                return bean;
+            }
+        }
+        return null;        
+    }
+
+    public bool isHavePet() {
+        foreach (PetJsonBean bean in mPetDate)
+        {
+            if (bean.activateLevel == GameManager.getIntance().mCurrentLevel)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public BigNumber getSamsaraCostByIdAndLevel(long id, long level)
     {
         if (mSamsaraDate.ContainsKey(id))

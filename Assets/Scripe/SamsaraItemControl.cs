@@ -6,23 +6,25 @@ public class SamsaraItemControl : MonoBehaviour {
     public long mId;
     private long mLevel;
     private SamsaraJsonBean mJsonBean;
-    private Image mIcon;
-    private Text mSamsaraNameAndLevel;
+    private Image mIcon,mNoStudy;
+    private Text mSamsaraName;
     private Text mSamsaraValue;
     private Text mLvelUpCost;
-    private Text mLvelUpText;
+    private Text mLvel;
     private Button mLevelUp;
     private SamSaraListControl mListControl;
     public void init(long id, SamSaraListControl control) {
         mId = id;
         mListControl = control;
-        mJsonBean =  JsonUtils.getIntance().getSamsaraInfoById(mId);       
-        mIcon = gameObject.GetComponentsInChildren<Image>()[3];
+        mJsonBean =  JsonUtils.getIntance().getSamsaraInfoById(mId);
+        Image[] images = gameObject.GetComponentsInChildren<Image>();
+        mNoStudy = images[images.Length - 1];
+        mIcon = gameObject.GetComponentsInChildren<Image>()[4];
         Text[] texts = gameObject.GetComponentsInChildren<Text>();
-        mSamsaraNameAndLevel = texts[0];
+        mSamsaraName = texts[0];
         mSamsaraValue = texts[1];
-        mLvelUpCost = texts[3];
-        mLvelUpText = texts[2];
+        mLvelUpCost = texts[2];
+        mLvel = texts[3];
         mLevelUp = GetComponentsInChildren<Button>()[1];
         Sprite sprite = Resources.Load("icon/samsara/" + mJsonBean.icon, typeof(Sprite)) as Sprite;
         mIcon.sprite = sprite;
@@ -45,23 +47,25 @@ public class SamsaraItemControl : MonoBehaviour {
         mLevel = InventoryHalper.getIntance().getSamsaraLevelById(mId);
         if (mLevel == 0)
         {
-            mLvelUpText.text = "学习";
+
+            mNoStudy.transform.localScale = new Vector2(1, 1);
         }
         else
         {
-            mLvelUpText.text = "升级";
+            mNoStudy.transform.localScale = new Vector2(0, 0);
         }
         
         if (mLevel == 0)
         {
-            mSamsaraNameAndLevel.text = "" + mJsonBean.name ;
+            mSamsaraName.text = "" + mJsonBean.name ;
             string str = "学习效果 ";
             str = str + getAttribute(1);
             Debug.Log(str);
             mSamsaraValue.text = str;
         }
         else {
-            mSamsaraNameAndLevel.text = "" + mJsonBean.name + " Lv:" + mLevel;
+            mSamsaraName.text = "" + mJsonBean.name;
+            mLvel.text = "Lv:" + mLevel;
             mSamsaraValue.text = getAttribute();
         }       
         mLvelUpCost.text = "消耗：" + JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, mLevel+1).toStringWithUnit() + "轮回点";

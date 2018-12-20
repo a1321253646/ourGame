@@ -179,7 +179,7 @@ public class TipControl : MonoBehaviour {
             {
                 mBean.tabId = GoodControl.TABID_EQUIP_TYPY;
             }
-            else if (mBean.goodId > InventoryHalper.TABID_3_START_ID)
+            else if (mBean.goodId > InventoryHalper.TABID_3_START_ID && mBean.goodId < InventoryHalper.TABID_4_START_ID)
             {
                 mBean.tabId = GoodControl.TABID_CARD_TYPE;
             }

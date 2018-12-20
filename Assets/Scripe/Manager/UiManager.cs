@@ -6,10 +6,10 @@ public class UiManager
 {	
 	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv;
 	Slider mHpSl,mStartBossGasSl;
-	Button mStartBossBt,mLvUpBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss,mVoiceButton;
+	Button mStartBossBt,mLvUpBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/;
     Image autoBack;
-    Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint,mVoiceImage;
-    Sprite mAutoYes, mAutoNo,mVoiceOpen,mVoiceClose;
+    Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint/*,mVoiceImage*/;
+    //Sprite mAutoYes, mAutoNo,mVoiceOpen,mVoiceClose;
   
     bool isAuto = false;
 	public void init(){
@@ -35,12 +35,12 @@ public class UiManager
         mSamsaraUiPoint = GameObject.Find ("lunhui_ui_point").GetComponent<Image> ();
         mCardUiPoint = GameObject.Find ("skilcard_ui_point").GetComponent<Image> ();
 
-        mVoiceImage = GameObject.Find ("voice_button").GetComponent<Image> ();
-        mVoiceButton = GameObject.Find("voice_button").GetComponent<Button> ();
+//        mVoiceImage = GameObject.Find ("voice_button").GetComponent<Image> ();
+//        mVoiceButton = GameObject.Find("voice_button").GetComponent<Button> ();
 
-        mVoiceOpen = Resources.Load("ui_new/voice1", typeof(Sprite)) as Sprite;
-        mVoiceClose = Resources.Load("ui_new/voice0", typeof(Sprite)) as Sprite;
-        long isVoice1 = SQLHelper.getIntance().isVoice;
+//        mVoiceOpen = Resources.Load("ui_new/voice1", typeof(Sprite)) as Sprite;
+//        mVoiceClose = Resources.Load("ui_new/voice0", typeof(Sprite)) as Sprite;
+/*        long isVoice1 = SQLHelper.getIntance().isVoice;
         if (isVoice1 == -1 || isVoice1 == 1)
         {
             mVoiceImage.sprite = mVoiceOpen;
@@ -62,16 +62,14 @@ public class UiManager
                 GameManager.getIntance().setVoice(source, true, true);
                 mVoiceImage.sprite = mVoiceOpen;
             }
-        });
-
-
+        });*/
 
         GameObject auto = GameObject.Find("zidongAuto");
         mAutoBoss = auto.GetComponent<Button>();
         autoBack = GameObject.Find("zidong").GetComponent<Image>();
-        mAutoYes = Resources.Load("ui_new/gouxuan_yes", typeof(Sprite)) as Sprite;
-        mAutoNo = Resources.Load("ui_new/gouxuan_no", typeof(Sprite)) as Sprite;
-        mGameLevelTv.text = "当前关卡:" + JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).name;
+//        mAutoYes = Resources.Load("ui_new/gouxuan_yes", typeof(Sprite)) as Sprite;
+//        mAutoNo = Resources.Load("ui_new/gouxuan_no", typeof(Sprite)) as Sprite;
+        mGameLevelTv.text =  JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).name;
 
         SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
         mGasTv.text =
@@ -197,16 +195,18 @@ public class UiManager
             {
                 startBoss();
             }
-            autoBack.sprite = mAutoYes;
+            autoBack.transform.localScale = new Vector2(1, 1);
+//            autoBack.sprite = mAutoYes;
         }
         else
         {
-            autoBack.sprite = mAutoNo;
+            autoBack.transform.localScale = new Vector2(0, 0);
+         //   autoBack.sprite = mAutoNo;
         }
     }
 
 	public void refreshData(){
-		mHeroLvTv.text = "勇士等级:" + GameManager.getIntance ().mHeroLv +"级";
+		mHeroLvTv.text = "" + GameManager.getIntance ().mHeroLv;
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         mLvUpCrystalTv.text =  GameManager.getIntance ().upLevelCrystal.toStringWithUnit();

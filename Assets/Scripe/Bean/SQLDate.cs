@@ -6,7 +6,10 @@ public class SQLDate
     public static long GOOD_TYPE_BACKPACK = 1;
     public static long GOOD_TYPE_ZHUANGBEI = 2;
     public static long GOOD_TYPE_CARD = 3;
-    public static long GOOD_TYPE_NOGOOD = 4;
+    public static long GOOD_TYPE_USER_CARD = 4;
+    public static long GOOD_TYPE_PET = 5;
+    public static long GOOD_TYPE_USER_PET = 6;
+    public static long GOOD_TYPE_NOGOOD = 7;
 
     public static long CLEAR = 1;
     public static long CLEAR_NO = 2;
@@ -17,7 +20,7 @@ public class SQLDate
     public long id = -1;
     public string extan = "-1";
     public long goodId = SQLDate.DEFAULT_GOOD_ID;
-    public long goodType = SQLDate.GOOD_TYPE_NOGOOD;// 1为不使用，2为装备，3为卡组
+    public long goodType = SQLDate.GOOD_TYPE_NOGOOD;
     public long isClean = 1;// 1为清除，2为不清除
     public void getClean() {
         isClean = SQLDate.CLEAR;

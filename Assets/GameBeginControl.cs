@@ -129,7 +129,7 @@ public class GameBeginControl : MonoBehaviour {
             GameManager.getIntance().mInitStatus = 7;
             if (isUpdate == 2)
             {
-                GameObject.Find("message_tip").GetComponent<MessageTips>().showUI(MessageTips.TYPPE_UPDATE_LINE, "检测到服务端有您的存档，需要进行同步吗", null);
+                GameObject.Find("message_tip").GetComponent<OutLineGetMessage>().showUI(OutLineGetMessage.TYPPE_UPDATE_LINE, "检测到服务端有您的存档，需要进行同步吗", null);
             }
             else {
                 Thread th1 = new Thread(() =>
