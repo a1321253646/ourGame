@@ -142,9 +142,6 @@ public class PlayControl : Attacker
     public Attribute mLunhuiAttribute = new Attribute();
     public Attribute mLunhuiAttributePre = new Attribute();
 
-    public Attribute mSkillAttribute = new Attribute();
-    public Attribute mSkillAttributePre = new Attribute();
-
     public Attribute mAllAttribute = new Attribute();
     public Attribute mAllAttributePre = new Attribute().setToPre();
 

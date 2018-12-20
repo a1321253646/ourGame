@@ -18,4 +18,13 @@ public abstract class AttackSkillNoAnimal : AttackSkillBase
     {
         upDateEnd();
     }
+    //key说明 1 为无视防御
+
+    public virtual EquipKeyAndValue beforeHurt()
+    {
+        return null;
+    }
+    public virtual void enemyDie()
+    {
+    }
 }

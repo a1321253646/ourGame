@@ -45,4 +45,13 @@ public abstract class AttackSkillBase : MonoBehaviour
                 return 0;
         }
     }
+    public bool randomResult(int max, int value, bool isPri)
+    {
+        int rangeRadomNum = Random.Range(0, max);
+        if (isPri)
+        {
+            Debug.Log("fight rangeRadomNum=" + rangeRadomNum + " value=" + value);
+        }
+        return rangeRadomNum <= value;
+    }
 }

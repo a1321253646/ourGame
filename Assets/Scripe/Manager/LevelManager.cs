@@ -233,8 +233,8 @@ public class LevelManager : MonoBehaviour {
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(hero.resource);
         Debug.Log("hero.resource idel_y= " + bean.idel_y);
 
-        GameObject newobj =  GameObject.Instantiate (Player, new Vector2 (-7, 
-            cardTop-bean.idel_y),
+        GameObject newobj =  GameObject.Instantiate (Player, new Vector3 (-7, 
+            cardTop-bean.idel_y,-1),
 			Quaternion.Euler(0.0f,0.0f,0.0f));
 		newobj.transform.localScale.Set (JsonUtils.getIntance().getConfigValueForId(100005), JsonUtils.getIntance().getConfigValueForId(100005), 1);
         mPlayerControl = newobj.GetComponent<PlayControl>();

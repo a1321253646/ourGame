@@ -100,7 +100,9 @@ public class SQLNetManager
                 }
                 else if (command.action == 5)
                 {
-                    updateToNet();
+                    if (SQLHelper.getIntance().isUpdate != -1) {
+                        updateToNet();
+                    }                  
                 }
                 else if (command.action == 6)
                 {

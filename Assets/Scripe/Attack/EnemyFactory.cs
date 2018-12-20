@@ -17,6 +17,7 @@ public class EnemyFactory : MonoBehaviour {
     private float mBottom = 0;
     float mHeroX = 0;
     float mHeroY = 0;
+    private float mZPoint = 2;
     // Use this for initialization
     void Start () {
 		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
@@ -68,6 +69,7 @@ public class EnemyFactory : MonoBehaviour {
 			creatEnemy (false);
 			currentCount++;
 			if (currentCount >= mList.Count) {
+                mZPoint = 2;
 				isCreat = false;
 				mList = JsonUtils.getIntance ().getWellenEnemy ();
 			}
@@ -84,8 +86,9 @@ public class EnemyFactory : MonoBehaviour {
 		ResourceBean bean = JsonUtils.getIntance ().getEnemyResourceData (data.resource);
 		string res = bean.name;
 		GameObject newobj =  GameObject.Instantiate (
-            game, new Vector2 (transform.position.x, getYRamdom()- bean.idel_y),Quaternion.Euler(0.0f,0f,0.0f));
-		EnemyBase enmey = newobj.GetComponent<EnemyBase> ();
+            game, new Vector3 (transform.position.x, getYRamdom()- bean.idel_y,mZPoint),Quaternion.Euler(0.0f,0f,0.0f));
+        mZPoint -= 0.1f;
+        EnemyBase enmey = newobj.GetComponent<EnemyBase> ();
 		enmey.init (data,bean);
 		if (isBoss) {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_BOSS;

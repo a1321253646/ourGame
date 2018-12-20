@@ -543,6 +543,8 @@ public class SQLManager : MonoBehaviour
             date.type = reader.GetInt64(reader.GetOrdinal("Type"));
             date.id = reader.GetInt64(reader.GetOrdinal("ID"));
             date.extan = reader.GetString(reader.GetOrdinal("Extan"));
+            date.extan = date.extan.Replace("，", ",");
+            date.extan = date.extan.Replace("。", ".");
             list.Add(date);
             // Debug.Log(reader.GetInt32(reader.GetOrdinal("Time")));
             // Debug.Log(tempCount);

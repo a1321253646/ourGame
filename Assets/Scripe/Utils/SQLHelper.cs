@@ -158,7 +158,7 @@ public class SQLHelper
                     else if (date.id == GAME_ID_IS_UPDATE)
                     {
                         isUpdate = long.Parse(date.extan);
-                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                        Debug.Log("读取数据库 是否已更新" + mOutTime);
                     }
                     /*   else if (date.id == GAME_ID_GUIDE)
                        {
