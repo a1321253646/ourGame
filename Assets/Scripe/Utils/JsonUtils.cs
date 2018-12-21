@@ -123,6 +123,7 @@ public class JsonUtils
         readCardInfo();
         readSamsaraInfo();
         getEnemyDate();
+        readPetInfo();
     }
 
     public static JsonUtils getIntance() {
@@ -272,6 +273,11 @@ public class JsonUtils
         }
         return null;        
     }
+    public List<PetJsonBean> getPet()
+    {
+        return mPetDate;
+    }
+
 
     public bool isHavePet() {
         foreach (PetJsonBean bean in mPetDate)

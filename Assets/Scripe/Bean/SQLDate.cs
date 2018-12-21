@@ -31,14 +31,18 @@ public class SQLDate
                id == SQLHelper.GAME_ID_TIME ||
                id == SQLHelper.GAME_ID_POINT_LUNHUI ||
                id == SQLHelper.GAME_ID_NO_LUNHUI ||
-               id == SQLHelper.GAME_ID_FRIST_START||
+               id == SQLHelper.GAME_ID_FRIST_START ||
                id == SQLHelper.GAME_ID_IS_UPDATE ||
-               id == SQLHelper.GAME_ID_IS_VOICE) 
+               id == SQLHelper.GAME_ID_IS_VOICE)
             {
                 isClean = SQLDate.CLEAR_NO;
             }
         }
-        else if (type == SQLHelper.TYPE_LUNHUI || type == SQLHelper.TYPE_GUIDE) {
+        else if (type == SQLHelper.TYPE_LUNHUI || type == SQLHelper.TYPE_GUIDE)
+        {
+            isClean = SQLDate.CLEAR_NO;
+        }
+        else if (type == SQLHelper.TYPE_GOOD && (goodType == SQLDate.GOOD_TYPE_PET || goodType == SQLDate.GOOD_TYPE_USER_PET)) {
             isClean = SQLDate.CLEAR_NO;
         }
     }

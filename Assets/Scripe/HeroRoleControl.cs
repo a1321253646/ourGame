@@ -16,6 +16,9 @@ public class HeroRoleControl : MonoBehaviour {
     private Vector2 mFri;
     AnimalControlBase mAnimalControl;
     ResourceBean resourceData;
+    GameObject mHeroEnable, mPetEnable, mHeroUnble, mPetUnble,mPet;
+    Button mHeroUnbleButton, mPetUnbleButton;
+
     private void Start()
     {
 
@@ -75,6 +78,40 @@ public class HeroRoleControl : MonoBehaviour {
                 removeUi();
             });
         }
+        if(mHeroEnable == null) {
+            //mHeroEnable, mPetEnable, mHeroUnble, mPetUnble;
+            mHeroEnable = GameObject.Find("hero_table_enable");
+            mPetEnable = GameObject.Find("pet_table_enble");
+            mHeroUnble = GameObject.Find("hero_table_unable");
+            mPetUnble = GameObject.Find("pet_table_unable");
+            mPet = GameObject.Find("pet");
+
+
+            mPetUnbleButton = mPetUnble.GetComponent<Button>();
+            mPetUnbleButton.onClick.AddListener(() =>
+            {
+                mPetUnble.transform.localScale = new Vector2(0, 0);
+                mPetEnable.transform.localScale = new Vector2(1, 1);
+                mHeroEnable.transform.localScale = new Vector2(0, 0);
+                mHeroUnble.transform.localScale = new Vector2(1, 1);
+                mPet.transform.localScale = new Vector2(1, 1);
+                GetComponentInChildren<PetControl>().init();
+
+            });
+
+
+            mHeroUnbleButton = mHeroUnble.GetComponent<Button>();
+            mHeroUnbleButton.onClick.AddListener(() =>
+            {
+                mPetEnable.transform.localScale = new Vector2(0, 0);
+                mPetUnble.transform.localScale = new Vector2(1, 1);
+                mHeroUnble.transform.localScale = new Vector2(0, 0);
+                mHeroEnable.transform.localScale = new Vector2(1, 1);
+                mPet.transform.localScale = new Vector2(0, 0);
+            });
+        }
+
+
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
 

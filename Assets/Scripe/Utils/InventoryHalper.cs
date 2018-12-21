@@ -7,6 +7,7 @@ public class InventoryHalper
     List<PlayerBackpackBean> mList = new List<PlayerBackpackBean>();
     List<PlayerBackpackBean> mUser = new List<PlayerBackpackBean>();
     List<PlayerBackpackBean> mCard = new List<PlayerBackpackBean>();
+    List<PlayerBackpackBean> mPet = new List<PlayerBackpackBean>();
     private Dictionary<long, long> mDropDeviceUsed = new Dictionary<long, long>();
     private List<long> mHaveBookId = new List<long>();
     private int mZhuangbeiCount = 0;
@@ -24,6 +25,7 @@ public class InventoryHalper
         mList = SQLHelper.getIntance().getAllGood();
         mCard = SQLHelper.getIntance().getCard();
         mUser = SQLHelper.getIntance().getUserd();
+        mPet = SQLHelper.getIntance().getPet();
         mSamsaraLevel = SQLHelper.getIntance().getLunHui();
         mDropDeviceUsed = SQLHelper.getIntance().getDropDevice();
     }
@@ -178,6 +180,7 @@ public class InventoryHalper
                 newBean.tabId = -1;
                 newBean.isShowPoint = 1;
                 newBean.goodType = SQLDate.GOOD_TYPE_PET;
+                mPet.Add(newBean);
                 mList.Add(newBean);
             }
             newBean.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();          
@@ -443,5 +446,9 @@ public class InventoryHalper
     public List<PlayerBackpackBean> getUsercard()
     {
         return mCard;
+    }
+    public List<PlayerBackpackBean> getPet()
+    {
+        return mPet;
     }
 }

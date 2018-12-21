@@ -59,6 +59,7 @@ public class SQLHelper
     List<PlayerBackpackBean> mALLGood = new List<PlayerBackpackBean>();
     List<PlayerBackpackBean> mUser = new List<PlayerBackpackBean>();
     List<PlayerBackpackBean> mCard = new List<PlayerBackpackBean>();
+    List<PlayerBackpackBean> mPet = new List<PlayerBackpackBean>();
     Dictionary<long,long> mLunhuui = new Dictionary<long, long>();
     Dictionary<long,long> mDropDeviceCount = new Dictionary<long, long>();
     NetHelper mNetHelp = new NetHelper();
@@ -114,6 +115,8 @@ public class SQLHelper
                     }
                     else if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI) {
                         mUser.Add(bean);
+                    }else if (bean.goodType == SQLDate.GOOD_TYPE_USER_PET || bean.goodType == SQLDate.GOOD_TYPE_PET) {
+                        mPet.Add(bean);
                     }
                 }
                 else if (date.type == TYPE_BOOK)
@@ -305,6 +308,10 @@ public class SQLHelper
     {
         return mUser;
     }
+    public List<PlayerBackpackBean> getPet()
+    {
+        return mPet;
+    }
     public Dictionary<long, long> getLunHui()
     {
         return mLunhuui;
@@ -320,7 +327,7 @@ public class SQLHelper
         date.type = TYPE_GOOD;
         date.id = good.goodId;
         date.goodId = good.sqlGoodId;
-        date.isClean = SQLDate.CLEAR;
+        date.getClean();
         date.goodType = good.goodType;
         SQLManager.getIntance().InsertDataToSQL(date);
         
