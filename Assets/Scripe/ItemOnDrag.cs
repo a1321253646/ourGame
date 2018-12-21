@@ -13,6 +13,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     public PlayerBackpackBean mBean;
     // 是否按下
     public bool mIsDown = false;
+    public bool mIsOndragDown = false;
     // 按下与松开鼠标之间的距离
     public float mBorderDis = 0.5f;
     // 总的按下时间
@@ -21,11 +22,11 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     public Vector3 mCurPos;
     // 上一次鼠标位置
     public Vector3 mPrevPos;
+    public Vector3 mClickCardV;
     private NewItemOnDrag mNewDrag;
     GameObject mIndicator;
     CardUiControl mUiContorl;
     CardUiControl mRootContorl;
-    new Vector2 mOldVector;
     void Update()
     {
         if (!isInit) {
@@ -41,23 +42,18 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                     mCurTime = 0f;
                     return;
                 }
+                mIsOndragDown = true;
+                GameObject ob = GameObject.Find("kapai_click");
+                ob.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getHero());
+                mClickCardV = ob.transform.position;
+                ob.transform.position = new Vector2(mCurPos.x, mCurPos.y);
                 long result = GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_OBJECT_CLICK, mCard.id);
                 mCurTime = 0f;
                 mIsDown = false;
-                mIndicator = Instantiate(mNewItem);
-                mIndicator.transform.SetParent(mNewItemRoot);
-                mIndicator.transform.localScale = Vector3.one;
-                mNewDrag = mIndicator.GetComponent<NewItemOnDrag>();
-                if (mNewDrag == null)
-                    mNewDrag = mIndicator.AddComponent<NewItemOnDrag>();
-                mIndicator.transform.position = Input.mousePosition;
-                mUiContorl = mIndicator.GetComponent<CardUiControl>();
-                mUiContorl.init(mCard.id, CardUiControl.TYPE_CARD_PLAY, mManager.getHero());
-                mUiContorl.init(mCard.id, 341.6f, 509.6f);
                 if (result == 1) {
                     GameManager.getIntance().getGuideManager().ShowGuideNormalObject(mIndicator);
                 }
-                mRootContorl.transform.GetChild(0).localScale = new Vector2(0, 0);
+                mRootContorl.showBack();
                 GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD_BACK_INFO);
             }
         }
@@ -82,6 +78,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         mScrollRect.OnEndDrag(eventData);
         bool isWork = false;
         mIsDown = false;
+        mIsOndragDown = false;
         mPrevPos = Vector3.zero;
         mCurPos = Vector3.zero;
         if (!isInit) {
@@ -133,7 +130,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         {
             isMove = false;
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_ONDRAG_UP, GuideManager.ONDRAG_UP_CARDUI_UNWORK);
-            mRootContorl.transform.GetChild(0).localScale = mOldVector;
+            mRootContorl.showCard();
         }
 
     }
@@ -148,15 +145,30 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     {
 
         mCurPos = eventData.position;
-        if (mNewDrag == null) {
+        if (!mIsOndragDown) {
             mScrollRect.OnDrag(eventData);
         }
         else
-        {
-            mNewDrag.transform.position = Input.mousePosition;
-            if (!isMove) {
-                isMove = true;
+        {            
+            if (!isMove)
+            {
+
+                GameObject.Find("kapai_click").transform.position = mClickCardV;
+                mIndicator = Instantiate(mNewItem);
+                mIndicator.transform.SetParent(mNewItemRoot);
+                mIndicator.transform.localScale = Vector3.one;
+                mNewDrag = mIndicator.GetComponent<NewItemOnDrag>();
+                if (mNewDrag == null)
+                    mNewDrag = mIndicator.AddComponent<NewItemOnDrag>();
+                mIndicator.transform.position = Input.mousePosition;
+                mUiContorl = mIndicator.GetComponent<CardUiControl>();
+                mUiContorl.init(mCard.id, CardUiControl.TYPE_CARD_PLAY, mManager.getHero());
                 mUiContorl.init(mCard.id, 113f, 166f);
+                mRootContorl.showBack();
+                isMove = true;
+            }
+            else {
+                mNewDrag.transform.position = Input.mousePosition;
             }
         }
           
@@ -166,6 +178,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     {
 
         mNewDrag = null;
+        mIsOndragDown = false;
         mScrollRect.OnEndDrag(eventData);
     }
     private CardManager mManager;
@@ -200,6 +213,5 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);
 
         mRootContorl = gameObject.GetComponent<CardUiControl>();
-        mOldVector = mRootContorl.transform.GetChild(0).localScale;
     }
 }

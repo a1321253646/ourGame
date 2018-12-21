@@ -79,8 +79,8 @@ public class InventoryHalper
     }
     public static long TABID_1_START_ID = 100000;
     public static long TABID_2_START_ID = 200000;
-    public static long TABID_3_START_ID = 300000;
-    public static long TABID_4_START_ID = 400000;
+    public static long TABID_3_START_ID = 3000000;
+    public static long TABID_4_START_ID = 4000000;
 
     public void updatePoint(PlayerBackpackBean bean) {
         bean.isShowPoint = 2;

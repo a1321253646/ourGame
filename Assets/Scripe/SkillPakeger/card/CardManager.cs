@@ -24,7 +24,7 @@ public class CardManager : MonoBehaviour {
         mCanvas = GameObject.Find("Canvas").transform;
         
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
-        for (int i = 1; i <= 8; i++ ){
+        for (int i = 1; i <= 6; i++ ){
             mCardLoaclList.Add(GameObject.Find("kapai_local_"+i));
         }
         mCardLocalUp = GameObject.Find("kapai_local_up");
@@ -142,7 +142,7 @@ public class CardManager : MonoBehaviour {
         CardControl enmey = newobj.GetComponent<CardControl>();
         newobj.transform.SetParent(gameObject.transform);
         newobj.transform.localScale = Vector3.one;
-        enmey.init(id, 90,127);
+        enmey.init(id, 107, 146);
         enmey.init(mList.Count + 1, this, id);
         mList.Add(enmey);
     }

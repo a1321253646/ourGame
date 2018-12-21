@@ -234,23 +234,23 @@ public class CardControl : MonoBehaviour
         if (mStatue == STATUE_CARP_DOWN)
         {
             float x;
-            if (mIndex == 8)
+            if (mIndex == 6)
             {
-                x = mManager.getLocalXByIndex(7);
+                x = mManager.getLocalXByIndex(5);
             }
             else {
                 x = transform.GetChild(0).position.x;
             }
-            mClickShow.GetComponent<CardUiControl>().init(mCard.id, CardUiControl.TYPE_CARD_PLAY,mManager.getHero());
+            mClickShow.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getHero());
             if (mClickShowX == -1)
             {
                 mClickShowX = mClickShow.transform.transform.position.x;
             }
-            mClickShow.transform.GetChild(0).position = new Vector2(x, mClickShow.transform.GetChild(0).position.y);
+            mClickShow.transform.position = new Vector2(x, mClickShow.transform.position.y);
         }
         else {
 
-            mClickShow.transform.GetChild(0).position = new Vector2(mClickShowX, mClickShow.transform.GetChild(0).position.y);
+            mClickShow.transform.position = new Vector2(mClickShowX, mClickShow.transform.position.y);
         }
         if (mStatue == STATUE_CARP_UP && mSkill.shape_type != 0 && mSkill.shape_type != 6)
         {
@@ -345,9 +345,9 @@ public class CardControl : MonoBehaviour
     {
         // float x = gameObject.GetComponent<RectTransform>().rect.width * gameObject.transform.localScale.x;
         // float y = gameObject.GetComponent<RectTransform>().rect.height * gameObject.transform.localScale.y;
-        Transform ob = transform.GetChild(0).GetChild(0);
-        float x1 = ob.gameObject.GetComponent<RectTransform>().rect.width;
-        float y1 = ob.gameObject.gameObject.GetComponent<RectTransform>().rect.height;
+        float x1 = transform.GetChild(0).gameObject.GetComponent<RectTransform>().rect.width;
+        float y1 = transform.GetChild(0).gameObject.gameObject.GetComponent<RectTransform>().rect.height;
         transform.GetChild(0).localScale = new Vector3(x / x1, y / y1, 1);
+        transform.GetChild(1).localScale = new Vector3(x / x1, y / y1, 1);
     }
 }

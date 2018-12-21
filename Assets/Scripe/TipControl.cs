@@ -19,8 +19,7 @@ public class TipControl : MonoBehaviour {
     AccouterJsonBean mAccouter = null;
     GoodJsonBean mGoodJson = null;
     CardJsonBean mCardJson = null;
-    private Button mClose, mActionClick, mClickList1Click1, mClickList1Click2;
-    private Text mClickText;
+    private Button mClose, mClickList1Click1, mClickList1Click2;
     private Text mClickList1Text1;
     private Text mClickList1Text2;
     public static int COMPOSE_TYPE = 1;
@@ -40,20 +39,13 @@ public class TipControl : MonoBehaviour {
     void Start()
     {
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
-        mActionClick = GameObject.Find("tip_Button").GetComponent<Button>();
         mClickList1Click1 = GameObject.Find("tip_button_list1_1").GetComponent<Button>();
         mClickList1Click2 = GameObject.Find("tip_button_list1_2").GetComponent<Button>();
         mClose = GameObject.Find("tip_close").GetComponent<Button>();
-        mClickText = GameObject.Find("tipButtonTx").GetComponent<Text>();
         mClickList1Text1 = GameObject.Find("tip_button_list1_1").GetComponentInChildren<Text>();
         mClickList1Text2 = GameObject.Find("tip_button_list1_2").GetComponentInChildren<Text>();
         mTipName = GameObject.Find("tipName").GetComponent<Text>();
         mButtonList1 = GameObject.Find("tip_button_list1");
-        mActionClick.onClick.AddListener(() =>
-        {
-            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_TIP_SURE);
-            use();
-        });
         mClickList1Click2.onClick.AddListener(() =>
         {
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_TIP_SURE);
@@ -87,7 +79,7 @@ public class TipControl : MonoBehaviour {
             else {
                 if (mCurrentType == USE_TYPE) {
                     GameObject obj = Resources.Load<GameObject>("prefab/hurt");
-                    Vector3 v1 = mActionClick.transform.position;
+                    Vector3 v1 = mClickList1Click2.transform.position;
                     GameObject text = GameObject.Instantiate(obj,
                         new Vector2(v1.x, v1.y), Quaternion.identity);
                     Transform hp = GameObject.Find("Canvas").transform;
@@ -106,11 +98,7 @@ public class TipControl : MonoBehaviour {
 
     public void setShowData(PlayerBackpackBean bean,long count,int type) {
         mCurrentType = type;
-        if (mCurrentType == COMPOSE_TYPE)
-        {
-            mClickText.text = "合成";
-        }
-        else if (mCurrentType == USE_TYPE)
+         if (mCurrentType == USE_TYPE)
         {
             mClickList1Text2.text = "穿戴";
             mClickList1Text1.text = "出售";
@@ -120,29 +108,6 @@ public class TipControl : MonoBehaviour {
         {
             mClickList1Text2.text = "脱下";
             mClickList1Text1.text = "出售";
-        }
-        else if (mCurrentType == BOOK_TYPE)
-        {
-            mClickText.text = "使用";
-        }
-        else if (mCurrentType == USE_CARD_TYPE)
-        {
-            mClickText.text = "装备";
-        }
-        else if (mCurrentType == UNUSE_CARD_TYPE) {
-            mClickText.text = "卸下";
-        }
-        else if (mCurrentType == SHOW_COMPOSE_TYPE) {
-            mClickText.text = "关闭";
-        }
-        if (mCurrentType == USE_TYPE || mCurrentType == UNUSE_TYPE)
-        {
-            mActionClick.gameObject.transform.localScale = new Vector3(0, 0, 0);
-            mButtonList1.transform.localScale = new Vector3(1, 1, 1);
-        }
-        else {
-            mButtonList1.transform.localScale = new Vector3(0, 0, 0);
-            mActionClick.gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
         mBean = bean;
         this.id = bean.goodId;

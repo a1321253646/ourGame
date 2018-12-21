@@ -50,7 +50,6 @@ public class CardShowControl : MonoBehaviour {
         mCardManager = GameObject.Find("jineng").GetComponent<CardManager>();
         mUserScroll = GameObject.Find("user_card_list_root").GetComponent<ScrollRect>();
         mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
-        mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
         mRoot = GameObject.Find("Canvas").GetComponent<Transform>();
         
         mFri = gameObject.transform.localPosition;
@@ -101,7 +100,7 @@ public class CardShowControl : MonoBehaviour {
             }
             setWitch(mUserListGl, mUserListGb.Count);
         }
-        mUserCount.text = "已装备卡牌（" + mUserListGb.Count + "/30）";
+        mUserCount.text = + mUserListGb.Count + "/30";
         List<PlayerBackpackBean> user = InventoryHalper.getIntance().getUsercard();
 
         foreach (PlayerBackpackBean bean in user)
@@ -126,14 +125,15 @@ public class CardShowControl : MonoBehaviour {
                 good.transform.parent = mBackListGl.transform;
                 good.transform.localScale = Vector2.one; ;
                 mBackListGb.Add(good);
-                ui.init(-1, 73, 108);
+                ui.init(-1, 91, 125);
                 ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
-                good.transform.GetChild(0).Translate(Vector2.down * (10));
+//                good.transform.GetChild(0).Translate(Vector2.down * (10));
             }
-            SetGridHeight(mBackListGl, 2, mBackListGb.Count, 10);
+            SetGridHeight(mBackListGl, 3, mBackListGb.Count, 10);
         }
         List<PlayerBackpackBean> list =  InventoryHalper.getIntance().getInventorys();
         foreach (PlayerBackpackBean bean in list) {
+            Debug.Log("bean.id = " + bean.goodId + " bean.goodType=" + bean.goodType);
             if ( bean.goodType == SQLDate.GOOD_TYPE_CARD) {
                 for(int i = 0; i< bean.count; i++) {
                     addBackUi(bean);
@@ -229,7 +229,7 @@ public class CardShowControl : MonoBehaviour {
             CardUiControl ui = mBackListGb[i].GetComponent<CardUiControl>();
             if (ui.mCardId == -1)
             {
-                ui.init(bean.goodId, 73, 108);
+                ui.init(bean.goodId, 91, 125);
                 ui.init(bean.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
                 ItemOnDrag item = mBackListGb[i].GetComponent<ItemOnDrag>();
                 item.mBean = bean;
@@ -255,11 +255,11 @@ public class CardShowControl : MonoBehaviour {
                 good.transform.parent = mBackListGl.transform;
                 good.transform.localScale = Vector2.one; ;
                 mBackListGb.Add(good);
-                ui.init(-1, 73, 108);
+                ui.init(-1, 91, 125);
                 ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
-                good.transform.GetChild(0).Translate(Vector2.down * (10));
+//                good.transform.GetChild(0).Translate(Vector2.down * (10));
             }
-            SetGridHeight(mBackListGl, 2, mBackListGb.Count, 10);
+            SetGridHeight(mBackListGl, 3, mBackListGb.Count, 10);
         }
     }
 
