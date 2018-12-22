@@ -18,7 +18,7 @@ public class HeroRoleControl : MonoBehaviour {
     ResourceBean resourceData;
     GameObject mHeroEnable, mPetEnable, mHeroUnble, mPetUnble,mPet;
     Button mHeroUnbleButton, mPetUnbleButton;
-
+    bool isShowPet = false;
     private void Start()
     {
 
@@ -47,7 +47,14 @@ public class HeroRoleControl : MonoBehaviour {
             int level = GameManager.getIntance().getUiCurrentLevel();
             if (mLevel < level)
             {
-                showUi();
+                if (mPet.GetComponent<PetControl>().isInTop())
+                {
+                    removeUi();
+                }
+                else {
+                    showUi();
+                }
+                
                 return;
             }
             else if (mLevel == level)
@@ -95,7 +102,8 @@ public class HeroRoleControl : MonoBehaviour {
                 mHeroEnable.transform.localScale = new Vector2(0, 0);
                 mHeroUnble.transform.localScale = new Vector2(1, 1);
                 mPet.transform.localScale = new Vector2(1, 1);
-                GetComponentInChildren<PetControl>().init();
+                mPet.GetComponent<PetControl>().showUi();
+                isShowPet = true;
 
             });
 
@@ -107,7 +115,8 @@ public class HeroRoleControl : MonoBehaviour {
                 mPetUnble.transform.localScale = new Vector2(1, 1);
                 mHeroUnble.transform.localScale = new Vector2(0, 0);
                 mHeroEnable.transform.localScale = new Vector2(1, 1);
-                mPet.transform.localScale = new Vector2(0, 0);
+                mPet.GetComponent<PetControl>().removeUi();
+                isShowPet = false;
             });
         }
 
@@ -115,12 +124,31 @@ public class HeroRoleControl : MonoBehaviour {
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
 
+        if (isShowPet)
+        {
+            mPetUnble.transform.localScale = new Vector2(0, 0);
+            mPetEnable.transform.localScale = new Vector2(1, 1);
+            mHeroEnable.transform.localScale = new Vector2(0, 0);
+            mHeroUnble.transform.localScale = new Vector2(1, 1);
+            mPet.transform.localScale = new Vector2(1, 1);
+            mPet.GetComponent<PetControl>().showUi();
+        }
+        else {
+            mPetEnable.transform.localScale = new Vector2(0, 0);
+            mPetUnble.transform.localScale = new Vector2(1, 1);
+            mHeroUnble.transform.localScale = new Vector2(0, 0);
+            mHeroEnable.transform.localScale = new Vector2(1, 1);
+            mPet.GetComponent<PetControl>().removeUi();
+        }
     }
+    
+
     public void removeUi()
     {
         isShow = false;
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
         gameObject.transform.localPosition = mFri;
+        mPet.GetComponent<PetControl>().removeUi();
     }
 
     public void upDateUi()

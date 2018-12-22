@@ -435,6 +435,11 @@ public class InventoryHalper
             }
         }
     }
+
+    public void changePetStatus(PlayerBackpackBean bean) {
+        SQLHelper.getIntance().changeGoodTyppe(bean);
+    }
+
     public List<PlayerBackpackBean> getInventorys() {
         return mList;
     }

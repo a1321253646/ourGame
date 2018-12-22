@@ -77,7 +77,7 @@ public class SamsaraManage : MonoBehaviour {
             mLunhuiClick.interactable = false;
             mLunhuiTx.text = "第" + mix + "关开启轮回功能";
         }
-        mLunhuiValue.text = "当前拥有轮回点：" + GameManager.getIntance().mReincarnation.toStringWithUnit();
+        mLunhuiValue.text =  GameManager.getIntance().mReincarnation.toStringWithUnit();
         mListControl.isEnableLavelUp();
     }
     public void removeUi()

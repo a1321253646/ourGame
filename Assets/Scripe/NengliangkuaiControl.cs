@@ -15,31 +15,8 @@ public class NengliangkuaiControl : MonoBehaviour {
     }
 
     public void init() {
-        if (mAnimalControl == null)
-        {
-            creatAnimal();
-        }
+        transform.localScale = new Vector2(0, 0);
         isInit = true;
-    }
-
-    void Update()
-    {
-        if (!isInit)
-        {
-            return;
-        }
-        mAnimalControl.update();
-    }
-
-    private void creatAnimal() {
-
-        mImage = GetComponent<Image>();
-        ResourceBean resourceData = JsonUtils.getIntance().getEnemyResourceData(40001);
-        mAnimalControl = new AnimalControlBase(resourceData, mImage);
-        mAnimalControl.start();
-        endSprite = Resources.Load("ui_new/huo_hui", typeof(Sprite)) as Sprite;
-        mAnimalControl.start();
-        mAnimalControl.end(endSprite);
     }
 
     public void setCount(float count) {
@@ -48,10 +25,10 @@ public class NengliangkuaiControl : MonoBehaviour {
         }
         if (count >= index)
         {
-            mAnimalControl.start();
+            transform.localScale = new Vector2(1, 1);
         }
         else {
-            mAnimalControl.end(endSprite);
+            transform.localScale = new Vector2(0, 0);
         }
     }
 }

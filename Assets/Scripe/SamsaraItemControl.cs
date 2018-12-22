@@ -11,6 +11,7 @@ public class SamsaraItemControl : MonoBehaviour {
     private Text mSamsaraValue;
     private Text mLvelUpCost;
     private Text mLvel;
+    private Text mButtonText;
     private Button mLevelUp;
     private SamSaraListControl mListControl;
     public void init(long id, SamSaraListControl control) {
@@ -18,13 +19,14 @@ public class SamsaraItemControl : MonoBehaviour {
         mListControl = control;
         mJsonBean =  JsonUtils.getIntance().getSamsaraInfoById(mId);
         Image[] images = gameObject.GetComponentsInChildren<Image>();
-        mNoStudy = images[images.Length - 1];
-        mIcon = gameObject.GetComponentsInChildren<Image>()[4];
+        mNoStudy = images[4];
+        mIcon = gameObject.GetComponentsInChildren<Image>()[3];
         Text[] texts = gameObject.GetComponentsInChildren<Text>();
         mSamsaraName = texts[0];
         mSamsaraValue = texts[1];
-        mLvelUpCost = texts[2];
-        mLvel = texts[3];
+        mLvelUpCost = texts[3];
+        mLvel = texts[4];
+        mButtonText = texts[2];
         mLevelUp = GetComponentsInChildren<Button>()[1];
         Sprite sprite = Resources.Load("icon/samsara/" + mJsonBean.icon, typeof(Sprite)) as Sprite;
         mIcon.sprite = sprite;
@@ -61,6 +63,7 @@ public class SamsaraItemControl : MonoBehaviour {
             string str = "学习效果 ";
             str = str + getAttribute(1);
             Debug.Log(str);
+            mLvel.text = "" ;
             mSamsaraValue.text = str;
         }
         else {

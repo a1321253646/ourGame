@@ -9,14 +9,16 @@ public class PetIconShowControl : MonoBehaviour {
     Button mButton;
     PetControl mControl;
     public long mId;
-    PlayerBackpackBean mBean;
+    public PlayerBackpackBean mBean;
+    public PetJsonBean mJsonBean;
     public void init(PlayerBackpackBean bean,PetControl control) {
+        mControl = control;
         mId = bean.goodId;
         mBean = bean;
         if (mIcon == null) {
-            mIcon = gameObject.GetComponent<Image>();
-            mChose = gameObject.GetComponentsInChildren<Image>()[0];
-            mFighe = gameObject.GetComponentsInChildren<Image>()[1];
+            mIcon = gameObject.GetComponentsInChildren<Image>()[1];
+            mChose = gameObject.GetComponentsInChildren<Image>()[2];
+            mFighe = gameObject.GetComponentsInChildren<Image>()[3];
         }
         if(bean.goodType == SQLDate.GOOD_TYPE_USER_PET){
             mFighe.transform.localScale = new Vector2(1, 1);
@@ -24,23 +26,26 @@ public class PetIconShowControl : MonoBehaviour {
         else {
             mFighe.transform.localScale = new Vector2(0, 0);
         }
-        PetJsonBean pet = JsonUtils.getIntance().getPetInfoById(mId);
-        mIcon.sprite = Resources.Load("icon/pet/" + pet.activateIcon, typeof(Sprite)) as Sprite;
+        mJsonBean = JsonUtils.getIntance().getPetInfoById(mId);
+        mIcon.sprite = Resources.Load("icon/pet/" + mJsonBean.activateIcon, typeof(Sprite)) as Sprite;
         mChose.transform.localScale = new Vector2(0, 0);
+        initEnd();
     }
     public void init(long id, PetControl control)
     {
         mId = id;
+        mControl = control;
         if (mIcon == null)
         {
-            mIcon = gameObject.GetComponent<Image>();
-            mChose = gameObject.GetComponentsInChildren<Image>()[0];
-            mFighe = gameObject.GetComponentsInChildren<Image>()[1];
+            mIcon = gameObject.GetComponentsInChildren<Image>()[1];
+            mChose = gameObject.GetComponentsInChildren<Image>()[2];
+            mFighe = gameObject.GetComponentsInChildren<Image>()[3];
         }
         mFighe.transform.localScale = new Vector2(0, 0);
-        PetJsonBean pet = JsonUtils.getIntance().getPetInfoById(mId);
-        mIcon.sprite = Resources.Load("icon/pet/" + pet.noactivateIcon, typeof(Sprite)) as Sprite;
+        mJsonBean = JsonUtils.getIntance().getPetInfoById(mId);
+        mIcon.sprite = Resources.Load("icon/pet/" + mJsonBean.noactivateIcon, typeof(Sprite)) as Sprite;
         mChose.transform.localScale = new Vector2(0, 0);
+        initEnd();
     }
     public void initEnd() {
         if (mButton == null) {
@@ -48,7 +53,6 @@ public class PetIconShowControl : MonoBehaviour {
             mButton.onClick.AddListener(() =>
             {
                 mControl.onIconClick(this);
-                click(true);
             });
         }
     }
@@ -62,4 +66,5 @@ public class PetIconShowControl : MonoBehaviour {
             mChose.transform.localScale = new Vector2(0, 0);
         }
     }
+
 }

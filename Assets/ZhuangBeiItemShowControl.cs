@@ -52,7 +52,7 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
         updateCost = BigNumber.add( cost ,baseCost);
         if (mCost == null)
         {
-            mCost = GetComponentsInChildren<Text>()[1];
+            mCost = GetComponentsInChildren<Text>()[2];
         }
         mCost.text = "" + updateCost.toStringWithUnit();
         if (mButton == null)

@@ -26,7 +26,7 @@ public class PlayControl : Attacker
         setHeroData ();
         upLunhui();
         initEquip();
-        int count = 3;
+        int count = 1;
         mFightManager.registerAttacker (this);
         mLevelAnimalControl = new HeroLevelUpAnimal(mLevelAnimal, JsonUtils.getIntance().getEnemyResourceData(40002),this);
                 if (GameManager.isAdd)
@@ -35,21 +35,20 @@ public class PlayControl : Attacker
                   //   && !GameManager.getIntance().isAddGoodForTest)
                  {
                     GameManager.getIntance().isAddGoodForTest = true;
-                    BackpackManager.getIntance().addGoods(3000001, count);
-                    BackpackManager.getIntance().addGoods(3000002, count);
-                    BackpackManager.getIntance().addGoods(3000003, count);
-                    BackpackManager.getIntance().addGoods(3000004, count);
-                    BackpackManager.getIntance().addGoods(3000005, count);
-                    BackpackManager.getIntance().addGoods(3000006, count);
-                    BackpackManager.getIntance().addGoods(3000007, count);
-                    BackpackManager.getIntance().addGoods(3000008, count);
-                    BackpackManager.getIntance().addGoods(3000009, count);
-                    BackpackManager.getIntance().addGoods(3000010, count);
-                    BackpackManager.getIntance().addGoods(3000011, count);
-                    BackpackManager.getIntance().addGoods(3000012, count);
-                    BackpackManager.getIntance().addGoods(3000013, count);
-                    BackpackManager.getIntance().addGoods(3000014, count);
-                    BackpackManager.getIntance().addGoods(3000015, count);
+                    BackpackManager.getIntance().addGoods(4000001, count);
+                    BackpackManager.getIntance().addGoods(4000002, count);
+                    BackpackManager.getIntance().addGoods(4000003, count);
+                    BackpackManager.getIntance().addGoods(4000004, count);
+                    BackpackManager.getIntance().addGoods(4000005, count);
+                    BackpackManager.getIntance().addGoods(4000006, count);
+                    BackpackManager.getIntance().addGoods(4000007, count);
+                    BackpackManager.getIntance().addGoods(4000008, count);
+                    BackpackManager.getIntance().addGoods(4000009, count);
+                    BackpackManager.getIntance().addGoods(4000010, count);
+                    BackpackManager.getIntance().addGoods(4000011, count);
+                    BackpackManager.getIntance().addGoods(4000012, count);
+                    BackpackManager.getIntance().addGoods(4000013, count);
+                    BackpackManager.getIntance().addGoods(4000014, count);
         }
         if (GameManager.getIntance().isHaveOutGet)
         {
@@ -354,6 +353,17 @@ public class PlayControl : Attacker
         Debug.Log("===============mAttribute.evd = " + mAttribute.evd);
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
     }
+    public void changePetStatu(PlayerBackpackBean bean, long  type) {
+        if (type == SQLDate.GOOD_TYPE_USER_PET)
+        {
+            mSkillManager.addSkill(bean, this);
+        }
+        else
+        {
+            mSkillManager.removeSkill(bean, this);
+        }
+    }
+
 
     public void ChangeEquip(PlayerBackpackBean bean,bool isAdd)
     {        

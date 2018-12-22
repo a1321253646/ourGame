@@ -21,6 +21,7 @@ public class AnimalControlBase
     private bool isStart = false;
 
     AnimalStatu.animalEnd mDefuleEndCallbak;
+    private bool mIsNativeSize = false;
     public AnimalControlBase(ResourceBean resource, SpriteRenderer spriteRender) {
         mResource = resource;
         mSpriteRender = spriteRender;
@@ -28,6 +29,15 @@ public class AnimalControlBase
         mDefuleEndCallbak = new AnimalStatu.animalEnd(animalEnd);
         init(); 
     }
+    public AnimalControlBase(ResourceBean resource, Image spriteRender,bool isNativeSize)
+    {
+        mIsNativeSize = isNativeSize;
+        mResource = resource;
+        mImage = spriteRender;
+        mDefuleEndCallbak = new AnimalStatu.animalEnd(animalEnd);
+        init();
+    }
+
     public AnimalControlBase(ResourceBean resource, Image spriteRender)
     {
         mResource = resource;
@@ -45,10 +55,10 @@ public class AnimalControlBase
             AnimalStatu statu;
             if (mSpriteRender != null)
             {
-                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mSpriteRender, loop, mResource.animation_speed);
+                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mSpriteRender, loop, mResource.animation_speed, mIsNativeSize);
             }
             else {
-                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mImage, loop, mResource.animation_speed);
+                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mImage, loop, mResource.animation_speed, mIsNativeSize);
             }
             
             statu.setEndCallBack(mDefuleEndCallbak);

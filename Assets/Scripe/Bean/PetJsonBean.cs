@@ -20,18 +20,18 @@ public class PetJsonBean
     public string activateText;
     public string talkText;
 
-    public List<EquipKeyAndValue> mAffix;
+    public List<PlayerAttributeBean> mAffix;
 
-    public List<EquipKeyAndValue> getAffixList() {
+    public List<PlayerAttributeBean> getAffixList() {
 
         if (mAffix == null && afficId != null) {
             string[] affixIdList = afficId.Split(',');
             string[] affixValueList = vlue.Split(',');
             if (affixIdList != null && affixValueList != null && affixIdList.Length != 0 && affixIdList.Length == affixValueList.Length) {
-                mAffix = new List<EquipKeyAndValue>();
+                mAffix = new List<PlayerAttributeBean>();
                 for (int i = 0; i < affixIdList.Length; i++) {
-                    EquipKeyAndValue value = new EquipKeyAndValue();
-                    value.key = int.Parse(affixIdList[i]);
+                    PlayerAttributeBean value = new PlayerAttributeBean();
+                    value.type = int.Parse(affixIdList[i]);
                     value.value = int.Parse(affixValueList[i]);
                     mAffix.Add(value);
                 }

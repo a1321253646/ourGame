@@ -93,13 +93,13 @@ public class GoodControl : MonoBehaviour {
         this.id = id;
         if (mImage != null && id != -1)
         {
-            string back = "ui_new/box_gride";
+            string back = "UI_yellow/box_gride";
           //  if (img == null) {
                 if (bean.tabId == TABID_EQUIP_TYPY)
                 {
                     img = InventoryHalper.getIntance().getIcon(id);
                     mMaxCout = BackpackManager.getIntance().getAccouterInfoById(id).stacking;
-                    back = "ui_new/box_gride0" + BackpackManager.getIntance().getAccouterInfoById(id).quality;
+                    back = "UI_yellow/box_gride_" + BackpackManager.getIntance().getAccouterInfoById(id).quality;
                 }
                 else if (bean.tabId == TABID_ITEM_TYPE)
                 {
@@ -125,7 +125,7 @@ public class GoodControl : MonoBehaviour {
             mImage.sprite = null;
             mImage.color = Color.clear;
             mBack.sprite = Resources.
-                Load("ui_new/box_gride", typeof(Sprite)) as Sprite;
+                Load("UI_yellow/box_gride", typeof(Sprite)) as Sprite;
         }
         long level = 0;
         if (bean != null && bean.attributeList != null && bean.attributeList.Count > 0) {

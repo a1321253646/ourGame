@@ -278,6 +278,7 @@ public class GameManager
         }
     }
     public void setVoice(AudioSource source,bool isVoice,bool isSave) {
+        Debug.Log("setVoice");
         if (isVoice)
         {
             source.volume = 1;
@@ -286,6 +287,7 @@ public class GameManager
             source.volume = 0;
         }
         if (isSave) {
+            Debug.Log("setVoice save isVoice= "+ isVoice);
             SQLHelper.getIntance().updateIsVoice(isVoice ? 1 : 2);
         }
     }

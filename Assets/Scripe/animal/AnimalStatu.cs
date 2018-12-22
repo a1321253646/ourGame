@@ -37,10 +37,11 @@ public class AnimalStatu
     private float mCountTimeBackEach = -1;
     private float mCountTime = 0;
     private float mSetSpeed = 1;
-
-    public AnimalStatu(int statue, int frame, string resultPath, SpriteRenderer spriteRender, bool isLoop, float setSpeed)
+    private bool mIsNativeSize = false;
+    public AnimalStatu(int statue, int frame, string resultPath, SpriteRenderer spriteRender, bool isLoop, float setSpeed, bool isNativeSize)
     {
         mIsLopp = isLoop;
+        mIsNativeSize = isNativeSize;
         mSetSpeed = setSpeed;
         this.statue = statue;
         mSpriteRender = spriteRender;
@@ -62,8 +63,9 @@ public class AnimalStatu
         }
         eachTime = DEFAULT_EACH_TIME/ mSetSpeed;
     }
-    public AnimalStatu(int statue, int frame, string resultPath, Image spriteRender, bool isLoop, float setSpeed)
+    public AnimalStatu(int statue, int frame, string resultPath, Image spriteRender, bool isLoop, float setSpeed, bool isNativeSize)
     {
+        mIsNativeSize = isNativeSize;
         mIsLopp = isLoop;
         mSetSpeed = setSpeed;
         this.statue = statue;
@@ -144,8 +146,12 @@ public class AnimalStatu
         }
         else {
             mImageRender.sprite = spriteList[index];
+            if (mIsNativeSize)
+            {
+                mImageRender.SetNativeSize();
+            }
         }
-
+        
 
     }
 

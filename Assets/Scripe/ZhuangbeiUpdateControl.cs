@@ -116,7 +116,7 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
         float w = 0;
         if (count > 4)
         {
-            w = 85 * count + 20 * (count - 1) + 40;
+            w = 118.36f * count + 20 * (count - 1) + 40;
         }
         else {
             w = 603.7f;

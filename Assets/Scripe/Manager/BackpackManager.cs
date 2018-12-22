@@ -31,6 +31,7 @@ public class BackpackManager
     private CardShowControl mCardControl;
     private LuiHuiTips mLunhuiControl;
     private OutLineGetMessage mMessageTipControl;
+    private SettingUiControl mSettingControl;
     //    private QiangHuaManager mQianghuaControl;
 
     //    private ComposeControl mComposeControl;
@@ -65,6 +66,9 @@ public class BackpackManager
         mHeroTranform = GameObject.Find("hero").GetComponent<RectTransform>();
         mHeroControl = mHeroTranform.GetComponent<HeroRoleControl>();
 
+        mSettingControl = GameObject.Find("setting_ui").GetComponent<SettingUiControl>();
+
+        
         //  mComposeTranform = GameObject.Find("compose_root").GetComponent<RectTransform>();
         //  mComposeControl = mComposeTranform.GetComponent<ComposeControl>();
 
@@ -291,6 +295,12 @@ public class BackpackManager
     public void heroUiShowClick()
     {
         mHeroControl.click();
+        removeTipUi();
+        removeLunhuiTipUi();
+    }
+    public void settingUiShowClick()
+    {
+        mSettingControl.click();
         removeTipUi();
         removeLunhuiTipUi();
     }

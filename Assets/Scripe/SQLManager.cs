@@ -454,6 +454,7 @@ public class SQLManager : MonoBehaviour
     private void addList(string command) {
 
         lock (mLock) {
+            Debug.Log("addList command="+ command);
             mWaitList.Add(command);
         }
     }
@@ -480,14 +481,14 @@ public class SQLManager : MonoBehaviour
 
     private void threadRun() {
         while (connection != null) {
-            //Debug.Log("======================================threadRun command count");
+            Debug.Log("======================================threadRun command count");
             if (listIsEmpty())
             {
                 Thread.Sleep(1000);
             }
             else {
                 string command = getList(0);
-            //    Debug.Log("threadRun command = " + command);
+                Debug.Log("threadRun command = " + command);
                 ExecuteSQLCommand(command);
              //   Debug.Log("threadRun command success " );
                 removeList(command);
