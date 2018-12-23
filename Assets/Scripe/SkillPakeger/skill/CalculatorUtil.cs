@@ -13,9 +13,14 @@ public class CalculatorUtil
     List<CalculatorUtilBean> mBean = new List<CalculatorUtilBean>();
 
     AttackSkillBase attackSkill;
+    AttackerSkillBase attackSkill2;
 
     public void setSkill(AttackSkillBase attackSkill) {
         this.attackSkill = attackSkill;
+    }
+    public void setSkill(AttackerSkillBase attackSkill)
+    {
+        this.attackSkill2 = attackSkill;
     }
 
     public CalculatorUtil(string str, string parStr) {
@@ -201,7 +206,14 @@ public class CalculatorUtil
             {
                 keyId = strs[1];
                 int idd = int.Parse(keyId);
-                return attackSkill.getValueById(idd);
+                if (attackSkill != null)
+                {
+                    return attackSkill.getValueById(idd);
+                }
+                else {
+                    return attackSkill2.getValueById(idd);
+                }
+               
             }
             else if (strs[0].Equals("4"))
             {

@@ -13,6 +13,8 @@ public class AttackSkillManager
     public float lunhuiHurtPre = 0;
     public float lunhuiCardHurtPre = 0;
 
+    public EventAttackSkillManager mEventAttackManager;
+
     private Attacker mAttack;
     private Attacker mAttackFight;
     private GameObject mSkillObject;
@@ -86,7 +88,7 @@ public class AttackSkillManager
         addSkill(bean, mAttackFight);
     }
 
-    public void addSkill(PetJsonBean json, Attacker mAttackFight) {
+   /* public void addSkill(PetJsonBean json, Attacker mAttackFight) {
         Debug.Log("addSkill PlayerBackpackBean");
         List<PackbackSkillBase> list1 = new List<PackbackSkillBase>();
         List<AttackSkillNoAnimal> list = new List<AttackSkillNoAnimal>();
@@ -125,7 +127,7 @@ public class AttackSkillManager
         {
             ((PlayControl)mAttack).getAttribute();
         }
-    }
+    }*/
 
     public void addSkill(PlayerBackpackBean bean, Attacker mAttackFight) {
         Debug.Log("addSkill PlayerBackpackBean");
@@ -173,7 +175,7 @@ public class AttackSkillManager
         }
     }
 
-    private AttackSkillNoAnimal creatAttackSkill(long id, long value)
+  /*  private AttackSkillNoAnimal creatAttackSkill(long id, long value)
     {
         AttackSkillNoAnimal p = null;
         if (id == 600001)
@@ -218,7 +220,7 @@ public class AttackSkillManager
             p.init(this, value, mAttack);
         }
         return p;
-    }
+    }*/
 
     private PackbackSkillBase creatPackbackSkill(long id, long value) {
         PackbackSkillBase p = null;
