@@ -199,16 +199,49 @@ public class GameManager
         uiManager.addGas();
         if (enemy is EnemyBase) {
             EnemyBase tmp = (EnemyBase)enemy;
-            List<FellObjectBean> list = tmp.mData.fell();
-            if (list != null && list.Count > 0) {
-                foreach (FellObjectBean bean in list) {                
-                    Debug.Log("怪物死亡掉落 " + bean.id);
-                    BackpackManager.getIntance().addGoods(bean.id, (int)bean.count);
-                    string path = InventoryHalper.getIntance().getIcon(bean.id);
-                    showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.GOOD_DIAOLUO_TYPE, path,0, bean.id);
+            int count = 1;
+            if (mLevelManage.mPlayerControl.mSkillManager.mEventAttackManager.endGetDrop()) {
+                count = 2;
+            }
+            for (int i = 0; i < count; i++) {
+                List<FellObjectBean> list = tmp.mData.fell();
+                if (list != null && list.Count > 0)
+                {
+                    foreach (FellObjectBean bean in list)
+                    {
+                        Debug.Log("怪物死亡掉落 " + bean.id);
+                        BackpackManager.getIntance().addGoods(bean.id, (int)bean.count);
+                        string path = InventoryHalper.getIntance().getIcon(bean.id);
+                        showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.GOOD_DIAOLUO_TYPE, path, 0, bean.id);
+                    }
+                }
+                getGuideManager().eventNotification(GuideManager.EVENT_ENEMY_DEAL, tmp.mData.id);
+            }
+            if (enemy.mAttackType == Attacker.ATTACK_TYPE_BOSS) {
+                if (JsonUtils.getIntance().isHavePet()) {
+                    List<PetJsonBean> jsons = JsonUtils.getIntance().getPet();
+                    foreach (PetJsonBean j in jsons) {
+                        if (j.activateLevel == mCurrentLevel) {
+                            List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
+                            bool isHave = false;
+                            foreach (PlayerBackpackBean p in list) {
+                                if (p.goodId == j.id) {
+                                    isHave = true;
+                                    break;
+                                }
+                            }
+                            if (!isHave) {
+                                InventoryHalper.getIntance().addInventory(j.id, 1);
+                                uiManager.setRolePointShow(1);
+                            }
+                            break;
+                        }
+                    }
+
+                    
+
                 }
             }
-            getGuideManager().eventNotification(GuideManager.EVENT_ENEMY_DEAL, tmp.mData.id);
         }
         showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", mCurrentGas);
         

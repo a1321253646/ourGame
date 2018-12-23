@@ -193,7 +193,7 @@ public class PetControl : MonoBehaviour {
     AnimalControlBase mAnimalControl;
     public void click() {
         mName.text = mClickIcon.mJsonBean.name;
-        mDec.text = mClickIcon.mJsonBean.dec;
+        mDec.text = mClickIcon.mJsonBean.des;
         mAffix.text = "???????\n???????\n???????\n???????";
         if (mClickIcon.mBean == null)
         {

@@ -6,6 +6,8 @@ public class PetManager : MonoBehaviour {
 
     // Update is called once per frame
     public GameObject mPetGj;
+    public PlayControl mHero;
+
     public class PetLocalDate {
         public float x;
         public float y;
@@ -29,10 +31,13 @@ public class PetManager : MonoBehaviour {
     float xDistance;
     public float yDistance;
     public void init() {
-         xMin = JsonUtils.getIntance().getConfigValueForId(100034);
-         xMax = JsonUtils.getIntance().getConfigValueForId(100035);
-         yMax = JsonUtils.getIntance().getConfigValueForId(100036);
-         ymin = JsonUtils.getIntance().getConfigValueForId(100037);
+         mHero = GameObject.Find("Manager").GetComponent<LevelManager>().mPlayerControl;
+         float xHeroDistance = JsonUtils.getIntance().getConfigValueForId(100034);
+        float yHeroDistance = JsonUtils.getIntance().getConfigValueForId(100035);
+        float xLeng = JsonUtils.getIntance().getConfigValueForId(100036);
+        float yLeng = JsonUtils.getIntance().getConfigValueForId(100037);
+
+
          xDistance = (xMax - xMin) / 6;
          yDistance = (yMax - ymin) / 6;
 
@@ -53,6 +58,7 @@ public class PetManager : MonoBehaviour {
                 petFight(b.goodId);
             }
         }
+        
 
     }
     public void addPet(PlayerBackpackBean  bean) {
@@ -60,8 +66,10 @@ public class PetManager : MonoBehaviour {
     }
     public bool petReset(long id) {
         mPetCount--;
+        mHero.mSkillManager.removeSkill(mControlList[id].gameObject.GetComponent<PetItemControl>().mJson);
         Destroy(mControlList[id].gameObject);
         mControlList.Remove(id);
+
         return true;
     }
     public bool petFight(long id) {
@@ -76,7 +84,7 @@ public class PetManager : MonoBehaviour {
             if (local.id == -1)
             {
                 date = local;
-                local.id = id;
+                date.id = id;
                 break;
             }
         }
@@ -85,6 +93,11 @@ public class PetManager : MonoBehaviour {
         PetItemControl pet = newobj.GetComponent<PetItemControl>();
         pet.init(date,this);
         mControlList.Add(id, pet);
+        Debug.Log("PetItemControl pet=" + pet);
+        Debug.Log("PetItemControl mHero=" + mHero);
+        Debug.Log("PetItemControl mHero.mSkillManager=" + mHero.mSkillManager);
+        mHero.mSkillManager.
+            addSkill(pet.mJson, mHero);
         return true;
     }
     public Point getNewMoveTarget(long id) {

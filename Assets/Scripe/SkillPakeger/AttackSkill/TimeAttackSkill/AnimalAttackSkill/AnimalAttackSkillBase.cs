@@ -40,4 +40,13 @@ public abstract class AnimalAttackSkillBase : TimeAttackSkillBase
     {
 
     }
+    public virtual bool isAnimal()
+    {
+        return true;
+    }
+    public void upDateLocal(float x, float y)
+    {
+        mSprinter.transform.Translate(Vector2.up * y);
+        mSprinter.transform.Translate(Vector2.left * x);
+    }
 }

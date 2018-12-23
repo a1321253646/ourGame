@@ -28,14 +28,9 @@ public class SkillObject30003 : SkillObject
     {
         float count = 0;
         Debug.Log("dealNextSkillForEach count= ");
-        if (a.mSkillManager.mNoAnimalActionSkill != null) {
-            Debug.Log("a.mSkillManager.mNoAnimalActionSkill != null ");
-            foreach (AttackSkillNoAnimal an in a.mSkillManager.mNoAnimalActionSkill) {
-                if (an.mSkillJson.id == skill.id) {
-                    count = an.value;
-                    Debug.Log("dealNextSkillForEach count= " + count);
-                }
-            }
+        AttackerSkillBase skillGet = a.mSkillManager.getAttackerById(skill.id);
+        if (skillGet != null) {
+            count = skillGet.value;
         }
         if (count != 0) {
             List<float> vals = new List<float>();

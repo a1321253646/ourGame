@@ -12,7 +12,16 @@ public abstract class TimeAttackSkillBase : AttackerSkillBase
         mManager = manager;
         mFight = fight;
         mSkillJson = JsonUtils.getIntance().getSkillInfoById(skillId);
-        mParam = value;
+        if (value != null)
+        {
+            mParam = value;
+        }
+        else {
+            mParam = mSkillJson.getSpecialParameterValue();
+        }
+        
     }
+    public virtual void upDateLocal(float x, float y) {
 
+    }
 }

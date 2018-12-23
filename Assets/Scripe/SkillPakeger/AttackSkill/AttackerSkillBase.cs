@@ -20,9 +20,15 @@ public abstract class AttackerSkillBase
     public abstract void startSkill();
     public abstract void endSkill();
     public float mValue = 0;
-    public float getValueById(int idd)
+    public float getValueById(long id)
     {
-        return -1;
+        switch (id)
+        {
+            case 10001:
+                return value;
+            default:
+                return 0;
+        }
     }
 
     public void addValue(float value) {
@@ -42,5 +48,8 @@ public abstract class AttackerSkillBase
     {
         value = value + count;
         return true;
+    }
+    public virtual bool isAnimal() {
+        return false;
     }
 }

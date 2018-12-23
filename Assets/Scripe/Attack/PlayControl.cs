@@ -14,7 +14,7 @@ public class PlayControl : Attacker
     HeroLevelUpAnimal mLevelAnimalControl;
 
     void Start () {
-        startComment();
+        
         mAttackType = Attacker.ATTACK_TYPE_HERO;
         mCampType = CAMP_TYPE_PLAYER;
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
@@ -49,6 +49,20 @@ public class PlayControl : Attacker
                     BackpackManager.getIntance().addGoods(4000012, count);
                     BackpackManager.getIntance().addGoods(4000013, count);
                     BackpackManager.getIntance().addGoods(4000014, count);
+                    BackpackManager.getIntance().addGoods(3000001, count);
+                    BackpackManager.getIntance().addGoods(3000002, count);
+                    BackpackManager.getIntance().addGoods(3000003, count);
+                    BackpackManager.getIntance().addGoods(3000004, count);
+                    BackpackManager.getIntance().addGoods(3000005, count);
+                    BackpackManager.getIntance().addGoods(3000006, count);
+                    BackpackManager.getIntance().addGoods(3000007, count);
+                    BackpackManager.getIntance().addGoods(3000008, count);
+                    BackpackManager.getIntance().addGoods(3000009, count);
+                    BackpackManager.getIntance().addGoods(3000010, count);
+                    BackpackManager.getIntance().addGoods(3000011, count);
+                    BackpackManager.getIntance().addGoods(3000012, count);
+                    BackpackManager.getIntance().addGoods(3000013, count);
+                    BackpackManager.getIntance().addGoods(3000014, count);
         }
         if (GameManager.getIntance().isHaveOutGet)
         {
@@ -129,7 +143,6 @@ public class PlayControl : Attacker
         if (status == ActionFrameBean.ACTION_ATTACK) {
             mLevelManager.playerAction();
             mFightManager.attackerAction(id);
-            mSkillManager.inFight();
         }
     }
 
@@ -190,14 +203,7 @@ public class PlayControl : Attacker
                 }
             }
             Debug.Log("addSkill initEquip");
-            if (isAddSkill)
-            {
-                mSkillManager.addSkill(bean, this);
-            }
-            else {
-                mSkillManager.updateSkill(bean, this);
-            }
-           
+            mSkillManager.addSkill(bean, this);           
         }
         getAttribute();
         mBloodVolume = (int)(mAttribute.maxBloodVolume* bili);
@@ -360,7 +366,7 @@ public class PlayControl : Attacker
         }
         else
         {
-            mSkillManager.removeSkill(bean, this);
+            mSkillManager.removeSkill(bean);
         }
     }
 
@@ -422,7 +428,7 @@ public class PlayControl : Attacker
         }
         else
         {
-            mSkillManager.removeSkill(bean, this);
+            mSkillManager.removeSkill(bean);
         }
         getAttribute();
         mBloodVolume = (int)(mAttribute.maxBloodVolume * bili);
@@ -528,6 +534,7 @@ public class PlayControl : Attacker
     }
     private bool isStart = false;
     public void startGame() {
+        startComment();
         isStart = true;
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mBackManager = mLevelManager.getBackManager();
@@ -543,7 +550,7 @@ public class PlayControl : Attacker
 	}
 	public override float BeAttack(HurtStatus status,Attacker hurter){
         //        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);
-        mSkillManager.beforeBeHurt(status);
+        mSkillManager.mEventAttackManager.beforeBeHurt(status);
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
         int tmp = status.blood % 1 == 0 ? 0 : 1;
         status.blood = ((int)status.blood) / 1 + tmp;

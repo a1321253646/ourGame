@@ -10,9 +10,9 @@ public class PetJsonBean
     public string noactivateIcon;
     public string activateIcon;
     public string moactivateImage;
-    public string dec;
-    public string afficId;
-    public string vlue;
+    public string des;
+    public string affixId;
+    public string value;
     public long skillId;
     public string skillActivateIcon;
     public string skillNoactivateIcon;
@@ -24,9 +24,9 @@ public class PetJsonBean
 
     public List<PlayerAttributeBean> getAffixList() {
 
-        if (mAffix == null && afficId != null) {
-            string[] affixIdList = afficId.Split(',');
-            string[] affixValueList = vlue.Split(',');
+        if (mAffix == null && affixId != null) {
+            string[] affixIdList = affixId.Split(',');
+            string[] affixValueList = value.Split(',');
             if (affixIdList != null && affixValueList != null && affixIdList.Length != 0 && affixIdList.Length == affixValueList.Length) {
                 mAffix = new List<PlayerAttributeBean>();
                 for (int i = 0; i < affixIdList.Length; i++) {

@@ -12,12 +12,12 @@ public class CalculatorUtil
     Attacker target;
     List<CalculatorUtilBean> mBean = new List<CalculatorUtilBean>();
 
-    AttackSkillBase attackSkill;
+//    AttackSkillBase attackSkill;
     AttackerSkillBase attackSkill2;
 
-    public void setSkill(AttackSkillBase attackSkill) {
-        this.attackSkill = attackSkill;
-    }
+//    public void setSkill(AttackSkillBase attackSkill) {
+ //       this.attackSkill = attackSkill;
+//    }
     public void setSkill(AttackerSkillBase attackSkill)
     {
         this.attackSkill2 = attackSkill;
@@ -123,6 +123,7 @@ public class CalculatorUtil
             }
             if (tmp  < bean.list.Count && (value.type == CalculatorUtilBean.TYPE_DIVIDE || value.type == CalculatorUtilBean.TYPE_MULTIPLY))
             {
+                Debug.Log("bean.list[tmp].bean =" + bean.list[tmp].bean);
                 getValueForBean(bean.list[tmp]);
                 if (value.type == CalculatorUtilBean.TYPE_DIVIDE)
                 {
@@ -206,13 +207,13 @@ public class CalculatorUtil
             {
                 keyId = strs[1];
                 int idd = int.Parse(keyId);
-                if (attackSkill != null)
-                {
-                    return attackSkill.getValueById(idd);
-                }
-                else {
+             //   if (attackSkill != null)
+              //  {
+              //      return attackSkill.getValueById(idd);
+              //  }
+            //    else {
                     return attackSkill2.getValueById(idd);
-                }
+             //   }
                
             }
             else if (strs[0].Equals("4"))

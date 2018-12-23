@@ -9,10 +9,10 @@ public class AttackSkill600001 : EventAttackSkill
     {
         if (count == 0)
         {
-            count = (int)(mSkillJson.getEffectsParameterValue()[0] * 100);
+            count = (int)(mSkillJson.getSpecialParameterValue()[0] * 100);
         }
 
-        bool isCrt = randomResult(10000, count, false);
+        bool isCrt = randomResult(10000, count, true);
         if (!isCrt)
         {
             return null;

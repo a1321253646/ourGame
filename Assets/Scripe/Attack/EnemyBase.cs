@@ -82,7 +82,7 @@ public class EnemyBase : Attacker {
 		if ((getStatus() != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999)||
             (getStatus() != Attacker.PLAY_STATUS_RUN && mTarger.x == -9999 && mTarger.y == -9999)) {
                transform.Translate (Vector2.left * (speedX * Time.deltaTime));
-               mSkillManager.upDateLocal(speedX * Time.deltaTime, 0);
+               mSkillManager.mEventAttackManager.upDateLocal(speedX * Time.deltaTime, 0);
                mState.Update ();
             return;
 		}
@@ -97,7 +97,7 @@ public class EnemyBase : Attacker {
             {
                 y = mLocalBean.mTargetY - mLocalBean.mCurrentY;
                 transform.Translate(Vector2.up * y);
-                mSkillManager.upDateLocal(0, y);
+                mSkillManager.mEventAttackManager.upDateLocal(0, y);
                 xy = 0;
                 mLocalBean.mTargetX = -9999;
                 mLocalBean.mTargetY = -9999;
@@ -110,7 +110,7 @@ public class EnemyBase : Attacker {
             {
                 y = mTarger.y - mLocalBean.mCurrentY;
                 transform.Translate(Vector2.up * y);
-                mSkillManager.upDateLocal(0, y);
+                mSkillManager.mEventAttackManager.upDateLocal(0, y);
                 xy = 0;
                 mTarger.x = -9999;
                 mTarger.y = -9999;
@@ -157,7 +157,7 @@ public class EnemyBase : Attacker {
         {
             transform.Translate(Vector2.down * y);
         }
-        mSkillManager.upDateLocal(x, 0);
+        mSkillManager.mEventAttackManager.upDateLocal(x, 0);
         mState.Update ();
 
 	}
@@ -190,8 +190,8 @@ public class EnemyBase : Attacker {
 	public int dieCrystal = 0;
 
 	public override float BeAttack(HurtStatus status,Attacker hurter)
-    {        
-        mSkillManager.beforeBeHurt(status);
+    {
+        mSkillManager.mEventAttackManager.beforeBeHurt(status);
 //        Debug.Log(" status.blood == " + status.blood);
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
 //        Debug.Log(" status.blood == " + status.blood);

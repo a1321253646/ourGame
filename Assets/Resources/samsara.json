@@ -5,7 +5,7 @@
     "icon": "samsara_01",
     "level": 1,
     "type": "400001,",
-    "value": "1000,",
+    "value": "10000,",
     "coast": "100",
     "sort": 1
   },
@@ -15,8 +15,8 @@
     "icon": "samsara_01",
     "level": 2,
     "type": "400001,",
-    "value": "2000,",
-    "coast": "130",
+    "value": "20000,",
+    "coast": "150",
     "sort": 1
   },
   {
@@ -25,8 +25,8 @@
     "icon": "samsara_01",
     "level": 3,
     "type": "400001,",
-    "value": "3000,",
-    "coast": "250",
+    "value": "30000,",
+    "coast": "225",
     "sort": 1
   },
   {
@@ -35,8 +35,8 @@
     "icon": "samsara_01",
     "level": 4,
     "type": "400001,",
-    "value": "4000,",
-    "coast": "520",
+    "value": "40000,",
+    "coast": "337",
     "sort": 1
   },
   {
@@ -45,8 +45,8 @@
     "icon": "samsara_01",
     "level": 5,
     "type": "400001,",
-    "value": "5000,",
-    "coast": "1000",
+    "value": "50000,",
+    "coast": "505",
     "sort": 1
   },
   {
@@ -55,8 +55,8 @@
     "icon": "samsara_01",
     "level": 6,
     "type": "400001,",
-    "value": "6000,",
-    "coast": "1750",
+    "value": "60000,",
+    "coast": "757",
     "sort": 1
   },
   {
@@ -65,8 +65,8 @@
     "icon": "samsara_01",
     "level": 7,
     "type": "400001,",
-    "value": "7000,",
-    "coast": "2830",
+    "value": "70000,",
+    "coast": "1135",
     "sort": 1
   },
   {
@@ -75,8 +75,8 @@
     "icon": "samsara_01",
     "level": 8,
     "type": "400001,",
-    "value": "8000,",
-    "coast": "4300",
+    "value": "80000,",
+    "coast": "1702",
     "sort": 1
   },
   {
@@ -85,8 +85,8 @@
     "icon": "samsara_01",
     "level": 9,
     "type": "400001,",
-    "value": "9000,",
-    "coast": "6220",
+    "value": "90000,",
+    "coast": "2553",
     "sort": 1
   },
   {
@@ -95,8 +95,8 @@
     "icon": "samsara_01",
     "level": 10,
     "type": "400001,",
-    "value": "10000,",
-    "coast": "8650",
+    "value": "100000,",
+    "coast": "3829",
     "sort": 1
   },
   {
@@ -105,8 +105,8 @@
     "icon": "samsara_01",
     "level": 11,
     "type": "400001,",
-    "value": "11000,",
-    "coast": "11650",
+    "value": "110000,",
+    "coast": "5743",
     "sort": 1
   },
   {
@@ -115,8 +115,8 @@
     "icon": "samsara_01",
     "level": 12,
     "type": "400001,",
-    "value": "12000,",
-    "coast": "15280",
+    "value": "120000,",
+    "coast": "8614",
     "sort": 1
   },
   {
@@ -125,8 +125,8 @@
     "icon": "samsara_01",
     "level": 13,
     "type": "400001,",
-    "value": "13000,",
-    "coast": "19600",
+    "value": "130000,",
+    "coast": "12921",
     "sort": 1
   },
   {
@@ -135,8 +135,8 @@
     "icon": "samsara_01",
     "level": 14,
     "type": "400001,",
-    "value": "14000,",
-    "coast": "24670",
+    "value": "140000,",
+    "coast": "19381",
     "sort": 1
   },
   {
@@ -145,8 +145,8 @@
     "icon": "samsara_01",
     "level": 15,
     "type": "400001,",
-    "value": "15000,",
-    "coast": "30550",
+    "value": "150000,",
+    "coast": "29071",
     "sort": 1
   },
   {
@@ -155,8 +155,8 @@
     "icon": "samsara_01",
     "level": 16,
     "type": "400001,",
-    "value": "16000,",
-    "coast": "37300",
+    "value": "160000,",
+    "coast": "43606",
     "sort": 1
   },
   {
@@ -165,8 +165,8 @@
     "icon": "samsara_01",
     "level": 17,
     "type": "400001,",
-    "value": "17000,",
-    "coast": "44980",
+    "value": "170000,",
+    "coast": "65409",
     "sort": 1
   },
   {
@@ -175,8 +175,8 @@
     "icon": "samsara_01",
     "level": 18,
     "type": "400001,",
-    "value": "18000,",
-    "coast": "53650",
+    "value": "180000,",
+    "coast": "98113",
     "sort": 1
   },
   {
@@ -185,8 +185,8 @@
     "icon": "samsara_01",
     "level": 19,
     "type": "400001,",
-    "value": "19000,",
-    "coast": "63370",
+    "value": "190000,",
+    "coast": "147169",
     "sort": 1
   },
   {
@@ -195,8 +195,8 @@
     "icon": "samsara_01",
     "level": 20,
     "type": "400001,",
-    "value": "20000,",
-    "coast": "74200",
+    "value": "200000,",
+    "coast": "220753",
     "sort": 1
   },
   {
@@ -205,8 +205,8 @@
     "icon": "samsara_01",
     "level": 21,
     "type": "400001,",
-    "value": "21000,",
-    "coast": "86200",
+    "value": "210000,",
+    "coast": "331129",
     "sort": 1
   },
   {
@@ -215,8 +215,8 @@
     "icon": "samsara_01",
     "level": 22,
     "type": "400001,",
-    "value": "22000,",
-    "coast": "99430",
+    "value": "220000,",
+    "coast": "496693",
     "sort": 1
   },
   {
@@ -225,8 +225,8 @@
     "icon": "samsara_01",
     "level": 23,
     "type": "400001,",
-    "value": "23000,",
-    "coast": "113950",
+    "value": "230000,",
+    "coast": "745039",
     "sort": 1
   },
   {
@@ -235,8 +235,8 @@
     "icon": "samsara_01",
     "level": 24,
     "type": "400001,",
-    "value": "24000,",
-    "coast": "129820",
+    "value": "240000,",
+    "coast": "1117558",
     "sort": 1
   },
   {
@@ -245,8 +245,8 @@
     "icon": "samsara_01",
     "level": 25,
     "type": "400001,",
-    "value": "25000,",
-    "coast": "147100",
+    "value": "250000,",
+    "coast": "1676337",
     "sort": 1
   },
   {
@@ -255,8 +255,8 @@
     "icon": "samsara_01",
     "level": 26,
     "type": "400001,",
-    "value": "26000,",
-    "coast": "165850",
+    "value": "260000,",
+    "coast": "2514505",
     "sort": 1
   },
   {
@@ -265,8 +265,8 @@
     "icon": "samsara_01",
     "level": 27,
     "type": "400001,",
-    "value": "27000,",
-    "coast": "186130",
+    "value": "270000,",
+    "coast": "3771757",
     "sort": 1
   },
   {
@@ -275,8 +275,8 @@
     "icon": "samsara_01",
     "level": 28,
     "type": "400001,",
-    "value": "28000,",
-    "coast": "208000",
+    "value": "280000,",
+    "coast": "5657635",
     "sort": 1
   },
   {
@@ -285,8 +285,8 @@
     "icon": "samsara_01",
     "level": 29,
     "type": "400001,",
-    "value": "29000,",
-    "coast": "231520",
+    "value": "290000,",
+    "coast": "8486452",
     "sort": 1
   },
   {
@@ -295,8 +295,8 @@
     "icon": "samsara_01",
     "level": 30,
     "type": "400001,",
-    "value": "30000,",
-    "coast": "256750",
+    "value": "300000,",
+    "coast": "12729678",
     "sort": 1
   },
   {
@@ -305,8 +305,8 @@
     "icon": "samsara_01",
     "level": 31,
     "type": "400001,",
-    "value": "31000,",
-    "coast": "283750",
+    "value": "310000,",
+    "coast": "19094517",
     "sort": 1
   },
   {
@@ -315,8 +315,8 @@
     "icon": "samsara_01",
     "level": 32,
     "type": "400001,",
-    "value": "32000,",
-    "coast": "312580",
+    "value": "320000,",
+    "coast": "28641775",
     "sort": 1
   },
   {
@@ -325,8 +325,8 @@
     "icon": "samsara_01",
     "level": 33,
     "type": "400001,",
-    "value": "33000,",
-    "coast": "343300",
+    "value": "330000,",
+    "coast": "42962662",
     "sort": 1
   },
   {
@@ -335,8 +335,8 @@
     "icon": "samsara_01",
     "level": 34,
     "type": "400001,",
-    "value": "34000,",
-    "coast": "375970",
+    "value": "340000,",
+    "coast": "64443993",
     "sort": 1
   },
   {
@@ -345,8 +345,8 @@
     "icon": "samsara_01",
     "level": 35,
     "type": "400001,",
-    "value": "35000,",
-    "coast": "410650",
+    "value": "350000,",
+    "coast": "96665989",
     "sort": 1
   },
   {
@@ -355,8 +355,8 @@
     "icon": "samsara_01",
     "level": 36,
     "type": "400001,",
-    "value": "36000,",
-    "coast": "447400",
+    "value": "360000,",
+    "coast": "144998983",
     "sort": 1
   },
   {
@@ -365,8 +365,8 @@
     "icon": "samsara_01",
     "level": 37,
     "type": "400001,",
-    "value": "37000,",
-    "coast": "486280",
+    "value": "370000,",
+    "coast": "217498474",
     "sort": 1
   },
   {
@@ -375,8 +375,8 @@
     "icon": "samsara_01",
     "level": 38,
     "type": "400001,",
-    "value": "38000,",
-    "coast": "527350",
+    "value": "380000,",
+    "coast": "326247711",
     "sort": 1
   },
   {
@@ -385,8 +385,8 @@
     "icon": "samsara_01",
     "level": 39,
     "type": "400001,",
-    "value": "39000,",
-    "coast": "570670",
+    "value": "390000,",
+    "coast": "489371566",
     "sort": 1
   },
   {
@@ -395,8 +395,8 @@
     "icon": "samsara_01",
     "level": 40,
     "type": "400001,",
-    "value": "40000,",
-    "coast": "616300",
+    "value": "400000,",
+    "coast": "734057349",
     "sort": 1
   },
   {
@@ -405,7 +405,7 @@
     "icon": "samsara_02",
     "level": 1,
     "type": "400004,",
-    "value": "1000,",
+    "value": "10000,",
     "coast": "100",
     "sort": 2
   },
@@ -415,8 +415,8 @@
     "icon": "samsara_02",
     "level": 2,
     "type": "400004,",
-    "value": "2000,",
-    "coast": "130",
+    "value": "20000,",
+    "coast": "150",
     "sort": 2
   },
   {
@@ -425,8 +425,8 @@
     "icon": "samsara_02",
     "level": 3,
     "type": "400004,",
-    "value": "3000,",
-    "coast": "250",
+    "value": "30000,",
+    "coast": "225",
     "sort": 2
   },
   {
@@ -435,8 +435,8 @@
     "icon": "samsara_02",
     "level": 4,
     "type": "400004,",
-    "value": "4000,",
-    "coast": "520",
+    "value": "40000,",
+    "coast": "337",
     "sort": 2
   },
   {
@@ -445,8 +445,8 @@
     "icon": "samsara_02",
     "level": 5,
     "type": "400004,",
-    "value": "5000,",
-    "coast": "1000",
+    "value": "50000,",
+    "coast": "505",
     "sort": 2
   },
   {
@@ -455,8 +455,8 @@
     "icon": "samsara_02",
     "level": 6,
     "type": "400004,",
-    "value": "6000,",
-    "coast": "1750",
+    "value": "60000,",
+    "coast": "757",
     "sort": 2
   },
   {
@@ -465,8 +465,8 @@
     "icon": "samsara_02",
     "level": 7,
     "type": "400004,",
-    "value": "7000,",
-    "coast": "2830",
+    "value": "70000,",
+    "coast": "1135",
     "sort": 2
   },
   {
@@ -475,8 +475,8 @@
     "icon": "samsara_02",
     "level": 8,
     "type": "400004,",
-    "value": "8000,",
-    "coast": "4300",
+    "value": "80000,",
+    "coast": "1702",
     "sort": 2
   },
   {
@@ -485,8 +485,8 @@
     "icon": "samsara_02",
     "level": 9,
     "type": "400004,",
-    "value": "9000,",
-    "coast": "6220",
+    "value": "90000,",
+    "coast": "2553",
     "sort": 2
   },
   {
@@ -495,8 +495,8 @@
     "icon": "samsara_02",
     "level": 10,
     "type": "400004,",
-    "value": "10000,",
-    "coast": "8650",
+    "value": "100000,",
+    "coast": "3829",
     "sort": 2
   },
   {
@@ -505,8 +505,8 @@
     "icon": "samsara_02",
     "level": 11,
     "type": "400004,",
-    "value": "11000,",
-    "coast": "11650",
+    "value": "110000,",
+    "coast": "5743",
     "sort": 2
   },
   {
@@ -515,8 +515,8 @@
     "icon": "samsara_02",
     "level": 12,
     "type": "400004,",
-    "value": "12000,",
-    "coast": "15280",
+    "value": "120000,",
+    "coast": "8614",
     "sort": 2
   },
   {
@@ -525,8 +525,8 @@
     "icon": "samsara_02",
     "level": 13,
     "type": "400004,",
-    "value": "13000,",
-    "coast": "19600",
+    "value": "130000,",
+    "coast": "12921",
     "sort": 2
   },
   {
@@ -535,8 +535,8 @@
     "icon": "samsara_02",
     "level": 14,
     "type": "400004,",
-    "value": "14000,",
-    "coast": "24670",
+    "value": "140000,",
+    "coast": "19381",
     "sort": 2
   },
   {
@@ -545,8 +545,8 @@
     "icon": "samsara_02",
     "level": 15,
     "type": "400004,",
-    "value": "15000,",
-    "coast": "30550",
+    "value": "150000,",
+    "coast": "29071",
     "sort": 2
   },
   {
@@ -555,8 +555,8 @@
     "icon": "samsara_02",
     "level": 16,
     "type": "400004,",
-    "value": "16000,",
-    "coast": "37300",
+    "value": "160000,",
+    "coast": "43606",
     "sort": 2
   },
   {
@@ -565,8 +565,8 @@
     "icon": "samsara_02",
     "level": 17,
     "type": "400004,",
-    "value": "17000,",
-    "coast": "44980",
+    "value": "170000,",
+    "coast": "65409",
     "sort": 2
   },
   {
@@ -575,8 +575,8 @@
     "icon": "samsara_02",
     "level": 18,
     "type": "400004,",
-    "value": "18000,",
-    "coast": "53650",
+    "value": "180000,",
+    "coast": "98113",
     "sort": 2
   },
   {
@@ -585,8 +585,8 @@
     "icon": "samsara_02",
     "level": 19,
     "type": "400004,",
-    "value": "19000,",
-    "coast": "63370",
+    "value": "190000,",
+    "coast": "147169",
     "sort": 2
   },
   {
@@ -595,8 +595,8 @@
     "icon": "samsara_02",
     "level": 20,
     "type": "400004,",
-    "value": "20000,",
-    "coast": "74200",
+    "value": "200000,",
+    "coast": "220753",
     "sort": 2
   },
   {
@@ -605,8 +605,8 @@
     "icon": "samsara_02",
     "level": 21,
     "type": "400004,",
-    "value": "21000,",
-    "coast": "86200",
+    "value": "210000,",
+    "coast": "331129",
     "sort": 2
   },
   {
@@ -615,8 +615,8 @@
     "icon": "samsara_02",
     "level": 22,
     "type": "400004,",
-    "value": "22000,",
-    "coast": "99430",
+    "value": "220000,",
+    "coast": "496693",
     "sort": 2
   },
   {
@@ -625,8 +625,8 @@
     "icon": "samsara_02",
     "level": 23,
     "type": "400004,",
-    "value": "23000,",
-    "coast": "113950",
+    "value": "230000,",
+    "coast": "745039",
     "sort": 2
   },
   {
@@ -635,8 +635,8 @@
     "icon": "samsara_02",
     "level": 24,
     "type": "400004,",
-    "value": "24000,",
-    "coast": "129820",
+    "value": "240000,",
+    "coast": "1117558",
     "sort": 2
   },
   {
@@ -645,8 +645,8 @@
     "icon": "samsara_02",
     "level": 25,
     "type": "400004,",
-    "value": "25000,",
-    "coast": "147100",
+    "value": "250000,",
+    "coast": "1676337",
     "sort": 2
   },
   {
@@ -655,8 +655,8 @@
     "icon": "samsara_02",
     "level": 26,
     "type": "400004,",
-    "value": "26000,",
-    "coast": "165850",
+    "value": "260000,",
+    "coast": "2514505",
     "sort": 2
   },
   {
@@ -665,8 +665,8 @@
     "icon": "samsara_02",
     "level": 27,
     "type": "400004,",
-    "value": "27000,",
-    "coast": "186130",
+    "value": "270000,",
+    "coast": "3771757",
     "sort": 2
   },
   {
@@ -675,8 +675,8 @@
     "icon": "samsara_02",
     "level": 28,
     "type": "400004,",
-    "value": "28000,",
-    "coast": "208000",
+    "value": "280000,",
+    "coast": "5657635",
     "sort": 2
   },
   {
@@ -685,8 +685,8 @@
     "icon": "samsara_02",
     "level": 29,
     "type": "400004,",
-    "value": "29000,",
-    "coast": "231520",
+    "value": "290000,",
+    "coast": "8486452",
     "sort": 2
   },
   {
@@ -695,8 +695,8 @@
     "icon": "samsara_02",
     "level": 30,
     "type": "400004,",
-    "value": "30000,",
-    "coast": "256750",
+    "value": "300000,",
+    "coast": "12729678",
     "sort": 2
   },
   {
@@ -705,8 +705,8 @@
     "icon": "samsara_02",
     "level": 31,
     "type": "400004,",
-    "value": "31000,",
-    "coast": "283750",
+    "value": "310000,",
+    "coast": "19094517",
     "sort": 2
   },
   {
@@ -715,8 +715,8 @@
     "icon": "samsara_02",
     "level": 32,
     "type": "400004,",
-    "value": "32000,",
-    "coast": "312580",
+    "value": "320000,",
+    "coast": "28641775",
     "sort": 2
   },
   {
@@ -725,8 +725,8 @@
     "icon": "samsara_02",
     "level": 33,
     "type": "400004,",
-    "value": "33000,",
-    "coast": "343300",
+    "value": "330000,",
+    "coast": "42962662",
     "sort": 2
   },
   {
@@ -735,8 +735,8 @@
     "icon": "samsara_02",
     "level": 34,
     "type": "400004,",
-    "value": "34000,",
-    "coast": "375970",
+    "value": "340000,",
+    "coast": "64443993",
     "sort": 2
   },
   {
@@ -745,8 +745,8 @@
     "icon": "samsara_02",
     "level": 35,
     "type": "400004,",
-    "value": "35000,",
-    "coast": "410650",
+    "value": "350000,",
+    "coast": "96665989",
     "sort": 2
   },
   {
@@ -755,8 +755,8 @@
     "icon": "samsara_02",
     "level": 36,
     "type": "400004,",
-    "value": "36000,",
-    "coast": "447400",
+    "value": "360000,",
+    "coast": "144998983",
     "sort": 2
   },
   {
@@ -765,8 +765,8 @@
     "icon": "samsara_02",
     "level": 37,
     "type": "400004,",
-    "value": "37000,",
-    "coast": "486280",
+    "value": "370000,",
+    "coast": "217498474",
     "sort": 2
   },
   {
@@ -775,8 +775,8 @@
     "icon": "samsara_02",
     "level": 38,
     "type": "400004,",
-    "value": "38000,",
-    "coast": "527350",
+    "value": "380000,",
+    "coast": "326247711",
     "sort": 2
   },
   {
@@ -785,8 +785,8 @@
     "icon": "samsara_02",
     "level": 39,
     "type": "400004,",
-    "value": "39000,",
-    "coast": "570670",
+    "value": "390000,",
+    "coast": "489371566",
     "sort": 2
   },
   {
@@ -795,8 +795,8 @@
     "icon": "samsara_02",
     "level": 40,
     "type": "400004,",
-    "value": "40000,",
-    "coast": "616300",
+    "value": "400000,",
+    "coast": "734057349",
     "sort": 2
   },
   {
@@ -805,7 +805,7 @@
     "icon": "samsara_03",
     "level": 1,
     "type": "400007,",
-    "value": "2000,",
+    "value": "10000,",
     "coast": "100",
     "sort": 3
   },
@@ -815,8 +815,8 @@
     "icon": "samsara_03",
     "level": 2,
     "type": "400007,",
-    "value": "4000,",
-    "coast": "130",
+    "value": "20000,",
+    "coast": "150",
     "sort": 3
   },
   {
@@ -825,8 +825,8 @@
     "icon": "samsara_03",
     "level": 3,
     "type": "400007,",
-    "value": "6000,",
-    "coast": "250",
+    "value": "30000,",
+    "coast": "225",
     "sort": 3
   },
   {
@@ -835,8 +835,8 @@
     "icon": "samsara_03",
     "level": 4,
     "type": "400007,",
-    "value": "8000,",
-    "coast": "520",
+    "value": "40000,",
+    "coast": "337",
     "sort": 3
   },
   {
@@ -844,359 +844,359 @@
     "name": "技巧",
     "icon": "samsara_03",
     "level": 5,
-    "type": "400007,",
-    "value": "10000,",
-    "coast": "1000",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 6,
-    "type": "400007,",
-    "value": "12000,",
-    "coast": "1750",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 7,
-    "type": "400007,",
-    "value": "14000,",
-    "coast": "2830",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 8,
-    "type": "400007,",
-    "value": "16000,",
-    "coast": "4300",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 9,
-    "type": "400007,",
-    "value": "18000,",
-    "coast": "6220",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 10,
-    "type": "400007,",
-    "value": "20000,",
-    "coast": "8650",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 11,
-    "type": "400007,",
-    "value": "22000,",
-    "coast": "11650",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 12,
-    "type": "400007,",
-    "value": "24000,",
-    "coast": "15280",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 13,
-    "type": "400007,",
-    "value": "26000,",
-    "coast": "19600",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 14,
-    "type": "400007,",
-    "value": "28000,",
-    "coast": "24670",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 15,
-    "type": "400007,",
-    "value": "30000,",
-    "coast": "30550",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 16,
-    "type": "400007,",
-    "value": "32000,",
-    "coast": "37300",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 17,
-    "type": "400007,",
-    "value": "34000,",
-    "coast": "44980",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 18,
-    "type": "400007,",
-    "value": "36000,",
-    "coast": "53650",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 19,
-    "type": "400007,",
-    "value": "38000,",
-    "coast": "63370",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 20,
-    "type": "400007,",
-    "value": "40000,",
-    "coast": "74200",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 21,
-    "type": "400007,",
-    "value": "42000,",
-    "coast": "86200",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 22,
-    "type": "400007,",
-    "value": "44000,",
-    "coast": "99430",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 23,
-    "type": "400007,",
-    "value": "46000,",
-    "coast": "113950",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 24,
-    "type": "400007,",
-    "value": "48000,",
-    "coast": "129820",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 25,
     "type": "400007,",
     "value": "50000,",
-    "coast": "147100",
+    "coast": "505",
     "sort": 3
   },
   {
     "id": 3,
     "name": "技巧",
     "icon": "samsara_03",
-    "level": 26,
-    "type": "400007,",
-    "value": "52000,",
-    "coast": "165850",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 27,
-    "type": "400007,",
-    "value": "54000,",
-    "coast": "186130",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 28,
-    "type": "400007,",
-    "value": "56000,",
-    "coast": "208000",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 29,
-    "type": "400007,",
-    "value": "58000,",
-    "coast": "231520",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 30,
+    "level": 6,
     "type": "400007,",
     "value": "60000,",
-    "coast": "256750",
+    "coast": "757",
     "sort": 3
   },
   {
     "id": 3,
     "name": "技巧",
     "icon": "samsara_03",
-    "level": 31,
-    "type": "400007,",
-    "value": "62000,",
-    "coast": "283750",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 32,
-    "type": "400007,",
-    "value": "64000,",
-    "coast": "312580",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 33,
-    "type": "400007,",
-    "value": "66000,",
-    "coast": "343300",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 34,
-    "type": "400007,",
-    "value": "68000,",
-    "coast": "375970",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 35,
+    "level": 7,
     "type": "400007,",
     "value": "70000,",
-    "coast": "410650",
+    "coast": "1135",
     "sort": 3
   },
   {
     "id": 3,
     "name": "技巧",
     "icon": "samsara_03",
-    "level": 36,
-    "type": "400007,",
-    "value": "72000,",
-    "coast": "447400",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 37,
-    "type": "400007,",
-    "value": "74000,",
-    "coast": "486280",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 38,
-    "type": "400007,",
-    "value": "76000,",
-    "coast": "527350",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 39,
-    "type": "400007,",
-    "value": "78000,",
-    "coast": "570670",
-    "sort": 3
-  },
-  {
-    "id": 3,
-    "name": "技巧",
-    "icon": "samsara_03",
-    "level": 40,
+    "level": 8,
     "type": "400007,",
     "value": "80000,",
-    "coast": "616300",
+    "coast": "1702",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 9,
+    "type": "400007,",
+    "value": "90000,",
+    "coast": "2553",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 10,
+    "type": "400007,",
+    "value": "100000,",
+    "coast": "3829",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 11,
+    "type": "400007,",
+    "value": "110000,",
+    "coast": "5743",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 12,
+    "type": "400007,",
+    "value": "120000,",
+    "coast": "8614",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 13,
+    "type": "400007,",
+    "value": "130000,",
+    "coast": "12921",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 14,
+    "type": "400007,",
+    "value": "140000,",
+    "coast": "19381",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 15,
+    "type": "400007,",
+    "value": "150000,",
+    "coast": "29071",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 16,
+    "type": "400007,",
+    "value": "160000,",
+    "coast": "43606",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 17,
+    "type": "400007,",
+    "value": "170000,",
+    "coast": "65409",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 18,
+    "type": "400007,",
+    "value": "180000,",
+    "coast": "98113",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 19,
+    "type": "400007,",
+    "value": "190000,",
+    "coast": "147169",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 20,
+    "type": "400007,",
+    "value": "200000,",
+    "coast": "220753",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 21,
+    "type": "400007,",
+    "value": "210000,",
+    "coast": "331129",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 22,
+    "type": "400007,",
+    "value": "220000,",
+    "coast": "496693",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 23,
+    "type": "400007,",
+    "value": "230000,",
+    "coast": "745039",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 24,
+    "type": "400007,",
+    "value": "240000,",
+    "coast": "1117558",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 25,
+    "type": "400007,",
+    "value": "250000,",
+    "coast": "1676337",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 26,
+    "type": "400007,",
+    "value": "260000,",
+    "coast": "2514505",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 27,
+    "type": "400007,",
+    "value": "270000,",
+    "coast": "3771757",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 28,
+    "type": "400007,",
+    "value": "280000,",
+    "coast": "5657635",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 29,
+    "type": "400007,",
+    "value": "290000,",
+    "coast": "8486452",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 30,
+    "type": "400007,",
+    "value": "300000,",
+    "coast": "12729678",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 31,
+    "type": "400007,",
+    "value": "310000,",
+    "coast": "19094517",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 32,
+    "type": "400007,",
+    "value": "320000,",
+    "coast": "28641775",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 33,
+    "type": "400007,",
+    "value": "330000,",
+    "coast": "42962662",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 34,
+    "type": "400007,",
+    "value": "340000,",
+    "coast": "64443993",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 35,
+    "type": "400007,",
+    "value": "350000,",
+    "coast": "96665989",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 36,
+    "type": "400007,",
+    "value": "360000,",
+    "coast": "144998983",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 37,
+    "type": "400007,",
+    "value": "370000,",
+    "coast": "217498474",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 38,
+    "type": "400007,",
+    "value": "380000,",
+    "coast": "326247711",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 39,
+    "type": "400007,",
+    "value": "390000,",
+    "coast": "489371566",
+    "sort": 3
+  },
+  {
+    "id": 3,
+    "name": "技巧",
+    "icon": "samsara_03",
+    "level": 40,
+    "type": "400007,",
+    "value": "400000,",
+    "coast": "734057349",
     "sort": 3
   },
   {
@@ -1205,7 +1205,7 @@
     "icon": "samsara_04",
     "level": 1,
     "type": "500001,",
-    "value": "1000,",
+    "value": "10000,",
     "coast": "100",
     "sort": 4
   },
@@ -1215,8 +1215,8 @@
     "icon": "samsara_04",
     "level": 2,
     "type": "500001,",
-    "value": "2000,",
-    "coast": "130",
+    "value": "20000,",
+    "coast": "150",
     "sort": 4
   },
   {
@@ -1225,8 +1225,8 @@
     "icon": "samsara_04",
     "level": 3,
     "type": "500001,",
-    "value": "3000,",
-    "coast": "250",
+    "value": "30000,",
+    "coast": "225",
     "sort": 4
   },
   {
@@ -1235,8 +1235,8 @@
     "icon": "samsara_04",
     "level": 4,
     "type": "500001,",
-    "value": "4000,",
-    "coast": "520",
+    "value": "40000,",
+    "coast": "337",
     "sort": 4
   },
   {
@@ -1245,8 +1245,8 @@
     "icon": "samsara_04",
     "level": 5,
     "type": "500001,",
-    "value": "5000,",
-    "coast": "1000",
+    "value": "50000,",
+    "coast": "505",
     "sort": 4
   },
   {
@@ -1255,8 +1255,8 @@
     "icon": "samsara_04",
     "level": 6,
     "type": "500001,",
-    "value": "6000,",
-    "coast": "1750",
+    "value": "60000,",
+    "coast": "757",
     "sort": 4
   },
   {
@@ -1265,8 +1265,8 @@
     "icon": "samsara_04",
     "level": 7,
     "type": "500001,",
-    "value": "7000,",
-    "coast": "2830",
+    "value": "70000,",
+    "coast": "1135",
     "sort": 4
   },
   {
@@ -1275,8 +1275,8 @@
     "icon": "samsara_04",
     "level": 8,
     "type": "500001,",
-    "value": "8000,",
-    "coast": "4300",
+    "value": "80000,",
+    "coast": "1702",
     "sort": 4
   },
   {
@@ -1285,8 +1285,8 @@
     "icon": "samsara_04",
     "level": 9,
     "type": "500001,",
-    "value": "9000,",
-    "coast": "6220",
+    "value": "90000,",
+    "coast": "2553",
     "sort": 4
   },
   {
@@ -1295,8 +1295,8 @@
     "icon": "samsara_04",
     "level": 10,
     "type": "500001,",
-    "value": "10000,",
-    "coast": "8650",
+    "value": "100000,",
+    "coast": "3829",
     "sort": 4
   },
   {
@@ -1305,8 +1305,8 @@
     "icon": "samsara_04",
     "level": 11,
     "type": "500001,",
-    "value": "11000,",
-    "coast": "11650",
+    "value": "110000,",
+    "coast": "5743",
     "sort": 4
   },
   {
@@ -1315,8 +1315,8 @@
     "icon": "samsara_04",
     "level": 12,
     "type": "500001,",
-    "value": "12000,",
-    "coast": "15280",
+    "value": "120000,",
+    "coast": "8614",
     "sort": 4
   },
   {
@@ -1325,8 +1325,8 @@
     "icon": "samsara_04",
     "level": 13,
     "type": "500001,",
-    "value": "13000,",
-    "coast": "19600",
+    "value": "130000,",
+    "coast": "12921",
     "sort": 4
   },
   {
@@ -1335,8 +1335,8 @@
     "icon": "samsara_04",
     "level": 14,
     "type": "500001,",
-    "value": "14000,",
-    "coast": "24670",
+    "value": "140000,",
+    "coast": "19381",
     "sort": 4
   },
   {
@@ -1345,8 +1345,8 @@
     "icon": "samsara_04",
     "level": 15,
     "type": "500001,",
-    "value": "15000,",
-    "coast": "30550",
+    "value": "150000,",
+    "coast": "29071",
     "sort": 4
   },
   {
@@ -1355,8 +1355,8 @@
     "icon": "samsara_04",
     "level": 16,
     "type": "500001,",
-    "value": "16000,",
-    "coast": "37300",
+    "value": "160000,",
+    "coast": "43606",
     "sort": 4
   },
   {
@@ -1365,8 +1365,8 @@
     "icon": "samsara_04",
     "level": 17,
     "type": "500001,",
-    "value": "17000,",
-    "coast": "44980",
+    "value": "170000,",
+    "coast": "65409",
     "sort": 4
   },
   {
@@ -1375,8 +1375,8 @@
     "icon": "samsara_04",
     "level": 18,
     "type": "500001,",
-    "value": "18000,",
-    "coast": "53650",
+    "value": "180000,",
+    "coast": "98113",
     "sort": 4
   },
   {
@@ -1385,8 +1385,8 @@
     "icon": "samsara_04",
     "level": 19,
     "type": "500001,",
-    "value": "19000,",
-    "coast": "63370",
+    "value": "190000,",
+    "coast": "147169",
     "sort": 4
   },
   {
@@ -1395,8 +1395,8 @@
     "icon": "samsara_04",
     "level": 20,
     "type": "500001,",
-    "value": "20000,",
-    "coast": "74200",
+    "value": "200000,",
+    "coast": "220753",
     "sort": 4
   },
   {
@@ -1405,8 +1405,8 @@
     "icon": "samsara_04",
     "level": 21,
     "type": "500001,",
-    "value": "21000,",
-    "coast": "86200",
+    "value": "210000,",
+    "coast": "331129",
     "sort": 4
   },
   {
@@ -1415,8 +1415,8 @@
     "icon": "samsara_04",
     "level": 22,
     "type": "500001,",
-    "value": "22000,",
-    "coast": "99430",
+    "value": "220000,",
+    "coast": "496693",
     "sort": 4
   },
   {
@@ -1425,8 +1425,8 @@
     "icon": "samsara_04",
     "level": 23,
     "type": "500001,",
-    "value": "23000,",
-    "coast": "113950",
+    "value": "230000,",
+    "coast": "745039",
     "sort": 4
   },
   {
@@ -1435,8 +1435,8 @@
     "icon": "samsara_04",
     "level": 24,
     "type": "500001,",
-    "value": "24000,",
-    "coast": "129820",
+    "value": "240000,",
+    "coast": "1117558",
     "sort": 4
   },
   {
@@ -1445,8 +1445,8 @@
     "icon": "samsara_04",
     "level": 25,
     "type": "500001,",
-    "value": "25000,",
-    "coast": "147100",
+    "value": "250000,",
+    "coast": "1676337",
     "sort": 4
   },
   {
@@ -1455,8 +1455,8 @@
     "icon": "samsara_04",
     "level": 26,
     "type": "500001,",
-    "value": "26000,",
-    "coast": "165850",
+    "value": "260000,",
+    "coast": "2514505",
     "sort": 4
   },
   {
@@ -1465,8 +1465,8 @@
     "icon": "samsara_04",
     "level": 27,
     "type": "500001,",
-    "value": "27000,",
-    "coast": "186130",
+    "value": "270000,",
+    "coast": "3771757",
     "sort": 4
   },
   {
@@ -1475,8 +1475,8 @@
     "icon": "samsara_04",
     "level": 28,
     "type": "500001,",
-    "value": "28000,",
-    "coast": "208000",
+    "value": "280000,",
+    "coast": "5657635",
     "sort": 4
   },
   {
@@ -1485,8 +1485,8 @@
     "icon": "samsara_04",
     "level": 29,
     "type": "500001,",
-    "value": "29000,",
-    "coast": "231520",
+    "value": "290000,",
+    "coast": "8486452",
     "sort": 4
   },
   {
@@ -1495,8 +1495,8 @@
     "icon": "samsara_04",
     "level": 30,
     "type": "500001,",
-    "value": "30000,",
-    "coast": "256750",
+    "value": "300000,",
+    "coast": "12729678",
     "sort": 4
   },
   {
@@ -1505,8 +1505,8 @@
     "icon": "samsara_04",
     "level": 31,
     "type": "500001,",
-    "value": "31000,",
-    "coast": "283750",
+    "value": "310000,",
+    "coast": "19094517",
     "sort": 4
   },
   {
@@ -1515,8 +1515,8 @@
     "icon": "samsara_04",
     "level": 32,
     "type": "500001,",
-    "value": "32000,",
-    "coast": "312580",
+    "value": "320000,",
+    "coast": "28641775",
     "sort": 4
   },
   {
@@ -1525,8 +1525,8 @@
     "icon": "samsara_04",
     "level": 33,
     "type": "500001,",
-    "value": "33000,",
-    "coast": "343300",
+    "value": "330000,",
+    "coast": "42962662",
     "sort": 4
   },
   {
@@ -1535,8 +1535,8 @@
     "icon": "samsara_04",
     "level": 34,
     "type": "500001,",
-    "value": "34000,",
-    "coast": "375970",
+    "value": "340000,",
+    "coast": "64443993",
     "sort": 4
   },
   {
@@ -1545,8 +1545,8 @@
     "icon": "samsara_04",
     "level": 35,
     "type": "500001,",
-    "value": "35000,",
-    "coast": "410650",
+    "value": "350000,",
+    "coast": "96665989",
     "sort": 4
   },
   {
@@ -1555,8 +1555,8 @@
     "icon": "samsara_04",
     "level": 36,
     "type": "500001,",
-    "value": "36000,",
-    "coast": "447400",
+    "value": "360000,",
+    "coast": "144998983",
     "sort": 4
   },
   {
@@ -1565,8 +1565,8 @@
     "icon": "samsara_04",
     "level": 37,
     "type": "500001,",
-    "value": "37000,",
-    "coast": "486280",
+    "value": "370000,",
+    "coast": "217498474",
     "sort": 4
   },
   {
@@ -1575,8 +1575,8 @@
     "icon": "samsara_04",
     "level": 38,
     "type": "500001,",
-    "value": "38000,",
-    "coast": "527350",
+    "value": "380000,",
+    "coast": "326247711",
     "sort": 4
   },
   {
@@ -1585,8 +1585,8 @@
     "icon": "samsara_04",
     "level": 39,
     "type": "500001,",
-    "value": "39000,",
-    "coast": "570670",
+    "value": "390000,",
+    "coast": "489371566",
     "sort": 4
   },
   {
@@ -1595,8 +1595,8 @@
     "icon": "samsara_04",
     "level": 40,
     "type": "500001,",
-    "value": "40000,",
-    "coast": "616300",
+    "value": "400000,",
+    "coast": "734057349",
     "sort": 4
   },
   {
@@ -1605,7 +1605,7 @@
     "icon": "samsara_05",
     "level": 1,
     "type": "500002,",
-    "value": "1000,",
+    "value": "10000,",
     "coast": "100",
     "sort": 5
   },
@@ -1615,8 +1615,8 @@
     "icon": "samsara_05",
     "level": 2,
     "type": "500002,",
-    "value": "2000,",
-    "coast": "130",
+    "value": "20000,",
+    "coast": "150",
     "sort": 5
   },
   {
@@ -1625,8 +1625,8 @@
     "icon": "samsara_05",
     "level": 3,
     "type": "500002,",
-    "value": "3000,",
-    "coast": "250",
+    "value": "30000,",
+    "coast": "225",
     "sort": 5
   },
   {
@@ -1635,8 +1635,8 @@
     "icon": "samsara_05",
     "level": 4,
     "type": "500002,",
-    "value": "4000,",
-    "coast": "520",
+    "value": "40000,",
+    "coast": "337",
     "sort": 5
   },
   {
@@ -1645,8 +1645,8 @@
     "icon": "samsara_05",
     "level": 5,
     "type": "500002,",
-    "value": "5000,",
-    "coast": "1000",
+    "value": "50000,",
+    "coast": "505",
     "sort": 5
   },
   {
@@ -1655,8 +1655,8 @@
     "icon": "samsara_05",
     "level": 6,
     "type": "500002,",
-    "value": "6000,",
-    "coast": "1750",
+    "value": "60000,",
+    "coast": "757",
     "sort": 5
   },
   {
@@ -1665,8 +1665,8 @@
     "icon": "samsara_05",
     "level": 7,
     "type": "500002,",
-    "value": "7000,",
-    "coast": "2830",
+    "value": "70000,",
+    "coast": "1135",
     "sort": 5
   },
   {
@@ -1675,8 +1675,8 @@
     "icon": "samsara_05",
     "level": 8,
     "type": "500002,",
-    "value": "8000,",
-    "coast": "4300",
+    "value": "80000,",
+    "coast": "1702",
     "sort": 5
   },
   {
@@ -1685,8 +1685,8 @@
     "icon": "samsara_05",
     "level": 9,
     "type": "500002,",
-    "value": "9000,",
-    "coast": "6220",
+    "value": "90000,",
+    "coast": "2553",
     "sort": 5
   },
   {
@@ -1695,8 +1695,8 @@
     "icon": "samsara_05",
     "level": 10,
     "type": "500002,",
-    "value": "10000,",
-    "coast": "8650",
+    "value": "100000,",
+    "coast": "3829",
     "sort": 5
   },
   {
@@ -1705,8 +1705,8 @@
     "icon": "samsara_05",
     "level": 11,
     "type": "500002,",
-    "value": "11000,",
-    "coast": "11650",
+    "value": "110000,",
+    "coast": "5743",
     "sort": 5
   },
   {
@@ -1715,8 +1715,8 @@
     "icon": "samsara_05",
     "level": 12,
     "type": "500002,",
-    "value": "12000,",
-    "coast": "15280",
+    "value": "120000,",
+    "coast": "8614",
     "sort": 5
   },
   {
@@ -1725,8 +1725,8 @@
     "icon": "samsara_05",
     "level": 13,
     "type": "500002,",
-    "value": "13000,",
-    "coast": "19600",
+    "value": "130000,",
+    "coast": "12921",
     "sort": 5
   },
   {
@@ -1735,8 +1735,8 @@
     "icon": "samsara_05",
     "level": 14,
     "type": "500002,",
-    "value": "14000,",
-    "coast": "24670",
+    "value": "140000,",
+    "coast": "19381",
     "sort": 5
   },
   {
@@ -1745,8 +1745,8 @@
     "icon": "samsara_05",
     "level": 15,
     "type": "500002,",
-    "value": "15000,",
-    "coast": "30550",
+    "value": "150000,",
+    "coast": "29071",
     "sort": 5
   },
   {
@@ -1755,8 +1755,8 @@
     "icon": "samsara_05",
     "level": 16,
     "type": "500002,",
-    "value": "16000,",
-    "coast": "37300",
+    "value": "160000,",
+    "coast": "43606",
     "sort": 5
   },
   {
@@ -1765,8 +1765,8 @@
     "icon": "samsara_05",
     "level": 17,
     "type": "500002,",
-    "value": "17000,",
-    "coast": "44980",
+    "value": "170000,",
+    "coast": "65409",
     "sort": 5
   },
   {
@@ -1775,8 +1775,8 @@
     "icon": "samsara_05",
     "level": 18,
     "type": "500002,",
-    "value": "18000,",
-    "coast": "53650",
+    "value": "180000,",
+    "coast": "98113",
     "sort": 5
   },
   {
@@ -1785,8 +1785,8 @@
     "icon": "samsara_05",
     "level": 19,
     "type": "500002,",
-    "value": "19000,",
-    "coast": "63370",
+    "value": "190000,",
+    "coast": "147169",
     "sort": 5
   },
   {
@@ -1795,8 +1795,8 @@
     "icon": "samsara_05",
     "level": 20,
     "type": "500002,",
-    "value": "20000,",
-    "coast": "74200",
+    "value": "200000,",
+    "coast": "220753",
     "sort": 5
   },
   {
@@ -1805,8 +1805,8 @@
     "icon": "samsara_05",
     "level": 21,
     "type": "500002,",
-    "value": "21000,",
-    "coast": "86200",
+    "value": "210000,",
+    "coast": "331129",
     "sort": 5
   },
   {
@@ -1815,8 +1815,8 @@
     "icon": "samsara_05",
     "level": 22,
     "type": "500002,",
-    "value": "22000,",
-    "coast": "99430",
+    "value": "220000,",
+    "coast": "496693",
     "sort": 5
   },
   {
@@ -1825,8 +1825,8 @@
     "icon": "samsara_05",
     "level": 23,
     "type": "500002,",
-    "value": "23000,",
-    "coast": "113950",
+    "value": "230000,",
+    "coast": "745039",
     "sort": 5
   },
   {
@@ -1835,8 +1835,8 @@
     "icon": "samsara_05",
     "level": 24,
     "type": "500002,",
-    "value": "24000,",
-    "coast": "129820",
+    "value": "240000,",
+    "coast": "1117558",
     "sort": 5
   },
   {
@@ -1845,8 +1845,8 @@
     "icon": "samsara_05",
     "level": 25,
     "type": "500002,",
-    "value": "25000,",
-    "coast": "147100",
+    "value": "250000,",
+    "coast": "1676337",
     "sort": 5
   },
   {
@@ -1855,8 +1855,8 @@
     "icon": "samsara_05",
     "level": 26,
     "type": "500002,",
-    "value": "26000,",
-    "coast": "165850",
+    "value": "260000,",
+    "coast": "2514505",
     "sort": 5
   },
   {
@@ -1865,8 +1865,8 @@
     "icon": "samsara_05",
     "level": 27,
     "type": "500002,",
-    "value": "27000,",
-    "coast": "186130",
+    "value": "270000,",
+    "coast": "3771757",
     "sort": 5
   },
   {
@@ -1875,8 +1875,8 @@
     "icon": "samsara_05",
     "level": 28,
     "type": "500002,",
-    "value": "28000,",
-    "coast": "208000",
+    "value": "280000,",
+    "coast": "5657635",
     "sort": 5
   },
   {
@@ -1885,8 +1885,8 @@
     "icon": "samsara_05",
     "level": 29,
     "type": "500002,",
-    "value": "29000,",
-    "coast": "231520",
+    "value": "290000,",
+    "coast": "8486452",
     "sort": 5
   },
   {
@@ -1895,8 +1895,8 @@
     "icon": "samsara_05",
     "level": 30,
     "type": "500002,",
-    "value": "30000,",
-    "coast": "256750",
+    "value": "300000,",
+    "coast": "12729678",
     "sort": 5
   },
   {
@@ -1905,8 +1905,8 @@
     "icon": "samsara_05",
     "level": 31,
     "type": "500002,",
-    "value": "31000,",
-    "coast": "283750",
+    "value": "310000,",
+    "coast": "19094517",
     "sort": 5
   },
   {
@@ -1915,8 +1915,8 @@
     "icon": "samsara_05",
     "level": 32,
     "type": "500002,",
-    "value": "32000,",
-    "coast": "312580",
+    "value": "320000,",
+    "coast": "28641775",
     "sort": 5
   },
   {
@@ -1925,8 +1925,8 @@
     "icon": "samsara_05",
     "level": 33,
     "type": "500002,",
-    "value": "33000,",
-    "coast": "343300",
+    "value": "330000,",
+    "coast": "42962662",
     "sort": 5
   },
   {
@@ -1935,8 +1935,8 @@
     "icon": "samsara_05",
     "level": 34,
     "type": "500002,",
-    "value": "34000,",
-    "coast": "375970",
+    "value": "340000,",
+    "coast": "64443993",
     "sort": 5
   },
   {
@@ -1945,8 +1945,8 @@
     "icon": "samsara_05",
     "level": 35,
     "type": "500002,",
-    "value": "35000,",
-    "coast": "410650",
+    "value": "350000,",
+    "coast": "96665989",
     "sort": 5
   },
   {
@@ -1955,8 +1955,8 @@
     "icon": "samsara_05",
     "level": 36,
     "type": "500002,",
-    "value": "36000,",
-    "coast": "447400",
+    "value": "360000,",
+    "coast": "144998983",
     "sort": 5
   },
   {
@@ -1965,8 +1965,8 @@
     "icon": "samsara_05",
     "level": 37,
     "type": "500002,",
-    "value": "37000,",
-    "coast": "486280",
+    "value": "370000,",
+    "coast": "217498474",
     "sort": 5
   },
   {
@@ -1975,8 +1975,8 @@
     "icon": "samsara_05",
     "level": 38,
     "type": "500002,",
-    "value": "38000,",
-    "coast": "527350",
+    "value": "380000,",
+    "coast": "326247711",
     "sort": 5
   },
   {
@@ -1985,8 +1985,8 @@
     "icon": "samsara_05",
     "level": 39,
     "type": "500002,",
-    "value": "39000,",
-    "coast": "570670",
+    "value": "390000,",
+    "coast": "489371566",
     "sort": 5
   },
   {
@@ -1995,8 +1995,8 @@
     "icon": "samsara_05",
     "level": 40,
     "type": "500002,",
-    "value": "40000,",
-    "coast": "616300",
+    "value": "400000,",
+    "coast": "734057349",
     "sort": 5
   },
   {
@@ -2005,7 +2005,7 @@
     "icon": "samsara_06",
     "level": 1,
     "type": "500003,",
-    "value": "1000,",
+    "value": "10000,",
     "coast": "100",
     "sort": 6
   },
@@ -2015,8 +2015,8 @@
     "icon": "samsara_06",
     "level": 2,
     "type": "500003,",
-    "value": "2000,",
-    "coast": "130",
+    "value": "20000,",
+    "coast": "150",
     "sort": 6
   },
   {
@@ -2025,8 +2025,8 @@
     "icon": "samsara_06",
     "level": 3,
     "type": "500003,",
-    "value": "3000,",
-    "coast": "250",
+    "value": "30000,",
+    "coast": "225",
     "sort": 6
   },
   {
@@ -2035,8 +2035,8 @@
     "icon": "samsara_06",
     "level": 4,
     "type": "500003,",
-    "value": "4000,",
-    "coast": "520",
+    "value": "40000,",
+    "coast": "337",
     "sort": 6
   },
   {
@@ -2045,8 +2045,8 @@
     "icon": "samsara_06",
     "level": 5,
     "type": "500003,",
-    "value": "5000,",
-    "coast": "1000",
+    "value": "50000,",
+    "coast": "505",
     "sort": 6
   },
   {
@@ -2055,8 +2055,8 @@
     "icon": "samsara_06",
     "level": 6,
     "type": "500003,",
-    "value": "6000,",
-    "coast": "1750",
+    "value": "60000,",
+    "coast": "757",
     "sort": 6
   },
   {
@@ -2065,8 +2065,8 @@
     "icon": "samsara_06",
     "level": 7,
     "type": "500003,",
-    "value": "7000,",
-    "coast": "2830",
+    "value": "70000,",
+    "coast": "1135",
     "sort": 6
   },
   {
@@ -2075,8 +2075,8 @@
     "icon": "samsara_06",
     "level": 8,
     "type": "500003,",
-    "value": "8000,",
-    "coast": "4300",
+    "value": "80000,",
+    "coast": "1702",
     "sort": 6
   },
   {
@@ -2085,8 +2085,8 @@
     "icon": "samsara_06",
     "level": 9,
     "type": "500003,",
-    "value": "9000,",
-    "coast": "6220",
+    "value": "90000,",
+    "coast": "2553",
     "sort": 6
   },
   {
@@ -2095,8 +2095,8 @@
     "icon": "samsara_06",
     "level": 10,
     "type": "500003,",
-    "value": "10000,",
-    "coast": "8650",
+    "value": "100000,",
+    "coast": "3829",
     "sort": 6
   },
   {
@@ -2105,8 +2105,8 @@
     "icon": "samsara_06",
     "level": 11,
     "type": "500003,",
-    "value": "11000,",
-    "coast": "11650",
+    "value": "110000,",
+    "coast": "5743",
     "sort": 6
   },
   {
@@ -2115,8 +2115,8 @@
     "icon": "samsara_06",
     "level": 12,
     "type": "500003,",
-    "value": "12000,",
-    "coast": "15280",
+    "value": "120000,",
+    "coast": "8614",
     "sort": 6
   },
   {
@@ -2125,8 +2125,8 @@
     "icon": "samsara_06",
     "level": 13,
     "type": "500003,",
-    "value": "13000,",
-    "coast": "19600",
+    "value": "130000,",
+    "coast": "12921",
     "sort": 6
   },
   {
@@ -2135,8 +2135,8 @@
     "icon": "samsara_06",
     "level": 14,
     "type": "500003,",
-    "value": "14000,",
-    "coast": "24670",
+    "value": "140000,",
+    "coast": "19381",
     "sort": 6
   },
   {
@@ -2145,8 +2145,8 @@
     "icon": "samsara_06",
     "level": 15,
     "type": "500003,",
-    "value": "15000,",
-    "coast": "30550",
+    "value": "150000,",
+    "coast": "29071",
     "sort": 6
   },
   {
@@ -2155,8 +2155,8 @@
     "icon": "samsara_06",
     "level": 16,
     "type": "500003,",
-    "value": "16000,",
-    "coast": "37300",
+    "value": "160000,",
+    "coast": "43606",
     "sort": 6
   },
   {
@@ -2165,8 +2165,8 @@
     "icon": "samsara_06",
     "level": 17,
     "type": "500003,",
-    "value": "17000,",
-    "coast": "44980",
+    "value": "170000,",
+    "coast": "65409",
     "sort": 6
   },
   {
@@ -2175,8 +2175,8 @@
     "icon": "samsara_06",
     "level": 18,
     "type": "500003,",
-    "value": "18000,",
-    "coast": "53650",
+    "value": "180000,",
+    "coast": "98113",
     "sort": 6
   },
   {
@@ -2185,8 +2185,8 @@
     "icon": "samsara_06",
     "level": 19,
     "type": "500003,",
-    "value": "19000,",
-    "coast": "63370",
+    "value": "190000,",
+    "coast": "147169",
     "sort": 6
   },
   {
@@ -2195,8 +2195,8 @@
     "icon": "samsara_06",
     "level": 20,
     "type": "500003,",
-    "value": "20000,",
-    "coast": "74200",
+    "value": "200000,",
+    "coast": "220753",
     "sort": 6
   },
   {
@@ -2205,8 +2205,8 @@
     "icon": "samsara_06",
     "level": 21,
     "type": "500003,",
-    "value": "21000,",
-    "coast": "86200",
+    "value": "210000,",
+    "coast": "331129",
     "sort": 6
   },
   {
@@ -2215,8 +2215,8 @@
     "icon": "samsara_06",
     "level": 22,
     "type": "500003,",
-    "value": "22000,",
-    "coast": "99430",
+    "value": "220000,",
+    "coast": "496693",
     "sort": 6
   },
   {
@@ -2225,8 +2225,8 @@
     "icon": "samsara_06",
     "level": 23,
     "type": "500003,",
-    "value": "23000,",
-    "coast": "113950",
+    "value": "230000,",
+    "coast": "745039",
     "sort": 6
   },
   {
@@ -2235,8 +2235,8 @@
     "icon": "samsara_06",
     "level": 24,
     "type": "500003,",
-    "value": "24000,",
-    "coast": "129820",
+    "value": "240000,",
+    "coast": "1117558",
     "sort": 6
   },
   {
@@ -2245,8 +2245,8 @@
     "icon": "samsara_06",
     "level": 25,
     "type": "500003,",
-    "value": "25000,",
-    "coast": "147100",
+    "value": "250000,",
+    "coast": "1676337",
     "sort": 6
   },
   {
@@ -2255,8 +2255,8 @@
     "icon": "samsara_06",
     "level": 26,
     "type": "500003,",
-    "value": "26000,",
-    "coast": "165850",
+    "value": "260000,",
+    "coast": "2514505",
     "sort": 6
   },
   {
@@ -2265,8 +2265,8 @@
     "icon": "samsara_06",
     "level": 27,
     "type": "500003,",
-    "value": "27000,",
-    "coast": "186130",
+    "value": "270000,",
+    "coast": "3771757",
     "sort": 6
   },
   {
@@ -2275,8 +2275,8 @@
     "icon": "samsara_06",
     "level": 28,
     "type": "500003,",
-    "value": "28000,",
-    "coast": "208000",
+    "value": "280000,",
+    "coast": "5657635",
     "sort": 6
   },
   {
@@ -2285,8 +2285,8 @@
     "icon": "samsara_06",
     "level": 29,
     "type": "500003,",
-    "value": "29000,",
-    "coast": "231520",
+    "value": "290000,",
+    "coast": "8486452",
     "sort": 6
   },
   {
@@ -2295,8 +2295,8 @@
     "icon": "samsara_06",
     "level": 30,
     "type": "500003,",
-    "value": "30000,",
-    "coast": "256750",
+    "value": "300000,",
+    "coast": "12729678",
     "sort": 6
   },
   {
@@ -2305,8 +2305,8 @@
     "icon": "samsara_06",
     "level": 31,
     "type": "500003,",
-    "value": "31000,",
-    "coast": "283750",
+    "value": "310000,",
+    "coast": "19094517",
     "sort": 6
   },
   {
@@ -2315,8 +2315,8 @@
     "icon": "samsara_06",
     "level": 32,
     "type": "500003,",
-    "value": "32000,",
-    "coast": "312580",
+    "value": "320000,",
+    "coast": "28641775",
     "sort": 6
   },
   {
@@ -2325,8 +2325,8 @@
     "icon": "samsara_06",
     "level": 33,
     "type": "500003,",
-    "value": "33000,",
-    "coast": "343300",
+    "value": "330000,",
+    "coast": "42962662",
     "sort": 6
   },
   {
@@ -2335,8 +2335,8 @@
     "icon": "samsara_06",
     "level": 34,
     "type": "500003,",
-    "value": "34000,",
-    "coast": "375970",
+    "value": "340000,",
+    "coast": "64443993",
     "sort": 6
   },
   {
@@ -2345,8 +2345,8 @@
     "icon": "samsara_06",
     "level": 35,
     "type": "500003,",
-    "value": "35000,",
-    "coast": "410650",
+    "value": "350000,",
+    "coast": "96665989",
     "sort": 6
   },
   {
@@ -2355,8 +2355,8 @@
     "icon": "samsara_06",
     "level": 36,
     "type": "500003,",
-    "value": "36000,",
-    "coast": "447400",
+    "value": "360000,",
+    "coast": "144998983",
     "sort": 6
   },
   {
@@ -2365,8 +2365,8 @@
     "icon": "samsara_06",
     "level": 37,
     "type": "500003,",
-    "value": "37000,",
-    "coast": "486280",
+    "value": "370000,",
+    "coast": "217498474",
     "sort": 6
   },
   {
@@ -2375,8 +2375,8 @@
     "icon": "samsara_06",
     "level": 38,
     "type": "500003,",
-    "value": "38000,",
-    "coast": "527350",
+    "value": "380000,",
+    "coast": "326247711",
     "sort": 6
   },
   {
@@ -2385,8 +2385,8 @@
     "icon": "samsara_06",
     "level": 39,
     "type": "500003,",
-    "value": "39000,",
-    "coast": "570670",
+    "value": "390000,",
+    "coast": "489371566",
     "sort": 6
   },
   {
@@ -2395,8 +2395,8 @@
     "icon": "samsara_06",
     "level": 40,
     "type": "500003,",
-    "value": "40000,",
-    "coast": "616300",
+    "value": "400000,",
+    "coast": "734057349",
     "sort": 6
   }
 ]

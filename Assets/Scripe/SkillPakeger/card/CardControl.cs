@@ -114,7 +114,7 @@ public class CardControl : MonoBehaviour
                 UiManager.FlyTo(tv);
                 return;
             }
-            else if (!mManager.userCard(mIndex, cost))
+            else if (!mManager.userCard(mManager.getHero(),mIndex, cost))
             {
                 setStatus(STATUE_CARP_DEFAULT);
                 GameObject obj = Resources.Load<GameObject>("prefab/hurt");

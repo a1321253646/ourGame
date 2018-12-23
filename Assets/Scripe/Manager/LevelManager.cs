@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour {
     MapConfigBean mMapConfig = null;
     public void init()
     {
+        
         Debug.Log("LevelManager Start");
         GameManager.getIntance().getLevelData();
         long old = GameManager.getIntance().init(this);

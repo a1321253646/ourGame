@@ -96,14 +96,14 @@ public class PetItemControl : MonoBehaviour {
         
 
     }
-
+    public PetJsonBean mJson;
     public void init(PetManager.PetLocalDate date,PetManager manager) {
         mId = date.id;
         mManager = manager;
         mDelayTime = JsonUtils.getIntance().getConfigValueForId(100039);
         mSpeed = JsonUtils.getIntance().getConfigValueForId(100040);
-        PetJsonBean json = JsonUtils.getIntance().getPetInfoById(date.id);
-        mRes = JsonUtils.getIntance().getEnemyResourceData(json.resouce);
+        mJson = JsonUtils.getIntance().getPetInfoById(date.id);
+        mRes = JsonUtils.getIntance().getEnemyResourceData(mJson.resouce);
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
         mAnimalControl = new AnimalControlBase(mRes, mSpriteRender);
         mAnimalControl.setStatus(ActionFrameBean.ACTION_STANDY);

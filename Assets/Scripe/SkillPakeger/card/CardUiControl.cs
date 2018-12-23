@@ -42,7 +42,7 @@ public class CardUiControl : MonoBehaviour {
         if (mImageBottom == null) {
             mImageBottom = GetComponentsInChildren<Image>()[3];
         }
-        Sprite sprite1 = Resources.Load("icon/card/" + mCard.center_resource, typeof(Sprite)) as Sprite;
+        Sprite sprite1 = Resources.Load("icon/card/" + mCard.center_resource+"_1", typeof(Sprite)) as Sprite;
         mImageBottom.sprite = sprite1;
       
         if (mCostCount == null) {

@@ -22,6 +22,8 @@ public class TestControl : MonoBehaviour {
         mButton.onClick.AddListener(() => {
             change();
         });
+        JsonUtils.getIntance().initBefore();
+        JsonUtils.getIntance().init();
         isInit = true;
     }
 	

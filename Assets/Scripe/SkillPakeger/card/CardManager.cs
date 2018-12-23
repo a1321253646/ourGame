@@ -148,7 +148,8 @@ public class CardManager : MonoBehaviour {
         enmey.init(mList.Count + 1, this, id);
         mList.Add(enmey);
     }
-    public bool userCard(int index,float cost) {
+    public bool userCard(Attacker attack, int index,float cost) {
+        cost = attack.mSkillManager.mEventAttackManager.getCardCost((int)cost);
         if (!GameObject.Find("Manager").GetComponent<LevelManager>().delectNengliangdian(cost))
         {
             return false;

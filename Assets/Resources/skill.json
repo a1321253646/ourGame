@@ -87,7 +87,7 @@
     "calculator": "\"1,100\"*a1",
     "special_parameter_value": "1,",
     "next_skill": "200001,",
-    "skill_describe": "对范围内目标150%攻击力伤害，易伤+1",
+    "skill_describe": "对范围内目标150%攻击力伤害，易伤+1,每层易伤受到额外1%攻击力伤害",
     "skill_resource": 35006,
     "shape_type": 1,
     "shape_resource_id": "shape_1",
@@ -103,7 +103,7 @@
     "calculator": "(\"2,102\"-\"2,103\")*a1+\"5,200001,10001\"*\"1,100\"*a2",
     "special_parameter_value": "",
     "next_skill": "",
-    "skill_describe": "引爆范围内目标的易伤效果，造成目标损失血量*20%伤害,每层易伤额外造成攻击力*10%点真实伤害",
+    "skill_describe": "引爆范围内目标的易伤效果，造成目标损失血量*15%伤害,每层易伤额外造成攻击力*5%点真实伤害",
     "skill_resource": 35007,
     "shape_type": 1,
     "shape_resource_id": "shape_1",
@@ -115,11 +115,11 @@
     "id": 100008,
     "effects": 10001,
     "target_type": 1,
-    "effects_parameter": "0.3,",
+    "effects_parameter": "0.1,",
     "calculator": "\"1,102\"*a1",
     "special_parameter_value": "",
     "next_skill": "",
-    "skill_describe": "恢复自身30%最大血量",
+    "skill_describe": "恢复自身10%*最大生命值的血量",
     "skill_resource": 35002,
     "shape_type": 6,
     "shape_resource_id": "",
@@ -263,7 +263,7 @@
     "calculator": "\"1,102\"*a1",
     "special_parameter_value": "5,10",
     "next_skill": "",
-    "skill_describe": "消耗自身10%最大生命值，获取5个水晶",
+    "skill_describe": "消耗自身10%最大生命值，获取5格能量",
     "skill_resource": 0.0,
     "shape_type": 0,
     "shape_resource_id": "",
@@ -272,12 +272,12 @@
     "point_type": 0.0
   },
   {
-    "id": 500001,
+    "id": 600001,
     "effects": 500001,
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 1,
+    "special_parameter_value": 5,
     "next_skill": "",
     "skill_describe": "普通攻击有S1%的概率无视防御",
     "skill_resource": 0.0,
@@ -288,14 +288,14 @@
     "point_type": 0
   },
   {
-    "id": 500002,
+    "id": 600002,
     "effects": 500002,
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 2,
+    "special_parameter_value": 0.1,
     "next_skill": "",
-    "skill_describe": "每次攻击获S1倍攻击力的生命值",
+    "skill_describe": "每次攻击获S1%攻击力的生命值",
     "skill_resource": 0.0,
     "shape_type": 0,
     "shape_resource_id": "",
@@ -304,14 +304,14 @@
     "point_type": 0
   },
   {
-    "id": 500003,
+    "id": 600003,
     "effects": 500003,
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 2,
+    "special_parameter_value": 1,
     "next_skill": "",
-    "skill_describe": "每次攻击获S1倍攻击力的魔晶",
+    "skill_describe": "每次攻击获S1%攻击力的魔晶",
     "skill_resource": 0.0,
     "shape_type": 0,
     "shape_resource_id": "",
@@ -320,12 +320,12 @@
     "point_type": 0
   },
   {
-    "id": 500004,
+    "id": 600004,
     "effects": 500004,
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": "1,10",
+    "special_parameter_value": "5,10",
     "next_skill": "",
     "skill_describe": "普通攻击有S1%概率恢复S2%攻击力生命值",
     "skill_resource": 0.0,
@@ -336,7 +336,7 @@
     "point_type": 0
   },
   {
-    "id": 500005,
+    "id": 600005,
     "effects": 500005,
     "target_type": 3,
     "effects_parameter": 0,
@@ -352,7 +352,7 @@
     "point_type": 0
   },
   {
-    "id": 500006,
+    "id": 600006,
     "effects": 500006,
     "target_type": 3,
     "effects_parameter": 0,
@@ -368,7 +368,7 @@
     "point_type": 0
   },
   {
-    "id": 500007,
+    "id": 600007,
     "effects": 500007,
     "target_type": 3,
     "effects_parameter": 0,
@@ -384,12 +384,12 @@
     "point_type": 0
   },
   {
-    "id": 500008,
+    "id": 600008,
     "effects": 500008,
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 1,
+    "special_parameter_value": 0.5,
     "next_skill": "",
     "skill_describe": "每杀死1只怪物提升S1%暴击率，只在本关生效",
     "skill_resource": 0.0,
@@ -400,7 +400,7 @@
     "point_type": 0
   },
   {
-    "id": 500009,
+    "id": 600009,
     "effects": 500009,
     "target_type": 3,
     "effects_parameter": 0,
@@ -416,7 +416,7 @@
     "point_type": 0
   },
   {
-    "id": 500010,
+    "id": 600010,
     "effects": 500010,
     "target_type": 3,
     "effects_parameter": 0,
@@ -432,12 +432,12 @@
     "point_type": 0
   },
   {
-    "id": 500011,
+    "id": 600011,
     "effects": 500011,
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 2,
+    "special_parameter_value": 10,
     "next_skill": "",
     "skill_describe": "释放卡牌有S1%概率不消耗能量",
     "skill_resource": 0.0,
@@ -448,12 +448,12 @@
     "point_type": 0
   },
   {
-    "id": 500012,
+    "id": 600012,
     "effects": 500012,
     "target_type": 4,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 1,
+    "special_parameter_value": 20,
     "next_skill": "",
     "skill_describe": "降低敌人攻击速度S1%",
     "skill_resource": 0.0,
@@ -464,12 +464,12 @@
     "point_type": 0
   },
   {
-    "id": 500013,
+    "id": 600013,
     "effects": 500013,
     "target_type": 4,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 10,
+    "special_parameter_value": 20,
     "next_skill": "",
     "skill_describe": "降低目标S1%的防御力，永久",
     "skill_resource": 0.0,
@@ -480,14 +480,14 @@
     "point_type": 0
   },
   {
-    "id": 500014,
+    "id": 600014,
     "effects": 500014,
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 20,
+    "special_parameter_value": 50,
     "next_skill": "",
-    "skill_describe": "每杀死一个BOSS，有S2%概率获得一件额外的装备。",
+    "skill_describe": "每杀死一个BOSS，有S2%概率获得一次额外掉落",
     "skill_resource": 0.0,
     "shape_type": 0,
     "shape_resource_id": "",

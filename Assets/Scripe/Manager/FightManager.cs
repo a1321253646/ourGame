@@ -173,11 +173,14 @@ public class FightManager{
 			if (attacker is EnemyBase) {//enemy only one target
 				FightResource resouce = new FightResource (attacker, mEnemyFactory);
                 hurtBlood = attackBllod(attacker, attacker.mAttackerTargets[0]);
+                attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood);
                 hurtBlood = resouce.hurt(hurtBlood);
                 if (hurtBlood != null) {
+                    attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.beforeBeHurt(hurtBlood);
                     attacker.mAttackerTargets[0].BeAttack(hurtBlood, attacker);
+                    attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(hurtBlood);
+                    attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endHurt(hurtBlood);
                     return hurtBlood.blood;
-
                 }
                 else {
                     return 0;
@@ -188,8 +191,15 @@ public class FightManager{
                 int size = attacker.mAttackerTargets.Count;
                 Attacker tager = attacker.mAttackerTargets [i];
 				hurtBlood = attackBllod (attacker, tager);
-				tager.BeAttack (hurtBlood, attacker);
-				hurtBloodAll += hurtBlood.blood;
+                attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood);
+                tager.mSkillManager.mEventAttackManager.beforeBeHurt(hurtBlood);
+                tager.BeAttack (hurtBlood, attacker);
+                tager.mSkillManager.mEventAttackManager.endBeHurt(hurtBlood);
+                attacker.mSkillManager.mEventAttackManager.endHurt(hurtBlood);
+                if (tager.getStatus() == ActionFrameBean.ACTION_DIE) {
+                    attacker.mSkillManager.mEventAttackManager.killEnemy();
+                }
+                hurtBloodAll += hurtBlood.blood;
                 i++;
              //   if (size == attacker.mAttackerTargets.Count) {
                     
@@ -210,36 +220,38 @@ public class FightManager{
 		
 	}
 	private HurtStatus attackBllod(Attacker attacker,Attacker beAttacker){
+
+        List<EquipKeyAndValue>  list = attacker.mSkillManager.mEventAttackManager.beforeActtack();
+       
         if (!isHurt(attacker, beAttacker)) {
             return new HurtStatus(0, false, false);
         }
-        //        Debug.Log("attackBllod attacker.mAttribute.aggressivity = " + attacker.mAttribute.aggressivity);
-        //        Debug.Log(" beAttacker.mAttribute.defense = " + beAttacker.mAttribute.defense);
-       /*  float hurt= attacker.mAttribute.aggressivity - beAttacker.mAttribute.defense;
-		if (hurt <= attacker.mAttribute.aggressivity /10) {
-            int tmp = attacker.mAttribute.aggressivity % 10 == 0 ? 0 : 1;
-            hurt = ((int)attacker.mAttribute.aggressivity )/ 10+ tmp;
-		}*/
+        attacker.mSkillManager.mEventAttackManager.Acttacking();
 
-       float hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);
-
-        //        Debug.Log(" hurt = " + hurt);
-        bool crt = isCrt(attacker);
-//        Debug.Log(" crt = " + crt);
-        if (crt)
+        bool isIgnoeDefen = false;
+        if (list != null&& list.Count > 0) {
+            foreach (EquipKeyAndValue key in list) {
+                if (key.key == 111) {
+                    isIgnoeDefen = true;
+                    break;
+                }
+            }
+        }
+        float hurt = 0;
+        if (isIgnoeDefen)
         {
-            //        Debug.Log("hurt =" + hurt + " attacker.mCrtHurt=" + attacker.mCrtHurt + " attacker.mReadHurt=" + attacker.mReadHurt);
-//            Debug.Log(" attacker.mAttribute.crtHurt = " + attacker.mAttribute.crtHurt);
-//            Debug.Log(" attacker.mAttribute.readHurt = " + attacker.mAttribute.readHurt);
-//            Debug.Log(" hurt * 2 = " + hurt * 2);
-            hurt = hurt * 2 + attacker.mAttribute.crtHurt + attacker.mAttribute.readHurt;
-//            Debug.Log(" hurt  = " + hurt);
+            hurt = attacker.mAttribute.aggressivity;
         }
         else {
-//            Debug.Log(" attacker.mAttribute.readHurt = " + attacker.mAttribute.readHurt);
-//            Debug.Log(" hurt  = " + hurt);
+            hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);
+        }
+        bool crt = isCrt(attacker);
+        if (crt)
+        {
+            hurt = hurt * 2 + attacker.mAttribute.crtHurt + attacker.mAttribute.readHurt;
+        }
+        else {
             hurt = hurt + attacker.mAttribute.readHurt;
-//            Debug.Log(" hurt  = " + hurt);
         }
 		return new HurtStatus(hurt, crt,true);
 	}

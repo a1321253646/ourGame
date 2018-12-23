@@ -50,7 +50,13 @@ public class EventAttackSkillManager
             skill.upDateSkill();
         }
     }
-
+    public void upDateLocal(float x, float y)
+    {
+        foreach (TimeAttackSkillBase skill in mTimeList)
+        {
+            skill.upDateLocal(x,y);
+        }
+    }
     public void register(int eventType, EventAttackSkill skill) {
         if (mManagerList.ContainsKey(eventType))
         {
@@ -66,20 +72,27 @@ public class EventAttackSkillManager
         mManagerList[eventType].unRegister(skill);
     }
 
-    public virtual EquipKeyAndValue beforeActtack()//用于影响改成平A攻击暴击，闪避等等影响到平A的判定
+    //111 为 无视防御
+
+    public virtual List<EquipKeyAndValue> beforeActtack()//用于影响改成平A攻击暴击，闪避等等影响到平A的判定
     {
+        List<EquipKeyAndValue> list = new List<EquipKeyAndValue>();
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BEFOR_ATTACK);
         if (singel == null || singel.mList.Count == 0) {
             return null;
         }
         else {
             foreach (EventAttackSkill skill in singel.mList) {
-
+                EquipKeyAndValue value = skill.beforeActtack();
+                if (value != null) {
+                    list.Add(value);
+                }
+                
             }
+            return list;
         }
-        return null;
     }
-    public virtual void Acttacking()
+    public virtual void Acttacking()//判断攻击生效后进行调用
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_ATTACKING);
         if (singel == null || singel.mList.Count == 0)
@@ -90,12 +103,12 @@ public class EventAttackSkillManager
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-
+                skill.Acttacking();
             }
         }
         return ;
     }
-    public virtual void beforeHurt(HurtStatus hurt)
+    public virtual void beforeHurt(HurtStatus hurt)//造成伤害前
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BEFORE_HURT);
         if (singel == null || singel.mList.Count == 0)
@@ -106,12 +119,12 @@ public class EventAttackSkillManager
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-
+                skill.beforeHurt(hurt);
             }
         }
         return ;
     }
-    public virtual void endHurt(HurtStatus hurt)
+    public virtual void endHurt(HurtStatus hurt)//造成伤害后
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_END_EHURT);
         if (singel == null || singel.mList.Count == 0)
@@ -122,12 +135,12 @@ public class EventAttackSkillManager
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-
+                skill.endHurt(hurt);
             }
         }
         return ;
     }
-    public virtual void beforeBeHurt(HurtStatus hurt)
+    public virtual void beforeBeHurt(HurtStatus hurt)//被普通伤害前
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BEFOR_BEHURT);
         if (singel == null || singel.mList.Count == 0)
@@ -138,12 +151,12 @@ public class EventAttackSkillManager
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-
+                skill.beforeBeHurt(hurt);
             }
         }
         return ;
     }
-    public virtual void endBeHurt(HurtStatus hurt)
+    public virtual void endBeHurt(HurtStatus hurt)//被普通伤害后
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_END_BEHURT);
         if (singel == null || singel.mList.Count == 0)
@@ -154,12 +167,12 @@ public class EventAttackSkillManager
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-
+                skill.endBeHurt(hurt);
             }
         }
         return ;
     }
-    public virtual void killEnemy()
+    public virtual void killEnemy()//平a杀死怪物
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_HURT_DIE);
         if (singel == null || singel.mList.Count == 0)
@@ -170,28 +183,29 @@ public class EventAttackSkillManager
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-
+                skill.killEnemy();
             }
         }
         return ;
     }
-    public virtual int getCardCost(int cost)
+    public virtual int getCardCost(int cost)//获取卡牌消耗
     {
+        int cost2 = cost;
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BEFOE_CARD_COST);
         if (singel == null || singel.mList.Count == 0)
         {
-            return cost;
+            return cost2;
         }
         else
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-
+                cost2 = skill.getCardCost(cost2);
             }
         }
-        return cost;
+        return cost2;
     }
-    public virtual float beforeCardHurt(float hurt)
+    public virtual float beforeCardHurt(float hurt)//卡牌伤害前
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BEFORE_CARD_HURT);
         if (singel == null || singel.mList.Count == 0)
@@ -208,7 +222,7 @@ public class EventAttackSkillManager
         return hurt;
     }
 
-    public virtual float endCardHurt(float hurt)
+    public virtual float endCardHurt(float hurt)//卡牌伤害后
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_END_CARD_HURT);
         if (singel == null || singel.mList.Count == 0)
@@ -225,7 +239,7 @@ public class EventAttackSkillManager
         return hurt;
     }
 
-    public virtual float beforeBeCardHurt(float hurt)
+    public virtual float beforeBeCardHurt(float hurt)//被卡牌伤害前
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BEFORE_CARD_BEHURT);
         if (singel == null || singel.mList.Count == 0)
@@ -242,7 +256,7 @@ public class EventAttackSkillManager
         return hurt;
     }
 
-    public virtual float endBeCardHurt(float hurt)
+    public virtual float endBeCardHurt(float hurt)//被卡牌伤害后
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_END_CARD_BEHURT);
         if (singel == null || singel.mList.Count == 0)
@@ -258,7 +272,7 @@ public class EventAttackSkillManager
         }
         return hurt;
     }
-    public virtual BigNumber getDieHuijing(BigNumber big)
+    public virtual BigNumber getDieHuijing(BigNumber big)//获取死亡魂晶
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_END_DIE_HUIJING);
         if (singel == null || singel.mList.Count == 0)
@@ -274,7 +288,7 @@ public class EventAttackSkillManager
         }
         return big;
     }
-    public virtual bool beforeGetDrop()
+    public virtual bool beforeGetDrop()//掉落前判断
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BEFORE_DROP);
         if (singel == null || singel.mList.Count == 0)
@@ -290,7 +304,7 @@ public class EventAttackSkillManager
         }
         return false;
     }
-    public virtual bool endGetDrop()
+    public virtual bool endGetDrop()//掉落后判断
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_END_DROP);
         if (singel == null || singel.mList.Count == 0)

@@ -290,14 +290,14 @@ public class SQLManager : MonoBehaviour
     /// <param name="queryString"></param>
     public SqliteDataReader ExecuteSQLCommand(string queryString)
     {
-        Debug.Log("ExecuteSQLCommand command  "+ queryString);
-        Debug.Log("ExecuteSQLCommand connection  =" + connection);
-        Debug.Log("ExecuteSQLCommand connection  =" + connection.State);
+//        Debug.Log("ExecuteSQLCommand command  "+ queryString);
+//        Debug.Log("ExecuteSQLCommand connection  =" + connection);
+//        Debug.Log("ExecuteSQLCommand connection  =" + connection.State);
         command = connection.CreateCommand();
-        Debug.Log("ExecuteSQLCommand  connection.CreateCommand()");
+//        Debug.Log("ExecuteSQLCommand  connection.CreateCommand()");
         this.command.CommandText = queryString;
         this.reader = this.command.ExecuteReader();
-        Debug.Log("ExecuteSQLCommand  reader = "+ reader.ToString());
+//        Debug.Log("ExecuteSQLCommand  reader = "+ reader.ToString());
         return this.reader;
     }
 
@@ -454,7 +454,7 @@ public class SQLManager : MonoBehaviour
     private void addList(string command) {
 
         lock (mLock) {
-            Debug.Log("addList command="+ command);
+//            Debug.Log("addList command="+ command);
             mWaitList.Add(command);
         }
     }
@@ -481,14 +481,14 @@ public class SQLManager : MonoBehaviour
 
     private void threadRun() {
         while (connection != null) {
-            Debug.Log("======================================threadRun command count");
+//            Debug.Log("======================================threadRun command count");
             if (listIsEmpty())
             {
                 Thread.Sleep(1000);
             }
             else {
                 string command = getList(0);
-                Debug.Log("threadRun command = " + command);
+  //              Debug.Log("threadRun command = " + command);
                 ExecuteSQLCommand(command);
              //   Debug.Log("threadRun command success " );
                 removeList(command);
