@@ -10,7 +10,6 @@ public class InventoryHalper
     List<PlayerBackpackBean> mPet = new List<PlayerBackpackBean>();
     private Dictionary<long, long> mDropDeviceUsed = new Dictionary<long, long>();
     private List<long> mHaveBookId = new List<long>();
-    private int mZhuangbeiCount = 0;
     private int mCount = -1;
 
 
@@ -321,7 +320,6 @@ public class InventoryHalper
         return false;
     }
     public void unUse(PlayerBackpackBean bean) {
-        mZhuangbeiCount--;
         bean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
         mUser.Remove(bean);
         SQLHelper.getIntance().changeGoodTyppe(bean);
@@ -336,8 +334,8 @@ public class InventoryHalper
 
     private bool addRoleUse(PlayerBackpackBean bean)
     {
-        if (mZhuangbeiCount < 7) {
-            mZhuangbeiCount++;
+        Debug.Log("========================addRoleUse = " + mUser.Count);
+        if (mUser.Count < 6) {
             bean.goodType = SQLDate.GOOD_TYPE_ZHUANGBEI;
             SQLHelper.getIntance().changeGoodTyppe(bean);
             mUser.Add(bean);

@@ -9,9 +9,16 @@ public class CardDetailShowControl : MonoBehaviour {
     public SkillJsonBean mSkill;
     public Text mCostCount, mSkillDec, mSkillName;
     CalculatorUtil calcuator;
+    private Vector2 mfri;
+    private void Start()
+    {
+        mfri = transform.position;
+    }
 
-
-    public void init(long cardId, Attacker hero)
+    public void remove() {
+        transform.position = mfri;
+    }
+    public void init(long cardId, Attacker hero, float x,float y)
     {
         if (cardId == -1)
         {
@@ -41,6 +48,7 @@ public class CardDetailShowControl : MonoBehaviour {
         mSkillDec.text = mSkill.skill_describe;
         calcuator = new CalculatorUtil(mSkill.calculator, mSkill.effects_parameter);
         update(hero);
+        transform.position = new Vector2(x, y);
     }
     private void update(Attacker hero)
     {

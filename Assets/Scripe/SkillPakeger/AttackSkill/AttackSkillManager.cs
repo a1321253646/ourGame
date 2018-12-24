@@ -134,12 +134,13 @@ public class AttackSkillManager
         }
         Debug.Log("=====================addSkill pet.skillId=" + pet.skillId);
         if (pet.skillId != 0) {
-            AttackerSkillBase skill = creatSkillById(pet.skillId, null, fighter);
-            list.Add(skill);
+         //   AttackerSkillBase skill = creatSkillById(pet.skillId, null, fighter);
+       //     list.Add(skill);
         }
         if (list.Count > 0) {
             mPetSkill.Add(pet, list);
         }
+        mAttack.getAttribute();
     }
 
     public void removeSkill(PetJsonBean pet) {
@@ -147,6 +148,7 @@ public class AttackSkillManager
             endSkill(mPetSkill[pet]);
             mPetSkill.Remove(pet);
         }
+        mAttack.getAttribute();
     }
     public void removeSkill(PlayerBackpackBean bean)
     {
@@ -186,14 +188,15 @@ public class AttackSkillManager
         }
         if (skill.isAnimal())
         {
-            Point skillP = JsonUtils.getIntance().getEnemyResourceData(skill.mSkillJson.skill_resource).getHurtOffset();
+            SkillJsonBean bean = JsonUtils.getIntance().getSkillInfoById(id);
+            Point skillP = JsonUtils.getIntance().getEnemyResourceData(bean.skill_resource).getHurtOffset();
             Point attackP = mAttack.resourceData.getHurtOffset();
             float xDel = 0, yDel = 0;
-            if (skill.mSkillJson.point_type == 1)
+            if (bean.point_type == 1)
             {
                 yDel = mAttack.resourceData.getTargetBorder()[2];
             }
-            else if (skill.mSkillJson.point_type == 2)
+            else if (bean.point_type == 2)
             {
                 yDel = mAttack.resourceData.getTargetBorder()[2] / 2;
             }
@@ -206,6 +209,7 @@ public class AttackSkillManager
                 new Vector2(mAttack.transform.position.x + attackP.x + xDel - skillP.x,
                     mAttack.transform.position.y + mAttack.resourceData.idel_y + yDel - skillP.y),
                     Quaternion.Euler(0.0f, 0f, 0.0f));
+            Debug.Log("============================== creatSkillById=" + newobj);
             skill.initSkill(this, id, fighter, value, newobj);
         }
         else {

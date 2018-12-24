@@ -16,6 +16,12 @@ public class AnimalAttackSkill200002 : AnimalAttackSkillBase
 
     public override void endInitSkill()
     {
+        value = mParam[0];
+        Debug.Log("====================AnimalAttackSkill200002 value=" + value);
+        if (mTime == -1)
+        {
+            mTime = 0;
+        }
         mAnimal.setIsLoop(ActionFrameBean.ACTION_NONE, true);
         mManager.getAttacker().setStop();
 
@@ -36,6 +42,9 @@ public class AnimalAttackSkill200002 : AnimalAttackSkillBase
 
     public override void updateSkillEnd()
     {
+        Debug.Log("====================AnimalAttackSkill200002  updateSkillEnd timeOut");
+        Debug.Log("====================AttackSkill10002 mTime = "+ mTime);
+        Debug.Log("====================AttackSkill10002 value = " + value);
         if (!isInit)
         {
             return;

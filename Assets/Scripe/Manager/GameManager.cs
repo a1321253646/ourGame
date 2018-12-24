@@ -232,14 +232,13 @@ public class GameManager
                             }
                             if (!isHave) {
                                 InventoryHalper.getIntance().addInventory(j.id, 1);
+                                GameObject.Find("hero").GetComponent<HeroRoleControl>().showPetTable();
+                                GameObject.Find("Manager").GetComponent<PetManager>().addPet(j.id);
                                 uiManager.setRolePointShow(1);
                             }
                             break;
                         }
                     }
-
-                    
-
                 }
             }
         }

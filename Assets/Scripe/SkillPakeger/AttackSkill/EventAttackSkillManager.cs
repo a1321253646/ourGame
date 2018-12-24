@@ -42,12 +42,12 @@ public class EventAttackSkillManager
     }
 
     public void updateSkill() {
-        foreach (TimeAttackSkillBase skill in mTimeList) {
-            skill.upDateSkill();
+        for (int i = 0; i < mTimeList.Count; i++) {
+            mTimeList[i].upDateSkill();
         }
-        foreach (TimeEventAttackSkillBase skill in mTimeEvemntList)
+        for (int i = 0; i < mTimeEvemntList.Count; i++)
         {
-            skill.upDateSkill();
+            mTimeEvemntList[i].upDateSkill();
         }
     }
     public void upDateLocal(float x, float y)

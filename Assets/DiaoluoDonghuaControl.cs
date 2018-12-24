@@ -105,7 +105,7 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
 
         if (type == SHUIJI_DIAOLUO_TYPE)
         {
-            imaPath = "zhujiemian/03";
+            imaPath = "UI_yellow/zhujiemian/03";
         }
         //        Debug.Log("DiaoluoDonghuaControl imaPath = " + imaPath);
         GetComponent<Image>().sprite = Resources.Load(imaPath, typeof(Sprite)) as Sprite;

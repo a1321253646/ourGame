@@ -104,8 +104,10 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
     public void gui(long id) {
         for(int i = 0; i< mItemGameObjectList.Count; i++) {
             if (mItemGameObjectList[i].GetComponent<ZhuangBeiItemShowControl>().mBean.goodId == id) {
-                GameManager.getIntance().getGuideManager().ShowGuideHorizontalLayoutGroupInScroll(mItemGameObjectList[i], 
-                    GameObject.Find("di_2").GetComponent<ScrollRect>(), mZhuangbeiList,i,2);
+
+                GameManager.getIntance().getGuideManager().ShowGuideNormalObject(mItemGameObjectList[i].transform.GetChild(2).gameObject);
+            //    GameManager.getIntance().getGuideManager().ShowGuideHorizontalLayoutGroupInScroll(mItemGameObjectList[i], 
+            //        GameObject.Find("di_2").GetComponent<ScrollRect>(), mZhuangbeiList,i,2);
                 break;
             }
         }
@@ -113,7 +115,7 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
 
     private void setWitch(HorizontalLayoutGroup grid, int count)     //每行Cell的个数
     {
-        float w = 0;
+   /*     float w = 0;
         if (count > 4)
         {
             w = 118.36f * count + 20 * (count - 1) + 40;
@@ -122,7 +124,7 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
             w = 603.7f;
         }
         grid.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, w);
-        grid.transform.Translate(Vector2.right * (w));
+        grid.transform.Translate(Vector2.right * (w));*/
     }
 
 }

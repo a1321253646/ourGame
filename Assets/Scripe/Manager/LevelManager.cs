@@ -60,7 +60,6 @@ public class LevelManager : MonoBehaviour {
         else {
             Time.timeScale = 1;
         }
-        GameObject.Find("Manager").GetComponent<PetManager>().init();
         GameManager.getIntance().isLuihuiIng = false;
     }
     void Start () {

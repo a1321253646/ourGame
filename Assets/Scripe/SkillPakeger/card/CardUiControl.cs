@@ -50,6 +50,7 @@ public class CardUiControl : MonoBehaviour {
             mCardCount = listText[2];
             mSkillName = listText[1];
             mCostCount = listText[0];
+          
         }
            
         mCostCount.text = mCard.cost + "";           

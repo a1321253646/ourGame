@@ -84,10 +84,10 @@ public class TipControl : MonoBehaviour {
                         new Vector2(v1.x, v1.y), Quaternion.identity);
                     Transform hp = GameObject.Find("Canvas").transform;
                     text.transform.SetParent(hp);
+                    text.transform.localScale = new Vector3(1, 1, 1);
                     Text tv = text.GetComponent<Text>();
                     tv.text = "已装备全部装备，请先脱下一件";
                     tv.color = Color.red;
-                    tv.fontSize = 30;
                     UiManager.FlyTo(tv);
                 }
             }
@@ -209,7 +209,7 @@ public class TipControl : MonoBehaviour {
                     affixList.Add(b);
                 }
             }
-            str = "<color=#FF49FAFF>基础属性</color>\n";
+            str = "<color=#18de42>基础属性</color>\n";
             foreach (PlayerAttributeBean b in mBean.attributeList) {
                 if (b.getTypeStr() != null) {
                     foreach (EquipKeyAndDouble e in key) {
@@ -219,7 +219,7 @@ public class TipControl : MonoBehaviour {
                         }                        
                     }
                     if (level != 0) {
-                        str = str + "<color=#00FF01FF>+" + aJson.getStrengthenByLevel(b.type, level)+ "</color>";
+                        str = str + "<color=#e1d1b0>+" + aJson.getStrengthenByLevel(b.type, level)+ "</color>";
                     }
                     str = str+ "\n";
                 }              
@@ -228,7 +228,7 @@ public class TipControl : MonoBehaviour {
             long count = JsonUtils.getIntance().getAffixEnbleByLevel(level);
             long showCount = 1;
             if (affixList.Count > 0) {
-                str = str+ "<color=#FF49FAFF>特殊属性</color>\n";
+                str = str+ "<color=#f8b551>特殊属性</color>\n";
                 foreach (PlayerAttributeBean b in affixList) {
                     if (showCount <= count)
                     {
@@ -239,7 +239,7 @@ public class TipControl : MonoBehaviour {
                     else {
                         AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
                         float vale = (float)b.value / 100;
-                        str =  str + "<color=#878787FF>"  + a.dec + ":" + vale + " %(+" + JsonUtils.getIntance().getAffixEnbleLevelByCount(showCount)+ "开启)</color>\n";
+                        str =  str + "<color=#cb3500>" + a.dec + ":" + vale + " %(+" + JsonUtils.getIntance().getAffixEnbleLevelByCount(showCount)+ "开启)</color>\n";
                     }
                     showCount++;
                 }

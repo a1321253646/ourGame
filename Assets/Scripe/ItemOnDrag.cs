@@ -22,7 +22,6 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     public Vector3 mCurPos;
     // 上一次鼠标位置
     public Vector3 mPrevPos;
-    public Vector3 mClickCardV;
     private NewItemOnDrag mNewDrag;
     GameObject mIndicator;
     CardUiControl mUiContorl;
@@ -44,9 +43,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                 }
                 mIsOndragDown = true;
                 GameObject ob = GameObject.Find("kapai_click");
-                ob.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getHero());
-                mClickCardV = ob.transform.position;
-                ob.transform.position = new Vector2(mCurPos.x, mCurPos.y);
+                ob.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getHero(), mCurPos.x, mCurPos.y);
                 long result = GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_OBJECT_CLICK, mCard.id);
                 mCurTime = 0f;
                 mIsDown = false;
@@ -75,6 +72,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
             Destroy(mIndicator);
          //   
         }
+        GameObject.Find("kapai_click").GetComponent<CardDetailShowControl>().remove();
         mScrollRect.OnEndDrag(eventData);
         bool isWork = false;
         mIsDown = false;
@@ -153,7 +151,8 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
             if (!isMove)
             {
 
-                GameObject.Find("kapai_click").transform.position = mClickCardV;
+               // GameObject.Find("kapai_click").transform.position = mClickCardV;
+                GameObject.Find("kapai_click").GetComponent<CardDetailShowControl>().remove();
                 mIndicator = Instantiate(mNewItem);
                 mIndicator.transform.SetParent(mNewItemRoot);
                 mIndicator.transform.localScale = Vector3.one;

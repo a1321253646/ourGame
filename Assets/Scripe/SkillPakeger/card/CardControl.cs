@@ -25,7 +25,6 @@ public class CardControl : MonoBehaviour
     private float mTargetX =-1;
     private float mWitch = -1;
     private GameObject mClickShow;
-    float mClickShowX = -1;
     Vector3 mClickV;
 
     void Start()
@@ -121,12 +120,12 @@ public class CardControl : MonoBehaviour
                 Vector3 v1 = PointUtils.worldTransToScreen(mClickV);
                 GameObject text = GameObject.Instantiate(obj,
                     new Vector2(v1.x, v1.y), Quaternion.identity);
-                Transform hp = GameObject.Find("enemyStatePlane").transform;
+                Transform hp = GameObject.Find("Canvas").transform;
                 text.transform.SetParent(hp);
+                text.transform.localScale = new Vector3(1, 1, 1);
                 Text tv = text.GetComponent<Text>();
                 tv.text = "能量点不足";
                 tv.color = Color.red;
-                tv.fontSize = 30;
                 UiManager.FlyTo(tv);
                 return;
             }
@@ -241,16 +240,11 @@ public class CardControl : MonoBehaviour
             else {
                 x = transform.GetChild(0).position.x;
             }
-            mClickShow.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getHero());
-            if (mClickShowX == -1)
-            {
-                mClickShowX = mClickShow.transform.transform.position.x;
-            }
-            mClickShow.transform.position = new Vector2(x, mClickShow.transform.position.y);
+            mClickShow.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getHero(), x, mClickShow.transform.position.y);
         }
         else {
 
-            mClickShow.transform.position = new Vector2(mClickShowX, mClickShow.transform.position.y);
+            mClickShow.GetComponent<CardDetailShowControl>().remove();
         }
         if (mStatue == STATUE_CARP_UP && mSkill.shape_type != 0 && mSkill.shape_type != 6)
         {

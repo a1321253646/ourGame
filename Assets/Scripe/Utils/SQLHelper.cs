@@ -19,6 +19,7 @@ public class SQLHelper
     public long isShowBackpackPoint = -1;
     public long isShowLuihuiPoint = -1;
     public long isShowPlayerPoint = -1;
+    public long isShowPetTablePoint = -1;
     public long isFristStartGame = -1;
     public long isVoice = -1;
     public long mMaxGoodId = -1;
@@ -43,6 +44,7 @@ public class SQLHelper
     public static long GAME_ID_GOOD_MAXID = 16;
     public static long GAME_ID_IS_NET = 17;
     public static long GAME_ID_IS_UPDATE = 18;
+    public static long GAME_ID_POINT_PETTABLE = 19;
 
 
     public static long TYPE_GAME = 1;
@@ -213,6 +215,11 @@ public class SQLHelper
                     {
                         mMaxGoodId = long.Parse(date.extan);
                         Debug.Log("读取数据库 最大物品id " + mMaxGoodId);
+                    }
+                    else if (date.id == GAME_ID_POINT_PETTABLE)
+                    {
+                        isShowPetTablePoint = long.Parse(date.extan);
+                        Debug.Log("读取数据库 是否显示宠物小红点 " + mMaxGoodId);
                     }
                 }
             }
@@ -529,6 +536,23 @@ public class SQLHelper
         }
         isShowCardPoint = value;
     }
+    public void updatePointPetTable(long value)
+    {
+        if (isShowPetTablePoint == value)
+        {
+            return;
+        }
+        if (isShowPetTablePoint == -1)
+        {
+            addGame(GAME_ID_POINT_PETTABLE, value);
+        }
+        else
+        {
+            updateGame(GAME_ID_POINT_PETTABLE, value);
+        }
+        isShowPetTablePoint = value;
+    }
+
     public void updatePointBackpack(long value)
     {
         if (isShowBackpackPoint == value)

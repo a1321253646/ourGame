@@ -60,7 +60,7 @@ public class SamsaraItemControl : MonoBehaviour {
         if (mLevel == 0)
         {
             mSamsaraName.text = "" + mJsonBean.name ;
-            string str = "学习效果 ";
+            string str = "学习效果\n";
             str = str + getAttribute(1);
             Debug.Log(str);
             mLvel.text = "" ;

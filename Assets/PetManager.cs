@@ -32,10 +32,10 @@ public class PetManager : MonoBehaviour {
     public float yDistance;
     public void init() {
          mHero = GameObject.Find("Manager").GetComponent<LevelManager>().mPlayerControl;
-         float xHeroDistance = JsonUtils.getIntance().getConfigValueForId(100034);
-        float yHeroDistance = JsonUtils.getIntance().getConfigValueForId(100035);
-        float xLeng = JsonUtils.getIntance().getConfigValueForId(100036);
-        float yLeng = JsonUtils.getIntance().getConfigValueForId(100037);
+        xMin = JsonUtils.getIntance().getConfigValueForId(100034);
+        xMax = JsonUtils.getIntance().getConfigValueForId(100035);
+        yMax = JsonUtils.getIntance().getConfigValueForId(100036);
+        ymin = JsonUtils.getIntance().getConfigValueForId(100037);
 
 
          xDistance = (xMax - xMin) / 6;
@@ -61,6 +61,15 @@ public class PetManager : MonoBehaviour {
         
 
     }
+    public void addPet(long id) {
+        List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
+        foreach (PlayerBackpackBean b in list) {
+            if (b.goodId == id) {
+                addPet(b);
+            }
+        }
+    }
+
     public void addPet(PlayerBackpackBean  bean) {
         GameObject.Find("pet").GetComponent<PetControl>().addPet(bean);
     }

@@ -88,6 +88,6 @@ public class SamsaraManage : MonoBehaviour {
     }
     public void updata() {
         Debug.Log("============================轮回点获得= " + GameManager.getIntance().mReincarnation.toString());
-        mLunhuiValue.text = "当前拥有轮回点：" + GameManager.getIntance().mReincarnation.toStringWithUnit();
+        mLunhuiValue.text = "" + GameManager.getIntance().mReincarnation.toStringWithUnit();
     }
 }

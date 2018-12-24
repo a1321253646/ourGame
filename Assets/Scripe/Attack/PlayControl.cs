@@ -24,6 +24,7 @@ public class PlayControl : Attacker
 		toString ("Play");
 		mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
         setHeroData ();
+        GameObject.Find("Manager").GetComponent<PetManager>().init();
         upLunhui();
         initEquip();
         int count = 1;
@@ -334,6 +335,13 @@ public class PlayControl : Attacker
     }
 
     public override  void getAttribute() {
+
+        double bili = 1;
+        if (mAttribute.maxBloodVolume != 0) {
+            bili = mBloodVolume / mAttribute.maxBloodVolume;
+        }
+       
+        Debug.Log("===============getAttribute. bili = " + bili);
         mAttribute.clear();
         mAllAttribute.clear();
         mAllAttributePre.setToPre();
@@ -357,6 +365,7 @@ public class PlayControl : Attacker
         mAttribute.add(mAllAttribute);
         mAttribute.chen(mAllAttributePre);
         Debug.Log("===============mAttribute.evd = " + mAttribute.evd);
+        mBloodVolume = mAttribute.maxBloodVolume * bili;
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
     }
     public void changePetStatu(PlayerBackpackBean bean, long  type) {
@@ -466,7 +475,7 @@ public class PlayControl : Attacker
 //        Debug.Log("===============英雄攻速 = " + mBaseAttribute.attackSpeed);
         mAttackLeng = mHero.attack_range;
          mBloodVolume = mBloodVolume + mBaseAttribute.maxBloodVolume - mMaxTmp;
-//        Debug.Log("mBloodVolume = " + mBloodVolume+ " mBaseAttribute.maxBloodVolume="+ mBaseAttribute.maxBloodVolume+ " mMaxTmp"+ mMaxTmp);
+        Debug.Log("mBloodVolume = " + mBloodVolume+ " mBaseAttribute.maxBloodVolume="+ mBaseAttribute.maxBloodVolume+ " mMaxTmp"+ mMaxTmp);
         mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);
         getAttribute();

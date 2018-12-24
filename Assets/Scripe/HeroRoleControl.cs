@@ -16,7 +16,7 @@ public class HeroRoleControl : MonoBehaviour {
     private Vector2 mFri;
     AnimalControlBase mAnimalControl;
     ResourceBean resourceData;
-    GameObject mHeroEnable, mPetEnable, mHeroUnble, mPetUnble,mPet;
+    GameObject mHeroEnable, mPetEnable, mHeroUnble, mPetUnble,mPet,mPetTable,mPetTablePoint;
     Button mHeroUnbleButton, mPetUnbleButton;
     bool isShowPet = false;
     private void Start()
@@ -78,13 +78,13 @@ public class HeroRoleControl : MonoBehaviour {
         
         gameObject.transform.localPosition = new Vector2(0, 0);
         upDateUi();
-        if (mClose == null) {
+     /*   if (mClose == null) {
 
             mClose = GameObject.Find("hero_info_close").GetComponent<Button>();
             mClose.onClick.AddListener(()=> {
                 removeUi();
             });
-        }
+        }*/
         if(mHeroEnable == null) {
             //mHeroEnable, mPetEnable, mHeroUnble, mPetUnble;
             mHeroEnable = GameObject.Find("hero_table_enable");
@@ -92,7 +92,15 @@ public class HeroRoleControl : MonoBehaviour {
             mHeroUnble = GameObject.Find("hero_table_unable");
             mPetUnble = GameObject.Find("pet_table_unable");
             mPet = GameObject.Find("pet");
-
+            mPetTable = GameObject.Find("pet_table");
+            mPetTablePoint = GameObject.Find("pet_table_point");
+            mClose = GameObject.Find("hero_info_close").GetComponent<Button>();
+            mClose.onClick.AddListener(() =>
+            {
+                Debug.Log("HeroRoleControl  hero_info_close");
+                mPet.GetComponent<PetControl>().removeUi();
+                removeUi();
+            });
 
             mPetUnbleButton = mPetUnble.GetComponent<Button>();
             mPetUnbleButton.onClick.AddListener(() =>
@@ -103,6 +111,8 @@ public class HeroRoleControl : MonoBehaviour {
                 mHeroUnble.transform.localScale = new Vector2(1, 1);
                 mPet.transform.localScale = new Vector2(1, 1);
                 mPet.GetComponent<PetControl>().showUi();
+                SQLHelper.getIntance().updatePointPetTable(0);
+                mPetTablePoint.transform.localScale = new Vector2(0, 0);
                 isShowPet = true;
 
             });
@@ -123,7 +133,26 @@ public class HeroRoleControl : MonoBehaviour {
 
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
+        List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
+        if (list == null || list.Count == 0)
+        {
+            mPetTable.transform.localScale = new Vector2(0, 0);
+        }
+        else {
+            mPetEnable.transform.localScale = new Vector2(0, 0);
+            mPetUnble.transform.localScale = new Vector2(1, 1);
+            mHeroUnble.transform.localScale = new Vector2(0, 0);
+            mHeroEnable.transform.localScale = new Vector2(1, 1);
+            if (SQLHelper.getIntance().isShowPetTablePoint == 1)
+            {
+                mPetTablePoint.transform.localScale = new Vector2(1, 1);
+            }
+            else {
+                mPetTablePoint.transform.localScale = new Vector2(0, 0);
+            }
+        }
 
+/*
         if (isShowPet)
         {
             mPetUnble.transform.localScale = new Vector2(0, 0);
@@ -139,9 +168,13 @@ public class HeroRoleControl : MonoBehaviour {
             mHeroUnble.transform.localScale = new Vector2(0, 0);
             mHeroEnable.transform.localScale = new Vector2(1, 1);
             mPet.GetComponent<PetControl>().removeUi();
-        }
+        }*/
     }
-    
+    public void showPetTable() {
+        mPetTable.transform.localScale = new Vector2(1, 1);
+        mPetTablePoint.transform.localScale = new Vector2(1, 1);
+        SQLHelper.getIntance().updatePointPetTable(1);
+    }
 
     public void removeUi()
     {

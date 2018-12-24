@@ -12,7 +12,7 @@ public class AttackSkill600004 : EventAttackSkill
     public override void Acttacking()
     {
         if (count == 0) {
-            count = (int)(mSkillJson.getEffectsParameterValue()[0] * 100);
+            count = (int)(mSkillJson.getSpecialParameterValue()[0] * 100);
             count1 = mSkillJson.getEffectsParameterValue()[1];
         }
         
