@@ -685,11 +685,11 @@ public class JsonUtils
 
     public List<LevelEnemyWellen> getWellenEnemy(){
         Level lv = getLevelData();
-        if (mCurrentLevelWellent == null || mCurrentLevelWellent.Count == 0) {          
+       // if (mCurrentLevelWellent == null || mCurrentLevelWellent.Count == 0) {          
             mCurrentLevelWellent = mLevelWellenDate[lv.id];
             bossId = lv.boss_DI;
             bossGas = lv.boss_gas;
-        }
+       // }
         long wellent = mCurrentLevelWellent[(int)mCurrentLevel];
         List<LevelEnemyWellen> back = mWellentList [wellent];
 		mCurrentLevel++;

@@ -146,9 +146,13 @@ public class HeroRoleControl : MonoBehaviour {
     public void removeUi()
     {
         isShow = false;
+        if(mPet != null) {
+            gameObject.transform.localPosition = mFri;
+
+            mPet.GetComponent<PetControl>().removeUi();
+        }
         // gameObject.transform.TransformPoint(new Vector2(-607, -31));
-        gameObject.transform.localPosition = mFri;
-        mPet.GetComponent<PetControl>().removeUi();
+
     }
 
     public void upDateUi()
