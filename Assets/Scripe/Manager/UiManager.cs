@@ -231,9 +231,15 @@ public class UiManager
 		}
 	}
 
-	public void changeHeroBlood(float current,float max){
-        mHpSl.maxValue = max;
-        mHpSl.value = current;
+	public void changeHeroBlood(double current,double max){
+        double bili = 1;
+        if (max > float.MaxValue) {
+            bili = max / float.MaxValue + 1;
+        }
+
+        mHpSl.maxValue =(float) (max/bili);
+        mHpSl.value = (float)(current/bili);
+
 		if (current < 0) {
 			mHpTv.text =0 + "/" + max;
 		} else {

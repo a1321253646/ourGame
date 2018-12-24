@@ -128,7 +128,7 @@ public class InventoryHalper
                 newBean.tabId = jb.tabid;
                 newBean.isShowPoint = 1;
                 newBean.attributeList = new List<PlayerAttributeBean>();
-                foreach (EquipKeyAndValue be in jb.getAttributeList())
+                foreach (EquipKeyAndDouble be in jb.getAttributeList())
                 {
                     PlayerAttributeBean p1 = new PlayerAttributeBean();
                     p1.type = be.key;
@@ -258,7 +258,7 @@ public class InventoryHalper
             if (p.type >= 100 && p.type <= 999 &&
                 ac.getStrengThen().ContainsKey(p.type))
             {
-                List<EquipKeyAndValue> ekv = ac.getStrengThen()[p.type];
+                List<EquipKeyAndDouble> ekv = ac.getStrengThen()[p.type];
                 for (int i = 0; i < ac.getAttributeList().Count; i++)
                 {
                     if (ac.getAttributeList()[i].key == p.type)
@@ -267,7 +267,7 @@ public class InventoryHalper
                         break;
                     }
                 }
-                long value = ac.getStrengthenByLevel(p.type,level);
+                double value = ac.getStrengthenByLevel(p.type,level);
                 p.value = value + p.value;
             }
             else if(p.type == 10001)

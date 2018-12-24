@@ -13,7 +13,7 @@ public class PlayerAttributeBean
         XXXXXX 表示随机属性的值
     */
     public long type;
-    public long value;
+    public double value;
 
     public string getTypeStr() {
         if (mGoodDic.ContainsKey(type)){

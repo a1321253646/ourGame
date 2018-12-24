@@ -28,7 +28,7 @@ public class SkillObject6 : SkillObject
             {
                 if (attack != null)
                 {
-                    float hurt = calcuator.getValue(mAttacker, attack);
+                    double hurt = calcuator.getValue(mAttacker, attack);
                     Debug.Log("skill fight event hurt=" + hurt);
                     attack.skillAttack(mBean.effects, hurt, mAttacker);
                 }

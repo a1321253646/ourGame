@@ -49,7 +49,7 @@ public class CardDetailShowControl : MonoBehaviour {
         string dec = mSkill.skill_describe;
         if (dec != null && dec.Contains("&n"))
         {
-            float value = calcuator.getValue(hero, null);
+            double value = calcuator.getValue(hero, null);
             dec = dec.Replace("&n", "" + value);
             mSkillDec.text = dec;
         }

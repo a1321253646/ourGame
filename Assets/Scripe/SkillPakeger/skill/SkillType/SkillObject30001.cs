@@ -31,7 +31,7 @@ public class SkillObject30001 : SkillObject
             }
             foreach (Attacker attack in mTargetList)
             {
-                float hurt = calcuator.getValue(mAttacker, attack);
+                double hurt = calcuator.getValue(mAttacker, attack);
                 Debug.Log("skill fight event 30001 hurt = "+hurt);
                 attack.skillAttack(mBean.effects, hurt, mAttacker);
             }

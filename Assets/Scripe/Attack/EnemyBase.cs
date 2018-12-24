@@ -189,7 +189,7 @@ public class EnemyBase : Attacker {
 	public int dieGas = 0;
 	public int dieCrystal = 0;
 
-	public override float BeAttack(HurtStatus status,Attacker hurter)
+	public override double BeAttack(HurtStatus status,Attacker hurter)
     {
         mSkillManager.mEventAttackManager.beforeBeHurt(status);
 //        Debug.Log(" status.blood == " + status.blood);
@@ -208,7 +208,7 @@ public class EnemyBase : Attacker {
 		mState.hurt (status);
 		return status.blood;
 	}
-    public override float BeKillAttack(long effect, float value,Attacker hurt)
+    public override double BeKillAttack(long effect, double value,Attacker hurt)
     {
         if (effect == 1 || effect == 6 || effect == 30001 || effect == 8 || effect == 3)
         {
@@ -239,7 +239,7 @@ public class EnemyBase : Attacker {
         }
         return value;
     }
-    public override void AddBlood(float value)
+    public override void AddBlood(double value)
     {
         if (mBloodVolume + value > mAttribute.maxBloodVolume)
         {

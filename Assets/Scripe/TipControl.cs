@@ -197,13 +197,13 @@ public class TipControl : MonoBehaviour {
         if (mAccouter != null && mBean.attributeList != null && mBean.attributeList.Count > 0) {
             str = "";
             AccouterJsonBean aJson = JsonUtils.getIntance().getAccouterInfoById(mBean.goodId);
-            List<EquipKeyAndValue> key = aJson.getAttributeList();
+            List<EquipKeyAndDouble> key = aJson.getAttributeList();
             long level = 0;
             List<PlayerAttributeBean> affixList = new List<PlayerAttributeBean>();
             foreach (PlayerAttributeBean b in mBean.attributeList) {
                 if (b.type == 10001)
                 {
-                    level = b.value;
+                    level =(long) b.value;
                 }
                 else if(b.getTypeStr() == null && b.type != 10002) {
                     affixList.Add(b);
@@ -212,7 +212,7 @@ public class TipControl : MonoBehaviour {
             str = "<color=#FF49FAFF>基础属性</color>\n";
             foreach (PlayerAttributeBean b in mBean.attributeList) {
                 if (b.getTypeStr() != null) {
-                    foreach (EquipKeyAndValue e in key) {
+                    foreach (EquipKeyAndDouble e in key) {
                         if (e.key == b.type) {
                             str = str + b.getTypeStr() + ":" + e.value;
                             break;
@@ -253,7 +253,7 @@ public class TipControl : MonoBehaviour {
             if (str.Contains("&n")) {
                 Debug.Log(" str.Contains" );
                 CalculatorUtil calcuator = new CalculatorUtil(sj.calculator,sj.effects_parameter);
-                float value = calcuator.getValue(mLevelManager.mPlayerControl, null);
+                double value = calcuator.getValue(mLevelManager.mPlayerControl, null);
                 str = str.Replace("&n", "" + value);
             }
         }

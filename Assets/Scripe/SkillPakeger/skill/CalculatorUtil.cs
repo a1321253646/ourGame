@@ -7,7 +7,7 @@ public class CalculatorUtil
     string mStr;
     string mParameter;
 
-    Dictionary<string, float> parameter = new Dictionary<string, float>();
+    Dictionary<string, double> parameter = new Dictionary<string, double>();
     Attacker firer;
     Attacker target;
     List<CalculatorUtilBean> mBean = new List<CalculatorUtilBean>();
@@ -39,10 +39,10 @@ public class CalculatorUtil
         }
         
     }
-    public  float getValue(Attacker firer, Attacker target) {
+    public  double getValue(Attacker firer, Attacker target) {
         this.firer = firer;
         this.target = target;
-        float value = -1;
+        double value = -1;
         foreach (CalculatorUtilBean bean in mBean) {
             if (bean == null)
             {
@@ -98,14 +98,14 @@ public class CalculatorUtil
                 if (strs[i] == null || strs[i].Length == 0) {
                     continue;
                 }
-                parameter.Add("a" + (i + 1), float.Parse(strs[i]));
+                parameter.Add("a" + (i + 1), double.Parse(strs[i]));
              //   Debug.Log("a" + (i + 1) + "=" + parameter["a" + (i + 1)]);
 
             }
         }
     }
 
-    private  float getValue(CalculatorUtilBean bean) {
+    private  double getValue(CalculatorUtilBean bean) {
         if (mBean == null) {
             return -1;
         }
@@ -168,7 +168,7 @@ public class CalculatorUtil
                 start = tmp;
             }
         }
-        float a = value.bean;
+        double a = value.bean;
         int tmp1 = a % 1 == 0 ? 0 : 1;
         value.bean = ((int)a) / 1 + tmp1;
         return value.bean;
@@ -185,7 +185,7 @@ public class CalculatorUtil
         }
     }
 
-    private  float getValueForKey(string key) {
+    private  double getValueForKey(string key) {
         if (key.StartsWith("a"))
         {
             return parameter[key];

@@ -152,7 +152,7 @@ public class BackpackManager
             long level = 0;
             foreach (PlayerAttributeBean p in list) {
                 if (p.type == 10001) {
-                    level = p.value;
+                    level = (long)p.value;
                     break;
                 }
             }

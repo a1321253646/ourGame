@@ -1,14 +1,14 @@
 ﻿public class Attribute
 {
-    public float aggressivity = 0;
-    public float defense = 0;
-    public float maxBloodVolume = 0;
+    public double aggressivity = 0;
+    public double defense = 0;
+    public double maxBloodVolume = 0;
     public float rate = 0;
     public float evd = 0;
     public float crt = 0;
     public float hurt = 0;
-    public float crtHurt = 0;
-    public float readHurt = 0;
+    public double crtHurt = 0;
+    public double readHurt = 0;
     public float attackSpeed = 0;
 
     public Attribute add(Attribute adder) {
@@ -26,15 +26,15 @@
     }
     public Attribute chen(Attribute adder)
     {
-        aggressivity = chenGetInt(aggressivity, adder.aggressivity / 10000) ;
-        defense = chenGetInt(defense, adder.defense / 10000);
+        aggressivity = chenGetDouble(aggressivity, adder.aggressivity / 10000) ;
+        defense = chenGetDouble(defense, adder.defense / 10000);
         rate = chenGetInt(rate, adder.rate / 10000);
         evd = chenGetInt(evd, adder.evd / 10000);
-        maxBloodVolume = chenGetInt(maxBloodVolume, adder.maxBloodVolume / 10000);
+        maxBloodVolume = chenGetDouble(maxBloodVolume, adder.maxBloodVolume / 10000);
         crt = chenGetInt(crt, adder.crt / 10000);
         hurt = chenGetInt(hurt, adder.hurt / 10000);
-        crtHurt = chenGetInt(crtHurt, adder.crtHurt / 10000);
-        readHurt = chenGetInt(readHurt, adder.readHurt / 10000);
+        crtHurt = chenGetDouble(crtHurt, adder.crtHurt / 10000);
+        readHurt = chenGetDouble(readHurt, adder.readHurt / 10000);
         attackSpeed = chenGetInt(attackSpeed, adder.attackSpeed / 10000);
         return this;
     }
@@ -43,6 +43,13 @@
         float a3 = a1 * a2;
         int tmp = a3 % 1 == 0 ? 0 : 1;
         a3 = ((int)a3) / 1 + tmp;
+        return a3;
+    }
+    private double chenGetDouble(double a1, double a2)
+    {
+        double a3 = a1 * a2;
+        int tmp = a3 % 1 == 0 ? 0 : 1;
+        a3 = a3 / 1 + tmp;
         return a3;
     }
     public void clear()

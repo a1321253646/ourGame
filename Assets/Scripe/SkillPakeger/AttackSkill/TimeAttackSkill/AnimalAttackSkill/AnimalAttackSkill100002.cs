@@ -33,7 +33,7 @@ public class AnimalAttackSkill100002 : AnimalAttackSkillBase
     {
         if (status == ActionFrameBean.ACTION_NONE)
         {
-            float hurt = mCalcuator.getValue(mManager.getAttacker(), mFight);
+            double hurt = mCalcuator.getValue(mManager.getAttacker(), mFight);
             Debug.Log("fightEcent " + hurt);
             mManager.getAttacker().AddBlood(hurt);
         }

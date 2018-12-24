@@ -159,7 +159,7 @@ public class PlayControl : Attacker
 
     public void initEquip(bool isAddSkill) {
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();
-        float bili = mBloodVolume/mAttribute.maxBloodVolume;
+        double bili = mBloodVolume/mAttribute.maxBloodVolume;
         mEquipAttribute.clear();
         foreach (PlayerBackpackBean bean in list)
         {
@@ -179,15 +179,15 @@ public class PlayControl : Attacker
                 }
                 else if (date.type == 110)
                 {
-                    mEquipAttribute.rate += date.value;
+                    mEquipAttribute.rate +=(float) date.value;
                 }
                 else if (date.type == 111)
                 {
-                    mEquipAttribute.evd += date.value;
+                    mEquipAttribute.evd += (float)date.value;
                 }
                 else if (date.type == 112)
                 {
-                    mEquipAttribute.crt += date.value;
+                    mEquipAttribute.crt += (float)date.value;
                 }
                 else if (date.type == 113)
                 {
@@ -199,7 +199,7 @@ public class PlayControl : Attacker
                 }
                 else if (date.type == 114)
                 {
-                    mEquipAttribute.attackSpeed += date.value;                 
+                    mEquipAttribute.attackSpeed += (float)date.value;                 
                 }
             }
             Debug.Log("addSkill initEquip");
@@ -216,7 +216,7 @@ public class PlayControl : Attacker
     }
     public void upLunhui()
     {
-        float mMaxTmp = mLunhuiAttribute.maxBloodVolume;
+        double mMaxTmp = mLunhuiAttribute.maxBloodVolume;
         mLunhuiAttribute.clear();
         mLunhuiAttributePre.clear();
         mSkillManager.lunhuiDownCardCost = 0;
@@ -373,7 +373,7 @@ public class PlayControl : Attacker
 
     public void ChangeEquip(PlayerBackpackBean bean,bool isAdd)
     {        
-        float bili = 1;
+        double bili = 1;
         bili =mBloodVolume / mAttribute.maxBloodVolume; ;
         mEquipAttribute.clear();
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();
@@ -397,15 +397,15 @@ public class PlayControl : Attacker
                 }
                 else if (date.type == 110)
                 {
-                    mEquipAttribute.rate += date.value;
+                    mEquipAttribute.rate += (float)date.value;
                 }
                 else if (date.type == 111)
                 {
-                    mEquipAttribute.evd += date.value;
+                    mEquipAttribute.evd += (float)date.value;
                 }
                 else if (date.type == 112)
                 {
-                    mEquipAttribute.crt += date.value;
+                    mEquipAttribute.crt += (float)date.value;
                 }
                 else if (date.type == 113)
                 {
@@ -417,7 +417,7 @@ public class PlayControl : Attacker
                 }
                 else if (date.type == 114)
                 {
-                    mEquipAttribute.attackSpeed += date.value;
+                    mEquipAttribute.attackSpeed += (float)date.value;
                 }
             }
             Debug.Log("addSkill ChangeEquip");          
@@ -446,7 +446,7 @@ public class PlayControl : Attacker
             resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
             initAnimalEvent();
         }
-        float mMaxTmp = mBaseAttribute.maxBloodVolume;
+        double mMaxTmp = mBaseAttribute.maxBloodVolume;
         if (mBloodVolume < 0) {
             mBloodVolume = 0;
             Debug.Log("mBloodVolume = " + mBloodVolume);
@@ -548,7 +548,7 @@ public class PlayControl : Attacker
         }
         
 	}
-	public override float BeAttack(HurtStatus status,Attacker hurter){
+	public override double BeAttack(HurtStatus status,Attacker hurter){
         //        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);
         mSkillManager.mEventAttackManager.beforeBeHurt(status);
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
@@ -567,7 +567,7 @@ public class PlayControl : Attacker
 		mState.hurt (status);
 		return status.blood;
 	}
-    public override float BeKillAttack(long effect, float value,Attacker hurt)
+    public override double BeKillAttack(long effect, double value,Attacker hurt)
     {
         if (effect == 1 || effect == 6 || effect == 4 || effect == 30001)
         {
@@ -619,7 +619,7 @@ public class PlayControl : Attacker
         }
         return value;
     }
-    public override void AddBlood(float value) {
+    public override void AddBlood(double value) {
         if (mBloodVolume + value > mAttribute.maxBloodVolume)
         {
             value = mAttribute.maxBloodVolume - mBloodVolume;

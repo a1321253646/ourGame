@@ -26,7 +26,7 @@ public abstract class Attacker : MonoBehaviour
     private bool isBeAttacker = false;
 	private int status = PLAY_STATUS_STANDY;
 	public int id = -1;
-	public float mBloodVolume = 0;
+	public double mBloodVolume = 0;
 	public float mRunSpeed;
 	public float mAttackLeng = 1;
 	public float mDieGas = 0;
@@ -73,10 +73,10 @@ public abstract class Attacker : MonoBehaviour
         mAnimalControl.setSpeedData(eachFors,ActionFrameBean.ACTION_ATTACK);
 
     }
-    public abstract float BeAttack (HurtStatus status, Attacker hurter);
-    public abstract float BeKillAttack(long effect, float value, Attacker hurter);
+    public abstract double BeAttack (HurtStatus status, Attacker hurter);
+    public abstract double BeKillAttack(long effect, double value, Attacker hurter);
     public abstract void getAttribute();
-    public abstract void AddBlood( float value);
+    public abstract void AddBlood(double value);
     public int getStatus() {
         return status;
     }
@@ -107,9 +107,9 @@ public abstract class Attacker : MonoBehaviour
 
 
 	public void attack(){
-		float attackeBlood = mFightManager.attackerAction (id);
+		double attackeBlood = mFightManager.attackerAction (id);
 	}
-	public void attackSync(float blood){
+	public void attackSync(double blood){
 		
 	}
 	private void changeAnim(){
@@ -155,7 +155,7 @@ public abstract class Attacker : MonoBehaviour
         }
         
     }
-    public void skillAttack(long effect, float value,Attacker hurter) {
+    public void skillAttack(long effect, double value,Attacker hurter) {
         BeKillAttack(effect, value,hurter);
     }
 }

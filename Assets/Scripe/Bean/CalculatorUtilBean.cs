@@ -10,7 +10,7 @@ public class CalculatorUtilBean
     public static int TYPE_DIVIDE = 4;
 
     public List<CalculatorUtilBean> list;
-    public float bean = 0;
+    public double bean = 0;
     public int type = 0;
     public string valueKey;
 }

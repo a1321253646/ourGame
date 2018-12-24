@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class Enemy
 {
 	public long id;
-	public float monster_hp;
-	public float monster_attack;
-	public float monster_defense;
+	public double monster_hp;
+	public double monster_attack;
+	public double monster_defense;
     public float attack_speed;
     public float die_gas;
 	public string die_crystal;
@@ -20,9 +20,9 @@ public class Enemy
     public float hit;
     public float dod;
     public float cri;
-    public float cri_dam;
+    public double cri_dam;
     public float speed_up;
-    public float real_dam;
+    public double real_dam;
     public float range_type;
     public List<long> fellList = new List<long>();
 

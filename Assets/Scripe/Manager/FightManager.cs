@@ -164,8 +164,8 @@ public class FightManager{
 		}
 		my.mAttackerTargets.Add (beAttacker);
 	}*/
-	public float attackerAction(int id){
-		float hurtBloodAll = 0;
+	public double attackerAction(int id){
+		double hurtBloodAll = 0;
 		HurtStatus hurtBlood = null;
         float hurt = 0;
 		Attacker attacker = getAttackerById (id);
@@ -237,7 +237,7 @@ public class FightManager{
                 }
             }
         }
-        float hurt = 0;
+        double hurt = 0;
         if (isIgnoeDefen)
         {
             hurt = attacker.mAttribute.aggressivity;

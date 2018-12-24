@@ -40,7 +40,7 @@ public class HeroState : MonoBehaviour
 		text.transform.position = EnemySceenPosition;  
 		UiManager.FlyTo (tv);
 	}
-    public void add(float blood) {
+    public void add(double blood) {
         if (blood == 0) {
             return;
         }

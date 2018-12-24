@@ -42,7 +42,7 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
         mGoodControl.updateUi(bean.goodId,0,bean);
         foreach (PlayerAttributeBean b in bean.attributeList) {
             if (b.type == 10001) {
-                level = b.value;
+                level = (long)b.value;
                 break;
             }
         }

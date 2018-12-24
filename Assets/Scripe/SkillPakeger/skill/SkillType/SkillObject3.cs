@@ -50,7 +50,7 @@ public class SkillObject3 : SkillObject
                 foreach (Attacker attack in isStop)
                 {
                     if (attack0 == attack) {
-                        float hurt = calcuator.getValue(mAttacker, attack);
+                        double hurt = calcuator.getValue(mAttacker, attack);
                         Debug.Log("skill fight event hurt=" + count);
                         attack.skillAttack(mBean.effects, hurt, mAttacker);
                     }
@@ -66,7 +66,7 @@ public class SkillObject3 : SkillObject
                 {
                     if (attack0 == attack)
                     {
-                        float hurt = calcuator.getValue(mAttacker, attack);
+                        double hurt = calcuator.getValue(mAttacker, attack);
                         Debug.Log("skill fight event hurt=" + count);
                         attack.skillAttack(mBean.effects, hurt, mAttacker);
                     }

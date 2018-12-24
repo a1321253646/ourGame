@@ -164,17 +164,17 @@ public class AccouterJsonBean
         }
         return -1;
     }
-    Dictionary<long, List<EquipKeyAndValue>> mStrengThen;
-    public Dictionary<long, List<EquipKeyAndValue>> getStrengThen() {
+    Dictionary<long, List<EquipKeyAndDouble>> mStrengThen;
+    public Dictionary<long, List<EquipKeyAndDouble>> getStrengThen() {
         if (mStrengThen == null) {
-            mStrengThen = EquipKeyAndValue.getDicForString(getAttributeList(), strengthen);
+            mStrengThen = EquipKeyAndDouble.getDicForString(getAttributeList(), strengthen);
         }
         return mStrengThen;
     }
-    public long getStrengthenByLevel(long type,long level)
+    public double getStrengthenByLevel(long type,long level)
     {
-        List<EquipKeyAndValue> list;
-        Dictionary<long, List<EquipKeyAndValue>> dir= getStrengThen();
+        List<EquipKeyAndDouble> list;
+        Dictionary<long, List<EquipKeyAndDouble>> dir= getStrengThen();
         if (dir.ContainsKey(type))
         {
             list = dir[type];
@@ -187,13 +187,13 @@ public class AccouterJsonBean
         {
             return 0;
         }
-        foreach (EquipKeyAndValue ek in list) {
+        foreach (EquipKeyAndDouble ek in list) {
             Debug.Log(" getStrengthenByLevel key=" + ek.key + " value=" + ek.value);
         }
 
-        long streng = 0;
+        double streng = 0;
         long levelDo = 0;
-        foreach (EquipKeyAndValue v in list)
+        foreach (EquipKeyAndDouble v in list)
         {
             if (v.key > level)
             {
@@ -207,8 +207,8 @@ public class AccouterJsonBean
         }
         return streng;
     }
-    public List<EquipKeyAndValue> mAttribute = new List<EquipKeyAndValue>();
-    public  List<EquipKeyAndValue> getAttributeList() {
+    public List<EquipKeyAndDouble> mAttribute = new List<EquipKeyAndDouble>();
+    public  List<EquipKeyAndDouble> getAttributeList() {
         if (mAttribute.Count > 0) {
             return mAttribute;
         }
@@ -224,9 +224,9 @@ public class AccouterJsonBean
                 {
                     continue;
                 }
-                EquipKeyAndValue bean = new EquipKeyAndValue();
+                EquipKeyAndDouble bean = new EquipKeyAndDouble();
                 bean.key = long.Parse(array[i]);
-                bean.value = long.Parse(array2[i]);
+                bean.value = double.Parse(array2[i]);
                 mAttribute.Add(bean);
             }
         }

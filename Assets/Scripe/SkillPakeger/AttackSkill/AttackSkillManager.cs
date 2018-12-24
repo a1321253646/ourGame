@@ -80,14 +80,14 @@ public class AttackSkillManager
             }
             if (p.type == 10002)
             {
-                long id = p.value;
+                long id = (long)p.value;
                 long value = 0;
 
                 foreach (PlayerAttributeBean p2 in bean.attributeList)
                 {
                     if (p2.type == id)
                     {
-                        value = p2.value;
+                        value = (long)p2.value;
                         PlayerAttributeBean bean2 = new PlayerAttributeBean();
                         bean2.type = id;
                         bean2.value = value;
@@ -166,7 +166,7 @@ public class AttackSkillManager
         List<AttackerSkillBase> list = new List<AttackerSkillBase>();
         foreach (PlayerAttributeBean bean in affixList)
         {
-            AttackerSkillBase skill = creatSkillById(bean.type, new List<float>() { bean.value }, fighter);
+            AttackerSkillBase skill = creatSkillById(bean.type, new List<float>() { (float)bean.value }, fighter);
             if (skill != null)
             {
                 list.Add(skill);

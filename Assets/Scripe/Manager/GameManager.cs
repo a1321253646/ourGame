@@ -154,7 +154,7 @@ public class GameManager
 		uiManager.init ();
 	}
 
-	public void setBlood(float blood,float max){
+	public void setBlood(double blood,double max){
 		uiManager.changeHeroBlood (blood,max);
 	}
 	public void heroUp(){

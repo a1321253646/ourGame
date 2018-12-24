@@ -28,7 +28,7 @@ public class SkillObject1 : SkillObject
                 return;
             }
             foreach (Attacker attack in mTargetList) {
-                float hurt =  calcuator.getValue(mAttacker, attack);
+                double hurt =  calcuator.getValue(mAttacker, attack);
                 Debug.Log("========================fightEcent hurt="+ hurt);
                 attack.skillAttack(mBean.effects, hurt, mAttacker);
             }

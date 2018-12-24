@@ -95,7 +95,7 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
         long level = 0;
         foreach (PlayerAttributeBean pa in p.attributeList) {
             if (pa.type == 10001) {
-                return pa.value;
+                return(long) pa.value;
             }
         }
         return level;

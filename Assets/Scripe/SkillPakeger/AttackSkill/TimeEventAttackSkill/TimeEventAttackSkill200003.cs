@@ -21,7 +21,7 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
 
     public override void Acttacking()
     {
-        float hurt = mCalcuator.getValue(mManager.getAttacker(), mFight);
+        double hurt = mCalcuator.getValue(mManager.getAttacker(), mFight);
         mFight.AddBlood(hurt);
     }
 

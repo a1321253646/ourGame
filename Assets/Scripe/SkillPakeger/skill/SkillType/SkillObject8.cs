@@ -28,8 +28,8 @@ public class SkillObject8 : SkillObject
                 return;
             }
             foreach (Attacker attack in mTargetList) {
-                float hurt =  calcuator.getValue(mAttacker, attack);
-                float blood = attack.mBloodVolume;
+                double hurt =  calcuator.getValue(mAttacker, attack);
+                double blood = attack.mBloodVolume;
                 attack.skillAttack(mBean.effects, hurt, mAttacker);
                 if (attack.getStatus() == ActionFrameBean.ACTION_DIE) {
                     mAttacker.AddBlood(mAttacker.mAttribute.aggressivity * 3);
