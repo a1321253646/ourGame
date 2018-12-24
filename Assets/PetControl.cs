@@ -174,7 +174,17 @@ public class PetControl : MonoBehaviour {
         {
             tmp = "<color=#cb3500>(出战激活)</color>\n";
         }
-        mSkillDec.text = mClickIcon.mJsonBean.skil_name + tmp + skill.skill_describe;
+        string s = mClickIcon.mJsonBean.skil_name + tmp + skill.skill_describe;
+        List<float> flist = skill.getSpecialParameterValue();
+        if (flist != null && flist.Count > 0)
+        {
+            for (int i = 0; i < flist.Count; i++)
+            {
+                s=s.Replace("S" + (i + 1) , "" + flist[i]);
+            }
+        }
+        mSkillDec.text = s;
+     //   mSkillDec.text = mClickIcon.mJsonBean.skil_name + tmp + skill.skill_describe;
     } 
 
 
@@ -230,6 +240,7 @@ public class PetControl : MonoBehaviour {
             mAnimalControl.setStatus(ActionFrameBean.ACTION_STANDY);
             mAnimalControl.start();
             Vector3 v = PointUtils.getScreenSize(new Vector3(res.getHurtOffset().x * 2, res.idel_y * 2));
+            mPetShowImg.SetNativeSize();
             mPetShowImg.gameObject.transform.position = new Vector2(mPetShowCenter.transform.position.x - v.x, mPetShowCenter.transform.position.y - v.y);
             //  }
 
@@ -256,7 +267,14 @@ public class PetControl : MonoBehaviour {
             if (mClickIcon.mBean.goodType == SQLDate.GOOD_TYPE_PET) {
                 tmp = "<color=#cb3500>(出战激活)</color>\n";
             }
-            mSkillDec.text = mClickIcon.mJsonBean.skil_name + tmp + skill.skill_describe;
+            string s= mClickIcon.mJsonBean.skil_name + tmp + skill.skill_describe;
+            List<float>  flist = skill.getSpecialParameterValue();
+            if (flist != null && flist.Count > 0) {
+                for(int i = 0; i < flist.Count; i++) {
+                   s= s.Replace("S" + (i + 1) , "" + flist[i]);
+                }
+            }
+            mSkillDec.text = s;
             mSkillIcon.sprite = Resources.Load("icon/pet/" + mClickIcon.mJsonBean.skillActivateIcon, typeof(Sprite)) as Sprite;
             if ( mPetManage.isFull()  && mClickIcon.mBean.goodType != SQLDate.GOOD_TYPE_USER_PET)
             {

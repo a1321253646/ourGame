@@ -13,4 +13,14 @@ public class CalculatorUtilBean
     public double bean = 0;
     public int type = 0;
     public string valueKey;
+    public string getString() {
+        string s = "bean = " + bean + " type=" + type + " valueKey = " + valueKey+" list:\n";
+        if(list != null && list.Count > 0) {
+            foreach(CalculatorUtilBean c in list) {
+                s = s + c.getString();
+                s = s + "===========================";
+            }
+        }
+        return s;
+    }
 }

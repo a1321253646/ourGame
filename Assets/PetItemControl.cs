@@ -8,49 +8,56 @@ public class PetItemControl : MonoBehaviour {
     SpriteRenderer mSpriteRender;
     AnimalControlBase mAnimalControl;
     public float mTime = 0;
-    public float mDelayTime = 0;
+    public float mDelayTime = 5;
     public bool isRun = false;
     public bool isXFu = false;
     public bool isYFu = false;
     PetManager mManager ;
     Point mTarget;
-    long mId;
+    long mId = -1;
     float mXspeed,mYspeed,mSpeed;
     bool isUp = false;
-    float speed = 0.3f;
+    float speed = 0.5f;
     float yy = 0;
+    bool isRunSelf = true;
     // Update is called once per frame
     void Update () {
+        if (mId == -1) {
+            return;
+        }
         mAnimalControl.update();
         if (!isRun)
         {
-            if (mTime == 0)
-            {
-                yy = mTarget.y + mManager.yDistance/2;
-            }
-            if (isUp)
-            {
-                if (transform.position.y + speed * Time.deltaTime >= yy)
+            if (isRunSelf) {
+                if (mTime == 0)
                 {
-                    transform.position = new Vector3(transform.position.x, yy, transform.position.z);
-                    isUp = false;
-                    yy = mTarget.y - mManager.yDistance / 2;
+                    yy = mTarget.y + mManager.yDistance;
+                }
+                if (isUp)
+                {
+                    if (transform.position.y + speed * Time.deltaTime >= yy)
+                    {
+                        transform.position = new Vector3(transform.position.x, yy, transform.position.z);
+                        isUp = false;
+                        yy = mTarget.y - mManager.yDistance / 2;
+                    }
+                    else
+                    {
+                        transform.Translate(Vector2.up * (speed * Time.deltaTime));
+                    }
                 }
                 else
                 {
-                    transform.Translate(Vector2.up * (speed * Time.deltaTime));
-                }
-            }
-            else {
-                if (transform.position.y - speed * Time.deltaTime <= yy)
-                {
-                    transform.position = new Vector3(transform.position.x, yy, transform.position.z);
-                    isUp = true;
-                    yy = mTarget.y + mManager.yDistance / 2;
-                }
-                else
-                {
-                    transform.Translate(Vector2.down * (speed * Time.deltaTime));
+                    if (transform.position.y - speed * Time.deltaTime < yy)
+                    {
+                        transform.position = new Vector3(transform.position.x, yy, transform.position.z);
+                        isUp = true;
+                        yy = mTarget.y + mManager.yDistance / 2;
+                    }
+                    else
+                    {
+                        transform.Translate(Vector2.down * (speed * Time.deltaTime));
+                    }
                 }
             }
             mTime += Time.deltaTime;
@@ -99,6 +106,9 @@ public class PetItemControl : MonoBehaviour {
     public PetJsonBean mJson;
     public void init(PetManager.PetLocalDate date,PetManager manager) {
         mId = date.id;
+        if (mId == 4000001 || mId == 4000006 || mId == 4000007 || mId == 4000013 || mId == 4000014|| mId == 4000009) {
+            isRunSelf = false;
+        }
         mManager = manager;
         mDelayTime = JsonUtils.getIntance().getConfigValueForId(100039);
         mSpeed = JsonUtils.getIntance().getConfigValueForId(100040);
@@ -113,9 +123,10 @@ public class PetItemControl : MonoBehaviour {
     }
     private void getTarget() {
         isRun = true;
+        mTime = 0;
         mTarget = mManager.getNewMoveTarget(mId);
         mTarget.x = mTarget.x - mRes.getHurtOffset().x;
-        mTarget.y = mTarget.y - mRes.idel_y;        
+        mTarget.y = mTarget.y - mRes.getHurtOffset().y;        
         
         mAnimalControl.setStatus(ActionFrameBean.ACTION_MOVE);
         if (mTarget.x < transform.position.x)

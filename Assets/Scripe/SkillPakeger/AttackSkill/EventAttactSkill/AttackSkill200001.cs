@@ -17,6 +17,7 @@ public class AttackSkill200001 : EventAttackSkill
 
     public override void startSkill()
     {
+        value = 1;
         calcuator = new CalculatorUtil(mSkillJson.calculator, mSkillJson.effects_parameter);
         calcuator.setSkill(this);
         mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_BEFOR_BEHURT, this);

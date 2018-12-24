@@ -16,7 +16,7 @@ public class HeroRoleControl : MonoBehaviour {
     private Vector2 mFri;
     AnimalControlBase mAnimalControl;
     ResourceBean resourceData;
-    GameObject mHeroEnable, mPetEnable, mHeroUnble, mPetUnble,mPet,mPetTable,mPetTablePoint;
+    GameObject mHeroEnable, mPetEnable, mHeroUnble, mPetUnble,mPet/*,mPetTable,*/,mPetTablePoint;
     Button mHeroUnbleButton, mPetUnbleButton;
     bool isShowPet = false;
     private void Start()
@@ -92,7 +92,7 @@ public class HeroRoleControl : MonoBehaviour {
             mHeroUnble = GameObject.Find("hero_table_unable");
             mPetUnble = GameObject.Find("pet_table_unable");
             mPet = GameObject.Find("pet");
-            mPetTable = GameObject.Find("pet_table");
+          //  mPetTable = GameObject.Find("pet_table");
             mPetTablePoint = GameObject.Find("pet_table_point");
             mClose = GameObject.Find("hero_info_close").GetComponent<Button>();
             mClose.onClick.AddListener(() =>
@@ -134,11 +134,11 @@ public class HeroRoleControl : MonoBehaviour {
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
-        if (list == null || list.Count == 0)
-        {
-            mPetTable.transform.localScale = new Vector2(0, 0);
-        }
-        else {
+//        if (list == null || list.Count == 0)
+//        {
+//            mPetTable.transform.localScale = new Vector2(0, 0);
+//        }
+//        else {
             mPetEnable.transform.localScale = new Vector2(0, 0);
             mPetUnble.transform.localScale = new Vector2(1, 1);
             mHeroUnble.transform.localScale = new Vector2(0, 0);
@@ -150,7 +150,7 @@ public class HeroRoleControl : MonoBehaviour {
             else {
                 mPetTablePoint.transform.localScale = new Vector2(0, 0);
             }
-        }
+//        }
 
 /*
         if (isShowPet)
@@ -171,8 +171,8 @@ public class HeroRoleControl : MonoBehaviour {
         }*/
     }
     public void showPetTable() {
-        mPetTable.transform.localScale = new Vector2(1, 1);
-        mPetTablePoint.transform.localScale = new Vector2(1, 1);
+//        mPetTable.transform.localScale = new Vector2(1, 1);
+//        mPetTablePoint.transform.localScale = new Vector2(1, 1);
         SQLHelper.getIntance().updatePointPetTable(1);
     }
 

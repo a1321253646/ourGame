@@ -32,8 +32,12 @@ public class CalculatorUtil
         foreach (string s in strs) {
             if (s != null && s.Length > 0) {
                 CalculatorUtilBean bean = getBean(s);
+                Debug.Log("CalculatorUtil bean = " + bean);
                 if (bean != null) {
+
+                    Debug.Log("bean = " + bean.getString());
                     mBean.Add(bean);
+                    
                 }
             }
         }
@@ -125,6 +129,7 @@ public class CalculatorUtil
             {
                 Debug.Log("bean.list[tmp].bean =" + bean.list[tmp].bean);
                 getValueForBean(bean.list[tmp]);
+                Debug.Log("bean bean = " + bean.list[tmp].bean);
                 if (value.type == CalculatorUtilBean.TYPE_DIVIDE)
                 {
                     value.bean /= bean.list[tmp].bean;
@@ -169,8 +174,6 @@ public class CalculatorUtil
             }
         }
         double a = value.bean;
-        int tmp1 = a % 1 == 0 ? 0 : 1;
-        value.bean = ((int)a) / 1 + tmp1;
         return value.bean;
     }
 
@@ -183,6 +186,7 @@ public class CalculatorUtil
         {
             bean.bean = getValueForKey(bean.valueKey);
         }
+        Debug.Log("bean bean = " + bean.bean);
     }
 
     private  double getValueForKey(string key) {
@@ -278,20 +282,25 @@ public class CalculatorUtil
     }
 
     private  int getListBean(char[] chars, CalculatorUtilBean root,int index) {
+        Debug.Log("getListBean");
         if (root.list == null)
         {
             root.list = new List<CalculatorUtilBean>();
         }
         for (; index < chars.Length;) {
-           // Debug.Log("chars[" + index + "]=" + chars[index]);
+            Debug.Log("chars[" + index + "]=" + chars[index]);
             CalculatorUtilBean bean = new CalculatorUtilBean();
             root.list.Add(bean);
             if (chars[index] == '(')
             {             
                 index = getListBean(chars, bean, ++index);
+                Debug.Log("右括号返回 " + index);
                 if (index == -1)
                 {
                     return -1;
+                }
+                if (index == chars.Length) {
+                    return index;
                 }
             }
             else if (chars[index] == ')')
@@ -350,6 +359,7 @@ public class CalculatorUtil
                     index++;
                 }
                 bean.type = type;
+                Debug.Log("getListBean valueKey = " + bean.valueKey + " bean.type" + bean.type);
             }
             else if (chars[index] == 'a')
             {
@@ -374,8 +384,8 @@ public class CalculatorUtil
                     index++;
                 }
                 bean.type = type;
-                
-                
+                Debug.Log("getListBean valueKey = " + bean.valueKey + " bean.type" + bean.type);
+
             }
             else if (chars[index] >= '0' && chars[index] <= '9')
             {

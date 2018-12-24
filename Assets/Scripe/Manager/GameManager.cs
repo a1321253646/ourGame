@@ -42,7 +42,7 @@ public class GameManager
     public long isShowPlayerPoint = 2;
 
     public static bool isAndroid = false;
-    public static bool isAdd = false;
+    public static bool isAdd = true;
     
 
     public float getOnlineGet() {
