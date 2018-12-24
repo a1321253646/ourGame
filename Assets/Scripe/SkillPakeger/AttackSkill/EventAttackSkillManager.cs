@@ -315,7 +315,9 @@ public class EventAttackSkillManager
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-
+                if (skill.endGetDrop()) {
+                    return true;
+                }
             }
         }
         return false;

@@ -329,20 +329,20 @@ public class PlayControl : Attacker
                 }  
             }
         }
-        Debug.Log("GameManager.getIntance().mLunhuiOnlineGet =" + GameManager.getIntance().mLunhuiOnlineGet);
-        Debug.Log("GameManager.getIntance().mLunhuiOutlineGet =" + GameManager.getIntance().mLunhuiOutlineGet);
-        Debug.Log("GameManager.getIntance().mLunhuiLunhuiGet =" + GameManager.getIntance().mLunhuiLunhuiGet);
-        Debug.Log("upLunhui");
+   //     Debug.Log("GameManager.getIntance().mLunhuiOnlineGet =" + GameManager.getIntance().mLunhuiOnlineGet);
+    //    Debug.Log("GameManager.getIntance().mLunhuiOutlineGet =" + GameManager.getIntance().mLunhuiOutlineGet);
+     //   Debug.Log("GameManager.getIntance().mLunhuiLunhuiGet =" + GameManager.getIntance().mLunhuiLunhuiGet);
+      //  Debug.Log("upLunhui");
         getAttribute();
         upDataSpeed();
     }
 
     public override  void getAttribute() {
 
-        Debug.Log("===============getAttribute. mBloodVolume = "+ mBloodVolume );
-        Debug.Log("===============getAttribute. mAttribute.maxBloodVolume = " + mAttribute.maxBloodVolume);
-        Debug.Log("===============getAttribute. bloodBili = " + bloodBili);
-        Debug.Log("===============getAttribute. bloodDistance = " + bloodDistance);
+//        Debug.Log("===============getAttribute. mBloodVolume = "+ mBloodVolume );
+  //      Debug.Log("===============getAttribute. mAttribute.maxBloodVolume = " + mAttribute.maxBloodVolume);
+    //    Debug.Log("===============getAttribute. bloodBili = " + bloodBili);
+      //  Debug.Log("===============getAttribute. bloodDistance = " + bloodDistance);
         mAttribute.clear();
         mAllAttribute.clear();
         mAllAttributePre.setToPre();

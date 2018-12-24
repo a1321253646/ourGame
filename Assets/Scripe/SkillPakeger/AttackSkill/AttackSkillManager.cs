@@ -121,8 +121,8 @@ public class AttackSkillManager
             }
         }
         else {
- //           skill = creatSkillById(json.id, json.getSpecialParameterValue(), fighter);
- //           mIdSkill.Add(json.id, skill);
+            skill = creatSkillById(json.id, json.getSpecialParameterValue(), fighter);
+            mIdSkill.Add(json.id, skill);
         }
     }
 

@@ -4,10 +4,14 @@ using System.Collections.Generic;
 
 public class AttackSkill600002 : EventAttackSkill
 {
+    float count = 0;
     public override void Acttacking()
     {
-        int count = (int)(mSkillJson.getEffectsParameterValue()[0] * mManager.getAttacker().mAttribute.aggressivity);
-        mManager.getAttacker().AddBlood(count);
+        if (count == 0) {
+            count = mSkillJson.getSpecialParameterValue()[0]/100;
+        }
+        int count1 = (int)(count * mManager.getAttacker().mAttribute.aggressivity);
+        mManager.getAttacker().AddBlood(count1);
     }
 
     public override void endSkill()

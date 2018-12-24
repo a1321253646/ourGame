@@ -191,15 +191,15 @@ public class EnemyBase : Attacker {
 
 	public override double BeAttack(HurtStatus status,Attacker hurter)
     {
-        Debug.Log("===============EnemyBase hurt =" + status.blood);
+//        Debug.Log("===============EnemyBase hurt =" + status.blood);
         mSkillManager.mEventAttackManager.beforeBeHurt(status);
 //        Debug.Log(" status.blood == " + status.blood);
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
-        Debug.Log("===============EnemyBase hurt =" + status.blood);
+//        Debug.Log("===============EnemyBase hurt =" + status.blood);
         //        Debug.Log(" status.blood == " + status.blood);
         //int tmp = status.blood % 1 == 0 ? 0 : 1;
         //status.blood = status.blood / 1 + tmp;
-        Debug.Log("===============EnemyBase hurt =" + status.blood);
+//        Debug.Log("===============EnemyBase hurt =" + status.blood);
         //if (mBloodVolume == mAttribute.maxBloodVolume) {
         mBloodVolume = mBloodVolume - status.blood;
         //}

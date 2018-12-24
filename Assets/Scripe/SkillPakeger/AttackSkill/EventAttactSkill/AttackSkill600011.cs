@@ -8,15 +8,17 @@ public class AttackSkill600011 : EventAttackSkill
     {
         if (count == 0)
         {
-            count = (int)(mSkillJson.getEffectsParameterValue()[0] * 100);
+            count = (int)(mSkillJson.getSpecialParameterValue()[0] * 100);
         }
 
-        bool isCrt = randomResult(10000, count, false);
+        bool isCrt = randomResult(10000, count, true);
         if (isCrt)
         {
+            Debug.Log("无消耗");
             return 0;
         }
         else {
+            Debug.Log("消耗");
             return cost;
         }     
     }

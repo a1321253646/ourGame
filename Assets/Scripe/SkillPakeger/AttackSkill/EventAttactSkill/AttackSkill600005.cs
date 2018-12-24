@@ -11,16 +11,19 @@ public class AttackSkill600005 : EventAttackSkill
     public override void killEnemy()
     {
         if(count1 == 0) { 
-            count1 = (int)(mSkillJson.getEffectsParameterValue()[0]);
+            count1 = (int)(mSkillJson.getSpecialParameterValue()[0])*100;
         }
         count2 += count1;
         mManager.getAttacker().mSkillAttributePre.defense += count1;
+        Debug.Log("startSkill killEnemy count2=" + count2);
+        mManager.getAttacker().getAttribute();
     }
 
     public override void endSkill()
     {
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_HURT_DIE, this);
         mManager.getAttacker().mSkillAttributePre.defense -= count2;
+        mManager.getAttacker().getAttribute();
     }
 
     public override void startSkill()

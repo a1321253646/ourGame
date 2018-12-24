@@ -9,7 +9,7 @@ public class AttackSkill600014 : EventAttackSkill
     public override bool endGetDrop()
     {
         if(count1 == 0) { 
-            count1 = (int)(mSkillJson.getEffectsParameterValue()[0]*100);
+            count1 = (int)(mSkillJson.getSpecialParameterValue()[0]*100);
         }
 
         bool isCrt = randomResult(10000, count1, false);

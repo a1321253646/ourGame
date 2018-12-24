@@ -13,7 +13,7 @@ public class AttackSkill600004 : EventAttackSkill
     {
         if (count == 0) {
             count = (int)(mSkillJson.getSpecialParameterValue()[0] * 100);
-            count1 = mSkillJson.getEffectsParameterValue()[1];
+            count1 = mSkillJson.getSpecialParameterValue()[1]/100;
         }
         
         bool isSuccess = randomResult(10000, count, false);
