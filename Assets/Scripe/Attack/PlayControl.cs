@@ -348,24 +348,29 @@ public class PlayControl : Attacker
         mAllAttributePre.setToPre();
 
         mAllAttribute.add(mBaseAttribute);
-//        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
+        //Debug.Log("===============mBaseAttribute = " + mBaseAttribute.toString());
         mAllAttribute.add(mEquipAttribute);
-//        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
+        //Debug.Log("===============mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
         mAllAttribute.add(mLunhuiAttribute);
-//        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
+        //Debug.Log("===============mAttribute.mLunhuiAttribute = " + mLunhuiAttribute.toString());
         mAllAttribute.add(mSkillAttribute);
-//        Debug.Log("===============mAttribute.evd = " + mAllAttribute.evd);
-
+        //Debug.Log("===============mAttribute.mSkillAttribute = " + mSkillAttribute.toString());
+       // Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
 
         mAllAttributePre.add(mEquipAttributePre);
+        //Debug.Log("===============mAttribute.mEquipAttributePre = " + mEquipAttributePre.toString());
         mAllAttributePre.add(mLunhuiAttributePre);
+        //Debug.Log("===============mAttribute.mLunhuiAttributePre = " + mLunhuiAttributePre.toString());
         mAllAttributePre.add(mSkillAttributePre);
-
+        //Debug.Log("===============mAttribute.mSkillAttributePre = " + mSkillAttributePre.toString());
+        //Debug.Log("===============mAttribute.mAllAttributePre = " + mAllAttributePre.toString());
 
 
         mAttribute.add(mAllAttribute);
+        //Debug.Log("===============mAttribute.mAttribute = " + mAllAttribute);
         mAttribute.chen(mAllAttributePre);
-        Debug.Log("===============mAttribute.evd = " + mAttribute.evd);
+        //Debug.Log("===============mAttribute.mAllAttributePre = " + mAllAttributePre);
+        //Debug.Log("===============mAttribute.mAttribute = " + mAttribute);
         if (bloodDistance != -1)
         {
             mBloodVolume = mAttribute.maxBloodVolume - bloodDistance;
@@ -393,6 +398,7 @@ public class PlayControl : Attacker
         bloodBili = mBloodVolume / mAttribute.maxBloodVolume;
         bloodDistance = -1;
         mEquipAttribute.clear();
+        mEquipAttributePre.clear();
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();
         long fuhao = isAdd ? 1 : -1;       
         foreach (PlayerBackpackBean bean2 in list)

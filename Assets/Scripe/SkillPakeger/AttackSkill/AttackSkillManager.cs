@@ -59,7 +59,7 @@ public class AttackSkillManager
 
     public void addSkill(PlayerBackpackBean bean, Attacker fighter) {
         if (mBackpackSkill.ContainsKey(bean)) {
-            mBackpackSkill.Remove(bean);
+            removeSkill(bean);
         }
         long level = 0;
         foreach (PlayerAttributeBean p in bean.attributeList)
