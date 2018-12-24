@@ -102,7 +102,7 @@ public class EnemyState{
         text.transform.SetParent(HP_Parent);
         text.transform.localScale = new Vector3(1, 1, 1);
         Text tv = text.GetComponent<Text>();
-        tv.text = "" + StringUtils.doubleToStringShow(blood) ;
+        tv.text = "+" + StringUtils.doubleToStringShow(blood) ;
         tv.color = Color.green;
         EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position) + bloodOffet;
         text.transform.position = EnemySceenPosition;

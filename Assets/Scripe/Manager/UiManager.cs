@@ -234,7 +234,7 @@ public class UiManager
 	public void changeHeroBlood(double current,double max){
         double bili = 1;
 
-        Debug.Log("============================current = " + current + "max =" + max);
+//        Debug.Log("============================current = " + current + "max =" + max);
 		if (current < 0) {
 			mHpTv.text =0 + "/" + StringUtils.doubleToStringShow(max);
 		} else {

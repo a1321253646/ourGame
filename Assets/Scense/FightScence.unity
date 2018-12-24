@@ -4106,7 +4106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 288.5, y: -24.5}
+  m_AnchoredPosition: {x: 283.7, y: -24.5}
   m_SizeDelta: {x: 139, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450421105
@@ -4877,8 +4877,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83dc1d9eca0f654c8953c8459a4da4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sqlName: local137
-  tabName: local137
+  sqlName: local126
+  tabName: local126
 --- !u!1 &537602156
 GameObject:
   m_ObjectHideFlags: 0
@@ -5603,42 +5603,42 @@ Prefab:
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -9.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -831.23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 1330
       objectReference: {fileID: 0}
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 74.1501
+      value: 794.1501
       objectReference: {fileID: 0}
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
@@ -6039,7 +6039,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000008158918}
+  m_AnchoredPosition: {x: 0, y: 0.0000052670694}
   m_SizeDelta: {x: 731.4, y: 486.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608369832
@@ -6288,7 +6288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100.7, y: -25}
+  m_AnchoredPosition: {x: 106.9, y: -24.5}
   m_SizeDelta: {x: 139, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &632730673
@@ -18569,7 +18569,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1919508325}
   m_OnClick:
     m_PersistentCalls:
@@ -19711,7 +19711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 4
+    m_Left: 12
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
@@ -19869,8 +19869,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12.14, y: -169}
-  m_SizeDelta: {x: 0, y: -387}
+  m_AnchoredPosition: {x: 0, y: -169}
+  m_SizeDelta: {x: 0.000030518, y: -387}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2079426527
 MonoBehaviour:

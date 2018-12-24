@@ -160,7 +160,8 @@ public class PlayControl : Attacker
 
     public void initEquip(bool isAddSkill) {
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();
-        double bili = mBloodVolume/mAttribute.maxBloodVolume;
+        bloodBili = mBloodVolume/mAttribute.maxBloodVolume;
+        bloodDistance = -1;
         mEquipAttribute.clear();
         foreach (PlayerBackpackBean bean in list)
         {
@@ -206,17 +207,21 @@ public class PlayControl : Attacker
             Debug.Log("addSkill initEquip");
             mSkillManager.addSkill(bean, this);           
         }
+        Debug.Log("initEquip");
         getAttribute();
-        GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
         upDataSpeed();
     }
+    private double bloodBili = -1;
+    private double bloodDistance = -1;
+
 
     public void initEquip() {
         initEquip(true);
     }
     public void upLunhui()
     {
-        double mMaxTmp = mLunhuiAttribute.maxBloodVolume;
+        bloodBili = mBloodVolume / mAttribute.maxBloodVolume;
+        bloodDistance = -1;
         mLunhuiAttribute.clear();
         mLunhuiAttributePre.clear();
         mSkillManager.lunhuiDownCardCost = 0;
@@ -327,20 +332,17 @@ public class PlayControl : Attacker
         Debug.Log("GameManager.getIntance().mLunhuiOnlineGet =" + GameManager.getIntance().mLunhuiOnlineGet);
         Debug.Log("GameManager.getIntance().mLunhuiOutlineGet =" + GameManager.getIntance().mLunhuiOutlineGet);
         Debug.Log("GameManager.getIntance().mLunhuiLunhuiGet =" + GameManager.getIntance().mLunhuiLunhuiGet);
-        mBloodVolume = mBloodVolume + mLunhuiAttribute.maxBloodVolume - mMaxTmp;
+        Debug.Log("upLunhui");
         getAttribute();
-        GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
         upDataSpeed();
     }
 
     public override  void getAttribute() {
 
-        double bili = 1;
-        if (mAttribute.maxBloodVolume != 0) {
-            bili = mBloodVolume / mAttribute.maxBloodVolume;
-        }
-       
-        Debug.Log("===============getAttribute. bili = " + bili);
+        Debug.Log("===============getAttribute. mBloodVolume = "+ mBloodVolume );
+        Debug.Log("===============getAttribute. mAttribute.maxBloodVolume = " + mAttribute.maxBloodVolume);
+        Debug.Log("===============getAttribute. bloodBili = " + bloodBili);
+        Debug.Log("===============getAttribute. bloodDistance = " + bloodDistance);
         mAttribute.clear();
         mAllAttribute.clear();
         mAllAttributePre.setToPre();
@@ -364,7 +366,14 @@ public class PlayControl : Attacker
         mAttribute.add(mAllAttribute);
         mAttribute.chen(mAllAttributePre);
         Debug.Log("===============mAttribute.evd = " + mAttribute.evd);
-        mBloodVolume = mAttribute.maxBloodVolume * bili;
+        if (bloodDistance != -1)
+        {
+            mBloodVolume = mAttribute.maxBloodVolume - bloodDistance;
+        }
+        else {
+            mBloodVolume = mAttribute.maxBloodVolume *bloodBili;
+        }
+        
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
     }
     public void changePetStatu(PlayerBackpackBean bean, long  type) {
@@ -380,12 +389,11 @@ public class PlayControl : Attacker
 
 
     public void ChangeEquip(PlayerBackpackBean bean,bool isAdd)
-    {        
-        double bili = 1;
-        bili =mBloodVolume / mAttribute.maxBloodVolume; ;
+    {
+        bloodBili = mBloodVolume / mAttribute.maxBloodVolume;
+        bloodDistance = -1;
         mEquipAttribute.clear();
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();
-        Debug.Log("bili = " + bili);
         long fuhao = isAdd ? 1 : -1;       
         foreach (PlayerBackpackBean bean2 in list)
         {
@@ -438,9 +446,8 @@ public class PlayControl : Attacker
         {
             mSkillManager.removeSkill(bean);
         }
+        Debug.Log("ChangeEquip");
         getAttribute();
-        mBloodVolume = (int)(mAttribute.maxBloodVolume * bili);
-        GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
         upDataSpeed();
     }
     public void heroUp() {
@@ -448,7 +455,18 @@ public class PlayControl : Attacker
         setHeroData();
     }
 
-    public void setHeroData(){
+    public void setHeroData()
+    {
+        if (mBloodVolume > 0)
+        {
+            bloodBili = -1;
+            bloodDistance = mAttribute.maxBloodVolume - mBloodVolume;
+        }
+        else {
+            bloodBili = -1;
+            bloodDistance = 0;
+        }
+        
         Hero mHero = JsonUtils.getIntance().getHeroData();
         if (resourceData == null) {           
             resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
@@ -473,10 +491,9 @@ public class PlayControl : Attacker
         mBaseAttribute.attackSpeed = mHero.attack_speed;
 //        Debug.Log("===============英雄攻速 = " + mBaseAttribute.attackSpeed);
         mAttackLeng = mHero.attack_range;
-         mBloodVolume = mBloodVolume + mBaseAttribute.maxBloodVolume - mMaxTmp;
-        Debug.Log("mBloodVolume = " + mBloodVolume+ " mBaseAttribute.maxBloodVolume="+ mBaseAttribute.maxBloodVolume+ " mMaxTmp"+ mMaxTmp);
         mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);
+        Debug.Log("setHeroData");
         getAttribute();
     }
 

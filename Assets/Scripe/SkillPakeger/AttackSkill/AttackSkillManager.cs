@@ -134,12 +134,13 @@ public class AttackSkillManager
         }
         Debug.Log("=====================addSkill pet.skillId=" + pet.skillId);
         if (pet.skillId != 0) {
-         //   AttackerSkillBase skill = creatSkillById(pet.skillId, null, fighter);
-       //     list.Add(skill);
+            AttackerSkillBase skill = creatSkillById(pet.skillId, null, fighter);
+            list.Add(skill);
         }
         if (list.Count > 0) {
             mPetSkill.Add(pet, list);
         }
+        Debug.Log("addSkill PetJsonBean");
         mAttack.getAttribute();
     }
 
@@ -148,6 +149,7 @@ public class AttackSkillManager
             endSkill(mPetSkill[pet]);
             mPetSkill.Remove(pet);
         }
+        Debug.Log("addSkill PetJsonBean");
         mAttack.getAttribute();
     }
     public void removeSkill(PlayerBackpackBean bean)
