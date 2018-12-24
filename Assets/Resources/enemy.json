@@ -80138,7 +80138,7 @@
   {
     "id": 13403001,
     "monster_hp": "7.58712456959689E+17",
-    "monster_attack": "1.15002509977528E+16",
+    "monster_attack": "1.15002509977527E+16",
     "monster_defense": "345602394606600",
     "attack_speed": 1500,
     "die_gas": 0,
@@ -81074,7 +81074,7 @@
   {
     "id": 13793001,
     "monster_hp": "5.65848752805372E+18",
-    "monster_attack": "1.03752509977528E+16",
+    "monster_attack": "1.03752509977527E+16",
     "monster_defense": "3.8406023946066E+15",
     "attack_speed": 1500,
     "die_gas": 0,
@@ -81122,7 +81122,7 @@
   {
     "id": 13813001,
     "monster_hp": "6.13849957594586E+18",
-    "monster_attack": "1.15002509977528E+16",
+    "monster_attack": "1.15002509977527E+16",
     "monster_defense": "4.1106023946066E+15",
     "attack_speed": 1500,
     "die_gas": 0,
@@ -81146,7 +81146,7 @@
   {
     "id": 13823001,
     "monster_hp": "6.54169957594586E+18",
-    "monster_attack": "1.26252509977528E+16",
+    "monster_attack": "1.26252509977527E+16",
     "monster_defense": "4.3806023946066E+15",
     "attack_speed": 1500,
     "die_gas": 0,
@@ -81170,7 +81170,7 @@
   {
     "id": 13833001,
     "monster_hp": "6.94489957594586E+18",
-    "monster_attack": "1.37502509977528E+16",
+    "monster_attack": "1.37502509977527E+16",
     "monster_defense": "4.6506023946066E+15",
     "attack_speed": 1500,
     "die_gas": 0,
@@ -81194,7 +81194,7 @@
   {
     "id": 13843001,
     "monster_hp": "7.34809957594586E+18",
-    "monster_attack": "1.48752509977528E+16",
+    "monster_attack": "1.48752509977527E+16",
     "monster_defense": "4.9206023946066E+15",
     "attack_speed": 1500,
     "die_gas": 0,
@@ -81218,7 +81218,7 @@
   {
     "id": 13853001,
     "monster_hp": "1.22785431753417E+19",
-    "monster_attack": "1.48752509977528E+16",
+    "monster_attack": "1.48752509977527E+16",
     "monster_defense": "4.9206023946066E+15",
     "attack_speed": 1500,
     "die_gas": 0,
@@ -81242,7 +81242,7 @@
   {
     "id": 13863001,
     "monster_hp": "7.85511162383799E+18",
-    "monster_attack": "1.60002509977528E+16",
+    "monster_attack": "1.60002509977527E+16",
     "monster_defense": "5.1906023946066E+15",
     "attack_speed": 1500,
     "die_gas": 0,
@@ -81266,7 +81266,7 @@
   {
     "id": 13873001,
     "monster_hp": "8.26371162383799E+18",
-    "monster_attack": "1.71252509977528E+16",
+    "monster_attack": "1.71252509977527E+16",
     "monster_defense": "5.4606023946066E+15",
     "attack_speed": 1500,
     "die_gas": 0,
@@ -87434,7 +87434,7 @@
   {
     "id": 16443001,
     "monster_hp": "8.90706320000154E+27",
-    "monster_attack": "3.74774775000003E+25",
+    "monster_attack": "3.74774775000002E+25",
     "monster_defense": "3.5159460000006E+24",
     "attack_speed": 1500,
     "die_gas": 0,
@@ -87458,7 +87458,7 @@
   {
     "id": 16453001,
     "monster_hp": "1.48677636520026E+28",
-    "monster_attack": "3.74774775000003E+25",
+    "monster_attack": "3.74774775000002E+25",
     "monster_defense": "3.5159460000006E+24",
     "attack_speed": 1500,
     "die_gas": 0,

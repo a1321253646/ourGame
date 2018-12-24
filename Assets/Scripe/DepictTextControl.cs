@@ -21,7 +21,7 @@ public class DepictTextControl : MonoBehaviour {
         mText = gameObject.GetComponent<Text>();
         mRect = gameObject.GetComponent<RectTransform>();
         mText.text = mStr;
-        Debug.Log("DepictTextControl .Start mStr= " + mStr);
+//        Debug.Log("DepictTextControl .Start mStr= " + mStr);
     }
 
     bool isChange = false;

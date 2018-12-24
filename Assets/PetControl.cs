@@ -74,7 +74,7 @@ public class PetControl : MonoBehaviour {
             mListView=  GameObject.Find("pet_list");
             mName = GameObject.Find("pet_name").GetComponent<Text>();
             mGetLevel = GameObject.Find("pet_get_level").GetComponent<Text>();
-            mDec = GameObject.Find("pet_get_level").GetComponent<Text>();
+            mDec = GameObject.Find("pet_dec_text").GetComponent<Text>();
             mAffix = GameObject.Find("pet_affix").GetComponent<Text>();
             mSkillDec = GameObject.Find("pet_skill_dec").GetComponent<Text>();
             mSkillIcon = GameObject.Find("pet_skill_icon").GetComponent<Image>();
@@ -167,6 +167,14 @@ public class PetControl : MonoBehaviour {
         mClickIcon.mBean.goodType = status;
         InventoryHalper.getIntance().changePetStatus(mClickIcon.mBean);
         mClickIcon.init(mClickIcon.mBean, this);
+
+        SkillJsonBean skill = JsonUtils.getIntance().getSkillInfoById(mClickIcon.mJsonBean.skillId);
+        string tmp = "\n";
+        if (mClickIcon.mBean.goodType == SQLDate.GOOD_TYPE_PET)
+        {
+            tmp = "<color=#cb3500>(出战激活)</color>\n";
+        }
+        mSkillDec.text = mClickIcon.mJsonBean.skil_name + tmp + skill.skill_describe;
     } 
 
 
@@ -194,18 +202,20 @@ public class PetControl : MonoBehaviour {
     public void click() {
         mName.text = mClickIcon.mJsonBean.name;
         mDec.text = mClickIcon.mJsonBean.des;
-        mAffix.text = "???????\n???????\n???????\n???????";
+        
         if (mClickIcon.mBean == null)
         {
             mGetLevel.text = "通关" + mClickIcon.mJsonBean.activateLevel + "关拯救精灵";
             mSkillDec.text = "????????????\n????????????\n????????????\n????????????";
+            mAffix.text = "???????\n???????\n???????\n???????";
             mSkillIcon.sprite = Resources.Load("icon/pet/" + mClickIcon.mJsonBean.skillNoactivateIcon, typeof(Sprite)) as Sprite;
             mFightStatu.transform.localScale = new Vector2(0, 0);
             mRestStatu.transform.localScale = new Vector2(1, 1);
             mRestText.text = "未拥有";
             mRestButton.interactable = false;
             mAnimalControl = null;
-            mPetShowImg.sprite = Resources.Load("icon/pet/" + mClickIcon.mJsonBean.skillNoactivateIcon, typeof(Sprite)) as Sprite;
+            mPetShowImg.sprite = Resources.Load("icon/pet/" + mClickIcon.mJsonBean.moactivateImage, typeof(Sprite)) as Sprite;
+            mPetShowImg.SetNativeSize();
         }
         else {
             //if (mAnimalControl == null) {
@@ -225,8 +235,28 @@ public class PetControl : MonoBehaviour {
 
 
             mGetLevel.text = "";
+            List<PlayerAttributeBean>  list = mClickIcon.mJsonBean.getAffixList();
+
+            string affixstr = null;
+            foreach (PlayerAttributeBean b in list)
+            {
+                if (affixstr == null) {
+                    affixstr = "";
+                }
+                else {
+                    affixstr = affixstr + "\n";
+                }
+                float vale = (float)b.value / 100;
+                AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
+                affixstr = affixstr + a.dec + ":" + vale + "%";
+            }
+            mAffix.text = affixstr;
             SkillJsonBean skill= JsonUtils.getIntance().getSkillInfoById(mClickIcon.mJsonBean.skillId);
-            mSkillDec.text = skill.skill_describe;
+            string tmp = "\n";
+            if (mClickIcon.mBean.goodType == SQLDate.GOOD_TYPE_PET) {
+                tmp = "<color=#cb3500>(出战激活)</color>\n";
+            }
+            mSkillDec.text = mClickIcon.mJsonBean.skil_name + tmp + skill.skill_describe;
             mSkillIcon.sprite = Resources.Load("icon/pet/" + mClickIcon.mJsonBean.skillActivateIcon, typeof(Sprite)) as Sprite;
             if ( mPetManage.isFull()  && mClickIcon.mBean.goodType != SQLDate.GOOD_TYPE_USER_PET)
             {

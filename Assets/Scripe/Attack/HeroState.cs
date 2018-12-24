@@ -28,11 +28,11 @@ public class HeroState : MonoBehaviour
         }
         else if (status.isCrt)
         {
-            tv.text = "暴击" + status.blood;
+            tv.text = "暴击" + StringUtils.doubleToStringShow(status.blood) ;
             tv.color = Color.red;
         }
         else {
-            tv.text = "" + status.blood;
+            tv.text = "" + StringUtils.doubleToStringShow(status.blood);
             tv.color = Color.yellow;
         }
         
@@ -52,7 +52,7 @@ public class HeroState : MonoBehaviour
         text.transform.SetParent(HP_Parent);
         text.transform.localScale = new Vector3(1, 1, 1);
         Text tv = text.GetComponent<Text>();
-        tv.text = ""+blood;
+        tv.text = ""+ StringUtils.doubleToStringShow(blood);
         tv.color = Color.green;
         EnemySceenPosition = Camera.main.WorldToScreenPoint(mHero.transform.position) + new Vector3(0, 0, 0);
         text.transform.position = EnemySceenPosition;

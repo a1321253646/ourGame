@@ -64,7 +64,7 @@ public class GuideManager : MonoBehaviour {
     }
 
     private long notificationDeal(int eventID, long eventValue) {
-        Debug.Log("notificationDeal mCurrentGuide eventID= "+ eventID+ " eventValue= "+ eventValue);
+//        Debug.Log("notificationDeal mCurrentGuide eventID= "+ eventID+ " eventValue= "+ eventValue);
         long back = -1;
         if (mGuideList.Count == 0)
         {
@@ -218,17 +218,17 @@ public class GuideManager : MonoBehaviour {
         Transform tf = ob.transform;
         float w = ob.GetComponent<RectTransform>().rect.width * ob.transform.localScale.x * myBili;
         float h = ob.GetComponent<RectTransform>().rect.height * ob.transform.localScale.y * myBili;
-        Debug.Log(" x = " + tf.position.x + " y=" + tf.position.y);
-        Debug.Log(" w = " + w + " y=" + h);
+//        Debug.Log(" x = " + tf.position.x + " y=" + tf.position.y);
+//        Debug.Log(" w = " + w + " y=" + h);
         Vector2 lu = new Vector2(ob.transform.position.x - w / 2, ob.transform.position.y + h / 2);
         Vector2 rd = new Vector2(ob.transform.position.x + w / 2, ob.transform.position.y - h / 2);
-        Debug.Log(" lu x = " + lu.x + " lu y=" + lu.y);
-        Debug.Log(" rd x = " + rd.x + " rd y=" + rd.y);
+//        Debug.Log(" lu x = " + lu.x + " lu y=" + lu.y);
+//        Debug.Log(" rd x = " + rd.x + " rd y=" + rd.y);
         GameManager.getIntance().getGuideManager().showGuide(ob, lu, rd);
 
     }
     public void showGuide(GameObject go, Vector2 lefUp, Vector2 rightBottom) {
-        Debug.Log("================================showGuide  mTop ==" + mTop);
+//        Debug.Log("================================showGuide  mTop ==" + mTop);
         if (mTop == null)
         {
             mTop = GameObject.Instantiate(mMaskItem,
@@ -274,9 +274,9 @@ public class GuideManager : MonoBehaviour {
         mLefUp = lefUp;
         mRightBottom = rightBottom; 
 
-        Debug.Log("top = " + top + " bot=" + bot + " rig=" + rig + "lef = " + lef);
+//        Debug.Log("top = " + top + " bot=" + bot + " rig=" + rig + "lef = " + lef);
      //   Debug.Log("mid.y = " + mid.y + " mid.x=" + mid.x );
-        Debug.Log("Screen.height = " + Screen.height + " Screen.width=" + Screen.width);
+ //       Debug.Log("Screen.height = " + Screen.height + " Screen.width=" + Screen.width);
         //Debug.Log("topHeight = " + topHeight + " bottomHeight=" + bottomHeight + " leftWitch=" + leftWitch + " rightWitch = " + rightWitch);
         setBorder(mTop, new Vector2(Screen.width/2, (Screen.height + top)/2), Screen.width, Screen.height  - top);
         setBorder(mBotton, new Vector2(Screen.width / 2, bot  / 2), Screen.width,  bot);

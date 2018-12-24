@@ -78,7 +78,7 @@ public class TipControl : MonoBehaviour {
             }
             else {
                 if (mCurrentType == USE_TYPE) {
-                    GameObject obj = Resources.Load<GameObject>("prefab/hurt");
+                    GameObject obj = Resources.Load<GameObject>("prefab/tip_text");
                     Vector3 v1 = mClickList1Click2.transform.position;
                     GameObject text = GameObject.Instantiate(obj,
                         new Vector2(v1.x, v1.y), Quaternion.identity);
@@ -211,15 +211,37 @@ public class TipControl : MonoBehaviour {
             }
             str = "<color=#18de42>基础属性</color>\n";
             foreach (PlayerAttributeBean b in mBean.attributeList) {
+                bool isDouble = false;
                 if (b.getTypeStr() != null) {
+                    if (b.type == 100 ||
+                        b.type == 101 ||
+                        b.type == 102 ||
+                        b.type == 103 ||
+                        b.type == 105 ) {
+                        isDouble = true;
+                    }
                     foreach (EquipKeyAndDouble e in key) {
                         if (e.key == b.type) {
-                            str = str + b.getTypeStr() + ":" + e.value;
+                            if (isDouble)
+                            {
+                                str = str + b.getTypeStr() + ":" +StringUtils.doubleToStringShow( e.value);
+                            }
+                            else {
+                                str = str + b.getTypeStr() + ":" + e.value;
+                            }
+                            
                             break;
                         }                        
                     }
                     if (level != 0) {
-                        str = str + "<color=#e1d1b0>+" + aJson.getStrengthenByLevel(b.type, level)+ "</color>";
+                        if (isDouble)
+                        {
+                            str = str + "<color=#e1d1b0>+" + StringUtils.doubleToStringShow(aJson.getStrengthenByLevel(b.type, level)) + "</color>";
+                        }
+                        else {
+                            str = str + "<color=#e1d1b0>+" + aJson.getStrengthenByLevel(b.type, level) + "</color>";
+                        }
+                        
                     }
                     str = str+ "\n";
                 }              

@@ -100,23 +100,23 @@ public class CardControl : MonoBehaviour
             long cost = mManager.getHero().mSkillManager.getDownCardCost() > mCard.cost ? 0 : mCard.cost - mManager.getHero().mSkillManager.getDownCardCost();
             if (mSkill.shape_type == SkillTargetManager.TYPE_SHAPE_POINT && (mTargetList == null || mTargetList.Count == 0)) {
                 setStatus(STATUE_CARP_DEFAULT);
-                GameObject obj = Resources.Load<GameObject>("prefab/hurt");
+                GameObject obj = Resources.Load<GameObject>("prefab/tip_text");
                 Vector3 v1 = PointUtils.worldTransToScreen(mClickV);
                 GameObject text = GameObject.Instantiate(obj,
                     new Vector2(v1.x, v1.y), Quaternion.identity);
                 Transform hp = GameObject.Find("enemyStatePlane").transform;
                 text.transform.SetParent(hp);
+                text.transform.localScale = new Vector3(1, 1, 1);
                 Text tv = text.GetComponent<Text>();
                 tv.text = "请选择一个目标";
                 tv.color = Color.red;
-                tv.fontSize = 30;
                 UiManager.FlyTo(tv);
                 return;
             }
             else if (!mManager.userCard(mManager.getHero(),mIndex, cost))
             {
                 setStatus(STATUE_CARP_DEFAULT);
-                GameObject obj = Resources.Load<GameObject>("prefab/hurt");
+                GameObject obj = Resources.Load<GameObject>("prefab/tip_text");
                 Vector3 v1 = PointUtils.worldTransToScreen(mClickV);
                 GameObject text = GameObject.Instantiate(obj,
                     new Vector2(v1.x, v1.y), Quaternion.identity);

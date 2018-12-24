@@ -193,6 +193,7 @@ public class FightManager{
 				hurtBlood = attackBllod (attacker, tager);
                 attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood);
                 tager.mSkillManager.mEventAttackManager.beforeBeHurt(hurtBlood);
+                
                 tager.BeAttack (hurtBlood, attacker);
                 tager.mSkillManager.mEventAttackManager.endBeHurt(hurtBlood);
                 attacker.mSkillManager.mEventAttackManager.endHurt(hurtBlood);
@@ -245,6 +246,7 @@ public class FightManager{
         else {
             hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);
         }
+        
         bool crt = isCrt(attacker);
         if (crt)
         {
@@ -253,7 +255,8 @@ public class FightManager{
         else {
             hurt = hurt + attacker.mAttribute.readHurt;
         }
-		return new HurtStatus(hurt, crt,true);
+        
+        return new HurtStatus(hurt, crt,true);
 	}
     private bool isCrt(Attacker attacker) {
         return randomResult(10000,(int) attacker.mAttribute.crt,false);

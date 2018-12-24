@@ -6,6 +6,7 @@ public class PetJsonBean
 {
     public long id;
     public string name;
+    public string skil_name;
     public long resouce;
     public string noactivateIcon;
     public string activateIcon;

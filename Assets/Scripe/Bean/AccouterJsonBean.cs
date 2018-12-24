@@ -187,9 +187,9 @@ public class AccouterJsonBean
         {
             return 0;
         }
-        foreach (EquipKeyAndDouble ek in list) {
-            Debug.Log(" getStrengthenByLevel key=" + ek.key + " value=" + ek.value);
-        }
+ //       foreach (EquipKeyAndDouble ek in list) {
+ //           Debug.Log(" getStrengthenByLevel key=" + ek.key + " value=" + ek.value);
+ //       }
 
         double streng = 0;
         long levelDo = 0;

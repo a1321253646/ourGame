@@ -207,7 +207,6 @@ public class PlayControl : Attacker
             mSkillManager.addSkill(bean, this);           
         }
         getAttribute();
-        mBloodVolume = (int)(mAttribute.maxBloodVolume* bili);
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
         upDataSpeed();
     }

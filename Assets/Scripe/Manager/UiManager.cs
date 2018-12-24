@@ -233,20 +233,22 @@ public class UiManager
 
 	public void changeHeroBlood(double current,double max){
         double bili = 1;
-        if (max > float.MaxValue) {
+
+        Debug.Log("============================current = " + current + "max =" + max);
+		if (current < 0) {
+			mHpTv.text =0 + "/" + StringUtils.doubleToStringShow(max);
+		} else {
+			mHpTv.text = StringUtils.doubleToStringShow(current) + "/" + StringUtils.doubleToStringShow(max);
+		}
+        if (max > float.MaxValue)
+        {
             bili = max / float.MaxValue + 1;
         }
 
-        mHpSl.maxValue =(float) (max/bili);
-        mHpSl.value = (float)(current/bili);
+        mHpSl.maxValue = (float)(max / bili);
+        mHpSl.value = (float)(current / bili);
 
-		if (current < 0) {
-			mHpTv.text =0 + "/" + max;
-		} else {
-			mHpTv.text = current + "/" + max;
-		}
-
-	}
+    }
 
 	public void addGasAndCrystal(){
 		mCurrentCrystalTv.text = GameManager.getIntance ().mCurrentCrystal.toStringWithUnit();
