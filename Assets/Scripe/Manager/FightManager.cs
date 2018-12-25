@@ -109,6 +109,9 @@ public class FightManager{
             else
             {
                 GameManager.getIntance().mCurrentLevel += 1;
+                if (GameManager.getIntance().mCurrentLevel > (long)JsonUtils.getIntance().getConfigValueForId(100042)) {
+                    GameManager.getIntance().mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100042);
+                }
                 SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
             }
             if (GameManager.getIntance().mCurrentLevel == JsonUtils.getIntance().getConfigValueForId(100017)) {

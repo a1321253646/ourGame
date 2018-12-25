@@ -262,11 +262,14 @@ public class PetControl : MonoBehaviour {
                 affixstr = affixstr + a.dec + ":" + vale + "%";
             }
             mAffix.text = affixstr;
+
             SkillJsonBean skill= JsonUtils.getIntance().getSkillInfoById(mClickIcon.mJsonBean.skillId);
             string tmp = "\n";
             if (mClickIcon.mBean.goodType == SQLDate.GOOD_TYPE_PET) {
                 tmp = "<color=#cb3500>(出战激活)</color>\n";
             }
+            Debug.Log("skil_name = " + mClickIcon.mJsonBean.skil_name);
+            Debug.Log("skill_describe = " + skill.skill_describe);
             string s= mClickIcon.mJsonBean.skil_name + tmp + skill.skill_describe;
             List<float>  flist = skill.getSpecialParameterValue();
             if (flist != null && flist.Count > 0) {

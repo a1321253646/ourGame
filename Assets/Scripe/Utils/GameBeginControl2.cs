@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 using UnityEngine.UI;
-public class GameBeginControl : MonoBehaviour {
+public class GameBeginControl2 : MonoBehaviour {
 
     public string sqlName;
     public string tabName;
@@ -86,9 +86,8 @@ public class GameBeginControl : MonoBehaviour {
             {
                 Thread th1 = new Thread(() =>
                 {
-                    bool isnote = SQLManager.getIntance().initNoNet();
-                    SQLManager.getIntance().startThread();
-                    if (isnote)
+                    isUpdate = SQLManager.getIntance().init(sqlName, tabName);
+                    if (isUpdate != 0 && Application.internetReachability != NetworkReachability.NotReachable)
                     {
                         GameManager.getIntance().mInitStatus = 4;
                     }
@@ -108,8 +107,13 @@ public class GameBeginControl : MonoBehaviour {
         else if (GameManager.getIntance().mInitStatus == 4)
         {
             GameManager.getIntance().mInitStatus = 5;
-            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi(JsonUtils.getIntance().getStringById(100002),
-                LuiHuiTips.TYPPE_RETURN_START);
+            Thread th1 = new Thread(() =>
+            {
+               
+                NetServer.getIntance().getLocl();
+                GameManager.getIntance().mInitStatus = 6;
+            });
+            th1.Start();
         }
         else if (GameManager.getIntance().mInitStatus == 6)
         {

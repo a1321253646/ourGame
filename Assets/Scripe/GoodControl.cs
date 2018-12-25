@@ -48,7 +48,7 @@ public class GoodControl : MonoBehaviour {
     }
 
     public void showTip() {
-        Debug.Log("showTip");
+       
         if (bean == null) {
             return;
         }
@@ -66,6 +66,7 @@ public class GoodControl : MonoBehaviour {
             setPointShow(false);
             InventoryHalper.getIntance().updatePoint(bean);
         }
+        Debug.Log("showTip  bean.goodid= "+bean.goodId);
         BackpackManager.getIntance().showTipUi(bean, count, type);
     }
 
@@ -89,7 +90,7 @@ public class GoodControl : MonoBehaviour {
     string img = null;
     private long updateUi(long id, long count)
     {
- //              Debug.Log("GoodControl updateUi id = " + id+ " bean.tabId = "+ bean.tabId);
+
         this.id = id;
         if (mImage != null && id != -1)
         {

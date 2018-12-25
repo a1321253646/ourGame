@@ -28,8 +28,8 @@ public class SQLManager : MonoBehaviour
     private string sqlName_old = "local88";
     private string tabName_old = "local88";
 
-    private string sqlName_new = "local889";
-    private string tabName_new = "local889";
+    private string sqlName_new = "local891";
+    private string tabName_new = "local891";
 
     object mLock = new object();
 
@@ -85,6 +85,187 @@ public class SQLManager : MonoBehaviour
             return;
         }
     }
+
+    public void startThread() {
+        th1 = new Thread(threadRun);
+        th1.Start();
+    }
+
+    public bool initNoNet()
+    {
+        bool isNote = false;
+        sqlName = sqlName_new;
+        tabName = tabName_new;
+        string appDBPath = Application.persistentDataPath + "/" + sqlName;
+        if (!File.Exists(appDBPath))
+        {
+            creatLocl888Android();
+            sqlName = sqlName_old;
+            tabName = tabName_old;
+            appDBPath = Application.persistentDataPath + "/" + sqlName;
+            if (File.Exists(appDBPath))
+            {
+                this.connection = new SqliteConnection("URI=file:" + appDBPath);
+                this.connection.Open();
+                List<SQLDate> list = readAllTableOld();
+                this.connection.Close();
+
+                sqlName = sqlName_new;
+                tabName = tabName_new;
+                appDBPath = Application.persistentDataPath + "/" + sqlName;
+                this.connection = new SqliteConnection("URI=file:" + appDBPath);
+                this.connection.Open();
+
+                List<SQLDate> newList = new List<SQLDate>();
+                int level = -100;
+                Debug.Log("readAllTableOld");
+                if (list != null && list.Count > 0)
+                {
+                    foreach (SQLDate date in list)
+                    {
+                        Debug.Log("type = " + date.type + " id= " + date.id + " extra= " + date.extan);
+
+                        if (date.type == SQLHelper.TYPE_LUNHUI)
+                        {
+                            date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                            date.goodId = SQLDate.DEFAULT_GOOD_ID;
+                            date.isClean = SQLDate.CLEAR_NO;
+                            newList.Add(date);
+                        }
+                        else if (date.type == SQLHelper.TYPE_GAME && date.id == SQLHelper.GAME_ID_LUNHUI)
+                        {
+                            date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                            date.goodId = SQLDate.DEFAULT_GOOD_ID;
+                            date.getClean();
+
+                            newList.Add(date);
+                        }
+                        else if (date.type == SQLHelper.TYPE_GAME && date.id == SQLHelper.GAME_ID_LEVEL)
+                        {
+                            level = int.Parse(date.extan);
+                        }
+                    }
+                    if (level != -100 && list.Count > 0)
+                    {
+                        foreach (SQLDate date in newList)
+                        {
+                            if (date.type == SQLHelper.TYPE_GAME && date.id == SQLHelper.GAME_ID_LUNHUI)
+                            {
+                                if (level != -100)
+                                {
+                                    if (level < 20)
+                                    {
+                                        date.extan = (long.Parse(date.extan) + 2000) + "";
+                                    }
+                                    else
+                                    {
+                                        Level leveldate = JsonUtils.getIntance().getLevelData(level);
+                                        BigNumber big = BigNumber.getBigNumForString(date.extan);
+                                        big = BigNumber.add(big, leveldate.getReincarnation());
+                                        date.extan = big.toString();
+                                    }
+                                }
+                            }
+                            InsertDataToSQL(date, true);
+                        }
+                    }
+                    SQLDate count = new SQLDate();
+                    count.type = SQLHelper.TYPE_GAME;
+                    count.id = SQLHelper.GAME_ID_LEVEL;
+                    count.isClean = SQLDate.CLEAR;
+                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
+                    count.extan = "1";
+                    InsertDataToSQL(count, true);
+
+                    count = new SQLDate();
+                    count.type = SQLHelper.TYPE_GUIDE;
+                    count.id = 1;
+                    count.isClean = SQLDate.CLEAR_NO;
+                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
+                    count.extan = "-1";
+                    InsertDataToSQL(count, true);
+
+                    count = new SQLDate();
+                    count.type = SQLHelper.TYPE_GUIDE;
+                    count.id = 2;
+                    count.isClean = SQLDate.CLEAR_NO;
+                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
+                    count.extan = "-1";
+                    InsertDataToSQL(count, true);
+
+                    count = new SQLDate();
+                    count.type = SQLHelper.TYPE_GUIDE;
+                    count.id = 3;
+                    count.isClean = SQLDate.CLEAR_NO;
+                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
+                    count.extan = "-1";
+                    InsertDataToSQL(count, true);
+
+                    count = new SQLDate();
+                    count.type = SQLHelper.TYPE_GUIDE;
+                    count.id = 4;
+                    count.isClean = SQLDate.CLEAR_NO;
+                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
+                    count.extan = "-1";
+                    InsertDataToSQL(count, true);
+
+                    count = new SQLDate();
+                    count.type = SQLHelper.TYPE_GUIDE;
+                    count.id = 5;
+                    count.isClean = SQLDate.CLEAR_NO;
+                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
+                    count.extan = "-1";
+                    InsertDataToSQL(count, true);
+
+                    count = new SQLDate();
+                    count.type = SQLHelper.TYPE_GAME;
+                    count.id = SQLHelper.GAME_ID_POINT_LUNHUI;
+                    count.isClean = SQLDate.CLEAR;
+                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
+                    count.extan = "1";
+                    InsertDataToSQL(count, true);
+
+                    count = new SQLDate();
+                    count.type = SQLHelper.TYPE_GAME;
+                    count.id = SQLHelper.GAME_ID_FRIST_START;
+                    count.isClean = SQLDate.CLEAR_NO;
+                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
+                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
+                    count.extan = "1";
+                    InsertDataToSQL(count, true);
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else
+            {
+                sqlName = sqlName_new;
+                tabName = tabName_new;
+                appDBPath = Application.persistentDataPath + "/" + sqlName;
+                this.connection = new SqliteConnection("URI=file:" + appDBPath);
+                this.connection.Open();
+                return false;
+            }
+        }
+        else {
+            sqlName = sqlName_new;
+            tabName = tabName_new;
+            appDBPath = Application.persistentDataPath + "/" + sqlName;
+            this.connection = new SqliteConnection("URI=file:" + appDBPath);
+            this.connection.Open();
+        }
+        return false;
+    }
+
     //打开数据库
     public int OpenSQLaAndConnect()
     {
@@ -97,16 +278,6 @@ public class SQLManager : MonoBehaviour
             if (!File.Exists(appDBPath))//创建新的数据库
             {
                 isHaveLocal= creatLocalAndroid();
-                //用www先从Unity中下载到数据库
-                /*               Debug.Log("  Android 拷贝数据库 = ");
-                               WWW loadDB = new WWW("jar:file://" + Application.dataPath + "!/assets/" + sqlName);
-                               while (!loadDB.isDone)
-                               {
-                                   Debug.Log("1");
-                               }
-                               //拷贝至规定的地方
-                               File.WriteAllBytes(appDBPath, loadDB.bytes);*/
-
             }
             else {
                 isHaveLocal = true;
@@ -290,7 +461,7 @@ public class SQLManager : MonoBehaviour
     /// <param name="queryString"></param>
     public SqliteDataReader ExecuteSQLCommand(string queryString)
     {
-//        Debug.Log("ExecuteSQLCommand command  "+ queryString);
+        Debug.Log("ExecuteSQLCommand command  "+ queryString);
 //        Debug.Log("ExecuteSQLCommand connection  =" + connection);
 //        Debug.Log("ExecuteSQLCommand connection  =" + connection.State);
         command = connection.CreateCommand();
@@ -367,7 +538,7 @@ public class SQLManager : MonoBehaviour
             addList(commandString);
         }
         if (isUpToNet) {
-            mNetHelper.changeInto(data);
+       //     mNetHelper.changeInto(data);
         }       
         //     
     }
@@ -440,7 +611,7 @@ public class SQLManager : MonoBehaviour
 
         string comm = "DELETE FROM " + tabName;
         ExecuteSQLCommand(comm);
-        SQLNetManager.getIntance().cleanAllLocal();
+  //      SQLNetManager.getIntance().cleanAllLocal();
         foreach (SQLDate date in list) {
             Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
             InsertDataToSQL(date, true,false);
@@ -481,7 +652,7 @@ public class SQLManager : MonoBehaviour
 
     private void threadRun() {
         while (connection != null) {
-//            Debug.Log("======================================threadRun command count");
+            Debug.Log("======================================threadRun command count");
             if (listIsEmpty())
             {
                 Thread.Sleep(1000);
@@ -523,12 +694,14 @@ public class SQLManager : MonoBehaviour
         while (this.reader.Read())
         {
             SQLDate date = new SQLDate();
-            date.type = reader.GetInt64(reader.GetOrdinal("Type"));
+            date.type = reader.GetInt64(reader.GetOrdinal("TYPE"));
             date.id = reader.GetInt64(reader.GetOrdinal("ID"));
-            date.extan = reader.GetString(reader.GetOrdinal("Extan"));
+            date.extan = reader.GetString(reader.GetOrdinal("EXTAN"));
             date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
             date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
             date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
+            Debug.Log("readAllTable date.type  = " + date.type);
+            Debug.Log("readAllTable date.type  = " + date.id);
             list.Add(date);
         }
         if (list.Count > 0)
@@ -589,7 +762,7 @@ public class SQLManager : MonoBehaviour
     {
         //当程序退出时关闭数据库连接，不然会重复打开数据卡，造成卡顿
         this.CloseSQLConnection();
-        SQLNetManager.getIntance().OnApplicationQuit();
+     //   SQLNetManager.getIntance().OnApplicationQuit();
         Debug.Log("程序退出");
     }
 }

@@ -36,10 +36,10 @@ public class PlayControl : Attacker
                   //   && !GameManager.getIntance().isAddGoodForTest)
                  {
                     GameManager.getIntance().isAddGoodForTest = true;
-                    BackpackManager.getIntance().addGoods(4000001, count);
-                    BackpackManager.getIntance().addGoods(4000002, count);
+                    //BackpackManager.getIntance().addGoods(4000001, count);
+                    //BackpackManager.getIntance().addGoods(4000002, count);
                     BackpackManager.getIntance().addGoods(4000003, count);
-                    BackpackManager.getIntance().addGoods(4000004, count);
+                    /*BackpackManager.getIntance().addGoods(4000004, count);
                     BackpackManager.getIntance().addGoods(4000005, count);
                     BackpackManager.getIntance().addGoods(4000006, count);
                     BackpackManager.getIntance().addGoods(4000007, count);
@@ -49,7 +49,7 @@ public class PlayControl : Attacker
                     BackpackManager.getIntance().addGoods(4000011, count);
                     BackpackManager.getIntance().addGoods(4000012, count);
                     BackpackManager.getIntance().addGoods(4000013, count);
-                    BackpackManager.getIntance().addGoods(4000014, count);
+                    BackpackManager.getIntance().addGoods(4000014, count);*/
                     BackpackManager.getIntance().addGoods(3000001, count);
                     BackpackManager.getIntance().addGoods(3000002, count);
                     BackpackManager.getIntance().addGoods(3000003, count);
@@ -165,6 +165,7 @@ public class PlayControl : Attacker
         mEquipAttribute.clear();
         foreach (PlayerBackpackBean bean in list)
         {
+            Debug.Log(" bean = " + bean.goodId);
             foreach (PlayerAttributeBean date in bean.attributeList)
             {
                 if (date.type == 100)
@@ -583,8 +584,8 @@ public class PlayControl : Attacker
         //        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);
         mSkillManager.mEventAttackManager.beforeBeHurt(status);
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
-        int tmp = status.blood % 1 == 0 ? 0 : 1;
-        status.blood = ((int)status.blood) / 1 + tmp;
+//        int tmp = status.blood % 1 == 0 ? 0 : 1;
+//        status.blood = ((int)status.blood) / 1 + tmp;
         if (JsonUtils.getIntance().getConfigValueForId(100007) != 1) {
             mBloodVolume = mBloodVolume - status.blood;
             GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
@@ -620,14 +621,9 @@ public class PlayControl : Attacker
             else if (hurt != null)
             {
                 status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
-                int tmp = status.blood % 1 == 0 ? 0 : 1;
-                status.blood = ((int)status.blood) / 1 + tmp;
+            //    int tmp = status.blood % 1 == 0 ? 0 : 1;
+            //    status.blood = ((int)status.blood) / 1 + tmp;
             }
-            else {
-                int tmp = status.blood % 1 == 0 ? 0 : 1;
-                status.blood = ((int)status.blood) / 1 + tmp;
-            }
-
 
             if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)
             {
@@ -644,8 +640,6 @@ public class PlayControl : Attacker
             return status.blood;
         }
         else if (effect == 2 || effect == 10001) {
-            int tmp = value % 1 == 0 ? 0 : 1;
-            value = ((int)value) / 1 + tmp;
             AddBlood(value);
         }
         return value;

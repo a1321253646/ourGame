@@ -8,7 +8,7 @@ public class LuiHuiTips : MonoBehaviour {
 
     public static int TYPPE_LUIHUI = 1;
     public static int TYPPE_TIP = 2;
-
+    public static int TYPPE_RETURN_START = 3;
 
     Text mDes;
     Text mButtonDec;
@@ -34,10 +34,17 @@ public class LuiHuiTips : MonoBehaviour {
             {
                 removeUi();
             }
+            if (mType == TYPPE_RETURN_START) {
+                GameManager.getIntance().mInitStatus = 8;
+                removeUi();
+            }
             
         });
         mClose.onClick.AddListener(() =>
         {
+            if(mType == TYPPE_RETURN_START){
+                GameManager.getIntance().mInitStatus = 8;
+            }
             removeUi();
         });
     }
@@ -67,6 +74,18 @@ public class LuiHuiTips : MonoBehaviour {
         mButtonDec.text = "轮回";
         mDes.text = dec;
     }
+
+    public void showUi(string str,int type) {
+        mType = TYPPE_RETURN_START;
+        mDes.text = str;
+        mButtonDec.text = "确定";
+        gameObject.transform.localPosition = new Vector2(0, 0);
+        int level = GameManager.getIntance().getUiLevel();
+        gameObject.transform.SetSiblingIndex(level);
+
+    }
+
+
     public void removeUi()
     {
         gameObject.transform.localPosition = mFri;

@@ -303,6 +303,21 @@ public class SQLHelper
     {
         return mGuide;
     }
+    public bool haveGui(long id)
+    {
+        if (mGuide.Count == 0)
+        {
+            return false;
+        }
+        else {
+            foreach (long g in mGuide) {
+                if (g == id) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public List<PlayerBackpackBean> getAllGood()
     {
         return mALLGood;

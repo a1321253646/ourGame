@@ -220,8 +220,8 @@ public class EnemyBase : Attacker {
                 Debug.Log(" status.blood == " + status.blood);
                 status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
                 Debug.Log("  hurt.mSkillManager.getCardHurtPre() == " + hurt.mSkillManager.getCardHurtPre());
-                int tmp = status.blood % 1 == 0 ? 0 : 1;
-                status.blood = ((int)status.blood) / 1 + tmp;
+//                int tmp = status.blood % 1 == 0 ? 0 : 1;
+//                status.blood = ((int)status.blood) / 1 + tmp;
                 Debug.Log(" status.blood == " + status.blood);
             }
             mBloodVolume = mBloodVolume - status.blood;
@@ -235,8 +235,8 @@ public class EnemyBase : Attacker {
         }
         else if (effect == 2 || effect == 10001)
         {
-            int tmp = value % 1 == 0 ? 0 : 1;
-            value = ((int)value) / 1 + tmp;
+//            int tmp = value % 1 == 0 ? 0 : 1;
+//            value = ((int)value) / 1 + tmp;
             AddBlood(value);
 
         }

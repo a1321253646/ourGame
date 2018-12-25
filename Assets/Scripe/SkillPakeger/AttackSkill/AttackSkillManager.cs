@@ -125,13 +125,18 @@ public class AttackSkillManager
             mIdSkill.Add(json.id, skill);
         }
     }
+    public void addSkill(List<PlayerAttributeBean> list, Attacker fighter) {
+        creatSkillByAffix(list, fighter);
+        mAttack.getAttribute();
+    }
+
 
     public void addSkill(PetJsonBean pet, Attacker fighter) {
-        List<AttackerSkillBase> list = creatSkillByAffix(pet.getAffixList(), fighter);
-        if (list == null)
-        {
-            list = new List<AttackerSkillBase>();
-        }
+        //List<AttackerSkillBase> list = creatSkillByAffix(pet.getAffixList(), fighter);
+        // if (list == null)
+        // {
+           List<AttackerSkillBase> list = new List<AttackerSkillBase>();
+        // }
         Debug.Log("=====================addSkill pet.skillId=" + pet.skillId);
         if (pet.skillId != 0) {
             AttackerSkillBase skill = creatSkillById(pet.skillId, null, fighter);

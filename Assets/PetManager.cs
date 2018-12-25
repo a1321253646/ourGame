@@ -57,9 +57,9 @@ public class PetManager : MonoBehaviour {
             if (b.goodType == SQLDate.GOOD_TYPE_USER_PET) {
                 petFight(b.goodId);
             }
+            PetJsonBean bean = JsonUtils.getIntance().getPetInfoById(b.goodId);
+            mHero.mSkillManager.addSkill(bean.getAffixList(), mHero);
         }
-        
-
     }
     public void addPet(long id) {
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();

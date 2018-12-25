@@ -6,7 +6,8 @@ public class UiManager
 {	
 	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv;
 	Slider mHpSl,mStartBossGasSl;
-	Button mStartBossBt,mLvUpBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton;
+	Button mStartBossBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton;
+    public Button mLvUpBt;
     Image autoBack;
     Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint/*,mVoiceImage*/;
     //Sprite mAutoYes, mAutoNo,mVoiceOpen,mVoiceClose;
@@ -87,11 +88,6 @@ public class UiManager
 		mStartBossBt.onClick.AddListener (() => {
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_BOSS);
             startBoss();
-		});
-		mLvUpBt.onClick.AddListener (() => {
-            Debug.Log("levelUp");
-            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_HERO_UP);
-            levelUp();
 		});
 
         mSettingButton.onClick.AddListener(() =>
@@ -330,8 +326,7 @@ public class UiManager
 		mStartBossBt.interactable = false;
 	}
 	private void levelUp(){
-		GameManager.getIntance ().heroUp ();
-	//	mLvUpBt.interactable = false;
+		GameManager.getIntance ().heroUp ();;
 		
 	}
     Vector2 mHuanjingVect = new Vector2(0,0);

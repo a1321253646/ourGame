@@ -6,28 +6,19 @@ using UnityEngine.UI;
 public class ZhuangBeiItemShowControl : MonoBehaviour {
 
     GoodControl mGoodControl;
-    Button mButton;
+    public Button mButton;
     Text mCost;
-    long level = 0;
+    public long level = 0;
     public PlayerBackpackBean mBean;
-    BigNumber updateCost;
+    public BigNumber updateCost;
 
     // Use this for initialization
-    void Start () {
+    void Start () {;
     }
 
     private void Update()
     {
-        if (mButton != null) {
-            if (GameManager.getIntance().mCurrentCrystal.ieEquit( updateCost) != -1)
-            {
-                mButton.interactable = true;
-            }
-            else
-            {
-                mButton.interactable = false;
-            }
-        }
+
     }
 
     public void init() {
@@ -57,11 +48,7 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
         mCost.text = "" + updateCost.toStringWithUnit();
         if (mButton == null)
         {
-            mButton = GetComponentsInChildren<Button>()[1];
-            mButton.onClick.AddListener(() => {
-                GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_EQUITE_UP_CLICK,mBean.goodId);
-                BackpackManager.getIntance().UpdateZhuangBei(mBean, updateCost, level);              
-            });
+            mButton = GetComponentsInChildren<Button>()[1];            
         }
         if (mButton != null)
         {
@@ -75,4 +62,5 @@ public class ZhuangBeiItemShowControl : MonoBehaviour {
             }
         }
     }
+
 }

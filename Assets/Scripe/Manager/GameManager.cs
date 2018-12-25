@@ -41,8 +41,8 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = false;
-    public static bool isAdd = true;
+    public static bool isAndroid = true;
+    public static bool isAdd = false;
     
 
     public float getOnlineGet() {
@@ -94,6 +94,11 @@ public class GameManager
                 if (mCurrentLevel == -9999) {
                     mCurrentLevel = -(long)JsonUtils.getIntance().getConfigValueForId(100019)+1;
                 }
+                else if (mCurrentLevel > (long)JsonUtils.getIntance().getConfigValueForId(100042))
+                {
+                    mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100042);
+                    SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
+                }
             }
             mHeroLv = (long)JsonUtils.getIntance().getConfigValueForId(100011);
             if (mHeroLv == -1)
@@ -106,7 +111,7 @@ public class GameManager
             }
 
                mCurrentCrystal = SQLHelper.getIntance().mMojing;   
-            //mCurrentCrystal = BigNumber.getBigNumForString("20000000000000000");
+           // mCurrentCrystal = BigNumber.getBigNumForString("20000000000000");
             long auto = SQLHelper.getIntance().isAutoBoss;
             if (auto == -1 || auto == 1) {
                 isAuto = false;
@@ -158,7 +163,8 @@ public class GameManager
         uiManager.changeHeroBlood (blood,max);
 	}
 	public void heroUp(){
-		mHeroLv += 1;
+        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_HERO_UP);
+        mHeroLv += 1;
         mCurrentCrystal =BigNumber.minus(mCurrentCrystal, upLevelCrystal) ;
         SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
         getLevelData ();

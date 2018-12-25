@@ -102,6 +102,7 @@ public class CardManager : MonoBehaviour {
     }
 
 	// Update is called once per frame
+    private int mMaxCardCount = 0;
 	void Update () {
         if (mCount > 0) {
             mOutSendCardTime += Time.deltaTime;
@@ -117,7 +118,10 @@ public class CardManager : MonoBehaviour {
             return;
         }
         mTime += Time.deltaTime;
-        if (mTime >= CREADT_CARD_TIME && mList.Count < JsonUtils.getIntance().getConfigValueForId(100015)) {
+        if (mMaxCardCount == 0) {
+            mMaxCardCount =(int) JsonUtils.getIntance().getConfigValueForId(100015);
+        }
+        if (mTime >= CREADT_CARD_TIME && mList.Count < mMaxCardCount) {
             long random = getRandomCard();
             if (random != 0)
             {

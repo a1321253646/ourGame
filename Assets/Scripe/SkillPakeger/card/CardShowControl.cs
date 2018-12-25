@@ -113,7 +113,7 @@ public class CardShowControl : MonoBehaviour {
         clearBackUi();
         if (mBackListGb.Count == 0)
         {
-            for (int i = 0; i < 14; i++)
+            for (int i = 0; i < 16; i++)
             {
                 GameObject good = GameObject.Instantiate(CardObject,
                       new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
@@ -129,7 +129,7 @@ public class CardShowControl : MonoBehaviour {
                 ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
 //                good.transform.GetChild(0).Translate(Vector2.down * (10));
             }
-            SetGridHeight(mBackListGl, 3, mBackListGb.Count, 7);
+            SetGridHeight(mBackListGl, 2, mBackListGb.Count, 8);
         }
         List<PlayerBackpackBean> list =  InventoryHalper.getIntance().getInventorys();
         foreach (PlayerBackpackBean bean in list) {
@@ -243,9 +243,9 @@ public class CardShowControl : MonoBehaviour {
             }            
         }
 
-        if(count > 7) {
-            count = count - 1;
-            count = (count / 7 + 2)*7;
+        if(count > 8) {
+            count = count / 8 + count % 8 == 0 ? 0 : 1;
+            count = (count+1) * 8;
         }
         if (count > mBackListGb.Count) {
             for (int i = 0; i < count- mBackListGb.Count; i++)
@@ -264,7 +264,7 @@ public class CardShowControl : MonoBehaviour {
                 ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
 //                good.transform.GetChild(0).Translate(Vector2.down * (10));
             }
-            SetGridHeight(mBackListGl, 3, mBackListGb.Count, 7);
+            SetGridHeight(mBackListGl, 2, mBackListGb.Count, 8);
         }
     }
 

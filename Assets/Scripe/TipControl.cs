@@ -211,36 +211,36 @@ public class TipControl : MonoBehaviour {
             }
             str = "<color=#18de42>基础属性</color>\n";
             foreach (PlayerAttributeBean b in mBean.attributeList) {
-                bool isDouble = false;
+                //bool isDouble = false;
                 if (b.getTypeStr() != null) {
-                    if (b.type == 100 ||
-                        b.type == 101 ||
-                        b.type == 102 ||
-                        b.type == 103 ||
-                        b.type == 105 ) {
-                        isDouble = true;
-                    }
+                  //  if (b.type == 100 ||
+                  //      b.type == 101 ||
+                  //      b.type == 102 ||
+                  //      b.type == 103 ||
+                  //      b.type == 105 ) {
+                  //      isDouble = true;
+                 //   }
                     foreach (EquipKeyAndDouble e in key) {
                         if (e.key == b.type) {
-                            if (isDouble)
-                            {
+                   //         if (isDouble)
+                     //       {
                                 str = str + b.getTypeStr() + ":" +StringUtils.doubleToStringShow( e.value);
-                            }
-                            else {
-                                str = str + b.getTypeStr() + ":" + e.value;
-                            }
+                       //     }
+                         //   else {
+                             //   str = str + b.getTypeStr() + ":" + e.value;
+                           // }
                             
                             break;
                         }                        
                     }
                     if (level != 0) {
-                        if (isDouble)
-                        {
+ //                       if (isDouble)
+ //                       {
                             str = str + "<color=#e1d1b0>+" + StringUtils.doubleToStringShow(aJson.getStrengthenByLevel(b.type, level)) + "</color>";
-                        }
-                        else {
-                            str = str + "<color=#e1d1b0>+" + aJson.getStrengthenByLevel(b.type, level) + "</color>";
-                        }
+ //                       }
+ //                       else {
+ //                           str = str + "<color=#e1d1b0>+" + aJson.getStrengthenByLevel(b.type, level) + "</color>";
+ //                       }
                         
                     }
                     str = str+ "\n";
