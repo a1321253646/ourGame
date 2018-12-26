@@ -84,6 +84,7 @@ public class SQLHelper
         mCard.Clear();
         mBook.Clear();
         mDropDeviceCount.Clear();
+        int goodListIndex = 0;
         if (mList != null && mList.Count > 0)
         {
             foreach (SQLDate date in mList)
@@ -110,6 +111,22 @@ public class SQLHelper
                     bean.sqlGoodId = date.goodId;
                     bean.goodType = date.goodType;
                     Debug.Log("读取数据库  id= " + bean.goodId + " count =" + bean.count);
+                    if (mALLGood.Count == 0) {
+                        mALLGood.Add(bean);
+                    }
+                    else {
+                        for (goodListIndex = 0; goodListIndex < mALLGood.Count; goodListIndex++) {
+                            if (bean.sortID < mALLGood[goodListIndex].sortID)
+                            {
+                                mALLGood.Insert(goodListIndex,bean);
+                                break;
+                            }
+                        }
+                        if (goodListIndex == mALLGood.Count) {
+                            mALLGood.Add(bean);
+                        }
+                    }
+
                     mALLGood.Add(bean);
                     if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD)
                     {
@@ -758,31 +775,31 @@ public class SQLHelper
         date.type = TYPE_GAME;
         date.id = id;
         date.getClean();
-        SQLManager.getIntance().UpdateInto(date);
-    }
-    private void addGame(long id, long value)
-    {
-/*        string value1 = "" + value;
-        string isclean = "";
-        if (id == SQLHelper.GAME_ID_AUTO ||
-           id == SQLHelper.GAME_ID_LUNHUI ||
-           id == SQLHelper.GAME_ID_TIME ||
-           id == SQLHelper.GAME_ID_GUIDE ||
-           id == SQLHelper.GAME_ID_POINT_LUNHUI ||
-           id == SQLHelper.GAME_ID_NO_LUNHUI ||
-           id == SQLHelper.GAME_ID_IS_VOICE)
+        if (GAME_ID_LEVEL == id)
         {
-            isclean = isclean+ SQLDate.CLEAR_NO;
+            SQLManager.getIntance().UpdateInto(date,true);
         }
         else
         {
-            isclean = isclean + SQLDate.CLEAR;
-        }*/
+            SQLManager.getIntance().UpdateInto(date);
+        }
+        
+    }
+    private void addGame(long id, long value)
+    {
+
         SQLDate date = new SQLDate();
         date.extan = "" + value;
         date.type = TYPE_GAME;
         date.id = id;
         date.getClean();
-        SQLManager.getIntance().InsertDataToSQL(date);
+        if (GAME_ID_LEVEL == id)
+        {
+            SQLManager.getIntance().InsertDataToSQL(date,true);
+        }
+        else {
+            SQLManager.getIntance().InsertDataToSQL(date);
+        }
+        
     }
 }

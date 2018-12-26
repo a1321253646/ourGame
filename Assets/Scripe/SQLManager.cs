@@ -25,11 +25,12 @@ public class SQLManager : MonoBehaviour
     public string sqlName;
     public string tabName;
 
-    private string sqlName_old = "local88";
-    private string tabName_old = "local88";
+        private string sqlName_old = "local88";
+        private string tabName_old = "local88";
 
-    private string sqlName_new = "local891";
-    private string tabName_new = "local891";
+        private string sqlName_new = "local891";
+        private string tabName_new = "local891";
+
 
     object mLock = new object();
 
@@ -153,17 +154,25 @@ public class SQLManager : MonoBehaviour
                             {
                                 if (level != -100)
                                 {
+                          //          Debug.Log(" =============== level = " + level);
+                                    BigNumber old = BigNumber.getBigNumForString(date.extan);
+                            //        Debug.Log("=============== old = " + old.toString());
                                     if (level < 20)
                                     {
-                                        date.extan = (long.Parse(date.extan) + 2000) + "";
+                                        
+                                        old = BigNumber.add(old, BigNumber.getBigNumForString("2000"));
+                                        date.extan = old.toString();
                                     }
                                     else
                                     {
+                                        
                                         Level leveldate = JsonUtils.getIntance().getLevelData(level);
                                         BigNumber big = BigNumber.getBigNumForString(date.extan);
+                              //          Debug.Log("=============== add = " + leveldate.getReincarnation().toString());
                                         big = BigNumber.add(big, leveldate.getReincarnation());
                                         date.extan = big.toString();
                                     }
+                                //    Debug.Log("new = " + date.extan);
                                 }
                             }
                             InsertDataToSQL(date, true);
@@ -461,7 +470,7 @@ public class SQLManager : MonoBehaviour
     /// <param name="queryString"></param>
     public SqliteDataReader ExecuteSQLCommand(string queryString)
     {
-        Debug.Log("ExecuteSQLCommand command  "+ queryString);
+//        Debug.Log("ExecuteSQLCommand command  "+ queryString);
 //        Debug.Log("ExecuteSQLCommand connection  =" + connection);
 //        Debug.Log("ExecuteSQLCommand connection  =" + connection.State);
         command = connection.CreateCommand();
@@ -589,13 +598,23 @@ public class SQLManager : MonoBehaviour
         Debug.Log("更新后台数据!");
         mNetHelper.updateToNet();
     }
+    public bool UpdateInto(SQLDate date) {
+        return UpdateInto(date, false);
+    }
 
-    public bool UpdateInto(SQLDate date)
+    public bool UpdateInto(SQLDate date,bool isNow)
     {
         string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan+"'";
         commPath += " WHERE Type=" + date.type + " AND ID=" + date.id;
         // ExecuteSQLCommand(commPath);
-        addList(commPath);
+        if (isNow)
+        {
+            ExecuteSQLCommand(commPath);
+        }
+        else {
+            addList(commPath);
+        }
+        
         Debug.Log("更新数据成功!");
         mNetHelper.changeInto(date);
         return true;
@@ -652,7 +671,7 @@ public class SQLManager : MonoBehaviour
 
     private void threadRun() {
         while (connection != null) {
-            Debug.Log("======================================threadRun command count");
+//            Debug.Log("======================================threadRun command count");
             if (listIsEmpty())
             {
                 Thread.Sleep(1000);
@@ -700,8 +719,8 @@ public class SQLManager : MonoBehaviour
             date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
             date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
             date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
-            Debug.Log("readAllTable date.type  = " + date.type);
-            Debug.Log("readAllTable date.type  = " + date.id);
+//            Debug.Log("readAllTable date.type  = " + date.type);
+//            Debug.Log("readAllTable date.type  = " + date.id);
             list.Add(date);
         }
         if (list.Count > 0)

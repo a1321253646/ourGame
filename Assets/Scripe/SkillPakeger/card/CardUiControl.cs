@@ -17,7 +17,7 @@ public class CardUiControl : MonoBehaviour {
     Button mBt;
     string dec;
 
-    private int count = 1;
+    public int count = 1;
     public void addCount() {
         count++;
         mCardCount.text = "X" + count;
@@ -25,6 +25,7 @@ public class CardUiControl : MonoBehaviour {
 
     public void init(long cardId,int type, Attacker hero)
     {
+        count = 1;
         mCardId = cardId;
         if (cardId == -1)
         {
@@ -59,6 +60,7 @@ public class CardUiControl : MonoBehaviour {
     private Vector3 mOldScale;
     public void init(long cardId, float x, float y)
     {
+        count = 1;
         float x1 = transform.GetChild(0).gameObject.GetComponent<RectTransform>().rect.width;
         float y1 = transform.GetChild(0).gameObject.gameObject.GetComponent<RectTransform>().rect.height;
         //        Debug.Log("x= " + x + " y= " + y + " x1= " + x1 + " y1=" + y1 + " Bilix=" + (x / x1) + " Biliy=" + (y / y1));

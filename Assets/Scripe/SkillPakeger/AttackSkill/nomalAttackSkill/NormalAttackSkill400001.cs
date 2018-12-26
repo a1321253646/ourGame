@@ -9,6 +9,6 @@ public class NormalAttackSkill400001 : NormalAttackSkillBase
     public override void startSkill()
     {
         mManager.carHurtPre += ((float)value / 10000);
-        Debug.Log("mManager.hurtPre="+mManager.carHurtPre);
+//        Debug.Log("mManager.hurtPre="+mManager.carHurtPre);
     }
 }

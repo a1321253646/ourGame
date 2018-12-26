@@ -44,7 +44,8 @@ public class LevelManager : MonoBehaviour {
       //  creatEnemyFactory(cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setLoclaManager(mLocalManager);
-        BackpackManager.getIntance().init(this);        
+        BackpackManager.getIntance().init(this);
+        GameObject.Find("jineng").GetComponent<CardManager>().init();
         nengLiangDian = 0;
         mNengLiangKuai.Clear();
         initNengliangkuai();

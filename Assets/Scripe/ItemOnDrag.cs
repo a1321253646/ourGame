@@ -50,7 +50,10 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                 if (result == 1) {
                     GameManager.getIntance().getGuideManager().ShowGuideNormalObject(mIndicator);
                 }
-                mRootContorl.showBack();
+                if (mRootContorl.count == 1) {
+                    mRootContorl.showBack();
+                }
+                
                 GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD_BACK_INFO);
             }
         }
@@ -163,7 +166,10 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                 mUiContorl = mIndicator.GetComponent<CardUiControl>();
                 mUiContorl.init(mCard.id, CardUiControl.TYPE_CARD_PLAY, mManager.getHero());
                 mUiContorl.init(mCard.id, 113f, 166f);
-                mRootContorl.showBack();
+                if (mRootContorl.count == 1)
+                {
+                    mRootContorl.showBack();
+                }
                 isMove = true;
             }
             else {

@@ -73,7 +73,7 @@ public class UiManager
 //        mAutoNo = Resources.Load("ui_new/gouxuan_no", typeof(Sprite)) as Sprite;
         mGameLevelTv.text =  JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).name;
 
-        SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
+      //  SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
         mGasTv.text =
 			GameManager.getIntance().mCurrentGas+ 
 			"/"+

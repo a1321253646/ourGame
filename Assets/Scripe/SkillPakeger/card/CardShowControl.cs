@@ -220,11 +220,12 @@ public class CardShowControl : MonoBehaviour {
     }
     private void addBackUi(PlayerBackpackBean bean)
     {
-        mBacUiCount += 1;
+        
 
         int count = 0;
         for (int i = 0; i < mBackListGb.Count; i++)
         {
+            mBacUiCount += 1;
             count++;
             CardUiControl ui = mBackListGb[i].GetComponent<CardUiControl>();
             if (ui.mCardId == -1)

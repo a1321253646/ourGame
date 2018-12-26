@@ -247,16 +247,16 @@ public class BigNumber
         while (index < leng) {
             unit1 = new BigNumberUnit();
             float v = big.mList[index].value * multiplying;
-            Debug.Log("big.mList[index].value =" + big.mList[index].value + " multiplying = " + multiplying + " v=" + v);
+//            Debug.Log("big.mList[index].value =" + big.mList[index].value + " multiplying = " + multiplying + " v=" + v);
             int v2 = (int)v;
-            Debug.Log("v2 =" + v2);
+//            Debug.Log("v2 =" + v2);
             float v3 = v - v2;
-            Debug.Log("v3 =" + v3);
+//            Debug.Log("v3 =" + v3);
 
             if (index > 0 && v3 > 0) {
                 int v4 = (int)(v3 * 1000);
                 int v5 = back.mList[index - 1].value + v4;
-                Debug.Log("v5 =" + v5 );
+//                Debug.Log("v5 =" + v5 );
                 if (v5 >= 1000)
                 {
                     back.mList[index - 1].value = v5 % 1000;
@@ -265,14 +265,14 @@ public class BigNumber
                 else {
                     back.mList[index - 1].value = v5;
                 }
-                Debug.Log("big.mList[index - 1].value =" + big.mList[index - 1].value);
+//                Debug.Log("big.mList[index - 1].value =" + big.mList[index - 1].value);
             }
 
             value = (int)(big.mList[index].value * multiplying)+up;
            
             unit1.value = value % 1000;
             unit1.unit = big.mList[index].unit;
-            Debug.Log("value =" + unit1.value+" unit = "+ unit1.unit);
+//            Debug.Log("value =" + unit1.value+" unit = "+ unit1.unit);
             back.mList.Add(unit1);
             up = value / 1000;
             index++;

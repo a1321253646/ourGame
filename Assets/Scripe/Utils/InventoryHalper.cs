@@ -115,7 +115,6 @@ public class InventoryHalper
                 newBean.count = count;
                 newBean.tabId = jb.tabid;
                 newBean.isShowPoint = 1;
-                mList.Add(newBean);
             }
             else if (id > TABID_2_START_ID && id < TABID_3_START_ID)
             {
@@ -159,7 +158,6 @@ public class InventoryHalper
                     Debug.Log("newBean.attributeList.Add : type=" + p4.type + " value=" + p4.value);                 
                 }
                 newBean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
-                mList.Add(newBean);
             }
             else if (id > TABID_3_START_ID && id < TABID_4_START_ID) {
                 CardJsonBean cj = BackpackManager.getIntance().getCardInfoById(id);
@@ -169,7 +167,6 @@ public class InventoryHalper
                 newBean.tabId = cj.tabid;           
                 newBean.isShowPoint = 1;
                 newBean.goodType = SQLDate.GOOD_TYPE_CARD;
-                mList.Add(newBean);
             }
             else if (id > TABID_4_START_ID)
             {
@@ -180,7 +177,27 @@ public class InventoryHalper
                 newBean.isShowPoint = 1;
                 newBean.goodType = SQLDate.GOOD_TYPE_PET;
                 mPet.Add(newBean);
+                
+            }
+            if (mList.Count == 0)
+            {
                 mList.Add(newBean);
+            }
+            else
+            {
+                int goodListIndex = 0;
+                for (goodListIndex = 0; goodListIndex < mList.Count; goodListIndex++)
+                {
+                    if (newBean.sortID < mList[goodListIndex].sortID)
+                    {
+                        mList.Insert(goodListIndex, newBean);
+                        break;
+                    }
+                }
+                if (goodListIndex == mList.Count)
+                {
+                    mList.Add(newBean);
+                }
             }
             newBean.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();          
             SQLHelper.getIntance().addGood(newBean);

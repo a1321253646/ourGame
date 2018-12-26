@@ -101,9 +101,16 @@ public class CardManager : MonoBehaviour {
         return mCardLocalTop.transform.position.y;
     }
 
-	// Update is called once per frame
+    // Update is called once per frame
+    private bool isInit = false;
+    public void init() {
+        isInit = true;
+    }
     private int mMaxCardCount = 0;
 	void Update () {
+        if (!isInit) {
+            return;
+        }
         if (mCount > 0) {
             mOutSendCardTime += Time.deltaTime;
             if (mOutSendCardTime >= OUT_CREADT_CARD_TIME && mList.Count < JsonUtils.getIntance().getConfigValueForId(100015)) {
