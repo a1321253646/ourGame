@@ -28,21 +28,22 @@
     {
         aggressivity = chenGetDouble(aggressivity, adder.aggressivity / 10000) ;
         defense = chenGetDouble(defense, adder.defense / 10000);
-        rate = chenGetInt(rate, adder.rate / 10000);
-        evd = chenGetInt(evd, adder.evd / 10000);
+        rate = (float)chenGetInt(rate, adder.rate / 10000);
+        evd = (float)chenGetInt(evd, adder.evd / 10000);
         maxBloodVolume = chenGetDouble(maxBloodVolume, adder.maxBloodVolume / 10000);
-        crt = chenGetInt(crt, adder.crt / 10000);
-        hurt = chenGetInt(hurt, adder.hurt / 10000);
+        crt = (float)chenGetInt(crt, adder.crt / 10000);
+        hurt = (float)chenGetInt(hurt, adder.hurt / 10000);
         crtHurt = chenGetDouble(crtHurt, adder.crtHurt / 10000);
         readHurt = chenGetDouble(readHurt, adder.readHurt / 10000);
-        attackSpeed = chenGetInt(attackSpeed, adder.attackSpeed / 10000);
+        attackSpeed = (float)chenGetInt(attackSpeed, adder.attackSpeed / 10000);
         return this;
     }
 
-    private float chenGetInt(float a1, float a2) {
-        float a3 = a1 * a2;
-        int tmp = a3 % 1 == 0 ? 0 : 1;
-        a3 = ((int)a3) / 1 + tmp;
+    private double chenGetInt(double a1, double a2) {
+        if (a2 < 0) {
+            a2 = 0;
+        }
+        double a3 = a1 * a2;
         return a3;
     }
     private double chenGetDouble(double a1, double a2)

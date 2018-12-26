@@ -27,7 +27,7 @@ public class GameManager
 
     public int mInitStatus = -1;//0为开始初始化 1 为开始读取json文件 2为json文件读取完成 3为开始处理本地数据库 4 为本地数据库处理完成 5为开始同步网络数据库 
                                 //6为网络数据库同步完成  7 将网络数据同步到本地 8 完成网络数据本地化 9为存档读取 10读取存档完成
-
+    public string mInitDec = "";
     public float mLunhuiOnlineGet = 0;
     public float mLunhuiOutlineGet = 0;
     public float mLunhuiLunhuiGet = 0;
@@ -41,7 +41,7 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = true;
+    public static bool isAndroid = false;
     public static bool isAdd = false;
     
 
@@ -121,25 +121,10 @@ public class GameManager
             }
             mReincarnation = SQLHelper.getIntance().mLunhuiValue;
 
-            long tmp = SQLHelper.getIntance().isShowPlayerPoint;
-            if (tmp != -1) {
-                isShowPlayerPoint = tmp;
-            }
-            tmp = SQLHelper.getIntance().isShowBackpackPoint;
-            if (tmp != -1)
-            {
-                isShowBackpackPoint = tmp;
-            }
-            tmp = SQLHelper.getIntance().isShowLuihuiPoint;
-            if (tmp != -1)
-            {
-                isShowLuihuiPoint = tmp;
-            }
-            tmp = SQLHelper.getIntance().isShowCardPoint;
-            if (tmp != -1)
-            {
-                isShowCardPoint = tmp;
-            }
+            isShowPlayerPoint = SQLHelper.getIntance().isShowPlayerPoint;
+            isShowBackpackPoint = SQLHelper.getIntance().isShowBackpackPoint;
+            isShowLuihuiPoint = SQLHelper.getIntance().isShowLuihuiPoint;
+            isShowCardPoint = SQLHelper.getIntance().isShowCardPoint;
         }
        // mCurrentLevel = 1;
         Level level = JsonUtils.getIntance ().getLevelData ();

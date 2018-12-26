@@ -35,8 +35,22 @@ public abstract class Attacker : MonoBehaviour
     public AttackSkillManager mSkillManager;
 
     public Attribute mAttribute = new Attribute();
+
+    public Attribute mBaseAttribute = new Attribute();
+
     public Attribute mSkillAttribute = new Attribute();
     public Attribute mSkillAttributePre = new Attribute();
+    
+
+    public Attribute mEquipAttribute = new Attribute();
+    public Attribute mEquipAttributePre = new Attribute();
+
+    public Attribute mLunhuiAttribute = new Attribute();
+    public Attribute mLunhuiAttributePre = new Attribute();
+
+    public Attribute mAllAttribute = new Attribute();
+    public Attribute mAllAttributePre = new Attribute().setToPre();
+
     public LocalBean mLocalBean;
 	public List<Attacker> mAttackerTargets;
 	public ResourceBean resourceData;

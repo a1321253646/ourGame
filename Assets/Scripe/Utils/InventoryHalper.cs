@@ -29,10 +29,10 @@ public class InventoryHalper
         mDropDeviceUsed = SQLHelper.getIntance().getDropDevice();
     }
     public void dealClear() {
-        mDropDeviceUsed.Clear();
-        mList.Clear();
-        mUser.Clear();
-        mCard.Clear();
+      //  mDropDeviceUsed.Clear();
+      //  mList.Clear();
+      //  mUser.Clear();
+      //  mCard.Clear();
         SQLHelper.getIntance().deleteLuihui();
     }
     public void useCard(PlayerBackpackBean bean)

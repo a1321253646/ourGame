@@ -26,14 +26,8 @@ public class EnemyState{
 		HP_imageGameObjectClone.transform.localScale = new Vector3 (  mResourceData.blood_witch,1f,0);
 		HP_imageGameObjectClone.transform.SetParent(HP_Parent); 
 		mHpSl = HP_imageGameObjectClone.GetComponent<Slider> ();
-        if (mEnemy.mAttribute.maxBloodVolume > float.MaxValue)
-        {
-            bili = mEnemy.mAttribute.maxBloodVolume / float.MaxValue + 1;
-        }
-
-        mHpSl.maxValue = (float)(mEnemy.mAttribute.maxBloodVolume / bili);
-        mHpSl.value = (float)(mEnemy.mBloodVolume / bili);
-		EnemySceenPosition= Camera.main.WorldToScreenPoint(mEnemy.transform.position)+new Vector3(0,0,0);  
+        resetHp();
+        EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position)+new Vector3(0,0,0);  
 		HP_imageGameObjectClone.transform.position = EnemySceenPosition;
 		//GameObject.Instantiate (getEnemyPrefab(res), new Vector2 (transform.position.x, transform.position.y),Quaternion.Euler(0.0f,0f,0.0f));
 		 
@@ -108,5 +102,13 @@ public class EnemyState{
         text.transform.position = EnemySceenPosition;
         UiManager.FlyTo(tv);
     }
+    public void resetHp() {
+        if (mEnemy.mAttribute.maxBloodVolume > float.MaxValue)
+        {
+            bili = mEnemy.mAttribute.maxBloodVolume / float.MaxValue + 1;
+        }
 
+        mHpSl.maxValue = (float)(mEnemy.mAttribute.maxBloodVolume / bili);
+        mHpSl.value = (float)(mEnemy.mBloodVolume / bili);
+    }
 }

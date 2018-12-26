@@ -19,6 +19,7 @@ public class EventAttackSkillManager
     public static int EVENT_SKILL_BEFORE_DROP = 13;
     public static int EVENT_SKILL_END_DROP = 14;
     public static int EVENT_SKILL_ATTACKING = 15;
+    public static int EVENT_SKILL_MONSTER_DEBUFF = 16;
 
     Dictionary<long, EventAttackSkillManagerSingle> mManagerList = new Dictionary<long, EventAttackSkillManagerSingle>();
     public List<TimeAttackSkillBase> mTimeList = new List<TimeAttackSkillBase>();
@@ -272,6 +273,22 @@ public class EventAttackSkillManager
         }
         return hurt;
     }
+    public void debuffMonster(Attacker monster)
+    {
+        EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_MONSTER_DEBUFF);
+        if (singel == null || singel.mList.Count == 0)
+        {
+            return ;
+        }
+        else
+        {
+            foreach (EventAttackSkill skill in singel.mList)
+            {
+                skill.debuffMonster(monster);
+            }
+        }
+    }
+
     public virtual BigNumber getDieHuijing(BigNumber big)//获取死亡魂晶
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_END_DIE_HUIJING);

@@ -46,7 +46,6 @@ public class SQLHelper
     public static long GAME_ID_IS_UPDATE = 18;
     public static long GAME_ID_POINT_PETTABLE = 19;
 
-
     public static long TYPE_GAME = 1;
     public static long TYPE_GOOD = 2;
     public static long TYPE_BOOK = 3;
@@ -85,6 +84,7 @@ public class SQLHelper
         mBook.Clear();
         mDropDeviceCount.Clear();
         int goodListIndex = 0;
+        long maxGoodIdTmp = -1;
         if (mList != null && mList.Count > 0)
         {
             foreach (SQLDate date in mList)
@@ -109,6 +109,10 @@ public class SQLHelper
                     PlayerBackpackBean bean = getBeanFromStr(date.extan);
                     bean.goodId = date.id;
                     bean.sqlGoodId = date.goodId;
+                    if (bean.sqlGoodId > maxGoodIdTmp)
+                    {
+                        maxGoodIdTmp = bean.sqlGoodId;
+                    }
                     bean.goodType = date.goodType;
                     Debug.Log("读取数据库  id= " + bean.goodId + " count =" + bean.count);
                     if (mALLGood.Count == 0) {
@@ -127,7 +131,7 @@ public class SQLHelper
                         }
                     }
 
-                    mALLGood.Add(bean);
+ //                   mALLGood.Add(bean);
                     if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD)
                     {
                         mCard.Add(bean);
@@ -240,7 +244,13 @@ public class SQLHelper
                     }
                 }
             }
+            if ( maxGoodIdTmp > mMaxGoodId)
+            {
+                mMaxGoodId = maxGoodIdTmp;
+                getCurrentGoodId();
+            }
             Debug.Log("读取数据库 物品数量" + mALLGood.Count);
+            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100031);
         }
     }
 
@@ -365,9 +375,9 @@ public class SQLHelper
         date.extan = getGoodExtra(good);
         date.type = TYPE_GOOD;
         date.id = good.goodId;
-        date.goodId = good.sqlGoodId;
-        date.getClean();
+        date.goodId = good.sqlGoodId;      
         date.goodType = good.goodType;
+        date.getClean();
         SQLManager.getIntance().InsertDataToSQL(date);
         
 
@@ -399,7 +409,24 @@ public class SQLHelper
 
     public void deleteLuihui() {
         mDropDeviceCount.Clear();
+        mALLGood.Clear();
+        mUser.Clear();
+        mCard.Clear();
+
+        mHeroLevel = -1;
+        mGameLevel = -9999L ;
+        mMaxGoodId = -1;
+        isShowCardPoint = -1;
+        isShowBackpackPoint = -1;
+        isShowPlayerPoint = -1;
+        isLuiHuiDeal = -1;
+        mMojing = new BigNumber();
         SQLManager.getIntance().deleteLuiHui();
+        updateGameLevel(1);
+        updateHeroLevel(1);
+        GameManager.getIntance().mCurrentLevel = 1;
+        GameManager.getIntance().mHeroLv = 1;
+        GameManager.getIntance().mCurrentCrystal = mMojing;
     }
 
     public void changeGoodTyppe(PlayerBackpackBean good) {
@@ -515,6 +542,7 @@ public class SQLHelper
 
     public void updateHeroLevel(long value)
     {
+        Debug.Log("mHeroLevel  = = " + mHeroLevel);
         if (mHeroLevel == -1)
         {
             addGame(GAME_ID_HERO, value);
@@ -525,6 +553,7 @@ public class SQLHelper
             updateGame(GAME_ID_HERO, value);
         }
         mHeroLevel = value;
+        Debug.Log("mHeroLevel  = = " + mHeroLevel);
     }
     public void updateFristStart(long value)
     {
@@ -775,14 +804,8 @@ public class SQLHelper
         date.type = TYPE_GAME;
         date.id = id;
         date.getClean();
-        if (GAME_ID_LEVEL == id)
-        {
-            SQLManager.getIntance().UpdateInto(date,true);
-        }
-        else
-        {
-            SQLManager.getIntance().UpdateInto(date);
-        }
+
+        SQLManager.getIntance().UpdateInto(date);
         
     }
     private void addGame(long id, long value)
@@ -793,13 +816,7 @@ public class SQLHelper
         date.type = TYPE_GAME;
         date.id = id;
         date.getClean();
-        if (GAME_ID_LEVEL == id)
-        {
-            SQLManager.getIntance().InsertDataToSQL(date,true);
-        }
-        else {
-            SQLManager.getIntance().InsertDataToSQL(date);
-        }
+        SQLManager.getIntance().InsertDataToSQL(date);
         
     }
 }

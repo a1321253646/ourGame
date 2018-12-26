@@ -166,15 +166,19 @@ public class EnemyBase : Attacker {
 		resourceData= resource;
         initAnimalEvent();
         mData = data;
-        mAttribute.aggressivity = data.monster_attack;
-        mAttribute.defense = data.monster_defense;
-        mAttribute.maxBloodVolume = data.monster_hp;
-        mAttribute.attackSpeed = data.attack_speed;
-        mAttribute.rate = data.hit;
-        mAttribute.evd = data.dod;
-        mAttribute.crt = data.cri;
-        mAttribute.crtHurt = data.cri_dam;
-        mAttribute.readHurt = data.real_dam;
+        mBaseAttribute.aggressivity = data.monster_attack;
+        mBaseAttribute.defense = data.monster_defense;
+        mBaseAttribute.maxBloodVolume = data.monster_hp;
+        mBaseAttribute.attackSpeed = data.attack_speed;
+        mBaseAttribute.rate = data.hit;
+        mBaseAttribute.evd = data.dod;
+        mBaseAttribute.crt = data.cri;
+        mBaseAttribute.crtHurt = data.cri_dam;
+        mBaseAttribute.readHurt = data.real_dam;
+
+        mAttribute.clear();
+        mAttribute.add(mBaseAttribute);
+
         mBloodVolume = mAttribute.maxBloodVolume;
         mRunSpeed = data.monster_speed;
         mAttackLeng = data.attack_range;
@@ -254,6 +258,27 @@ public class EnemyBase : Attacker {
 
     public override void getAttribute()
     {
-     
+        double bloodBili = mBloodVolume / mAttribute.maxBloodVolume;
+
+        mAttribute.clear();
+        mAllAttribute.clear();
+        mAllAttributePre.setToPre();
+
+        mAllAttribute.add(mBaseAttribute);
+        mAllAttribute.add(mEquipAttribute);
+        mAllAttribute.add(mLunhuiAttribute);
+        mAllAttribute.add(mSkillAttribute);
+
+        mAllAttributePre.add(mEquipAttributePre);
+        mAllAttributePre.add(mLunhuiAttributePre);
+        mAllAttributePre.add(mSkillAttributePre);
+
+
+        mAttribute.add(mAllAttribute);
+        //Debug.Log("===============mAttribute.mAttribute = " + mAllAttribute);
+        mAttribute.chen(mAllAttributePre);
+        mBloodVolume = mAttribute.maxBloodVolume * bloodBili;
+        upDataSpeed();
+        mState.resetHp();
     }
 }

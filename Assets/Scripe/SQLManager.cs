@@ -100,12 +100,14 @@ public class SQLManager : MonoBehaviour
         string appDBPath = Application.persistentDataPath + "/" + sqlName;
         if (!File.Exists(appDBPath))
         {
+            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100026);
             creatLocl888Android();
             sqlName = sqlName_old;
             tabName = tabName_old;
             appDBPath = Application.persistentDataPath + "/" + sqlName;
             if (File.Exists(appDBPath))
             {
+                GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100027);
                 this.connection = new SqliteConnection("URI=file:" + appDBPath);
                 this.connection.Open();
                 List<SQLDate> list = readAllTableOld();
@@ -272,6 +274,7 @@ public class SQLManager : MonoBehaviour
             this.connection = new SqliteConnection("URI=file:" + appDBPath);
             this.connection.Open();
         }
+        GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100028);
         return false;
     }
 
@@ -470,7 +473,7 @@ public class SQLManager : MonoBehaviour
     /// <param name="queryString"></param>
     public SqliteDataReader ExecuteSQLCommand(string queryString)
     {
-//        Debug.Log("ExecuteSQLCommand command  "+ queryString);
+        Debug.Log("ExecuteSQLCommand command  "+ queryString);
 //        Debug.Log("ExecuteSQLCommand connection  =" + connection);
 //        Debug.Log("ExecuteSQLCommand connection  =" + connection.State);
         command = connection.CreateCommand();
@@ -719,7 +722,7 @@ public class SQLManager : MonoBehaviour
             date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
             date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
             date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
-//            Debug.Log("readAllTable date.type  = " + date.type);
+            Debug.Log("readAllTable date.type  = " + date.type +" id = "+date.id+" extan = "+ date.extan+ " date.goodId"+ date.goodId+ " date.goodType="+ date.goodType + " date.isClean= "+ date.isClean);
 //            Debug.Log("readAllTable date.type  = " + date.id);
             list.Add(date);
         }

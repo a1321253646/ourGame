@@ -63,4 +63,8 @@ public abstract class EventAttackSkill : AttackerSkillBase
     public virtual bool endGetDrop() {
         return false;
     }
+    public virtual void debuffMonster(Attacker monster)
+    {
+       
+    }
 }

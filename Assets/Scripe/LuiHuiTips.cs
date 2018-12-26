@@ -106,12 +106,12 @@ public class LuiHuiTips : MonoBehaviour {
         SQLHelper.getIntance().updateIsLunhuiValue((long)level.levelspeedup);
         
         InventoryHalper.getIntance().dealClear();
-        GameManager.getIntance().mCurrentCrystal = new BigNumber();
-        SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
-        GameManager.getIntance().mHeroLv = 1;
-        SQLHelper.getIntance().updateHeroLevel(1);
-        GameManager.getIntance().mCurrentLevel = 1;
-        SQLHelper.getIntance().updateGameLevel(1);
+       // GameManager.getIntance().mCurrentCrystal = new BigNumber();
+        //SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
+       // GameManager.getIntance().mHeroLv = 1;
+       // SQLHelper.getIntance().updateHeroLevel(1);
+       // GameManager.getIntance().mCurrentLevel = 1;
+       // SQLHelper.getIntance().updateGameLevel(1);
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
         
     }

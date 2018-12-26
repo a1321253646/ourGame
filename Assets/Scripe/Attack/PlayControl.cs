@@ -38,7 +38,7 @@ public class PlayControl : Attacker
                   //   && !GameManager.getIntance().isAddGoodForTest)
                  {
                     GameManager.getIntance().isAddGoodForTest = true;
-                    BackpackManager.getIntance().addGoods(4000001, count);
+                    BackpackManager.getIntance().addGoods(4000004, count);
                  /*   BackpackManager.getIntance().addGoods(4000002, count);
                     BackpackManager.getIntance().addGoods(4000003, count);
                     BackpackManager.getIntance().addGoods(4000004, count);
@@ -149,16 +149,7 @@ public class PlayControl : Attacker
         }
     }
 
-    public Attribute mBaseAttribute = new Attribute();
 
-    public Attribute mEquipAttribute = new Attribute();
-    public Attribute mEquipAttributePre = new Attribute();
-
-    public Attribute mLunhuiAttribute = new Attribute();
-    public Attribute mLunhuiAttributePre = new Attribute();
-
-    public Attribute mAllAttribute = new Attribute();
-    public Attribute mAllAttributePre = new Attribute().setToPre();
 
     public void initEquip(bool isAddSkill) {
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();

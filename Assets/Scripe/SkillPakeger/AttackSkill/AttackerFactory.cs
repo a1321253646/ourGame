@@ -123,6 +123,14 @@ public class AttackerFactory
         {
             return new UpdateSkill600010();
         }
+        else if (id == 600012)
+        {
+            return new AttackSkill600012();
+        }
+        else if (id == 600013)
+        {
+            return new AttackSkill600013();
+        }
         return null;
     }
 }

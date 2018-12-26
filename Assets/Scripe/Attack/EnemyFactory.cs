@@ -18,10 +18,12 @@ public class EnemyFactory : MonoBehaviour {
     float mHeroX = 0;
     float mHeroY = 0;
     private float mZPoint = 2;
+    LevelManager mLevelMnager = null;
     // Use this for initialization
     void Start () {
-		mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
-		mFight = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager ();
+        mLevelMnager = GameObject.Find("Manager").GetComponent<LevelManager>();
+        mBackManager = mLevelMnager.getBackManager ();
+		mFight = mLevelMnager.getFightManager ();
 		canvas = GameObject.Find ("Canvas");
 		mList = JsonUtils.getIntance ().getWellenEnemy ();
 	}
@@ -97,6 +99,7 @@ public class EnemyFactory : MonoBehaviour {
 		}
         enmey.mCampType = Attacker.CAMP_TYPE_MONSTER;
         enmey.setTarget(new Vector2(mHeroX, mHeroY));
+        mLevelMnager.mPlayerControl.mSkillManager.mEventAttackManager.debuffMonster(enmey);
     }
     private float getYRamdom() {
         float y = Random.Range(mMapConfig.y_min+ mBottom, mMapConfig.y_max+ mBottom);

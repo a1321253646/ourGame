@@ -101,29 +101,50 @@ public class JsonUtils
             guideFile = "guide";
             petFile = "pet";
         }
+        GameManager.getIntance().mInitDec = "开始读取配置文件";
         readAllFile();
     }
 
     public void readAllFile() {
+        GameManager.getIntance().mInitDec = "读取字符配置文件";
         readString();
+        GameManager.getIntance().mInitDec = getStringById(100006);
         readGuideFile();
+        GameManager.getIntance().mInitDec = getStringById(100007);
         readMapInfoInfo();
+        GameManager.getIntance().mInitDec = getStringById(100008);
         readResource();
+        GameManager.getIntance().mInitDec = getStringById(100009);
         readConfig();
+        GameManager.getIntance().mInitDec = getStringById(100010);
         readHeroData();
-        readLevelData();        
+        GameManager.getIntance().mInitDec = getStringById(100011);
+        readLevelData();
+        GameManager.getIntance().mInitDec = getStringById(100012);
         readGoodInfo();
+        GameManager.getIntance().mInitDec = getStringById(100013);
         readAffixInfo();
+        GameManager.getIntance().mInitDec = getStringById(100014);
         readAttributeInfo();
+        GameManager.getIntance().mInitDec = getStringById(100015);
         readComposeInfo();
+        GameManager.getIntance().mInitDec = getStringById(100016);
         readdropDeviceInfo();
+        GameManager.getIntance().mInitDec = getStringById(100017);
         readdropDeviceDetailInfo();
+        GameManager.getIntance().mInitDec = getStringById(100018);
         readSpeedValueInfo();
+        GameManager.getIntance().mInitDec = getStringById(100019);
         readSkillInfo();
+        GameManager.getIntance().mInitDec = getStringById(100020);
         readCardInfo();
+        GameManager.getIntance().mInitDec = getStringById(100021);
         readSamsaraInfo();
+        GameManager.getIntance().mInitDec = getStringById(100022);
         getEnemyDate();
+        GameManager.getIntance().mInitDec = getStringById(100023);
         readPetInfo();
+        GameManager.getIntance().mInitDec = getStringById(100024);
     }
 
     public static JsonUtils getIntance() {

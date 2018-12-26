@@ -12,7 +12,7 @@ public class AttackSkill600007 : EventAttackSkill
         if(count1 == 0) { 
             count1 = mSkillJson.getSpecialParameterValue()[0] /100;
         }
-        mManager.getAttacker().AddBlood((int)(count1 * mManager.getAttacker().mAttribute.aggressivity));
+        mManager.getAttacker().AddBlood(count1 * mManager.getAttacker().mAttribute.aggressivity);
         Debug.Log("===============60007 add " + count1 * mManager.getAttacker().mAttribute.aggressivity);
     }
     public override void endSkill()
