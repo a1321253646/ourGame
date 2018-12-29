@@ -181,8 +181,10 @@ public class FightManager{
                 if (hurtBlood != null) {
                     attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.beforeBeHurt(hurtBlood);
                     attacker.mAttackerTargets[0].BeAttack(hurtBlood, attacker);
-                    attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(hurtBlood);
-                    attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endHurt(hurtBlood);
+                    if (attacker.mAttackerTargets[0].getStatus() != ActionFrameBean.ACTION_DIE) {
+                        attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(hurtBlood);
+                        attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endHurt(hurtBlood);
+                    }
                     return hurtBlood.blood;
                 }
                 else {

@@ -82,9 +82,32 @@ public class SQLHelper
         mUser.Clear();
         mCard.Clear();
         mBook.Clear();
+        mPet.Clear();
         mDropDeviceCount.Clear();
+        mGuide.Clear();
+
+        mGameLevel = -9999L;
+        mHeroLevel = -1;
+        isAutoBoss = -1;
+        isLuiHui = -1;
+        isLuiHuiDeal = -1;
+        mLunhuiValue = new BigNumber();
+        mMojing = new BigNumber();
+        mOutTime = -1;
+
+        isShowCardPoint = -1;
+        isShowBackpackPoint = -1;
+        isShowLuihuiPoint = -1;
+        isShowPlayerPoint = -1;
+        isShowPetTablePoint = -1;
+        isFristStartGame = -1;
+        isVoice = -1;
+        mMaxGoodId = -1;
+        isUpdate = -1;
+
         int goodListIndex = 0;
         long maxGoodIdTmp = -1;
+
         if (mList != null && mList.Count > 0)
         {
             foreach (SQLDate date in mList)
@@ -247,7 +270,27 @@ public class SQLHelper
             if ( maxGoodIdTmp > mMaxGoodId)
             {
                 mMaxGoodId = maxGoodIdTmp;
-                getCurrentGoodId();
+           /*     if (mMaxGoodId == -1 && maxGoodIdTmp != -1)
+                {
+                    mMaxGoodId = maxGoodIdTmp;
+                    SQLDate date = new SQLDate();
+                    date.extan = "" + mMaxGoodId;
+                    date.type = TYPE_GAME;
+                    date.id = GAME_ID_GOOD_MAXID;
+                    date.getClean();
+                    SQLManager.getIntance().InsertDataToSQL(date, true);
+                }
+                else if (mMaxGoodId != -1 && maxGoodIdTmp > mMaxGoodId) {
+                    mMaxGoodId = maxGoodIdTmp;
+                    SQLDate date = new SQLDate();
+                    date.extan = "" + mMaxGoodId;
+                    date.type = TYPE_GAME;
+                    date.id = GAME_ID_GOOD_MAXID;
+                    date.getClean();
+                    SQLManager.getIntance().UpdateInto(date, true);
+                }*/
+                    
+                Debug.Log("=======================maxGoodIdTmp > mMaxGoodId================================");
             }
             Debug.Log("读取数据库 物品数量" + mALLGood.Count);
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100031);
@@ -280,7 +323,7 @@ public class SQLHelper
                     {
                         PlayerAttributeBean att = new PlayerAttributeBean();
                         att.type = long.Parse(ss[0]);
-                        att.value = long.Parse(ss[1]);
+                        att.value = double.Parse(ss[1]);
                         if (bean.attributeList == null)
                         {
                             bean.attributeList = new List<PlayerAttributeBean>();

@@ -315,9 +315,13 @@ public class BigNumber
             else if(index < maxLeng)
             {
                 int value = max.mList[index].value + up;
-                if (value < 0) {
+                if (value < 0)
+                {
                     value = 1000 + value;
                     up = -1;
+                }
+                else {
+                    up = 0;
                 }
                 unit1.value = value;
                 unit1.unit = max.mList[index].unit;               

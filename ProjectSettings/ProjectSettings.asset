@@ -127,7 +127,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: v0.18
+  bundleVersion: v0.19
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -162,7 +162,7 @@ PlayerSettings:
     Android: com.jackzheng.ourGame
   buildNumber:
     Standalone: 12
-  AndroidBundleVersionCode: 18
+  AndroidBundleVersionCode: 19
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 22
   AndroidPreferredInstallLocation: 1

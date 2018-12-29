@@ -18,7 +18,7 @@ public class AttackSkill600004 : EventAttackSkill
         
         bool isSuccess = randomResult(10000, count, false);
         if (isSuccess) {
-            mManager.getAttacker().AddBlood((int)(count1 * mManager.getAttacker().mAttribute.aggressivity));
+            mManager.getAttacker().AddBlood((count1 * mManager.getAttacker().mAttribute.aggressivity));
         }
     }
     public override void endSkill()

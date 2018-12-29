@@ -3,7 +3,7 @@
     "id": 100001,
     "effects": 1,
     "target_type": 2,
-    "effects_parameter": "2.5,0.1",
+    "effects_parameter": "2.5,",
     "calculator": "\"1,100\"*a1*(\"1,100\"/(\"1,100\"+\"2,101\"))",
     "special_parameter_value": "",
     "next_skill": "",
@@ -13,7 +13,10 @@
     "shape_resource_id": "shape_1",
     "leng": 4,
     "wight": 2,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100002,
@@ -29,13 +32,16 @@
     "shape_resource_id": "shape_2",
     "leng": 0.5,
     "wight": 0.5,
-    "point_type": 3
+    "point_type": 3,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100003,
     "effects": 3,
     "target_type": 2,
-    "effects_parameter": "0.8,0.1",
+    "effects_parameter": "0.8,",
     "calculator": "\"1,100\"*a1*(\"1,100\"/(\"1,100\"+\"2,101\"))",
     "special_parameter_value": "4,6",
     "next_skill": "",
@@ -45,13 +51,16 @@
     "shape_resource_id": "shape_1",
     "leng": 4.15,
     "wight": 3.5,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100004,
     "effects": 6,
     "target_type": 2,
-    "effects_parameter": "1.2,0.1",
+    "effects_parameter": "1.2,",
     "calculator": "\"1,100\"*a1*(\"1,100\"/(\"1,100\"+\"2,101\"))",
     "special_parameter_value": "5,",
     "next_skill": "",
@@ -61,7 +70,10 @@
     "shape_resource_id": "shape_1",
     "leng": 2.5,
     "wight": 3,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100005,
@@ -77,7 +89,10 @@
     "shape_resource_id": "shape_1",
     "leng": 2,
     "wight": 0.8,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100006,
@@ -93,14 +108,17 @@
     "shape_resource_id": "shape_1",
     "leng": 1.6,
     "wight": 0.45,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100007,
     "effects": 1,
     "target_type": 2,
     "effects_parameter": "0.2,0.1",
-    "calculator": "(\"2,102\"-\"2,103\")*a1+\"5,200001,10001\"*\"1,100\"*a2",
+    "calculator": "((\"2,102\"-\"2,103\")*a1+\"5,200001,10001\"*\"1,100\"*a2)*(\"1,100\"/(\"1,100\"+\"2,101\"))",
     "special_parameter_value": "",
     "next_skill": "",
     "skill_describe": "引爆所有易伤，造成目标损失血量*20%伤害,每层易伤造成攻击力*10%点真实伤害",
@@ -109,7 +127,10 @@
     "shape_resource_id": "shape_1",
     "leng": 4.5,
     "wight": 2,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100008,
@@ -125,7 +146,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 3
+    "point_type": 3,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100009,
@@ -141,7 +165,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100010,
@@ -157,7 +184,10 @@
     "shape_resource_id": "shape_1",
     "leng": 2,
     "wight": 0.25,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100011,
@@ -173,7 +203,10 @@
     "shape_resource_id": "shape_1",
     "leng": 3.3,
     "wight": 2,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100012,
@@ -189,7 +222,10 @@
     "shape_resource_id": "shape_1",
     "leng": 0.52,
     "wight": 0.117,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 100013,
@@ -205,7 +241,10 @@
     "shape_resource_id": "shape_1",
     "leng": 1.77,
     "wight": 0.5,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 200001,
@@ -221,7 +260,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 200002,
@@ -237,7 +279,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 1
+    "point_type": 1,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 200003,
@@ -253,7 +298,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0.0
+    "point_type": 0.0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 300001,
@@ -269,7 +317,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0.0
+    "point_type": 0.0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600001,
@@ -277,7 +328,7 @@
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 5,
+    "special_parameter_value": 15,
     "next_skill": "",
     "skill_describe": "普通攻击有S1%的概率无视防御",
     "skill_resource": 0.0,
@@ -285,7 +336,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600002,
@@ -293,7 +347,7 @@
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 0.1,
+    "special_parameter_value": 0.5,
     "next_skill": "",
     "skill_describe": "每次攻击获S1%攻击力的生命值",
     "skill_resource": 0.0,
@@ -301,7 +355,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600003,
@@ -317,7 +374,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600004,
@@ -325,7 +385,7 @@
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": "5,10",
+    "special_parameter_value": "5,2",
     "next_skill": "",
     "skill_describe": "普通攻击有S1%概率恢复S2%攻击力生命值",
     "skill_resource": 0.0,
@@ -333,7 +393,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600005,
@@ -341,7 +404,7 @@
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 1,
+    "special_parameter_value": 1.5,
     "next_skill": "",
     "skill_describe": "每杀死1只怪物提升S1%防御，只在本关生效",
     "skill_resource": 0.0,
@@ -349,7 +412,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600006,
@@ -365,23 +431,29 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600007,
-    "effects": 500007,
+    "effects": 500004,
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 5,
+    "special_parameter_value": "10,5",
     "next_skill": "",
-    "skill_describe": "杀死怪物恢复S1%攻击力生命值",
+    "skill_describe": "普通攻击有S1%概率恢复S2%攻击力生命值",
     "skill_resource": 0.0,
     "shape_type": 0,
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600008,
@@ -397,7 +469,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600009,
@@ -413,7 +488,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600010,
@@ -429,7 +507,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600011,
@@ -445,7 +526,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600012,
@@ -461,7 +545,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600013,
@@ -469,7 +556,7 @@
     "target_type": 4,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 20,
+    "special_parameter_value": 10,
     "next_skill": "",
     "skill_describe": "降低目标S1%的防御力，永久",
     "skill_resource": 0.0,
@@ -477,7 +564,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   },
   {
     "id": 600014,
@@ -485,7 +575,7 @@
     "target_type": 3,
     "effects_parameter": 0,
     "calculator": "",
-    "special_parameter_value": 50,
+    "special_parameter_value": 30,
     "next_skill": "",
     "skill_describe": "每杀死一个BOSS，有S2%概率获得一次额外掉落",
     "skill_resource": 0.0,
@@ -493,6 +583,28 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
+  },
+  {
+    "id": 600015,
+    "effects": 500004,
+    "target_type": 3,
+    "effects_parameter": 0,
+    "calculator": "",
+    "special_parameter_value": "10,4",
+    "next_skill": "",
+    "skill_describe": "普通攻击有S1%概率恢复S2%攻击力生命值",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column14": "",
+    "Column15": "",
+    "Column16": ""
   }
 ]

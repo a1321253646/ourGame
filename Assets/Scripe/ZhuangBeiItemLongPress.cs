@@ -34,7 +34,7 @@ public class ZhuangBeiItemLongPress : MonoBehaviour
             {
                 mTime -= mLongPressTIme;
                 Debug.Log("长按触发");
-                BackpackManager.getIntance().UpdateZhuangBei(mParent.mBean, mParent.updateCost, mParent.level);
+                BackpackManager.getIntance().UpdateZhuangBei(mParent.mBean, mParent.updateCost, mParent.level);             
             }
         }
     }
@@ -45,7 +45,8 @@ public class ZhuangBeiItemLongPress : MonoBehaviour
         {
             if (mLongPressTIme == 0)
             {
-                mLongPressTIme = JsonUtils.getIntance().getConfigValueForId(100041);
+                // mLongPressTIme = JsonUtils.getIntance().getConfigValueForId(100041);
+                mLongPressTIme = 0.1f;
             }
             if (GameManager.getIntance().mCurrentCrystal.ieEquit(mParent.updateCost) != -1) {
                 BackpackManager.getIntance().UpdateZhuangBei(mParent.mBean, mParent.updateCost, mParent.level);

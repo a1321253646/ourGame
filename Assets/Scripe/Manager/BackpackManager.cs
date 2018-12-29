@@ -123,7 +123,9 @@ public class BackpackManager
     }
     public void UpdateZhuangBei(PlayerBackpackBean bean, BigNumber cost, long level)
     {
-
+        if (GameManager.getIntance().getGuideManager().guideIsHappen(4)) {
+            GameManager.getIntance().getGuideManager().removeGuide(4);
+        }
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_EQUITE_UP_CLICK, bean.goodId);
         InventoryHalper.getIntance().updateZhuangbei(bean, level);
         GameManager.getIntance().mCurrentCrystal = BigNumber.minus(GameManager.getIntance().mCurrentCrystal, cost);

@@ -209,8 +209,6 @@ public class UiManager
 
 	public void refreshData(){
 		mHeroLvTv.text = "" + GameManager.getIntance ().mHeroLv;
-        SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
-        SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         mLvUpCrystalTv.text =  GameManager.getIntance ().upLevelCrystal.toStringWithUnit();
 		mCurrentCrystalTv.text =   GameManager.getIntance ().mCurrentCrystal.toStringWithUnit();
         Hero l = JsonUtils.getIntance().getHeroData(GameManager.getIntance().mHeroLv + 1);

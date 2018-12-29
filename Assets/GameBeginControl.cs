@@ -53,6 +53,7 @@ public class GameBeginControl : MonoBehaviour {
         else if (GameManager.getIntance().mInitStatus == 10)
         {
             GameManager.getIntance().mInitDec = "";
+            mLoadingDec.text = GameManager.getIntance().mInitDec;
             GameManager.getIntance().mInitStatus = 11;
             if (SQLHelper.getIntance().isFristStartGame == -1)
             {

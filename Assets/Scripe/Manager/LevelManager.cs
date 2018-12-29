@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 
@@ -200,6 +201,16 @@ public class LevelManager : MonoBehaviour {
             Debug.Log("Input.GetKeyDown(KeyCode.F5");
         }*/
         SkillManage.getIntance().update();
+
+        if (GameManager.getIntance().mInitStatus == 12) {
+            Time.timeScale = 0;
+            string message = GameManager.getIntance().mGameErrorString;
+            Text text = GameObject.Find("game_error_des").GetComponent<Text>();
+            text.text = message;
+            GameObject ob =  GameObject.Find("game_error_messge");
+            ob.transform.localPosition = new Vector2(0, 0);
+            ob.transform.SetSiblingIndex(GameManager.getIntance().getUiLevel());
+        }
 
     }
 	public BackgroundManager getBackManager(){

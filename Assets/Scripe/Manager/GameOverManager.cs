@@ -14,6 +14,8 @@ public class GameOverManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GameManager.getIntance().mInitStatus = 10;
+        //  JsonUtils.getIntance().init();
+        SQLHelper.getIntance().init();
         SceneManager.LoadScene(0);
     }
 

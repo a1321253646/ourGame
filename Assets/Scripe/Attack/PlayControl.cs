@@ -28,7 +28,7 @@ public class PlayControl : Attacker
        
         upLunhui();
         initEquip();
-        int count = 1;
+        int count = 3;
         mFightManager.registerAttacker (this);
         GameObject.Find("Manager").GetComponent<PetManager>().init();
         mLevelAnimalControl = new HeroLevelUpAnimal(mLevelAnimal, JsonUtils.getIntance().getEnemyResourceData(40002),this);
@@ -38,7 +38,7 @@ public class PlayControl : Attacker
                   //   && !GameManager.getIntance().isAddGoodForTest)
                  {
                     GameManager.getIntance().isAddGoodForTest = true;
-                    BackpackManager.getIntance().addGoods(4000004, count);
+                    BackpackManager.getIntance().addGoods(3000007, count);
                  /*   BackpackManager.getIntance().addGoods(4000002, count);
                     BackpackManager.getIntance().addGoods(4000003, count);
                     BackpackManager.getIntance().addGoods(4000004, count);
@@ -202,7 +202,7 @@ public class PlayControl : Attacker
             mSkillManager.addSkill(bean, this);           
         }
         Debug.Log("initEquip");
-        getAttribute();
+        getAttribute(false);
         upDataSpeed();
     }
     private double bloodBili = -1;
@@ -327,16 +327,19 @@ public class PlayControl : Attacker
     //    Debug.Log("GameManager.getIntance().mLunhuiOutlineGet =" + GameManager.getIntance().mLunhuiOutlineGet);
      //   Debug.Log("GameManager.getIntance().mLunhuiLunhuiGet =" + GameManager.getIntance().mLunhuiLunhuiGet);
       //  Debug.Log("upLunhui");
-        getAttribute();
+        getAttribute(false);
         upDataSpeed();
     }
-
-    public override  void getAttribute() {
-
-//        Debug.Log("===============getAttribute. mBloodVolume = "+ mBloodVolume );
-  //      Debug.Log("===============getAttribute. mAttribute.maxBloodVolume = " + mAttribute.maxBloodVolume);
-    //    Debug.Log("===============getAttribute. bloodBili = " + bloodBili);
-      //  Debug.Log("===============getAttribute. bloodDistance = " + bloodDistance);
+     void getAttribute(bool isGetBili) 
+    {
+        if (isGetBili) {
+            bloodDistance = -1;
+            bloodBili = mBloodVolume / mAttribute.maxBloodVolume;
+        }
+        //        Debug.Log("===============getAttribute. mBloodVolume = "+ mBloodVolume );
+        //      Debug.Log("===============getAttribute. mAttribute.maxBloodVolume = " + mAttribute.maxBloodVolume);
+        //    Debug.Log("===============getAttribute. bloodBili = " + bloodBili);
+        //  Debug.Log("===============getAttribute. bloodDistance = " + bloodDistance);
         mAttribute.clear();
         mAllAttribute.clear();
         mAllAttributePre.setToPre();
@@ -349,7 +352,7 @@ public class PlayControl : Attacker
         //Debug.Log("===============mAttribute.mLunhuiAttribute = " + mLunhuiAttribute.toString());
         mAllAttribute.add(mSkillAttribute);
         //Debug.Log("===============mAttribute.mSkillAttribute = " + mSkillAttribute.toString());
-       // Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+        // Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
 
         mAllAttributePre.add(mEquipAttributePre);
         //Debug.Log("===============mAttribute.mEquipAttributePre = " + mEquipAttributePre.toString());
@@ -369,11 +372,17 @@ public class PlayControl : Attacker
         {
             mBloodVolume = mAttribute.maxBloodVolume - bloodDistance;
         }
-        else {
-            mBloodVolume = mAttribute.maxBloodVolume *bloodBili;
+        else
+        {
+            mBloodVolume = mAttribute.maxBloodVolume * bloodBili;
         }
-        
+
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
+    }
+
+
+    public override  void getAttribute() {
+        getAttribute(true);
     }
     public void changePetStatu(PlayerBackpackBean bean, long  type) {
         if (type == SQLDate.GOOD_TYPE_USER_PET)
@@ -447,7 +456,7 @@ public class PlayControl : Attacker
             mSkillManager.removeSkill(bean);
         }
         Debug.Log("ChangeEquip");
-        getAttribute();
+        getAttribute(false);
         upDataSpeed();
     }
     public void heroUp() {
@@ -494,7 +503,7 @@ public class PlayControl : Attacker
         mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);
         Debug.Log("setHeroData");
-        getAttribute();
+        getAttribute(false);
     }
 
 
@@ -611,7 +620,7 @@ public class PlayControl : Attacker
                     status.blood = 1;
                 }
             }
-            else if (hurt != null)
+            else if (hurt != null && hurt.mAttackType != ATTACK_TYPE_HERO)
             {
                 status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
             //    int tmp = status.blood % 1 == 0 ? 0 : 1;

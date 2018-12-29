@@ -41,9 +41,11 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = false;
+    public static bool isAndroid = true;
     public static bool isAdd = false;
-    
+
+
+    public string mGameErrorString = "";
 
     public float getOnlineGet() {
         return 1+ mLunhuiOnlineGet+ mCardOnlineGet;
@@ -111,7 +113,7 @@ public class GameManager
             }
 
                mCurrentCrystal = SQLHelper.getIntance().mMojing;   
-           // mCurrentCrystal = BigNumber.getBigNumForString("20000000000000");
+          //  mCurrentCrystal = BigNumber.getBigNumForString("2.1E+40");
             long auto = SQLHelper.getIntance().isAutoBoss;
             if (auto == -1 || auto == 1) {
                 isAuto = false;
@@ -150,6 +152,7 @@ public class GameManager
 	public void heroUp(){
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_HERO_UP);
         mHeroLv += 1;
+        SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         mCurrentCrystal =BigNumber.minus(mCurrentCrystal, upLevelCrystal) ;
         SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
         getLevelData ();

@@ -76,7 +76,7 @@ public class LuiHuiTips : MonoBehaviour {
     }
 
     public void showUi(string str,int type) {
-        mType = TYPPE_RETURN_START;
+        mType = type;
         mDes.text = str;
         mButtonDec.text = "确定";
         gameObject.transform.localPosition = new Vector2(0, 0);
@@ -85,7 +85,16 @@ public class LuiHuiTips : MonoBehaviour {
 
     }
 
+  /*  public void showUi(string str, int type)
+    {
+        mType = TYPPE_RETURN_START;
+        mDes.text = str;
+        mButtonDec.text = "确定";
+        gameObject.transform.localPosition = new Vector2(0, 0);
+        int level = GameManager.getIntance().getUiLevel();
+        gameObject.transform.SetSiblingIndex(level);
 
+    }*/
     public void removeUi()
     {
         gameObject.transform.localPosition = mFri;

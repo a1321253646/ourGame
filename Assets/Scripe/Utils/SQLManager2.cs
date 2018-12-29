@@ -1,12 +1,24 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Threading;
 using Mono.Data.Sqlite;
 using UnityEngine;
-public class SQLManager : MonoBehaviour
+public class SQLManager2 : MonoBehaviour
 {
+    /// <summary>
+    /// 数据库连接对象
+    /// </summary>
+    private SqliteConnection connection;
+    /// <summary>
+    /// 数据库命令
+    /// </summary>
+    private SqliteCommand command;
+    /// <summary>
+    /// 数据读取定义
+    /// </summary>
     private SqliteDataReader reader;
     /// <summary>
     /// 本地数据库名字
@@ -27,29 +39,21 @@ public class SQLManager : MonoBehaviour
     Thread th1 = null;
 //    NetHelper mNetHelper = new NetHelper();
 
-    private SQLManager() {
+    private SQLManager2() {
 
     }
 
-    private static SQLManager mIntance = new SQLManager();
-    public static SQLManager getIntance() {
+    private static SQLManager2 mIntance = new SQLManager2();
+    public static SQLManager2 getIntance() {
         return mIntance;
     }
 
     public int init(string sqlName, string tabName) {
-
         if (!GameManager.isAndroid)
         {
             this.sqlName = sqlName;
             this.tabName = tabName;
-            mPathRoot = Application.dataPath;
             this.CreateSQL();
-
-        }
-        else {
-            this.sqlName = sqlName_new;
-            this.tabName = sqlName_new;
-            mPathRoot = Application.persistentDataPath;
         }
         int updateStatus = this.OpenSQLaAndConnect();
         th1 = new Thread(threadRun);
@@ -57,37 +61,15 @@ public class SQLManager : MonoBehaviour
         return updateStatus;
     }
 
-    private string getSqlFilePath() {
-        if (!GameManager.isAndroid)
-        {
-            
-            return mPathRoot + "/Resources/" + this.sqlName;
-        }
-        else
-        {
-            return mPathRoot + "/" + sqlName;
-
-        }
-    }
-    private string mPathRoot = "";
-
-    private string getSqlPath() {
-        if (!GameManager.isAndroid)
-        {
-            return "data source=" + mPathRoot + "/Resources/" + this.sqlName;           
-        }
-        else
-        {
-            return "URI=file:" + mPathRoot + "/" + sqlName;
-        }
-    }
     //创建数据库文件
     public void CreateSQL()
     {
-        Debug.Log("getSqlFilePath ==" + getSqlFilePath());
-        if (!File.Exists(getSqlFilePath()))
+        if (!File.Exists(Application.dataPath + "/Resources/" + this.sqlName))
         {
             Debug.Log("  数据库 文件没存在 ");
+            this.connection = new SqliteConnection("data source=" + Application.dataPath + "/Resources/" + this.sqlName);
+            this.connection.Open();
+            Debug.Log("  连接数据库  connection= "+ connection);
             Debug.Log("  连接数据库 ");
             this.CreateSQLTable(
                 tabName,
@@ -101,6 +83,7 @@ public class SQLManager : MonoBehaviour
                 null,
                 null
             );
+            this.connection.Close();
             return;
         }
     }
@@ -112,23 +95,30 @@ public class SQLManager : MonoBehaviour
 
     public bool initNoNet()
     {
+        bool isNote = false;
         sqlName = sqlName_new;
         tabName = tabName_new;
-        mPathRoot = Application.persistentDataPath;
-
-        if (!File.Exists(getSqlFilePath()))
+        string appDBPath = Application.persistentDataPath + "/" + sqlName;
+        if (!File.Exists(appDBPath))
         {
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100026);
             creatLocl888Android();
             sqlName = sqlName_old;
             tabName = tabName_old;
-            if (File.Exists(getSqlFilePath()))
+            appDBPath = Application.persistentDataPath + "/" + sqlName;
+            if (File.Exists(appDBPath))
             {
                 GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100027);
+                this.connection = new SqliteConnection("URI=file:" + appDBPath);
+                this.connection.Open();
                 List<SQLDate> list = readAllTableOld();
+                this.connection.Close();
 
                 sqlName = sqlName_new;
                 tabName = tabName_new;
+                appDBPath = Application.persistentDataPath + "/" + sqlName;
+                this.connection = new SqliteConnection("URI=file:" + appDBPath);
+                this.connection.Open();
 
                 List<SQLDate> newList = new List<SQLDate>();
                 int level = -100;
@@ -272,12 +262,18 @@ public class SQLManager : MonoBehaviour
             {
                 sqlName = sqlName_new;
                 tabName = tabName_new;
+                appDBPath = Application.persistentDataPath + "/" + sqlName;
+                this.connection = new SqliteConnection("URI=file:" + appDBPath);
+                this.connection.Open();
                 return false;
             }
         }
         else {
             sqlName = sqlName_new;
             tabName = tabName_new;
+            appDBPath = Application.persistentDataPath + "/" + sqlName;
+            this.connection = new SqliteConnection("URI=file:" + appDBPath);
+            this.connection.Open();
         }
         GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100028);
         return false;
@@ -291,13 +287,51 @@ public class SQLManager : MonoBehaviour
         {
             sqlName = sqlName_new;
             tabName = tabName_new;
-            if (!File.Exists(getSqlFilePath()))//创建新的数据库
+            string appDBPath = Application.persistentDataPath + "/" + sqlName;
+            if (!File.Exists(appDBPath))//创建新的数据库
             {
                 isHaveLocal= creatLocalAndroid();
             }
+            else {
+                isHaveLocal = true;
+                this.connection = new SqliteConnection("URI=file:" + appDBPath);
+            }
         }
+        else {
+            Debug.Log("  打开数据库 = "+ this.sqlName);
+            this.connection = new SqliteConnection("data source=" + Application.dataPath + "/Resources/" + this.sqlName);
+        }
+        this.connection.Open();
         Debug.Log("  打开数据库 结束 ");
-        return 0;
+        if (GameManager.isAndroid)
+        {
+            string commPath = "SELECT* FROM " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_IS_UPDATE + " AND TYPE=" + SQLHelper.TYPE_GAME; //SELECT* FROM Persons WHERE firstname = 'Thomas' OR lastname = 'Carter'
+            SqliteDataReader reader = ExecuteSQLCommand(commPath,true);
+            int count = 0;
+            while (this.reader.Read())
+            {
+                count++;
+            }
+            reader.Close();
+            if (count > 0)
+            {
+                return 0;
+            }
+            else
+            {
+                if (isHaveLocal)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        }
+        else {
+            return 0;
+        }
      //   GameObject.Find("game_begin").GetComponent<GameBeginControl>().init();
     }
 
@@ -305,14 +339,20 @@ public class SQLManager : MonoBehaviour
         bool isHavaLocal = false;
         sqlName = sqlName_old;
         tabName = tabName_old;
-        if (File.Exists(getSqlPath()))
+        string appDBPath = Application.persistentDataPath + "/" + sqlName;
+        if (File.Exists(appDBPath))
         {//有旧的存档
             isHavaLocal = true;
+            this.connection = new SqliteConnection("URI=file:" + appDBPath);
+            this.connection.Open();
             List<SQLDate> list = readAllTableOld();
+            this.connection.Close();
             sqlName = sqlName_new;
             tabName = tabName_new;
             creatLocl888Android();
-
+            appDBPath = Application.persistentDataPath + "/" + sqlName;
+            this.connection = new SqliteConnection("URI=file:" + appDBPath);
+            this.connection.Open();
             long goodId = 0;
             foreach (SQLDate date in list) {
                 if (date.type == SQLHelper.TYPE_GOOD)
@@ -391,9 +431,12 @@ public class SQLManager : MonoBehaviour
             count.extan = "" + goodId;
             InsertDataToSQL(count, true);
             list.Add(count);
+            updateToNet(list);
         }
         else {//没有旧的存档
             creatLocl888Android();
+            appDBPath = Application.persistentDataPath + "/" + sqlName;
+            this.connection = new SqliteConnection("URI=file:" + appDBPath);
         }
         return isHavaLocal;
     }
@@ -401,6 +444,10 @@ public class SQLManager : MonoBehaviour
     private void creatLocl888Android() {
         sqlName = sqlName_new;
         tabName = tabName_new;
+        string appDBPath = Application.persistentDataPath + "/" + sqlName;
+        this.connection = new SqliteConnection("URI=file:" + appDBPath);
+        this.connection.Open();
+        Debug.Log("  连接数据库  connection= " + connection);
         Debug.Log("  连接数据库 ");
         this.CreateSQLTable(
             tabName,
@@ -414,28 +461,58 @@ public class SQLManager : MonoBehaviour
             null,
             null
         );
+        this.connection.Close();
     }
 
     private void updateToNet(List<SQLDate> list) {
-//        foreach (SQLDate date in list) {
-//            mNetHelper.changeInto(date);
-//        }
+ //       foreach (SQLDate date in list) {
+ //           mNetHelper.changeInto(date);
+ //       }
     }
 
     /// <summary>
     ///执行SQL命令,并返回一个SqliteDataReader对象
     /// <param name="queryString"></param>
-    public void ExecuteSQLCommand(string queryString)
+    public SqliteDataReader ExecuteSQLCommand(string queryString,bool isback)
     {
-        using (SqliteConnection cnn = new SqliteConnection(getSqlPath()))
-        using (reader) {
-            Debug.Log("ExecuteSQLCommand queryString="+ queryString);
-            cnn.Open();
-            SqliteCommand command = cnn.CreateCommand();
-            command.CommandText = queryString;
-            reader = command.ExecuteReader();
+   //     count++;
+        
+        try
+        {
+     //       if (count == 30) {
+       //         GameObject ob = null;
+           //     ob.transform.position = new Vector2(0, 0);
+         //   }
+            Debug.Log("ExecuteSQLCommand command  " + queryString);
+            //        Debug.Log("ExecuteSQLCommand connection  =" + connection);
+            //        Debug.Log("ExecuteSQLCommand connection  =" + connection.State);
+            command = connection.CreateCommand();
+            //        Debug.Log("ExecuteSQLCommand  connection.CreateCommand()");
+            this.command.CommandText = queryString;
+            this.reader = this.command.ExecuteReader();
+            //        Debug.Log("ExecuteSQLCommand  reader = "+ reader.ToString());
+            if (isback)
+            {
+                return this.reader;
+            }
+            else {
+                this.reader.Close();
+                return null;
+            }
+            
+        }
+        catch(Exception e) {
+            string error = "执行：" + queryString + "出错\n";
+            error += "message = " + e.Message + "\n";
+            error += e.StackTrace;
+            Debug.Log("ExecuteSQLCommand error =" + error);
+           // GameManager.getIntance().mGameErrorString = error;
+         //   GameManager.getIntance().mInitStatus = 12;
+            return null; 
         }
     }
+
+ //   private int count = 0;
 
     /// <summary>
     /// 通过调用SQL语句，在数据库中创建一个表，顶定义表中的行的名字和对应的数据类型
@@ -443,17 +520,35 @@ public class SQLManager : MonoBehaviour
     /// <param name="tableName"></param>
     /// <param name="columnNames"></param>
     /// <param name="dataTypes"></param>
-    public void CreateSQLTable(string tableName, string commandStr = null, string[] columnNames = null, string[] dataTypes = null)
+    public SqliteDataReader CreateSQLTable(string tableName, string commandStr = null, string[] columnNames = null, string[] dataTypes = null)
     {
 
-        ExecuteSQLCommand(commandStr);
+        return ExecuteSQLCommand(commandStr,false);
     }
     /// <summary>
     /// 关闭数据库连接,注意这一步非常重要，最好每次测试结束的时候都调用关闭数据库连接
     /// 如果不执行这一步，多次调用之后，会报错，数据库被锁定，每次打开都非常缓慢
     /// </summary>
     public void CloseSQLConnection()
-    {      
+    {
+        if (this.command != null)
+        {
+            this.command.Cancel();
+        }
+
+        if (this.reader != null)
+        {
+            this.reader.Close();
+        }
+
+        if (this.connection != null)
+        {
+            this.connection.Close();
+
+        }
+        this.command = null;
+        this.reader = null;
+        this.connection = null;        
         Debug.Log("已经断开数据库连接");
     }
     /// <summary>
@@ -479,7 +574,7 @@ public class SQLManager : MonoBehaviour
         commandString += "," + data.isClean + ")";
         if (isNow)
         {
-            ExecuteSQLCommand(commandString);            
+            ExecuteSQLCommand(commandString,false);
         }
         else {
             addList(commandString);
@@ -494,26 +589,23 @@ public class SQLManager : MonoBehaviour
         string commPath = "UPDATE " + tabName + " SET GOODTYPE=" + date.goodType;
         commPath += " WHERE GOODID=" + date.goodId;
         addList(commPath);
-     //   ExecuteSQLCommand(commPath);
 //        mNetHelper.changeInto(date);
     }
 
 
     public void deleteGood(SQLDate date)
     {
-        string commandString = "DELETE FROM " + tabName + " WHERE GOODID =" + date.goodId;
+        string commandString = "DELETE FROM " + tabName + " WHERE GOODID =" + date.goodId; 
         // ExecuteSQLCommand(commandString);
-          addList(commandString);
-     //   ExecuteSQLCommand(commandString);
-//        mNetHelper.delectInfo(date);
+        addList(commandString);
+  //      mNetHelper.delectInfo(date);
     }
     public void deleteLuiHui()
     {
         string commandString = "DELETE FROM " + tabName + " WHERE ISCLENAN =1" ;   
         // ExecuteSQLCommand(commandString);
         addList(commandString);
-     //   ExecuteSQLCommand(commandString);
-//        mNetHelper.cleanLuihui();
+    //    mNetHelper.cleanLuihui();
     }
     /// <summary>
     /// 更新表中数据
@@ -530,15 +622,14 @@ public class SQLManager : MonoBehaviour
         commPath += " WHERE GOODID=" +date.goodId;
         // ExecuteSQLCommand(commPath);
         addList(commPath);
-     //   ExecuteSQLCommand(commPath);
         Debug.Log("更新数据成功!");
- //       mNetHelper.changeInto(date);
+      //  mNetHelper.changeInto(date);
         return true;
     }
 
     public void updateToNet() {
         Debug.Log("更新后台数据!");
-//        mNetHelper.updateToNet();
+        //mNetHelper.updateToNet();
     }
     public bool UpdateInto(SQLDate date) {
         return UpdateInto(date, false);
@@ -551,21 +642,16 @@ public class SQLManager : MonoBehaviour
         // ExecuteSQLCommand(commPath);
         if (isNow)
         {
-            ExecuteSQLCommand(commPath);
+            ExecuteSQLCommand(commPath,false);
         }
         else {
-             addList(commPath);
-            
+            addList(commPath);
         }
         
         Debug.Log("更新数据成功!");
-  //      mNetHelper.changeInto(date);
+ //       mNetHelper.changeInto(date);
         return true;
     }
-
-
-
-
 
     public void saveLocal(string str) {
         Debug.Log("saveLocal");
@@ -576,8 +662,7 @@ public class SQLManager : MonoBehaviour
         Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
 
         string comm = "DELETE FROM " + tabName;
-        ExecuteSQLCommand(comm);
-        ;
+        ExecuteSQLCommand(comm,false);
   //      SQLNetManager.getIntance().cleanAllLocal();
         foreach (SQLDate date in list) {
             Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
@@ -618,54 +703,41 @@ public class SQLManager : MonoBehaviour
     }
 
     private void threadRun() {
-        while (true) {
-            Debug.Log("======================================threadRun command count");
+        while (connection != null) {
+//            Debug.Log("======================================threadRun command count");
             if (listIsEmpty())
             {
                 Thread.Sleep(1000);
             }
             else {
                 string command = getList(0);
-                //              Debug.Log("threadRun command = " + command);
-                ExecuteSQLCommand(command);
-                //   Debug.Log("threadRun command success " );
+  //              Debug.Log("threadRun command = " + command);
+                ExecuteSQLCommand(command,false);
+             //   Debug.Log("threadRun command success " );
                 removeList(command);
             }
         }
     }
 
-    /// <summary>
-    /// 从数据库中查询相关的数据
-    /// </summary>
-    void QueryDataFromSQL()
-    {
-
-    }
-
     public List<SQLDate> readAllTable() {
+        this.command = this.connection.CreateCommand();
+        this.command.CommandText = "select * from "+tabName;
+        this.reader = this.command.ExecuteReader();
         List<SQLDate> list = new List<SQLDate>();
-        using (SqliteConnection cnn = new SqliteConnection(getSqlPath()))
-        using (reader)
+        while (this.reader.Read())
         {
-            Debug.Log("readAllTable");
-            cnn.Open();
-            SqliteCommand command = cnn.CreateCommand();
-            command.CommandText = "select * from " + tabName;
-            this.reader = command.ExecuteReader();
-            while (this.reader.Read())
-            {
-                SQLDate date = new SQLDate();
-                date.type = reader.GetInt64(reader.GetOrdinal("TYPE"));
-                date.id = reader.GetInt64(reader.GetOrdinal("ID"));
-                date.extan = reader.GetString(reader.GetOrdinal("EXTAN"));
-                date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
-                date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
-                date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
-                Debug.Log("readAllTable date.type  = " + date.type + " id = " + date.id + " extan = " + date.extan + " date.goodId" + date.goodId + " date.goodType=" + date.goodType + " date.isClean= " + date.isClean);
-                //            Debug.Log("readAllTable date.type  = " + date.id);
-                list.Add(date);
-            }
+            SQLDate date = new SQLDate();
+            date.type = reader.GetInt64(reader.GetOrdinal("TYPE"));
+            date.id = reader.GetInt64(reader.GetOrdinal("ID"));
+            date.extan = reader.GetString(reader.GetOrdinal("EXTAN"));
+            date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
+            date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
+            date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
+            Debug.Log("readAllTable date.type  = " + date.type +" id = "+date.id+" extan = "+ date.extan+ " date.goodId"+ date.goodId+ " date.goodType="+ date.goodType + " date.isClean= "+ date.isClean);
+//            Debug.Log("readAllTable date.type  = " + date.id);
+            list.Add(date);
         }
+        reader.Close();
         if (list.Count > 0)
         {
             return list;
@@ -676,28 +748,23 @@ public class SQLManager : MonoBehaviour
     }
     public List<SQLDate> readAllTableOld()
     {
+        this.command = this.connection.CreateCommand();
+        this.command.CommandText = "select * from " + tabName;
+        this.reader = this.command.ExecuteReader();
         List<SQLDate> list = new List<SQLDate>();
-        using (SqliteConnection cnn = new SqliteConnection(getSqlPath()))
-        using (reader) {
-            Debug.Log("readAllTableOld");
-            cnn.Open();
-            SqliteCommand command = cnn.CreateCommand();
-            command.CommandText = "select * from " + tabName;
-            reader = command.ExecuteReader();
-           
-            while (this.reader.Read())
-            {
-                SQLDate date = new SQLDate();
-                date.type = reader.GetInt64(reader.GetOrdinal("Type"));
-                date.id = reader.GetInt64(reader.GetOrdinal("ID"));
-                date.extan = reader.GetString(reader.GetOrdinal("Extan"));
-                date.extan = date.extan.Replace("，", ",");
-                date.extan = date.extan.Replace("。", ".");
-                list.Add(date);
-                // Debug.Log(reader.GetInt32(reader.GetOrdinal("Time")));
-                // Debug.Log(tempCount);
-            }
+        while (this.reader.Read())
+        {
+            SQLDate date = new SQLDate();
+            date.type = reader.GetInt64(reader.GetOrdinal("Type"));
+            date.id = reader.GetInt64(reader.GetOrdinal("ID"));
+            date.extan = reader.GetString(reader.GetOrdinal("Extan"));
+            date.extan = date.extan.Replace("，", ",");
+            date.extan = date.extan.Replace("。", ".");
+            list.Add(date);
+            // Debug.Log(reader.GetInt32(reader.GetOrdinal("Time")));
+            // Debug.Log(tempCount);
         }
+        this.reader.Close();
         if (list.Count > 0)
         {
             return list;
@@ -707,7 +774,6 @@ public class SQLManager : MonoBehaviour
             return null;
         }
     }
-
     private void OnApplicationQuit()
     {
         //当程序退出时关闭数据库连接，不然会重复打开数据卡，造成卡顿

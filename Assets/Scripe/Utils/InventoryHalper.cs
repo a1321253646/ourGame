@@ -199,6 +199,7 @@ public class InventoryHalper
                     mList.Add(newBean);
                 }
             }
+            Debug.Log("=======================goodId" + newBean.goodId+"================================");
             newBean.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();          
             SQLHelper.getIntance().addGood(newBean);
             return true;

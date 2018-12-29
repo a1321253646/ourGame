@@ -63,6 +63,27 @@ public class GuideManager : MonoBehaviour {
         return notificationDeal(eventID, eventValue);
     }
 
+    public bool guideIsHappen(long id) {
+        foreach (GuideControl g in mGuideList) {
+            if(g.mData.id == id) {
+                return true;    
+            }
+        }
+
+        return false;
+    }
+
+    public void removeGuide(long id) {
+        for (int i = 0; i< mGuideList.Count;i++ )
+        {
+            if (mGuideList[i].mData.id == id)
+            {
+                mGuideList.RemoveAt(i);
+                SQLHelper.getIntance().addGuide(i);
+            }
+        }
+    }
+
     private long notificationDeal(int eventID, long eventValue) {
 //        Debug.Log("notificationDeal mCurrentGuide eventID= "+ eventID+ " eventValue= "+ eventValue);
         long back = -1;

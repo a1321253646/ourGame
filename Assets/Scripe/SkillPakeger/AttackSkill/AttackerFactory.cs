@@ -131,6 +131,10 @@ public class AttackerFactory
         {
             return new AttackSkill600013();
         }
+        else if (id == 600015)
+        {
+            return new AttackSkill600004();
+        }
         return null;
     }
 }
