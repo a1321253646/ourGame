@@ -34,7 +34,11 @@ public class ZhuangBeiItemLongPress : MonoBehaviour
             {
                 mTime -= mLongPressTIme;
                 Debug.Log("长按触发");
-                BackpackManager.getIntance().UpdateZhuangBei(mParent.mBean, mParent.updateCost, mParent.level);             
+                BackpackManager.getIntance().UpdateZhuangBei(mParent.mBean, mParent.updateCost, mParent.level);
+                if (GameManager.getIntance().isEnd || !GameManager.getIntance().mHeroIsAlive)
+                {
+                    BackpackManager.getIntance().saveEquipDate(mParent.mBean);
+                }
             }
         }
     }
@@ -48,11 +52,23 @@ public class ZhuangBeiItemLongPress : MonoBehaviour
                 // mLongPressTIme = JsonUtils.getIntance().getConfigValueForId(100041);
                 mLongPressTIme = 0.1f;
             }
-            if (GameManager.getIntance().mCurrentCrystal.ieEquit(mParent.updateCost) != -1) {
+            if (GameManager.getIntance().mCurrentCrystal.ieEquit(mParent.updateCost) != -1)
+            {
                 BackpackManager.getIntance().UpdateZhuangBei(mParent.mBean, mParent.updateCost, mParent.level);
-            }          
+                if (GameManager.getIntance().isEnd || !GameManager.getIntance().mHeroIsAlive)
+                {
+                    BackpackManager.getIntance().saveEquipDate(mParent.mBean);
+                }
+            }
             mTime = 0;
         }
+        else {
+            if (!GameManager.getIntance().isEnd && GameManager.getIntance().mHeroIsAlive)
+            {
+                BackpackManager.getIntance().saveEquipDate(mParent.mBean);
+            }
+        }
     }
+
 }
 

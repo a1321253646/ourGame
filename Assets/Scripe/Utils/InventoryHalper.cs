@@ -266,7 +266,11 @@ public class InventoryHalper
     public List<long> getHaveBookId() {
         return mHaveBookId;
     }
-    public void updateZhuangbei(PlayerBackpackBean bean, long level)
+
+    public void updateZhuangbei(PlayerBackpackBean bean, long level) {
+        updateZhuangbei(bean, level, true);
+    }
+    public void updateZhuangbei(PlayerBackpackBean bean, long level,bool isSave)
     {
         level = level + 1;
        string extan =  SQLHelper.getGoodExtra(bean);
@@ -292,8 +296,9 @@ public class InventoryHalper
                 p.value = level;
             }
         }
-        SQLHelper.getIntance().updateZHUANGBEI(bean);
-       
+        if (isSave) {
+            SQLHelper.getIntance().updateZHUANGBEI(bean);
+        }       
     }
     public bool use(PlayerBackpackBean bean)
     {        

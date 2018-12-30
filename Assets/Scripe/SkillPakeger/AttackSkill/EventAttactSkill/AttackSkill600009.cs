@@ -7,12 +7,19 @@ public class AttackSkill600009 : EventAttackSkill
 
     float count1 = 0;
     float count2 = 0;
+    float count3 = 0;
     public override void killEnemy()
     {
         if(count1 == 0) { 
             count1 = (float)(mSkillJson.getSpecialParameterValue()[0]/100);
+            count3 = (int)(mSkillJson.getSpecialParameterValue()[1]) / 100;
         }
         count2 += count1;
+        if (count2 > count3)
+        {
+            count2 = count3;
+            return;
+        }
         Debug.Log("AttackSkill600009 count2 = " + count2);
         mManager.carHurtPre += count1;
         mManager.getAttacker().getAttribute();

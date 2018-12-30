@@ -152,9 +152,9 @@ public class GameManager
 	public void heroUp(){
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_HERO_UP);
         mHeroLv += 1;
-        SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
+        
         mCurrentCrystal =BigNumber.minus(mCurrentCrystal, upLevelCrystal) ;
-        SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
+       
         getLevelData ();
 		if (mCurrentCrystal.ieEquit(upLevelCrystal) != -1  ) {
 			uiManager.showLevelUp (true);

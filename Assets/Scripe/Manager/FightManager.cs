@@ -175,13 +175,16 @@ public class FightManager{
 		if (attacker!= null && attacker.mAttackerTargets != null && attacker.mAttackerTargets.Count > 0) {
 			if (attacker is EnemyBase) {//enemy only one target
 				FightResource resouce = new FightResource (attacker, mEnemyFactory);
+                Debug.Log("attackBllod");
                 hurtBlood = attackBllod(attacker, attacker.mAttackerTargets[0]);
+                Debug.Log("attackBllod");
                 attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood);
                 hurtBlood = resouce.hurt(hurtBlood);
-                if (hurtBlood != null) {
+                if (hurtBlood != null && attacker.mAttackerTargets.Count >0) {
                     attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.beforeBeHurt(hurtBlood);
                     attacker.mAttackerTargets[0].BeAttack(hurtBlood, attacker);
-                    if (attacker.mAttackerTargets[0].getStatus() != ActionFrameBean.ACTION_DIE) {
+                    if ( attacker.mAttackerTargets.Count > 0 && attacker.mAttackerTargets[0].getStatus() != ActionFrameBean.ACTION_DIE)
+                    {
                         attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(hurtBlood);
                         attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endHurt(hurtBlood);
                     }

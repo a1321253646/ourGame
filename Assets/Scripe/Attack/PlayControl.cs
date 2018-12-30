@@ -80,9 +80,13 @@ public class PlayControl : Attacker
                 BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).getOfflinereward();
                 outLineGet = BigNumber.multiply(levelCryStal, old);
                 outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
-                GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
-                GameManager.getIntance().updataGasAndCrystal();
-                SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
+
+                if (old > 1) {
+                    GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
+                    GameManager.getIntance().updataGasAndCrystal();
+                    SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
+                }
+                
                 if (old > JsonUtils.getIntance().getConfigValueForId(100032))
                 {
                     Level level = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel);

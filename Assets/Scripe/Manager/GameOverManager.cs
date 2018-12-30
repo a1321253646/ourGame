@@ -15,8 +15,15 @@ public class GameOverManager : MonoBehaviour {
 	void Start () {
         GameManager.getIntance().mInitStatus = 10;
         //  JsonUtils.getIntance().init();
-        SQLHelper.getIntance().init();
-        SceneManager.LoadScene(0);
+
+    }
+    private void Update()
+    {
+       long count =  SQLManager.getIntance().getListCount();
+        if (count == 0) {
+            SQLHelper.getIntance().init();
+            SceneManager.LoadScene(0);
+        }
     }
 
 }

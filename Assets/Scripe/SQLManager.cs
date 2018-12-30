@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -22,7 +23,7 @@ public class SQLManager : MonoBehaviour
 
 
     object mLock = new object();
-
+    SqliteConnection mConnet = null;
     private static int IDCount;
     Thread th1 = null;
 //    NetHelper mNetHelper = new NetHelper();
@@ -52,6 +53,7 @@ public class SQLManager : MonoBehaviour
             mPathRoot = Application.persistentDataPath;
         }
         int updateStatus = this.OpenSQLaAndConnect();
+
         th1 = new Thread(threadRun);
         th1.Start();
         return updateStatus;
@@ -427,14 +429,22 @@ public class SQLManager : MonoBehaviour
     /// <param name="queryString"></param>
     public void ExecuteSQLCommand(string queryString)
     {
-        using (SqliteConnection cnn = new SqliteConnection(getSqlPath()))
+        if (mConnet == null) {
+            mConnet = new SqliteConnection(getSqlPath());
+            mConnet.Open();
+        }
         using (reader) {
             Debug.Log("ExecuteSQLCommand queryString="+ queryString);
-            cnn.Open();
-            SqliteCommand command = cnn.CreateCommand();
+            
+            SqliteCommand command = mConnet.CreateCommand();
             command.CommandText = queryString;
             reader = command.ExecuteReader();
+            reader.Close();
+ //           cnn.Close();            
         }
+//        SqliteConnection.ClearAllPools();
+//        GC.Collect();
+//        GC.WaitForPendingFinalizers();
     }
 
     /// <summary>
@@ -455,6 +465,12 @@ public class SQLManager : MonoBehaviour
     public void CloseSQLConnection()
     {      
         Debug.Log("已经断开数据库连接");
+        if (mConnet != null)
+        {
+            mConnet.Close();
+            mConnet.Dispose();
+            mConnet = null;
+        }
     }
     /// <summary>
     /// 向数据库中添加数据文件
@@ -610,6 +626,13 @@ public class SQLManager : MonoBehaviour
         }
     }
 
+    public long getListCount() {
+        lock (mLock)
+        {
+            return mWaitList.Count;
+        }
+    }
+
     private bool listIsEmpty() {
         lock (mLock)
         {
@@ -644,12 +667,17 @@ public class SQLManager : MonoBehaviour
 
     public List<SQLDate> readAllTable() {
         List<SQLDate> list = new List<SQLDate>();
-        using (SqliteConnection cnn = new SqliteConnection(getSqlPath()))
+        if (mConnet == null) {
+            mConnet = new SqliteConnection(getSqlPath());
+            mConnet.Open();
+        }
+      
+//        using (SqliteConnection cnn =)
         using (reader)
         {
             Debug.Log("readAllTable");
-            cnn.Open();
-            SqliteCommand command = cnn.CreateCommand();
+            
+            SqliteCommand command = mConnet.CreateCommand();
             command.CommandText = "select * from " + tabName;
             this.reader = command.ExecuteReader();
             while (this.reader.Read())
@@ -665,7 +693,11 @@ public class SQLManager : MonoBehaviour
                 //            Debug.Log("readAllTable date.type  = " + date.id);
                 list.Add(date);
             }
+//            cnn.Close();
         }
+//        SqliteConnection.ClearAllPools();
+//        GC.Collect();
+//        GC.WaitForPendingFinalizers();
         if (list.Count > 0)
         {
             return list;
@@ -694,10 +726,14 @@ public class SQLManager : MonoBehaviour
                 date.extan = date.extan.Replace("，", ",");
                 date.extan = date.extan.Replace("。", ".");
                 list.Add(date);
-                // Debug.Log(reader.GetInt32(reader.GetOrdinal("Time")));
-                // Debug.Log(tempCount);
+                 Debug.Log(reader.GetInt32(reader.GetOrdinal("Time")));
             }
+            cnn.Close();
+           
         }
+        SqliteConnection.ClearAllPools();
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
         if (list.Count > 0)
         {
             return list;

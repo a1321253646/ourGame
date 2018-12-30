@@ -20,6 +20,10 @@ public class LevelUpLongPress : MonoBehaviour
                 mTime -= mLongPressTIme;
                 Debug.Log("长按触发");
                 GameManager.getIntance().heroUp();
+                if (GameManager.getIntance().isEnd || !GameManager.getIntance().mHeroIsAlive)
+                {
+                    saveDate();
+                }
             }
         }
     }
@@ -34,9 +38,25 @@ public class LevelUpLongPress : MonoBehaviour
             }
             if (GameManager.getIntance().uiManager.mLvUpBt.interactable) {
                 GameManager.getIntance().heroUp();
+                if (GameManager.getIntance().isEnd || !GameManager.getIntance().mHeroIsAlive)
+                {
+                    saveDate();
+                }
+               
             }          
             mTime = 0;
         }
+        else
+        {
+            if (!GameManager.getIntance().isEnd && GameManager.getIntance().mHeroIsAlive)
+            {
+                saveDate();
+            }
+        }
+    }
+    private void saveDate() {
+        SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
+        SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
     }
 }
 

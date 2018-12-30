@@ -121,20 +121,23 @@ public class BackpackManager
     public List<PlayerBackpackBean> getHeroEquipInfo() {
         return mHeroEquip;
     }
+    public void saveEquipDate(PlayerBackpackBean bean) {
+        SQLHelper.getIntance().updateZHUANGBEI(bean);
+        SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
+    }
+
     public void UpdateZhuangBei(PlayerBackpackBean bean, BigNumber cost, long level)
     {
         if (GameManager.getIntance().getGuideManager().guideIsHappen(4)) {
             GameManager.getIntance().getGuideManager().removeGuide(4);
         }
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_EQUITE_UP_CLICK, bean.goodId);
-        InventoryHalper.getIntance().updateZhuangbei(bean, level);
+        InventoryHalper.getIntance().updateZhuangbei(bean, level,false);
         GameManager.getIntance().mCurrentCrystal = BigNumber.minus(GameManager.getIntance().mCurrentCrystal, cost);
-        GameManager.getIntance().updataGasAndCrystal();
         mInvertoryControl.update(false);
         mHeroControl.upDateUi(false);
         updateZhuangbeiItem(false);
         mLevel.mPlayerControl.initEquip(false);
-
     }
     public bool use(PlayerBackpackBean bean, long count, int type) {
         if (type == TipControl.USE_TYPE)

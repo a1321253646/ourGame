@@ -145,7 +145,13 @@ public class LevelManager : MonoBehaviour {
                 BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).getOfflinereward();
                 BigNumber  outLineGet = BigNumber.multiply(levelCryStal, outTime);
                 outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
-                GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
+               
+                if (outTime > 1)
+                {
+                    GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
+                    GameManager.getIntance().updateGasAndCrystal();
+                    SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
+                }
                 if (outTime > JsonUtils.getIntance().getConfigValueForId(100032))
                 {
                     long h = outTime / 60;
@@ -169,7 +175,7 @@ public class LevelManager : MonoBehaviour {
                     }
                     BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "欢迎回来，您在离线的" + str + "里", "" + outLineGet.toStringWithUnit());
                 }
-                GameManager.getIntance().updateGasAndCrystal();
+
                 SQLHelper.getIntance().updateOutTime();
             }
         }

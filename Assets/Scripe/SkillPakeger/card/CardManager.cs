@@ -7,7 +7,7 @@ public class CardManager : MonoBehaviour {
     public GameObject card;
     public GameObject indicator;
 
-    private static float CREADT_CARD_TIME = 5;
+    private static float CREADT_CARD_TIME = -1;
     private static float OUT_CREADT_CARD_TIME = 0.5f;
     private List<CardControl> mList = new List<CardControl>();
     private float mTime = 0;
@@ -30,6 +30,9 @@ public class CardManager : MonoBehaviour {
         mCardLocalUp = GameObject.Find("kapai_local_up");
         mCardLocalTop = GameObject.Find("kapai_local_up_top");
         mYdel = mCardLoaclList[0].transform.position.y+20;
+        if (CREADT_CARD_TIME == -1) {
+            CREADT_CARD_TIME = JsonUtils.getIntance().getConfigValueForId(100043);
+        }
     }
 
     public float getLocalXByIndex(int index) {
@@ -110,6 +113,10 @@ public class CardManager : MonoBehaviour {
 	void Update () {
         if (!isInit) {
             return;
+        }
+        if (CREADT_CARD_TIME == -1)
+        {
+            CREADT_CARD_TIME = JsonUtils.getIntance().getConfigValueForId(100043);
         }
         if (mCount > 0) {
             mOutSendCardTime += Time.deltaTime;

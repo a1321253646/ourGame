@@ -115,12 +115,28 @@ public class SQLHelper
                 Debug.Log("读取数据库 " + date.toString());
                 if (date.type == TYPE_LUNHUI)
                 {
-                    mLunhuui.Add(date.id, long.Parse(date.extan));
+                    long count = long.Parse(date.extan);
+                    if (mLunhuui.ContainsKey(date.id) )
+                    {
+                        if (mLunhuui[date.id] < count) {
+                            mLunhuui[date.id] = count;
+                        }
+                        
+                    }
+                    else
+                    {
+                        mLunhuui.Add(date.id, count);
+                    }
+                    
                 }
                 else if (date.type == TYPE_DROP) {
-                    if (mDropDeviceCount.ContainsKey(date.id))
+                    long count = long.Parse(date.extan);
+                    if (mDropDeviceCount.ContainsKey(date.id) )
                     {
-                        mDropDeviceCount[date.id] = long.Parse(date.extan);
+                        if (mDropDeviceCount[date.id] < count) {
+                            mDropDeviceCount[date.id] = long.Parse(date.extan);
+                        }
+                        
                     }
                     else {
                         mDropDeviceCount.Add(date.id, long.Parse(date.extan));
