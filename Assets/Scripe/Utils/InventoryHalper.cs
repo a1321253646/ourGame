@@ -175,7 +175,14 @@ public class InventoryHalper
                 newBean.count = count;
                 newBean.tabId = -1;
                 newBean.isShowPoint = 1;
-                newBean.goodType = SQLDate.GOOD_TYPE_PET;
+                if (GameObject.Find("Manager").GetComponent<PetManager>().isFull())
+                {
+                    newBean.goodType = SQLDate.GOOD_TYPE_PET;
+                }
+                else
+                {
+                    newBean.goodType = SQLDate.GOOD_TYPE_USER_PET;
+                }             
                 mPet.Add(newBean);
                 
             }
