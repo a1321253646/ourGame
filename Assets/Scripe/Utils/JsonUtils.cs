@@ -621,7 +621,7 @@ public class JsonUtils
         return null;
     }
     public float getConfigValueForId(long id) {
-//        Debug.Log(" getConfigValueForId  = " + id);
+        Debug.Log(" getConfigValueForId  = " + id);
         foreach (ConfigNote note in mConfig) {
             if (note.id == id) {
                 return note.value;

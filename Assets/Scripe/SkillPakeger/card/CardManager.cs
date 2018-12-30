@@ -30,9 +30,6 @@ public class CardManager : MonoBehaviour {
         mCardLocalUp = GameObject.Find("kapai_local_up");
         mCardLocalTop = GameObject.Find("kapai_local_up_top");
         mYdel = mCardLoaclList[0].transform.position.y+20;
-        if (CREADT_CARD_TIME == -1) {
-            CREADT_CARD_TIME = JsonUtils.getIntance().getConfigValueForId(100043);
-        }
     }
 
     public float getLocalXByIndex(int index) {
@@ -108,16 +105,17 @@ public class CardManager : MonoBehaviour {
     private bool isInit = false;
     public void init() {
         isInit = true;
+        if (CREADT_CARD_TIME == -1)
+        {
+            CREADT_CARD_TIME = JsonUtils.getIntance().getConfigValueForId(100043);
+        }
     }
     private int mMaxCardCount = 0;
 	void Update () {
         if (!isInit) {
             return;
         }
-        if (CREADT_CARD_TIME == -1)
-        {
-            CREADT_CARD_TIME = JsonUtils.getIntance().getConfigValueForId(100043);
-        }
+
         if (mCount > 0) {
             mOutSendCardTime += Time.deltaTime;
             if (mOutSendCardTime >= OUT_CREADT_CARD_TIME && mList.Count < JsonUtils.getIntance().getConfigValueForId(100015)) {
