@@ -48,7 +48,7 @@ public class NetServer
      //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
 
-        WWW www = new WWW("http://192.168.0.111:8809/ourgame", pData, dir);
+        WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
         while (!www.isDone) {
             Thread.Sleep(100);
         }
@@ -69,7 +69,6 @@ public class NetServer
             SQLNetManager.getIntance().updateDate(false);
             mList = null;
             Debug.Log("Http错误代码:" + www.error);
-
         }
 
     }
@@ -94,7 +93,7 @@ public class NetServer
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
 
-        WWW www = new WWW("http://192.168.0.111:8809/ourgame", pData, dir);
+        WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
         while (!www.isDone)
         {
             Thread.Sleep(100);
@@ -140,7 +139,7 @@ public class NetServer
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
 
-        WWW www = new WWW("http://192.168.0.111:8809/ourgame", pData, dir);
+        WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
         while (!www.isDone)
         {
             Thread.Sleep(100);

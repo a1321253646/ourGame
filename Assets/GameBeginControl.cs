@@ -98,15 +98,48 @@ public class GameBeginControl : MonoBehaviour {
             {
                 Thread th1 = new Thread(() =>
                 {
-                    bool isnote = SQLManager.getIntance().initNoNet();
+                    isUpdate = SQLManager.getIntance().initNoNet();
                     SQLManager.getIntance().startThread();
-                    if (isnote)
+                    if (isUpdate == 1)
                     {
+                        NetServer.getIntance().getLocl();
                         GameManager.getIntance().mInitStatus = 4;
                     }
-                    else
+                    else if (isUpdate == 2)
                     {
-                        GameManager.getIntance().mInitStatus = 8;
+                        if (SQLManager.getIntance().isUpdateed())
+                        {
+                            SQLManager.getIntance().copyToNet();
+                            if (Application.internetReachability != NetworkReachability.NotReachable)
+                            {
+                                NetServer.getIntance().getLocl();
+                                GameManager.getIntance().mInitStatus = 6;
+                            }
+                            else
+                            {
+                                GameManager.getIntance().mInitStatus = 8;
+                            }
+
+
+                            isUpdate = 4;
+                            GameManager.getIntance().mInitStatus = 6;
+                        }
+                        else {
+                            
+
+                        }
+
+                        
+                    }
+                    else if (isUpdate == 3) {
+                        if (Application.internetReachability != NetworkReachability.NotReachable)
+                        {
+                            NetServer.getIntance().getLocl();
+                            GameManager.getIntance().mInitStatus = 6;
+                        }
+                        else {
+                            GameManager.getIntance().mInitStatus = 8;
+                        }                        
                     }
                 });
                 th1.Start();
@@ -118,44 +151,50 @@ public class GameBeginControl : MonoBehaviour {
             }
 
         }
-        else if (GameManager.getIntance().mInitStatus == 4)
+        else if (GameManager.getIntance().mInitStatus == 4)//强制轮回
         {
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100029);
             GameManager.getIntance().mInitStatus = 5;
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi(JsonUtils.getIntance().getStringById(100002),
                 LuiHuiTips.TYPPE_RETURN_START);
         }
-        else if (GameManager.getIntance().mInitStatus == 6)
+        else if (GameManager.getIntance().mInitStatus == 6)//和网络同步数据
         {
+            GameManager.getIntance().mInitStatus = 7;
+            
             Debug.Log("in GameManager.getIntance().mInitStatus ");
-            if (!NetServer.getIntance().isHaveLocal())
-            {
-                Debug.Log("!NetServer.getIntance().isHaveLocal() ");
+            if (isUpdate == 4) {
                 GameManager.getIntance().mInitStatus = 8;
-                isUpdateEnd = true;
                 return;
             }
-            Debug.Log("!NetServer.getIntance().isHaveLocal() ");
-            GameManager.getIntance().mInitStatus = 7;
-            if (isUpdate == 2)
-            {
-                GameObject.Find("message_tip").GetComponent<OutLineGetMessage>().showUI(OutLineGetMessage.TYPPE_UPDATE_LINE, "检测到服务端有您的存档，需要进行同步吗", null);
-            }
-            else
-            {
-                Thread th1 = new Thread(() =>
-                {
-                    Debug.Log("NetServer.getIntance().getLocal();");
-                    string local = NetServer.getIntance().getLocal();
-                    Debug.Log(" NetServer.getIntance().getLocal()");
-                    SQLManager.getIntance().saveLocal(local);
-                    Debug.Log(" SQLHelper.getIntance().saveLoacl(local);");
-                    GameManager.getIntance().mInitStatus = 8;
-                });
-                th1.Start();
-            }
-
             isUpdateEnd = true;
+            bool isHaveNet = NetServer.getIntance().isHaveLocal();
+            if (isHaveNet)
+            {
+                if (isUpdate == 3)
+                {
+                    Thread th1 = new Thread(() =>
+                    {
+                        Debug.Log("NetServer.getIntance().getLocal();");
+                        string local = NetServer.getIntance().getLocal();
+                        Debug.Log(" NetServer.getIntance().getLocal()");
+                        SQLManager.getIntance().saveLocal(local);
+                        Debug.Log(" SQLHelper.getIntance().saveLoacl(local);");
+                        GameManager.getIntance().mInitStatus = 8;
+                    });
+                    th1.Start();
+                }
+                else if(isUpdate == 2) {
+
+                }
+                else
+                {
+                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("检测到服务端有您的存档，需要进行同步吗", LuiHuiTips.TYPPE_UPDATE_LINE);
+                }
+            }
+            else {
+                GameManager.getIntance().mInitStatus = 8;
+            }
         }
         else if (GameManager.getIntance().mInitStatus == 8)
         {
@@ -165,15 +204,15 @@ public class GameBeginControl : MonoBehaviour {
             {
                 Thread th1 = new Thread(() =>
                 {
-                    Debug.Log("SQLHelper.getIntance().init();");
-                    SQLHelper.getIntance().init();
-                    Debug.Log("SQLHelper.getIntance().init(); end");
-                    if (isUpdateEnd)
+                    if (isUpdateEnd && isUpdate != 4)
                     {
                         Debug.Log(" SQLHelper.getIntance().updateIsUpdate(); ");
                         SQLHelper.getIntance().updateIsUpdate();
                         Debug.Log(" SQLHelper.getIntance().updateIsUpdate(); end");
                     }
+                    Debug.Log("SQLHelper.getIntance().init();");
+                    SQLHelper.getIntance().init();
+                    Debug.Log("SQLHelper.getIntance().init(); end");
                     GameManager.getIntance().mInitStatus = 10;
                 });
                 th1.Start();

@@ -8,7 +8,6 @@ using System.Threading;
 public class OutLineGetMessage : MonoBehaviour {
 
     public static int TYPPE_OUT_LINE = 1;
-    public static int TYPPE_UPDATE_LINE = 2;
 
     Text mCountNumber;
     Button mSure, mClose;
@@ -50,28 +49,7 @@ public class OutLineGetMessage : MonoBehaviour {
         gameObject.transform.SetSiblingIndex(level);
     }
 
-    public void isUpdate(bool isNeed) {
-        if (isNeed)
-        {
-            Thread th1 = new Thread(() =>
-            {
-                string local = NetServer.getIntance().getLocal();
-                Debug.Log("local == " + local);
-                SQLManager.getIntance().saveLocal(local);
-                Debug.Log("local save end " );
-                GameManager.getIntance().mInitStatus = 8;
-            });
-            th1.Start();
-        }
-        else {
-            Thread th1 = new Thread(() =>
-            {
-                NetServer.getIntance().clearAllNet();
-                GameManager.getIntance().mInitStatus = 8;
-            });
-            th1.Start();
-        }
-    }
+
 
     public void removeUi()
     {

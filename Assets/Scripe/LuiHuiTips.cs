@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Threading;
+
 public class LuiHuiTips : MonoBehaviour {
 
 
     public static int TYPPE_LUIHUI = 1;
     public static int TYPPE_TIP = 2;
     public static int TYPPE_RETURN_START = 3;
+    public static int TYPPE_UPDATE_LINE = 4;
 
     Text mDes;
-    Text mButtonDec;
-    Button mSure, mClose;
+    Text mButtonDec,mLeftDec,mRightDec;
+    Button mSure, mClose,mLeft,mRight;
     private Vector2 mFri;
     private int mType;
+    GameObject buttonList;
 
     // Use this for initialization
     void Start()
@@ -23,6 +27,31 @@ public class LuiHuiTips : MonoBehaviour {
         mSure = GameObject.Find("lunhui_tips_sure").GetComponent<Button>();
         mClose = GameObject.Find("lunhui_tips_close").GetComponent<Button>();
         mButtonDec = GameObject.Find("lunhui_sure_ButtonTx").GetComponent<Text>();
+
+        buttonList = GameObject.Find("lunhui_tips_button_list");
+        mLeft = GameObject.Find("lunhui_tips_button_list_left").GetComponent<Button>();
+        mRight = GameObject.Find("lunhui_tips_button_list_right").GetComponent<Button>();
+        mLeftDec = GameObject.Find("lunhui_tips_button_list_left_tx").GetComponent<Text>();
+        mRightDec = GameObject.Find("lunhui_tips_button_list_right_tx").GetComponent<Text>();
+
+        mLeft.onClick.AddListener(() =>
+        {
+            if (mType == TYPPE_UPDATE_LINE)
+            {
+                isUpdate(false);
+            }
+            removeUi();
+        });
+        mRight.onClick.AddListener(() =>
+        {
+            if (mType == TYPPE_UPDATE_LINE)
+            {
+                isUpdate(true);
+            }
+            removeUi();
+        });
+
+
         mFri = gameObject.transform.localPosition;
         mSure.onClick.AddListener(() =>
         {
@@ -35,7 +64,7 @@ public class LuiHuiTips : MonoBehaviour {
                 removeUi();
             }
             if (mType == TYPPE_RETURN_START) {
-                GameManager.getIntance().mInitStatus = 8;
+                GameManager.getIntance().mInitStatus = 6;
                 removeUi();
             }
             
@@ -43,11 +72,38 @@ public class LuiHuiTips : MonoBehaviour {
         mClose.onClick.AddListener(() =>
         {
             if(mType == TYPPE_RETURN_START){
-                GameManager.getIntance().mInitStatus = 8;
+                GameManager.getIntance().mInitStatus = 6;
             }
             removeUi();
         });
     }
+
+
+    public void isUpdate(bool isNeed)
+    {
+        if (isNeed)
+        {
+            Thread th1 = new Thread(() =>
+            {
+                string local = NetServer.getIntance().getLocal();
+                Debug.Log("local == " + local);
+                SQLManager.getIntance().saveLocal(local);
+                Debug.Log("local save end ");
+                GameManager.getIntance().mInitStatus = 8;
+            });
+            th1.Start();
+        }
+        else
+        {
+            Thread th1 = new Thread(() =>
+            {
+                NetServer.getIntance().clearAllNet();
+                GameManager.getIntance().mInitStatus = 8;
+            });
+            th1.Start();
+        }
+    }
+
     public void showUi(float dec) {
         mType = TYPPE_TIP;
         mButtonDec.text = "确定";
@@ -59,11 +115,13 @@ public class LuiHuiTips : MonoBehaviour {
 
     public void showUi()
     {
+        mSure.transform.localScale = new Vector2(1, 1);
+        buttonList.transform.localScale = new Vector2(0, 0);
         mType = TYPPE_LUIHUI;
         gameObject.transform.localPosition = new Vector2(0, 0);
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);
-        string dec = mDes.text;
+        string dec = "轮回将使您失去等级、装备和卡牌，并回到初始关卡。\n您将获得 % D点轮回点作为奖励，轮回点购买的属性将永久保留。";
         Level level2 = JsonUtils.getIntance().getLevelData();
        
 
@@ -78,7 +136,20 @@ public class LuiHuiTips : MonoBehaviour {
     public void showUi(string str,int type) {
         mType = type;
         mDes.text = str;
-        mButtonDec.text = "确定";
+        if (type == TYPPE_RETURN_START)
+        {
+            mSure.transform.localScale = new Vector2(1, 1);
+            buttonList.transform.localScale = new Vector2(0, 0);
+            mButtonDec.text = "确定";
+        }
+        else if (type == TYPPE_UPDATE_LINE)
+        {
+            mSure.transform.localScale = new Vector2(0, 0);
+            buttonList.transform.localScale = new Vector2(1, 1);
+            mLeftDec.text = "不需要";
+            mRightDec.text = "需要";
+        }
+
         gameObject.transform.localPosition = new Vector2(0, 0);
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);

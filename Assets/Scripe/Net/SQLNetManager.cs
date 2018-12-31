@@ -219,7 +219,7 @@ public class SQLNetManager
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
             Debug.Log("updateToNet 没有网络连接");
-            mNetFault++;
+         //   mNetFault++;
             if (mNetFault >= 5 && isNet) {
                 isNet = false;
                 SQLDate date = new SQLDate();

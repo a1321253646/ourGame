@@ -26,7 +26,7 @@ public class SQLManager : MonoBehaviour
     SqliteConnection mConnet = null;
     private static int IDCount;
     Thread th1 = null;
-//    NetHelper mNetHelper = new NetHelper();
+    NetHelper mNetHelper = new NetHelper();
 
     private SQLManager() {
 
@@ -52,11 +52,9 @@ public class SQLManager : MonoBehaviour
             this.tabName = sqlName_new;
             mPathRoot = Application.persistentDataPath;
         }
-        int updateStatus = this.OpenSQLaAndConnect();
-
         th1 = new Thread(threadRun);
         th1.Start();
-        return updateStatus;
+        return 0;
     }
 
     private string getSqlFilePath() {
@@ -112,7 +110,7 @@ public class SQLManager : MonoBehaviour
         th1.Start();
     }
 
-    public bool initNoNet()
+    public int initNoNet()
     {
         sqlName = sqlName_new;
         tabName = tabName_new;
@@ -264,17 +262,18 @@ public class SQLManager : MonoBehaviour
                     count.goodId = SQLDate.DEFAULT_GOOD_ID;
                     count.extan = "1";
                     InsertDataToSQL(count, true);
-                    return true;
+
+                    return 1;
                 }
                 else {
-                    return false;
+                    return 3;
                 }
             }
             else
             {
                 sqlName = sqlName_new;
                 tabName = tabName_new;
-                return false;
+                return 3;
             }
         }
         else {
@@ -282,122 +281,35 @@ public class SQLManager : MonoBehaviour
             tabName = tabName_new;
         }
         GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100028);
-        return false;
+        return 2;
     }
 
-    //打开数据库
-    public int OpenSQLaAndConnect()
-    {
-        bool isHaveLocal = false;
-        if (GameManager.isAndroid)
+    public bool isUpdateed() {
+        bool back = true;
+        string comm = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_IS_UPDATE + " AND TYPE=" + SQLHelper.TYPE_GAME;
+        if (mConnet == null)
         {
-            sqlName = sqlName_new;
-            tabName = tabName_new;
-            if (!File.Exists(getSqlFilePath()))//创建新的数据库
-            {
-                isHaveLocal= creatLocalAndroid();
+            mConnet = new SqliteConnection(getSqlPath());
+            mConnet.Open();
+        }
+        using (reader)
+        {
+            Debug.Log("ExecuteSQLCommand queryString=" + comm);
+
+            SqliteCommand command = mConnet.CreateCommand();
+            command.CommandText = comm;
+            reader = command.ExecuteReader();
+            int count = 0;
+            while (this.reader.Read()) {
+                count++;
             }
-        }
-        Debug.Log("  打开数据库 结束 ");
-        return 0;
-     //   GameObject.Find("game_begin").GetComponent<GameBeginControl>().init();
-    }
-
-    private bool creatLocalAndroid (){
-        bool isHavaLocal = false;
-        sqlName = sqlName_old;
-        tabName = tabName_old;
-        if (File.Exists(getSqlPath()))
-        {//有旧的存档
-            isHavaLocal = true;
-            List<SQLDate> list = readAllTableOld();
-            sqlName = sqlName_new;
-            tabName = tabName_new;
-            creatLocl888Android();
-
-            long goodId = 0;
-            foreach (SQLDate date in list) {
-                if (date.type == SQLHelper.TYPE_GOOD)
-                {
-                    if (date.id > InventoryHalper.TABID_3_START_ID)
-                    {
-                        date.goodType = SQLDate.GOOD_TYPE_CARD;
-                    }
-                    else {
-                        date.goodType = SQLDate.GOOD_TYPE_BACKPACK;
-                    }
-                    
-                    goodId++;
-                    date.goodId = goodId;
-                    
-                    date.isClean = SQLDate.CLEAR;
-                }
-                else if (date.type == SQLHelper.TYPE_CARD)
-                {
-
-                    PlayerBackpackBean newBean = new PlayerBackpackBean();
-                    CardJsonBean cj = JsonUtils.getIntance().getCardInfoById(date.id);
-                    newBean.goodId = date.id;
-                    newBean.sortID = cj.sortID;
-                    newBean.count = 1;
-                    newBean.tabId = cj.tabid;
-                    newBean.isShowPoint = 2;
-
-                    date.extan = SQLHelper.getGoodExtra(newBean);
-                    date.type = SQLHelper.TYPE_GOOD;
-                    date.goodType = SQLDate.GOOD_TYPE_USER_CARD;
-                    goodId++;
-                    date.goodId = goodId;
-                    date.isClean = SQLDate.CLEAR;
-                }
-                else if (date.type == SQLHelper.TYPE_ZHUANGBEI)
-                {
-                    date.type = SQLHelper.TYPE_GOOD;
-                    date.goodType = SQLDate.GOOD_TYPE_ZHUANGBEI;
-                    goodId++;
-                    date.goodId = goodId;
-                    date.isClean = SQLDate.CLEAR;
-                }
-                else if (date.type == SQLHelper.TYPE_LUNHUI)
-                {
-                    date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    date.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    date.isClean = SQLDate.CLEAR_NO;
-                }
-                else if (date.type == SQLHelper.TYPE_DROP)
-                {
-                    date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    date.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    date.isClean = SQLDate.CLEAR;
-                }
-                else if (date.type == SQLHelper.TYPE_GUIDE)
-                {
-                    date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    date.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    date.isClean = SQLDate.CLEAR_NO;
-                }
-                else if (date.type == SQLHelper.TYPE_GAME)
-                {
-                    date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    date.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    date.getClean();
-                }
-                InsertDataToSQL(date, true);
+            if (count > 0) {
+                back = false;
             }
-            SQLDate count = new SQLDate();
-            count.type = SQLHelper.TYPE_GAME;
-            count.id = SQLHelper.GAME_ID_GOOD_MAXID;
-            count.isClean = SQLDate.CLEAR_NO;
-            count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-            count.goodId = SQLDate.DEFAULT_GOOD_ID;
-            count.extan = "" + goodId;
-            InsertDataToSQL(count, true);
-            list.Add(count);
+            reader.Close();
+            //           cnn.Close();            
         }
-        else {//没有旧的存档
-            creatLocl888Android();
-        }
-        return isHavaLocal;
+        return back;
     }
 
     private void creatLocl888Android() {
@@ -418,10 +330,13 @@ public class SQLManager : MonoBehaviour
         );
     }
 
-    private void updateToNet(List<SQLDate> list) {
-//        foreach (SQLDate date in list) {
-//            mNetHelper.changeInto(date);
-//        }
+    
+
+    public void copyToNet() {
+        List<SQLDate> list = readAllTable();
+        foreach (SQLDate date in list) {
+            mNetHelper.changeInto(date);
+        }
     }
 
     /// <summary>
@@ -501,7 +416,7 @@ public class SQLManager : MonoBehaviour
             addList(commandString);
         }
         if (isUpToNet) {
-       //     mNetHelper.changeInto(data);
+            mNetHelper.changeInto(data);
         }       
         //     
     }
@@ -511,7 +426,7 @@ public class SQLManager : MonoBehaviour
         commPath += " WHERE GOODID=" + date.goodId;
         addList(commPath);
      //   ExecuteSQLCommand(commPath);
-//        mNetHelper.changeInto(date);
+        mNetHelper.changeInto(date);
     }
 
 
@@ -521,7 +436,7 @@ public class SQLManager : MonoBehaviour
         // ExecuteSQLCommand(commandString);
           addList(commandString);
      //   ExecuteSQLCommand(commandString);
-//        mNetHelper.delectInfo(date);
+        mNetHelper.delectInfo(date);
     }
     public void deleteLuiHui()
     {
@@ -529,7 +444,7 @@ public class SQLManager : MonoBehaviour
         // ExecuteSQLCommand(commandString);
         addList(commandString);
      //   ExecuteSQLCommand(commandString);
-//        mNetHelper.cleanLuihui();
+        mNetHelper.cleanLuihui();
     }
     /// <summary>
     /// 更新表中数据
@@ -548,13 +463,13 @@ public class SQLManager : MonoBehaviour
         addList(commPath);
      //   ExecuteSQLCommand(commPath);
         Debug.Log("更新数据成功!");
- //       mNetHelper.changeInto(date);
+        mNetHelper.changeInto(date);
         return true;
     }
 
     public void updateToNet() {
         Debug.Log("更新后台数据!");
-//        mNetHelper.updateToNet();
+        mNetHelper.updateToNet();
     }
     public bool UpdateInto(SQLDate date) {
         return UpdateInto(date, false);
@@ -575,7 +490,7 @@ public class SQLManager : MonoBehaviour
         }
         
         Debug.Log("更新数据成功!");
-  //      mNetHelper.changeInto(date);
+        mNetHelper.changeInto(date);
         return true;
     }
 
