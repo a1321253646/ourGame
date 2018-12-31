@@ -41,8 +41,13 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = false;
-    public static bool isAdd = true;
+    public static bool isAndroid = true;
+    public static bool isAdd = false;
+
+    public  bool mAllSaleGreed = false;
+    public  bool mAllSaleBlue = false;
+    public  bool mAllSalePurple = false;
+    public  bool mAllSaleOrange = false;
 
 
     public string mGameErrorString = "";
@@ -112,8 +117,9 @@ public class GameManager
                 }
             }
 
-               mCurrentCrystal = SQLHelper.getIntance().mMojing;   
-          //  mCurrentCrystal = BigNumber.getBigNumForString("2.1E+40");
+                mCurrentCrystal = SQLHelper.getIntance().mMojing;   
+            //  mCurrentCrystal = BigNumber.getBigNumForString("2.1E+40");
+            mCurrentCrystal = new BigNumber();
             long auto = SQLHelper.getIntance().isAutoBoss;
             if (auto == -1 || auto == 1) {
                 isAuto = false;
@@ -256,10 +262,22 @@ public class GameManager
         control.init(e, type, path, count,id);
     }
 
-    public void showDIaoLuo(Vector2 e, int type, string path, float count, long id)
+    public void showDIaoLuo(Vector2 e, int type, string path, float count, long id) {
+        showDIaoLuo(e,type, path, count, id, false);
+    }
+
+    public void showDIaoLuo(Vector2 e, int type, string path, float count, long id,bool isTop)
     {
         GameObject obj = Object.Instantiate(Resources.Load("prefab/diaoluodonghua")) as GameObject;//Resources.Load<GameObject>();
-        obj.transform.SetParent(GameObject.Find("enemyStatePlane").transform);
+        
+        
+        if (isTop)
+        {
+            obj.transform.SetParent(GameObject.Find("Canvas").transform);
+        }
+        else {
+            obj.transform.SetParent(GameObject.Find("enemyStatePlane").transform);
+        }
         obj.transform.localScale = new Vector3(1, 1, 1);
         DiaoluoDonghuaControl control = obj.GetComponent<DiaoluoDonghuaControl>();
         control.init(e, type, path, count, id);

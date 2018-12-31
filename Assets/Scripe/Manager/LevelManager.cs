@@ -58,9 +58,11 @@ public class LevelManager : MonoBehaviour {
         if (SQLHelper.getIntance().isLuiHui != -1 && GameManager.getIntance().mCurrentLevel <= SQLHelper.getIntance().isLuiHui)
         {
             Time.timeScale = 2;
+            GameObject.Find("jiasu_tip").transform.localScale = new Vector2(1, 1);
         }
         else {
             Time.timeScale = 1;
+            GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
         GameManager.getIntance().isLuihuiIng = false;
     }
@@ -143,9 +145,12 @@ public class LevelManager : MonoBehaviour {
             {
                 long outTime = TimeUtils.getTimeDistanceMin(mOld);
                 BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).getOfflinereward();
+                Debug.Log("=============levelCryStal=" + levelCryStal.toString());
+                Debug.Log("=============outTime=" + outTime);
                 BigNumber  outLineGet = BigNumber.multiply(levelCryStal, outTime);
                 outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
-               
+                Debug.Log("=============outLineGet=" + outLineGet.toString());
+                Debug.Log("=============GameManager.getIntance().getOutlineGet()=" + GameManager.getIntance().getOutlineGet());
                 if (outTime > 1)
                 {
                     GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);

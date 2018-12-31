@@ -25,7 +25,7 @@ public class BackpackManager
     private RectTransform mMessageTip;
     //    private RectTransform mQiangHua;
 
-    private IvertoryControl mInvertoryControl;
+    public IvertoryControl mInvertoryControl;
     private TipControl mTipControl;
     private HeroRoleControl mHeroControl;
     private CardShowControl mCardControl;
@@ -153,7 +153,7 @@ public class BackpackManager
             mHeroControl.upDateUi();
             updateZhuangbeiItem(true);
         }
-        else if (type == TipControl.SALE_TYPE ) {
+        else if (type == TipControl.SALE_TYPE  || type == TipControl.SALE_ALL_TYPE) {
             AccouterJsonBean aj =  JsonUtils.getIntance().getAccouterInfoById(bean.goodId);
             List<PlayerAttributeBean> list = bean.attributeList;
             long level = 0;
@@ -165,18 +165,31 @@ public class BackpackManager
             }
             BigNumber b1 = aj.getSale();
             BigNumber b2 = aj.getSaleLevel();
+
+            Debug.Log("=====================SALE_TYPE=========================");
+            Debug.Log("getSale="+ b1.toString());
+            Debug.Log("getSaleLevel="+b2.toString());
+            Debug.Log("level= "+ level);
             if (!b2.isEmpty()) {
                 b2 = BigNumber.multiply(b2, level);
                 b1 = BigNumber.add(b1, b2);
             }
+            Debug.Log("sale= " + b1.toString());
+            Debug.Log("=====================SALE_TYPE=========================End");
             if (!b1.isEmpty()) {
                 GameManager.getIntance().mCurrentCrystal = BigNumber.add(GameManager.getIntance().mCurrentCrystal, b1);
                 GameManager.getIntance().updataGasAndCrystal();
+                
             }
-            InventoryHalper.getIntance().deleteIventory(bean, (int)1);            
-            mInvertoryControl.update();
-            mHeroControl.upDateUi();
-            updateZhuangbeiItem(true);
+            
+            InventoryHalper.getIntance().deleteIventory(bean, (int)1);
+            if (type == TipControl.SALE_TYPE) {
+                mInvertoryControl.update();
+                mHeroControl.upDateUi();
+                updateZhuangbeiItem(true);
+                SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
+            }
+            
         }
         else if (type == TipControl.UNUSE_TYPE)
         {

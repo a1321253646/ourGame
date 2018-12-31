@@ -10,6 +10,8 @@ public class IvertoryControl : MonoBehaviour {
     private List<GameObject> mGoodsGameObject = new List<GameObject>();
     private Button mCloBt;
     private GameObject  mClo;
+    private GameObject  mGreedSure, mBlueSure, mPurpleSure, mOrangeSure;
+    private Button mGreedBt, mBlueBt, mPurpleBt, mOrangeBt,mAllSale;
     private int MinCount = 6;
     private int LinCount = 8;
     GoodControl[] mGoodsControl;
@@ -31,14 +33,168 @@ public class IvertoryControl : MonoBehaviour {
         mGrilLayout = mGoods.GetComponentInChildren<GridLayoutGroup>();
 
         mScroll = GameObject.Find("backpack_scroll").GetComponent<ScrollRect>();
-        mCloBt = GameObject.Find("pack_close").GetComponent<Button>();
 
+        mCloBt = GameObject.Find("pack_close").GetComponent<Button>();
         mCloBt.onClick.AddListener(() =>
         {
             removeUi();
         });
+
+
+
+
+        mGreedSure = GameObject.Find("select_greed_sure");
+        if (GameManager.getIntance().mAllSaleGreed)
+        {
+            mGreedSure.transform.localScale = new Vector2(1, 1);
+        }
+        else
+        {
+            mGreedSure.transform.localScale = new Vector2(0, 0);
+        }
+
+        mBlueSure = GameObject.Find("select_blue_sure");
+        if (GameManager.getIntance().mAllSaleBlue)
+        {
+            mBlueSure.transform.localScale = new Vector2(1, 1);
+        }
+        else
+        {
+            mBlueSure.transform.localScale = new Vector2(0, 0);
+        }
+
+        mPurpleSure = GameObject.Find("select_purple_sure");
+        if (GameManager.getIntance().mAllSalePurple)
+        {
+            mPurpleSure.transform.localScale = new Vector2(1, 1);
+        }
+        else
+        {
+            mPurpleSure.transform.localScale = new Vector2(0, 0);
+        }
+
+        mOrangeSure = GameObject.Find("select_oringe_sure");
+        if (GameManager.getIntance().mAllSaleOrange)
+        {
+            mOrangeSure.transform.localScale = new Vector2(1, 1);
+        }
+        else
+        {
+            mOrangeSure.transform.localScale = new Vector2(0, 0);
+        }
+
+        mGreedBt = GameObject.Find("select_greed_root").GetComponent<Button>();
+        mGreedBt.onClick.AddListener(() =>
+        {
+            if (GameManager.getIntance().mAllSaleGreed)
+            {
+                GameManager.getIntance().mAllSaleGreed = false;
+                mGreedSure.transform.localScale = new Vector2(0, 0);
+            }
+            else {
+                GameManager.getIntance().mAllSaleGreed = true;
+                mGreedSure.transform.localScale = new Vector2(1, 1);
+            }
+        });
+
+        mBlueBt = GameObject.Find("select_blue_root").GetComponent<Button>();
+        mBlueBt.onClick.AddListener(() =>
+        {
+            if (GameManager.getIntance().mAllSaleBlue)
+            {
+                GameManager.getIntance().mAllSaleBlue = false;
+                mBlueSure.transform.localScale = new Vector2(0, 0);
+            }
+            else
+            {
+                GameManager.getIntance().mAllSaleBlue = true;
+                mBlueSure.transform.localScale = new Vector2(1, 1);
+            }
+        }); 
+
+        mPurpleBt = GameObject.Find("select_purple_root").GetComponent<Button>();
+        mPurpleBt.onClick.AddListener(() =>
+        {
+            if (GameManager.getIntance().mAllSalePurple)
+            {
+                GameManager.getIntance().mAllSalePurple = false;
+                mPurpleSure.transform.localScale = new Vector2(0, 0);
+            }
+            else
+            {
+                GameManager.getIntance().mAllSalePurple = true;
+                mPurpleSure.transform.localScale = new Vector2(1, 1);
+            }
+        });
+
+        mOrangeBt = GameObject.Find("select_oringe_root").GetComponent<Button>();
+        mOrangeBt.onClick.AddListener(() =>
+        {
+            if (GameManager.getIntance().mAllSaleOrange)
+            {
+                GameManager.getIntance().mAllSaleOrange = false;
+                mOrangeSure.transform.localScale = new Vector2(0, 0);
+            }
+            else
+            {
+                GameManager.getIntance().mAllSaleOrange = true;
+                mOrangeSure.transform.localScale = new Vector2(1, 1);
+            }
+        });
+
+        mAllSale = GameObject.Find("all_sale").GetComponent<Button>();
+        mAllSale.onClick.AddListener(() =>
+        {
+            List<PlayerBackpackBean> list = InventoryHalper.getIntance().getInventorys();
+            PlayerBackpackBean bean;
+            AccouterJsonBean accouter;
+            int count = 0;
+            for (int i = 0; i < list.Count;) {
+               
+                bean = list[i];
+                if (bean.goodType != SQLDate.GOOD_TYPE_BACKPACK)
+                {
+                    i++;
+                    continue;
+                }
+                accouter = JsonUtils.getIntance().getAccouterInfoById(bean.goodId);
+                bool isSale = false;
+                if (accouter.quality == 1 && GameManager.getIntance().mAllSaleGreed) {
+                    isSale = true;
+                }else if (accouter.quality == 2 && GameManager.getIntance().mAllSaleBlue)
+                {
+                    isSale = true;
+                }
+                else if (accouter.quality == 3 && GameManager.getIntance().mAllSalePurple)
+                {
+                    isSale = true;
+                }
+                else if (accouter.quality == 4 && GameManager.getIntance().mAllSaleOrange)
+                {
+                    isSale = true;
+                }
+                if (isSale)
+                {
+                    count++;
+                    
+                    BackpackManager.getIntance().use(bean, 1, TipControl.SALE_ALL_TYPE);
+                }
+                else {
+                    i++;
+                }
+            }
+            if (count > 0) {
+                GameManager.getIntance().showDIaoLuo(mAllSale.transform.position, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", 0, -1,true);
+                SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
+                update();
+            }
+            
+
+        });
+
         addGoodUi(MinCount* LinCount);
     }
+
     float time = 0;
 
     public void update() {
