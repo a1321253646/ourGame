@@ -57,6 +57,39 @@ public class SQLManager : MonoBehaviour
         return 0;
     }
 
+    public string getSqlTableName() {
+        return tabName + "_net";
+    }
+    public string getSqlSqlName()
+    {
+        return sqlName + "_net";
+    }
+
+    public string getSqlNetFilePath()
+    {
+        if (!GameManager.isAndroid)
+        {
+
+            return mPathRoot + "/Resources/" + this.sqlName;
+        }
+        else
+        {
+            return mPathRoot + "/" + sqlName + "_net";
+        }
+    }
+
+    public string getSqlNetPath()
+    {
+        if (!GameManager.isAndroid)
+        {
+            return "data source=" + mPathRoot + "/Resources/" + this.sqlName;
+        }
+        else
+        {
+            return "URI=file:" + mPathRoot + "/" + sqlName + "_net";
+        }
+    }
+
     private string getSqlFilePath() {
         if (!GameManager.isAndroid)
         {
@@ -333,9 +366,17 @@ public class SQLManager : MonoBehaviour
     
 
     public void copyToNet() {
-        List<SQLDate> list = readAllTable();
-        foreach (SQLDate date in list) {
-            mNetHelper.changeInto(date);
+        if (!File.Exists(getSqlNetFilePath()))
+        {
+            Debug.Log("!File.Exists = " + getSqlNetFilePath());
+            List<SQLDate> list = readAllTable();
+            foreach (SQLDate date in list)
+            {
+                mNetHelper.changeInto(date);
+            }
+        }
+        else {
+            Debug.Log("File.Exists = " + getSqlNetFilePath());
         }
     }
 

@@ -584,7 +584,10 @@ public class SQLHelper
             updateGame(GAME_ID_TIME, value);
         }
         mOutTime = value;
-        SQLManager.getIntance().updateToNet();
+        if (isUpdate != -1) {
+            SQLManager.getIntance().updateToNet();
+        }
+        
     }
 
     public void addGuide(long value) {

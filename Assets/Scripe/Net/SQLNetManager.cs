@@ -23,9 +23,6 @@ public class SQLNetManager
     /// 本地数据库名字
     /// </summary>
 
-    public string sqlName =  "local889_ner";
-    public string tabName =  "local889_ner";
-
     object mLock1 = new object();
 
     private void init() {
@@ -122,25 +119,23 @@ public class SQLNetManager
     //打开数据库
     public void OpenSQLaAndConnect()
     {
-        string appDBPath = Application.persistentDataPath + "/" + sqlName;
-        if (!File.Exists(appDBPath))//创建新的数据库
+        if (!File.Exists(SQLManager.getIntance().getSqlNetFilePath()))//创建新的数据库
         {
             creatLocl888Android();
         }
-        this.connection = new SqliteConnection("URI=file:" + appDBPath);
+        this.connection = new SqliteConnection(SQLManager.getIntance().getSqlNetPath());
         this.connection.Open();
         Debug.Log("  打开数据库 结束 ");
     }
 
     private void creatLocl888Android() {
-        string appDBPath = Application.persistentDataPath + "/" + sqlName;
-        this.connection = new SqliteConnection("URI=file:" + appDBPath);
+        this.connection = new SqliteConnection(SQLManager.getIntance().getSqlNetPath());
         this.connection.Open();
-        Debug.Log("  创建数据库  appDBPath= " + appDBPath);
+        Debug.Log("  创建数据库  appDBPath= " + SQLManager.getIntance().getSqlNetPath());
         Debug.Log("  创建数据库 ");
         this.CreateSQLTable(
-            tabName,
-            "CREATE TABLE " + tabName + "(" +
+            SQLManager.getIntance().getSqlTableName(),
+            "CREATE TABLE " + SQLManager.getIntance().getSqlTableName() + "(" +
             "ACTION      INT ," +//1为更新，2为删除，3为轮回清空，4为全部清空
             "TYPE          INT ," +
             "ID            INT ," +
@@ -249,7 +244,7 @@ public class SQLNetManager
             {
                 foreach (SqlNetDate data in mUpAll)
                 {
-                    string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + data.date.type +
+                    string commandString = "DELETE FROM " + SQLManager.getIntance().getSqlTableName() + " WHERE TYPE=" + data.date.type +
                                                                       " AND ACTION=" + data.action +
                                                                       " AND ID=" + data.date.id +
                                                                       " AND EXTAN='" + data.date.extan + "'" +
@@ -285,7 +280,7 @@ public class SQLNetManager
         {
            // Debug.Log("======================================SQLNetManager data.type != SQLHelper.TYPE_GOOD ");
           //  string commPath = "SELECT TYPE=" + data.type + " AND ID=" + data.id + " from " + tabName;
-            string commPath = "SELECT* FROM " + tabName + " WHERE  ID=" + data.id + " AND TYPE="+ data.type; //SELECT* FROM Persons WHERE firstname = 'Thomas' OR lastname = 'Carter'
+            string commPath = "SELECT* FROM " + SQLManager.getIntance().getSqlTableName() + " WHERE  ID=" + data.id + " AND TYPE="+ data.type; //SELECT* FROM Persons WHERE firstname = 'Thomas' OR lastname = 'Carter'
             SqliteDataReader reader = ExecuteSQLCommand(commPath);
            // Debug.Log("======================================SQLNetManager ExecuteSQLCommand end");
           
@@ -302,7 +297,7 @@ public class SQLNetManager
             }
             else
             {
-                commPath = "UPDATE " + tabName + " SET EXTAN='" + data.extan+"'" + ", ACTION=1";
+                commPath = "UPDATE " + SQLManager.getIntance().getSqlTableName() + " SET EXTAN='" + data.extan+"'" + ", ACTION=1";
                 commPath += " WHERE TYPE=" + data.type + " AND ID=" + data.id;
             }
          //   Debug.Log("======================================SQLNetManager ExecuteSQLCommand start");
@@ -312,7 +307,7 @@ public class SQLNetManager
         else {
           //  Debug.Log("======================================SQLNetManager data.type == SQLHelper.TYPE_GOOD ");
         //    string commPath = "SELECT GOODID=" + data.goodId +" from " + tabName;
-            string commPath = "SELECT* FROM " + tabName + " WHERE  GOODID=" + data.goodId;
+            string commPath = "SELECT* FROM " + SQLManager.getIntance().getSqlTableName() + " WHERE  GOODID=" + data.goodId;
            // Debug.Log("======================================SQLNetManager ExecuteSQLCommand start");
             SqliteDataReader reader = ExecuteSQLCommand(commPath);
            // Debug.Log("======================================SQLNetManager ExecuteSQLCommand ");
@@ -329,7 +324,7 @@ public class SQLNetManager
             }
             else
             {
-                commPath = "UPDATE " + tabName + " SET EXTAN='" + data.extan + "', ACTION=1"+", GOODTYPE="+data.goodType;
+                commPath = "UPDATE " + SQLManager.getIntance().getSqlTableName() + " SET EXTAN='" + data.extan + "', ACTION=1"+", GOODTYPE="+data.goodType;
                 commPath += " WHERE GOODID=" + data.goodId;
             }
        //     Debug.Log("======================================SQLNetManager ExecuteSQLCommand start");
@@ -339,17 +334,17 @@ public class SQLNetManager
     }
     
     public void delectInfo(SQLDate data) {
-        string commandString = "DELETE FROM " + tabName + " WHERE GOODID=" + data.goodId;
+        string commandString = "DELETE FROM " + SQLManager.getIntance().getSqlTableName() + " WHERE GOODID=" + data.goodId;
         ExecuteSQLCommand(commandString);
-        commandString = "INSERT INTO " + tabName + " VALUES (2,-1,-1,'0'," + data.goodId + ",-1,1)";
+        commandString = "INSERT INTO " + SQLManager.getIntance().getSqlTableName() + " VALUES (2,-1,-1,'0'," + data.goodId + ",-1,1)";
         ExecuteSQLCommand(commandString);
     }
 
     public void cleanLuihui()
     {
-        string commandString = "DELETE FROM " + tabName + " WHERE ISCLENAN=1";
+        string commandString = "DELETE FROM " + SQLManager.getIntance().getSqlTableName() + " WHERE ISCLENAN=1";
         ExecuteSQLCommand(commandString);
-        commandString = "INSERT INTO " + tabName + " VALUES (3,-1,-1,'0',-1,-1,1)";
+        commandString = "INSERT INTO " + SQLManager.getIntance().getSqlTableName() + " VALUES (3,-1,-1,'0',-1,-1,1)";
         ExecuteSQLCommand(commandString);
     }
     public void cleanAll() {
@@ -358,17 +353,17 @@ public class SQLNetManager
     }
     public void cleanAllLocal()
     {
-        string commandString = "DELETE FROM  " + tabName;
+        string commandString = "DELETE FROM  " + SQLManager.getIntance().getSqlTableName();
         ExecuteSQLCommand(commandString);
     }
     public void cleanAllNet() {
-        string commandString = "INSERT INTO " + tabName + " VALUES (4,-1,-1,'0',-1,-1,2)";
+        string commandString = "INSERT INTO " + SQLManager.getIntance().getSqlTableName() + " VALUES (4,-1,-1,'0',-1,-1,2)";
         ExecuteSQLCommand(commandString);
     }
 
     private string getInsertComm(SQLDate data)
     {
-        string commandString = "INSERT INTO " + tabName + " VALUES (1,";
+        string commandString = "INSERT INTO " + SQLManager.getIntance().getSqlTableName() + " VALUES (1,";
         commandString +=  data.type;
         commandString += "," + data.id;
         commandString += "," + "'" + data.extan + "'";
@@ -381,7 +376,7 @@ public class SQLNetManager
     public void readAllTable() {
         lock (mUpdateLock) {
             this.command = this.connection.CreateCommand();
-            this.command.CommandText = "select * from " + tabName;
+            this.command.CommandText = "select * from " + SQLManager.getIntance().getSqlTableName();
             this.reader = this.command.ExecuteReader();
             mUpAll.Clear();
             mUpAll = new List<SqlNetDate>();
@@ -402,7 +397,7 @@ public class SQLNetManager
             }
         }
     }
-
+    
     private SQLNetManager() {
         init();
     }
