@@ -223,6 +223,13 @@ public class LevelManager : MonoBehaviour {
             ob.transform.SetSiblingIndex(GameManager.getIntance().getUiLevel());
         }
 
+        if (GameManager.getIntance().isError) {
+            Time.timeScale = 0;
+            NetServer.getIntance().getLocl();
+            SQLManager.getIntance().saveLocal(NetServer.getIntance().getLocal());
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("数据出现异常，已还原回服务器最新记录，请重新开始游戏", LuiHuiTips.TYPPE_ERROR_DATE);
+        }
+
     }
 	public BackgroundManager getBackManager(){
 		return mBackManager;

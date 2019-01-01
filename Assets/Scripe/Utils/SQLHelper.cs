@@ -14,6 +14,7 @@ public class SQLHelper
     public BigNumber mLunhuiValue = new BigNumber();
     public BigNumber mMojing = new BigNumber();
     public long mOutTime = -1;
+    public long mMaxOutTime = -1;
 
     public long isShowCardPoint = -1;
     public long isShowBackpackPoint = -1;
@@ -45,6 +46,7 @@ public class SQLHelper
     public static long GAME_ID_IS_NET = 17;
     public static long GAME_ID_IS_UPDATE = 18;
     public static long GAME_ID_POINT_PETTABLE = 19;
+    public static long GAME_ID_MAX_TIME = 20;
 
     public static long TYPE_GAME = 1;
     public static long TYPE_GOOD = 2;
@@ -280,6 +282,11 @@ public class SQLHelper
                     {
                         isShowPetTablePoint = long.Parse(date.extan);
                         Debug.Log("读取数据库 是否显示宠物小红点 " + mMaxGoodId);
+                    }
+                    else if (date.id == GAME_ID_MAX_TIME)
+                    {
+                        mMaxOutTime = long.Parse(date.extan);
+                        Debug.Log("读取数据库 最大离线时间 " + mMaxGoodId);
                     }
                 }
             }
@@ -581,14 +588,34 @@ public class SQLHelper
         }
         else
         {
+            if (value > mMaxOutTime) {
+                updateMaxOutTime(value);
+            }
             updateGame(GAME_ID_TIME, value);
         }
         mOutTime = value;
         if (isUpdate != -1) {
             SQLManager.getIntance().updateToNet();
-        }
-        
+        }        
     }
+    private void updateMaxOutTime(long time)
+    {
+        if (mMaxOutTime == -1)
+        {
+            addGame(GAME_ID_MAX_TIME, time);
+
+        }
+        else
+        {
+            updateGame(GAME_ID_MAX_TIME, time);
+        }
+        mMaxOutTime = time;
+    }
+
+    public void deleteAll() {
+        SQLManager.getIntance().deleteAll();
+    }
+
 
     public void addGuide(long value) {
         Debug.Log("addGuide  =" + value);

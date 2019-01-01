@@ -9,6 +9,8 @@ public class NetServer
 {
     public bool isUpdate = false;
     List<SqlNetDate> mList = null;
+    public long mTime = -1;
+
     public void updateNet(List<SqlNetDate> list) {
         Debug.Log("NetServer  updateNet");
         isUpdate = true;
@@ -56,9 +58,15 @@ public class NetServer
         if (www.error == null) 
         {
             Debug.Log("Upload complete! "+ www.text);
-            if (www.text != null && www.text.Equals("ok"))
+            if (www.text != null && www.text.Length > 0)
             {
-                SQLNetManager.getIntance().updateDate(true);
+                JObject jb = JObject.Parse(www.text);
+                int status = jb.Value<int>("status");
+                long getTime = jb.Value<long>("time");
+                setGetTime(getTime);
+                if (status == 0) {
+                    SQLNetManager.getIntance().updateDate(true);
+                }               
                 mList = null;             
             }
             isUpdate = false;
@@ -74,42 +82,7 @@ public class NetServer
     }
     public string mLocal;
 
-    public void clearAllNet() {
-        JObject json = new JObject();
-        json.Add("user", SystemInfo.deviceUniqueIdentifier);
-        JArray array = new JArray();
-        JObject jb = new JObject();
-        jb.Add("action", 4);
-        jb.Add("type", -1);
-        jb.Add("id", -1);
-        jb.Add("goodId", -1);
-        jb.Add("goodtype", -1);
-        jb.Add("isclean", -1);
-        jb.Add("extra", "-1");
-        array.Add(jb);
-        json.Add("date", array);
-        Dictionary<string, string> dir = new Dictionary<string, string>();
-        dir.Add("Content-Type", "application/json");
-        //   dir.Add("Connection", "close");
-        byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
 
-        WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
-        while (!www.isDone)
-        {
-            Thread.Sleep(100);
-        }
-        if (www.error == null && www.text != null && www.text.Equals("ok"))
-        {
-            Debug.Log("Upload complete!");
-        }
-        else
-        {
-            Debug.Log("Http错误代码:" + www.error);
-            SqlNetDate date = new SqlNetDate();
-            date.action = 6;
-            SQLNetManager.getIntance().addList(date);
-        }
-    }
 
     private NetServer() {
 
@@ -148,10 +121,18 @@ public class NetServer
         {
             Debug.Log("Upload complete! www.text ="+ www.text);
            
-            if (www.text != null && !www.text.Equals("error"))
+            if (www.text != null && www.text.Length > 0)
             {
-                Debug.Log("Upload complete! www.text leng = " + www.text.Length);
-                mLocal = www.text;
+                JObject jb2 = JObject.Parse(www.text);
+                int status = jb2.Value<int>("status");
+                long getTime = jb2.Value<long>("time");
+                setGetTime(getTime);
+                if (status == 0)
+                {
+                    Debug.Log("Upload complete! www.text leng = " + www.text.Length);
+                    mLocal = www.text;
+                }
+
             }
             else {
                 mLocal = null;
@@ -170,8 +151,56 @@ public class NetServer
         return false;
     }
 
+    private void setGetTime(long time) {
+        if (time > mTime) {
+            mTime = time;
+            if (SQLHelper.getIntance().mMaxOutTime > mTime+360000 || SQLHelper.getIntance().mMaxOutTime < mTime - 360000 ) {
+                GameManager.getIntance().isError = true;
+            }
+        }
+    }
+
     public string getLocal()
     {
         return mLocal;
     }
+
+    /*    public void clearAllNet() {
+        JObject json = new JObject();
+        json.Add("user", SystemInfo.deviceUniqueIdentifier);
+        JArray array = new JArray();
+        JObject jb = new JObject();
+        jb.Add("action", 4);
+        jb.Add("type", -1);
+        jb.Add("id", -1);
+        jb.Add("goodId", -1);
+        jb.Add("goodtype", -1);
+        jb.Add("isclean", -1);
+        jb.Add("extra", "-1");
+        array.Add(jb);
+        json.Add("date", array);
+        Dictionary<string, string> dir = new Dictionary<string, string>();
+        dir.Add("Content-Type", "application/json");
+        //   dir.Add("Connection", "close");
+        byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
+
+        WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
+        while (!www.isDone)
+        {
+            Thread.Sleep(100);
+        }
+        if (www.error == null && www.text != null && www.text.Equals("ok"))
+        {
+            Debug.Log("Upload complete!");
+        }
+        else
+        {
+            Debug.Log("Http错误代码:" + www.error);
+            SqlNetDate date = new SqlNetDate();
+            date.action = 6;
+            SQLNetManager.getIntance().addList(date);
+        }
+    }*/
+
+
 }

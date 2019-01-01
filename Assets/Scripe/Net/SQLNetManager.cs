@@ -56,7 +56,13 @@ public class SQLNetManager
             return mWaitList[index];
         }
     }
-
+    private void cleanList()
+    {
+        lock (mLock1)
+        {
+            mWaitList.Clear();
+        }
+    }
     private bool listIsEmpty()
     {
         lock (mLock1)
@@ -93,6 +99,7 @@ public class SQLNetManager
                 }
                 else if (command.action == 4)
                 {
+                    cleanList();
                     cleanAll();
                 }
                 else if (command.action == 5)
@@ -106,7 +113,8 @@ public class SQLNetManager
                     cleanAllNet();
                 }
                 else if (command.action == 7) {
-
+                    cleanList();
+                    cleanAllLocal();
                 }
                 removeList(command);
             }

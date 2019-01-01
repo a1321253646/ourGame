@@ -380,6 +380,11 @@ public class SQLManager : MonoBehaviour
         }
     }
 
+
+    public void clearAllNet() {
+        mNetHelper.cleanAllNet();
+    }
+
     /// <summary>
     ///执行SQL命令,并返回一个SqliteDataReader对象
     /// <param name="queryString"></param>
@@ -541,16 +546,25 @@ public class SQLManager : MonoBehaviour
 
     public void saveLocal(string str) {
         Debug.Log("saveLocal");
-        Newtonsoft.Json.Linq.JObject jb = Newtonsoft.Json.Linq.JObject.Parse(str);
-        var arrdata = jb.Value<Newtonsoft.Json.Linq.JArray>("date");
-        Debug.Log(" Newtonsoft.Json.Linq.JArray.Parse(str);");
-        List<SQLDate> list = arrdata.ToObject<List<SQLDate>>();
-        Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
-
+        List<SQLDate> list = null;
+        if (str != null && str.Length > 0) {
+            Newtonsoft.Json.Linq.JObject jb = Newtonsoft.Json.Linq.JObject.Parse(str);
+            int status = jb.Value<int>("status");
+            if (status == 0) {
+                var arrdata = jb.Value<Newtonsoft.Json.Linq.JArray>("date");
+                Debug.Log(" Newtonsoft.Json.Linq.JArray.Parse(str);");
+                list = arrdata.ToObject<List<SQLDate>>();
+                Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
+            }
+        }
         string comm = "DELETE FROM " + tabName;
+        mNetHelper.cleanAllLocal();
         ExecuteSQLCommand(comm);
         ;
-  //      SQLNetManager.getIntance().cleanAllLocal();
+        //      SQLNetManager.getIntance().cleanAllLocal();
+        if (list == null || list.Count == 0) {
+            return;
+        }
         foreach (SQLDate date in list) {
             Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
             InsertDataToSQL(date, true,false);
@@ -662,6 +676,12 @@ public class SQLManager : MonoBehaviour
             return null;
         }
     }
+
+    internal void deleteAll()
+    {
+        
+    }
+
     public List<SQLDate> readAllTableOld()
     {
         List<SQLDate> list = new List<SQLDate>();

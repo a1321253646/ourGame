@@ -12,6 +12,7 @@ public class LuiHuiTips : MonoBehaviour {
     public static int TYPPE_TIP = 2;
     public static int TYPPE_RETURN_START = 3;
     public static int TYPPE_UPDATE_LINE = 4;
+    public static int TYPPE_ERROR_DATE = 5;
 
     Text mDes;
     Text mButtonDec,mLeftDec,mRightDec;
@@ -62,17 +63,24 @@ public class LuiHuiTips : MonoBehaviour {
             else if (mType == TYPPE_TIP)
             {
                 removeUi();
-            }
-            if (mType == TYPPE_RETURN_START) {
+            }else if (mType == TYPPE_RETURN_START) {
                 GameManager.getIntance().mInitStatus = 6;
                 removeUi();
             }
-            
+            else if (mType == TYPPE_ERROR_DATE)
+            {
+                Application.Quit();
+            }
+
         });
         mClose.onClick.AddListener(() =>
         {
             if(mType == TYPPE_RETURN_START){
                 GameManager.getIntance().mInitStatus = 6;
+            }
+            else if (mType == TYPPE_ERROR_DATE)
+            {
+                Application.Quit();
             }
             removeUi();
         });
@@ -97,7 +105,7 @@ public class LuiHuiTips : MonoBehaviour {
         {
             Thread th1 = new Thread(() =>
             {
-                NetServer.getIntance().clearAllNet();
+                SQLManager.getIntance().clearAllNet();
                 GameManager.getIntance().mInitStatus = 8;
             });
             th1.Start();
@@ -136,7 +144,7 @@ public class LuiHuiTips : MonoBehaviour {
     public void showUi(string str,int type) {
         mType = type;
         mDes.text = str;
-        if (type == TYPPE_RETURN_START)
+        if (type == TYPPE_RETURN_START || type == TYPPE_ERROR_DATE) 
         {
             mSure.transform.localScale = new Vector2(1, 1);
             buttonList.transform.localScale = new Vector2(0, 0);

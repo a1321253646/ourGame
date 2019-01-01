@@ -58,4 +58,24 @@ public class NetHelper
         date.action = 4;
         SQLNetManager.getIntance().addList(date);
     }
+    public void cleanAllNet()
+    {
+        if (!GameManager.isAndroid)
+        {
+            return;
+        }
+        SqlNetDate date = new SqlNetDate();
+        date.action = 6;
+        SQLNetManager.getIntance().addList(date);
+    }
+    public void cleanAllLocal()
+    {
+        if (!GameManager.isAndroid)
+        {
+            return;
+        }
+        SqlNetDate date = new SqlNetDate();
+        date.action = 7;
+        SQLNetManager.getIntance().addList(date);
+    }
 }
