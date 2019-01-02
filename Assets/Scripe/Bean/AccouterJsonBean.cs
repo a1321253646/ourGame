@@ -21,6 +21,7 @@ public class AccouterJsonBean
     public string affix_count;
     public string sale;
     public string sale_level;
+    public long stars;
 
 
     private long affixAll = 0;

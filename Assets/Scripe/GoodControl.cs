@@ -19,16 +19,25 @@ public class GoodControl : MonoBehaviour {
     public long id = -1;
     private long count;
     private long mMaxCout = 1;
+    private long mStart = 0;
     PlayerBackpackBean bean;
     private Button mBt;
     bool isShowPoint = false;
 
+    Image[] mStarts = new Image[5];
+
     void Start()
     {
- //       Debug.Log("GoodControl Start id = " + id );
-        mImage = GetComponentsInChildren<Image>()[1];
-        mBack = GetComponentsInChildren<Image>()[0];
-        mPoint = GetComponentsInChildren<Image>()[2];
+        //       Debug.Log("GoodControl Start id = " + id );
+        Image[] ims= GetComponentsInChildren<Image>();
+        mImage = ims[1];
+        mBack = ims[0];
+        mPoint = ims[2];
+
+
+
+
+
         mBt = GetComponent<Button>();
         mLv = GetComponentsInChildren<Text>()[0];
         //        Debug.Log("mBt = " + mBt);
@@ -101,6 +110,7 @@ public class GoodControl : MonoBehaviour {
                     img = InventoryHalper.getIntance().getIcon(id);
                     mMaxCout = BackpackManager.getIntance().getAccouterInfoById(id).stacking;
                     back = "UI_yellow/box_gride_" + BackpackManager.getIntance().getAccouterInfoById(id).quality;
+                    mStart = BackpackManager.getIntance().getAccouterInfoById(id).stars;
                 }
                 else if (bean.tabId == TABID_ITEM_TYPE)
                 {
@@ -158,6 +168,7 @@ public class GoodControl : MonoBehaviour {
                 setPointShow(false);
             }
         }
+        showStart();
         return 0;
 
     }
@@ -169,6 +180,29 @@ public class GoodControl : MonoBehaviour {
         //       Debug.Log("GoodControl updateUi id = " + id);
         this.bean = bean;
         return updateUi(id, count);
+    }
+
+    private void showStart()
+    {
+        if ( mStarts[0] == null) {
+            Image[] ims = GetComponentsInChildren<Image>();
+            mStarts[0] = ims[3];
+            mStarts[1] = ims[4];
+            mStarts[2] = ims[5];
+            mStarts[3] = ims[6];
+            mStarts[4] = ims[7];
+        }
+
+        for (int i = 0; i < 5; i++) {
+            if (i < mStart)
+            {
+                mStarts[i].transform.localScale = new Vector2(1, 1);
+            }
+            else {
+                mStarts[i].transform.localScale = new Vector2(0, 0);
+            }
+        }
+
     }
 
 }
