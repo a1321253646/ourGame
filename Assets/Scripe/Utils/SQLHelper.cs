@@ -25,6 +25,7 @@ public class SQLHelper
     public long isVoice = -1;
     public long mMaxGoodId = -1;
     public long isUpdate = -1;
+    public string mPlayName =null;
 
 
     public static long GAME_ID_LEVEL = 1;
@@ -47,6 +48,7 @@ public class SQLHelper
     public static long GAME_ID_IS_UPDATE = 18;
     public static long GAME_ID_POINT_PETTABLE = 19;
     public static long GAME_ID_MAX_TIME = 20;
+    public static long GAME_ID_PLAYER_NAME = 21;
 
     public static long TYPE_GAME = 1;
     public static long TYPE_GOOD = 2;
@@ -106,7 +108,7 @@ public class SQLHelper
         isVoice = -1;
         mMaxGoodId = -1;
         isUpdate = -1;
-
+        mPlayName = null;
         int goodListIndex = 0;
         long maxGoodIdTmp = -1;
 
@@ -281,12 +283,17 @@ public class SQLHelper
                     else if (date.id == GAME_ID_POINT_PETTABLE)
                     {
                         isShowPetTablePoint = long.Parse(date.extan);
-                        Debug.Log("读取数据库 是否显示宠物小红点 " + mMaxGoodId);
+                        Debug.Log("读取数据库 是否显示宠物小红点 " + isShowPetTablePoint);
                     }
                     else if (date.id == GAME_ID_MAX_TIME)
                     {
                         mMaxOutTime = long.Parse(date.extan);
-                        Debug.Log("读取数据库 最大离线时间 " + mMaxGoodId);
+                        Debug.Log("读取数据库 最大离线时间 " + mMaxOutTime);
+                    }
+                    else if (date.id == GAME_ID_PLAYER_NAME)
+                    {
+                        mPlayName = date.extan;
+                        Debug.Log("读取数据库 用户名称 " + mPlayName);
                     }
                 }
             }
@@ -578,6 +585,21 @@ public class SQLHelper
         }
         isUpdate = 1;
     }
+    public void updateName(string newName)
+    {
+        Debug.Log("sqlhelper  updateName newName = " + newName);
+        if (mPlayName  == null)
+        {
+            addGame(GAME_ID_PLAYER_NAME, newName);
+
+        }
+        else
+        {
+            updateGame(GAME_ID_PLAYER_NAME, newName);
+        }
+        mPlayName = newName;
+    }
+
     public void updateOutTime()
     {
         long value = TimeUtils.GetTimeStamp(); 
@@ -814,7 +836,7 @@ public class SQLHelper
 
     private void updateGame(long id, string value)
     {
-        //        Debug.Log("=================================updateGame value== " + value+ "id="+id);
+                Debug.Log("=================================updateGame value== " + value+ "id="+id);
         SQLDate date = new SQLDate();
         date.extan = value;
         date.type = TYPE_GAME;
@@ -825,7 +847,7 @@ public class SQLHelper
     }
     private void addGame(long id, string value)
     {
-        //        Debug.Log("==================================addGame value== " + value);
+                Debug.Log("==================================addGame value== " + value+ " id="+ id);
         SQLDate date = new SQLDate();
         date.extan =  value ;
         date.type = TYPE_GAME;

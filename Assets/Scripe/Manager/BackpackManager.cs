@@ -23,6 +23,7 @@ public class BackpackManager
     private RectTransform mSamsaraTranform;
     private RectTransform mLunHuiTips;
     private RectTransform mMessageTip;
+    private RectTransform mRankingTip;
     //    private RectTransform mQiangHua;
 
     public IvertoryControl mInvertoryControl;
@@ -32,6 +33,7 @@ public class BackpackManager
     private LuiHuiTips mLunhuiControl;
     private OutLineGetMessage mMessageTipControl;
     private SettingUiControl mSettingControl;
+    private RankingListControl mRankingTipControl;
     //    private QiangHuaManager mQianghuaControl;
 
     //    private ComposeControl mComposeControl;
@@ -62,6 +64,9 @@ public class BackpackManager
 
         mMessageTip = GameObject.Find("message_tip").GetComponent<RectTransform>();
         mMessageTipControl = GameObject.Find("message_tip").GetComponent<OutLineGetMessage>();
+
+        mRankingTip = GameObject.Find("ranking_list").GetComponent<RectTransform>();
+        mRankingTipControl = GameObject.Find("ranking_list").GetComponent<RankingListControl>();
 
         mHeroTranform = GameObject.Find("hero").GetComponent<RectTransform>();
         mHeroControl = mHeroTranform.GetComponent<HeroRoleControl>();
@@ -331,6 +336,12 @@ public class BackpackManager
         removeLunhuiTipUi();
     }
 
+    public void rankingListClick()
+    {
+        mRankingTipControl.click();
+        removeTipUi();
+        removeLunhuiTipUi();
+    }
 
     public void samsaraShowClick()
     {
@@ -359,6 +370,7 @@ public class BackpackManager
         mSamsaraControl.removeUi();
         mCardControl.removeUi();
         mHeroControl.removeUi();
+        mRankingTipControl.removeUi();
     //    mComposeControl.removeUi();
     }
 

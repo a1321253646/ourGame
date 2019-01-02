@@ -6,7 +6,7 @@ public class UiManager
 {	
 	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv;
 	Slider mHpSl,mStartBossGasSl;
-	Button mStartBossBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton;
+	Button mStartBossBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton,mRankingButton;
     public Button mLvUpBt;
     Image autoBack;
     Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint/*,mVoiceImage*/;
@@ -36,6 +36,7 @@ public class UiManager
         mSamsaraUiPoint = GameObject.Find ("lunhui_ui_point").GetComponent<Image> ();
         mCardUiPoint = GameObject.Find ("skilcard_ui_point").GetComponent<Image> ();
         mSettingButton = GameObject.Find("setting_button").GetComponent<Button>();
+        mRankingButton = GameObject.Find("ranking_list_button").GetComponent<Button>();
 
         //        mVoiceImage = GameObject.Find ("voice_button").GetComponent<Image> ();
         //        mVoiceButton = GameObject.Find("voice_button").GetComponent<Button> ();
@@ -94,6 +95,12 @@ public class UiManager
         {
             BackpackManager.getIntance().settingUiShowClick();
         });
+
+        mRankingButton.onClick.AddListener(() =>
+        {
+            BackpackManager.getIntance().rankingListClick();
+        });
+
 
         mRoleUiShow.onClick.AddListener(() => {
             BackpackManager.getIntance().heroUiShowClick();

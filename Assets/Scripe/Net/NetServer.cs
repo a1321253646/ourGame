@@ -49,7 +49,7 @@ public class NetServer
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
      //   dir.Add("Connection", "close");
-        byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
         WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
         while (!www.isDone) {
@@ -111,7 +111,7 @@ public class NetServer
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
         //   dir.Add("Connection", "close");
-        byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
         WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
         while (!www.isDone)
@@ -145,7 +145,14 @@ public class NetServer
             mLocal = null;
         }
     }
-    public void getRankingList()
+    public void getRanking()
+    {
+        Debug.Log("NetServer  getRanking");
+        Thread th1 = new Thread(getRankingList);
+        th1.Start();
+    }
+
+    private void getRankingList()
     {
         JObject json = new JObject();
         json.Add("user", SystemInfo.deviceUniqueIdentifier);
@@ -163,7 +170,7 @@ public class NetServer
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
         //   dir.Add("Connection", "close");
-        byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
         WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
         while (!www.isDone)
@@ -182,7 +189,7 @@ public class NetServer
                 setGetTime(getTime);
                 if (status == 0)
                 {
-                    var arrdata = jb.Value<JArray>("date");
+                    var arrdata = jb2.Value<JArray>("date");
                     Debug.Log(" Newtonsoft.Json.Linq.JArray.Parse(str);");
                     GameManager.getIntance().mRankingList = arrdata.ToObject<List<RankingListDateBean>>();
                     GameManager.getIntance().mRankingListUpdate = true;

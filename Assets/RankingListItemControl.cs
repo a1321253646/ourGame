@@ -37,15 +37,15 @@ public class RankingListItemControl : MonoBehaviour {
         {
             if (mIndex == 0)
             {
-                mIndexBg.sprite = Resources.Load("UI_yellow/paihang/02", typeof(Sprite)) as Sprite;
+                mIndexIm.sprite = Resources.Load("UI_yellow/paihang/02", typeof(Sprite)) as Sprite;
             }
             else if (mIndex == 1)
             {
-                mIndexBg.sprite = Resources.Load("UI_yellow/paihang/03", typeof(Sprite)) as Sprite;
+                mIndexIm.sprite = Resources.Load("UI_yellow/paihang/03", typeof(Sprite)) as Sprite;
             }
             else if (mIndex == 2)
             {
-                mIndexBg.sprite = Resources.Load("UI_yellow/paihang/04", typeof(Sprite)) as Sprite;
+                mIndexIm.sprite = Resources.Load("UI_yellow/paihang/04", typeof(Sprite)) as Sprite;
             }
         }
         mIndexBg.sprite = sprite;
@@ -67,13 +67,24 @@ public class RankingListItemControl : MonoBehaviour {
             mLevelTx.text = "";
         }
         else {
-            if (mIndex < 3) {
-                mIndexIm.transform.localScale = new Vector2(1, 1);
-            }
             RankingListDateBean item = mList[mIndex];
-            mIndexTx.text = item.index+"";
-            mNameTx.text = item.name;
-            mIndexTx.text = item.level+"";
+            if (mIndex < 3)
+            {
+                mIndexIm.transform.localScale = new Vector2(1, 1);
+                mIndexTx.text = "";
+            }
+            else {
+                mIndexTx.text = item.index + "";
+            }
+            if (item.name.Equals("***"))
+            {
+                mNameTx.text = "用户" + item.user.Substring(0,4);
+            }
+            else {
+                mNameTx.text = item.name;
+            }           
+            
+            mLevelTx.text = item.level+"";
         }
     }
 }

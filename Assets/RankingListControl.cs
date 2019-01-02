@@ -11,7 +11,6 @@ public class RankingListControl : MonoBehaviour {
 
     private Text mMyName, mNyIndex, mMyLevel;
     private Button mClose;
-    private InputField mChangeName;
     private VerticalLayoutGroup mVertial;
     private List<RankingListItemControl> mItemList = new List<RankingListItemControl>();
 
@@ -24,17 +23,21 @@ public class RankingListControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        mMyName = GameObject.Find("ranking_list_myIndex").GetComponent<Text>();
-        mNyIndex = GameObject.Find("ranking_list_myname").GetComponent<Text>();
+        mMyName = GameObject.Find("ranking_list_myname").GetComponent<Text>();
+        mNyIndex = GameObject.Find("ranking_list_myIndex").GetComponent<Text>();
         mMyLevel = GameObject.Find("ranking_list_mylevel").GetComponent<Text>();
         mClose = GameObject.Find("ranking_list_close").GetComponent<Button>();
-        mChangeName = GameObject.Find("ranking_list_change_name").GetComponent<InputField>();
         mVertial = GameObject.Find("ranking_list_vertical").GetComponent<VerticalLayoutGroup>();
         mFri = transform.position;
 
         for (int i = 0; i < 10; i++) {
             createIndex();
         }
+
+        mClose.onClick.AddListener(() =>
+        {
+            removeUi();
+        });
 
     }
 
@@ -51,12 +54,16 @@ public class RankingListControl : MonoBehaviour {
 
     public void OnPointerClick(BaseEventData eventData)
     {
+       GameObject.Find("change_name_tip").GetComponent<ChangeNameTipControl>().startEdit();
 
     }
     public void onEndEdit(string str)
     {
 
+    }
 
+    public void updateName() {
+        mMyName.text = SQLHelper.getIntance().mPlayName;
     }
 
     public void click()
@@ -88,6 +95,7 @@ public class RankingListControl : MonoBehaviour {
         mLevel = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(mLevel);
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_BACK);
+        NetServer.getIntance().getRanking();
         update();
 
     }
@@ -100,23 +108,41 @@ public class RankingListControl : MonoBehaviour {
 
     private void update() {
         List<RankingListDateBean> list =  GameManager.getIntance().mRankingList;
-        int rankingCount = list.Count > 100 ? 100 : list.Count;
+        if (list == null) {
+            return;
+        }
+        int rankingCount = list.Count > 101 ? 100 : list.Count-1;
         if (list != null && mCount < rankingCount) {
             for (; mCount < rankingCount;) {
                 createIndex();
             }
         }
-        foreach (RankingListItemControl item in mItemList)
-        {
+        for (int i = 0; i < rankingCount; i++) {
+            RankingListItemControl item = mItemList[i];
             item.updateList(list);
         }
-        if (list.Count == 101)
+
+
+     //   foreach (RankingListItemControl item in mItemList)
+     //   {
+     //       item.updateList(list);
+     //   }
+        if (list[list.Count - 1].index != -1)
         {
-            mNyIndex.text = list[100].index + "";          
+            mNyIndex.text = list[list.Count - 1].index + "";          
         }
         else {
             mNyIndex.text =  "未上榜";
         }
+        if (SQLHelper.getIntance().mPlayName == null) {
+            string name = SystemInfo.deviceUniqueIdentifier;
+            name = "用户" + name.Substring(0, 4);
+            mMyName.text = name;
+        }
+        else {
+            mMyName.text = SQLHelper.getIntance().mPlayName;
+        }
+        mMyLevel.text = GameManager.getIntance().mCurrentLevel+"";
     }
 
     // Update is called once per frame
