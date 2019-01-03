@@ -142,7 +142,7 @@ public class RankingListControl : MonoBehaviour {
         else {
             mMyName.text = SQLHelper.getIntance().mPlayName;
         }
-        mMyLevel.text = GameManager.getIntance().mCurrentLevel+"";
+        mMyLevel.text = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) + "";
     }
 
     // Update is called once per frame

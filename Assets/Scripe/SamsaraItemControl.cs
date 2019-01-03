@@ -39,7 +39,7 @@ public class SamsaraItemControl : MonoBehaviour {
     private void levelUp()
     {
         Debug.Log(" SamsaraItemControl levelUp " + mId);
-        GameManager.getIntance().mReincarnation = BigNumber.minus(GameManager.getIntance().mReincarnation, JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, mLevel + 1));
+        GameManager.getIntance().mReincarnation = BigNumber.minus(GameManager.getIntance().mReincarnation, JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, BaseDateHelper.decodeLong( mLevel) + 1));
         SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         mListControl.upDate(mId);
     }
@@ -47,7 +47,7 @@ public class SamsaraItemControl : MonoBehaviour {
     public void upDate()
     {
         mLevel = InventoryHalper.getIntance().getSamsaraLevelById(mId);
-        if (mLevel == 0)
+        if (BaseDateHelper.decodeLong(mLevel)  == 0)
         {
 
             mNoStudy.transform.localScale = new Vector2(1, 1);
@@ -57,7 +57,7 @@ public class SamsaraItemControl : MonoBehaviour {
             mNoStudy.transform.localScale = new Vector2(0, 0);
         }
         
-        if (mLevel == 0)
+        if (BaseDateHelper.decodeLong(mLevel) == 0)
         {
             mSamsaraName.text = "" + mJsonBean.name ;
             string str = "学习效果\n";
@@ -68,17 +68,17 @@ public class SamsaraItemControl : MonoBehaviour {
         }
         else {
             mSamsaraName.text = "" + mJsonBean.name;
-            mLvel.text = "Lv:" + mLevel;
+            mLvel.text = "Lv:" + BaseDateHelper.decodeLong(mLevel);
             mSamsaraValue.text = getAttribute();
         }       
-        mLvelUpCost.text = "消耗：" + JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, mLevel+1).toStringWithUnit() + "轮回点";
+        mLvelUpCost.text = "消耗：" + JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, BaseDateHelper.decodeLong(mLevel) + 1).toStringWithUnit() + "轮回点";
         isEnableLevelUp();
     }
 
     public void isEnableLevelUp() {
         BigNumber rein =  GameManager.getIntance().mReincarnation;
 
-        if (GameManager.getIntance().mReincarnation.ieEquit(JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, mLevel + 1)) != -1)
+        if (GameManager.getIntance().mReincarnation.ieEquit(JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, BaseDateHelper.decodeLong(mLevel) + 1)) != -1)
         {
             mLevelUp.interactable = true;
         }
@@ -88,7 +88,7 @@ public class SamsaraItemControl : MonoBehaviour {
     }
 
     private string getAttribute() {
-        return getAttribute(mLevel);
+        return getAttribute(BaseDateHelper.decodeLong(mLevel));
     }
 
     private string getAttribute(long level) {

@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class GameManager
 {
-	public long mCurrentLevel = 1;
-	public long mHeroLv = 1;
+	public long mCurrentLevel = BaseDateHelper.encodeLong( 1);
+	public long mHeroLv = BaseDateHelper.encodeLong(1);
 	public float mCurrentGas = 0;
 	public BigNumber mCurrentCrystal = new BigNumber();
 	public bool mStartBoss = false;
@@ -45,7 +45,7 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = true;
+    public static bool isAndroid = false;
     public static bool isAdd = false;
 
     public  bool mAllSaleGreed = false;
@@ -99,25 +99,25 @@ public class GameManager
         {
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
             isInit = true;
-            mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100010);
-            if (mCurrentLevel == -1) {
+            mCurrentLevel = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100010)) ;
+            if (mCurrentLevel == BaseDateHelper.encodeLong(-1)) {
                 mCurrentLevel = SQLHelper.getIntance().mGameLevel;
-                if (mCurrentLevel == -9999) {
-                    mCurrentLevel = -(long)JsonUtils.getIntance().getConfigValueForId(100019)+1;
+                if (mCurrentLevel == BaseDateHelper.encodeLong(-9999)) {
+                    mCurrentLevel = BaseDateHelper.encodeLong(-(long)JsonUtils.getIntance().getConfigValueForId(100019)+1) ;
                 }
-                else if (mCurrentLevel > (long)JsonUtils.getIntance().getConfigValueForId(100042))
+                else if (BaseDateHelper.decodeLong(mCurrentLevel) > (long)JsonUtils.getIntance().getConfigValueForId(100042))
                 {
-                    mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100042);
+                    mCurrentLevel = BaseDateHelper.encodeLong( (long)JsonUtils.getIntance().getConfigValueForId(100042));
                     SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
                 }
             }
-            mHeroLv = (long)JsonUtils.getIntance().getConfigValueForId(100011);
-            if (mHeroLv == -1)
+            mHeroLv = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100011)) ;
+            if (mHeroLv == BaseDateHelper.encodeLong(-1))
             {
                 mHeroLv = SQLHelper.getIntance().mHeroLevel;
-                if (mHeroLv == -1)
+                if (mHeroLv == BaseDateHelper.encodeLong(-1))
                 {
-                    mHeroLv = 1;
+                    mHeroLv = BaseDateHelper.encodeLong(1);
                 }
             }
 
@@ -161,7 +161,7 @@ public class GameManager
 	}
 	public void heroUp(){
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_HERO_UP);
-        mHeroLv += 1;
+        mHeroLv  = BaseDateHelper.encodeLong(BaseDateHelper.decodeLong(mHeroLv) + 1);
         
         mCurrentCrystal =BigNumber.minus(mCurrentCrystal, upLevelCrystal) ;
        
@@ -225,7 +225,7 @@ public class GameManager
                 if (JsonUtils.getIntance().isHavePet()) {
                     List<PetJsonBean> jsons = JsonUtils.getIntance().getPet();
                     foreach (PetJsonBean j in jsons) {
-                        if (j.activateLevel == mCurrentLevel) {
+                        if (j.activateLevel == BaseDateHelper.decodeLong(mCurrentLevel)) {
                             List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
                             bool isHave = false;
                             foreach (PlayerBackpackBean p in list) {

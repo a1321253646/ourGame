@@ -55,7 +55,7 @@ public class LevelManager : MonoBehaviour {
         mGuideManager = GetComponent<GuideManager>();
         mGuideManager.init();
         isInit = true;
-        if (SQLHelper.getIntance().isLuiHui != -1 && GameManager.getIntance().mCurrentLevel <= SQLHelper.getIntance().isLuiHui)
+        if (SQLHelper.getIntance().isLuiHui != -1 && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) <= SQLHelper.getIntance().isLuiHui)
         {
             Time.timeScale = 2;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(1, 1);
@@ -144,7 +144,7 @@ public class LevelManager : MonoBehaviour {
             if (mOld != -1)
             {
                 long outTime = TimeUtils.getTimeDistanceMin(mOld);
-                BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).getOfflinereward();
+                BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).getOfflinereward();
                 Debug.Log("=============levelCryStal=" + levelCryStal.toString());
                 Debug.Log("=============outTime=" + outTime);
                 BigNumber  outLineGet = BigNumber.multiply(levelCryStal, outTime);

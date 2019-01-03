@@ -221,11 +221,11 @@ public class InventoryHalper
     public void upDateSamsaraLevel(long id) {
         if (mSamsaraLevel.ContainsKey(id))
         {
-            mSamsaraLevel[id] = mSamsaraLevel[id] + 1;
+            mSamsaraLevel[id] =  BaseDateHelper.encodeLong( BaseDateHelper.decodeLong(mSamsaraLevel[id])  + 1);
             SQLHelper.getIntance().ChangeLuiHui(id, mSamsaraLevel[id]);
         }
         else {
-            mSamsaraLevel.Add(id, 1);
+            mSamsaraLevel.Add(id, BaseDateHelper.encodeLong(1));
             SQLHelper.getIntance().addLunhui(id);
         }
         
@@ -243,7 +243,7 @@ public class InventoryHalper
         }
         else
         {
-            return 0;
+            return BaseDateHelper.encodeLong(0);
         }
     }
 

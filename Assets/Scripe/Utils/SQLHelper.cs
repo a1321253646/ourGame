@@ -6,8 +6,8 @@ public class SQLHelper
 {
     List<SQLDate> mList = new List<SQLDate>();
 
-    public long mGameLevel = -9999L;
-    public long mHeroLevel = -1;
+    public long mGameLevel = BaseDateHelper.encodeLong(-9999L) ;
+    public long mHeroLevel = BaseDateHelper.encodeLong(-1);
     public long isAutoBoss = -1;
     public long isLuiHui = -1;
     public long isLuiHuiDeal = -1;
@@ -90,8 +90,8 @@ public class SQLHelper
         mDropDeviceCount.Clear();
         mGuide.Clear();
 
-        mGameLevel = -9999L;
-        mHeroLevel = -1;
+        mGameLevel = BaseDateHelper.encodeLong(-9999L);
+        mHeroLevel = BaseDateHelper.encodeLong(-1);
         isAutoBoss = -1;
         isLuiHui = -1;
         isLuiHuiDeal = -1;
@@ -119,10 +119,10 @@ public class SQLHelper
                 Debug.Log("读取数据库 " + date.toString());
                 if (date.type == TYPE_LUNHUI)
                 {
-                    long count = long.Parse(date.extan);
+                    long count =BaseDateHelper.encodeLong(long.Parse(date.extan)) ;
                     if (mLunhuui.ContainsKey(date.id) )
                     {
-                        if (mLunhuui[date.id] < count) {
+                        if (BaseDateHelper.decodeLong(mLunhuui[date.id])  < BaseDateHelper.decodeLong(count)) {
                             mLunhuui[date.id] = count;
                         }
                         
@@ -199,11 +199,11 @@ public class SQLHelper
                 {
                     if (date.id == GAME_ID_LEVEL)
                     {
-                        mGameLevel = long.Parse(date.extan);
+                        mGameLevel =BaseDateHelper.encodeLong(long.Parse(date.extan)) ;
                     }
                     else if (date.id == GAME_ID_HERO)
                     {
-                        mHeroLevel = long.Parse(date.extan);
+                        mHeroLevel = BaseDateHelper.encodeLong(long.Parse(date.extan));
                     }
                     else if (date.id == GAME_ID_AUTO)
                     {
@@ -486,8 +486,8 @@ public class SQLHelper
         mUser.Clear();
         mCard.Clear();
 
-        mHeroLevel = -1;
-        mGameLevel = -9999L ;
+        mHeroLevel = BaseDateHelper.encodeLong(-1);
+        mGameLevel = BaseDateHelper.encodeLong(-9999L) ;
         mMaxGoodId = -1;
         isShowCardPoint = -1;
         isShowBackpackPoint = -1;
@@ -495,10 +495,10 @@ public class SQLHelper
         isLuiHuiDeal = -1;
         mMojing = new BigNumber();
         SQLManager.getIntance().deleteLuiHui();
-        updateGameLevel(1);
-        updateHeroLevel(1);
-        GameManager.getIntance().mCurrentLevel = 1;
-        GameManager.getIntance().mHeroLv = 1;
+        updateGameLevel(BaseDateHelper.encodeLong(1));
+        updateHeroLevel(BaseDateHelper.encodeLong(1));
+        GameManager.getIntance().mCurrentLevel = BaseDateHelper.encodeLong(1);
+        GameManager.getIntance().mHeroLv = BaseDateHelper.encodeLong(1);
         GameManager.getIntance().mCurrentCrystal = mMojing;
     }
 
@@ -553,7 +553,7 @@ public class SQLHelper
     public void ChangeLuiHui(long id,long level)
     {
         SQLDate date = new SQLDate();
-        date.extan = "" + level;
+        date.extan = "" + BaseDateHelper.decodeLong(level) ;
         date.type = TYPE_LUNHUI;
         date.id = id;
         date.getClean();
@@ -561,14 +561,14 @@ public class SQLHelper
     }
     public void updateGameLevel( long value)
     {
-        if (mGameLevel == -9999)
+        if (mGameLevel == BaseDateHelper.encodeLong(-9999L))
         {
-            addGame(GAME_ID_LEVEL, value);
+            addGame(GAME_ID_LEVEL, BaseDateHelper.decodeLong(value));
            
         }
         else
         {
-            updateGame(GAME_ID_LEVEL, value);
+            updateGame(GAME_ID_LEVEL, BaseDateHelper.decodeLong(value));
         }
         mGameLevel = value;
     }
@@ -654,14 +654,14 @@ public class SQLHelper
     public void updateHeroLevel(long value)
     {
         Debug.Log("mHeroLevel  = = " + mHeroLevel);
-        if (mHeroLevel == -1)
+        if (mHeroLevel == BaseDateHelper.encodeLong(-1))
         {
-            addGame(GAME_ID_HERO, value);
+            addGame(GAME_ID_HERO, BaseDateHelper.decodeLong(value));
            
         }
         else
         {
-            updateGame(GAME_ID_HERO, value);
+            updateGame(GAME_ID_HERO, BaseDateHelper.decodeLong(value));
         }
         mHeroLevel = value;
         Debug.Log("mHeroLevel  = = " + mHeroLevel);

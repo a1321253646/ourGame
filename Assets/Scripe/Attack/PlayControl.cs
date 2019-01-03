@@ -77,7 +77,7 @@ public class PlayControl : Attacker
             {
                 old = TimeUtils.getTimeDistanceMin(old);
                 Debug.Log("========old = " + old);
-                BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).getOfflinereward();
+                BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).getOfflinereward();
                 outLineGet = BigNumber.multiply(levelCryStal, old);
                 outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
 
@@ -89,7 +89,7 @@ public class PlayControl : Attacker
                 
                 if (old > JsonUtils.getIntance().getConfigValueForId(100032))
                 {
-                    Level level = JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel);
+                    Level level = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
                     BigNumber outLine = BigNumber.multiply(level.getOfflinereward(), old);
                     outLine = BigNumber.multiply(outLine, GameManager.getIntance().getOutlineGet());
                     long h = old / 60;

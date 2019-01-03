@@ -69,7 +69,7 @@ public class SamsaraManage : MonoBehaviour {
         }
 
         float mix = JsonUtils.getIntance().getConfigValueForId(100017);
-        if (GameManager.getIntance().mCurrentLevel >= mix) {
+        if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) >= mix) {
             mLunhuiClick.interactable = true;
             mLunhuiTx.text = "";
         }

@@ -301,9 +301,10 @@ public class JsonUtils
 
 
     public bool isHavePet() {
+        long tmp = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel);
         foreach (PetJsonBean bean in mPetDate)
         {
-            if (bean.activateLevel == GameManager.getIntance().mCurrentLevel)
+            if (bean.activateLevel == tmp)
             {
                 return true;
             }
@@ -662,9 +663,7 @@ public class JsonUtils
 	}
 
 	public  Level getLevelData(){
-		return getLevelData (
-			GameManager.
-			getIntance ().mCurrentLevel);
+		return getLevelData (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
 	}
 	public  Level getLevelData(long id){
 		foreach (Level level in levelData) {
@@ -676,9 +675,9 @@ public class JsonUtils
 	}
 
 	public Hero getHeroData(){
-		 return getHeroData (GameManager.
-			getIntance ().
-			mHeroLv);
+		 return getHeroData(BaseDateHelper.decodeLong(GameManager.
+            getIntance().
+            mHeroLv));
 	}
 	public Hero getHeroData(long lv){
 		foreach (Hero hero in heroData) {

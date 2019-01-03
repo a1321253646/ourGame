@@ -58,7 +58,7 @@ public class FightManager{
                 }
                 ((EnemyBase)a).Standy();
             }
-            if (SQLHelper.getIntance().isLuiHui != -1 && GameManager.getIntance().mCurrentLevel <= SQLHelper.getIntance().isLuiHui) {
+            if (SQLHelper.getIntance().isLuiHui != -1 && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) <= SQLHelper.getIntance().isLuiHui) {
                 long deal = SQLHelper.getIntance().isLuiHuiDeal;
                 if (deal == -1)
                 {
@@ -101,20 +101,21 @@ public class FightManager{
         }
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
         {
-            if (GameManager.getIntance().mCurrentLevel == 0)
+            if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) == 0)
             {
-                GameManager.getIntance().mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100019) + 1;
+                GameManager.getIntance().mCurrentLevel = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100019) + 1) ;
                 SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
             }
             else
             {
-                GameManager.getIntance().mCurrentLevel += 1;
-                if (GameManager.getIntance().mCurrentLevel > (long)JsonUtils.getIntance().getConfigValueForId(100042)) {
-                    GameManager.getIntance().mCurrentLevel = (long)JsonUtils.getIntance().getConfigValueForId(100042);
+                GameManager.getIntance().mCurrentLevel =BaseDateHelper.encodeLong(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)+ 1) ;
+
+                if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) > (long)JsonUtils.getIntance().getConfigValueForId(100042)) {
+                    GameManager.getIntance().mCurrentLevel = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100042));
                 }
                 SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
             }
-            if (GameManager.getIntance().mCurrentLevel == JsonUtils.getIntance().getConfigValueForId(100017)) {
+            if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) == JsonUtils.getIntance().getConfigValueForId(100017)) {
                 GameManager.getIntance().uiManager.setLunhuiPointShow(1);
             }
             LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();

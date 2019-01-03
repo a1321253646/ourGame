@@ -72,7 +72,7 @@ public class UiManager
         autoBack = GameObject.Find("zidong").GetComponent<Image>();
 //        mAutoYes = Resources.Load("ui_new/gouxuan_yes", typeof(Sprite)) as Sprite;
 //        mAutoNo = Resources.Load("ui_new/gouxuan_no", typeof(Sprite)) as Sprite;
-        mGameLevelTv.text =  JsonUtils.getIntance().getLevelData(GameManager.getIntance().mCurrentLevel).name;
+        mGameLevelTv.text =  JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).name;
 
       //  SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
         mGasTv.text =
@@ -215,10 +215,10 @@ public class UiManager
     }
 
 	public void refreshData(){
-		mHeroLvTv.text = "" + GameManager.getIntance ().mHeroLv;
+		mHeroLvTv.text = "" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv);
         mLvUpCrystalTv.text =  GameManager.getIntance ().upLevelCrystal.toStringWithUnit();
 		mCurrentCrystalTv.text =   GameManager.getIntance ().mCurrentCrystal.toStringWithUnit();
-        Hero l = JsonUtils.getIntance().getHeroData(GameManager.getIntance().mHeroLv + 1);
+        Hero l = JsonUtils.getIntance().getHeroData(BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + 1);
         if (l == null)
         {
             mLvUpBt.interactable = false;
@@ -254,7 +254,7 @@ public class UiManager
 	public void addGasAndCrystal(){
 		mCurrentCrystalTv.text = GameManager.getIntance ().mCurrentCrystal.toStringWithUnit();
         addGas();
-        Hero l = JsonUtils.getIntance().getHeroData(GameManager.getIntance().mHeroLv + 1);
+        Hero l = JsonUtils.getIntance().getHeroData(BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + 1);
         if (l == null) {
             mLvUpBt.interactable = false;
             mLvUpCrystalTv.text = "已满级";
