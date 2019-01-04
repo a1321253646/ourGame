@@ -28,7 +28,7 @@ public class PlayControl : Attacker
        
         upLunhui();
         initEquip();
-        int count = 3;
+        int count = 1;
         mFightManager.registerAttacker (this);
         GameObject.Find("Manager").GetComponent<PetManager>().init();
         mLevelAnimalControl = new HeroLevelUpAnimal(mLevelAnimal, JsonUtils.getIntance().getEnemyResourceData(40002),this);
@@ -52,8 +52,8 @@ public class PlayControl : Attacker
                     BackpackManager.getIntance().addGoods(4000012, count);
                     BackpackManager.getIntance().addGoods(4000013, count);
                     BackpackManager.getIntance().addGoods(4000014, count);*/
-                    BackpackManager.getIntance().addGoods(3000001, count);
-                    BackpackManager.getIntance().addGoods(3000002, count);
+                    BackpackManager.getIntance().addGoods(244104, count);
+                   /* BackpackManager.getIntance().addGoods(3000002, count);
                     BackpackManager.getIntance().addGoods(3000003, count);
                     BackpackManager.getIntance().addGoods(3000004, count);
                     BackpackManager.getIntance().addGoods(3000005, count);
@@ -65,7 +65,7 @@ public class PlayControl : Attacker
                     BackpackManager.getIntance().addGoods(3000011, count);
                     BackpackManager.getIntance().addGoods(3000012, count);
                     BackpackManager.getIntance().addGoods(3000013, count);
-                    BackpackManager.getIntance().addGoods(3000014, count);
+                    BackpackManager.getIntance().addGoods(3000014, count);*/
         }
         if (GameManager.getIntance().isHaveOutGet)
         {

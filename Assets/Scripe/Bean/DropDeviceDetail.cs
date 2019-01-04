@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class DropDeviceDetail
 {
     public long id;
-    private List<Detail> mItemList;
+    public List<Detail> mItemList;
     private long weight = 10000;
     public long dropCount = 1;
     public void addItem(DropDeviceDetailJson item) {
@@ -77,7 +77,7 @@ public class DropDeviceDetail
 
     }
 
-    private class Detail {
+    public class Detail {
         public long itemId;
         public long minCount;
         public long maxcount;

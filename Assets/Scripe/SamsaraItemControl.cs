@@ -70,9 +70,16 @@ public class SamsaraItemControl : MonoBehaviour {
             mSamsaraName.text = "" + mJsonBean.name;
             mLvel.text = "Lv:" + BaseDateHelper.decodeLong(mLevel);
             mSamsaraValue.text = getAttribute();
-        }       
-        mLvelUpCost.text = "消耗：" + JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, BaseDateHelper.decodeLong(mLevel) + 1).toStringWithUnit() + "轮回点";
-        isEnableLevelUp();
+        }
+        BigNumber big = JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, BaseDateHelper.decodeLong(mLevel) + 1);
+        if (big.isEmpty()) {
+            mLevelUp.interactable = false;
+        }
+        else {
+            mLvelUpCost.text = "消耗：" + big.toStringWithUnit() + "轮回点";
+            isEnableLevelUp();
+        }
+        
     }
 
     public void isEnableLevelUp() {

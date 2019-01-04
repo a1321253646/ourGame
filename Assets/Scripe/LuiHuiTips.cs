@@ -129,7 +129,7 @@ public class LuiHuiTips : MonoBehaviour {
         gameObject.transform.localPosition = new Vector2(0, 0);
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);
-        string dec = "轮回将使您失去等级、装备和卡牌，并回到初始关卡。\n您将获得 % D点轮回点作为奖励，轮回点购买的属性将永久保留。";
+        string dec = "轮回将使您失去等级、装备和卡牌，并回到初始关卡。\n您将获得 %D点轮回点作为奖励，轮回点购买的属性将永久保留。";
         Level level2 = JsonUtils.getIntance().getLevelData();
        
 

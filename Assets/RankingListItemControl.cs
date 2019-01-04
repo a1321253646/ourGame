@@ -82,9 +82,15 @@ public class RankingListItemControl : MonoBehaviour {
             }
             else {
                 mNameTx.text = item.name;
-            }           
-            
-            mLevelTx.text = item.level+"";
+            }
+            if (item.level <= 0)
+            {
+                mLevelTx.text = (item.level + (long)JsonUtils.getIntance().getConfigValueForId(100019)) + "";
+            }
+            else {
+                mLevelTx.text = item.level + "";
+            }
+           
         }
     }
 }

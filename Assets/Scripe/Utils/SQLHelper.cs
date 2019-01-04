@@ -119,7 +119,11 @@ public class SQLHelper
                 Debug.Log("读取数据库 " + date.toString());
                 if (date.type == TYPE_LUNHUI)
                 {
-                    long count =BaseDateHelper.encodeLong(long.Parse(date.extan)) ;
+                    long tmp = long.Parse(date.extan);
+                    if (tmp > 40) {
+                        tmp = 40;
+                    }
+                    long count =BaseDateHelper.encodeLong(tmp) ;
                     if (mLunhuui.ContainsKey(date.id) )
                     {
                         if (BaseDateHelper.decodeLong(mLunhuui[date.id])  < BaseDateHelper.decodeLong(count)) {

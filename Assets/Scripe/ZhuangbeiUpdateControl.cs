@@ -32,7 +32,9 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
             mItemGameObjectList.Clear();
             List<PlayerBackpackBean> list2 = new List<PlayerBackpackBean>();
             foreach (PlayerBackpackBean b in list) {
+                Debug.Log("AccouterJsonBean id =" + b.goodId);
                 AccouterJsonBean a1 = JsonUtils.getIntance().getAccouterInfoById(b.goodId);
+                
                 long level1 = getLevel(b);
                 bool isAdded = false;
                 if (list2.Count == 0)

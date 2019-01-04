@@ -26,7 +26,7 @@ public class UpdateSkill600010 : TimeAttackSkillBase
         mTime += Time.deltaTime;
         if (mTime >= 1) {
             mTime -= 1;
-            int count1 = (int)(mSkillJson.getSpecialParameterValue()[0] * mManager.getAttacker().mAttribute.aggressivity/100);
+            double count1 = (count * mManager.getAttacker().mAttribute.maxBloodVolume);
             Debug.Log("===============60010 add "+ count1);
             mManager.getAttacker().AddBlood(count1);
         }

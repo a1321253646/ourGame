@@ -21,7 +21,6 @@ public class SQLManager : MonoBehaviour
         private string sqlName_new = "local891";
         private string tabName_new = "local891";
 
-
     object mLock = new object();
     SqliteConnection mConnet = null;
     private static int IDCount;

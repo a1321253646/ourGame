@@ -145,7 +145,23 @@ public class JsonUtils
         GameManager.getIntance().mInitDec = getStringById(100023);
         readPetInfo();
         GameManager.getIntance().mInitDec = getStringById(100024);
+       // check();
     }
+    private void check() {
+        foreach (DropDeviceDetail d in mDropDeviceDetailData) {
+            foreach (DropDeviceDetail.Detail dd in d.mItemList) {
+                AccouterJsonBean bean = getAccouterInfoById(dd.itemId);
+                if (bean == null) {
+                    CardJsonBean bean2 = getCardInfoById(dd.itemId);
+                    if (bean2 == null) {
+                        Debug.Log("==============================================DropDeviceDetail DropDeviceDetail id " + d.id + " itemId =" + dd.itemId);
+                    }
+                    
+                }
+            }
+        }
+    }
+
 
     public static JsonUtils getIntance() {
         return mInance;

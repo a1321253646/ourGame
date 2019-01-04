@@ -29,12 +29,26 @@ public class GoodControl : MonoBehaviour {
     void Start()
     {
         //       Debug.Log("GoodControl Start id = " + id );
-        Image[] ims= GetComponentsInChildren<Image>();
+
+        initUi();
+        //       Debug.Log("mText = " + mText + "mImage = " + mImage);
+    }
+
+    private void initUi() {
+        if(mPoint != null) {
+            return;
+        }
+
+        Image[] ims = GetComponentsInChildren<Image>();
         mImage = ims[1];
         mBack = ims[0];
         mPoint = ims[2];
 
-
+        mStarts[0] = ims[3];
+        mStarts[1] = ims[4];
+        mStarts[2] = ims[5];
+        mStarts[3] = ims[6];
+        mStarts[4] = ims[7];
 
 
 
@@ -45,15 +59,14 @@ public class GoodControl : MonoBehaviour {
         {
             updateUi(id, count);
         }
-        if (mBt != null) {
-//            Debug.Log("mBt != null ");
+        if (mBt != null)
+        {
+            //            Debug.Log("mBt != null ");
             mBt.onClick.AddListener(() => {
-                
+
                 showTip();
             });
         }
-
-        //       Debug.Log("mText = " + mText + "mImage = " + mImage);
     }
 
     public void showTip() {
@@ -99,7 +112,7 @@ public class GoodControl : MonoBehaviour {
     string img = null;
     private long updateUi(long id, long count)
     {
-
+        initUi();
         this.id = id;
         if (mImage != null && id != -1)
         {
@@ -179,19 +192,15 @@ public class GoodControl : MonoBehaviour {
     {
         //       Debug.Log("GoodControl updateUi id = " + id);
         this.bean = bean;
+        if (this.bean != null) {
+            Debug.Log("updateUi bean.id=" + this.bean.goodId);
+        }
+        
         return updateUi(id, count);
     }
 
     private void showStart()
     {
-        if ( mStarts[0] == null) {
-            Image[] ims = GetComponentsInChildren<Image>();
-            mStarts[0] = ims[3];
-            mStarts[1] = ims[4];
-            mStarts[2] = ims[5];
-            mStarts[3] = ims[6];
-            mStarts[4] = ims[7];
-        }
 
         for (int i = 0; i < 5; i++) {
             if (i < mStart)

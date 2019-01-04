@@ -210,7 +210,19 @@ public class NetServer
 
     public bool isHaveLocal() {
         if (mLocal != null && mLocal.Length > 0) {
-            return true;
+            try
+            {
+                JObject jb2 = JObject.Parse(mLocal);
+                var arrdata = jb2.Value<JArray>("date");
+                Debug.Log(" Newtonsoft.Json.Linq.JArray.Parse(str);");
+                List<SQLDate> list = arrdata.ToObject<List<SQLDate>>();
+                if (list != null && list.Count > 0) {
+                    return true;
+                }
+            }
+            catch (Exception e) {
+               
+            }         
         }
         return false;
     }
@@ -218,9 +230,13 @@ public class NetServer
     private void setGetTime(long time) {
         if (time > mTime) {
             mTime = time;
-            if (SQLHelper.getIntance().mMaxOutTime > mTime+360000 || SQLHelper.getIntance().mMaxOutTime < mTime - 360000 ) {
-                GameManager.getIntance().isError = true;
+            if (SQLHelper.getIntance().mMaxOutTime != -1) {
+                if (SQLHelper.getIntance().mMaxOutTime > mTime + 360000 || SQLHelper.getIntance().mMaxOutTime < mTime - 360000)
+                {
+ //                   GameManager.getIntance().isError = true;
+                }
             }
+
         }
     }
 
