@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AttackSkill200001 : EventAttackSkill
 {
@@ -17,7 +18,15 @@ public class AttackSkill200001 : EventAttackSkill
 
     public override void startSkill()
     {
-        value = 1;
+        List<float> list =  mSkillJson.getSpecialParameterValue();
+        if (list != null && list.Count > 0)
+        {
+            value = mSkillJson.getSpecialParameterValue()[0];
+        }
+        else {
+            value = 1;
+        }
+        
         calcuator = new CalculatorUtil(mSkillJson.calculator, mSkillJson.effects_parameter);
         calcuator.setSkill(this);
         mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_BEFOR_BEHURT, this);

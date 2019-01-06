@@ -878,7 +878,7 @@ public class SQLHelper
 
     public void updateDropValue(long drop, long value)
     {
-        if (mDropDeviceCount.ContainsKey(drop))
+        if (!mDropDeviceCount.ContainsKey(drop))
         {
           //  mDropDeviceCount[drop] = value;
             addDrop( drop, value);

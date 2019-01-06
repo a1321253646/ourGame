@@ -1010,7 +1010,7 @@
   {
     "id": 35008,
     "name": "Effect_1008",
-    "zoom": 1,
+    "zoom": 2,
     "attack_framce": 10,
     "attack_all_framce": 0.0,
     "blood_offset": 0,

@@ -99,24 +99,35 @@ public class GameBeginControl : MonoBehaviour {
             {
                 Thread th1 = new Thread(() =>
                 {
-                    isUpdate = SQLManager.getIntance().initNoNet();
-                    Debug.Log("isUpdate = " + isUpdate);
-                    SQLManager.getIntance().startThread();
-                    if (isUpdate == 1)
+                    try
                     {
-                        GameManager.getIntance().mInitStatus = 4;
-                        Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+
+                        isUpdate = SQLManager.getIntance().initNoNet();
+                        Debug.Log("isUpdate = " + isUpdate);
+                        SQLManager.getIntance().startThread();
+                        if (isUpdate == 1)
+                        {
+                            GameManager.getIntance().mInitStatus = 4;
+                            Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+                        }
+                        else if (isUpdate == 2)
+                        {
+                            SQLManager.getIntance().copyToNet();
+                            GameManager.getIntance().mInitStatus = 6;
+                            Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+                        }
+                        else if (isUpdate == 3)
+                        {
+                            GameManager.getIntance().mInitStatus = 6;
+                            Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+                        }
                     }
-                    else if (isUpdate == 2)
-                    {
-                        SQLManager.getIntance().copyToNet();
-                        GameManager.getIntance().mInitStatus = 6;
-                        Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+                    catch (System.Exception e) {
+                        Debug.Log("处理存档出错");
+                        Debug.Log(e.Message);
+                        
                     }
-                    else if (isUpdate == 3) {
-                        GameManager.getIntance().mInitStatus = 6;
-                        Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-                    }
+
                 });
                 th1.Start();
             }

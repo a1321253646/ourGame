@@ -50,9 +50,9 @@ public class PlayControl : Attacker
                     BackpackManager.getIntance().addGoods(4000010, count);
                     BackpackManager.getIntance().addGoods(4000011, count);
                     BackpackManager.getIntance().addGoods(4000012, count);
-                    BackpackManager.getIntance().addGoods(4000013, count);
-                    BackpackManager.getIntance().addGoods(4000014, count);*/
-                    BackpackManager.getIntance().addGoods(244104, count);
+                    BackpackManager.getIntance().addGoods(4000013, count);*/
+                    BackpackManager.getIntance().addGoods(3000005, count);
+                    BackpackManager.getIntance().addGoods(3000012, count);
                    /* BackpackManager.getIntance().addGoods(3000002, count);
                     BackpackManager.getIntance().addGoods(3000003, count);
                     BackpackManager.getIntance().addGoods(3000004, count);
@@ -588,7 +588,7 @@ public class PlayControl : Attacker
 	}
 	public override double BeAttack(HurtStatus status,Attacker hurter){
         //        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);
-        mSkillManager.mEventAttackManager.beforeBeHurt(status);
+       // mSkillManager.mEventAttackManager.beforeBeHurt(status);
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
 //        int tmp = status.blood % 1 == 0 ? 0 : 1;
 //        status.blood = ((int)status.blood) / 1 + tmp;

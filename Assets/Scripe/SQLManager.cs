@@ -367,14 +367,19 @@ public class SQLManager : MonoBehaviour
     public void copyToNet() {
         if (!File.Exists(getSqlNetFilePath()))
         {
+            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100036);
             Debug.Log("!File.Exists = " + getSqlNetFilePath());
+            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100032);
             List<SQLDate> list = readAllTable();
+            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100033);
             foreach (SQLDate date in list)
             {
                 mNetHelper.changeInto(date);
             }
+            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100034);
         }
         else {
+            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100035);
             Debug.Log("File.Exists = " + getSqlNetFilePath());
         }
     }

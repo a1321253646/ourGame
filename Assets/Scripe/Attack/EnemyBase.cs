@@ -196,7 +196,7 @@ public class EnemyBase : Attacker {
 	public override double BeAttack(HurtStatus status,Attacker hurter)
     {
 //        Debug.Log("===============EnemyBase hurt =" + status.blood);
-        mSkillManager.mEventAttackManager.beforeBeHurt(status);
+   //     mSkillManager.mEventAttackManager.beforeBeHurt(status);
 //        Debug.Log(" status.blood == " + status.blood);
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
 //        Debug.Log("===============EnemyBase hurt =" + status.blood);

@@ -185,7 +185,6 @@ public class GameManager
         if (isLuihuiIng) {
             return;
         }
-
         mCurrentGas += enemy.mDieGas;
         //Debug.Log("=============enemy.mDieCrysta=" + enemy.mDieCrysta.toString());
         //Debug.Log("=============mCurrentCrystal=" + mCurrentCrystal.toString());

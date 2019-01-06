@@ -122,7 +122,7 @@ public class NetServer
         {
             Debug.Log("Upload complete! www.text ="+ www.text);
            
-            if (www.text != null && www.text.Length > 0)
+            if (www.text != null && www.text.Length > 0 && !www.text.Equals("error"))
             {
                 JObject jb2 = JObject.Parse(www.text);
                 int status = jb2.Value<int>("status");
@@ -209,7 +209,7 @@ public class NetServer
     }
 
     public bool isHaveLocal() {
-        if (mLocal != null && mLocal.Length > 0) {
+        if (mLocal != null && !mLocal.Equals("error") && mLocal.Length > 0) {
             try
             {
                 JObject jb2 = JObject.Parse(mLocal);
@@ -221,7 +221,9 @@ public class NetServer
                 }
             }
             catch (Exception e) {
-               
+                Debug.Log("isHaveLocal 出错");
+                Debug.Log(e.Message);
+
             }         
         }
         return false;
