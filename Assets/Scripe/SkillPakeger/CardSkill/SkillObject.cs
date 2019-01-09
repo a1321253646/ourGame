@@ -27,17 +27,22 @@ public abstract class SkillObject : MonoBehaviour
     public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType) {
         mLocalManager = manage;
         mBean = bean;
-        mResource = JsonUtils.getIntance().getEnemyResourceData(bean.skill_resource);
-        getLocal();
-        mLocal.x = x;
-        mLocal.y = y;
+        if (bean.skill_resource > 0) {
+            mResource = JsonUtils.getIntance().getEnemyResourceData(bean.skill_resource);
+            getLocal();
+            mLocal.x = x;
+            mLocal.y = y;
+            mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
+            mAnimalControl = new AnimalControlBase(mResource, mSpriteRender);
+            mAnimalControl.start();
+        }      
+       
         mCamp = campType;
         mAttacker = attacker;
-        mSpriteRender = gameObject.GetComponent<SpriteRenderer>();       
-        mAnimalControl = new AnimalControlBase(mResource, mSpriteRender);
+
         initEnd();
         calcuator = new CalculatorUtil(mBean.calculator, mBean.effects_parameter);
-        mAnimalControl.start();
+        
         isInit = true;
     }
 
@@ -59,7 +64,10 @@ public abstract class SkillObject : MonoBehaviour
         if (!isInit) {
             return;
         }
-        mAnimalControl.update();
+        if (mAnimalControl != null) {
+            mAnimalControl.update();
+        }
+        
     }
 
     public void dealNextSkill(SkillJsonBean skill) {
@@ -111,8 +119,7 @@ public abstract class SkillObject : MonoBehaviour
                 else if((nextSkill.shape_type != 0))
                 {
                     SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
-                }
-                
+                }               
             }
         }
     }

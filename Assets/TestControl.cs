@@ -17,6 +17,8 @@ public class TestControl : MonoBehaviour {
     Button mButton;
     // Use this for initialization
     void Start () {
+        JsonUtils.getIntance().initBefore();
+        JsonUtils.getIntance().init();
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
         mButton = GameObject.Find("Button").GetComponent<Button>();
         mButton.onClick.AddListener(() => {
@@ -31,6 +33,9 @@ public class TestControl : MonoBehaviour {
 	void Update () {
         if (!isInit) {
             return;
+        }
+        if (mSpriteRender == null) {
+            mSpriteRender = gameObject.GetComponent<SpriteRenderer>();
         }
         if (isChange) {
             isChange = false;
