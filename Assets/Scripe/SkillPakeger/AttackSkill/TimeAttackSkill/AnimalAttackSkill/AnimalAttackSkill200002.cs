@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AnimalAttackSkill200002 : AnimalAttackSkillBase
 {
-    private float mTime = -1;
-    public override bool add(float time)
+    public override bool add(List<float> count, bool isGiveup)
     {
-        value = value + time;
+        value = value + count[0];
         Debug.Log("====================AttackSkill10002 value=" + value);
         if (mTime == -1) {
             mTime = 0;

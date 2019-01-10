@@ -7,8 +7,10 @@ public abstract class TimeAttackSkillBase : AttackerSkillBase
     public bool isInit = false;
     public abstract void upDateSkill();
     public float mTime = 0;
-    public override void initSkill(AttackSkillManager manager, long skillId, Attacker fight, List<float> value, GameObject newobj)
+    public bool isGiveup = false;
+    public override void initSkill(AttackSkillManager manager, long skillId, Attacker fight, List<float> value, GameObject newobj, bool giveup)
     {
+        isGiveup = giveup;
         mManager = manager;
         mFight = fight;
         mSkillJson = JsonUtils.getIntance().getSkillInfoById(skillId);

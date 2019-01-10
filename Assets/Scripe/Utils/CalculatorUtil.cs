@@ -27,21 +27,24 @@ public class CalculatorUtil
         mStr = str;
         mParameter = parStr;
         getParList();
+        if (mStr != null && mStr.Length > 0) {
+            string[] strs = mStr.Split('|');
+            foreach (string s in strs)
+            {
+                if (s != null && s.Length > 0)
+                {
+                    CalculatorUtilBean bean = getBean(s);
+                    //                Debug.Log("CalculatorUtil bean = " + bean);
+                    if (bean != null)
+                    {
 
-        string[] strs = mStr.Split('|');
-        foreach (string s in strs) {
-            if (s != null && s.Length > 0) {
-                CalculatorUtilBean bean = getBean(s);
-//                Debug.Log("CalculatorUtil bean = " + bean);
-                if (bean != null) {
+                        //                  Debug.Log("bean = " + bean.getString());
+                        mBean.Add(bean);
 
-  //                  Debug.Log("bean = " + bean.getString());
-                    mBean.Add(bean);
-                    
+                    }
                 }
             }
         }
-        
     }
     public  double getValue(Attacker firer, Attacker target) {
         this.firer = firer;

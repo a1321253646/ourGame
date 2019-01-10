@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SkillObject8 : SkillObject
+public class SkillObject100022 : SkillObject
 {
     public override void initEnd()
     {
@@ -13,6 +13,7 @@ public class SkillObject8 : SkillObject
     void endAnimal(int status) {
         mSkillStatus = SKILL_STATUS_END;
         actionEnd();
+        
         Destroy(gameObject, 0);
     }
 
@@ -27,15 +28,13 @@ public class SkillObject8 : SkillObject
                 Debug.Log("getTargetList null");
                 return;
             }
+            
+            long count = GameObject.Find("jineng").GetComponent<CardManager>().giveupCard(CardManager.GIVEUP_CARD_ALL); 
             foreach (Attacker attack in mTargetList) {
-                double hurt =  calcuator.getValue(mAttacker, attack);
-                double blood = attack.mBloodVolume;
-                attack.skillAttack(mBean.effects, hurt, mAttacker);
-                if (attack.getStatus() == ActionFrameBean.ACTION_DIE) {
-                    mAttacker.AddBlood(mAttacker.mAttribute.aggressivity * 3);
-                }
-            }
-
+                double hurt =  calcuator.getValue(mAttacker, attack)* count;
+                Debug.Log("========================fightEcent hurt="+ hurt);
+                attack.skillAttack( hurt, mAttacker);
+            }           
         }
     }
 }

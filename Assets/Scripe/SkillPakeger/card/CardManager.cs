@@ -148,6 +148,73 @@ public class CardManager : MonoBehaviour {
         mOutSendCardTime = 0;
     }
 
+    public static int GIVEUP_CARD_ALL = 1;
+    public static int GIVEUP_CARD_MAX = 2;
+    public static int GIVEUP_CARD_MIX = 3;
+    public static int GIVEUP_CARD_RANGE = 4;
+
+
+    public long giveupCard(int type) {
+        if (mList.Count == 0) {
+            return 1;
+        }
+        long count = 0;
+        if (type == GIVEUP_CARD_ALL)
+        {
+            count = mList.Count;
+            while (mList.Count > 0)
+            {
+                giveUpCard(0);
+            }
+            return count;
+        }
+        else if (type == GIVEUP_CARD_MAX)
+        {
+            CardControl max = null;
+            foreach (CardControl c in mList)
+            {
+                if (max == null)
+                {
+                    max = c;
+                }
+                else if (c.mCard.cost > max.mCard.cost)
+                {
+                    max = c;
+                }
+            }
+            count = max.mCard.cost;
+            giveUpCard(max.mIndex);
+            return count;
+        }
+        else if (type == GIVEUP_CARD_MIX)
+        {
+            CardControl max = null;
+            foreach (CardControl c in mList)
+            {
+                if (max == null)
+                {
+                    max = c;
+                }
+                else if (c.mCard.cost < max.mCard.cost)
+                {
+                    max = c;
+                }
+            }
+            count = max.mCard.cost;
+            giveUpCard(max.mIndex);
+            return count;
+        }
+        else if (type == GIVEUP_CARD_RANGE) {
+            int leng = mList.Count;
+            int range = Random.Range(0, leng - 1);
+            count = mList[range].mCard.cost;
+            giveUpCard(range);
+            return count;
+        }
+       // getHero().mSkillManager.addSkill()
+        return -1;
+    }
+
     private void addCard(long id) {
         mTime = 0;
 
@@ -164,6 +231,23 @@ public class CardManager : MonoBehaviour {
         enmey.init(mList.Count + 1, this, id);
         mList.Add(enmey);
     }
+    public void giveUpCard(int index)
+    {
+        for (int i = 0; i < mList.Count;)
+        {
+            if (mList[i].mIndex != index)
+            {
+                mList[i].deleteCard(index);
+                i++;
+            }
+            else
+            {
+                mList[i].giveUp();
+                mList.Remove(mList[i]);
+            }
+        }
+    }
+
     public bool userCard(Attacker attack, int index,float cost) {
         cost = attack.mSkillManager.mEventAttackManager.getCardCost((int)cost);
         if (!GameObject.Find("Manager").GetComponent<LevelManager>().delectNengliangdian(cost))

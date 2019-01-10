@@ -88,7 +88,7 @@ public abstract class Attacker : MonoBehaviour
 
     }
     public abstract double BeAttack (HurtStatus status, Attacker hurter);
-    public abstract double BeKillAttack(long effect, double value, Attacker hurter);
+    public abstract double BeKillAttack( double value, Attacker hurter);
     public abstract void getAttribute();
     public abstract void AddBlood(double value);
     public int getStatus() {
@@ -169,8 +169,8 @@ public abstract class Attacker : MonoBehaviour
         }
         
     }
-    public void skillAttack(long effect, double value,Attacker hurter) {
-        BeKillAttack(effect, value,hurter);
+    public void skillAttack(double value,Attacker hurter) {
+        BeKillAttack( value,hurter);
     }
 }
 

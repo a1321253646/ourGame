@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SkillObject6 : SkillObject
+public class SkillObject100004 : SkillObject
 {
     List<Attacker> isStop = new List<Attacker>();
     List<Attacker> noStop = new List<Attacker>();
@@ -30,7 +30,7 @@ public class SkillObject6 : SkillObject
                 {
                     double hurt = calcuator.getValue(mAttacker, attack);
                     Debug.Log("skill fight event hurt=" + hurt);
-                    attack.skillAttack(mBean.effects, hurt, mAttacker);
+                    attack.skillAttack( hurt, mAttacker);
                 }
             }
         }

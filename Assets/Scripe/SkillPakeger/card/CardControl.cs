@@ -137,24 +137,8 @@ public class CardControl : MonoBehaviour
                     mTargetList[0].mSkillManager.addSkill(mSkill.id, mManager.getLocalManager().mLocalLink.mAttacker);
                 }
             }
-            else if (mSkill.shape_type == 0)
-            {
-                if (mSkill.effects == 4)
-                {
-                    float a1 = mSkill.getSpecialParameterValue()[0];
-                    float a2 = mSkill.getSpecialParameterValue()[1];
-                    GameObject.Find("Manager").GetComponent<LevelManager>().addNengliangDian(a1);
-                    mManager.getHero().BeKillAttack(mSkill.effects, mManager.getHero().mAttribute.maxBloodVolume * (a2/100), mManager.getHero());
-
-                }
-                else if (mSkill.effects == 5)
-                {
-                    mManager.addCards((long)mSkill.getSpecialParameterValue()[0]);
-                }
-            }
             else if (mSkill.shape_type == 6) {
                 mManager.getHero().mSkillManager.addSkill(mSkill.id, mManager.getHero());
-               // mManager.getHero().BeKillAttack(mSkill.effects, mManager.getHero().mAttribute.maxBloodVolume * 0.2f);
             }
             else
             {
@@ -176,6 +160,27 @@ public class CardControl : MonoBehaviour
             //mClickShow.transform.GetChild(0).position = new Vector2(mClickShowX, mClickShow.transform.GetChild(0).position.y);
         }
     }
+
+    public long giveUp() {
+        if (isGiveUpDeal()) {
+            mManager.getHero().mSkillManager.addSkill(mSkill.id, mManager.getHero(), true);
+        }      
+        return mCard.cost;
+    }
+
+    private bool isGiveUpDeal() {
+        if (mSkill.id == 100014 ||
+            mSkill.id == 100016 ||
+            mSkill.id == 100017 ||
+            mSkill.id == 100018 ||
+            mSkill.id == 100019 ||
+            mSkill.id == 100020 ) {
+            return true;
+        }
+        return false;
+    }
+
+
     void OnpointDown(BaseEventData  date)
     {
         if (!isInTarget) {

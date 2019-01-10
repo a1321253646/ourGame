@@ -605,10 +605,10 @@ public class PlayControl : Attacker
 		mState.hurt (status);
 		return status.blood;
 	}
-    public override double BeKillAttack(long effect, double value,Attacker hurt)
+    public override double BeKillAttack(double value,Attacker hurt)
     {
-        if (effect == 1 || effect == 6 || effect == 4 || effect == 30001)
-        {
+//        if (effect == 1 || effect == 6 || effect == 4 || effect == 30001)
+//        {
             HurtStatus status = new HurtStatus(value, false, true);
 
 
@@ -644,11 +644,11 @@ public class PlayControl : Attacker
             }
             mState.hurt(status);
             return status.blood;
-        }
+/*        }
         else if (effect == 2 || effect == 10001) {
             AddBlood(value);
         }
-        return value;
+        return value;*/
     }
     public override void AddBlood(double value) {
         Debug.Log("  play add blood =" + value);

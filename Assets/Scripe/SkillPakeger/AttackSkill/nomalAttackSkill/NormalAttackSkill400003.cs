@@ -8,7 +8,9 @@ public class NormalAttackSkill400003 : NormalAttackSkillBase
         {
             PlayControl play = (PlayControl)a;
             play.mSkillAttributePre.maxBloodVolume -= value ;
+
         }
+
     }
 
     public override void startSkill()

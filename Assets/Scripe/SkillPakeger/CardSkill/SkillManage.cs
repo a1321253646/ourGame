@@ -7,53 +7,23 @@ public class SkillManage
     List<SkillObject> mSkillList = new List<SkillObject>();
     public GameObject mSkillObject;
     public LocalManager mLocalManager;
-    public void addSkill(Attacker attacker, SkillJsonBean skill,float x,float y,int campType) {
+
+    public void addSkill(Attacker attacker, SkillJsonBean skill, float x, float y, int campType, bool isGiveup) {
         Debug.Log("addSkill x=" + x + " y = " + y);
-        
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(skill.skill_resource);
         GameObject newobj = GameObject.Instantiate(
-                mSkillObject, new Vector2(x- bean.getHurtOffset().x, y - bean.getHurtOffset().y), Quaternion.Euler(0.0f, 0f, 0.0f));
-        dealSkillType(attacker,newobj, skill,x,y,campType);
+                mSkillObject, new Vector2(x - bean.getHurtOffset().x, y - bean.getHurtOffset().y), Quaternion.Euler(0.0f, 0f, 0.0f));
+        dealSkillObject(attacker, newobj, skill, x, y, campType, isGiveup);
     }
 
-    private void dealSkillType(Attacker attacker, GameObject newobj, SkillJsonBean skill, float x, float y, int campType) {
-        if (skill.effects == 1 || skill.effects == 2)
-        {
-            newobj.AddComponent<SkillObject1>();
-        }
-        else if (skill.effects == 6)
-        {
-            newobj.AddComponent<SkillObject6>();
-        }
-        else if (skill.effects == 30001) {
-            newobj.AddComponent<SkillObject30001>();
-        }
-        else if (skill.effects == 30002)
-        {
-            newobj.AddComponent<SkillObject30002>();
-        }
-        else if (skill.effects == 30003)
-        {
-            newobj.AddComponent<SkillObject30003>();
-        }
-        else if (skill.effects == 10)
-        {
-            newobj.AddComponent<SkillObject10>();
-        }
-        else if (skill.effects == 6)
-        {
-            newobj.AddComponent<SkillObject6>();
-        }
-        else if (skill.effects == 8)
-        {
-            newobj.AddComponent<SkillObject8>();
-        }
-        else if (skill.effects == 3)
-        {
-            newobj.AddComponent<SkillObject3>();
-        }
+    public void addSkill(Attacker attacker, SkillJsonBean skill,float x,float y,int campType) {
+        addSkill(attacker, skill, x, y, campType, false);
+    }
+
+    private void dealSkillObject(Attacker attacker, GameObject newobj, SkillJsonBean skill, float x, float y, int campType, bool isGiveup) {
+        SkillFactory.skillObjectAddComponet(newobj, skill);
         SkillObject skillComponent = newobj.GetComponent<SkillObject>();
-        skillComponent.init(attacker, mLocalManager,skill, x, y, campType);
+        skillComponent.init(attacker, mLocalManager,skill, x, y, campType,isGiveup);
         mSkillList.Add(skillComponent);
     }
 

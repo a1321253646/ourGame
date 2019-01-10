@@ -22,9 +22,11 @@ public abstract class SkillObject : MonoBehaviour
 
     public AnimalControlBase mAnimalControl;
     public Attacker mAttacker;
+    bool isGiveUp = false;
 
     public List<Attacker> mTargetList;
-    public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType) {
+    public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType,bool giveup) {
+        isGiveUp = giveup;
         mLocalManager = manage;
         mBean = bean;
         if (bean.skill_resource > 0) {
@@ -47,6 +49,10 @@ public abstract class SkillObject : MonoBehaviour
     }
 
     public abstract void initEnd();
+
+    public virtual void giveUpCard() {
+
+    }
 
     public int getStatus() {
         return mSkillStatus;

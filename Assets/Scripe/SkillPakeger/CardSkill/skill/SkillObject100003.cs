@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SkillObject3 : SkillObject
+public class SkillObject100003 : SkillObject
 {
     long v1;
     long v2;
@@ -52,7 +52,7 @@ public class SkillObject3 : SkillObject
                     if (attack0 == attack) {
                         double hurt = calcuator.getValue(mAttacker, attack);
                         Debug.Log("skill fight event hurt=" + count);
-                        attack.skillAttack(mBean.effects, hurt, mAttacker);
+                        attack.skillAttack(hurt, mAttacker);
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class SkillObject3 : SkillObject
                     {
                         double hurt = calcuator.getValue(mAttacker, attack);
                         Debug.Log("skill fight event hurt=" + count);
-                        attack.skillAttack(mBean.effects, hurt, mAttacker);
+                        attack.skillAttack( hurt, mAttacker);
                     }
 
                 }

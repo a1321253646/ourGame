@@ -5,9 +5,10 @@ using System;
 
 public abstract class NormalAttackSkillBase : AttackerSkillBase
 {
-
-    public override void initSkill(AttackSkillManager manager, long skillId, Attacker fight, List<float> par, GameObject newobj)
+    public bool isGiveup = false;
+    public override void initSkill(AttackSkillManager manager, long skillId, Attacker fight, List<float> par, GameObject newobj,bool giveup)
     {
+        isGiveup = giveup;
         mManager = manager;
         mFight = fight;
         mSkillJson = JsonUtils.getIntance().getSkillInfoById(skillId);

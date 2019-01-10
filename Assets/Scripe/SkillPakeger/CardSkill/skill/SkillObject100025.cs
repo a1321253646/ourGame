@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SkillObject30001 : SkillObject
+public class SkillObject100025 : SkillObject
 {
     public override void initEnd()
     {
@@ -10,10 +10,10 @@ public class SkillObject30001 : SkillObject
         mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_NONE, (int)mResource.attack_framce, new AnimalStatu.animalIndexCallback(fightEcent));
         mAnimalControl.setEndCallBack(ActionFrameBean.ACTION_NONE, new AnimalStatu.animalEnd(endAnimal));
     }
-    void endAnimal(int status)
-    {
+    void endAnimal(int status) {
         mSkillStatus = SKILL_STATUS_END;
         actionEnd();
+        
         Destroy(gameObject, 0);
     }
 
@@ -23,25 +23,17 @@ public class SkillObject30001 : SkillObject
         {
             Debug.Log("skill fight event");
             mTargetList = SkillTargetManager.getTargetList(mLocalManager.mLocalLink, mLocal, mCamp, false);
-            Debug.Log("mLocal x=" + mLocal.x + " y=" + mLocal.y);
-            if (mTargetList == null || mTargetList.Count < 1)
-            {
+            Debug.Log("mLocal x="+ mLocal.x+" y="+ mLocal.y);
+            if (mTargetList == null || mTargetList.Count < 1) {
                 Debug.Log("getTargetList null");
                 return;
             }
-            foreach (Attacker attack in mTargetList)
-            {
-                double hurt = calcuator.getValue(mAttacker, attack);
-                Debug.Log("skill fight event 30001 hurt = "+hurt);
-                attack.skillAttack(mBean.effects, hurt, mAttacker);
-            }
-
+            long count = GameObject.Find("jineng").GetComponent<CardManager>().giveupCard(CardManager.GIVEUP_CARD_MIX); 
+            foreach (Attacker attack in mTargetList) {
+                double hurt =  calcuator.getValue(mAttacker, attack)* count;
+                Debug.Log("========================fightEcent hurt="+ hurt);
+                attack.skillAttack( hurt, mAttacker);
+            }           
         }
-    }
-    public override void dealNextSkillForEach(SkillJsonBean skill, Attacker a)
-    {
-        List<float> vals = new List<float>();
-        vals.AddRange(mBean.getSpecialParameterValue());
-        skill.setSpecialParameterValue(vals);
     }
 }

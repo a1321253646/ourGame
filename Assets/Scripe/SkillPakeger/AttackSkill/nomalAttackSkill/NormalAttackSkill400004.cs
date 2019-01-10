@@ -8,7 +8,9 @@ public class NormalAttackSkill400004 : NormalAttackSkillBase
         {
             PlayControl play = (PlayControl)a;
             play.mSkillAttributePre.defense -= value;
+
         }
+
     }
 
     public override void startSkill()

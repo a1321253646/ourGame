@@ -50,11 +50,15 @@ public class AttackSkillManager
         return mAttack;
     }
 
-    public void addSkill(long skillId, Attacker fighter)
-    {
+    public void addSkill(long skillId, Attacker fighter,bool isGiveUp) {
 
         SkillJsonBean skill = JsonUtils.getIntance().getSkillInfoById(skillId);
-        addSkill(skill, fighter);
+        addSkill(skill, fighter, isGiveUp);
+    }
+
+    public void addSkill(long skillId, Attacker fighter)
+    {
+        addSkill(skillId, fighter, false);
     }
 
     public void addSkill(PlayerBackpackBean bean, Attacker fighter) {
@@ -104,7 +108,10 @@ public class AttackSkillManager
             mBackpackSkill.Add(bean, list);
         }
     }
-    public void addSkill(SkillJsonBean json, Attacker fighter) {
+
+
+    public void addSkill(SkillJsonBean json, Attacker fighter,bool isGiveup)
+    {
         AttackerSkillBase skill;
         if (mIdSkill.ContainsKey(json.id))
         {
@@ -112,19 +119,26 @@ public class AttackSkillManager
             if (skill.mStatus == AttackerSkillBase.SKILL_STATUS_END)
             {
                 mIdSkill.Remove(json.id);
-                skill = creatSkillById(json.id, json.getSpecialParameterValue(), fighter);
+                skill = creatSkillById(json.id, json.getSpecialParameterValue(), fighter, isGiveup);
                 mIdSkill.Add(json.id, skill);
             }
             else
             {
-                skill.add(json.getSpecialParameterValue()[0]);
+                skill.add(json.getSpecialParameterValue(), isGiveup);
             }
         }
-        else {
-            skill = creatSkillById(json.id, json.getSpecialParameterValue(), fighter);
+        else
+        {
+            skill = creatSkillById(json.id, json.getSpecialParameterValue(), fighter, isGiveup);
             mIdSkill.Add(json.id, skill);
         }
     }
+    public void addSkill(SkillJsonBean json, Attacker fighter) {
+        addSkill(json, fighter, false);
+    }
+
+
+
     public void addSkill(List<PlayerAttributeBean> list, Attacker fighter) {
         creatSkillByAffix(list, fighter);
         mAttack.getAttribute();
@@ -139,7 +153,7 @@ public class AttackSkillManager
         // }
         Debug.Log("=====================addSkill pet.skillId=" + pet.skillId);
         if (pet.skillId != 0) {
-            AttackerSkillBase skill = creatSkillById(pet.skillId, null, fighter);
+            AttackerSkillBase skill = creatSkillById(pet.skillId, null, fighter,false);
             list.Add(skill);
         }
         if (list.Count > 0) {
@@ -175,7 +189,7 @@ public class AttackSkillManager
         List<AttackerSkillBase> list = new List<AttackerSkillBase>();
         foreach (PlayerAttributeBean bean in affixList)
         {
-            AttackerSkillBase skill = creatSkillById(bean.type, new List<float>() { (float)bean.value }, fighter);
+            AttackerSkillBase skill = creatSkillById(bean.type, new List<float>() { (float)bean.value }, fighter,false);
             if (skill != null)
             {
                 list.Add(skill);
@@ -187,7 +201,7 @@ public class AttackSkillManager
         }
         return list;
     }
-    private AttackerSkillBase creatSkillById(long id, List<float> value, Attacker fighter)
+    private AttackerSkillBase creatSkillById(long id, List<float> value, Attacker fighter,bool isGiveups)
     {
         AttackerSkillBase skill = AttackerFactory.getSkillById(id);
         if (skill == null) {
@@ -217,10 +231,10 @@ public class AttackSkillManager
                     mAttack.transform.position.y + mAttack.resourceData.idel_y + yDel - skillP.y),
                     Quaternion.Euler(0.0f, 0f, 0.0f));
             Debug.Log("============================== creatSkillById=" + newobj);
-            skill.initSkill(this, id, fighter, value, newobj);
+            skill.initSkill(this, id, fighter, value, newobj, isGiveups);
         }
         else {
-            skill.initSkill(this, id, fighter, value, null);
+            skill.initSkill(this, id, fighter, value, null, isGiveups);
         }
         skill.startSkill();
         return skill;

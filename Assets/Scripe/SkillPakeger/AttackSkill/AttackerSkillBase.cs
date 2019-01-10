@@ -16,7 +16,7 @@ public abstract class AttackerSkillBase
     public Attacker mFight;
     public List<float> mParam;
     public SkillJsonBean mSkillJson;
-    public abstract void initSkill(AttackSkillManager manager, long skillId, Attacker fight,List<float> value, GameObject newobj);
+    public abstract void initSkill(AttackSkillManager manager, long skillId, Attacker fight,List<float> value, GameObject newobj,bool isGiveup);
     public abstract void startSkill();
     public abstract void endSkill();
     public float mValue = 0;
@@ -44,9 +44,9 @@ public abstract class AttackerSkillBase
         return rangeRadomNum <= value;
     }
     public float value = 0;
-    public virtual bool add(float count)
+    public virtual bool add(List<float> count,bool isGive)
     {
-        value = value + count;
+        value = value + count[0];
         return true;
     }
     public virtual bool isAnimal() {

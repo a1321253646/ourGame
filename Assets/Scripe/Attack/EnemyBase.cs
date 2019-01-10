@@ -215,10 +215,10 @@ public class EnemyBase : Attacker {
 		mState.hurt (status);
 		return status.blood;
 	}
-    public override double BeKillAttack(long effect, double value,Attacker hurt)
+    public override double BeKillAttack( double value,Attacker hurt)
     {
-        if (effect == 1 || effect == 6 || effect == 30001 || effect == 8 || effect == 3)
-        {
+//        if (effect == 1 || effect == 6 || effect == 30001 || effect == 8 || effect == 3)
+//        {
             HurtStatus status = new HurtStatus(value, false, true);
             if (hurt != null) {
                 Debug.Log(" status.blood == " + status.blood);
@@ -236,15 +236,8 @@ public class EnemyBase : Attacker {
             }
             mState.hurt(status);
             return status.blood;
-        }
-        else if (effect == 2 || effect == 10001)
-        {
-//            int tmp = value % 1 == 0 ? 0 : 1;
-//            value = ((int)value) / 1 + tmp;
-            AddBlood(value);
-
-        }
-        return value;
+ //       }
+  //      return value;
     }
     public override void AddBlood(double value)
     {
