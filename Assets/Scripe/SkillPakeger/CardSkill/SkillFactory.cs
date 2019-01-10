@@ -27,10 +27,6 @@ public class SkillFactory
         {
             newobj.AddComponent<SkillObject100007>();
         }
-        else if (skill.id == 100008)
-        {
-            newobj.AddComponent<SkillObject100008>();
-        }
         else if (skill.id == 100009)
         {
             newobj.AddComponent<SkillObject100009>();
@@ -51,61 +47,25 @@ public class SkillFactory
         {
             newobj.AddComponent<SkillObject100013>();
         }
-        else if (skill.id == 100014)
-        {
-           // newobj.AddComponent<SkillObject100014>();
-        }
         else if (skill.id == 100015)
         {
-
-        }
-        else if (skill.id == 100016)
-        {
-
-        }
-        else if (skill.id == 100017)
-        {
-
-        }
-        else if (skill.id == 100018)
-        {
-
-        }
-        else if (skill.id == 100019)
-        {
-
-        }
-        else if (skill.id == 100020)
-        {
-
+            newobj.AddComponent<SkillObject100015>();
         }
         else if (skill.id == 100021)
         {
-
+            newobj.AddComponent<SkillObject100021>();
         }
         else if (skill.id == 100022)
         {
-
-        }
-        else if (skill.id == 100023)
-        {
-
+            newobj.AddComponent<SkillObject100022>();
         }
         else if (skill.id == 100024)
         {
-
+            newobj.AddComponent<SkillObject100024>();
         }
         else if (skill.id == 100025)
         {
-
-        }
-        else if (skill.id == 100026)
-        {
-
-        }
-        else if (skill.id == 100027)
-        {
-
+            newobj.AddComponent<SkillObject100025>();
         }
         else if (skill.id == 300001)
         {

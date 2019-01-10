@@ -90,7 +90,7 @@ public abstract class SkillObject : MonoBehaviour
         foreach (long skillid in mBean.getNextSkillList()) {
             Debug.Log("actionEnd skillid= " + skillid);
             SkillJsonBean nextSkill = JsonUtils.getIntance().getSkillInfoById(skillid);
-            if (nextSkill.effects != 0 &&(nextSkill.shape_type == 5 || nextSkill.shape_type == 4))
+            if (nextSkill.shape_type == 5 || nextSkill.shape_type == 4)
             {
                 Debug.Log("actionEnd dealNextSkillForEach before" );
                 if (mTargetList != null && mTargetList.Count > 0)
@@ -103,7 +103,7 @@ public abstract class SkillObject : MonoBehaviour
                     }
                 }
             }
-            else if(nextSkill.effects != 0)
+            else 
             {
                 int type = Attacker.CAMP_TYPE_DEFAULT;
                 int attackType = mAttacker.mCampType;

@@ -164,7 +164,7 @@ public class CardManager : MonoBehaviour {
             count = mList.Count;
             while (mList.Count > 0)
             {
-                giveUpCard(0);
+                giveUpCard(1);
             }
             return count;
         }
@@ -208,7 +208,7 @@ public class CardManager : MonoBehaviour {
             int leng = mList.Count;
             int range = Random.Range(0, leng - 1);
             count = mList[range].mCard.cost;
-            giveUpCard(range);
+            giveUpCard(range+1);
             return count;
         }
        // getHero().mSkillManager.addSkill()

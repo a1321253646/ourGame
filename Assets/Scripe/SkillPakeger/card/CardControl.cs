@@ -164,7 +164,8 @@ public class CardControl : MonoBehaviour
     public long giveUp() {
         if (isGiveUpDeal()) {
             mManager.getHero().mSkillManager.addSkill(mSkill.id, mManager.getHero(), true);
-        }      
+        }
+        Destroy(gameObject, 0);
         return mCard.cost;
     }
 

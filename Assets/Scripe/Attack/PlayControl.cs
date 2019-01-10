@@ -51,8 +51,20 @@ public class PlayControl : Attacker
                     BackpackManager.getIntance().addGoods(4000011, count);
                     BackpackManager.getIntance().addGoods(4000012, count);
                     BackpackManager.getIntance().addGoods(4000013, count);*/
-                    BackpackManager.getIntance().addGoods(3000005, count);
-                    BackpackManager.getIntance().addGoods(3000012, count);
+                    BackpackManager.getIntance().addGoods(3000015, count);
+                    BackpackManager.getIntance().addGoods(3000016, count);
+                    BackpackManager.getIntance().addGoods(3000017, count);
+                    BackpackManager.getIntance().addGoods(3000018, count);
+                    BackpackManager.getIntance().addGoods(3000019, count);
+                    BackpackManager.getIntance().addGoods(3000020, count);
+                    BackpackManager.getIntance().addGoods(3000021, count);
+                    BackpackManager.getIntance().addGoods(3000022, count);
+                    BackpackManager.getIntance().addGoods(3000023, count);
+                    BackpackManager.getIntance().addGoods(3000024, count);
+                    BackpackManager.getIntance().addGoods(3000025, count);
+                    BackpackManager.getIntance().addGoods(3000026, count);
+                    BackpackManager.getIntance().addGoods(3000027, count);
+                    BackpackManager.getIntance().addGoods(3000028, count);
                    /* BackpackManager.getIntance().addGoods(3000002, count);
                     BackpackManager.getIntance().addGoods(3000003, count);
                     BackpackManager.getIntance().addGoods(3000004, count);

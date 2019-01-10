@@ -55,11 +55,21 @@ public class CardDetailShowControl : MonoBehaviour {
         Debug.Log("CardUiControl update =================");
 
         string dec = mSkill.skill_describe;
-        if (dec != null && dec.Contains("&n"))
+        if (dec == null || dec.Length == 0) {
+            return;
+        }
+        if ( dec.Contains("&n"))
         {
             double value = calcuator.getValue(hero, null);
             dec = dec.Replace("&n", "" + value);
-            mSkillDec.text = dec;
         }
+        for(int i = 0;i< mSkill.getSpecialParameterValue().Count; i++)
+        {
+            string str = "S" + (i + 1);
+            if (dec.Contains(str)) {
+                dec = dec.Replace(str, mSkill.getSpecialParameterValue()[i]+"");
+            }
+        }
+        mSkillDec.text = dec;
     }
 }

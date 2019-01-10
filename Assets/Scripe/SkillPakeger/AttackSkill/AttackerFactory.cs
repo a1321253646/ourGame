@@ -11,17 +11,60 @@ public class AttackerFactory
         {
             return new AnimalAttackSkill100008();
         }
-        else if (id == 200001)
+        else if (id == 100016)
         {
-            return new AttackSkill200001();
+            return new AnimalAttackSkill100016();
+        }
+        else if (id == 100017)
+        {
+            return new AnimalAttackSkill100017();
+        }
+        else if (id == 100018)
+        {
+            return new AnimalAttackSkill100018();
+        }
+        else if (id == 100019)
+        {
+            return new AnimalAttackSkill100019();
+        }
+        else if (id == 100020)
+        {
+            return new AnimalAttackSkill100020();
+        }
+        else if (id == 100023)
+        {
+            return new AnimalAttackSkill100023();
+        }
+        else if (id == 100026)
+        {
+            return new AnimalAttackSkill100026();
+        }
+        else if (id == 100027)
+        {
+            return new AnimalAttackSkill100027();
         }
         else if (id == 200002)
         {
             return new AnimalAttackSkill200002();
         }
+        else if (id == 200001)
+        {
+            return new AttackSkill200001();
+        }
+
+        else if (id == 600010)
+        {
+            return new UpdateSkill600010();
+        }
+
         else if (id == 200003)
         {
             return new TimeEventAttackSkill200003();
+        }
+
+        else if (id ==100014)
+        {
+            return new NormalAttackSkill100014();
         }
         else if (id == 300001)
         {
@@ -75,6 +118,11 @@ public class AttackerFactory
         {
             return new NormalAttackSkill500003();
         }
+
+        else if (id == 200001)
+        {
+            return new AttackSkill200001();
+        }
         else if (id == 600001)
         {
             return new AttackSkill600001();
@@ -115,14 +163,6 @@ public class AttackerFactory
         {
             return new AttackSkill600011();
         }
-        else if (id == 600014)
-        {
-            return new AttackSkill600014();
-        }
-        else if (id == 600010)
-        {
-            return new UpdateSkill600010();
-        }
         else if (id == 600012)
         {
             return new AttackSkill600012();
@@ -131,9 +171,9 @@ public class AttackerFactory
         {
             return new AttackSkill600013();
         }
-        else if (id == 600015)
+        else if (id == 600014)
         {
-            return new AttackSkill600004();
+            return new AttackSkill600014();
         }
         return null;
     }
