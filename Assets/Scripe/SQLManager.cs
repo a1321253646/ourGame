@@ -6,7 +6,7 @@ using System.IO;
 using System.Threading;
 using Mono.Data.Sqlite;
 using UnityEngine;
-public class SQLManager : MonoBehaviour
+public class SQLManager
 {
     private SqliteDataReader reader;
     /// <summary>
@@ -142,6 +142,66 @@ public class SQLManager : MonoBehaviour
         th1.Start();
     }
 
+    public void initPathRoot() {
+        sqlName = sqlName_new;
+        tabName = tabName_new;
+        mPathRoot = Application.persistentDataPath;
+    }
+
+    public long getPlayVocation() {
+        if (File.Exists(getSqlFilePath())) {
+            List<SQLDate> list = new List<SQLDate>();
+            if (mConnet == null)
+            {
+                mConnet = new SqliteConnection(getSqlPath());
+                mConnet.Open();
+            }
+
+            //        using (SqliteConnection cnn =)
+            using (reader)
+            {
+                Debug.Log("readAllTable");
+
+                SqliteCommand command = mConnet.CreateCommand();
+                command.CommandText = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_PLAYER_VOCATION + " AND TYPE=" + SQLHelper.TYPE_GAME;
+                this.reader = command.ExecuteReader();
+                while (this.reader.Read())
+                {
+                   long vocation = long.Parse(reader.GetString(reader.GetOrdinal("EXTAN")));
+                    return vocation;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public long getLevel() {
+        if (File.Exists(getSqlFilePath()))
+        {
+            List<SQLDate> list = new List<SQLDate>();
+            if (mConnet == null)
+            {
+                mConnet = new SqliteConnection(getSqlPath());
+                mConnet.Open();
+            }
+
+            //        using (SqliteConnection cnn =)
+            using (reader)
+            {
+                Debug.Log("readAllTable");
+
+                SqliteCommand command = mConnet.CreateCommand();
+                command.CommandText = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_PLAYER_VOCATION + " AND TYPE=" + SQLHelper.GAME_ID_LEVEL;
+                this.reader = command.ExecuteReader();
+                while (this.reader.Read())
+                {
+                    long vocation = long.Parse(reader.GetString(reader.GetOrdinal("EXTAN")));
+                    return vocation;
+                }
+            }
+        }
+        return -1;
+    }
     public int initNoNet()
     {
         sqlName = sqlName_new;

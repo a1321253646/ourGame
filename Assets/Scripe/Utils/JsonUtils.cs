@@ -12,26 +12,30 @@ public class JsonUtils
     //private  string resourceFile = "config/resource";
     //private string configeFile = "config/config";
     //private string goodsFile = "config/goods";
-             private string levelFile = "level.json";
-        private string heroFile = "hero.json";
-        private string enemyFile = "enemy.json";
-        private string levelEnemyFile = "levelenemy.json";
-        private string resourceFile = "resource.json";
-        private string configeFile = "config.json";
-        private string goodsFile = "item.json";
-        private string attributeFile = "equip.json";
-        private string composeFile = "compose.json";
-        private string dropDeviceDetailFile = "dropdevicedetail.json";
-        private string dropDeviceFile = "dropdevice.json";
-        private string speedValueFile = "speedvalue.json";
-        private string skillFile = "skill.json";
-        private string cardFile = "card.json";
-        private string affixFile = "affix.json";
+    private string levelFile = "level.json";
+    private string heroFile = "hero.json";
+    private string enemyFile = "enemy.json";
+    private string levelEnemyFile = "levelenemy.json";
+    private string resourceFile = "resource.json";
+    private string configeFile = "config.json";
+    private string goodsFile = "item.json";
+    private string attributeFile = "equip.json";
+    private string composeFile = "compose.json";
+    private string dropDeviceDetailFile = "dropdevicedetail.json";
+    private string dropDeviceFile = "dropdevice.json";
+    private string speedValueFile = "speedvalue.json";
+    private string skillFile = "skill.json";
+    private string cardFile = "card.json";
+    private string affixFile = "affix.json";
     private string samsaraFile = "samsara.json";
     private string mapConfigFile = "mapconfig.json";
     private string guideFile = "guide.json";
     private string stringFile = "string.json";
     private string petFile = "pet.json";
+
+
+    private string[] vocation = new string[] { "hero", "warrior" , "knight" , "assassin" , "firewarrior" , "honorknight", "darkassassin" };
+
     /*private string levelFile = "level";
         private string heroFile = "hero";
         private string enemyFile = "enemy";
@@ -78,12 +82,25 @@ public class JsonUtils
     }
 
     public void initBefore() {
+        long v = SQLManager.getIntance().getPlayVocation();
+        long level = SQLManager.getIntance().getLevel();
+        if (v == -1) {
+            v = 1;
+        }
+        heroFile = vocation[v - 1];
+
+        string levelBack = "";
+        if(level > 1000) {
+            levelBack = (level / 1000)+"";
+        }
+        levelFile = "level";
+        enemyFile = "enemy";
+        levelEnemyFile = "levelenemy";
         if (GameManager.isAndroid)
         {
-            levelFile = "level";
-            heroFile = "hero";
-            enemyFile = "enemy";
-            levelEnemyFile = "levelenemy";
+            levelFile = levelFile + levelBack;
+            enemyFile = enemyFile + levelBack;
+            levelEnemyFile = levelEnemyFile + levelBack;
             resourceFile = "resource";
             configeFile = "config";
             goodsFile = "item";
@@ -100,6 +117,12 @@ public class JsonUtils
             stringFile = "string";
             guideFile = "guide";
             petFile = "pet";
+        }
+        else {
+            heroFile = heroFile + ".json";
+            levelFile = levelFile + levelBack + ".json";
+            enemyFile = enemyFile + levelBack + ".json";
+            levelEnemyFile = levelEnemyFile + levelBack + ".json";
         }
         GameManager.getIntance().mInitDec = "开始读取配置文件";
         readAllFile();

@@ -26,6 +26,7 @@ public class SQLHelper
     public long mMaxGoodId = -1;
     public long isUpdate = -1;
     public string mPlayName =null;
+    public long mPlayVocation =-1;
 
 
     public static long GAME_ID_LEVEL = 1;
@@ -49,6 +50,7 @@ public class SQLHelper
     public static long GAME_ID_POINT_PETTABLE = 19;
     public static long GAME_ID_MAX_TIME = 20;
     public static long GAME_ID_PLAYER_NAME = 21;
+    public static long GAME_ID_PLAYER_VOCATION = 22;
 
     public static long TYPE_GAME = 1;
     public static long TYPE_GOOD = 2;
@@ -298,6 +300,11 @@ public class SQLHelper
                     {
                         mPlayName = date.extan;
                         Debug.Log("读取数据库 用户名称 " + mPlayName);
+                    }
+                    else if (date.id == GAME_ID_PLAYER_VOCATION)
+                    {
+                        mPlayVocation = long.Parse(date.extan);
+                        Debug.Log("读取数据库 角色职业 " + mPlayVocation);
                     }
                 }
             }

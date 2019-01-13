@@ -73,8 +73,19 @@ public class GameBeginControl : MonoBehaviour {
             GameManager.getIntance().mInitDec = "开始配置文件初始化";
             GameManager.getIntance().mInitStatus = 1;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+            if (!GameManager.isAndroid)
+            {
+                SQLManager.getIntance().init(sqlName, tabName);
+                //  GameManager.getIntance().mInitStatus = 8;
+                Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+            }
+            else
+            {
+                SQLManager.getIntance().initPathRoot();
+            }
             if (GameManager.isAndroid)
             {
+
                 Thread th1 = new Thread(() =>
                 {
                     JsonUtils.getIntance().initBefore();
@@ -133,7 +144,7 @@ public class GameBeginControl : MonoBehaviour {
             }
             else
             {
-                SQLManager.getIntance().init(sqlName, tabName);
+               // SQLManager.getIntance().init(sqlName, tabName);
                 GameManager.getIntance().mInitStatus = 8;
                 Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
             }
