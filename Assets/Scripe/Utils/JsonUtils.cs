@@ -32,9 +32,8 @@ public class JsonUtils
     private string guideFile = "guide.json";
     private string stringFile = "string.json";
     private string petFile = "pet.json";
+    private string vocationFile = "vocation.json";
 
-
-    private string[] vocation = new string[] { "hero", "warrior" , "knight" , "assassin" , "firewarrior" , "honorknight", "darkassassin" };
 
     /*private string levelFile = "level";
         private string heroFile = "hero";
@@ -76,18 +75,26 @@ public class JsonUtils
     List<GuideJsonBean> mguideDate;
     List<StringJsonBean> mStringDate;
     List<PetJsonBean> mPetDate;
+    List<VocationDecBean> mVocationDate;
     Dictionary<long, SamsaraJsonBean> mSamsaraDate = new Dictionary<long, SamsaraJsonBean>();
     private JsonUtils() {
 
     }
 
     public void initBefore() {
+        if (GameManager.isAndroid)
+        {
+            vocationFile = "vocation";
+        }
+        readVocation();
+
         long v = SQLManager.getIntance().getPlayVocation();
         long level = SQLManager.getIntance().getLevel();
         if (v == -1) {
             v = 1;
         }
-        heroFile = vocation[v - 1];
+
+        heroFile = getVocationById(v).attributeName;
 
         string levelBack = "";
         if(level > 1000) {
@@ -515,6 +522,23 @@ public class JsonUtils
         return "";
     }
 
+    public VocationDecBean getVocationById(long id) {
+        foreach (VocationDecBean note in mVocationDate)
+        {
+            if (note.id == id)
+            {
+                return note;
+            }
+        }
+        return null;
+    }
+
+    private void readVocation()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(vocationFile));
+        mVocationDate = arrdata.ToObject<List<VocationDecBean>>();
+
+    }
     private void readString()
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(stringFile));
