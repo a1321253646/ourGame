@@ -3,12 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class CardShowControl : MonoBehaviour {
+public class CardShowControl : UiControlBase
+{
 
-    private Button mClose;
-    private int mLevel;
-    public bool isShow = false;
-    
+    private Button mClose;    
     private int mUserUiCount = 0;
     private int mBacUiCount = 0;
     GridLayoutGroup  mBackListGl;
@@ -20,7 +18,6 @@ public class CardShowControl : MonoBehaviour {
     public GameObject CardObject;
     private int USER_LINE_COUNT = 4;
     private int BACK_LINE_COUNT = 4;
-    private Vector2 mFri;
 
     public void guideBack(long value)
     {
@@ -41,41 +38,7 @@ public class CardShowControl : MonoBehaviour {
     ScrollRect mUserScroll;
     ScrollRect mBackScroll;
     Transform mRoot;
-    private void Start()
-    {
-        mUserListGl =  GameObject.Find("user_card_list").GetComponent<GridLayoutGroup>();
-        mBackListGl =  GameObject.Find("cardList").GetComponent<GridLayoutGroup>();
-        mUserCount =  GameObject.Find("title01").GetComponent<Text>();
-        mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
-        mCardManager = GameObject.Find("jineng").GetComponent<CardManager>();
-        mUserScroll = GameObject.Find("user_card_list_root").GetComponent<ScrollRect>();
-        mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
-        mRoot = GameObject.Find("Canvas").GetComponent<Transform>();
-        
-        mFri = gameObject.transform.localPosition;
-    }
 
-
-    public void click()
-    {
-        if (isShow)
-        {
-            int level = GameManager.getIntance().getUiCurrentLevel();
-            if (mLevel < level)
-            {
-                showUi();
-                return;
-            }
-            else if (mLevel == level)
-            {
-                removeUi();
-            }
-        }
-        else
-        {
-            showUi();
-        }
-    }
     public void upDateUi() {
         updateBackCard();
         updateUserd();
@@ -142,36 +105,8 @@ public class CardShowControl : MonoBehaviour {
         }
 
     }
-
-    private void showUi()
-    {
-       // upDateUi();
-        isShow = true;
-        //gameObject.transform.TransformPoint(new Vector2(0,0));
-
-        gameObject.transform.localPosition = new Vector2(0, 0);
-        upDateUi();
-        if (mClose == null)
-        {
-            mClose = GameObject.Find("close").GetComponent<Button>();
-            mClose.onClick.AddListener(() => {
-                removeUi();
-            });
-        }
-        mLevel = GameManager.getIntance().getUiLevel();
-        gameObject.transform.SetSiblingIndex(mLevel);
-        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD);
-
-    }
     bool isGuide = false;
 
-
-    public void removeUi()
-    {
-        isShow = false;
-        // gameObject.transform.TransformPoint(new Vector2(-607, -31));
-        gameObject.transform.localPosition = mFri;
-    }
 
     private void clearUserUi()
     {
@@ -366,5 +301,29 @@ public class CardShowControl : MonoBehaviour {
                 Destroy(mBackListGb[mBackListGb.Count - 1]);
             }
         }
+    }
+
+    public override void init()
+    {
+        mControlType = UiControlManager.TYPE_CARD;
+        mUserListGl = GameObject.Find("user_card_list").GetComponent<GridLayoutGroup>();
+        mBackListGl = GameObject.Find("cardList").GetComponent<GridLayoutGroup>();
+        mUserCount = GameObject.Find("title01").GetComponent<Text>();
+        mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
+        mCardManager = GameObject.Find("jineng").GetComponent<CardManager>();
+        mUserScroll = GameObject.Find("user_card_list_root").GetComponent<ScrollRect>();
+        mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
+        mRoot = GameObject.Find("Canvas").GetComponent<Transform>();
+        mClose = GameObject.Find("close").GetComponent<Button>();
+        mClose.onClick.AddListener(() => {
+            toremoveUi();
+        });
+    }
+
+    public override void show()
+    {
+        gameObject.transform.localPosition = new Vector2(0, 0);
+        upDateUi();
+        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD);
     }
 }

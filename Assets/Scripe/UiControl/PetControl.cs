@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PetControl : MonoBehaviour {
+public class PetControl : UiControlBase
+{
 
     public GameObject mPetIconItem;
 
@@ -13,11 +14,6 @@ public class PetControl : MonoBehaviour {
     Image mSkillIcon,mPetShowImg;
     Button mClose,mFightButton,mRestButton;
     GameObject mFightStatu, mRestStatu,mPetShowCenter;
-	// Use this for initialization
-	void Start () {
-        mFri = gameObject.transform.localPosition;
-
-    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,14 +22,6 @@ public class PetControl : MonoBehaviour {
         }
 	}
     private bool isShow = false;
-    private Vector2 mFri ;
-    public void removeUi()
-    {
-  
-        isShow = false;
-        // gameObject.transform.TransformPoint(new Vector2(-607, -31));
-        gameObject.transform.localPosition = mFri;
-    }
     private int mLevel = 0;
     public bool isInTop() {
         int level = GameManager.getIntance().getUiCurrentLevel();
@@ -49,95 +37,8 @@ public class PetControl : MonoBehaviour {
         return false;
     }
 
-    public void showUi()
-    {
-
-        mLevel = GameManager.getIntance().getUiLevel();
-        init();
-        gameObject.transform.SetSiblingIndex(mLevel);
-        gameObject.transform.localPosition = new Vector2(0, 0);
-    }
-
-
-
-    private bool isInit = false;
     PetManager mPetManage;
     private List<PetIconShowControl> mControlList = new List<PetIconShowControl>();
-    public void init() {
-        if (!isInit) {
-            isInit = true;
-            List<PetJsonBean> list = JsonUtils.getIntance().getPet();
-            List<PlayerBackpackBean> petList = InventoryHalper.getIntance().getPet();
-            int count = list.Count;
-            Debug.Log("PetControl count=" + list.Count);
-            PetJsonBean bean;
-            mListView=  GameObject.Find("pet_list");
-            mName = GameObject.Find("pet_name").GetComponent<Text>();
-            mGetLevel = GameObject.Find("pet_get_level").GetComponent<Text>();
-            mDec = GameObject.Find("pet_dec_text").GetComponent<Text>();
-            mAffix = GameObject.Find("pet_affix").GetComponent<Text>();
-            mSkillDec = GameObject.Find("pet_skill_dec").GetComponent<Text>();
-            mSkillIcon = GameObject.Find("pet_skill_icon").GetComponent<Image>();
-            mClose = GameObject.Find("pet_info_close").GetComponent<Button>();
-
-            mFightStatu = GameObject.Find("pet_fight");
-            mRestStatu = GameObject.Find("pet_rest");
-            mFightButton = mFightStatu.GetComponent<Button>();
-            mRestButton = mRestStatu.GetComponent<Button>();
-            mRestText = GameObject.Find("pet_rest_text").GetComponent<Text>();
-            mPetShowCenter = GameObject.Find("pet_show_center");
-
-            mPetShowImg = GameObject.Find("pet_show_img").GetComponent<Image>();
-            mPetManage = GameObject.Find("Manager").GetComponent<PetManager>();
-            mFightButton.onClick.AddListener(() =>
-            {
-
-                changePetStatue(SQLDate.GOOD_TYPE_USER_PET);
-            });
-            mRestButton.onClick.AddListener(() =>
-            {
-                changePetStatue(SQLDate.GOOD_TYPE_PET);
-            });
-            mClose.onClick.AddListener(() =>
-            {
-                GameObject.Find("hero").GetComponent<HeroRoleControl>().removeUi();
-                removeUi();
-            });
-            mVerticall = mListView.GetComponent<VerticalLayoutGroup>();
-            PlayerBackpackBean play ;
-            for (int i = 0;i < count; i++) {
-                play = null;
-                GameObject ob = GameObject.Instantiate(mPetIconItem,
-                    new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-                float witch = ob.GetComponent<RectTransform>().rect.width;
-                ob.transform.parent = mListView.transform;
-                ob.transform.localScale = new Vector3(1, 1, 1);
-                ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-                PetIconShowControl item = ob.GetComponent<PetIconShowControl>();
-                bean = list[i];
-                Debug.Log("PetControl id="+ bean.id);
-                foreach (PlayerBackpackBean n in petList) {
-                    if (n.goodId == bean.id) {
-                        play = n;
-                        break;
-                    }
-                }
-                if (play != null)
-                {
-                    item.init(play, this);
-                   // if (play.goodType == SQLDate.GOOD_TYPE_USER_PET) {
-                   //     mPetManage.petFight(play.goodId);
-                   // }
-                }
-                else {
-                    item.init(bean.id, this);
-                }
-                mControlList.Add(item);
-            }
-            onIconClick(mControlList[0]);
-            SetGridHeight();
-        }
-    }
 
     public void addPet(PlayerBackpackBean bean) {
         for (int i = 0; i < mControlList.Count; i++) {
@@ -314,5 +215,89 @@ public class PetControl : MonoBehaviour {
             mVerticall.transform.Translate(Vector2.down * (height));
         }
         //}
+    }
+
+    public override void init()
+    {
+        mControlType = UiControlManager.TYPE_PET;
+        List<PetJsonBean> list = JsonUtils.getIntance().getPet();
+        List<PlayerBackpackBean> petList = InventoryHalper.getIntance().getPet();
+        int count = list.Count;
+        Debug.Log("PetControl count=" + list.Count);
+        PetJsonBean bean;
+        mListView = GameObject.Find("pet_list");
+        mName = GameObject.Find("pet_name").GetComponent<Text>();
+        mGetLevel = GameObject.Find("pet_get_level").GetComponent<Text>();
+        mDec = GameObject.Find("pet_dec_text").GetComponent<Text>();
+        mAffix = GameObject.Find("pet_affix").GetComponent<Text>();
+        mSkillDec = GameObject.Find("pet_skill_dec").GetComponent<Text>();
+        mSkillIcon = GameObject.Find("pet_skill_icon").GetComponent<Image>();
+        mClose = GameObject.Find("pet_info_close").GetComponent<Button>();
+
+        mFightStatu = GameObject.Find("pet_fight");
+        mRestStatu = GameObject.Find("pet_rest");
+        mFightButton = mFightStatu.GetComponent<Button>();
+        mRestButton = mRestStatu.GetComponent<Button>();
+        mRestText = GameObject.Find("pet_rest_text").GetComponent<Text>();
+        mPetShowCenter = GameObject.Find("pet_show_center");
+
+        mPetShowImg = GameObject.Find("pet_show_img").GetComponent<Image>();
+        mPetManage = GameObject.Find("Manager").GetComponent<PetManager>();
+        mFightButton.onClick.AddListener(() =>
+        {
+
+            changePetStatue(SQLDate.GOOD_TYPE_USER_PET);
+        });
+        mRestButton.onClick.AddListener(() =>
+        {
+            changePetStatue(SQLDate.GOOD_TYPE_PET);
+        });
+        mClose.onClick.AddListener(() =>
+        {
+            GameObject.Find("hero").GetComponent<HeroRoleControl>().toremoveUi();
+            toremoveUi();
+        });
+        mVerticall = mListView.GetComponent<VerticalLayoutGroup>();
+        PlayerBackpackBean play;
+        for (int i = 0; i < count; i++)
+        {
+            play = null;
+            GameObject ob = GameObject.Instantiate(mPetIconItem,
+                new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            float witch = ob.GetComponent<RectTransform>().rect.width;
+            ob.transform.parent = mListView.transform;
+            ob.transform.localScale = new Vector3(1, 1, 1);
+            ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            PetIconShowControl item = ob.GetComponent<PetIconShowControl>();
+            bean = list[i];
+            Debug.Log("PetControl id=" + bean.id);
+            foreach (PlayerBackpackBean n in petList)
+            {
+                if (n.goodId == bean.id)
+                {
+                    play = n;
+                    break;
+                }
+            }
+            if (play != null)
+            {
+                item.init(play, this);
+                // if (play.goodType == SQLDate.GOOD_TYPE_USER_PET) {
+                //     mPetManage.petFight(play.goodId);
+                // }
+            }
+            else
+            {
+                item.init(bean.id, this);
+            }
+            mControlList.Add(item);
+        }
+        onIconClick(mControlList[0]);
+        SetGridHeight();
+    }
+
+    public override void show()
+    {
+        gameObject.transform.localPosition = new Vector2(0, 0);
     }
 }

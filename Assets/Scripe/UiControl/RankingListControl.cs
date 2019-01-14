@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class RankingListControl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class RankingListControl : UiControlBase, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
     public GameObject mRankingItemOb;
@@ -16,36 +16,7 @@ public class RankingListControl : MonoBehaviour, IBeginDragHandler, IDragHandler
     private VerticalLayoutGroup mVertial;
     private List<RankingListItemControl> mItemList = new List<RankingListItemControl>();
     private ScrollRect mScroll;
-
-    bool isShow = false;
-    int mLevel = -1;
     int mCount = 0;
-
-
-    Vector2 mFri; 
-
-	// Use this for initialization
-	void Start () {
-        mMyName = GameObject.Find("ranking_list_myname").GetComponent<Text>();
-        mNyIndex = GameObject.Find("ranking_list_myIndex").GetComponent<Text>();
-        mNyIndexIm = GameObject.Find("ranking_list_myIndex_im").GetComponent<Image>();
-        mMyLevel = GameObject.Find("ranking_list_mylevel").GetComponent<Text>();
-        mClose = GameObject.Find("ranking_list_close").GetComponent<Button>();
-        mVertial = GameObject.Find("ranking_list_vertical").GetComponent<VerticalLayoutGroup>();
-        mScroll = GameObject.Find("ranking_list_scroll").GetComponent<ScrollRect>();
-
-        mFri = transform.position;
-
-        for (int i = 0; i < 12; i++) {
-            createIndex();
-        }
-        SetGridHeight();
-        mClose.onClick.AddListener(() =>
-        {
-            removeUi();
-        });
-
-    }
 
     private void createIndex() {
         GameObject good = GameObject.Instantiate(mRankingItemOb,
@@ -94,46 +65,6 @@ public class RankingListControl : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void updateName() {
         mMyName.text = SQLHelper.getIntance().mPlayName;
-    }
-
-    public void click()
-    {
-        if (isShow)
-        {
-            int level = GameManager.getIntance().getUiCurrentLevel();
-            if (mLevel < level)
-            {
-                showUi();
-                return;
-            }
-            else if (mLevel == level)
-            {
-                removeUi();
-            }
-        }
-        else
-        {
-            showUi();
-        }
-    }
-    private void showUi()
-    {
-
-        isShow = true;
-        //gameObject.transform.TransformPoint(new Vector2(0,0));
-        gameObject.transform.localPosition = new Vector2(50, 0);
-        mLevel = GameManager.getIntance().getUiLevel();
-        gameObject.transform.SetSiblingIndex(mLevel);
- //       GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_BACK);
-        NetServer.getIntance().getRanking();
-        update();
-
-    }
-    public void removeUi()
-    {
-        isShow = false;
-        // gameObject.transform.TransformPoint(new Vector2(-607, -31));
-        gameObject.transform.localPosition = mFri;
     }
 
     private void update() {
@@ -225,4 +156,31 @@ public class RankingListControl : MonoBehaviour, IBeginDragHandler, IDragHandler
         }
 	}
 
+    public override void init()
+    {
+        mControlType = UiControlManager.TYPE_RANKING;
+        mMyName = GameObject.Find("ranking_list_myname").GetComponent<Text>();
+        mNyIndex = GameObject.Find("ranking_list_myIndex").GetComponent<Text>();
+        mNyIndexIm = GameObject.Find("ranking_list_myIndex_im").GetComponent<Image>();
+        mMyLevel = GameObject.Find("ranking_list_mylevel").GetComponent<Text>();
+        mClose = GameObject.Find("ranking_list_close").GetComponent<Button>();
+        mVertial = GameObject.Find("ranking_list_vertical").GetComponent<VerticalLayoutGroup>();
+        mScroll = GameObject.Find("ranking_list_scroll").GetComponent<ScrollRect>();
+        for (int i = 0; i < 12; i++)
+        {
+            createIndex();
+        }
+        SetGridHeight();
+        mClose.onClick.AddListener(() =>
+        {
+            toremoveUi();
+        });
+    }
+
+    public override void show()
+    {
+        gameObject.transform.localPosition = new Vector2(50, 0);
+        NetServer.getIntance().getRanking();
+        update();
+    }
 }

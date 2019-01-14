@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Threading;
 
-public class LuiHuiTips : MonoBehaviour {
+public class LuiHuiTips : UiControlBase
+{
 
 
     public static int TYPPE_LUIHUI = 1;
@@ -17,74 +18,9 @@ public class LuiHuiTips : MonoBehaviour {
     Text mDes;
     Text mButtonDec,mLeftDec,mRightDec;
     Button mSure, mClose,mLeft,mRight;
-    private Vector2 mFri;
     private int mType;
     GameObject buttonList;
 
-    // Use this for initialization
-    void Start()
-    {
-        mDes = GameObject.Find("lunhui_tips_des").GetComponent<Text>();
-        mSure = GameObject.Find("lunhui_tips_sure").GetComponent<Button>();
-        mClose = GameObject.Find("lunhui_tips_close").GetComponent<Button>();
-        mButtonDec = GameObject.Find("lunhui_sure_ButtonTx").GetComponent<Text>();
-
-        buttonList = GameObject.Find("lunhui_tips_button_list");
-        mLeft = GameObject.Find("lunhui_tips_button_list_left").GetComponent<Button>();
-        mRight = GameObject.Find("lunhui_tips_button_list_right").GetComponent<Button>();
-        mLeftDec = GameObject.Find("lunhui_tips_button_list_left_tx").GetComponent<Text>();
-        mRightDec = GameObject.Find("lunhui_tips_button_list_right_tx").GetComponent<Text>();
-
-        mLeft.onClick.AddListener(() =>
-        {
-            if (mType == TYPPE_UPDATE_LINE)
-            {
-                isUpdate(false);
-            }
-            removeUi();
-        });
-        mRight.onClick.AddListener(() =>
-        {
-            if (mType == TYPPE_UPDATE_LINE)
-            {
-                isUpdate(true);
-            }
-            removeUi();
-        });
-
-
-        mFri = gameObject.transform.localPosition;
-        mSure.onClick.AddListener(() =>
-        {
-            if (mType == TYPPE_LUIHUI)
-            {
-                sure();
-            }
-            else if (mType == TYPPE_TIP)
-            {
-                removeUi();
-            }else if (mType == TYPPE_RETURN_START) {
-                GameManager.getIntance().mInitStatus = 6;
-                removeUi();
-            }
-            else if (mType == TYPPE_ERROR_DATE)
-            {
-                Application.Quit();
-            }
-
-        });
-        mClose.onClick.AddListener(() =>
-        {
-            if(mType == TYPPE_RETURN_START){
-                GameManager.getIntance().mInitStatus = 6;
-            }
-            else if (mType == TYPPE_ERROR_DATE)
-            {
-                Application.Quit();
-            }
-            removeUi();
-        });
-    }
 
 
     public void isUpdate(bool isNeed)
@@ -113,7 +49,7 @@ public class LuiHuiTips : MonoBehaviour {
     }
 
     public void showUi(float dec) {
-        mType = TYPPE_TIP;
+        mControlType = TYPPE_TIP;
         mButtonDec.text = "确定";
         mDes.text = "离线获得魂晶奖励："+dec;
         gameObject.transform.localPosition = new Vector2(0, 0);
@@ -158,9 +94,7 @@ public class LuiHuiTips : MonoBehaviour {
             mRightDec.text = "需要";
         }
 
-        gameObject.transform.localPosition = new Vector2(0, 0);
-        int level = GameManager.getIntance().getUiLevel();
-        gameObject.transform.SetSiblingIndex(level);
+        toShowUi();
 
     }
 
@@ -174,11 +108,6 @@ public class LuiHuiTips : MonoBehaviour {
         gameObject.transform.SetSiblingIndex(level);
 
     }*/
-    public void removeUi()
-    {
-        gameObject.transform.localPosition = mFri;
-        
-    }
     private void sure() {
 
         GameManager.getIntance().isLuihuiIng = true;
@@ -190,7 +119,7 @@ public class LuiHuiTips : MonoBehaviour {
         GameManager.getIntance().mReincarnation = BigNumber.add(GameManager.getIntance().mReincarnation, tmp);
         SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         GameManager.getIntance().isAddGoodForTest = false;
-        BackpackManager.getIntance().removeAll();
+        UiControlManager.getIntance().removeAll();
         SQLHelper.getIntance().updateIsLunhuiValue((long)level.levelspeedup);
         
         InventoryHalper.getIntance().dealClear();
@@ -205,7 +134,75 @@ public class LuiHuiTips : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+
+    public override void init()
+    {
+        mControlType = UiControlManager.TYPE_LUIHUI;
+        mDes = GameObject.Find("lunhui_tips_des").GetComponent<Text>();
+        mSure = GameObject.Find("lunhui_tips_sure").GetComponent<Button>();
+        mClose = GameObject.Find("lunhui_tips_close").GetComponent<Button>();
+        mButtonDec = GameObject.Find("lunhui_sure_ButtonTx").GetComponent<Text>();
+
+        buttonList = GameObject.Find("lunhui_tips_button_list");
+        mLeft = GameObject.Find("lunhui_tips_button_list_left").GetComponent<Button>();
+        mRight = GameObject.Find("lunhui_tips_button_list_right").GetComponent<Button>();
+        mLeftDec = GameObject.Find("lunhui_tips_button_list_left_tx").GetComponent<Text>();
+        mRightDec = GameObject.Find("lunhui_tips_button_list_right_tx").GetComponent<Text>();
+
+        mLeft.onClick.AddListener(() =>
+        {
+            if (mType == TYPPE_UPDATE_LINE)
+            {
+                isUpdate(false);
+            }
+            toremoveUi();
+        });
+        mRight.onClick.AddListener(() =>
+        {
+            if (mType == TYPPE_UPDATE_LINE)
+            {
+                isUpdate(true);
+            }
+            toremoveUi();
+        });
+
+        mSure.onClick.AddListener(() =>
+        {
+            if (mType == TYPPE_LUIHUI)
+            {
+                sure();
+            }
+            else if (mType == TYPPE_TIP)
+            {
+                toremoveUi();
+            }
+            else if (mType == TYPPE_RETURN_START)
+            {
+                GameManager.getIntance().mInitStatus = 6;
+                toremoveUi();
+            }
+            else if (mType == TYPPE_ERROR_DATE)
+            {
+                Application.Quit();
+            }
+
+        });
+        mClose.onClick.AddListener(() =>
+        {
+            if (mType == TYPPE_RETURN_START)
+            {
+                GameManager.getIntance().mInitStatus = 6;
+            }
+            else if (mType == TYPPE_ERROR_DATE)
+            {
+                Application.Quit();
+            }
+            toremoveUi();
+        });
+    }
+
+    public override void show()
+    {
+        gameObject.transform.localPosition = new Vector2(0, 0);
+    }
 }

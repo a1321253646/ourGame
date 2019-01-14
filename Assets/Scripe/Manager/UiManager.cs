@@ -93,22 +93,23 @@ public class UiManager
 
         mSettingButton.onClick.AddListener(() =>
         {
-            BackpackManager.getIntance().settingUiShowClick();
+            UiControlManager.getIntance().show(UiControlManager.TYPE_TIP);
+           
         });
 
         mRankingButton.onClick.AddListener(() =>
         {
-            BackpackManager.getIntance().rankingListClick();
+            UiControlManager.getIntance().show(UiControlManager.TYPE_RANKING);
         });
 
 
         mRoleUiShow.onClick.AddListener(() => {
-            BackpackManager.getIntance().heroUiShowClick();
+            UiControlManager.getIntance().show(UiControlManager.TYPE_HERO);
             setRolePointShow(2);
         });
         mPackUiShow.onClick.AddListener(() => {
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_OPEN_BACK);
-            BackpackManager.getIntance().packUiShowClick();
+            UiControlManager.getIntance().show(UiControlManager.TYPE_IVERTORY);
             setPackPointShow(2);
         });
  //       mHeChengUiShow.onClick.AddListener(() => {
@@ -116,14 +117,13 @@ public class UiManager
   //          BackpackManager.getIntance().qianghuaClick();
    //     });
         mSamsaraUiShow.onClick.AddListener(() => {
-            
-            BackpackManager.getIntance().samsaraShowClick();
+            UiControlManager.getIntance().show(UiControlManager.TYPE_SAMSARA);
             setLunhuiPointShow(2);
         });
 
         mCardUiShow.onClick.AddListener(() => {
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_OPEN_CARD);
-            BackpackManager.getIntance().cardUiShowClick();
+            UiControlManager.getIntance().show(UiControlManager.TYPE_CARD);
             setCardPointShow(2);
         });
 

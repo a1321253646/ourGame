@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class TipControl : MonoBehaviour {
+public class TipControl : UiControlBase
+{
 
     private long id;
     private long count;
@@ -35,10 +36,11 @@ public class TipControl : MonoBehaviour {
     public long mCardId = -1;
     LevelManager mLevelManager;
     private int mCurrentType = 1;
-    private Vector2 mFri;
     GameObject mButtonList1;
-    void Start()
+
+    public override void init()
     {
+        mControlType = UiControlManager.TYPE_TIP;
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mClickList1Click1 = GameObject.Find("tip_button_list1_1").GetComponent<Button>();
         mClickList1Click2 = GameObject.Find("tip_button_list1_2").GetComponent<Button>();
@@ -59,15 +61,14 @@ public class TipControl : MonoBehaviour {
         });
         mClose.onClick.AddListener(() =>
         {
-            removeUi();
+            toremoveUi();
         });
-        mFri = gameObject.transform.localPosition;
     }
 
     private void sale() {
         GameManager.getIntance().showDIaoLuo(mClickList1Click1.transform.position, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", 0,-1,true);
         BackpackManager.getIntance().use(mBean, count, SALE_TYPE);
-        removeUi();
+        toremoveUi();
     }
 
     private void use()
@@ -75,7 +76,7 @@ public class TipControl : MonoBehaviour {
         if (mCurrentType != SHOW_COMPOSE_TYPE) {
             if (BackpackManager.getIntance().use(mBean, 1, mCurrentType))
             {
-                removeUi();
+                toremoveUi();
             }
             else {
                 if (mCurrentType == USE_TYPE) {
@@ -112,10 +113,10 @@ public class TipControl : MonoBehaviour {
         }
         mBean = bean;
         this.id = bean.goodId;
-        this.count = count;
-        showUi();
+        this.count = count;        
         updataTip();
         updataUi();
+        toShowUi();
     }
 
 
@@ -127,10 +128,6 @@ public class TipControl : MonoBehaviour {
         if (mTipCount == null) {
             mTipCount = GameObject.Find("box_text_tip").GetComponent<Text>();
         }*/
-        if (mTipName == null)
-        {
-            mTipName = GameObject.Find("tipName").GetComponent<Text>();
-        }
         string img = null;
         string name = null;
         long tabID = mBean.tabId;
@@ -287,16 +284,9 @@ public class TipControl : MonoBehaviour {
         mDepoct.setText(str);
     }
 
-    private void showUi()
+    public override void show()
     {
-       
-        gameObject.transform.localPosition = new Vector2(0,0);
-        int level = GameManager.getIntance().getUiLevel();
-        gameObject.transform.SetSiblingIndex(level);
+        gameObject.transform.localPosition = new Vector2(0, 0);
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP);
-    }
-    public void removeUi()
-    {
-        gameObject.transform.localPosition = mFri;
     }
 }

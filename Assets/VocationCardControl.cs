@@ -17,6 +17,8 @@ public class VocationCardControl : MonoBehaviour {
     private Text mVocationName,mVocationDec;
     private VocationDecBean mBean;
 
+    private Button mButton;
+
     public void show(long vocationId) {
         if (isInit && mVocationId == vocationId) {
             return;
@@ -38,13 +40,25 @@ public class VocationCardControl : MonoBehaviour {
             mSkillName = texts[1];
             mSkillDec = texts[2];
             mSkillImg = mCard.GetComponents<Image>()[3];
+
+            mButton = GetComponent<Button>();
+            mButton.onClick.AddListener(() =>
+            {
+                select();
+            });
+
             isInit = true;
         }
         showCard();
     }
+
+    private void select() {
+        GameObject.Find("vocation").GetComponent<VocationControl>().select(mVocationId);
+    }
+
     private void showCard() {
         
-        if (mVocationId == 0) {
+/*        if (mVocationId == 0) {
             mCard.transform.localScale = new Vector2(0, 0);
             mAttribute.transform.localScale = new Vector2(1, 1);
             foreach (VocationSilderControl v in mVocationSlides) {
@@ -52,7 +66,7 @@ public class VocationCardControl : MonoBehaviour {
             }
             mVocationImg.sprite = Resources.Load("icon/vocation/wait", typeof(Sprite)) as Sprite;
             return;
-        }
+        }*/
 
         mBean = JsonUtils.getIntance().getVocationById(mVocationId);
 
@@ -68,12 +82,23 @@ public class VocationCardControl : MonoBehaviour {
             {
                 mVocationSlides[i].show(mBean.getAttribute()[i]);
             }
+            mButton.interactable = true; 
         }
-        else {
+        else if (mBean.skill == -2) {
+            mCard.transform.localScale = new Vector2(1, 1);
+            mAttribute.transform.localScale = new Vector2(0, 0);
+            mSkillName.text = mBean.skillName;
+            mSkillDec.text = "？？？？？？？？？？？？";
+            mSkillImg.sprite = Resources.Load("icon/vocation/" + mBean.skillIcon, typeof(Sprite)) as Sprite;
+            mButton.interactable = false;
+        }
+        else
+        {
             mCard.transform.localScale = new Vector2(1, 1);
             mAttribute.transform.localScale = new Vector2(0, 0);
             mSkillName.text = mBean.skillName;
             mSkillDec.text = JsonUtils.getIntance().getSkillInfoById(mBean.skill).skill_describe;
+            mButton.interactable = true;
             mSkillImg.sprite = Resources.Load("icon/vocation/" + mBean.skillIcon, typeof(Sprite)) as Sprite;
 
         }

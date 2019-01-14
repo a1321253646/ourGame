@@ -73,19 +73,11 @@ public class BackpackManager
 
         mSettingControl = GameObject.Find("setting_ui").GetComponent<SettingUiControl>();
 
-        
-        //  mComposeTranform = GameObject.Find("compose_root").GetComponent<RectTransform>();
-        //  mComposeControl = mComposeTranform.GetComponent<ComposeControl>();
-
-        //        mQiangHua = GameObject.Find("qianghua").GetComponent<RectTransform>();
-        //        mQianghuaControl = mQiangHua.GetComponent<QiangHuaManager>();
-
         mSamsaraTranform = GameObject.Find("lunhui").GetComponent<RectTransform>();
         mSamsaraControl = GameObject.Find("lunhui").GetComponent<SamsaraManage>();
         mCardControl = GameObject.Find("Card2").GetComponent<CardShowControl>();
 
         mZhuangbeiShowControl = GameObject.Find("jineng").GetComponent<ZhuangbeiUpdateControl>();
-        //       mLevel.ChangeEquip(InventoryHalper.getIntance().getRoleUseList());
     }
 
     public GoodJsonBean getGoodInfoById(long id) {
@@ -281,99 +273,13 @@ public class BackpackManager
     public void showTipUi(PlayerBackpackBean bean, long count, int type)
     {
         mTipControl.setShowData(bean, count, type);
-        removeLunhuiTipUi();
-    }
-    public void removeTipUi()
-    {
-        mTipControl.removeUi();
-    }
-    public void showLunhuiTipUi()
-    {
-        mLunhuiControl.showUi();
-        removeTipUi();
-        removeMessageTip();
-    }
-    private void removeLunhuiTipUi()
-    {
-        mLunhuiControl.removeUi();
     }
 
-    public void removeMessageTip()
-    {
-        mMessageTipControl.removeUi();
-    }
 
     public void showMessageTip(int type, string str1, string str2)
     {
         mMessageTipControl.showUI(type, str1, str2);
-        removeTipUi();
-        mLunhuiControl.removeUi();
     }
-
-    /*    public void composeUiShowClick()
-        {
-            mComposeControl.click();
-            removeTipUi();
-            removeLunhuiTipUi();
-        }
-        */
-    public void heroUiShowClick()
-    {
-        mHeroControl.click();
-        removeTipUi();
-        removeLunhuiTipUi();
-    }
-    public void settingUiShowClick()
-    {
-        mSettingControl.click();
-        removeTipUi();
-        removeLunhuiTipUi();
-    }
-    public void cardUiShowClick()
-    {
-        mCardControl.click();
-        removeTipUi();
-        removeLunhuiTipUi();
-    }
-
-    public void rankingListClick()
-    {
-        mRankingTipControl.click();
-        removeTipUi();
-        removeLunhuiTipUi();
-    }
-
-    public void samsaraShowClick()
-    {
-        mSamsaraControl.click();
-        removeTipUi();
-        removeLunhuiTipUi();
-    }
-    public void qianghuaClick()
-    {
-//        mQianghuaControl.click();
-//        removeTipUi();
-//        removeLunhuiTipUi();
-    }
-
-    public void packUiShowClick()
-    {
-        mInvertoryControl.click();
-        removeTipUi();
-        removeLunhuiTipUi();
-    }
-
-    public void removeAll() {
-        removeTipUi();
-        removeLunhuiTipUi();
-        mInvertoryControl.removeUi();
-        mSamsaraControl.removeUi();
-        mCardControl.removeUi();
-        mHeroControl.removeUi();
-        mRankingTipControl.removeUi();
-    //    mComposeControl.removeUi();
-    }
-
     public void updateCardBackShow() {
         mCardControl.updateBack();
     }
