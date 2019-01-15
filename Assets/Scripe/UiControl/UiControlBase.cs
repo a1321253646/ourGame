@@ -10,6 +10,13 @@ public abstract class UiControlBase : MonoBehaviour
 
     public long mControlType = -1;
 
+    private void Start()
+    {
+        mFri = gameObject.transform.localPosition;
+        init();
+        isInit = true;
+    }
+
     public virtual void toShowUi() {
         UiControlManager.getIntance().show(mControlType);
     }
@@ -19,15 +26,10 @@ public abstract class UiControlBase : MonoBehaviour
     }
 
     public void remove() {
-        transform.position = mFri;
+        transform.localPosition = mFri;
     }
 
     public void showUiControl() {
-        if (!isInit) {
-            mFri = gameObject.transform.localPosition;
-            init();
-            isInit = true;
-        }
         show();
     }
 }

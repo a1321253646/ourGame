@@ -95,7 +95,7 @@ public class JsonUtils
         }
 
         heroFile = getVocationById(v).attributeName;
-
+        
         string levelBack = "";
         if(level > 1000) {
             levelBack = (level / 1000)+"";
@@ -131,6 +131,7 @@ public class JsonUtils
             enemyFile = enemyFile + levelBack + ".json";
             levelEnemyFile = levelEnemyFile + levelBack + ".json";
         }
+        Debug.Log("heroFile = " + heroFile);
         GameManager.getIntance().mInitDec = "开始读取配置文件";
         readAllFile();
     }

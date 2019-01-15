@@ -93,7 +93,7 @@ public class UiManager
 
         mSettingButton.onClick.AddListener(() =>
         {
-            UiControlManager.getIntance().show(UiControlManager.TYPE_TIP);
+            UiControlManager.getIntance().show(UiControlManager.TYPE_SETTING);
            
         });
 

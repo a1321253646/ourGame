@@ -79,55 +79,6 @@ public class PlayControl : Attacker
                     BackpackManager.getIntance().addGoods(3000013, count);
                     BackpackManager.getIntance().addGoods(3000014, count);*/
         }
-        if (GameManager.getIntance().isHaveOutGet)
-        {
-            BigNumber outLineGet = new BigNumber();
-            GameManager.getIntance().isHaveOutGet = false;
-            long old = SQLHelper.getIntance().mOutTime;
-            Debug.Log("========old = " + old);
-            if (old != -1)
-            {
-                old = TimeUtils.getTimeDistanceMin(old);
-                Debug.Log("========old = " + old);
-                BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).getOfflinereward();
-                outLineGet = BigNumber.multiply(levelCryStal, old);
-                outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
-
-                if (old > 1) {
-                    GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
-                    GameManager.getIntance().updataGasAndCrystal();
-                    SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
-                }
-                
-                if (old > JsonUtils.getIntance().getConfigValueForId(100032))
-                {
-                    Level level = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
-                    BigNumber outLine = BigNumber.multiply(level.getOfflinereward(), old);
-                    outLine = BigNumber.multiply(outLine, GameManager.getIntance().getOutlineGet());
-                    long h = old / 60;
-                    long min = old % 60;
-                    string str = "";
-                    if (h > 9)
-                    {
-                        str += h + ":";
-                    }
-                    else
-                    {
-                        str = str + "0" + h + ":";
-                    }
-                    if (min > 9)
-                    {
-                        str += min;
-                    }
-                    else
-                    {
-                        str = str + "0" + min;
-                    }
-                    BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "欢迎回来，您在离线的" + str + "里", "" + outLine.toStringWithUnit());
-                }
-            }
-        }
-        SQLHelper.getIntance().updateOutTime();
     }
     private void initAnimalEvent() {
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();

@@ -18,8 +18,8 @@ public class VocationControl : UiControlBase
         VocationDecBean bean = JsonUtils.getIntance().getVocationById(id);
         List<long> nexts = bean.getNexts();
         mCard1.show(nexts[0]);
-        mCard1.show(nexts[1]);
-        mCard1.show(nexts[2]);
+        mCard2.show(nexts[1]);
+        mCard3.show(nexts[2]);
     }
 
     public void select(long id) { 

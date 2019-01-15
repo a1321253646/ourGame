@@ -1405,6 +1405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cd5dd08ee319643a8338193d527b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
 --- !u!1 &114662298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,7 +3243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.00007006567}
+  m_AnchoredPosition: {x: 0, y: 0.00003954809}
   m_SizeDelta: {x: 640, y: 364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &216154750
@@ -7503,6 +7506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2817294210957c46a83348e07d92c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
   mRankingItemOb: {fileID: 1327624726195418, guid: 13720a742a659874d81875629790cc1a,
     type: 2}
 --- !u!1 &479369521
@@ -9353,7 +9359,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1074593696105498, guid: bf9641b921bf4274ca5788d89af2afac, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224561216799529200, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
@@ -9638,6 +9644,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e2bd5e99235dc47923e8e772d56cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
   isShow: 0
 --- !u!114 &600472136
 MonoBehaviour:
@@ -10471,7 +10480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587cd3fab7eca934c898e32b49497693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isShow: 0
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
 --- !u!114 &660150922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13748,6 +13759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ee43b9e55d2a34b9ccc35d1f55d140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
 --- !u!1 &888239106
 GameObject:
   m_ObjectHideFlags: 0
@@ -14427,6 +14441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71dcc8a123cb50a41a4a4531cbaa7e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
 --- !u!1 &939670092
 GameObject:
   m_ObjectHideFlags: 0
@@ -16104,6 +16121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756903b664d753a4ea1bed5c0299756f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
   mCardId: -1
 --- !u!114 &1027575473
 MonoBehaviour:
@@ -27899,8 +27919,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7b8c2a335898f4792257b130bfe82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
   mGood: {fileID: 1840960486017198, guid: 37496a3540e97d9458e6b64fd0a3677d, type: 2}
-  isShow: 0
 --- !u!114 &1727294546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28077,6 +28099,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0556639eabe0164e8948aa17cff32f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
 --- !u!114 &1743326023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29653,6 +29678,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bfccbc7ad5d4940be402a1864ff75b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
   mPetIconItem: {fileID: 1595317579055984, guid: f92b43021d008794680b1be7ca80b1e9,
     type: 2}
 --- !u!1 &1876586917
@@ -29739,7 +29767,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f70c4dd02c78745a04ced33415c193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isShow: 0
+  isInit: 0
+  mFri: {x: 0, y: 0}
+  mControlType: -1
   CardObject: {fileID: 1145885225633826, guid: c9774044a1cc75446ae5e41d4a6c78d9, type: 2}
 --- !u!1 &1878088052
 GameObject:

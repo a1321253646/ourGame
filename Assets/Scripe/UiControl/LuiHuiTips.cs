@@ -78,6 +78,7 @@ public class LuiHuiTips : UiControlBase
     }
 
     public void showUi(string str,int type) {
+        toShowUi();
         mType = type;
         mDes.text = str;
         if (type == TYPPE_RETURN_START || type == TYPPE_ERROR_DATE) 
@@ -94,7 +95,7 @@ public class LuiHuiTips : UiControlBase
             mRightDec.text = "需要";
         }
 
-        toShowUi();
+        
 
     }
 

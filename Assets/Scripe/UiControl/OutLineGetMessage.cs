@@ -17,9 +17,10 @@ public class OutLineGetMessage : UiControlBase {
 
     // Use this for initialization
     public void showUI(int type, string str1, string str2) {
+        toShowUi();
         mType = type;
         mCountNumber.text = str2;
-        toShowUi();
+        
     }
 
     public override void init()

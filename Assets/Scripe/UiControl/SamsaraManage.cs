@@ -34,6 +34,7 @@ public class SamsaraManage : UiControlBase
 
     public override void show()
     {
+        gameObject.transform.localPosition = new Vector2(0, 0);
         float mix = JsonUtils.getIntance().getConfigValueForId(100017);
         if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) >= mix)
         {

@@ -99,6 +99,7 @@ public class TipControl : UiControlBase
     }
 
     public void setShowData(PlayerBackpackBean bean,long count,int type) {
+        toShowUi();
         mCurrentType = type;
          if (mCurrentType == USE_TYPE)
         {
@@ -116,7 +117,7 @@ public class TipControl : UiControlBase
         this.count = count;        
         updataTip();
         updataUi();
-        toShowUi();
+       
     }
 
 

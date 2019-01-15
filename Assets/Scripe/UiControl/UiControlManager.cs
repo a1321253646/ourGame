@@ -96,8 +96,9 @@ public class UiControlManager
         }
     }
 
-    public void init(LevelManager manager)
+    public void init()
     {
+        mAllUi.Clear();
         UiControlBase iver = GameObject.Find("Backpack").GetComponentInChildren<IvertoryControl>();
         addAllUi(iver, 2, TYPE_IVERTORY);
         iver = GameObject.Find("tip").GetComponentInChildren<TipControl>();

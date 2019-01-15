@@ -46,6 +46,7 @@ public class LevelManager : MonoBehaviour {
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setLoclaManager(mLocalManager);
         BackpackManager.getIntance().init(this);
+        UiControlManager.getIntance().init();
         GameObject.Find("jineng").GetComponent<CardManager>().init();
         nengLiangDian = 0;
         mNengLiangKuai.Clear();
@@ -65,6 +66,56 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
         GameManager.getIntance().isLuihuiIng = false;
+        if (GameManager.getIntance().isHaveOutGet)
+        {
+            BigNumber outLineGet = new BigNumber();
+            GameManager.getIntance().isHaveOutGet = false;
+            long old2 = SQLHelper.getIntance().mOutTime;
+            Debug.Log("========old = " + old);
+            if (old2 != -1)
+            {
+                old2 = TimeUtils.getTimeDistanceMin(old2);
+                Debug.Log("========old = " + old2);
+                BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).getOfflinereward();
+                outLineGet = BigNumber.multiply(levelCryStal, old2);
+                outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
+
+                if (old2 > 1)
+                {
+                    GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
+                    GameManager.getIntance().updataGasAndCrystal();
+                    SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
+                }
+
+                if (old2 > JsonUtils.getIntance().getConfigValueForId(100032))
+                {
+                    Level level = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
+                    BigNumber outLine = BigNumber.multiply(level.getOfflinereward(), old2);
+                    outLine = BigNumber.multiply(outLine, GameManager.getIntance().getOutlineGet());
+                    long h = old2 / 60;
+                    long min = old2 % 60;
+                    string str = "";
+                    if (h > 9)
+                    {
+                        str += h + ":";
+                    }
+                    else
+                    {
+                        str = str + "0" + h + ":";
+                    }
+                    if (min > 9)
+                    {
+                        str += min;
+                    }
+                    else
+                    {
+                        str = str + "0" + min;
+                    }
+                    BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "欢迎回来，您在离线的" + str + "里", "" + outLine.toStringWithUnit());
+                }
+            }
+        }
+        SQLHelper.getIntance().updateOutTime();
     }
     void Start () {
         //init();
