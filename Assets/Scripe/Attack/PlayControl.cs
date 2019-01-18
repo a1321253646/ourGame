@@ -51,6 +51,20 @@ public class PlayControl : Attacker
                     BackpackManager.getIntance().addGoods(4000011, count);
                     BackpackManager.getIntance().addGoods(4000012, count);
                     BackpackManager.getIntance().addGoods(4000013, count);*/
+                    BackpackManager.getIntance().addGoods(3000001, count);
+                    BackpackManager.getIntance().addGoods(3000002, count);
+                    BackpackManager.getIntance().addGoods(3000003, count);
+                    BackpackManager.getIntance().addGoods(3000004, count);
+                    BackpackManager.getIntance().addGoods(3000005, count);
+                    BackpackManager.getIntance().addGoods(3000006, count);
+                    BackpackManager.getIntance().addGoods(3000007, count);
+                    BackpackManager.getIntance().addGoods(3000008, count);
+                    BackpackManager.getIntance().addGoods(3000009, count);
+                    BackpackManager.getIntance().addGoods(3000010, count);
+                    BackpackManager.getIntance().addGoods(3000011, count);
+                    BackpackManager.getIntance().addGoods(3000012, count);
+                    BackpackManager.getIntance().addGoods(3000013, count);
+                    BackpackManager.getIntance().addGoods(3000014, count);
                     BackpackManager.getIntance().addGoods(3000015, count);
                     BackpackManager.getIntance().addGoods(3000016, count);
                     BackpackManager.getIntance().addGoods(3000017, count);
@@ -196,7 +210,8 @@ public class PlayControl : Attacker
         Dictionary<long, long>  samsaras= InventoryHalper.getIntance().getSamsaraLevelDate();
         Dictionary<long, long>.KeyCollection keys= samsaras.Keys;
         foreach (long key in keys) {
-            long level = samsaras[key];
+            long level = BaseDateHelper.decodeLong(samsaras[key]) ;
+            Debug.Log("level = " + level);
             if(level != 0) {
                SamsaraJsonBean sam=  JsonUtils.getIntance().getSamsaraInfoById(key);
                List<SamsaraValueBean> beanValue = sam.levelList[level];
@@ -431,6 +446,22 @@ public class PlayControl : Attacker
         setHeroData();
     }
 
+
+    private long mVoication = -1;
+    private PlayerBackpackBean mVocationBean = new PlayerBackpackBean();
+    public void vocation() {
+        if ( SQLHelper.getIntance().mPlayVocation != mVoication) {
+            long skill = JsonUtils.getIntance().getVocationById(mVoication).skill;
+            if (skill != -1) {
+                mSkillManager.removeSkill(skill);
+            }
+        }
+
+        resourceData = null;
+        setHeroData();
+
+    }
+
     public void setHeroData()
     {
         if (mBloodVolume > 0)
@@ -444,9 +475,22 @@ public class PlayControl : Attacker
         }
         
         Hero mHero = JsonUtils.getIntance().getHeroData();
-        if (resourceData == null) {           
-            resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
+        if (resourceData == null) {
+            mVoication = SQLHelper.getIntance().mPlayVocation;
+            if (mVoication == -1) {
+                mVoication = 1;
+            }
+            resourceData = JsonUtils.getIntance().getEnemyResourceData(
+                JsonUtils.getIntance().getVocationById(mVoication).resource);
             initAnimalEvent();
+            VocationDecBean bean = JsonUtils.getIntance().getVocationById(mVoication);
+            long skill = bean.skill;
+            if (skill != -1)
+            {
+                mSkillManager.addSkill(skill,this,false);
+            }
+            mAttackLeng = bean.attack_range * resourceData.zoom;
+            GameObject.Find("hero").GetComponent<HeroRoleControl>().vocation();
         }
         double mMaxTmp = mBaseAttribute.maxBloodVolume;
         if (mBloodVolume < 0) {
@@ -466,7 +510,7 @@ public class PlayControl : Attacker
 //        Debug.Log("===============英雄mHero.dod = " + mHero.dod);
         mBaseAttribute.attackSpeed = mHero.attack_speed;
 //        Debug.Log("===============英雄攻速 = " + mBaseAttribute.attackSpeed);
-        mAttackLeng = mHero.attack_range;
+
         mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);
         Debug.Log("setHeroData");
@@ -550,68 +594,45 @@ public class PlayControl : Attacker
         
 	}
 	public override double BeAttack(HurtStatus status,Attacker hurter){
-        //        Debug.Log("hero BeAttack :blood=" + status.blood + " isCrt=" + status.isCrt + " isRate=" + status.isRate);
-       // mSkillManager.mEventAttackManager.beforeBeHurt(status);
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
-//        int tmp = status.blood % 1 == 0 ? 0 : 1;
-//        status.blood = ((int)status.blood) / 1 + tmp;
-        if (JsonUtils.getIntance().getConfigValueForId(100007) != 1) {
+		return allHurt(status, hurter);
+	}
+    public double allHurt(HurtStatus status, Attacker hurter)
+    {
+        if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)
+        {
+            mSkillManager.mEventAttackManager.allHurt(hurter, status);
             mBloodVolume = mBloodVolume - status.blood;
             GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
             if (mBloodVolume <= 0)
             {
                 mFightManager.unRegisterAttacker(this);
                 Die();
-               
+
             }
-        }		
-		mState.hurt (status);
-		return status.blood;
-	}
+        }
+        mState.hurt(status);
+        return status.blood;
+    }
     public override double BeKillAttack(double value,Attacker hurt)
     {
-//        if (effect == 1 || effect == 6 || effect == 4 || effect == 30001)
-//        {
-            HurtStatus status = new HurtStatus(value, false, true);
-
-
-
-            if (hurt != null && hurt.mAttackType == ATTACK_TYPE_HERO && status.blood >= mBloodVolume)
+        HurtStatus status = new HurtStatus(value, HurtStatus.TYPE_DEFAULT);
+        if (hurt != null && hurt.mAttackType == ATTACK_TYPE_HERO && status.blood >= mBloodVolume)
+        {
+            if (mBloodVolume > 1)
             {
-                if (mBloodVolume > 1)
-                {
-                    status.blood = mBloodVolume - 1;
-                }
-                else if (mBloodVolume == 1)
-                {
-                    status.blood = 1;
-                }
+                status.blood = mBloodVolume - 1;
             }
-            else if (hurt != null && hurt.mAttackType != ATTACK_TYPE_HERO)
+            else if (mBloodVolume == 1)
             {
-                status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
-            //    int tmp = status.blood % 1 == 0 ? 0 : 1;
-            //    status.blood = ((int)status.blood) / 1 + tmp;
+                status.blood = 1;
             }
-
-            if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)
-            {
-                mBloodVolume = mBloodVolume - status.blood;
-                GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
-                if (mBloodVolume <= 0)
-                {
-                    mFightManager.unRegisterAttacker(this);
-                    Die();
-                    
-                }
-            }
-            mState.hurt(status);
-            return status.blood;
-/*        }
-        else if (effect == 2 || effect == 10001) {
-            AddBlood(value);
         }
-        return value;*/
+        else if (hurt != null && hurt.mAttackType != ATTACK_TYPE_HERO)
+        {
+            status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
+        }
+        return allHurt(status, hurt);
     }
     public override void AddBlood(double value) {
         Debug.Log("  play add blood =" + value);

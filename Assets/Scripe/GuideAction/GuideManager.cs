@@ -15,17 +15,21 @@ public class GuideManager : MonoBehaviour {
     public static int EVENT_OBJECT_CLICK = 8;
     public static int EVENT_EQUITE_UP_CLICK = 9;
     public static int EVENT_ONDRAG_UP = 10;
+    public static int EVENT_SHOW_VOCATION = 11;
 
     public static int BUTTON_START_BOSS = 1;
     public static int BUTTON_START_HERO_UP = 2;
     public static int BUTTON_START_OPEN_BACK = 3;
     public static int BUTTON_CLICK_TIP_SURE = 4;
     public static int BUTTON_CLICK_OPEN_CARD = 5;
+    public static int BUTTON_CLICK_OPEN_VOCATION = 6;
+    public static int BUTTON_CLICK_CLICK_VOCATION = 7;
 
     public static int SHOW_BACK = 1;
     public static int SHOW_TIP = 2;
     public static int SHOW_CARD = 3;
     public static int SHOW_CARD_BACK_INFO = 4;
+    public static int SHOW_CARD_VOCATION = 5;
 
 
     public static int ONDRAG_UP_CARDUI_WORK = 1;
@@ -130,9 +134,14 @@ public class GuideManager : MonoBehaviour {
     public void init() {
         List<GuideJsonBean> list = JsonUtils.getIntance().getGuideList();
         List<long> guide = SQLHelper.getIntance().getGuide();
-
+        long level = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel);
         foreach (GuideJsonBean g in list) {
             bool isGuide = false;
+            if (g.level != -100 && level > g.level)
+            {
+                SQLHelper.getIntance().addGuide(g.id);
+                continue;
+            }
             if (guide.Count > 0) {
                 foreach (long id in guide) {
                     if (id == g.id) {
@@ -141,7 +150,8 @@ public class GuideManager : MonoBehaviour {
                     }
                 }
             }
-            if (isGuide) {
+            if (isGuide)
+            {
                 continue;
             }
             GuideControl c = new GuideControl();

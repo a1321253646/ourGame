@@ -69,7 +69,7 @@ public class GuideControl
                 , null,
                 mManager,
                 null, this);
-            item3.init(GuideManager.EVENT_SHOW, GuideManager.SHOW_TIP, GuideManager.BUTTON_CLICK_TIP_SURE, "tip_button_list1_2");
+            item3.init(GuideManager.SHOW_TIP, GuideManager.EVENT_SHOW , GuideManager.BUTTON_CLICK_TIP_SURE, "tip_button_list1_2");
             item3.setDecLocal(1, 1, 3, 3);
             mActionList.Add(item3);
             GameManager.getIntance().uiManager.setBackpackShow(false);
@@ -92,7 +92,7 @@ public class GuideControl
                 , null,
                 mManager,
                 null, this);
-            item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_OBJECT_DROP, GuideManager.BUTTON_CLICK_OPEN_CARD, "skilcard_ui");
+            item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_OPEN_CARD, "skilcard_ui");
             item1.setDecLocal(3, 2, 1, 2);
             mActionList.Add(item1);
             GuideActionCardUiBackItem item2 = new GuideActionCardUiBackItem();
@@ -103,13 +103,7 @@ public class GuideControl
                 null, this);
             item2.setDecLocal(2, 3, 2, 1);
             mActionList.Add(item2);
-/*            GuideActionCardUiShowInfo item3 = new GuideActionCardUiShowInfo();
-            item3.init(
-                mData.getDecString()[2]
-                , mData.getTarget(),
-                mManager,
-                null);
-            mActionList.Add(item3);*/
+
             GuideActionUserCard item4 = new GuideActionUserCard();
             item4.init(
                 mData.getDecString()[2]
@@ -120,6 +114,30 @@ public class GuideControl
             mActionList.Add(item4);
             GameManager.getIntance().uiManager.setCardShow(false);
             GameManager.getIntance().uiManager.setLunhuiShow(false);
+        }
+        else if (mData.id == 6)//转职引导
+        {
+            GuideActionButton item1 = new GuideActionButton();
+            item1.init(
+                mData.getDecString()[0]
+                , null,
+                mManager,
+                 null, this);
+            item1.init(5, GuideManager.EVENT_SHOW_VOCATION, GuideManager.BUTTON_CLICK_OPEN_VOCATION, "find:vocation");
+            item1.setDecLocal(1, 3, 3, 1);
+            mActionList.Add(item1);
+
+ /*           GuideActionButton item2 = new GuideActionButton();
+            item2.init(
+                mData.getDecString()[1]
+                , null,
+                mManager,
+                 null, this);
+            item2.init(GuideManager.SHOW_CARD_VOCATION, GuideManager.EVENT_SHOW, GuideManager.BUTTON_CLICK_CLICK_VOCATION, "vocation");
+            item2.setDecLocal(1, 2, 3, 2);
+            mActionList.Add(item2);
+            */
+
         }
     }
 

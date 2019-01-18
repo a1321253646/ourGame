@@ -195,49 +195,33 @@ public class EnemyBase : Attacker {
 
 	public override double BeAttack(HurtStatus status,Attacker hurter)
     {
-//        Debug.Log("===============EnemyBase hurt =" + status.blood);
-   //     mSkillManager.mEventAttackManager.beforeBeHurt(status);
-//        Debug.Log(" status.blood == " + status.blood);
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
-//        Debug.Log("===============EnemyBase hurt =" + status.blood);
-        //        Debug.Log(" status.blood == " + status.blood);
-        //int tmp = status.blood % 1 == 0 ? 0 : 1;
-        //status.blood = status.blood / 1 + tmp;
-//        Debug.Log("===============EnemyBase hurt =" + status.blood);
-        //if (mBloodVolume == mAttribute.maxBloodVolume) {
+        return allHurt(status, hurter);
+
+    }
+
+    public double allHurt(HurtStatus status, Attacker hurt)
+    {
+        mSkillManager.mEventAttackManager.allHurt(hurt, status);
         mBloodVolume = mBloodVolume - status.blood;
-        //}
-        
-        if (mBloodVolume <= 0) {
-			Die ();
-			mFightManager.unRegisterAttacker (this);
-		}
-		mState.hurt (status);
-		return status.blood;
-	}
+
+        if (mBloodVolume <= 0)
+        {
+            mSkillManager.mEventAttackManager.removeAll();
+            Die();
+            mFightManager.unRegisterAttacker(this);
+        }
+        mState.hurt(status);
+        return status.blood;
+    }
+
     public override double BeKillAttack( double value,Attacker hurt)
     {
-//        if (effect == 1 || effect == 6 || effect == 30001 || effect == 8 || effect == 3)
-//        {
-            HurtStatus status = new HurtStatus(value, false, true);
+            HurtStatus status = new HurtStatus(value, HurtStatus.TYPE_DEFAULT);
             if (hurt != null) {
-                Debug.Log(" status.blood == " + status.blood);
                 status.blood = status.blood * hurt.mSkillManager.getCardHurtPre();
-                Debug.Log("  hurt.mSkillManager.getCardHurtPre() == " + hurt.mSkillManager.getCardHurtPre());
-//                int tmp = status.blood % 1 == 0 ? 0 : 1;
-//                status.blood = ((int)status.blood) / 1 + tmp;
-                Debug.Log(" status.blood == " + status.blood);
             }
-            mBloodVolume = mBloodVolume - status.blood;
-            if (mBloodVolume <= 0)
-            {
-                Die();
-                mFightManager.unRegisterAttacker(this);
-            }
-            mState.hurt(status);
-            return status.blood;
- //       }
-  //      return value;
+            return allHurt(status, hurt);
     }
     public override void AddBlood(double value)
     {

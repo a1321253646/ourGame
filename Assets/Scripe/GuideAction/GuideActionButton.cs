@@ -24,7 +24,19 @@ public class GuideActionButton : GuideActionItem
     {
         setUiShow();
         Time.timeScale = 0;
-        GameObject ob = GameObject.Find(mStr);
+        GameObject ob = null;
+        if (mStr.StartsWith("find:"))
+        {
+            mStr = mStr.Split(':')[1];
+            if (mStr.Equals("vocation"))
+            {
+                ob = GameObject.Find("active_button_list").GetComponent<ActiveListControl>().getVocation();
+            }
+        }
+        else {
+            ob = GameObject.Find(mStr);
+        }
+        
         mManager.ShowGuideNormalObject(ob);
         mManager.showGuideDec(mTargetX, mTargetY, mDecX, mDecY, mDec);
     }

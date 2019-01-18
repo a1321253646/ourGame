@@ -9,7 +9,10 @@
     "skillIcon": "",
     "attribute": "100,100,100,100,100,100",
     "next": "2,3,4",
-    "attributeName": "hero"
+    "attributeName": "hero",
+    "resource": 10000,
+    "attack_range": 1.3,
+    "tip_dec": "初始职业"
   },
   {
     "id": 2,
@@ -21,7 +24,10 @@
     "skillIcon": "",
     "attribute": "10,20,30,40,50,60",
     "next": "5,3,4",
-    "attributeName": "warrior"
+    "attributeName": "warrior",
+    "resource": 10001,
+    "attack_range": 1.6,
+    "tip_dec": "勇敢的战士"
   },
   {
     "id": 3,
@@ -32,8 +38,11 @@
     "skillName": "",
     "skillIcon": "",
     "attribute": "30,20,40,50,70,20",
-    "next": "6,2,4",
-    "attributeName": "knight"
+    "next": "2,6,4",
+    "attributeName": "knight",
+    "resource": 11001,
+    "attack_range": 1.65,
+    "tip_dec": "坚毅的骑士"
   },
   {
     "id": 4,
@@ -44,44 +53,56 @@
     "skillName": "",
     "skillIcon": "",
     "attribute": "12,23,43,54,65,76",
-    "next": "7,3,4",
-    "attributeName": "assassin"
+    "next": "2,3,7",
+    "attributeName": "assassin",
+    "resource": 12001,
+    "attack_range": 0.77,
+    "tip_dec": "疯狂的刺客"
   },
   {
     "id": 5,
     "name": "烈焰战士",
     "bust": "zs_2",
     "dec": "充满怒火的战士",
-    "skill": 100015,
-    "skillName": "混乱之击",
-    "skillIcon": "card_skill_3000016",
+    "skill": 700001,
+    "skillName": "战士技能",
+    "skillIcon": "zs_skill_01",
     "attribute": "",
-    "next": "8,2,3",
-    "attributeName": "warrior"
+    "next": "8,3,4",
+    "attributeName": "warrior",
+    "resource": 10002,
+    "attack_range": 1.4,
+    "tip_dec": "充满怒火的战士"
   },
   {
     "id": 6,
     "name": "荣耀骑士",
     "bust": "qs_2",
     "dec": "宛如壁垒的骑士",
-    "skill": 100016,
-    "skillName": "生生不息",
-    "skillIcon": "card_skill_3000017",
+    "skill": 700002,
+    "skillName": "骑士技能",
+    "skillIcon": "qs_skill_01",
     "attribute": "",
-    "next": "9,1,3",
-    "attributeName": "knight"
+    "next": "2,9,4",
+    "attributeName": "knight",
+    "resource": 11002,
+    "attack_range": 1.5,
+    "tip_dec": "宛如壁垒的骑士"
   },
   {
     "id": 7,
     "name": "暗影刺客",
     "bust": "ck_2",
     "dec": "无坚不摧的刺客",
-    "skill": 100017,
-    "skillName": "攻击强化",
-    "skillIcon": "card_skill_3000018",
+    "skill": 700003,
+    "skillName": "刺客技能",
+    "skillIcon": "ck_skill_01",
     "attribute": "",
-    "next": "10,1,2",
-    "attributeName": "assassin"
+    "next": "2,3,10",
+    "attributeName": "assassin",
+    "resource": 12002,
+    "attack_range": 0.86,
+    "tip_dec": "无坚不摧的刺客"
   },
   {
     "id": 8,
@@ -90,10 +111,13 @@
     "dec": "？？？？",
     "skill": -2,
     "skillName": "？？？？",
-    "skillIcon": "card_skill_3000019",
+    "skillIcon": "zhiye_skill",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": "？？？？"
   },
   {
     "id": 9,
@@ -102,10 +126,13 @@
     "dec": "？？？？",
     "skill": -2,
     "skillName": "？？？？",
-    "skillIcon": "card_skill_3000019",
+    "skillIcon": "zhiye_skill",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": "？？？？"
   },
   {
     "id": 10,
@@ -114,10 +141,13 @@
     "dec": "？？？？",
     "skill": -2,
     "skillName": "？？？？",
-    "skillIcon": "card_skill_3000019",
+    "skillIcon": "zhiye_skill",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": "？？？？"
   },
   {
     "id": 0.0,
@@ -129,7 +159,10 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   },
   {
     "id": 0.0,
@@ -141,7 +174,10 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   },
   {
     "id": 0.0,
@@ -153,7 +189,10 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   },
   {
     "id": 0.0,
@@ -165,7 +204,10 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   },
   {
     "id": 0.0,
@@ -177,7 +219,10 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   },
   {
     "id": 0.0,
@@ -189,7 +234,10 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   },
   {
     "id": 0.0,
@@ -201,7 +249,10 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   },
   {
     "id": 0.0,
@@ -213,7 +264,10 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   },
   {
     "id": 0.0,
@@ -225,7 +279,10 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   },
   {
     "id": 0.0,
@@ -237,7 +294,10 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   },
   {
     "id": 0.0,
@@ -249,6 +309,9 @@
     "skillIcon": "",
     "attribute": "",
     "next": "",
-    "attributeName": ""
+    "attributeName": "",
+    "resource": 0.0,
+    "attack_range": 0.0,
+    "tip_dec": ""
   }
 ]

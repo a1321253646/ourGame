@@ -51,10 +51,23 @@ public class AttackSkillManager
     }
 
     public void addSkill(long skillId, Attacker fighter,bool isGiveUp) {
-
+        if (getAttacker().getStatus() == ActionFrameBean.ACTION_DIE)
+        {
+            return;
+        }
         SkillJsonBean skill = JsonUtils.getIntance().getSkillInfoById(skillId);
         addSkill(skill, fighter, isGiveUp);
+
+        Debug.Log("===============addSkill id=" + skillId);
     }
+    public void removeSkill(long skillId) {
+        Debug.Log("===============removeSkill id=" + skillId);
+        if (mIdSkill.ContainsKey(skillId)) {
+            mIdSkill[skillId].endSkill();
+            mIdSkill.Remove(skillId);
+        }
+    }
+
 
     public void addSkill(long skillId, Attacker fighter)
     {
@@ -112,6 +125,10 @@ public class AttackSkillManager
 
     public void addSkill(SkillJsonBean json, Attacker fighter,bool isGiveup)
     {
+        if (getAttacker().getStatus() == ActionFrameBean.ACTION_DIE) {
+            return;
+        }
+
         AttackerSkillBase skill;
         if (mIdSkill.ContainsKey(json.id))
         {

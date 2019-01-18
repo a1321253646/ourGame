@@ -45,6 +45,7 @@ public class LevelManager : MonoBehaviour {
       //  creatEnemyFactory(cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setLoclaManager(mLocalManager);
+        SkillManage.getIntance().setBackManagerManager(mBackManager);
         BackpackManager.getIntance().init(this);
         UiControlManager.getIntance().init();
         GameObject.Find("jineng").GetComponent<CardManager>().init();
@@ -279,6 +280,7 @@ public class LevelManager : MonoBehaviour {
             NetServer.getIntance().getLocl();
             SQLManager.getIntance().saveLocal(NetServer.getIntance().getLocal());
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("数据出现异常，已还原回服务器最新记录，请重新开始游戏", LuiHuiTips.TYPPE_ERROR_DATE);
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
         }
 
     }
@@ -307,13 +309,27 @@ public class LevelManager : MonoBehaviour {
     public void heroUp() {
         mPlayerControl.heroUp();
     }
-
+    public void heroVocation() {
+        mPlayerControl.vocation();
+    }
 
     private void creaPlay(float cardTop)
     {
         Hero hero = JsonUtils.getIntance().getHeroData();
-        ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(hero.resource);
-        Debug.Log("hero.resource idel_y= " + bean.idel_y);
+        long vocation = 1;
+        if (SQLHelper.getIntance().mPlayVocation == -1)
+        {
+            vocation = 1;
+        }
+        else {
+            vocation = SQLHelper.getIntance().mPlayVocation;
+        }
+
+        Debug.Log(" SQLHelper.getIntance().mPlayVocation= " + vocation);
+        Debug.Log(" JsonUtils.getIntance().getVocationById(SQLHelper.getIntance().mPlayVocation).resource= " + JsonUtils.getIntance().getVocationById(vocation).resource);
+        ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(
+           JsonUtils.getIntance().getVocationById(vocation).resource);
+       
 
         GameObject newobj =  GameObject.Instantiate (Player, new Vector3 (-7, 
             cardTop-bean.idel_y,-1),

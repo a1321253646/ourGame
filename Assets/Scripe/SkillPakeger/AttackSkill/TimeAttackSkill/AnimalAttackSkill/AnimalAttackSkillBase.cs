@@ -29,7 +29,7 @@ public abstract class AnimalAttackSkillBase : TimeAttackSkillBase
         mSprinter = newobj;
     }
     public override void upDateSkill() {
-        if (!isInit) {
+        if (!isInit || mStatus == SKILL_STATUS_END) { 
             return;
         }
         mAnimal.update();

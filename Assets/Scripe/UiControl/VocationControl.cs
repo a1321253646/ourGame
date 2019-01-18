@@ -20,12 +20,9 @@ public class VocationControl : UiControlBase
         mCard1.show(nexts[0]);
         mCard2.show(nexts[1]);
         mCard3.show(nexts[2]);
+        gameObject.transform.localPosition = new Vector2(0, 0);
+        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD_VOCATION);
     }
-
-    public void select(long id) { 
-        
-    }
-
     public override void init()
     {
         mControlType = UiControlManager.TYPE_VOCATION;
@@ -36,9 +33,11 @@ public class VocationControl : UiControlBase
         mClose = GameObject.Find("vocation_close").GetComponent<Button>();
         mNoSelect = GameObject.Find("vocation_select_no").GetComponent<Button>();
         mClose.onClick.AddListener(() => {
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_CLICK_VOCATION);
             toremoveUi();
         });
         mNoSelect.onClick.AddListener(() => {
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_CLICK_VOCATION);
             toremoveUi();
         });
     }

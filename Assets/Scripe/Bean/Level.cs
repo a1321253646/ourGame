@@ -14,9 +14,30 @@ public class Level
 	public string reincarnation;
 	public string offlinereward;
 	public float levelspeedup;
+	public string lunhui;
+	public string hunjing;
 
     public BigNumber mOfflinereward;
     public BigNumber mReincarnation;
+    public BigNumber mAdHunjing;
+    public BigNumber mAdLunhui;
+
+    public BigNumber getAdHunjing()
+    {
+        if (mAdHunjing == null)
+        {
+            mAdHunjing = BigNumber.getBigNumForString(hunjing);
+        }
+        return mAdHunjing;
+    }
+    public BigNumber getAdLunhui()
+    {
+        if (mAdLunhui == null)
+        {
+            mAdLunhui = BigNumber.getBigNumForString(lunhui);
+        }
+        return mAdLunhui;
+    }
 
     public BigNumber getReincarnation()
     {

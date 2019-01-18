@@ -8,7 +8,6 @@ public class CardShowControl : UiControlBase
 
     private Button mClose;    
     private int mUserUiCount = 0;
-    private int mBacUiCount = 0;
     GridLayoutGroup  mBackListGl;
     GridLayoutGroup mUserListGl;
     List<GameObject> mUserListGb = new List<GameObject>();
@@ -158,16 +157,17 @@ public class CardShowControl : UiControlBase
         
 
         int count = 0;
-        for (int i = 0; i < mBackListGb.Count; i++)
+        bool isAdd = false;
+        for (; count < mBackListGb.Count; count++)
         {
-            mBacUiCount += 1;
-            count++;
-            CardUiControl ui = mBackListGb[i].GetComponent<CardUiControl>();
+            
+            CardUiControl ui = mBackListGb[count].GetComponent<CardUiControl>();
             if (ui.mCardId == -1)
             {
+                isAdd = true;
                 ui.init(bean.goodId, 91, 125);
                 ui.init(bean.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
-                ItemOnDrag item = mBackListGb[i].GetComponent<ItemOnDrag>();
+                ItemOnDrag item = mBackListGb[count].GetComponent<ItemOnDrag>();
                 item.mBean = bean;
                 item.init(mCardManager, bean.goodId, true, mCardManager.card, mRoot, mBackScroll);
                 
@@ -175,14 +175,16 @@ public class CardShowControl : UiControlBase
             }
             else if(ui.mCardId == bean.goodId){
                 ui.addCount();
-                return;
+                break;
             }            
         }
-
-        if(count > 8) {
-            count = count / 8 + count % 8 == 0 ? 0 : 1;
+        Debug.Log("addBackUi = " + count+ "=================================");
+        if (count > 8) {
+            count = count / 8 + 1;
             count = (count+1) * 8;
         }
+        Debug.Log("=================================addBackUi = " + count);
+
         if (count > mBackListGb.Count) {
             for (int i = 0; i < count- mBackListGb.Count; i++)
             {
@@ -229,7 +231,6 @@ public class CardShowControl : UiControlBase
         SetGridHeight(mBackListGl, 2, mBacUiCount, 11 );
     }*/
     private void clearBackUi() {
-        mBacUiCount = 0;
         if (mBackListGb != null) {
             for (; mBackListGb.Count > 0;)
             {

@@ -61,7 +61,8 @@ public class JsonUtils
     List<Hero> heroData;
     List<Level> levelData;
     List<ResourceBean> resourceData;
-    List<ConfigNote> mConfig;
+    Dictionary<long, float> mConfig = new Dictionary<long, float>();
+   // List<ConfigNote> mConfig;
     List<GoodJsonBean> mGoods;
     List<AccouterJsonBean> mAttribute;
     List<ComposeJsonBen> mComposeData;
@@ -80,7 +81,7 @@ public class JsonUtils
     private JsonUtils() {
 
     }
-
+    public long mVocation = -1;
     public void initBefore() {
         if (GameManager.isAndroid)
         {
@@ -88,13 +89,13 @@ public class JsonUtils
         }
         readVocation();
 
-        long v = SQLManager.getIntance().getPlayVocation();
+        mVocation = SQLManager.getIntance().getPlayVocation();
         long level = SQLManager.getIntance().getLevel();
-        if (v == -1) {
-            v = 1;
+        if (mVocation == -1) {
+            mVocation = 1;
         }
 
-        heroFile = getVocationById(v).attributeName;
+        heroFile = getVocationById(mVocation).attributeName;
         
         string levelBack = "";
         if(level > 1000) {
@@ -134,6 +135,24 @@ public class JsonUtils
         Debug.Log("heroFile = " + heroFile);
         GameManager.getIntance().mInitDec = "开始读取配置文件";
         readAllFile();
+    }
+
+    public void reReadHero() {
+        long v = SQLHelper.getIntance().mPlayVocation;
+        if (v == -1)
+        {
+            v = 1;
+        }
+
+        string path = getVocationById(v).attributeName;
+        if (!GameManager.isAndroid)
+        {
+            path = path + ".json";
+        }
+        if (!path.Equals(heroFile)) {
+            readHeroData();
+        }
+
     }
 
     public void readAllFile() {
@@ -500,13 +519,15 @@ public class JsonUtils
     private void readConfig()
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(configeFile));
-        mConfig = arrdata.ToObject<List<ConfigNote>>();
+        List<ConfigNote> list = arrdata.ToObject<List<ConfigNote>>();
+        foreach (ConfigNote n in list)
+        {
+            mConfig.Add(n.id, n.value);
+
+        }
+
         for (int i = 0; i < 6; i++) {
-            foreach (ConfigNote n in mConfig) {
-                if (n.id == 100021 + i) {
-                    mAffixEnbleLevel.Add((long)n.value);
-                }
-            }
+            mAffixEnbleLevel.Add((long)mConfig[100021 + i]);
         }
     }
     public string getStringById(long id) {
@@ -554,19 +575,6 @@ public class JsonUtils
     private void readHeroData(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (heroFile));
 		heroData = arrdata.ToObject<List<Hero>> ();
-        
-        foreach (Hero hero in heroData) {
-            ResourceBean res = getEnemyResourceData(hero.resource);
-            hero.attack_range = hero.attack_range * (hero.range_type == 1? res.zoom :1);
-        }
-/*		Debug.Log ("readHeroData:");
-		foreach (Hero hero in heroData) {
-			Debug.Log ("hero getRoleLv="+hero.getRoleLv()+
-				" hero.getRoleHp ="+hero.getRoleHp()+
-				" hero.getLvupCrystal ="+hero.getLvupCrystal()+
-				" hero.getRoleAttack ="+hero.getRoleAttack()+
-				" hero.getRoleDefense ="+hero.getRoleDefense());
-		}*/
 	}
 	private void readLevelData(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (levelFile));
@@ -687,12 +695,13 @@ public class JsonUtils
     }
     public float getConfigValueForId(long id) {
         Debug.Log(" getConfigValueForId  = " + id);
-        foreach (ConfigNote note in mConfig) {
-            if (note.id == id) {
-                return note.value;
-            }
+        if (mConfig.ContainsKey(id))
+        {
+            return mConfig[id];
         }
-        return -1;
+        else {
+            return -1;
+        }
     }
 
     public long getAffixEnbleByLevel(long level) {

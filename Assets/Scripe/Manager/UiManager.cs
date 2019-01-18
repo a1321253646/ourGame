@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Collections.Generic;
+
 public class UiManager 
 {	
 	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv;
@@ -11,10 +13,13 @@ public class UiManager
     Image autoBack;
     Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint/*,mVoiceImage*/;
     //Sprite mAutoYes, mAutoNo,mVoiceOpen,mVoiceClose;
-  
+
+    ActiveListControl mActiveListControl;
+
     bool isAuto = false;
 	public void init(){
-		mHeroLvTv = GameObject.Find ("lv_labe").GetComponent<Text> ();
+        
+        mHeroLvTv = GameObject.Find ("lv_labe").GetComponent<Text> ();
 		mGameLevelTv = GameObject.Find ("wellen_labe").GetComponent<Text> ();
 		mCurrentCrystalTv = GameObject.Find ("god_labe").GetComponent<Text> ();
 		mLvUpCrystalTv = GameObject.Find ("lvup_cost_labe").GetComponent<Text> ();
@@ -139,6 +144,30 @@ public class UiManager
         isAuto = GameManager.getIntance().gettIsAutoBoss();
         clickAuto();
         initPoint();
+
+        mActiveListControl = GameObject.Find("active_button_list").GetComponent<ActiveListControl>();
+        List<ActiveButtonBean> list = SQLHelper.getIntance().getActiveList();
+
+        for (int i = 0; i < list.Count; i++) {
+            if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION) {
+                mActiveListControl.showVocation(false);
+            }else if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_AD)
+            {
+                mActiveListControl.showAd(list[i].adType, list[i].count, false);
+            }
+        }
+        
+        
+    }
+
+    public void showVocation(bool isAddSql) {
+        long level = BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv); 
+        //Debug.Log("=================================level ==  " + level + " 100044==" + (level % (long)JsonUtils.getIntance().getConfigValueForId(100044) == 0));
+        if (level % (long)JsonUtils.getIntance().getConfigValueForId(100044) == 0) {
+            
+            mActiveListControl.showVocation(isAddSql);
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW_VOCATION, 5);
+        }
     }
 
     public void initPoint() {
@@ -329,10 +358,6 @@ public class UiManager
         Debug.Log ("startBoss");
 		GameManager.getIntance ().startBoss ();
 		mStartBossBt.interactable = false;
-	}
-	private void levelUp(){
-		GameManager.getIntance ().heroUp ();;
-		
 	}
     Vector2 mHuanjingVect = new Vector2(0,0);
     Vector2 mGoodVect = new Vector2(0, 0);

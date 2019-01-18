@@ -157,6 +157,7 @@ public class GameBeginControl : MonoBehaviour {
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi(JsonUtils.getIntance().getStringById(100002),
                 LuiHuiTips.TYPPE_RETURN_START);
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
         }
         else if (GameManager.getIntance().mInitStatus == 6)//和网络同步数据
         {
@@ -174,6 +175,7 @@ public class GameBeginControl : MonoBehaviour {
 
             NetServer.getIntance().getLocl();
             bool isHaveNet = NetServer.getIntance().isHaveLocal();
+            Debug.Log("NetServer.getIntance().getLocal() isUpdate ="+ isUpdate);
             if (isHaveNet)
             {
                 if (isUpdate == 3)
@@ -192,6 +194,8 @@ public class GameBeginControl : MonoBehaviour {
                 }
                 else if(isUpdate == 2 || isUpdate == 1) {
                     GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("检测到服务端有您的存档，需要进行同步吗", LuiHuiTips.TYPPE_UPDATE_LINE);
+                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+                    //UiControlManager.getIntance().show(UiControlManager.TYPE_LUIHUI);
                 }
             }
             else {

@@ -17,10 +17,10 @@ public class VocationSilderControl: MonoBehaviour
             return;
         }
         mV = value;
-        mValue = ((float)mV) / 100;
+        mValue = ((float)100-mV) / 100;
         if (!isInit) {
             
-            Image[] imgs = GetComponents<Image>();
+            Image[] imgs = GetComponentsInChildren<Image>();
             mBack = imgs[0];
             mSlide = imgs[1];
             mMask = imgs[2];
@@ -32,8 +32,9 @@ public class VocationSilderControl: MonoBehaviour
 
 
     private void changeSilde() {
+      //  Debug.Log("=============mValue = " + mValue);
         float leng = mBackLeng * mValue;
         mMask.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, leng);
-        mMask.transform.position = new Vector2(mBackLeng/2 - leng/2, mMask.transform.position.y);
+        mMask.transform.localPosition = new Vector2(mMask.transform.localPosition.x+mBackLeng / 2 - leng/2, mMask.transform.localPosition.y);
     }
 }

@@ -12,8 +12,12 @@ public abstract class EventAttackSkill : AttackerSkillBase
         mFight = fight;
         mSkillJson = JsonUtils.getIntance().getSkillInfoById(skillId);
         mParam = value;
+        initEnd(newobj);
     }
+    public virtual void initEnd(GameObject newobj)
+    {
 
+    }
     public virtual EquipKeyAndValue beforeActtack()//用于影响改成平A攻击暴击，闪避等等影响到平A的判定
     {
         return null;
@@ -28,11 +32,15 @@ public abstract class EventAttackSkill : AttackerSkillBase
     public virtual void endHurt(HurtStatus hurt) {
 
     }
-    public virtual void beforeBeHurt(HurtStatus hurt)
+    public virtual void allHurt(Attacker fighter, HurtStatus hurt)
     {
 
     }
-    public virtual void endBeHurt(HurtStatus hurt)
+    public virtual void beforeBeHurt(Attacker fighter, HurtStatus hurt)
+    {
+
+    }
+    public virtual void endBeHurt(Attacker fighter, HurtStatus hurt)
     {
 
     }

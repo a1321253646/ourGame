@@ -21,15 +21,20 @@ public class HeroState : MonoBehaviour
         text.transform.SetParent(HP_Parent);
         text.transform.localScale = new Vector3(1, 1, 1);
         Text tv= text.GetComponent<Text> ();
-        if (!status.isRate)
+        if (status.type == HurtStatus.TYPE_RATE)
         {
             tv.text = "闪避";
             tv.color = new Color(0x0,0xf9,0xff,0xff);
         }
-        else if (status.isCrt)
+        else if (status.type == HurtStatus.TYPE_CRT)
         {
             tv.text = "暴击" + StringUtils.doubleToStringShow(status.blood) ;
             tv.color = Color.red;
+        }
+        else if (status.type == HurtStatus.TYPE_FANGSHANG)
+        {
+            tv.text = "反伤" + StringUtils.doubleToStringShow(status.blood);
+            tv.color = Color.yellow;
         }
         else {
             tv.text = "" + StringUtils.doubleToStringShow(status.blood);

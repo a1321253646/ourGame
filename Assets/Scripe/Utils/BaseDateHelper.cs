@@ -13,14 +13,13 @@ public class BaseDateHelper
 
     public static long encodeLong(long date)
     {
-        long tmp = -date;
-        tmp = ~tmp;
+        long tmp = ~date;
         return tmp;
     }
     public static long decodeLong(long date)
     {
         long tmp = ~date;
-        tmp = -tmp;
+       // tmp = -tmp;
 
         return tmp;
     }

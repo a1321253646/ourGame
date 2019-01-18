@@ -55,13 +55,13 @@ public class SQLManager
         th1.Start();
         return 0;
     }
-
+    public static string SQL_NAME_NET_BACK = "_net";
     public string getSqlTableName() {
-        return tabName + "_net";
+        return tabName + SQL_NAME_NET_BACK;
     }
     public string getSqlSqlName()
     {
-        return sqlName + "_net";
+        return sqlName + SQL_NAME_NET_BACK;
     }
 
     public string getSqlNetFilePath()
@@ -73,7 +73,7 @@ public class SQLManager
         }
         else
         {
-            return mPathRoot + "/" + sqlName + "_net";
+            return mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
         }
     }
 
@@ -85,7 +85,7 @@ public class SQLManager
         }
         else
         {
-            return "URI=file:" + mPathRoot + "/" + sqlName + "_net";
+            return "URI=file:" + mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
         }
     }
 
@@ -538,7 +538,24 @@ public class SQLManager
      //   ExecuteSQLCommand(commPath);
         mNetHelper.changeInto(date);
     }
+    public void updateIdAndType(SQLDate date)
+    {
+        string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan + "'";
+        commPath = commPath+ " WHERE TYPE=" + date.type + " AND ID=" + date.id;
+        // ExecuteSQLCommand(commandString);
+        addList(commPath);
+        //   ExecuteSQLCommand(commandString);
+        mNetHelper.delectInfo(date);
+    }
 
+    public void deleteIdAndType(SQLDate date)
+    {
+        string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + date.type+ " AND ID="+date.id;
+        // ExecuteSQLCommand(commandString);
+        addList(commandString);
+        //   ExecuteSQLCommand(commandString);
+        mNetHelper.delectInfo(date);
+    }
 
     public void deleteGood(SQLDate date)
     {

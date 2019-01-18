@@ -4,15 +4,32 @@ using System.Collections;
 public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
 {
     public CalculatorUtil mCalcuator;
+    public SpriteRenderer mSpriteRender;
+    public AnimalControlBase mAnimal;
     public override void endSkill()
     {
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_ATTACKING, this);
         mManager.mEventAttackManager.unRegisterTimeEventSkill(this);
         mStatus = SKILL_STATUS_END;
     }
-
+    public override void initEnd(GameObject newobj)
+    {
+        mSpriteRender = newobj.GetComponent<SpriteRenderer>();
+        ResourceBean mResource = JsonUtils.getIntance().getEnemyResourceData(mSkillJson.skill_resource);
+        mAnimal = new AnimalControlBase(mResource, mSpriteRender);
+        mAnimal.start();
+        mAnimal.setIsLoop(ActionFrameBean.ACTION_NONE, false);
+        mAnimal.setEndCallBack(ActionFrameBean.ACTION_NONE, new AnimalStatu.animalEnd(endAnimal));
+    }
+    void endAnimal(int status)
+    {
+        GameObject.Destroy(mSpriteRender, 0.1f);
+        mSpriteRender = null;
+        mAnimal = null;
+    }
     public override void startSkill()
     {
+        
         mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_ATTACKING, this);
         mManager.mEventAttackManager.registerTimeEventSkill(this);
         mCalcuator = new CalculatorUtil(mSkillJson.calculator, mSkillJson.effects_parameter);
@@ -40,5 +57,13 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
         {
             endSkill();
         }
+        if (mAnimal != null) {
+            mAnimal.update();
+        }
+        
+    }
+    public override bool isAnimal()
+    {
+        return true;
     }
 }

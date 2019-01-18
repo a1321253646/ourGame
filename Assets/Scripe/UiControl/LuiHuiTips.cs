@@ -14,6 +14,8 @@ public class LuiHuiTips : UiControlBase
     public static int TYPPE_RETURN_START = 3;
     public static int TYPPE_UPDATE_LINE = 4;
     public static int TYPPE_ERROR_DATE = 5;
+    public static int TYPPE_VOCATION = 6;
+    public static int TYPPE_SELF = 7;
 
     Text mDes;
     Text mButtonDec,mLeftDec,mRightDec;
@@ -78,7 +80,6 @@ public class LuiHuiTips : UiControlBase
     }
 
     public void showUi(string str,int type) {
-        toShowUi();
         mType = type;
         mDes.text = str;
         if (type == TYPPE_RETURN_START || type == TYPPE_ERROR_DATE) 
@@ -94,21 +95,31 @@ public class LuiHuiTips : UiControlBase
             mLeftDec.text = "不需要";
             mRightDec.text = "需要";
         }
-
-        
-
+    }
+    VocationDecBean mVocationBean = null;
+    public void showUi(long  vocation)
+    {
+        toShowUi();
+        mType = TYPPE_VOCATION;
+        mSure.transform.localScale = new Vector2(0, 0);
+        buttonList.transform.localScale = new Vector2(1, 1);
+        mLeftDec.text = "确定";
+        mRightDec.text = "取消";
+        mVocationBean = JsonUtils.getIntance().getVocationById(vocation);
+        mDes.text = mVocationBean.tip_dec;     
     }
 
-  /*  public void showUi(string str, int type)
-    {
-        mType = TYPPE_RETURN_START;
-        mDes.text = str;
-        mButtonDec.text = "确定";
-        gameObject.transform.localPosition = new Vector2(0, 0);
-        int level = GameManager.getIntance().getUiLevel();
-        gameObject.transform.SetSiblingIndex(level);
 
-    }*/
+    /*  public void showUi(string str, int type)
+      {
+          mType = TYPPE_RETURN_START;
+          mDes.text = str;
+          mButtonDec.text = "确定";
+          gameObject.transform.localPosition = new Vector2(0, 0);
+          int level = GameManager.getIntance().getUiLevel();
+          gameObject.transform.SetSiblingIndex(level);
+
+      }*/
     private void sure() {
 
         GameManager.getIntance().isLuihuiIng = true;
@@ -152,19 +163,35 @@ public class LuiHuiTips : UiControlBase
 
         mLeft.onClick.AddListener(() =>
         {
-            if (mType == TYPPE_UPDATE_LINE)
+            if (mType == TYPPE_UPDATE_LINE|| mType == TYPPE_SELF)
             {
                 isUpdate(false);
             }
-            toremoveUi();
+            else if (mType == TYPPE_VOCATION) {
+                vocation();
+            }
+            if (mType == TYPPE_SELF)
+            {
+                transform.localPosition = mFri;
+            }
+            else
+            {
+                toremoveUi();
+            }
         });
         mRight.onClick.AddListener(() =>
         {
-            if (mType == TYPPE_UPDATE_LINE)
+            if (mType == TYPPE_UPDATE_LINE || mType == TYPPE_SELF)
             {
                 isUpdate(true);
             }
-            toremoveUi();
+            if (mType == TYPPE_SELF)
+            {
+                transform.localPosition = mFri;
+            }
+            else {
+                toremoveUi();
+            }
         });
 
         mSure.onClick.AddListener(() =>
@@ -198,12 +225,34 @@ public class LuiHuiTips : UiControlBase
             {
                 Application.Quit();
             }
-            toremoveUi();
+            if (mType == TYPPE_SELF)
+            {
+                transform.localPosition = mFri;
+            }
+            else
+            {
+                toremoveUi();
+            }
         });
+    }
+    private void vocation() {
+        SQLHelper.getIntance().updateVocation(mVocationBean.id);
+        JsonUtils.getIntance().reReadHero();
+        GameObject.Find("Manager").GetComponent<LevelManager>().heroVocation();
+        GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeVocation();
+        UiControlManager.getIntance().remove(UiControlManager.TYPE_VOCATION);
     }
 
     public override void show()
     {
+        gameObject.transform.localPosition = new Vector2(0, 0);
+    }
+    public void showSelf()
+    {
+        mType = TYPPE_SELF;
+        int level = GameManager.getIntance().getUiLevel();
+        gameObject.transform.SetSiblingIndex(level);
+
         gameObject.transform.localPosition = new Vector2(0, 0);
     }
 }

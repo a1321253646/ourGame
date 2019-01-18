@@ -189,7 +189,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000021",
     "skill_id": 100015,
-    "cost": 2
+    "cost": 1
   },
   {
     "id": 3000017,
@@ -201,7 +201,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000015",
     "skill_id": 100016,
-    "cost": 3
+    "cost": 1
   },
   {
     "id": 3000018,
@@ -213,7 +213,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000016",
     "skill_id": 100017,
-    "cost": 4
+    "cost": 1
   },
   {
     "id": 3000019,
@@ -225,7 +225,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000017",
     "skill_id": 100018,
-    "cost": 5
+    "cost": 1
   },
   {
     "id": 3000020,
@@ -237,7 +237,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000018",
     "skill_id": 100019,
-    "cost": 6
+    "cost": 1
   },
   {
     "id": 3000021,
@@ -249,7 +249,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000019",
     "skill_id": 100020,
-    "cost": 7
+    "cost": 1
   },
   {
     "id": 3000022,
@@ -261,7 +261,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000022",
     "skill_id": 100021,
-    "cost": 8
+    "cost": 1
   },
   {
     "id": 3000023,
@@ -273,7 +273,7 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000023",
     "skill_id": 100022,
-    "cost": 9
+    "cost": 1
   },
   {
     "id": 3000024,

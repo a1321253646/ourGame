@@ -96,7 +96,7 @@ public abstract class Attacker : MonoBehaviour
     }
 
     public void setStatus(int status) {
-        if (isStop) {
+        if (isStop && status != ActionFrameBean.ACTION_DIE) {
             return;
         }
         this.status = status;
@@ -172,5 +172,7 @@ public abstract class Attacker : MonoBehaviour
     public void skillAttack(double value,Attacker hurter) {
         BeKillAttack( value,hurter);
     }
+
+
 }
 

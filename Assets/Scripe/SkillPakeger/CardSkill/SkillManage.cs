@@ -7,7 +7,7 @@ public class SkillManage
     List<SkillObject> mSkillList = new List<SkillObject>();
     public GameObject mSkillObject;
     public LocalManager mLocalManager;
-
+    BackgroundManager mBackManager;
     public void addSkill(Attacker attacker, SkillJsonBean skill, float x, float y, int campType, bool isGiveup) {
         Debug.Log("addSkill x=" + x + " y = " + y);
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(skill.skill_resource);
@@ -30,11 +30,11 @@ public class SkillManage
     public void init() {
         mSkillList.Clear();
     }
-
     public void update() {
         if (mSkillList.Count == 0) {
             return;
         }
+        float x = mBackManager.moveSpeed * Time.deltaTime;
         for (int i = 0; i < mSkillList.Count;)
         {
             if (mSkillList[i].getStatus() == SkillObject.SKILL_STATUS_END)
@@ -43,6 +43,12 @@ public class SkillManage
             }
             else
             {
+                if (mBackManager.isRun)
+                {
+                    
+                    mSkillList[i].gameObject.transform.Translate(Vector2.left * x);
+                    mSkillList[i].updateLocal(x);
+                }               
                 i++;
                 continue;
             }
@@ -54,7 +60,10 @@ public class SkillManage
     public void setLoclaManager(LocalManager manager) {
         mLocalManager = manager;
     }
-
+    public void setBackManagerManager(BackgroundManager manager)
+    {
+        mBackManager = manager;
+    }
     private static  SkillManage mIntance = new SkillManage();
     public static SkillManage getIntance() {
         return mIntance;

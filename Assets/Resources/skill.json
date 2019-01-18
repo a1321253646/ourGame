@@ -1,7 +1,6 @@
 [
   {
     "id": 100001,
-    "effects": 1,
     "target_type": 2,
     "effects_parameter": "2.5,",
     "calculator": "\"1,100\"*a1*(\"1,100\"/(\"1,100\"+\"2,101\"))",
@@ -14,13 +13,12 @@
     "leng": 4,
     "wight": 2,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100002,
-    "effects": 2,
     "target_type": 1,
     "effects_parameter": "2.5,",
     "calculator": "\"1,100\"*a1",
@@ -33,13 +31,12 @@
     "leng": 0.5,
     "wight": 0.5,
     "point_type": 3,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100003,
-    "effects": 3,
     "target_type": 2,
     "effects_parameter": "0.8,",
     "calculator": "\"1,100\"*a1*(\"1,100\"/(\"1,100\"+\"2,101\"))",
@@ -52,13 +49,12 @@
     "leng": 4.15,
     "wight": 3.5,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100004,
-    "effects": 6,
     "target_type": 2,
     "effects_parameter": "1.2,",
     "calculator": "\"1,100\"*a1*(\"1,100\"/(\"1,100\"+\"2,101\"))",
@@ -71,13 +67,12 @@
     "leng": 2.5,
     "wight": 3,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100005,
-    "effects": 6,
     "target_type": 2,
     "effects_parameter": "0.7,",
     "calculator": "\"1,100\"*a1",
@@ -90,13 +85,12 @@
     "leng": 2,
     "wight": 0.8,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100006,
-    "effects": 30001,
     "target_type": 2,
     "effects_parameter": "1.5,",
     "calculator": "\"1,100\"*a1*(\"1,100\"/(\"1,100\"+\"2,101\"))",
@@ -109,13 +103,12 @@
     "leng": 1.6,
     "wight": 0.45,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100007,
-    "effects": 1,
     "target_type": 2,
     "effects_parameter": "2,0.8",
     "calculator": "\"1,100\"*a1+\"5,200001,10001\"*\"1,100\"*a2",
@@ -128,13 +121,12 @@
     "leng": 4.5,
     "wight": 2,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100008,
-    "effects": 10001,
     "target_type": 1,
     "effects_parameter": "0.15,",
     "calculator": "\"1,102\"*a1",
@@ -147,13 +139,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 3,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100009,
-    "effects": 5,
     "target_type": 0,
     "effects_parameter": "0",
     "calculator": "",
@@ -166,13 +157,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100010,
-    "effects": 30002,
     "target_type": 2,
     "effects_parameter": "0",
     "calculator": "",
@@ -185,13 +175,12 @@
     "leng": 2,
     "wight": 0.25,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100011,
-    "effects": 8,
     "target_type": 2,
     "effects_parameter": "3,",
     "calculator": "\"1,100\"*a1*(\"1,100\"/(\"1,100\"+\"2,101\"))",
@@ -204,13 +193,12 @@
     "leng": 3.3,
     "wight": 2,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100012,
-    "effects": 30003,
     "target_type": 2,
     "effects_parameter": "0",
     "calculator": "",
@@ -223,13 +211,12 @@
     "leng": 0.52,
     "wight": 0.117,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100013,
-    "effects": 10,
     "target_type": 2,
     "effects_parameter": "0",
     "calculator": "",
@@ -242,13 +229,12 @@
     "leng": 1.77,
     "wight": 0.5,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 200001,
-    "effects": 20001,
     "target_type": 0,
     "effects_parameter": "0.01,",
     "calculator": "",
@@ -261,13 +247,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 200002,
-    "effects": 10002,
     "target_type": 0,
     "effects_parameter": "0",
     "calculator": "",
@@ -280,13 +265,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 1,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 200003,
-    "effects": 10003,
     "target_type": 1,
     "effects_parameter": "0.1,",
     "calculator": "\"1,100\"*a1",
@@ -299,13 +283,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 3,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 300001,
-    "effects": 4,
     "target_type": 1,
     "effects_parameter": "0.1,",
     "calculator": "\"1,102\"*a1",
@@ -318,13 +301,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0.0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600001,
-    "effects": 500001,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -337,13 +319,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600002,
-    "effects": 500002,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -356,13 +337,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600003,
-    "effects": 500003,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -375,13 +355,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600004,
-    "effects": 500004,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -394,13 +373,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600005,
-    "effects": 500005,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -413,13 +391,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600006,
-    "effects": 500006,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -432,13 +409,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600007,
-    "effects": 500004,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -451,13 +427,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600008,
-    "effects": 500008,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -470,13 +445,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600009,
-    "effects": 500009,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -489,13 +463,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600010,
-    "effects": 500010,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -508,13 +481,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600011,
-    "effects": 500011,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -527,13 +499,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600012,
-    "effects": 500012,
     "target_type": 4,
     "effects_parameter": "0",
     "calculator": "",
@@ -546,13 +517,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600013,
-    "effects": 500013,
     "target_type": 4,
     "effects_parameter": "0",
     "calculator": "",
@@ -565,13 +535,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600014,
-    "effects": 500014,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -584,13 +553,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 600015,
-    "effects": 500004,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
@@ -603,13 +571,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100014,
-    "effects": 100014,
     "target_type": 3,
     "effects_parameter": "",
     "calculator": "",
@@ -622,13 +589,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 0.0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100015,
-    "effects": 100015,
     "target_type": 2,
     "effects_parameter": "3",
     "calculator": "\"1,100\"*a1",
@@ -641,13 +607,12 @@
     "leng": 1.28,
     "wight": 0.4,
     "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100016,
-    "effects": 100016,
     "target_type": 3,
     "effects_parameter": "",
     "calculator": "",
@@ -660,13 +625,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 3,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100017,
-    "effects": 100017,
     "target_type": 3,
     "effects_parameter": "",
     "calculator": "",
@@ -679,13 +643,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 2,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100018,
-    "effects": 100018,
     "target_type": 3,
     "effects_parameter": "",
     "calculator": "",
@@ -698,13 +661,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 2,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100019,
-    "effects": 100019,
     "target_type": 3,
     "effects_parameter": "",
     "calculator": "",
@@ -717,13 +679,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 2,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100020,
-    "effects": 100020,
     "target_type": 3,
     "effects_parameter": "",
     "calculator": "",
@@ -736,13 +697,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 3,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100021,
-    "effects": 100021,
     "target_type": 2,
     "effects_parameter": "0.1",
     "calculator": "\"1,102\"*a1",
@@ -755,13 +715,12 @@
     "leng": 4,
     "wight": 3,
     "point_type": 0.0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100022,
-    "effects": 100022,
     "target_type": 2,
     "effects_parameter": "",
     "calculator": "\"1,100\"",
@@ -774,13 +733,12 @@
     "leng": 5,
     "wight": 1,
     "point_type": 0.0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100023,
-    "effects": 100023,
     "target_type": 3,
     "effects_parameter": "",
     "calculator": "",
@@ -793,13 +751,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 3,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100024,
-    "effects": 100024,
     "target_type": 2,
     "effects_parameter": "",
     "calculator": "\"1,100\"",
@@ -812,13 +769,12 @@
     "leng": 2.6,
     "wight": 1,
     "point_type": 0.0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100025,
-    "effects": 100025,
     "target_type": 2,
     "effects_parameter": "",
     "calculator": "\"1,100\"",
@@ -831,13 +787,12 @@
     "leng": 5,
     "wight": 2,
     "point_type": 0.0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100026,
-    "effects": 100026,
     "target_type": 3,
     "effects_parameter": "",
     "calculator": "",
@@ -850,13 +805,12 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 3,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
     "id": 100027,
-    "effects": 100027,
     "target_type": 3,
     "effects_parameter": "",
     "calculator": "",
@@ -869,27 +823,62 @@
     "leng": 0.0,
     "wight": 0.0,
     "point_type": 3,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
   },
   {
-    "id": 0.0,
-    "effects": 0.0,
-    "target_type": 0.0,
-    "effects_parameter": "",
+    "id": 700001,
+    "target_type": 3,
+    "effects_parameter": "0",
     "calculator": "",
-    "special_parameter_value": "",
+    "special_parameter_value": "10,10",
     "next_skill": "",
-    "skill_describe": "",
+    "skill_describe": "每次攻击S1%概率吸血,吸造成伤害的S2%",
     "skill_resource": 0.0,
-    "shape_type": 0.0,
+    "shape_type": 0,
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0.0,
+    "point_type": 0,
+    "Column13": "",
     "Column14": "",
-    "Column15": "",
-    "Column16": ""
+    "Column15": ""
+  },
+  {
+    "id": 700002,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "10,100",
+    "next_skill": "",
+    "skill_describe": "每次被攻击S1%概率反伤，反伤效果S2%",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": ""
+  },
+  {
+    "id": 700003,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "10,10",
+    "next_skill": "",
+    "skill_describe": "攻击时S1概率造成致命一击（S2倍伤害）",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": ""
   }
 ]

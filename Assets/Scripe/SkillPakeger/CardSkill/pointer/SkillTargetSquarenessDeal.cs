@@ -16,10 +16,7 @@ public class SkillTargetSquarenessDeal
         {
             if (tmp.mAttacker.mCampType == campType)
             {
-                if (tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x >= minX &&
-                    tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x <= maxX &&
-                    tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y >= minY &&
-                    tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y <= maxY)
+                if (isOverlap(maxX, minX, maxY, minY, tmp))
                 {
                     result.Add(tmp.mAttacker);
                     if (isRed)
@@ -44,4 +41,25 @@ public class SkillTargetSquarenessDeal
         }
         return result;
     }
+
+    static bool isOverlap(float maxX, float minX, float maxY, float minY, LocalBean tmp)
+    {
+        Debug.Log("maxX = " + maxX+ " maxX2 = " + (tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x - tmp.mAttacker.resourceData.getTargetBorder()[0]));
+        Debug.Log("minX = " + minX + " minX2 = " + (tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x + tmp.mAttacker.resourceData.getTargetBorder()[1]));
+        Debug.Log("maxY = " + maxY + " maxY2 = " + (tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y + tmp.mAttacker.resourceData.getTargetBorder()[2]));
+        Debug.Log("minY = " + minY + " minY2 = " + (tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y));
+        Debug.Log("=============================================");
+
+        if (maxX < tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x - tmp.mAttacker.resourceData.getTargetBorder()[0] ||
+            minX > tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x + tmp.mAttacker.resourceData.getTargetBorder()[1] ||
+            maxY < tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y ||
+            minY > tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y + tmp.mAttacker.resourceData.getTargetBorder()[2])
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
 }

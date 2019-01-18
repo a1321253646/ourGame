@@ -182,12 +182,12 @@ public class FightManager{
                 attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood);
                 hurtBlood = resouce.hurt(hurtBlood);
                 if (hurtBlood != null && attacker.mAttackerTargets.Count >0) {
-                    attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.beforeBeHurt(hurtBlood);
+                    attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.beforeBeHurt(attacker,hurtBlood);
                     attacker.mAttackerTargets[0].BeAttack(hurtBlood, attacker);
                     if ( attacker.mAttackerTargets.Count > 0 && attacker.mAttackerTargets[0].getStatus() != ActionFrameBean.ACTION_DIE)
                     {
-                        attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(hurtBlood);
-                        attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endHurt(hurtBlood);
+                        attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(attacker,hurtBlood);
+                        attacker.mSkillManager.mEventAttackManager.endHurt(hurtBlood);
                     }
                     return hurtBlood.blood;
                 }
@@ -201,10 +201,10 @@ public class FightManager{
                 Attacker tager = attacker.mAttackerTargets [i];
 				hurtBlood = attackBllod (attacker, tager);
                 attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood);
-                tager.mSkillManager.mEventAttackManager.beforeBeHurt(hurtBlood);
+                tager.mSkillManager.mEventAttackManager.beforeBeHurt(attacker,hurtBlood);
                 
                 tager.BeAttack (hurtBlood, attacker);
-                tager.mSkillManager.mEventAttackManager.endBeHurt(hurtBlood);
+                tager.mSkillManager.mEventAttackManager.endBeHurt(attacker,hurtBlood);
                 attacker.mSkillManager.mEventAttackManager.endHurt(hurtBlood);
                 if (tager.getStatus() == ActionFrameBean.ACTION_DIE) {
                     attacker.mSkillManager.mEventAttackManager.killEnemy();
@@ -234,7 +234,7 @@ public class FightManager{
         List<EquipKeyAndValue>  list = attacker.mSkillManager.mEventAttackManager.beforeActtack();
        
         if (!isHurt(attacker, beAttacker)) {
-            return new HurtStatus(0, false, false);
+            return new HurtStatus(0, HurtStatus.TYPE_RATE);
         }
         attacker.mSkillManager.mEventAttackManager.Acttacking();
 
@@ -257,15 +257,17 @@ public class FightManager{
         }
         
         bool crt = isCrt(attacker);
+        long type = HurtStatus.TYPE_DEFAULT;
         if (crt)
         {
             hurt = hurt * 2 + attacker.mAttribute.crtHurt + attacker.mAttribute.readHurt;
+            type = HurtStatus.TYPE_CRT;
         }
         else {
             hurt = hurt + attacker.mAttribute.readHurt;
         }
         
-        return new HurtStatus(hurt, crt,true);
+        return new HurtStatus(hurt, type);
 	}
     private bool isCrt(Attacker attacker) {
         return randomResult(10000,(int) attacker.mAttribute.crt,false);

@@ -11,33 +11,53 @@ public class ActiveButtonControl : MonoBehaviour {
     public static long ACTIVE_BUTTON_TYPE_AD = 1;
     public static long ACTIVE_BUTTON_TYPE_VOCATION = 2;
 
+    public static long TYPE_AD_LUNHUI = 1;
+    public static long TYPE_AD_HUIJING = 2;
+
+
+    public static long UPDATE_SHOW_SHOW = 1;
+    public static long UPDATE_SHOW_REMOVE = 2;
+    public static long UPDATE_SHOW_UPDATE = 3;
+
     private Image mImage;
     private Button mBt;
-    private long mType = -1;
-    private long mAdId = -1;
 
-    private bool init(long type,long adId ) {
-        if( type == mType && mType == ACTIVE_BUTTON_TYPE_VOCATION && adId == mAdId) {
-            return true;
+    public ActiveButtonBean mBean = new ActiveButtonBean();
+
+    ActiveListControl mControl;
+    private void Start()
+    {
+        mControl = GameObject.Find("active_button_list").GetComponent<ActiveListControl>();
+    }
+
+    public bool init(long type,long adId , string count,bool isAddSql) {
+        if( type == mBean.buttonType) {
+            if((mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION && adId == mBean.buttonType) || (mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION)){
+                return true;
+            }           
         }
 
-        if (type == mType && mType == ACTIVE_BUTTON_TYPE_VOCATION && adId != mAdId)
+        if (type == mBean.buttonType && mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION && (adId != mBean.adType || count != mBean.count))
         {
-            mAdId = adId;
-            updateSql(true);
+            mBean.adType = adId;
+            mBean.count = count;
+            if (isAddSql) {
+                updateSql(UPDATE_SHOW_UPDATE);
+            }          
             return true;
         }
-        if (mType != -1) {
+        if (mBean.buttonType != -1) {
             return false;
         }
 
-        mAdId = adId;
-        mType = type;
-        show();
+        mBean.adType = adId;
+        mBean.count = count;
+        mBean.buttonType = type;
+        show(isAddSql);
 
         return true;
     }
-    private void show() {
+    private void show(bool isAddSql) {
         if (mImage == null) {
             mImage = GetComponent<Image>();
             mBt = GetComponent<Button>();
@@ -46,29 +66,54 @@ public class ActiveButtonControl : MonoBehaviour {
                 onclick();
             });
         }
-        if (mType == ACTIVE_BUTTON_TYPE_AD)
+        transform.localScale = new Vector2(1, 1);
+        if (mBean.buttonType == ACTIVE_BUTTON_TYPE_AD)
         {
             mImage.sprite = Resources.Load("UI_yellow/guanggao/02", typeof(Sprite)) as Sprite;
         }
-        else if (mType == ACTIVE_BUTTON_TYPE_VOCATION)
-        {
+        else if (mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION)
+        {            
             mImage.sprite = Resources.Load("UI_yellow/zhuanzhi/06", typeof(Sprite)) as Sprite;
+        }       
+        if (isAddSql)
+        {
+            updateSql(UPDATE_SHOW_SHOW);
         }
-        transform.localScale = new Vector2(1, 1);
-        updateSql(true);
     }
 
     private void onclick() {
-
+        if (mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION)
+        {
+            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_OPEN_VOCATION);
+            UiControlManager.getIntance().show(UiControlManager.TYPE_VOCATION);
+            //            mControl.removeVocation();
+        }
+        else if(mBean.buttonType == ACTIVE_BUTTON_TYPE_AD) {
+            GameObject.Find("advert").GetComponent<AdUiControl>().setDate(mBean.adType, mBean.count);
+        }       
     }
 
-    public void removeShow() {
-        mType = -1;
+    public bool removeShow(long type) {
+        if (type != mBean.buttonType) {
+            return false;
+        }
+        updateSql(UPDATE_SHOW_REMOVE);
+        mBean.buttonType = -1;
         transform.localScale = new Vector2(0, 0);
-        updateSql(false);
+        
+        return true;
     }
 
-    private void updateSql(bool isShow) {
-
+    private void updateSql(long type) {
+        if (type == UPDATE_SHOW_SHOW)
+        {
+            SQLHelper.getIntance().addActiveButton(mBean);
+        }
+        else if (type == UPDATE_SHOW_UPDATE) {
+            SQLHelper.getIntance().updateActiveButton(mBean);
+        }
+        else  if(type == UPDATE_SHOW_REMOVE) {
+            SQLHelper.getIntance().deleteActiveButton(mBean);
+        }
     }
 }

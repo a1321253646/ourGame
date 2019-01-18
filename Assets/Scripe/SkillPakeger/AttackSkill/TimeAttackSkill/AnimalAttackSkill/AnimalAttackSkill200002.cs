@@ -45,10 +45,6 @@ public class AnimalAttackSkill200002 : AnimalAttackSkillBase
         Debug.Log("====================AnimalAttackSkill200002  updateSkillEnd timeOut");
         Debug.Log("====================AttackSkill10002 mTime = "+ mTime);
         Debug.Log("====================AttackSkill10002 value = " + value);
-        if (!isInit)
-        {
-            return;
-        }
         if (mTime != -1)
         {
             mTime += Time.deltaTime;

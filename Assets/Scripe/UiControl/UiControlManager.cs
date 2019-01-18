@@ -15,6 +15,7 @@ public class UiControlManager
     public static long TYPE_VOCATION = 9;
     public static long TYPE_PET = 10;
     public static long TYPE_HERO = 11;
+    public static long TYPE_AD = 12;
 
     public static long SHOW_TYPE_TIP = 1;
     public static long SHOW_TYPE_UI = 2;
@@ -99,6 +100,7 @@ public class UiControlManager
     public void init()
     {
         mAllUi.Clear();
+        mShowList.Clear();
         UiControlBase iver = GameObject.Find("Backpack").GetComponentInChildren<IvertoryControl>();
         addAllUi(iver, 2, TYPE_IVERTORY);
         iver = GameObject.Find("tip").GetComponentInChildren<TipControl>();
@@ -121,6 +123,8 @@ public class UiControlManager
         addAllUi(iver, 2, TYPE_PET);
         iver = GameObject.Find("vocation").GetComponentInChildren<VocationControl>();
         addAllUi(iver, 2, TYPE_VOCATION);
+        iver = GameObject.Find("advert").GetComponentInChildren<AdUiControl>();
+        addAllUi(iver, 2, TYPE_AD);
 
     }
     private void addAllUi(UiControlBase control, long type,long controlType) {

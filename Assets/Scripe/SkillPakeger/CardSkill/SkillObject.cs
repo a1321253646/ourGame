@@ -48,6 +48,10 @@ public abstract class SkillObject : MonoBehaviour
         isInit = true;
     }
 
+    public void updateLocal(float x) {
+        mLocal.x = mLocal.x - x;
+    }
+
     public abstract void initEnd();
 
     public virtual void giveUpCard() {

@@ -20,6 +20,7 @@ public class SamsaraManage : UiControlBase
         mLunhuiTx = GameObject.Find("lunhui_show_tip_tx2").GetComponent<Text>();
         mLunhuiClick.onClick.AddListener(() =>
         {
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi();
             UiControlManager.getIntance().show(UiControlManager.TYPE_LUIHUI);
         });
         mClose = GameObject.Find("lunhui_close").GetComponent<Button>();
@@ -27,13 +28,18 @@ public class SamsaraManage : UiControlBase
             toremoveUi();
         });
         mListControl = GameObject.Find("lunhui_skill_list").GetComponent<SamSaraListControl>();
-        mListControl.init();
+        
         mLunhuiClick = GameObject.Find("lunhui_show_tip").GetComponent<Button>();
         mLunhuiTx = GameObject.Find("lunhui_show_tip_tx2").GetComponent<Text>();
     }
-
+    bool isFristShow = true;
     public override void show()
     {
+        if (isFristShow) {
+            isFristShow = false;
+            mListControl.init();
+        }
+       
         gameObject.transform.localPosition = new Vector2(0, 0);
         float mix = JsonUtils.getIntance().getConfigValueForId(100017);
         if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) >= mix)
@@ -49,4 +55,9 @@ public class SamsaraManage : UiControlBase
         mLunhuiValue.text = GameManager.getIntance().mReincarnation.toStringWithUnit();
         mListControl.isEnableLavelUp();
     }
+
+    public void updateLunhuiValue() {
+        mLunhuiValue.text = GameManager.getIntance().mReincarnation.toStringWithUnit();
+    }
+
 }

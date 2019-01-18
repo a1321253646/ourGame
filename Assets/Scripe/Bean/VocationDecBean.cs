@@ -14,6 +14,9 @@ public class VocationDecBean
     public string attribute;
     public string next;
     public string attributeName;
+    public string tip_dec;
+    public long resource;
+    public float attack_range;
 
     private List<long> mNexts;
     private List<long> mAttribute;
@@ -32,11 +35,11 @@ public class VocationDecBean
     }
     public List<long> getAttribute()
     {
-        if (mNexts == null)
+        if (mAttribute == null)
         {
             mAttribute = getLongs(attribute);
         }
-        if (mAttribute.Count == 0)
+        if (mAttribute== null || mAttribute.Count == 0)
         {
             return null;
         }

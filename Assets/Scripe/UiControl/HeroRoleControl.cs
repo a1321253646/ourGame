@@ -86,13 +86,6 @@ public class HeroRoleControl : UiControlBase
     {
         mControlType = UiControlManager.TYPE_HERO;
         //mHeroEnable, mPetEnable, mHeroUnble, mPetUnble;
-        Hero mHero = JsonUtils.getIntance().getHeroData();
-        resourceData = JsonUtils.getIntance().getEnemyResourceData(mHero.resource);
-        mRoleShow = GameObject.Find("heroRole").GetComponent<Image>();
-        mAnimalControl = new AnimalControlBase(resourceData, mRoleShow);
-        mAnimalControl.setStatus(ActionFrameBean.ACTION_STANDY);
-        mAnimalControl.start();
-
         mHeroEnable = GameObject.Find("hero_table_enable");
         mPetEnable = GameObject.Find("pet_table_enble");
         mHeroUnble = GameObject.Find("hero_table_unable");
@@ -134,10 +127,31 @@ public class HeroRoleControl : UiControlBase
             isShowPet = false;
         });
     }
+    public  void vocation() {
+        resourceData = null;
+        if (isShow) {
+            show();
+        }
+    }
+
 
     public override void show()
     {
         isShow = true;
+
+        if (resourceData == null) {
+            Hero mHero = JsonUtils.getIntance().getHeroData();
+            long vocation = SQLHelper.getIntance().mPlayVocation;
+            if (vocation == -1) {
+                vocation = 1;
+            }
+            resourceData = JsonUtils.getIntance().getEnemyResourceData(
+                JsonUtils.getIntance().getVocationById(vocation).resource);
+            mRoleShow = GameObject.Find("heroRole").GetComponent<Image>();
+            mAnimalControl = new AnimalControlBase(resourceData, mRoleShow);
+            mAnimalControl.setStatus(ActionFrameBean.ACTION_STANDY);
+            mAnimalControl.start();
+        }
         //gameObject.transform.TransformPoint(new Vector2(0,0));
 
         gameObject.transform.localPosition = new Vector2(0, 0);

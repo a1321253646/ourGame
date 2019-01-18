@@ -6,7 +6,7 @@ public class AttackSkill200001 : EventAttackSkill
 {
     CalculatorUtil calcuator;
 
-    public override void beforeBeHurt(HurtStatus status)
+    public override void allHurt(Attacker fighter, HurtStatus status)
     {
         Debug.Log("====================AttackSkill20001 beAction value =" + value+ " status.blood="+ status.blood);
         Debug.Log("====================AttackSkill20001 beAction  mSkillJson.getEffectsParameterValue()[0]=" + mSkillJson.getEffectsParameterValue()[0]);
@@ -29,12 +29,12 @@ public class AttackSkill200001 : EventAttackSkill
         
         calcuator = new CalculatorUtil(mSkillJson.calculator, mSkillJson.effects_parameter);
         calcuator.setSkill(this);
-        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_BEFOR_BEHURT, this);
+        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_ALL_HURT, this);
 
     }
 
     public override void endSkill()
     {
-        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_BEFOR_BEHURT, this);
+        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_ALL_HURT, this);
     }
 }

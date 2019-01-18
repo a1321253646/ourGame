@@ -26,20 +26,20 @@ public class VocationCardControl : MonoBehaviour {
         mVocationId = vocationId;
         if (!isInit) {
             
-            mVocationImg = GetComponents<Image>()[1];
-            Text[] txs = GetComponents<Text>();
+            mVocationImg = GetComponentsInChildren<Image>()[1];
+            Text[] txs = GetComponentsInChildren<Text>();
             mVocationName = txs[0];
             mVocationDec = txs[1];
 
             mCard = transform.GetChild(4).gameObject;
             mAttribute = transform.GetChild(3).gameObject;
 
-            mVocationSlides = GetComponents<VocationSilderControl>();
+            mVocationSlides = GetComponentsInChildren<VocationSilderControl>();
 
-            Text[] texts = mCard.GetComponents<Text>();
+            Text[] texts = mCard.GetComponentsInChildren<Text>();
             mSkillName = texts[1];
             mSkillDec = texts[2];
-            mSkillImg = mCard.GetComponents<Image>()[3];
+            mSkillImg = mCard.GetComponentsInChildren<Image>()[2];
 
             mButton = GetComponent<Button>();
             mButton.onClick.AddListener(() =>
@@ -53,7 +53,8 @@ public class VocationCardControl : MonoBehaviour {
     }
 
     private void select() {
-        GameObject.Find("vocation").GetComponent<VocationControl>().select(mVocationId);
+        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_CLICK_VOCATION);
+        GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi(mVocationId);
     }
 
     private void showCard() {
@@ -97,7 +98,16 @@ public class VocationCardControl : MonoBehaviour {
             mCard.transform.localScale = new Vector2(1, 1);
             mAttribute.transform.localScale = new Vector2(0, 0);
             mSkillName.text = mBean.skillName;
-            mSkillDec.text = JsonUtils.getIntance().getSkillInfoById(mBean.skill).skill_describe;
+            SkillJsonBean skillBean = JsonUtils.getIntance().getSkillInfoById(mBean.skill);
+            string dec = skillBean.skill_describe;
+            if (skillBean.getSpecialParameterValue() != null && skillBean.getSpecialParameterValue().Count > 0) {
+                int parameIndex = 1;
+                foreach (float a in skillBean.getSpecialParameterValue()) {
+                    dec =dec.Replace("S" + parameIndex, "" + skillBean.getSpecialParameterValue()[parameIndex - 1]);
+                    parameIndex++;
+                }
+            }
+            mSkillDec.text = dec;
             mButton.interactable = true;
             mSkillImg.sprite = Resources.Load("icon/vocation/" + mBean.skillIcon, typeof(Sprite)) as Sprite;
 

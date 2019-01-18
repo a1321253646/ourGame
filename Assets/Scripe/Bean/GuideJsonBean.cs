@@ -9,6 +9,7 @@ public class GuideJsonBean
     public string qualification;
     public string guideTarget;
     public string str;
+    public long level;
 
     private List<EquipKeyAndValue> mQualificationList = new List<EquipKeyAndValue>();
     private List<string> mStr = new List<string>();

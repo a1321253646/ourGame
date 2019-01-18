@@ -52,6 +52,9 @@ public class SQLHelper
     public static long GAME_ID_PLAYER_NAME = 21;
     public static long GAME_ID_PLAYER_VOCATION = 22;
 
+    public static long ACTIVITY_BUTTON_VOCATION = 1;
+    public static long GAME_ID_PLAYER_AD = 2;
+
     public static long TYPE_GAME = 1;
     public static long TYPE_GOOD = 2;
     public static long TYPE_BOOK = 3;
@@ -60,10 +63,12 @@ public class SQLHelper
     public static long TYPE_LUNHUI = 6;
     public static long TYPE_DROP = 7;
     public static long TYPE_GUIDE = 8;
+    public static long TYPE_ACTIVITY_BUTTON = 9;
 
     List<long> mGuide = new List<long>();
     List<long> mBook = new List<long>();
     List<PlayerBackpackBean> mALLGood = new List<PlayerBackpackBean>();
+    List<ActiveButtonBean> mActiveList = new List<ActiveButtonBean>();
     List<PlayerBackpackBean> mUser = new List<PlayerBackpackBean>();
     List<PlayerBackpackBean> mCard = new List<PlayerBackpackBean>();
     List<PlayerBackpackBean> mPet = new List<PlayerBackpackBean>();
@@ -91,6 +96,7 @@ public class SQLHelper
         mPet.Clear();
         mDropDeviceCount.Clear();
         mGuide.Clear();
+        mActiveList.Clear();
 
         mGameLevel = BaseDateHelper.encodeLong(-9999L);
         mHeroLevel = BaseDateHelper.encodeLong(-1);
@@ -107,6 +113,7 @@ public class SQLHelper
         isShowPlayerPoint = -1;
         isShowPetTablePoint = -1;
         isFristStartGame = -1;
+        mPlayVocation = -1;
         isVoice = -1;
         mMaxGoodId = -1;
         isUpdate = -1;
@@ -200,6 +207,14 @@ public class SQLHelper
                   //  long id = long.Parse(date.extan);
                     mGuide.Add(date.id);
                     Debug.Log("读取数据库 已经引导 " + date.id);
+                }
+                else if (date.type == TYPE_ACTIVITY_BUTTON)
+                {
+                    //  long id = long.Parse(date.extan);
+                    ActiveButtonBean bean = stringToActiveButton(date.extan);
+                    bean.buttonType = date.id;
+                    mActiveList.Add(bean);
+                    Debug.Log("活动按钮显示  buttonType" + bean.buttonType);
                 }
                 else if (date.type == TYPE_GAME)
                 {
@@ -433,6 +448,11 @@ public class SQLHelper
     {
         return mALLGood;
     }
+    public List<ActiveButtonBean> getActiveList()
+    {
+        return mActiveList;
+    }
+
     public List<PlayerBackpackBean> getCard()
     {
         return mCard;
@@ -649,8 +669,73 @@ public class SQLHelper
         SQLManager.getIntance().deleteAll();
     }
 
+    public void updateActiveButton(ActiveButtonBean value)
+    {
+        Debug.Log("addGuide  =" + value);
+        SQLDate date = new SQLDate();
+        date.extan = activeButtonToString(value);
+        date.type = TYPE_ACTIVITY_BUTTON;
+        date.id = value.buttonType;
+        date.getClean();
+        //mActiveList.Add(value);
+        SQLManager.getIntance().updateIdAndType(date);
+        // addGame(GAME_ID_GUIDE, value);
+    }
 
-    public void addGuide(long value) {
+
+    public void addActiveButton(ActiveButtonBean value) {
+        Debug.Log("addGuide  =" + value);
+        SQLDate date = new SQLDate();
+        date.extan = activeButtonToString(value);
+        date.type = TYPE_ACTIVITY_BUTTON;
+        date.id = value.buttonType;
+        date.getClean();
+        mActiveList.Add(value);
+        SQLManager.getIntance().InsertDataToSQL(date);
+       // addGame(GAME_ID_GUIDE, value);
+    }
+    public void deleteActiveButton(ActiveButtonBean value)
+    {
+
+        Debug.Log("deleteActiveButton  =" + value);
+        SQLDate date = new SQLDate();
+        date.extan = "-1";
+        date.type = TYPE_ACTIVITY_BUTTON;
+        date.id = value.buttonType;
+        date.getClean();
+        mActiveList.Remove(value);
+        SQLManager.getIntance().deleteIdAndType(date);
+    }
+
+    private string activeButtonToString(ActiveButtonBean value) {
+        string str = "";
+        str = "" + value.adType;
+        if (value.count != null && value.count.Length > 0) {
+            str = str + "," + value.count;
+        }
+        return str;
+    }
+    private ActiveButtonBean stringToActiveButton(string value)
+    {
+        ActiveButtonBean button = new ActiveButtonBean();
+        if (value != null && value.Length > 0)
+        {
+            string[] strs = value.Split(',');
+            if (strs.Length == 2)
+            {
+                button.adType = long.Parse(strs[0]);
+                button.count = strs[1];
+            }
+            else {
+                button.adType = long.Parse(strs[0]);
+            }
+        }
+        return button;
+    }
+
+
+        public void addGuide(long value)
+    {
         Debug.Log("addGuide  =" + value);
         SQLDate date = new SQLDate();
         date.extan = "-1";
@@ -659,8 +744,10 @@ public class SQLHelper
         date.getClean();
         mGuide.Add(value);
         SQLManager.getIntance().InsertDataToSQL(date);
-       // addGame(GAME_ID_GUIDE, value);
+        // addGame(GAME_ID_GUIDE, value);
     }
+
+
 
     public void updateHeroLevel(long value)
     {
@@ -831,6 +918,19 @@ public class SQLHelper
     }
 
 
+    public void updateVocation(long value)
+    {
+        if (mPlayVocation == -1)
+        {
+            addGame(GAME_ID_PLAYER_VOCATION, value);
+         
+        }
+        else
+        {
+            updateGame(GAME_ID_PLAYER_VOCATION, value);
+        }
+        mPlayVocation = value;
+    }
     public void updateHunJing(BigNumber value)
     {
         if (mMojing.isEmpty())
@@ -844,6 +944,7 @@ public class SQLHelper
         }
         mMojing = value;
     }
+
 
     private void updateGame(long id, string value)
     {

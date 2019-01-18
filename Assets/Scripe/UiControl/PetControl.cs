@@ -220,11 +220,7 @@ public class PetControl : UiControlBase
     public override void init()
     {
         mControlType = UiControlManager.TYPE_PET;
-        List<PetJsonBean> list = JsonUtils.getIntance().getPet();
-        List<PlayerBackpackBean> petList = InventoryHalper.getIntance().getPet();
-        int count = list.Count;
-        Debug.Log("PetControl count=" + list.Count);
-        PetJsonBean bean;
+
         mListView = GameObject.Find("pet_list");
         mName = GameObject.Find("pet_name").GetComponent<Text>();
         mGetLevel = GameObject.Find("pet_get_level").GetComponent<Text>();
@@ -258,46 +254,56 @@ public class PetControl : UiControlBase
             toremoveUi();
         });
         mVerticall = mListView.GetComponent<VerticalLayoutGroup>();
-        PlayerBackpackBean play;
-        for (int i = 0; i < count; i++)
-        {
-            play = null;
-            GameObject ob = GameObject.Instantiate(mPetIconItem,
-                new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            float witch = ob.GetComponent<RectTransform>().rect.width;
-            ob.transform.parent = mListView.transform;
-            ob.transform.localScale = new Vector3(1, 1, 1);
-            ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-            PetIconShowControl item = ob.GetComponent<PetIconShowControl>();
-            bean = list[i];
-            Debug.Log("PetControl id=" + bean.id);
-            foreach (PlayerBackpackBean n in petList)
-            {
-                if (n.goodId == bean.id)
-                {
-                    play = n;
-                    break;
-                }
-            }
-            if (play != null)
-            {
-                item.init(play, this);
-                // if (play.goodType == SQLDate.GOOD_TYPE_USER_PET) {
-                //     mPetManage.petFight(play.goodId);
-                // }
-            }
-            else
-            {
-                item.init(bean.id, this);
-            }
-            mControlList.Add(item);
-        }
-        onIconClick(mControlList[0]);
-        SetGridHeight();
+
     }
 
     public override void show()
     {
+        if(mControlList.Count == 0) {
+            PlayerBackpackBean play;
+            List<PetJsonBean> list = JsonUtils.getIntance().getPet();
+            List<PlayerBackpackBean> petList = InventoryHalper.getIntance().getPet();
+            int count = list.Count;
+            Debug.Log("PetControl count=" + list.Count);
+            PetJsonBean bean;
+            for (int i = 0; i < count; i++)
+            {
+                play = null;
+                GameObject ob = GameObject.Instantiate(mPetIconItem,
+                    new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                float witch = ob.GetComponent<RectTransform>().rect.width;
+                ob.transform.parent = mListView.transform;
+                ob.transform.localScale = new Vector3(1, 1, 1);
+                ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                PetIconShowControl item = ob.GetComponent<PetIconShowControl>();
+                bean = list[i];
+                Debug.Log("PetControl id=" + bean.id);
+                foreach (PlayerBackpackBean n in petList)
+                {
+                    if (n.goodId == bean.id)
+                    {
+                        play = n;
+                        break;
+                    }
+                }
+                if (play != null)
+                {
+                    item.init(play, this);
+                    // if (play.goodType == SQLDate.GOOD_TYPE_USER_PET) {
+                    //     mPetManage.petFight(play.goodId);
+                    // }
+                }
+                else
+                {
+                    item.init(bean.id, this);
+                }
+                mControlList.Add(item);
+            }
+            onIconClick(mControlList[0]);
+            SetGridHeight();
+
+        }
+
         gameObject.transform.localPosition = new Vector2(0, 0);
     }
 }

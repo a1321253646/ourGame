@@ -20,11 +20,37 @@ public class EventAttackSkillManager
     public static int EVENT_SKILL_END_DROP = 14;
     public static int EVENT_SKILL_ATTACKING = 15;
     public static int EVENT_SKILL_MONSTER_DEBUFF = 16;
+    public static int EVENT_SKILL_ALL_HURT = 17;
 
     Dictionary<long, EventAttackSkillManagerSingle> mManagerList = new Dictionary<long, EventAttackSkillManagerSingle>();
     public List<TimeAttackSkillBase> mTimeList = new List<TimeAttackSkillBase>();
     public List<TimeEventAttackSkillBase> mTimeEvemntList = new List<TimeEventAttackSkillBase>();
 
+
+    public void removeAll() {
+
+        for (int i = 0; i < mTimeList.Count; ) {
+            mTimeList[i].endSkill();
+        }
+        mTimeList.Clear();
+        foreach (long key in mManagerList.Keys) {
+            EventAttackSkillManagerSingle singel = mManagerList[key];
+            if (singel != null && singel.mList.Count > 0)
+            {
+                for (int i = 0; i < singel.mList.Count;)
+                {
+                    singel.mList[i].endSkill();
+                }
+                singel.mList.Clear();
+            }
+        }
+        mManagerList.Clear();
+        for (int i = 0; i < mTimeEvemntList.Count;)
+        {
+            mTimeEvemntList[i].endSkill();
+        }
+        mManagerList.Clear();
+    }
 
     public void registerTimeEventSkill(TimeEventAttackSkillBase skill)
     {
@@ -141,7 +167,23 @@ public class EventAttackSkillManager
         }
         return ;
     }
-    public virtual void beforeBeHurt(HurtStatus hurt)//被普通伤害前
+    public virtual bool allHurt(Attacker fighter, HurtStatus hurt)//掉落前判断
+    {
+        EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_ALL_HURT);
+        if (singel == null || singel.mList.Count == 0)
+        {
+            return false;
+        }
+        else
+        {
+            foreach (EventAttackSkill skill in singel.mList)
+            {
+                skill.allHurt(fighter, hurt);
+            }
+        }
+        return false;
+    }
+    public virtual void beforeBeHurt(Attacker fighter, HurtStatus hurt)//被普通伤害前
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BEFOR_BEHURT);
         if (singel == null || singel.mList.Count == 0)
@@ -152,12 +194,13 @@ public class EventAttackSkillManager
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-                skill.beforeBeHurt(hurt);
+                skill.beforeBeHurt(fighter,hurt);
             }
         }
         return ;
     }
-    public virtual void endBeHurt(HurtStatus hurt)//被普通伤害后
+
+    public virtual void endBeHurt(Attacker fighter, HurtStatus hurt)//被普通伤害后
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_END_BEHURT);
         if (singel == null || singel.mList.Count == 0)
@@ -168,7 +211,7 @@ public class EventAttackSkillManager
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-                skill.endBeHurt(hurt);
+                skill.endBeHurt(fighter,hurt);
             }
         }
         return ;
@@ -321,6 +364,7 @@ public class EventAttackSkillManager
         }
         return false;
     }
+
     public virtual bool endGetDrop()//掉落后判断
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_END_DROP);
