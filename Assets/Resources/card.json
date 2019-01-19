@@ -171,168 +171,168 @@
     "id": 3000015,
     "name": "有失有得",
     "stacking": 7,
-    "tabid": 9,
+    "tabid": 3,
     "sortID": 3000021,
-    "icon": "card_3000021",
+    "icon": "card_3000001",
     "top_resource": "kapai",
-    "center_resource": "card_skill_3000020",
+    "center_resource": "card_skill_3000015",
     "skill_id": 100014,
-    "cost": 1
+    "cost": 3
   },
   {
     "id": 3000016,
     "name": "混乱之击",
     "stacking": 8,
-    "tabid": 10,
+    "tabid": 3,
     "sortID": 3000022,
-    "icon": "card_3000022",
+    "icon": "card_3000002",
     "top_resource": "kapai",
-    "center_resource": "card_skill_3000021",
+    "center_resource": "card_skill_3000016",
     "skill_id": 100015,
-    "cost": 1
+    "cost": 2
   },
   {
     "id": 3000017,
     "name": "生生不息",
     "stacking": 2,
-    "tabid": 4,
+    "tabid": 3,
     "sortID": 3000016,
-    "icon": "card_3000016",
+    "icon": "card_3000003",
     "top_resource": "kapai",
-    "center_resource": "card_skill_3000015",
+    "center_resource": "card_skill_3000017",
     "skill_id": 100016,
-    "cost": 1
+    "cost": 2
   },
   {
     "id": 3000018,
     "name": "攻击强化",
     "stacking": 3,
-    "tabid": 5,
+    "tabid": 3,
     "sortID": 3000017,
-    "icon": "card_3000017",
+    "icon": "card_3000004",
     "top_resource": "kapai",
-    "center_resource": "card_skill_3000016",
+    "center_resource": "card_skill_3000018",
     "skill_id": 100017,
-    "cost": 1
+    "cost": 3
   },
   {
     "id": 3000019,
     "name": "闪避强化",
     "stacking": 4,
-    "tabid": 6,
+    "tabid": 3,
     "sortID": 3000018,
-    "icon": "card_3000018",
+    "icon": "card_3000005",
     "top_resource": "kapai",
-    "center_resource": "card_skill_3000017",
+    "center_resource": "card_skill_3000019",
     "skill_id": 100018,
-    "cost": 1
+    "cost": 3
   },
   {
     "id": 3000020,
     "name": "防御强化",
     "stacking": 5,
-    "tabid": 7,
+    "tabid": 3,
     "sortID": 3000019,
-    "icon": "card_3000019",
+    "icon": "card_3000006",
     "top_resource": "kapai",
-    "center_resource": "card_skill_3000018",
+    "center_resource": "card_skill_3000020",
     "skill_id": 100019,
-    "cost": 1
+    "cost": 3
   },
   {
     "id": 3000021,
     "name": "暴击强化",
     "stacking": 6,
-    "tabid": 8,
+    "tabid": 3,
     "sortID": 3000020,
-    "icon": "card_3000020",
+    "icon": "card_3000007",
     "top_resource": "kapai",
-    "center_resource": "card_skill_3000019",
+    "center_resource": "card_skill_3000021",
     "skill_id": 100020,
-    "cost": 1
+    "cost": 3
   },
   {
     "id": 3000022,
     "name": "血溅五步",
     "stacking": 9,
-    "tabid": 11,
+    "tabid": 3,
     "sortID": 3000023,
-    "icon": "card_3000023",
+    "icon": "card_3000008",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000022",
     "skill_id": 100021,
-    "cost": 1
+    "cost": 2
   },
   {
     "id": 3000023,
     "name": "搏命一击",
     "stacking": 10,
-    "tabid": 12,
+    "tabid": 3,
     "sortID": 3000024,
-    "icon": "card_3000024",
+    "icon": "card_3000010",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000023",
     "skill_id": 100022,
-    "cost": 1
+    "cost": 5
   },
   {
     "id": 3000024,
     "name": "生命绽放",
     "stacking": 11,
-    "tabid": 13,
+    "tabid": 3,
     "sortID": 3000025,
-    "icon": "card_3000025",
+    "icon": "card_3000011",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000024",
     "skill_id": 100023,
-    "cost": 1
+    "cost": 5
   },
   {
     "id": 3000025,
     "name": "卡牌重击",
     "stacking": 12,
-    "tabid": 14,
+    "tabid": 3,
     "sortID": 3000026,
-    "icon": "card_3000026",
+    "icon": "card_3000012",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000025",
     "skill_id": 100024,
-    "cost": 1
+    "cost": 3
   },
   {
     "id": 3000026,
     "name": "卡牌暗杀",
     "stacking": 13,
-    "tabid": 15,
+    "tabid": 3,
     "sortID": 3000027,
-    "icon": "card_3000027",
+    "icon": "card_3000013",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000026",
     "skill_id": 100025,
-    "cost": 1
+    "cost": 3
   },
   {
     "id": 3000027,
     "name": "魔术·回春",
     "stacking": 14,
-    "tabid": 16,
+    "tabid": 3,
     "sortID": 3000028,
-    "icon": "card_3000028",
+    "icon": "card_3000014",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000027",
     "skill_id": 100026,
-    "cost": 1
+    "cost": 4
   },
   {
     "id": 3000028,
     "name": "魔术·恢复",
     "stacking": 15,
-    "tabid": 17,
+    "tabid": 3,
     "sortID": 3000029,
-    "icon": "card_3000029",
+    "icon": "card_3000015",
     "top_resource": "kapai",
     "center_resource": "card_skill_3000028",
     "skill_id": 100027,
-    "cost": 1
+    "cost": 4
   }
 ]

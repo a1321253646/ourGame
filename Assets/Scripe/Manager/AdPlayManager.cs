@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.Advertisements;
 
 public class AdPlayManager : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class AdPlayManager : MonoBehaviour
 
     private void Start()
     {
-        string gameID = null;
+/*        string gameID = null;
 
 #if UNITY_IOS
 		gameID = iosGameID;
@@ -25,8 +24,8 @@ public class AdPlayManager : MonoBehaviour
             Advertisement.Initialize(gameID, false);
             StartCoroutine(LogWhenUnityAdsIsInitialized());
         }
-        
-    }
+      */  
+    }/*
     private IEnumerator LogWhenUnityAdsIsInitialized()
     {
         float initStartTime = Time.time;
@@ -39,25 +38,29 @@ public class AdPlayManager : MonoBehaviour
     }
     public void ShowRewardedAd()
     {
-        Debug.Log("ShowRewardedAd");
+        Debug.Log(" UnityAds ShowRewardedAd");
         string zoneID = "rewardedVideo";
         ShowOptions options = new ShowOptions();
         options.resultCallback = HandleShowResult;
-        if (Advertisement.IsReady("rewardedVideo"))
+        Advertisement.Show(zoneID, options);
+        if (Advertisement.IsReady("rewardedVideo") || Advertisement.IsReady("rewardedVideo") )
         {
-            Debug.Log("Showing ad now...");
-            
+            Debug.Log("UnityAds Showing ad now...");
+            if (Advertisement.IsReady("rewardedVideo")) {
+                Debug.Log("UnityAds Showing ad now...");
+            }
 
 
-            Advertisement.Show(zoneID, options);
+        //    Advertisement.Show(zoneID, options);
         }
         else
         {
-            Debug.LogWarning(string.Format("Unable to show ad. The ad placement zone {0} is not ready.",
+            Debug.LogWarning(string.Format("UnityAds Unable to show ad. The ad placement zone {0} is not ready.",
                                             object.ReferenceEquals(zoneID, null) ? "default" : zoneID));
+         
         }
-        Advertisement.Show("rewardedVideo", options);
-        Debug.Log("===========================ShowRewardedAd");
+        //Advertisement.Show("rewardedVideo", options);
+        Debug.Log("UnityAds===========================ShowRewardedAd");
     }
 
     private void HandleShowResult(ShowResult result)
@@ -65,20 +68,20 @@ public class AdPlayManager : MonoBehaviour
         switch (result)
         {
             case ShowResult.Finished:
-                Debug.Log("========================The ad was successfully shown.");
+                Debug.Log("UnityAds========================The ad was successfully shown.");
                 //
                 // YOUR CODE TO REWARD THE GAMER
                 // Give coins etc.
                 break;
             case ShowResult.Skipped:
-                Debug.Log("=====================The ad was skipped before reaching the end.");
+                Debug.Log("UnityAds=====================The ad was skipped before reaching the end.");
                 break;
             case ShowResult.Failed:
-                Debug.LogError("========================The ad failed to be shown.");
+                Debug.LogError("UnityAds========================The ad failed to be shown.");
                 break;
         }
     }
-
+    */
     /*public void playAdStart() {
         Debug.Log("playAdStart start");
         AndroidJavaClass AJC = new AndroidJavaClass("com.unity3d.player.UnityPlayer");

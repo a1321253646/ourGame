@@ -75,7 +75,10 @@ public class FightResource
 		if (mAttacker.mAttackerTargets.Count > 0) {
 			mAttacker.mAttackerTargets [0].BeAttack (mHurtBlood , mAttacker);
 			mAttacker.attackSync (mHurtBlood.blood);
-            mAttacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(mAttacker, mHurtBlood);
+            if (mAttacker.mAttackerTargets.Count > 0) {
+                mAttacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(mAttacker, mHurtBlood);
+            }
+            
             mAttacker.mSkillManager.mEventAttackManager.endHurt(mHurtBlood);
         }
 	}

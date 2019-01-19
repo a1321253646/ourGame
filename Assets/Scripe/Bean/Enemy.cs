@@ -58,7 +58,7 @@ public class Enemy
         }
     }
 
-    private List<long> getFellList() {
+    public List<long> getFellList() {
         if (fellList.Count == 0)
         {
             if (death_fell == null || death_fell.Length < 1)

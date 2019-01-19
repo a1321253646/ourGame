@@ -11,6 +11,8 @@ public class NetServer
     List<SqlNetDate> mList = null;
     public long mTime = -1;
 
+    private static string URL_ROOT =  "http://120.79.249.55:8889";
+
     public void updateNet(List<SqlNetDate> list) {
         Debug.Log("NetServer  updateNet");
         isUpdate = true;
@@ -51,7 +53,7 @@ public class NetServer
      //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
-        WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
+        WWW www = new WWW(URL_ROOT+"/ourgame", pData, dir);
         while (!www.isDone) {
             Thread.Sleep(100);
         }
@@ -113,7 +115,7 @@ public class NetServer
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
-        WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
+        WWW www = new WWW(URL_ROOT+"/ourgame", pData, dir);
         while (!www.isDone)
         {
             Thread.Sleep(100);
@@ -172,7 +174,7 @@ public class NetServer
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
-        WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
+        WWW www = new WWW(URL_ROOT+"/ourgame", pData, dir);
         while (!www.isDone)
         {
             Thread.Sleep(100);
@@ -266,7 +268,7 @@ public class NetServer
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
 
-        WWW www = new WWW("http://120.79.249.55:8809/ourgame", pData, dir);
+        WWW www = new WWW(URL_ROOT+"/ourgame", pData, dir);
         while (!www.isDone)
         {
             Thread.Sleep(100);

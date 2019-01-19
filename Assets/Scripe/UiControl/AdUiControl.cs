@@ -43,7 +43,7 @@ public class AdUiControl : UiControlBase
             toremoveUi();
         });
         mSelect.onClick.AddListener(() => {
-            GameObject.Find("Manager").GetComponent<AdPlayManager>().ShowRewardedAd();
+           // GameObject.Find("Manager").GetComponent<AdPlayManager>().ShowRewardedAd();
             toremoveUi();
         });
     }

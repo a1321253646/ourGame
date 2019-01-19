@@ -83,6 +83,7 @@ public class SQLHelper
     }
 
     public void init() {
+        Debug.Log("readAllTable");
         mList = SQLManager.getIntance().readAllTable();
         if (mList != null) {
             Debug.Log("SQLHelper init mlist coutn =  " + mList.Count);

@@ -59,15 +59,15 @@ public class JsonUtils
 
     List<long> mAffixEnbleLevel = new List<long>();
     List<Hero> heroData;
-    List<Level> levelData;
+    public List<Level> levelData;
     List<ResourceBean> resourceData;
     Dictionary<long, float> mConfig = new Dictionary<long, float>();
    // List<ConfigNote> mConfig;
     List<GoodJsonBean> mGoods;
     List<AccouterJsonBean> mAttribute;
     List<ComposeJsonBen> mComposeData;
-    List<DropDeviceDetail> mDropDeviceDetailData;
-    List<DropDevice> mDropDevoce;
+    public List<DropDeviceDetail> mDropDeviceDetailData;
+    public List<DropDevice> mDropDevoce;
     List<SpeedValueJsonBean> mSpeedValue;
     List<SkillJsonBean> mSkillDate;
     List<CardJsonBean> mCardDate;
@@ -101,21 +101,17 @@ public class JsonUtils
         if(level > 1000) {
             levelBack = (level / 1000)+"";
         }
-        levelFile = "level";
-        enemyFile = "enemy";
-        levelEnemyFile = "levelenemy";
+
+        getEnemyFileName(level);
+
         if (GameManager.isAndroid)
         {
-            levelFile = levelFile + levelBack;
-            enemyFile = enemyFile + levelBack;
-            levelEnemyFile = levelEnemyFile + levelBack;
             resourceFile = "resource";
             configeFile = "config";
             goodsFile = "item";
             attributeFile = "equip";
             composeFile = "compose";
-            dropDeviceDetailFile = "dropdevicedetail";
-            dropDeviceFile = "dropdevice";
+
             speedValueFile = "speedvalue";
             skillFile = "skill";
             cardFile = "card";
@@ -128,13 +124,68 @@ public class JsonUtils
         }
         else {
             heroFile = heroFile + ".json";
-            levelFile = levelFile + levelBack + ".json";
-            enemyFile = enemyFile + levelBack + ".json";
-            levelEnemyFile = levelEnemyFile + levelBack + ".json";
         }
         Debug.Log("heroFile = " + heroFile);
         GameManager.getIntance().mInitDec = "开始读取配置文件";
         readAllFile();
+
+    }
+
+    private void getEnemyFileName(long level) {
+
+        levelFile = "level";
+        enemyFile = "enemy";
+        levelEnemyFile = "levelenemy";
+        dropDeviceDetailFile = "dropdevicedetail";
+        dropDeviceFile = "dropdevice";
+
+        long index = 1;
+        Debug.Log("getEnemyFileName level = "+level);
+        if (level < 0  )
+        {
+            index = 1;
+        }
+        else {
+            index = (level - 1) / 1000+1;
+        }
+        
+        string back = ""+ index;
+        if (!GameManager.isAndroid) {
+            back = back + ".json";
+        }
+
+        levelFile = "level"+ back;
+        enemyFile = "enemy"+ back;
+        levelEnemyFile = "levelenemy" + back;
+        dropDeviceDetailFile = "dropdevicedetail" + back;
+        dropDeviceFile = "dropdevice" + back;       
+    }
+
+    private void  readAboutLevelFile() {
+        readLevelData();
+        GameManager.getIntance().mInitDec = getStringById(100012);
+        readdropDeviceInfo();
+        GameManager.getIntance().mInitDec = getStringById(100017);
+        readdropDeviceDetailInfo();
+        GameManager.getIntance().mInitDec = getStringById(100018);
+
+        mLevelWellenDate = null;
+        mWellentList = null;
+        mEnemys = null;
+        getEnemyDate();
+        GameManager.getIntance().mInitDec = getStringById(100023);
+    }
+
+    public void reReadAboutLevelFile(long level) {
+        getEnemyFileName(level);
+        readAboutLevelFile();
+    }
+
+    public bool isNeedReReadAboutLevel(long level) {
+        if (level > 0 && level % 1000 == 1) {
+            return true;
+        }
+        return false;
     }
 
     public void reReadHero() {
@@ -169,8 +220,7 @@ public class JsonUtils
         GameManager.getIntance().mInitDec = getStringById(100010);
         readHeroData();
         GameManager.getIntance().mInitDec = getStringById(100011);
-        readLevelData();
-        GameManager.getIntance().mInitDec = getStringById(100012);
+
         readGoodInfo();
         GameManager.getIntance().mInitDec = getStringById(100013);
         readAffixInfo();
@@ -179,10 +229,7 @@ public class JsonUtils
         GameManager.getIntance().mInitDec = getStringById(100015);
         readComposeInfo();
         GameManager.getIntance().mInitDec = getStringById(100016);
-        readdropDeviceInfo();
-        GameManager.getIntance().mInitDec = getStringById(100017);
-        readdropDeviceDetailInfo();
-        GameManager.getIntance().mInitDec = getStringById(100018);
+
         readSpeedValueInfo();
         GameManager.getIntance().mInitDec = getStringById(100019);
         readSkillInfo();
@@ -191,27 +238,14 @@ public class JsonUtils
         GameManager.getIntance().mInitDec = getStringById(100021);
         readSamsaraInfo();
         GameManager.getIntance().mInitDec = getStringById(100022);
-        getEnemyDate();
-        GameManager.getIntance().mInitDec = getStringById(100023);
+
         readPetInfo();
+
+        readAboutLevelFile();
+
         GameManager.getIntance().mInitDec = getStringById(100024);
        // check();
     }
-    private void check() {
-        foreach (DropDeviceDetail d in mDropDeviceDetailData) {
-            foreach (DropDeviceDetail.Detail dd in d.mItemList) {
-                AccouterJsonBean bean = getAccouterInfoById(dd.itemId);
-                if (bean == null) {
-                    CardJsonBean bean2 = getCardInfoById(dd.itemId);
-                    if (bean2 == null) {
-                        Debug.Log("==============================================DropDeviceDetail DropDeviceDetail id " + d.id + " itemId =" + dd.itemId);
-                    }
-                    
-                }
-            }
-        }
-    }
-
 
     public static JsonUtils getIntance() {
         return mInance;
@@ -769,8 +803,8 @@ public class JsonUtils
 	}
 	public long mCurrentLevel = 0;
 	public List<long> mCurrentLevelWellent;
-	Dictionary<long,List<LevelEnemyWellen>> mWellentList;
-	Dictionary<long,Enemy> mEnemys;
+	public Dictionary<long,List<LevelEnemyWellen>> mWellentList;
+    public Dictionary<long,Enemy> mEnemys;
 	long bossId;
 	float bossGas;
 
@@ -849,6 +883,7 @@ public class JsonUtils
         }
     }
 	public Enemy getEnemyById(long id){
+        Debug.Log("getEnemyById id = " + id);
 		return mEnemys [id];
 	}
 

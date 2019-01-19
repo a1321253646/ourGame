@@ -45,13 +45,15 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = true;
-    public static bool isAdd = true;
+    public static bool isAndroid = false;
+    public static bool isAdd = false;
 
     public  bool mAllSaleGreed = false;
     public  bool mAllSaleBlue = false;
     public  bool mAllSalePurple = false;
     public  bool mAllSaleOrange = false;
+
+    public  bool mIsNeedToReReadAboutLevel = false;
 
 
     public string mGameErrorString = "";
@@ -281,7 +283,7 @@ public class GameManager
                 }
             }
             else {
-                playAd();
+           //     playAd();
             }
         }
         showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", mCurrentGas);

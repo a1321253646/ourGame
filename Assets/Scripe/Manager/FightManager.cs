@@ -110,8 +110,14 @@ public class FightManager{
             {
                 GameManager.getIntance().mCurrentLevel =BaseDateHelper.encodeLong(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)+ 1) ;
 
-                if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) > (long)JsonUtils.getIntance().getConfigValueForId(100042)) {
+                if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) > (long)JsonUtils.getIntance().getConfigValueForId(100042))
+                {
                     GameManager.getIntance().mCurrentLevel = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100042));
+                }
+                else {
+                    if (JsonUtils.getIntance().isNeedReReadAboutLevel(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel))) {
+                        GameManager.getIntance().mIsNeedToReReadAboutLevel = true;
+                    }
                 }
                 SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
             }

@@ -77,7 +77,7 @@ public class DropDeviceDetail
 
     }
 
-    public class Detail {
+    public  class Detail {
         public long itemId;
         public long minCount;
         public long maxcount;
