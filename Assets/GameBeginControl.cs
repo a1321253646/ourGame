@@ -56,6 +56,7 @@ public class GameBeginControl : MonoBehaviour {
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
             if (SQLHelper.getIntance().isFristStartGame == -1)
             {
+                SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
                 Destroy(GameObject.Find("game_begin_loading"));
                 GetComponentInChildren<TypewriterEffect>().init(JsonUtils.getIntance().getStringById(100001));
 
@@ -98,16 +99,7 @@ public class GameBeginControl : MonoBehaviour {
             {
                 JsonUtils.getIntance().initBefore();
                 JsonUtils.getIntance().init();
-                if (JsonUtils.getIntance().getConfigValueForId(100047) == 1) {
-                    string error = JsonFileTestUtils.test();
-                    if (!error.Equals("")) {
-                        GameManager.getIntance().mInitStatus = 10000;
-                        GameObject.Find("game_error_messge").transform.SetSiblingIndex(5000);
-                        GameObject.Find("game_error_messge").transform.localPosition = new Vector2(0, 0);
-                        GameObject.Find("game_error_des").GetComponent<Text>().text = error;
-                        return;
-                    }
-                }
+
                 GameManager.getIntance().mInitStatus = 2;
             }
         }

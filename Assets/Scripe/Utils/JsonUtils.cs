@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEngine.UI;
 
 public class JsonUtils
 {
@@ -98,10 +99,11 @@ public class JsonUtils
         heroFile = getVocationById(mVocation).attributeName;
         
         string levelBack = "";
-        if(level > 1000) {
+        Debug.Log("level ==  " + level);
+        if (level > 1000) {
             levelBack = (level / 1000)+"";
         }
-
+        Debug.Log("levelBack ==  " + levelBack);
         getEnemyFileName(level);
 
         if (GameManager.isAndroid)
@@ -128,6 +130,20 @@ public class JsonUtils
         Debug.Log("heroFile = " + heroFile);
         GameManager.getIntance().mInitDec = "开始读取配置文件";
         readAllFile();
+        
+        if (!GameManager.isAndroid && JsonUtils.getIntance().getConfigValueForId(100047) == 1)
+        {
+            string error = JsonFileTestUtils.test();
+            reReadAboutLevelFile(level);
+            if (!error.Equals(""))
+            {
+                GameManager.getIntance().mInitStatus = 10000;
+                GameObject.Find("game_error_messge").transform.SetSiblingIndex(5000);
+                GameObject.Find("game_error_messge").transform.localPosition = new Vector2(0, 0);
+                GameObject.Find("game_error_des").GetComponent<Text>().text = error;
+                return;
+            }
+        }
 
     }
 
@@ -728,7 +744,7 @@ public class JsonUtils
         return null;
     }
     public float getConfigValueForId(long id) {
-        Debug.Log(" getConfigValueForId  = " + id);
+//        Debug.Log(" getConfigValueForId  = " + id);
         if (mConfig.ContainsKey(id))
         {
             return mConfig[id];
@@ -774,7 +790,7 @@ public class JsonUtils
 	}
 	public  Level getLevelData(long id){
 		foreach (Level level in levelData) {
-			if (level.id == id) {
+            if (level.id == id) {               
 				return level;
 			}
 		}

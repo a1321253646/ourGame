@@ -191,7 +191,7 @@ public class SQLManager
                 Debug.Log("readAllTable");
 
                 SqliteCommand command = mConnet.CreateCommand();
-                command.CommandText = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_PLAYER_VOCATION + " AND TYPE=" + SQLHelper.GAME_ID_LEVEL;
+                command.CommandText = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_LEVEL + " AND TYPE=" + SQLHelper.TYPE_GAME;
                 this.reader = command.ExecuteReader();
                 while (this.reader.Read())
                 {
@@ -497,6 +497,13 @@ public class SQLManager
             mConnet = null;
         }
     }
+
+    public void deleteGuide(long id) {
+        string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + SQLHelper.TYPE_GUIDE + " AND ID=" + id;
+        // ExecuteSQLCommand(commandString);
+        addList(commandString);
+    }
+
     /// <summary>
     /// 向数据库中添加数据文件
     /// </summary>

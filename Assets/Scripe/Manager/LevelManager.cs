@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour {
     MapConfigBean mMapConfig = null;
     public void init()
     {
-        
+        updateIndex = 0;
         Debug.Log("LevelManager Start");
         GameManager.getIntance().getLevelData();
         long old = GameManager.getIntance().init(this);
@@ -48,6 +48,17 @@ public class LevelManager : MonoBehaviour {
         SkillManage.getIntance().setBackManagerManager(mBackManager);
         BackpackManager.getIntance().init(this);
         UiControlManager.getIntance().init();
+        if ( SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode) {
+
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().
+                showUi("本次更新新卡牌以及转职系统，为了您的游戏正常进行，将强制轮回，本次轮回您将获得双倍轮回值共%D点。给您带来不便，我们表示抱歉。");
+            Time.timeScale = 0;
+            return;
+
+        }
+            
+
+
         GameObject.Find("jineng").GetComponent<CardManager>().init();
         nengLiangDian = 0;
         mNengLiangKuai.Clear();
@@ -57,7 +68,10 @@ public class LevelManager : MonoBehaviour {
         mGuideManager = GetComponent<GuideManager>();
         mGuideManager.init();
         isInit = true;
-        if (SQLHelper.getIntance().isLuiHui != -1 && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) <= SQLHelper.getIntance().isLuiHui)
+        if (GameManager.isTest) {
+            Time.timeScale = 10;
+        }
+        else if (SQLHelper.getIntance().isLuiHui != -1 && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) <= SQLHelper.getIntance().isLuiHui)
         {
             Time.timeScale = 2;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(1, 1);
@@ -72,13 +86,14 @@ public class LevelManager : MonoBehaviour {
             BigNumber outLineGet = new BigNumber();
             GameManager.getIntance().isHaveOutGet = false;
             long old2 = SQLHelper.getIntance().mOutTime;
-            Debug.Log("========old = " + old);
+            Debug.Log("========old = " + old2);
             if (old2 != -1)
             {
                 old2 = TimeUtils.getTimeDistanceMin(old2);
                 Debug.Log("========old = " + old2);
                 BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).getOfflinereward();
-                outLineGet = BigNumber.multiply(levelCryStal, old2);
+                outLineGet = getOutGetEverySecond(levelCryStal);
+                outLineGet = BigNumber.multiply(outLineGet, old2);
                 outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
 
                 if (old2 > 1)
@@ -90,9 +105,6 @@ public class LevelManager : MonoBehaviour {
 
                 if (old2 > JsonUtils.getIntance().getConfigValueForId(100032))
                 {
-                    Level level = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
-                    BigNumber outLine = BigNumber.multiply(level.getOfflinereward(), old2);
-                    outLine = BigNumber.multiply(outLine, GameManager.getIntance().getOutlineGet());
                     long h = old2 / 60;
                     long min = old2 % 60;
                     string str = "";
@@ -112,7 +124,7 @@ public class LevelManager : MonoBehaviour {
                     {
                         str = str + "0" + min;
                     }
-                    BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "欢迎回来，您在离线的" + str + "里", "" + outLine.toStringWithUnit());
+                    BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "欢迎回来，您在离线的" + str + "里", "" + outLineGet.toStringWithUnit());
                 }
             }
         }
@@ -178,7 +190,64 @@ public class LevelManager : MonoBehaviour {
         }
         return true;
     }
-  
+
+    private BigNumber getOutGetEverySecond(BigNumber level) {
+        Debug.Log("getOutGetEverySecond");
+        Debug.Log("GameManager.getIntance().mOutLineGet = "+ GameManager.getIntance().mOutLineGet.toStringWithUnit());
+        Debug.Log("updateIndex * Time.deltaTime = "+ updateIndex * Time.deltaTime);
+        if (SQLHelper.getIntance().mOutLineGet != null)
+        {
+            Debug.Log("SQLHelper.getIntance().mOutLineGet  = " + SQLHelper.getIntance().mOutLineGet.toStringWithUnit());
+        }
+        else {
+            Debug.Log("SQLHelper.getIntance().mOutLineGet  = null" );
+        }
+        BigNumber back = null;
+        if (SQLHelper.getIntance().mOutLineGet == null || SQLHelper.getIntance().mOutLineGet.isEmpty())
+        {
+
+            if (GameManager.getIntance().mOutLineGet.isEmpty() || updateIndex == 0)
+            {
+                back = level;
+            }
+            else
+            {
+                back = BigNumber.multiply(GameManager.getIntance().mOutLineGet,1f / (long)(updateIndex * Time.deltaTime));
+                back = BigNumber.multiply(back, 60);
+                back = BigNumber.multiply(back, JsonUtils.getIntance().getConfigValueForId(100048));
+            }
+            if (back.ieEquit(level) == -1) {
+                back = level;
+            }
+            SQLHelper.getIntance().updateOutLineGet(back);
+        }
+        else
+        {
+            back = SQLHelper.getIntance().mOutLineGet;
+            //Debug.Log("=============histroy back=" + back.toString());
+            if (!GameManager.getIntance().mOutLineGet.isEmpty())
+            {
+                BigNumber tmpBig = BigNumber.multiply(GameManager.getIntance().mOutLineGet, 1f / (long)(updateIndex * Time.deltaTime));
+                tmpBig = BigNumber.multiply(tmpBig,60);
+                tmpBig = BigNumber.multiply(tmpBig, JsonUtils.getIntance().getConfigValueForId(100048));
+                if (back.ieEquit(tmpBig) == -1)
+                {
+                    back = tmpBig;
+                }
+
+            }
+            if (back.ieEquit(level) == -1)
+            {
+                back = level;
+
+            }
+            SQLHelper.getIntance().updateOutLineGet(back);
+        }
+        Debug.Log("back = " + back.toStringWithUnit());
+        return back;
+    }
+
+
 	// Update is called once per frame
 	bool starBoss = false;
     public float nengLiangDian = 0;
@@ -196,13 +265,16 @@ public class LevelManager : MonoBehaviour {
             if (mOld != -1)
             {
                 long outTime = TimeUtils.getTimeDistanceMin(mOld);
+               
                 BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).getOfflinereward();
-                Debug.Log("=============levelCryStal=" + levelCryStal.toString());
-                Debug.Log("=============outTime=" + outTime);
-                BigNumber  outLineGet = BigNumber.multiply(levelCryStal, outTime);
+              //  Debug.Log("=============levelCryStal=" + levelCryStal.toString());
+              //  Debug.Log("=============outTime=" + outTime);
+                BigNumber outLineGet = getOutGetEverySecond(levelCryStal);
+                outLineGet = BigNumber.multiply(outLineGet, outTime);
                 outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
-                Debug.Log("=============outLineGet=" + outLineGet.toString());
-                Debug.Log("=============GameManager.getIntance().getOutlineGet()=" + GameManager.getIntance().getOutlineGet());
+
+              //  Debug.Log("=============outLineGet=" + outLineGet.toString());
+              //  Debug.Log("=============GameManager.getIntance().getOutlineGet()=" + GameManager.getIntance().getOutlineGet());
                 if (outTime > 1)
                 {
                     GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
@@ -239,10 +311,13 @@ public class LevelManager : MonoBehaviour {
     }
 
 
+    public long updateIndex = 0;
+
     void Update () {
         if (!isInit) {
             return;
         }
+        updateIndex++;
         mTime += Time.deltaTime;
         if (mTime > 60000) {
             mTime = mTime - 60000;
@@ -279,7 +354,7 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 0;
             NetServer.getIntance().getLocl();
             SQLManager.getIntance().saveLocal(NetServer.getIntance().getLocal());
-            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("数据出现异常，已还原回服务器最新记录，请重新开始游戏", LuiHuiTips.TYPPE_ERROR_DATE);
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("检测到您本地时间出现异常，已还原回服务器最新记录，请将时间修改为当前时间重新开始游戏", LuiHuiTips.TYPPE_ERROR_DATE);
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
         }
 

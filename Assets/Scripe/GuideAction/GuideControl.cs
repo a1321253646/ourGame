@@ -92,7 +92,7 @@ public class GuideControl
                 , null,
                 mManager,
                 null, this);
-            item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_OPEN_CARD, "skilcard_ui");
+            item1.init(mData.getQualificationList()[0].value, GuideManager.EVENT_OBJECT_DROP, GuideManager.BUTTON_CLICK_OPEN_CARD, "skilcard_ui");
             item1.setDecLocal(3, 2, 1, 2);
             mActionList.Add(item1);
             GuideActionCardUiBackItem item2 = new GuideActionCardUiBackItem();

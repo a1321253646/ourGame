@@ -15,7 +15,8 @@ public class LuiHuiTips : UiControlBase
     public static int TYPPE_UPDATE_LINE = 4;
     public static int TYPPE_ERROR_DATE = 5;
     public static int TYPPE_VOCATION = 6;
-    public static int TYPPE_SELF = 7;
+   // public static int TYPPE_SELF = 7;
+    public static int TYPPE_LUIHUI_NEED = 8;
 
     Text mDes;
     Text mButtonDec,mLeftDec,mRightDec;
@@ -59,6 +60,26 @@ public class LuiHuiTips : UiControlBase
         gameObject.transform.SetSiblingIndex(level);
     }
 
+    public void showUi(string dec) {
+        mSure.transform.localScale = new Vector2(1, 1);
+        buttonList.transform.localScale = new Vector2(0, 0);
+        mType = TYPPE_LUIHUI_NEED;
+        gameObject.transform.localPosition = new Vector2(0, 0);
+        int level = GameManager.getIntance().getUiLevel();
+        gameObject.transform.SetSiblingIndex(level);
+        //string dec = "轮回将使您失去等级、装备和卡牌，并回到初始关卡。\n您将获得 %D点轮回点作为奖励，轮回点购买的属性将永久保留。";
+        Level level2 = JsonUtils.getIntance().getLevelData();
+
+
+        mLuiHui = BigNumber.multiply(level2.getReincarnation(), GameManager.getIntance().getLunhuiGet());
+        mLuiHui = BigNumber.multiply(mLuiHui, 2);
+        Debug.Log("============================轮回点获得 GameManager.getIntance().getLunhuiGet()= " + GameManager.getIntance().getLunhuiGet());
+        Debug.Log("============================轮回点获得= " + mLuiHui.toString());
+        dec = dec.Replace("%D", mLuiHui.toStringWithUnit() + "");
+        mButtonDec.text = "确定";
+        mDes.text = dec;
+    }
+    private BigNumber mLuiHui;
     public void showUi()
     {
         mSure.transform.localScale = new Vector2(1, 1);
@@ -121,28 +142,36 @@ public class LuiHuiTips : UiControlBase
 
       }*/
     private void sure() {
+        Level level = JsonUtils.getIntance().getLevelData();
+        BigNumber tmp = BigNumber.multiply(level.getReincarnation(), GameManager.getIntance().getLunhuiGet());
+        sure(tmp);
 
+    }
+
+    private void sure(BigNumber tmp) {
+        //Time.timeScale = 1;
         GameManager.getIntance().isLuihuiIng = true;
         GameManager.getIntance().uiManager.setLunhuiPointShow(1);
-        Level level = JsonUtils.getIntance().getLevelData();
+        
 
-        BigNumber tmp = BigNumber.multiply(level.getReincarnation(), GameManager.getIntance().getLunhuiGet());
+        
         Debug.Log("============================轮回点获得= " + tmp.toString());
         GameManager.getIntance().mReincarnation = BigNumber.add(GameManager.getIntance().mReincarnation, tmp);
         SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         GameManager.getIntance().isAddGoodForTest = false;
         UiControlManager.getIntance().removeAll();
+
+        Level level = JsonUtils.getIntance().getLevelData();
         SQLHelper.getIntance().updateIsLunhuiValue((long)level.levelspeedup);
-        
+
         InventoryHalper.getIntance().dealClear();
-       // GameManager.getIntance().mCurrentCrystal = new BigNumber();
+        // GameManager.getIntance().mCurrentCrystal = new BigNumber();
         //SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
-       // GameManager.getIntance().mHeroLv = 1;
-       // SQLHelper.getIntance().updateHeroLevel(1);
-       // GameManager.getIntance().mCurrentLevel = 1;
-       // SQLHelper.getIntance().updateGameLevel(1);
+        // GameManager.getIntance().mHeroLv = 1;
+        // SQLHelper.getIntance().updateHeroLevel(1);
+        // GameManager.getIntance().mCurrentLevel = 1;
+        // SQLHelper.getIntance().updateGameLevel(1);
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
-        
     }
 
     // Update is called once per frame
@@ -163,14 +192,14 @@ public class LuiHuiTips : UiControlBase
 
         mLeft.onClick.AddListener(() =>
         {
-            if (mType == TYPPE_UPDATE_LINE|| mType == TYPPE_SELF)
+            if (mType == TYPPE_UPDATE_LINE)
             {
                 isUpdate(false);
             }
             else if (mType == TYPPE_VOCATION) {
                 vocation();
             }
-            if (mType == TYPPE_SELF)
+            if (isShowSelf)
             {
                 transform.localPosition = mFri;
             }
@@ -181,11 +210,11 @@ public class LuiHuiTips : UiControlBase
         });
         mRight.onClick.AddListener(() =>
         {
-            if (mType == TYPPE_UPDATE_LINE || mType == TYPPE_SELF)
+            if (mType == TYPPE_UPDATE_LINE )
             {
                 isUpdate(true);
             }
-            if (mType == TYPPE_SELF)
+            if (isShowSelf)
             {
                 transform.localPosition = mFri;
             }
@@ -196,9 +225,15 @@ public class LuiHuiTips : UiControlBase
 
         mSure.onClick.AddListener(() =>
         {
-            if (mType == TYPPE_LUIHUI)
+            if (mType == TYPPE_LUIHUI )
             {
+
                 sure();
+            }else if (mType == TYPPE_LUIHUI_NEED) {
+                Time.timeScale = 1;
+                
+                sure(mLuiHui);
+                SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
             }
             else if (mType == TYPPE_TIP)
             {
@@ -225,9 +260,16 @@ public class LuiHuiTips : UiControlBase
             {
                 Application.Quit();
             }
-            if (mType == TYPPE_SELF)
+            else if (isShowSelf)
             {
                 transform.localPosition = mFri;
+            }
+            else if (mType == TYPPE_LUIHUI_NEED)
+            {
+                Time.timeScale = 1;
+                
+                sure(mLuiHui);
+                SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
             }
             else
             {
@@ -245,11 +287,14 @@ public class LuiHuiTips : UiControlBase
 
     public override void show()
     {
+        isShowSelf = false;
         gameObject.transform.localPosition = new Vector2(0, 0);
     }
+    private bool isShowSelf = false;
     public void showSelf()
     {
-        mType = TYPPE_SELF;
+        isShowSelf = true;
+//        mType = TYPPE_SELF;
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);
 

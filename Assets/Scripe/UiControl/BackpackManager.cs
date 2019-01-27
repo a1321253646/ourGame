@@ -131,6 +131,8 @@ public class BackpackManager
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_EQUITE_UP_CLICK, bean.goodId);
         InventoryHalper.getIntance().updateZhuangbei(bean, level,false);
         GameManager.getIntance().mCurrentCrystal = BigNumber.minus(GameManager.getIntance().mCurrentCrystal, cost);
+        GameManager.getIntance().updataGasAndCrystal();
+        SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
         mInvertoryControl.update(false);
         mHeroControl.upDateUi(false);
         updateZhuangbeiItem(false);

@@ -27,7 +27,10 @@ public class SQLHelper
     public long isUpdate = -1;
     public string mPlayName =null;
     public long mPlayVocation =-1;
+    public long mVersionCode=-1;
 
+
+    public BigNumber mOutLineGet = null;
 
     public static long GAME_ID_LEVEL = 1;
     public static long GAME_ID_HERO = 2;
@@ -51,6 +54,8 @@ public class SQLHelper
     public static long GAME_ID_MAX_TIME = 20;
     public static long GAME_ID_PLAYER_NAME = 21;
     public static long GAME_ID_PLAYER_VOCATION = 22;
+    public static long GAME_ID_OUTLINE_VALUE = 24;
+    public static long GAME_ID_VERSION_CODE = 25;
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -98,7 +103,6 @@ public class SQLHelper
         mDropDeviceCount.Clear();
         mGuide.Clear();
         mActiveList.Clear();
-
         mGameLevel = BaseDateHelper.encodeLong(-9999L);
         mHeroLevel = BaseDateHelper.encodeLong(-1);
         isAutoBoss = -1;
@@ -107,6 +111,8 @@ public class SQLHelper
         mLunhuiValue = new BigNumber();
         mMojing = new BigNumber();
         mOutTime = -1;
+
+        mOutLineGet = null;
 
         isShowCardPoint = -1;
         isShowBackpackPoint = -1;
@@ -322,6 +328,16 @@ public class SQLHelper
                         mPlayVocation = long.Parse(date.extan);
                         Debug.Log("读取数据库 角色职业 " + mPlayVocation);
                     }
+                    else if (date.id == GAME_ID_OUTLINE_VALUE)
+                    {
+                        mOutLineGet = BigNumber.getBigNumForString(date.extan);
+                        Debug.Log("读取数据库 离线获取每分钟收益 " + mOutLineGet.toStringWithUnit());
+                    }
+                    else if (date.id == GAME_ID_VERSION_CODE)
+                    {
+                        mVersionCode = long.Parse(date.extan);
+                        Debug.Log("读取数据库 版本号 " + mVersionCode);
+                    }
                 }
             }
             if ( maxGoodIdTmp > mMaxGoodId)
@@ -420,7 +436,7 @@ public class SQLHelper
         else {
             return 0;
         }
-        
+       
     }
     public List<long> getBook()
     {
@@ -604,6 +620,20 @@ public class SQLHelper
         }
         mGameLevel = value;
     }
+    public void updateVersionCode(long version)
+    {
+        if (mVersionCode == -1)
+        {
+            addGame(GAME_ID_VERSION_CODE, version);
+
+        }
+        else
+        {
+            updateGame(GAME_ID_VERSION_CODE, version);
+        }
+        mVersionCode = version;
+    }
+
     public void updateIsUpdate()
     {
         if (isUpdate == -1)
@@ -632,6 +662,18 @@ public class SQLHelper
         mPlayName = newName;
     }
 
+    public void updateOutLineGet(BigNumber value) {
+        
+        if (mOutLineGet == null)
+        {            
+            addGame(GAME_ID_OUTLINE_VALUE, value.toString());
+        }
+        else {
+            updateGame(GAME_ID_OUTLINE_VALUE, value.toString());
+        }
+        mOutLineGet = value;
+    }
+
     public void updateOutTime()
     {
         long value = TimeUtils.GetTimeStamp(); 
@@ -644,6 +686,8 @@ public class SQLHelper
         {
             if (value > mMaxOutTime) {
                 updateMaxOutTime(value);
+            }else if(value < mMaxOutTime - GameManager.ERROR_TIME_MIN){
+                GameManager.getIntance().isError = true;
             }
             updateGame(GAME_ID_TIME, value);
         }
@@ -735,8 +779,9 @@ public class SQLHelper
     }
 
 
-        public void addGuide(long value)
+    public void addGuide(long value)
     {
+        SQLManager.getIntance().deleteGuide(value);
         Debug.Log("addGuide  =" + value);
         SQLDate date = new SQLDate();
         date.extan = "-1";

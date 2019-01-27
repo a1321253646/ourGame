@@ -24,6 +24,7 @@ public class GameManager
     public bool isWinQirHuang = false;
     public bool isLuihuiIng = false;
     public bool isError = false;
+    public static long ERROR_TIME_MIN = 86400000l;
 
     public List<RankingListDateBean> mRankingList = null;
     public bool mRankingListUpdate = false;
@@ -45,8 +46,11 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = false;
+    public static bool isAndroid = true;
     public static bool isAdd = false;
+    public static bool isTest = false;
+    public static long mVersionCode = 25;
+
 
     public  bool mAllSaleGreed = false;
     public  bool mAllSaleBlue = false;
@@ -122,8 +126,14 @@ public class GameManager
                     mHeroLv = BaseDateHelper.encodeLong(1);
                 }
             }
-
-               mCurrentCrystal = SQLHelper.getIntance().mMojing;   
+            if (isTest)
+            {
+                mCurrentCrystal = BigNumber.getBigNumForString("2.1E+40");
+            }
+            else {
+                mCurrentCrystal = SQLHelper.getIntance().mMojing;
+            }
+//               mCurrentCrystal = SQLHelper.getIntance().mMojing;   
   //             mCurrentCrystal = BigNumber.getBigNumForString("2.1E+40");
            // mCurrentCrystal = new BigNumber();
             long auto = SQLHelper.getIntance().isAutoBoss;
@@ -133,6 +143,14 @@ public class GameManager
             else {
                 isAuto = true;  
             }
+            if (isTest)
+            {
+                mReincarnation = BigNumber.getBigNumForString("2.1E+40");
+            }
+            else
+            {
+                mReincarnation = SQLHelper.getIntance().mLunhuiValue;
+            }
             mReincarnation = SQLHelper.getIntance().mLunhuiValue;
 
             isShowPlayerPoint = SQLHelper.getIntance().isShowPlayerPoint;
@@ -141,6 +159,7 @@ public class GameManager
             isShowCardPoint = SQLHelper.getIntance().isShowCardPoint;
         }
        // mCurrentLevel = 1;
+
         Level level = JsonUtils.getIntance ().getLevelData ();
 		startBossGas = level.boss_gas;
 		mBossId = level.boss_DI;
@@ -155,7 +174,11 @@ public class GameManager
     private long mMosterDealHuijingBili = 0;
     private long mMosterDealLunhuiBili = 0;
     private long mMosterDealAllBili = 0;
+
+    public BigNumber mOutLineGet = new BigNumber();
+
     public void initUi(){
+        mOutLineGet = new BigNumber();
         mMosterDealHuijingBili = (long)JsonUtils.getIntance().getConfigValueForId(100045);
         mMosterDealLunhuiBili = (long)JsonUtils.getIntance().getConfigValueForId(100046);
         mMosterDealAllBili = mMosterDealHuijingBili + mMosterDealLunhuiBili;
@@ -218,7 +241,9 @@ public class GameManager
         //Debug.Log("=============enemy.mDieCrysta=" + enemy.mDieCrysta.toString());
         //Debug.Log("=============mCurrentCrystal=" + mCurrentCrystal.toString());
         //Debug.Log("============= getOnlineGet()=" + getOnlineGet());
-
+        mOutLineGet = BigNumber.add(mOutLineGet, enemy.mDieCrysta);
+        Debug.Log("============= onLineGet=" + mOutLineGet.toString());
+        Debug.Log("============= updateIndex=" + mLevelManage.updateIndex);
         if (getOnlineGet() != 1)
         {
             mCurrentCrystal = BigNumber.add(mCurrentCrystal, BigNumber.multiply(enemy.mDieCrysta, getOnlineGet()));

@@ -35,6 +35,7 @@ public class SQLDate
                id == SQLHelper.GAME_ID_IS_UPDATE ||
                id == SQLHelper.GAME_ID_IS_VOICE||
                id == SQLHelper.GAME_ID_PLAYER_NAME ||
+               id == SQLHelper.GAME_ID_VERSION_CODE ||
                id == SQLHelper.GAME_ID_MAX_TIME)
             {
                 isClean = SQLDate.CLEAR_NO;

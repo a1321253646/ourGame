@@ -235,9 +235,9 @@ public class NetServer
         if (time > mTime) {
             mTime = time;
             if (SQLHelper.getIntance().mMaxOutTime != -1) {
-                if (SQLHelper.getIntance().mMaxOutTime > mTime + 360000 || SQLHelper.getIntance().mMaxOutTime < mTime - 360000)
+                if (SQLHelper.getIntance().mMaxOutTime > mTime + GameManager.ERROR_TIME_MIN)
                 {
- //                   GameManager.getIntance().isError = true;
+                    GameManager.getIntance().isError = true;
                 }
             }
 

@@ -23,6 +23,16 @@ public class JsonFileTestUtils
         Dictionary<long, List<LevelEnemyWellen>> mWellentList = JsonUtils.getIntance().mWellentList;
         Dictionary<long, Enemy> mEnemys = JsonUtils.getIntance().mEnemys;
         foreach (Level l in levelData) {
+            long bossId = l.boss_DI;
+            if (mEnemys.ContainsKey(bossId))
+            {
+                back = back + testEnemy(mEnemys[bossId]);
+            }
+            else
+            {
+                back = back + l.id + "关卡：" + bossId + " 怪物不存在\n";
+            }
+
             string[] wellenStr = l.wellen.Split('#');
             foreach (string str in wellenStr)
             {
@@ -44,6 +54,8 @@ public class JsonFileTestUtils
                     back = back + l.id + "关卡：" +   wellenID + " 波次不存在\n";
                 }
             }
+
+
         }
         if (back.Equals(""))
         {
