@@ -26,7 +26,7 @@ public class SQLHelper
     public long mMaxGoodId = -1;
     public long isUpdate = -1;
     public string mPlayName =null;
-    public long mPlayVocation =-1;
+    public long mPlayVocation = -1;
     public long mVersionCode=-1;
 
 

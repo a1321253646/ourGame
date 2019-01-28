@@ -81,54 +81,7 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
         GameManager.getIntance().isLuihuiIng = false;
-        if (GameManager.getIntance().isHaveOutGet)
-        {
-            BigNumber outLineGet = new BigNumber();
-            GameManager.getIntance().isHaveOutGet = false;
-            long old2 = SQLHelper.getIntance().mOutTime;
-            Debug.Log("========old = " + old2);
-            if (old2 != -1)
-            {
-                old2 = TimeUtils.getTimeDistanceMin(old2);
-                Debug.Log("========old = " + old2);
-                BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).getOfflinereward();
-                outLineGet = getOutGetEverySecond(levelCryStal);
-                outLineGet = BigNumber.multiply(outLineGet, old2);
-                outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
-
-                if (old2 > 1)
-                {
-                    GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
-                    GameManager.getIntance().updataGasAndCrystal();
-                    SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
-                }
-
-                if (old2 > JsonUtils.getIntance().getConfigValueForId(100032))
-                {
-                    long h = old2 / 60;
-                    long min = old2 % 60;
-                    string str = "";
-                    if (h > 9)
-                    {
-                        str += h + ":";
-                    }
-                    else
-                    {
-                        str = str + "0" + h + ":";
-                    }
-                    if (min > 9)
-                    {
-                        str += min;
-                    }
-                    else
-                    {
-                        str = str + "0" + min;
-                    }
-                    BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "欢迎回来，您在离线的" + str + "里", "" + outLineGet.toStringWithUnit());
-                }
-            }
-        }
-        SQLHelper.getIntance().updateOutTime();
+      //  SQLHelper.getIntance().updateOutTime();
     }
     void Start () {
         //init();
@@ -191,62 +144,6 @@ public class LevelManager : MonoBehaviour {
         return true;
     }
 
-    private BigNumber getOutGetEverySecond(BigNumber level) {
-        Debug.Log("getOutGetEverySecond");
-        Debug.Log("GameManager.getIntance().mOutLineGet = "+ GameManager.getIntance().mOutLineGet.toStringWithUnit());
-        Debug.Log("updateIndex * Time.deltaTime = "+ updateIndex * Time.deltaTime);
-        if (SQLHelper.getIntance().mOutLineGet != null)
-        {
-            Debug.Log("SQLHelper.getIntance().mOutLineGet  = " + SQLHelper.getIntance().mOutLineGet.toStringWithUnit());
-        }
-        else {
-            Debug.Log("SQLHelper.getIntance().mOutLineGet  = null" );
-        }
-        BigNumber back = null;
-        if (SQLHelper.getIntance().mOutLineGet == null || SQLHelper.getIntance().mOutLineGet.isEmpty())
-        {
-
-            if (GameManager.getIntance().mOutLineGet.isEmpty() || updateIndex == 0)
-            {
-                back = level;
-            }
-            else
-            {
-                back = BigNumber.multiply(GameManager.getIntance().mOutLineGet,1f / (long)(updateIndex * Time.deltaTime));
-                back = BigNumber.multiply(back, 60);
-                back = BigNumber.multiply(back, JsonUtils.getIntance().getConfigValueForId(100048));
-            }
-            if (back.ieEquit(level) == -1) {
-                back = level;
-            }
-            SQLHelper.getIntance().updateOutLineGet(back);
-        }
-        else
-        {
-            back = SQLHelper.getIntance().mOutLineGet;
-            //Debug.Log("=============histroy back=" + back.toString());
-            if (!GameManager.getIntance().mOutLineGet.isEmpty())
-            {
-                BigNumber tmpBig = BigNumber.multiply(GameManager.getIntance().mOutLineGet, 1f / (long)(updateIndex * Time.deltaTime));
-                tmpBig = BigNumber.multiply(tmpBig,60);
-                tmpBig = BigNumber.multiply(tmpBig, JsonUtils.getIntance().getConfigValueForId(100048));
-                if (back.ieEquit(tmpBig) == -1)
-                {
-                    back = tmpBig;
-                }
-
-            }
-            if (back.ieEquit(level) == -1)
-            {
-                back = level;
-
-            }
-            SQLHelper.getIntance().updateOutLineGet(back);
-        }
-        Debug.Log("back = " + back.toStringWithUnit());
-        return back;
-    }
-
 
 	// Update is called once per frame
 	bool starBoss = false;
@@ -261,48 +158,25 @@ public class LevelManager : MonoBehaviour {
             SQLHelper.getIntance().updateOutTime();
             mOld = TimeUtils.GetTimeStamp();
         }
-        else {
+        else if(!GameManager.getIntance().isHaveOutGet)
+        {
             if (mOld != -1)
             {
+                long old = TimeUtils.GetTimeStamp() - mOld;
                 long outTime = TimeUtils.getTimeDistanceMin(mOld);
-               
-                BigNumber levelCryStal = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).getOfflinereward();
-              //  Debug.Log("=============levelCryStal=" + levelCryStal.toString());
-              //  Debug.Log("=============outTime=" + outTime);
-                BigNumber outLineGet = getOutGetEverySecond(levelCryStal);
-                outLineGet = BigNumber.multiply(outLineGet, outTime);
-                outLineGet = BigNumber.multiply(outLineGet, GameManager.getIntance().getOutlineGet());
 
-              //  Debug.Log("=============outLineGet=" + outLineGet.toString());
-              //  Debug.Log("=============GameManager.getIntance().getOutlineGet()=" + GameManager.getIntance().getOutlineGet());
+                BigNumber outGet = mFightManager.attckerOutLine(mPlayerControl, old, GameManager.getIntance().getOutlineGet());
+
                 if (outTime > 1)
                 {
-                    GameManager.getIntance().mCurrentCrystal = BigNumber.add(outLineGet, GameManager.getIntance().mCurrentCrystal);
-                    GameManager.getIntance().updateGasAndCrystal();
+                    GameManager.getIntance().mCurrentCrystal = BigNumber.add(outGet, GameManager.getIntance().mCurrentCrystal);
+                    GameManager.getIntance().updataGasAndCrystal();
                     SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
                 }
+
                 if (outTime > JsonUtils.getIntance().getConfigValueForId(100032))
                 {
-                    long h = outTime / 60;
-                    long min = outTime % 60;
-                    string str = "";
-                    if (h > 9)
-                    {
-                        str += h+":";
-                    }
-                    else
-                    {
-                        str = str+"0" + h + ":";
-                    }
-                    if (min > 9)
-                    {
-                        str += min;
-                    }
-                    else
-                    {
-                        str = str+ "0" + min;
-                    }
-                    BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "欢迎回来，您在离线的" + str + "里", "" + outLineGet.toStringWithUnit());
+                    BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "", "" + outGet.toStringWithUnit());
                 }
 
                 SQLHelper.getIntance().updateOutTime();

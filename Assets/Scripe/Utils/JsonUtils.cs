@@ -827,6 +827,10 @@ public class JsonUtils
     Dictionary<long, List<long>> mLevelWellenDate;
 
 
+    public long getLevelFirstEnemey(Level level) {
+        return mWellentList[mLevelWellenDate[level.id][0]][0].id;
+    }
+
     public List<LevelEnemyWellen> getWellenEnemy(){
         Level lv = getLevelData();
        // if (mCurrentLevelWellent == null || mCurrentLevelWellent.Count == 0) {          
