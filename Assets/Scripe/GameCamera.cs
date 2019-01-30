@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class GameCamera : MonoBehaviour
 {
 
@@ -8,14 +8,28 @@ public class GameCamera : MonoBehaviour
     public float devWidth = 10.8f;
 
     // Use this for initialization
+
+    public static float SCREEN_BILI = 0;
+
     void Start()
     {
+        GameObject left = GameObject.Find("game_test_1");
+        GameObject right = GameObject.Find("game_test_2");
+        GameObject top = GameObject.Find("game_test_3");
+        GameObject bottom = GameObject.Find("game_test_4");
+//        Text dec = GameObject.Find("game_test_tx").GetComponent<Text>();
+
+
 
         float screenHeight = this.GetComponent<Camera>().pixelHeight;
         float width = this.GetComponent<Camera>().pixelWidth;
 
-//        Debug.Log("screenHeight = " + screenHeight);
-//        Debug.Log("screenwidth = " + Screen.width);
+        float w = right.GetComponent<RectTransform>().localPosition.x - left.GetComponent<RectTransform>().localPosition.x;
+        float h = top.GetComponent<RectTransform>().localPosition.y - bottom.GetComponent<RectTransform>().localPosition.y;
+
+        float bili1 = h / w;
+        float bili2 = devWidth / devHeight;
+        SCREEN_BILI = bili2/bili1 ;
 
         //this.GetComponent<Camera>().orthographicSize = screenHeight / 200.0f;
 

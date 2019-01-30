@@ -173,24 +173,18 @@ public class GuideManager : MonoBehaviour {
         float sx = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.x;
         float sy = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.y;
 
-        Debug.Log(" sw = " + mBackScroll.GetComponent<RectTransform>().rect.width + " sh=" + mBackScroll.GetComponent<RectTransform>().rect.height);
-        Debug.Log(" x = " + mBackScroll.transform.position.x + " y=" + mBackScroll.transform.position.y);
         float x = mBackScroll.transform.position.x - (mBackScroll.GetComponent<RectTransform>().rect.width / 2) * mxBili;
-        float y = mBackScroll.transform.position.y + (mBackScroll.GetComponent<RectTransform>().rect.height / 2) * myBili;
-        Debug.Log(" x = " + x + " y=" + y);
+        float y = mBackScroll.transform.position.y + (mBackScroll.GetComponent<RectTransform>().rect.height / 2) * myBili * GameCamera.SCREEN_BILI;
+
         int heng = item / hengCount;
         int lie = item % hengCount;
-        Debug.Log(" heng = " + heng + " lie=" + lie);
-        Debug.Log(" mBackListGl.padding.left = " + mBackListGl.padding.left + " mBackListGl.cellSize.x=" + mBackListGl.cellSize.x + " mBackListGl.spacing.x=" + mBackListGl.spacing.x);
-        Debug.Log(" mBackListGl.padding.top = " + mBackListGl.padding.top + " mBackListGl.cellSize.y=" + mBackListGl.cellSize.y + " mBackListGl.spacing.y=" + mBackListGl.spacing.y);
-        Debug.Log(" heng = " + heng + " lie=" + lie);
-        x = x + (mBackListGl.padding.left + mBackListGl.cellSize.x * lie + mBackListGl.spacing.x * lie) * mxBili;
-        y = y - (mBackListGl.padding.top - mBackListGl.cellSize.y * heng - mBackListGl.spacing.y * heng) * myBili;
-        Debug.Log(" x = " + x + " y=" + y);
+
+        x = x + (mBackListGl.padding.left + mBackListGl.cellSize.x * lie + mBackListGl.spacing.x * lie) * mxBili ;
+        y = y - (mBackListGl.padding.top - mBackListGl.cellSize.y * heng - mBackListGl.spacing.y * heng) * myBili * GameCamera.SCREEN_BILI;
+
         Vector2 lu = new Vector2(x, y);
-        Vector2 rd = new Vector2(x + mBackListGl.cellSize.x * mxBili, y - mBackListGl.cellSize.y * myBili);
-        Debug.Log(" lu x = " + lu.x + " lu y=" + lu.y);
-        Debug.Log(" rd x = " + rd.x + " rd y=" + rd.y);
+        Vector2 rd = new Vector2(x + mBackListGl.cellSize.x * mxBili, y - mBackListGl.cellSize.y * myBili * GameCamera.SCREEN_BILI);
+
         showGuide(ob, lu, rd);
     }
     /*public void ShowGuideHorizontalLayoutGroupInScroll(GameObject ob, ScrollRect mBackScroll, HorizontalLayoutGroup mBackListGl,int item) {
@@ -247,8 +241,8 @@ public class GuideManager : MonoBehaviour {
     public void ShowGuideNormalObject(GameObject ob)
     {
         Transform tf = ob.transform;
-        float w = ob.GetComponent<RectTransform>().rect.width * ob.transform.localScale.x * myBili;
-        float h = ob.GetComponent<RectTransform>().rect.height * ob.transform.localScale.y * myBili;
+        float w = ob.GetComponent<RectTransform>().rect.width * ob.transform.localScale.x * myBili * GameCamera.SCREEN_BILI;
+        float h = ob.GetComponent<RectTransform>().rect.height * ob.transform.localScale.y * myBili * GameCamera.SCREEN_BILI;
 //        Debug.Log(" x = " + tf.position.x + " y=" + tf.position.y);
 //        Debug.Log(" w = " + w + " y=" + h);
         Vector2 lu = new Vector2(ob.transform.position.x - w / 2, ob.transform.position.y + h / 2);
@@ -298,6 +292,13 @@ public class GuideManager : MonoBehaviour {
     }
     private Vector2 mLefUp, mRightBottom;
     public void showGuide(Vector2 lefUp, Vector2 rightBottom) {
+
+      //  float w = (rightBottom.x - lefUp.x)/2 * GameCamera.SCREEN_BILI;
+      //  float h = (lefUp.y - rightBottom.y)/2 * GameCamera.SCREEN_BILI;
+      //  Vector2 mid = new Vector2((lefUp.x + rightBottom.x) / 2, (lefUp.y + rightBottom.y) / 2);
+      //  lefUp = new Vector2(mid.x - w, mid.y + h);
+      //  rightBottom = new Vector2(mid.x + w, mid.y - h);
+
         float top = lefUp.y;
         float bot = rightBottom.y;
         float rig = rightBottom.x;
@@ -346,8 +347,8 @@ public class GuideManager : MonoBehaviour {
         }
         float vX = 0;
         float vY = 0;
-        float w = mDec.GetComponent<RectTransform>().rect.width *mxBili;
-        float h = mDec.GetComponent<RectTransform>().rect.height * myBili;
+        float w = mDec.GetComponent<RectTransform>().rect.width *mxBili /**GameCamera.SCREEN_BILI*/;
+        float h = mDec.GetComponent<RectTransform>().rect.height * myBili * GameCamera.SCREEN_BILI;
         if (decX == 1)
         {
             vX = tX + w / 2;
