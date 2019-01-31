@@ -49,7 +49,14 @@ public class GameManager
     public static bool isAndroid = true;
     public static bool isAdd = false;
     public static bool isTest = false;
+
+
     public static long mVersionCode = 25;
+    public static long mAPKVersionCode = 28;
+    public  long mNewAPKVersionCode = -1;
+    public  long mIsMust = -1;//1为必须，0为提醒
+    public string mUpdateStr = null;
+    public bool isHaveNoteUpdate = false;
 
 
     public  bool mAllSaleGreed = false;

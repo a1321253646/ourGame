@@ -66,6 +66,7 @@ public class NetServer
                 JObject jb = JObject.Parse(www.text);
                 int status = jb.Value<int>("status");
                 long getTime = jb.Value<long>("time");
+                GameManager.getIntance().mNewAPKVersionCode = jb.Value<long>("version");
                 setGetTime(getTime);
                 if (status == 0) {
                     SQLNetManager.getIntance().updateDate(true);
@@ -129,6 +130,7 @@ public class NetServer
                 JObject jb2 = JObject.Parse(www.text);
                 int status = jb2.Value<int>("status");
                 long getTime = jb2.Value<long>("time");
+                GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
                 setGetTime(getTime);
                 if (status == 0)
                 {
@@ -153,6 +155,60 @@ public class NetServer
         Thread th1 = new Thread(getRankingList);
         th1.Start();
     }
+
+    public void getUpdateInfoRun() {
+        GameManager.getIntance().isHaveNoteUpdate = true;
+        Debug.Log("NetServer  getRanking");
+        Thread th1 = new Thread(getUpdateInfo);
+        th1.Start();
+    }
+
+    private void getUpdateInfo() {
+        JObject json = new JObject();
+        json.Add("user", SystemInfo.deviceUniqueIdentifier);
+        JArray array = new JArray();
+        JObject jb = new JObject();
+        jb.Add("action", 7);
+        jb.Add("type", -1);
+        jb.Add("id", -1);
+        jb.Add("goodId", -1);
+        jb.Add("goodtype", -1);
+        jb.Add("isclean", -1);
+        jb.Add("extra", "-1");
+        array.Add(jb);
+        json.Add("date", array);
+        Dictionary<string, string> dir = new Dictionary<string, string>();
+        dir.Add("Content-Type", "application/json");
+        //   dir.Add("Connection", "close");
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
+
+        WWW www = new WWW(URL_ROOT + "/ourgame", pData, dir);
+        while (!www.isDone)
+        {
+            Thread.Sleep(100);
+        }
+        if (www.error == null)
+        {
+            Debug.Log("Upload complete! www.text =" + www.text);
+
+            if (www.text != null && www.text.Length > 0)
+            {
+                JObject jb2 = JObject.Parse(www.text);
+                int status = jb2.Value<int>("status");
+                long getTime = jb2.Value<long>("time");
+                GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
+                GameManager.getIntance().mIsMust = jb2.Value<long>("ismust");
+                GameManager.getIntance().mUpdateStr = jb2.Value<string>("date");
+            }
+        }
+        else
+        {
+            Debug.Log("Http错误代码:" + www.error);
+            GameManager.getIntance().isHaveNoteUpdate = false;
+        }
+    }
+
+
 
     private void getRankingList()
     {
@@ -188,6 +244,7 @@ public class NetServer
                 JObject jb2 = JObject.Parse(www.text);
                 int status = jb2.Value<int>("status");
                 long getTime = jb2.Value<long>("time");
+                GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
                 setGetTime(getTime);
                 if (status == 0)
                 {

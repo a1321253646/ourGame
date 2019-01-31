@@ -231,6 +231,15 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("检测到您本地时间出现异常，已还原回服务器最新记录，请将时间修改为当前时间重新开始游戏", LuiHuiTips.TYPPE_ERROR_DATE);
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
         }
+        if (!GameManager.getIntance().isHaveNoteUpdate && GameManager.mAPKVersionCode < GameManager.getIntance().mNewAPKVersionCode) {
+            NetServer.getIntance().getUpdateInfoRun();
+        }
+        if (GameManager.getIntance().isHaveNoteUpdate && GameManager.getIntance().mUpdateStr != null) {
+            string dec = GameManager.getIntance().mUpdateStr;
+            GameManager.getIntance().mUpdateStr = null;
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi(dec,LuiHuiTips.TYPPE_UPDATE);
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+        }
 
     }
 	public BackgroundManager getBackManager(){

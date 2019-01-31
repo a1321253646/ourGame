@@ -17,6 +17,7 @@ public class LuiHuiTips : UiControlBase
     public static int TYPPE_VOCATION = 6;
    // public static int TYPPE_SELF = 7;
     public static int TYPPE_LUIHUI_NEED = 8;
+    public static int TYPPE_UPDATE = 9;
 
     Text mDes;
     Text mButtonDec,mLeftDec,mRightDec;
@@ -116,6 +117,24 @@ public class LuiHuiTips : UiControlBase
             mLeftDec.text = "不需要";
             mRightDec.text = "需要";
         }
+        else if (type == TYPPE_UPDATE)
+        {
+            if (GameManager.getIntance().mIsMust == 1)
+            {
+                mSure.transform.localScale = new Vector2(1, 1);
+                buttonList.transform.localScale = new Vector2(0, 0);
+                mButtonDec.text = "升级";
+                Time.timeScale = 0;
+            }
+            else {
+                mSure.transform.localScale = new Vector2(0, 0);
+                buttonList.transform.localScale = new Vector2(1, 1);
+                mLeftDec.text = "暂不升级";
+                mRightDec.text = "升级";
+                Time.timeScale = 0;
+            }
+
+        }
     }
     VocationDecBean mVocationBean = null;
     public void showUi(long  vocation)
@@ -196,8 +215,12 @@ public class LuiHuiTips : UiControlBase
             {
                 isUpdate(false);
             }
-            else if (mType == TYPPE_VOCATION) {
+            else if (mType == TYPPE_VOCATION)
+            {
                 vocation();
+            }
+            else if (mType == TYPPE_UPDATE) {
+                Time.timeScale = 1;
             }
             if (isShowSelf)
             {
@@ -210,9 +233,13 @@ public class LuiHuiTips : UiControlBase
         });
         mRight.onClick.AddListener(() =>
         {
-            if (mType == TYPPE_UPDATE_LINE )
+            if (mType == TYPPE_UPDATE_LINE)
             {
                 isUpdate(true);
+            }
+            else if (mType == TYPPE_UPDATE) {
+                showUpdate();
+                Time.timeScale = 1;
             }
             if (isShowSelf)
             {
@@ -248,6 +275,10 @@ public class LuiHuiTips : UiControlBase
             {
                 Application.Quit();
             }
+            else if (mType == TYPPE_UPDATE)
+            {
+                showUpdate();
+            }
 
         });
         mClose.onClick.AddListener(() =>
@@ -267,15 +298,28 @@ public class LuiHuiTips : UiControlBase
             else if (mType == TYPPE_LUIHUI_NEED)
             {
                 Time.timeScale = 1;
-                
+
                 sure(mLuiHui);
                 SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
+            }
+            else if (mType == TYPPE_UPDATE && GameManager.getIntance().mIsMust == 1)
+            {
+                Application.Quit();
+            } else if (mType == TYPPE_UPDATE) {
+                Time.timeScale = 1;
             }
             else
             {
                 toremoveUi();
             }
         });
+    }
+
+    private void showUpdate() {
+        AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+        string[] mObject = new string[1];
+        jo.Call<string>("showTaptap", mObject);
     }
     private void vocation() {
         SQLHelper.getIntance().updateVocation(mVocationBean.id);
