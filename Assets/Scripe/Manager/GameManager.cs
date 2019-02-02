@@ -52,7 +52,7 @@ public class GameManager
 
 
     public static long mVersionCode = 25;
-    public static long mAPKVersionCode = 28;
+    public static long mAPKVersionCode = 29;
     public  long mNewAPKVersionCode = -1;
     public  long mIsMust = -1;//1为必须，0为提醒
     public string mUpdateStr = null;
@@ -195,6 +195,9 @@ public class GameManager
 	}
 
     private void playAd() {
+        if (!GameObject.Find("Manager").GetComponent<AdManager>().isReadyToShow()) {
+            return;
+        }
         int range = Random.Range(0, 1000);
         Debug.Log("==========================playAd range= " + range);
         long type = -1;
@@ -202,11 +205,18 @@ public class GameManager
         if (range < mMosterDealHuijingBili)
         {
             type = ActiveButtonControl.TYPE_AD_HUIJING;
-            value = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).hunjing;
+            LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
+            value = level.mFightManager.attckerOutLine(level.mPlayerControl, 10*60*1000, GameManager.getIntance().getOutlineGet()).toString();
+
         }
         else if (range < mMosterDealAllBili) {
             type = ActiveButtonControl.TYPE_AD_LUNHUI;
-            value = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).lunhui;
+            
+            value = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).
+                reincarnation;
+            BigNumber n = BigNumber.getBigNumForString(value);
+            n = BigNumber.multiply(n, 0.01f);
+            value = n.toString();
         }
         if (type != -1) {
             Debug.Log("==========================playAd type= " + type + " value=" + value);
@@ -315,7 +325,7 @@ public class GameManager
                 }
             }
             else {
-           //     playAd();
+                playAd();
             }
         }
         showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", mCurrentGas);

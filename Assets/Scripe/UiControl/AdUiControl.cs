@@ -14,17 +14,18 @@ public class AdUiControl : UiControlBase
     public void setDate(long type , string count) {
         mAdType = type;
         mCount = BigNumber.getBigNumForString(count);
-        string str = mDec.text;
+        string str = "观看影片，即可免费获得S1S2";
         str=str.Replace("S1", mCount.toStringWithUnit());
         if (mAdType == ActiveButtonControl.TYPE_AD_LUNHUI)
         {
-            str =str.Replace("S2", "魂晶");
-            mImg.sprite = Resources.Load("UI_yellow/guanggao/03", typeof(Sprite)) as Sprite;
+            str =str.Replace("S2", "轮回点");
+            mImg.sprite = Resources.Load("UI_yellow/guanggao/04", typeof(Sprite)) as Sprite;
         }
         else
         {
-            str=str.Replace("S2", "轮回点");
-            mImg.sprite = Resources.Load("UI_yellow/guanggao/04", typeof(Sprite)) as Sprite;
+            str=str.Replace("S2", "魂晶");
+            mImg.sprite = Resources.Load("UI_yellow/guanggao/03", typeof(Sprite)) as Sprite;
+            
         }
         mDec.text = str;
 
@@ -43,8 +44,8 @@ public class AdUiControl : UiControlBase
             toremoveUi();
         });
         mSelect.onClick.AddListener(() => {
-           // GameObject.Find("Manager").GetComponent<AdPlayManager>().ShowRewardedAd();
-            toremoveUi();
+            GameObject.Find("Manager").GetComponent<AdManager>().playAd();
+           // toremoveUi();
         });
     }
 
@@ -54,21 +55,23 @@ public class AdUiControl : UiControlBase
     }
 
     public void playIsFinish(bool finish) {
-        if (finish) {
+        if (finish)
+        {
             if (mAdType == ActiveButtonControl.TYPE_AD_LUNHUI)
+            {
+                GameManager.getIntance().mReincarnation = BigNumber.add(GameManager.getIntance().mReincarnation, mCount);
+                SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
+                GameObject.Find("lunhui").GetComponent<SamsaraManage>().updateLunhuiValue();
+
+            }
+            else
             {
                 GameManager.getIntance().mCurrentCrystal = BigNumber.add(GameManager.getIntance().mCurrentCrystal, mCount);
                 SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
                 GameManager.getIntance().updataGasAndCrystal();
             }
-            else
-            {
-                GameManager.getIntance().mReincarnation = BigNumber.add(GameManager.getIntance().mReincarnation, mCount);
-                SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
-                GameObject.Find("lunhui").GetComponent<SamsaraManage>().updateLunhuiValue();
-            }
-
-
+            GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeAd();
         }
+        toremoveUi();
     }
 }

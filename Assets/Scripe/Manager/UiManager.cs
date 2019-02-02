@@ -154,7 +154,11 @@ public class UiManager
             }
             else if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_AD)
             {
-            //    mActiveListControl.showAd(list[i].adType, list[i].count, false);
+                if (!GameObject.Find("Manager").GetComponent<AdManager>().isReadyToShow())
+                {
+                    return;
+                }
+                mActiveListControl.showAd(list[i].adType, list[i].count, false);
             }
         }
         

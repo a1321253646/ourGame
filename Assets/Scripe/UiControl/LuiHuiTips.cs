@@ -124,6 +124,7 @@ public class LuiHuiTips : UiControlBase
                 mSure.transform.localScale = new Vector2(1, 1);
                 buttonList.transform.localScale = new Vector2(0, 0);
                 mButtonDec.text = "升级";
+                mTimeScale = Time.timeScale;
                 Time.timeScale = 0;
             }
             else {
@@ -131,6 +132,7 @@ public class LuiHuiTips : UiControlBase
                 buttonList.transform.localScale = new Vector2(1, 1);
                 mLeftDec.text = "暂不升级";
                 mRightDec.text = "升级";
+                mTimeScale = Time.timeScale;
                 Time.timeScale = 0;
             }
 
@@ -194,7 +196,7 @@ public class LuiHuiTips : UiControlBase
     }
 
     // Update is called once per frame
-
+    float mTimeScale = 1;
     public override void init()
     {
         mControlType = UiControlManager.TYPE_LUIHUI;
@@ -220,7 +222,7 @@ public class LuiHuiTips : UiControlBase
                 vocation();
             }
             else if (mType == TYPPE_UPDATE) {
-                Time.timeScale = 1;
+                Time.timeScale = mTimeScale;
             }
             if (isShowSelf)
             {
@@ -238,8 +240,9 @@ public class LuiHuiTips : UiControlBase
                 isUpdate(true);
             }
             else if (mType == TYPPE_UPDATE) {
+                
                 showUpdate();
-                Time.timeScale = 1;
+                Time.timeScale = mTimeScale;
             }
             if (isShowSelf)
             {
@@ -277,6 +280,7 @@ public class LuiHuiTips : UiControlBase
             }
             else if (mType == TYPPE_UPDATE)
             {
+                mTimeScale = Time.timeScale;
                 showUpdate();
             }
 
@@ -294,6 +298,14 @@ public class LuiHuiTips : UiControlBase
             else if (isShowSelf)
             {
                 transform.localPosition = mFri;
+                if (mType == TYPPE_UPDATE && GameManager.getIntance().mIsMust == 1)
+                {
+                    Application.Quit();
+                }
+                else if (mType == TYPPE_UPDATE)
+                {
+                    Time.timeScale = mTimeScale;
+                }
             }
             else if (mType == TYPPE_LUIHUI_NEED)
             {
@@ -306,7 +318,7 @@ public class LuiHuiTips : UiControlBase
             {
                 Application.Quit();
             } else if (mType == TYPPE_UPDATE) {
-                Time.timeScale = 1;
+                Time.timeScale = mTimeScale;
             }
             else
             {
@@ -314,6 +326,7 @@ public class LuiHuiTips : UiControlBase
             }
         });
     }
+
 
     private void showUpdate() {
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");

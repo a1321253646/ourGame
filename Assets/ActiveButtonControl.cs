@@ -31,20 +31,22 @@ public class ActiveButtonControl : MonoBehaviour {
     }
 
     public bool init(long type,long adId , string count,bool isAddSql) {
-        if( type == mBean.buttonType) {
-            if((mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION && adId == mBean.buttonType) || (mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION)){
-                return true;
-            }           
-        }
 
-        if (type == mBean.buttonType && mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION && (adId != mBean.adType || count != mBean.count))
-        {
-            mBean.adType = adId;
-            mBean.count = count;
-            if (isAddSql) {
-                updateSql(UPDATE_SHOW_UPDATE);
-            }          
+        if( type == mBean.buttonType) {
             return true;
+ /*           if (mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION)
+            {
+                return true;
+            }
+            else {
+                mBean.adType = adId;
+                mBean.count = count;
+                if (isAddSql)
+                {
+                    updateSql(UPDATE_SHOW_UPDATE);
+                }
+                return true;
+            }       */    
         }
         if (mBean.buttonType != -1) {
             return false;
@@ -54,7 +56,6 @@ public class ActiveButtonControl : MonoBehaviour {
         mBean.count = count;
         mBean.buttonType = type;
         show(isAddSql);
-
         return true;
     }
     private void show(bool isAddSql) {
@@ -93,15 +94,24 @@ public class ActiveButtonControl : MonoBehaviour {
         }       
     }
 
-    public bool removeShow(long type) {
-        if (type != mBean.buttonType) {
+    public bool removeShow(long type, bool isAddSql)
+    {
+        if (type != mBean.buttonType)
+        {
             return false;
         }
-        updateSql(UPDATE_SHOW_REMOVE);
+        if (isAddSql) {
+            updateSql(UPDATE_SHOW_REMOVE);
+        }        
         mBean.buttonType = -1;
         transform.localScale = new Vector2(0, 0);
-        
+
         return true;
+    }
+
+    public bool removeShow(long type) {
+        
+        return removeShow(type,true);
     }
 
     private void updateSql(long type) {

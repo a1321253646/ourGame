@@ -28,17 +28,34 @@ public class ActiveListControl : MonoBehaviour {
     public void removeAd()
     {
         int i = 0;
-        while (i < mButtonList.Length && mButtonList[i].removeShow(ActiveButtonControl.ACTIVE_BUTTON_TYPE_AD))
+        while (i < mButtonList.Length && !mButtonList[i].removeShow(ActiveButtonControl.ACTIVE_BUTTON_TYPE_AD))
         {
             i++;
+        }
+        if (i < mButtonList.Length)
+        {
+            updateIcon(i);
         }
     }
     public void removeVocation()
     {
         int i = 0;
-        while (i < mButtonList.Length && mButtonList[i].removeShow(ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION))
+        while (i < mButtonList.Length && !mButtonList[i].removeShow(ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION))
         {
             i++;
+        }
+        if (i < mButtonList.Length) {
+            updateIcon(i);
+        }
+    }
+
+    private void updateIcon(int index) {
+        int i = index +1;
+        if (i < mButtonList.Length) {
+            ActiveButtonBean bean = mButtonList[i].mBean;
+            mButtonList[index].init(bean.buttonType, bean.adType, bean.count, false);
+            mButtonList[i].removeShow(bean.buttonType,false);
+            updateIcon(i);
         }
     }
 

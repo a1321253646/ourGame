@@ -1,25 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.jackzheng.ourGame" xmlns:tools="http://schemas.android.com/tools" android:versionName="v0.28" android:versionCode="28" android:installLocation="preferExternal">
-  <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" android:anyDensity="true" />
-  <application android:theme="@style/UnityThemeSelector" android:icon="@drawable/app_icon" android:label="@string/app_name" android:isGame="true" android:banner="@drawable/app_banner">
-    <activity android:name="com.jackzheng.ourgame.demonadshowlib.MainActivity" android:label="@string/app_name" android:screenOrientation="sensorLandscape" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-        <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
-      </intent-filter>
-      <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
-    </activity>
-    <meta-data android:name="unity.build-id" android:value="3669a20f-b456-4afa-8d7d-cd9afa1bdfe8" />
-    <meta-data android:name="unity.splash-mode" android:value="0" />
-    <meta-data android:name="unity.splash-enable" android:value="True" />
-    <meta-data android:name="android.max_aspect" android:value="2.1" />
-  </application>
-  <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="22" />
-  <uses-feature android:glEsVersion="0x00020000" />
-  <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
-  <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false" />
-  <uses-feature android:name="android.hardware.touchscreen.multitouch.distinct" android:required="false" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.soulgame.sgsdk.tgsdklib">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.GET_TASKS" />
+<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
+
+    <application
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:hardwareAccelerated="true">
+
+        <activity android:name="com.jackzheng.ourgame.demonadshowlib.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+        </activity>
+
+
+
+        
+
+        
+
+        
+        <provider
+            android:name="com.shenqi.sdk.SQFileProvider"
+            android:authorities="${applicationId}.android7.fileprovider"
+            tools:replace="android:authorities">
+        </provider>
+
+        <provider
+            android:name="com.soulgame.sgsdk.adsdk.TGSDKADSigmobFileProvider"
+            android:authorities="${applicationId}.sigprovider"
+            tools:replace="android:authorities">
+        </provider>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            tools:replace="android:authorities">
+         </provider>
+
+
+        <provider
+            android:name="com.baidu.mobads.openad.FileProvider"
+            android:authorities="${applicationId}.bd.provider"
+            tools:replace="android:authorities">
+         </provider>
+
+
+        <provider
+            android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+            android:authorities="${applicationId}.mtgFileProvider"
+            tools:replace="android:authorities">
+         </provider>
+
+
+        <provider
+            android:name="com.uniplay.adsdk.UniPlayFileProvider"
+            android:authorities="${applicationId}.uniplay.fileprovider"
+            tools:replace="android:authorities">
+        </provider>
+
+        <provider
+            android:name="com.soulgame.sgsdk.adsdk.TGSDKADVungleFileProvider"
+            android:authorities="${applicationId}.vungle.apkprovider"
+            tools:replace="android:authorities">
+        </provider>
+
+        <provider
+            android:name="com.yomob.yomobads.ad.YomobFileProvider"
+            android:authorities="${applicationId}.yomob.fileprovider"            
+            tools:replace="android:authorities">
+        </provider>
+
+
+     <provider
+        android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
+        android:authorities="${applicationId}.TTFileProvider"
+        tools:replace="android:authorities">
+    </provider>
+
+
+        <provider
+            android:name="mobi.oneway.sdk.common.OWProvider"
+            android:authorities="${applicationId}.provider"
+            tools:replace="android:authorities">
+        </provider>
+        <provider
+            android:name="com.liulishuo.okdownload.OkDownloadProvider"
+            android:authorities="${applicationId}.com.liulishuo.okdownload"
+            tools:replace="android:authorities">
+        </provider>
+
+
+    </application>
 </manifest>
