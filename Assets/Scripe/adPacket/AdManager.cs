@@ -8,7 +8,7 @@ public class AdManager : MonoBehaviour
 
     // Use this for initialization
     private float timeScale = 0;
-    private bool isFristLoading = true;
+  //  private bool isFristLoading = true;
     
     void Start()
     {
@@ -19,7 +19,7 @@ public class AdManager : MonoBehaviour
         // 广告配置数据获取成功
         TGSDK.PreloadAdSuccessCallback = (string ret) => {
             Debug.Log("============ 广告配置数据获取成功  ====================");
-            if (isFristLoading) {
+           /* if (isFristLoading) {
                 isFristLoading = false;
                 List<ActiveButtonBean> list =  SQLHelper.getIntance().getActiveList();
                 if (list != null && list.Count > 0) {
@@ -29,7 +29,7 @@ public class AdManager : MonoBehaviour
                         }
                     }
                 }
-            }
+            }*/
         };
         // 广告配置数据获取失败
         TGSDK.PreloadAdFailedCallback = (string error) => {

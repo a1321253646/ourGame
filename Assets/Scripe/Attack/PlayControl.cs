@@ -74,15 +74,17 @@ public class PlayControl : Attacker
     }
 
     private void getOutLine() {
+        Debug.Log("============ 大年30修bug  ====================getOutLine（）GameManager.getIntance().isHaveOutGet="+ GameManager.getIntance().isHaveOutGet);
         if (GameManager.getIntance().isHaveOutGet)
         {
             GameManager.getIntance().isHaveOutGet = false;
             long old2 = SQLHelper.getIntance().mOutTime;
+            Debug.Log("============ 大年30修bug  ====================getOutLine（）old2=" + old2);
             if (old2 != -1)
             {
                 long old = TimeUtils.GetTimeStamp() - old2;
                 old2 = TimeUtils.getTimeDistanceMin(old2);
-                
+                Debug.Log("============ 大年30修bug  ====================离线时间 old2=" + old2);
                 BigNumber outGet = mFightManager.attckerOutLine(this, old, GameManager.getIntance().getOutlineGet());
 
                 if (old2 > 1)
@@ -97,6 +99,8 @@ public class PlayControl : Attacker
                     BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "", "" + outGet.toStringWithUnit());
                 }
             }
+            Debug.Log("============ 大年30修bug  ==================== updateOutTime getOutLine");
+
             SQLHelper.getIntance().updateOutTime();
         }
     }
@@ -554,6 +558,7 @@ public class PlayControl : Attacker
                 mLocalBean = new LocalBean(transform.position.x, transform.position.y, mAttackLeng, true, this);
                 mFightManager.registerAttacker(this);
                 mLevelManager.creatEnemyFactory(transform.position.x, transform.position.y+resourceData.idel_y);
+                getOutLine();
             }
         }
         else if (getStatus() != mFightManager.mHeroStatus && getStatus() != Attacker.PLAY_STATUS_STANDY)

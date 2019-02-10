@@ -29,6 +29,43 @@ public class ActiveButtonControl : MonoBehaviour {
     {
         mControl = GameObject.Find("active_button_list").GetComponent<ActiveListControl>();
     }
+    private float mTime = -1;
+    private float mShowTime = -1;
+    public void setShowTime(float time) {
+        mTime = time;
+    }
+
+    public void startShowTime() {
+        mTime = 0;
+        AdIntance.getIntance().setTime(mTime);
+    }
+    public void removeShowTime()
+    {
+        mTime = -1;
+        AdIntance.getIntance().setTime(mTime);
+        AdIntance.getIntance().setType(-1);
+    }
+
+    private void Update()
+    {
+
+        if (mTime == -1) {
+            return;
+        }
+        if (mShowTime == -1)
+        {
+            mShowTime = JsonUtils.getIntance().getConfigValueForId(100050) * 60;
+        }
+      //  Debug.Log("==================ActiveButtonControl Update  mTime=  " + mTime + " mShowTime=" + mShowTime);
+        mTime += Time.deltaTime;
+
+        
+        AdIntance.getIntance().setTime(mTime);
+
+        if (mTime > mShowTime) {
+            GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeAd();
+        }
+    }
 
     public bool init(long type,long adId , string count,bool isAddSql) {
 
@@ -51,7 +88,11 @@ public class ActiveButtonControl : MonoBehaviour {
         if (mBean.buttonType != -1) {
             return false;
         }
-
+        float time = AdIntance.getIntance().getTime();
+        if (time == -1) {
+            time = 0;
+        }
+        mTime = time;
         mBean.adType = adId;
         mBean.count = count;
         mBean.buttonType = type;
@@ -71,6 +112,7 @@ public class ActiveButtonControl : MonoBehaviour {
         if (mBean.buttonType == ACTIVE_BUTTON_TYPE_AD)
         {
             mImage.sprite = Resources.Load("UI_yellow/guanggao/02", typeof(Sprite)) as Sprite;
+            AdIntance.getIntance().setType(mBean.adType);
         }
         else if (mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION)
         {            
@@ -115,7 +157,7 @@ public class ActiveButtonControl : MonoBehaviour {
     }
 
     private void updateSql(long type) {
-        if (type == UPDATE_SHOW_SHOW)
+     /*   if (type == UPDATE_SHOW_SHOW)
         {
             SQLHelper.getIntance().addActiveButton(mBean);
         }
@@ -124,6 +166,6 @@ public class ActiveButtonControl : MonoBehaviour {
         }
         else  if(type == UPDATE_SHOW_REMOVE) {
             SQLHelper.getIntance().deleteActiveButton(mBean);
-        }
+        }*/
     }
 }

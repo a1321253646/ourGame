@@ -51,8 +51,31 @@ public class GameCamera : MonoBehaviour
     }
 
     // Update is called once per frame
+    bool isFristEsc = false;
+    float mEscTime = 0;
     void Update()
     {
-
+   //     Debug.Log("new isFristEsc = " + isFristEsc+ "  mEscTime="+ mEscTime);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            
+            if (isFristEsc && mEscTime < 2)
+            {
+                Application.Quit();
+                return;
+            }
+            //else if (!isFristEsc)
+            //{
+                isFristEsc = true;
+                mEscTime = 0;
+            //}
+        }
+        else if (isFristEsc) {
+            mEscTime+=Time.deltaTime;
+            if (mEscTime >= 2) {
+                isFristEsc = false;
+                mEscTime = 0;
+            }
+        }
     }
 }

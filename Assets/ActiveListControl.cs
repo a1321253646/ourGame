@@ -11,12 +11,19 @@ public class ActiveListControl : MonoBehaviour {
         mButtonList = GetComponentsInChildren<ActiveButtonControl>();
     }
 
-    public void showAd(long adId, string count, bool isAddSql) {
+    public void showAd(long adId, string count, bool isAddSql)
+    {
+        showAd(adId, count, isAddSql, false);
+
+    }
+
+    public void showAd(long adId, string count, bool isAddSql,bool isNewTime) {
         int i = 0;
         while (i < mButtonList.Length && !mButtonList[i].init(ActiveButtonControl.ACTIVE_BUTTON_TYPE_AD, adId, count, isAddSql))
         {
             i++;
         }
+                
     }
     public void showVocation(bool isAddSql) {
      //   Debug.Log("=================================showVocation");
@@ -34,6 +41,7 @@ public class ActiveListControl : MonoBehaviour {
         }
         if (i < mButtonList.Length)
         {
+            mButtonList[i].removeShowTime();
             updateIcon(i);
         }
     }

@@ -81,8 +81,29 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
         GameManager.getIntance().isLuihuiIng = false;
-      //  SQLHelper.getIntance().updateOutTime();
+        //  SQLHelper.getIntance().updateOutTime();
+
+        if (AdIntance.getIntance().getType() != -1) {
+            long type = AdIntance.getIntance().getType();
+            string value = "";
+            if (type == ActiveButtonControl.TYPE_AD_LUNHUI)
+            {
+                value = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).
+                    lunhui;
+                BigNumber bigValue = BigNumber.getBigNumForString(value);
+                bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
+                value = bigValue.toString();
+            }
+            else {
+                LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
+                long time = (long)JsonUtils.getIntance().getConfigValueForId(100049);
+                value = level.mFightManager.attckerOutLine(level.mPlayerControl, time * 60 * 1000, GameManager.getIntance().getOutlineGet()).toString();
+            }
+            GameObject.Find("active_button_list").GetComponent<ActiveListControl>().showAd(type, value, true);
+
+        }
     }
+
     void Start () {
         //init();
     }
@@ -152,7 +173,12 @@ public class LevelManager : MonoBehaviour {
     private long mOld = -1;
     private void OnApplicationPause(bool pause)
     {
-//        Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++pause = "+ pause + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        if (GameManager.getIntance().isHaveOutGet) {
+            return;
+        }
+
+        Debug.Log("============ 大年30修bug  ====================OnApplicationPause pause = " + pause + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+ //       Debug.Log("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++pause = "+ pause + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         if (pause)
         {
             SQLHelper.getIntance().updateOutTime();
@@ -178,6 +204,7 @@ public class LevelManager : MonoBehaviour {
                 {
                     BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "", "" + outGet.toStringWithUnit());
                 }
+                Debug.Log("============ 大年30修bug  ====================OnApplicationPause 返回屏幕 " );
 
                 SQLHelper.getIntance().updateOutTime();
             }
@@ -194,6 +221,7 @@ public class LevelManager : MonoBehaviour {
         updateIndex++;
         mTime += Time.deltaTime;
         if (mTime > 60000) {
+            Debug.Log("============ 大年30修bug  ====================mTime > 60000  ");
             mTime = mTime - 60000;
             SQLHelper.getIntance().updateOutTime();
         }

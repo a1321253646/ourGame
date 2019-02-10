@@ -52,7 +52,7 @@ public class GameManager
 
 
     public static long mVersionCode = 25;
-    public static long mAPKVersionCode = 29;
+    public static long mAPKVersionCode = 31;
     public  long mNewAPKVersionCode = -1;
     public  long mIsMust = -1;//1为必须，0为提醒
     public string mUpdateStr = null;
@@ -206,22 +206,24 @@ public class GameManager
         {
             type = ActiveButtonControl.TYPE_AD_HUIJING;
             LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
-            value = level.mFightManager.attckerOutLine(level.mPlayerControl, 10*60*1000, GameManager.getIntance().getOutlineGet()).toString();
+            long time =(long) JsonUtils.getIntance().getConfigValueForId(100049);
+            value = level.mFightManager.attckerOutLine(level.mPlayerControl, time * 60*1000, GameManager.getIntance().getOutlineGet()).toString();
 
         }
         else if (range < mMosterDealAllBili) {
             type = ActiveButtonControl.TYPE_AD_LUNHUI;
             
             value = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).
-                reincarnation;
-            BigNumber n = BigNumber.getBigNumForString(value);
-            n = BigNumber.multiply(n, 0.01f);
-            value = n.toString();
+                lunhui;
+            BigNumber bigValue = BigNumber.getBigNumForString(value);
+            bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
+            value = bigValue.toString();
         }
         if (type != -1) {
             Debug.Log("==========================playAd type= " + type + " value=" + value);
             GameObject.Find("active_button_list").GetComponent<ActiveListControl>().showAd(type, value,true);
         }
+
     }
 
 	public void setBlood(double blood,double max){
