@@ -46,7 +46,7 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = true;
+    public static bool isAndroid = false;
     public static bool isAdd = false;
     public static bool isTest = false;
 

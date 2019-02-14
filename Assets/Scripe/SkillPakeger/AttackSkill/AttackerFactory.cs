@@ -11,6 +11,10 @@ public class AttackerFactory
         {
             return new AnimalAttackSkill100008();
         }
+        else if (id == 100009)
+        {
+            return new NormalAttackSkill100009();
+        }
         else if (id == 100016)
         {
             return new AnimalAttackSkill100016();

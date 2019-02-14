@@ -9,25 +9,27 @@ public class AttackSkill600004 : EventAttackSkill
     int count = 0;
     float count1 = 0;
 
-    public override void Acttacking()
+    public override void endHurt(HurtStatus hurt)
     {
-        if (count == 0) {
+        if (count == 0)
+        {
             count = (int)(mSkillJson.getSpecialParameterValue()[0] * 100);
-            count1 = mSkillJson.getSpecialParameterValue()[1]/100;
+            count1 = mSkillJson.getSpecialParameterValue()[1] / 100;
         }
-        
+
         bool isSuccess = randomResult(10000, count, false);
-        if (isSuccess) {
-            mManager.getAttacker().AddBlood((count1 * mManager.getAttacker().mAttribute.aggressivity));
+        if (isSuccess)
+        {
+            mManager.getAttacker().AddBlood((count1 * hurt.blood));
         }
     }
     public override void endSkill()
     {
-        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_ATTACKING, this);
+        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_END_EHURT, this);
     }
 
     public override void startSkill()
     {
-        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_ATTACKING, this);
+        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_END_EHURT, this);
     }
 }

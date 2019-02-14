@@ -8,7 +8,7 @@ public class CardManager : MonoBehaviour {
     public GameObject indicator;
 
     private static float CREADT_CARD_TIME = -1;
-    private static float OUT_CREADT_CARD_TIME = 0.5f;
+    private static float OUT_CREADT_CARD_TIME = 0.1f;
     private List<CardControl> mList = new List<CardControl>();
     private float mTime = 0;
     private Transform mCanvas;
@@ -127,7 +127,7 @@ public class CardManager : MonoBehaviour {
                 }
                 
             }
-            return;
+            //return;
         }
         mTime += Time.deltaTime;
         if (mMaxCardCount == 0) {

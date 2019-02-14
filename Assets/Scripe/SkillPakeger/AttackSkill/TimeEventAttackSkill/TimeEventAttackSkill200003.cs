@@ -3,12 +3,12 @@ using System.Collections;
 
 public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
 {
-    public CalculatorUtil mCalcuator;
+//    public CalculatorUtil mCalcuator;
     public SpriteRenderer mSpriteRender;
     public AnimalControlBase mAnimal;
     public override void endSkill()
     {
-        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_ATTACKING, this);
+        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_END_EHURT, this);
         mManager.mEventAttackManager.unRegisterTimeEventSkill(this);
         mStatus = SKILL_STATUS_END;
     }
@@ -27,23 +27,26 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
         mSpriteRender = null;
         mAnimal = null;
     }
+    float count1 = 0;
+    public override void endHurt( HurtStatus hurt)
+    {
+        if (count1 == 0)
+        {
+            count1 = mSkillJson.getSpecialParameterValue()[1] ;
+        }
+        mFight.AddBlood(count1 * hurt.blood);
+    }
+
     public override void startSkill()
     {
         
-        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_ATTACKING, this);
+        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_END_EHURT, this);
         mManager.mEventAttackManager.registerTimeEventSkill(this);
-        mCalcuator = new CalculatorUtil(mSkillJson.calculator, mSkillJson.effects_parameter);
-        mCalcuator.setSkill(this);
         value = mParam[0];
         Debug.Log(" TimeEventAttackSkill200003 value = " + value);
         isInit = true;
     }
 
-    public override void Acttacking()
-    {
-        double hurt = mCalcuator.getValue(mManager.getAttacker(), mFight);
-        mFight.AddBlood(hurt);
-    }
 
     public override void upDateSkill()
     {

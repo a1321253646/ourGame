@@ -61,12 +61,19 @@ public class AdManager : MonoBehaviour
         // 广告播放失败回调
         TGSDK.AdShowFailedCallback = (string scene, string name, string error) => {
             Debug.Log("============ 广告播放失败回调  ====================");
+            if (timeScale == 0) {
+                timeScale = 1;
+            }
             Time.timeScale = timeScale;
             GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeAd();
         };
         // 广告关闭回调，是否奖励则在第三个参数award中
         TGSDK.AdCloseCallback = (string scene, string name, bool award) => {
             Debug.Log("============ 广告关闭回调，是否奖励则在第三个参数award中  ===================="+ award);
+            if (timeScale == 0)
+            {
+                timeScale = 1;
+            }
             Time.timeScale = timeScale;
             GameObject.Find("advert").GetComponent<AdUiControl>().playIsFinish(award);
         };

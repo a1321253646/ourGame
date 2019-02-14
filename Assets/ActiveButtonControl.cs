@@ -157,7 +157,10 @@ public class ActiveButtonControl : MonoBehaviour {
     }
 
     private void updateSql(long type) {
-     /*   if (type == UPDATE_SHOW_SHOW)
+        if (mBean.buttonType == ACTIVE_BUTTON_TYPE_AD) {
+            return;
+        }
+        if (type == UPDATE_SHOW_SHOW)
         {
             SQLHelper.getIntance().addActiveButton(mBean);
         }
@@ -166,6 +169,6 @@ public class ActiveButtonControl : MonoBehaviour {
         }
         else  if(type == UPDATE_SHOW_REMOVE) {
             SQLHelper.getIntance().deleteActiveButton(mBean);
-        }*/
+        }
     }
 }

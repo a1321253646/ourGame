@@ -177,11 +177,16 @@ public class FightManager{
     public BigNumber attckerOutLine(Attacker hero, long time, float outGet) {
         Level l = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
         long firstId = JsonUtils.getIntance().getLevelFirstEnemey(l);
-        Debug.Log("=================attckerOutLine  firstId=" + firstId);
+       // Debug.Log("=================attckerOutLine  firstId=" + firstId);
        // JsonUtils.getIntance().getWellenEnemy();
         Enemy enemy = JsonUtils.getIntance().getEnemyById(firstId);
-        double hurt = hero.mAttribute.aggressivity * hero.mAttribute.aggressivity / (hero.mAttribute.aggressivity + enemy.monster_defense);
+        double hurt1 = hero.mAttribute.aggressivity * hero.mAttribute.aggressivity / (hero.mAttribute.aggressivity + enemy.monster_defense);
+         double hurt2 = hurt1 * 2 + hero.mAttribute.crtHurt + hero.mAttribute.readHurt;
+         hurt1 = hurt1 + hero.mAttribute.readHurt;
+         double crtBili = hero.mAttribute.crt / 10000;
+         double hurt = hurt2 * crtBili + hurt1*(1- crtBili);
         hurt = hurt * hero.mSkillManager.getHurtPre();
+        //double hurt = hurt1 * hero.mSkillManager.getHurtPre();
         int a = (int)(enemy.monster_hp / hurt);
         if (a == 0)
         {
@@ -190,27 +195,27 @@ public class FightManager{
         else if (a * hurt < enemy.monster_hp) {
             a = a + 1;
         }
-        Debug.Log("=================attckerOutLine  英雄攻击力=" + hero.mAttribute.aggressivity);
-        Debug.Log("=================attckerOutLine  多少刀杀死=" + a);
+       // Debug.Log("=================attckerOutLine  英雄攻击力=" + hero.mAttribute.aggressivity);
+       // Debug.Log("=================attckerOutLine  多少刀杀死=" + a);
         time = time / 1000;
-        Debug.Log("=================attckerOutLine  时间=" + time);
+      //  Debug.Log("=================attckerOutLine  时间=" + time);
         // float speed = JsonUtils.getIntance().getFrequencyByValue(hero.mAttribute.attackSpeed);
-        float speed = 3.2f;
-         Debug.Log("=================attckerOutLine  每秒刀=" + speed);
+        float speed = JsonUtils.getIntance().getFrequencyByValue(hero.mAttribute.attackSpeed);
+        //   Debug.Log("=================attckerOutLine  每秒刀=" + speed);
         time = (long)(speed * time);
-        Debug.Log("=================attckerOutLine 总刀数=" + time);
-        Debug.Log("=================attckerOutLine  a=" + a);
+      //  Debug.Log("=================attckerOutLine 总刀数=" + time);
+      //  Debug.Log("=================attckerOutLine  a=" + a);
         long die =(time / a);
-        Debug.Log("=================attckerOutLine  总杀死=" + die);
-        Debug.Log("=================attckerOutLine  每个=" + enemy.getDieCrystal().toString());
+      //  Debug.Log("=================attckerOutLine  总杀死=" + die);
+      //  Debug.Log("=================attckerOutLine  每个=" + enemy.getDieCrystal().toString());
         BigNumber outlineGet =  BigNumber.multiply(enemy.getDieCrystal(), die);
-        Debug.Log("=================attckerOutLine  杀怪总魂晶=" + outlineGet.toString());
+      //  Debug.Log("=================attckerOutLine  杀怪总魂晶=" + outlineGet.toString());
         outlineGet = BigNumber.multiply(outlineGet, outGet);
-        Debug.Log("=================attckerOutLine  轮回倍增=" + outGet);
-        Debug.Log("=================attckerOutLine  计算轮回后=" + outlineGet.toString());
+      //  Debug.Log("=================attckerOutLine  轮回倍增=" + outGet);
+      //  Debug.Log("=================attckerOutLine  计算轮回后=" + outlineGet.toString());
         outlineGet = BigNumber.multiply(outlineGet, JsonUtils.getIntance().getConfigValueForId(100048));
-        Debug.Log("=================attckerOutLine  离线衰减=" + JsonUtils.getIntance().getConfigValueForId(100048));
-        Debug.Log("=================attckerOutLine  计算衰减后=" + outlineGet.toString());
+      //  Debug.Log("=================attckerOutLine  离线衰减=" + JsonUtils.getIntance().getConfigValueForId(100048));
+      //  Debug.Log("=================attckerOutLine  计算衰减后=" + outlineGet.toString());
         return outlineGet;
     }
 

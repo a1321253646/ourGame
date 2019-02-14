@@ -35,7 +35,7 @@ public class PlayControl : Attacker
         if (GameManager.isAdd)
             {
             GameManager.getIntance().isAddGoodForTest = true;
-            /*  BackpackManager.getIntance().addGoods(3000001, count);
+              BackpackManager.getIntance().addGoods(3000001, count);
               BackpackManager.getIntance().addGoods(3000002, count);
               BackpackManager.getIntance().addGoods(3000003, count);
               BackpackManager.getIntance().addGoods(3000004, count);
@@ -62,7 +62,7 @@ public class PlayControl : Attacker
               BackpackManager.getIntance().addGoods(3000025, count);
               BackpackManager.getIntance().addGoods(3000026, count);
               BackpackManager.getIntance().addGoods(3000027, count);
-              BackpackManager.getIntance().addGoods(3000028, count);*/
+              BackpackManager.getIntance().addGoods(3000028, count);
             BackpackManager.getIntance().addGoods(4000001, count);
             BackpackManager.getIntance().addGoods(4000002, count);
             BackpackManager.getIntance().addGoods(4000003, count);
