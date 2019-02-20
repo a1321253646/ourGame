@@ -15,7 +15,7 @@ public class OutputLog : MonoBehaviour
 
     void Awake()
     {
-        filePath = Application.persistentDataPath + "/P1_log.txt";
+        filePath = "/storage/emulated/0/ourgame"+ TimeUtils.GetTimeStamp() + ".txt";
         if (System.IO.File.Exists(filePath))
         {
             File.Delete(filePath);

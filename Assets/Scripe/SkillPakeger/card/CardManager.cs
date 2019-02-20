@@ -144,7 +144,7 @@ public class CardManager : MonoBehaviour {
     private long mCount = 0;
     private float mOutSendCardTime = 0;
     public void addCards(long count) {
-        mCount = count;
+        mCount += count;
         mOutSendCardTime = 0;
     }
 

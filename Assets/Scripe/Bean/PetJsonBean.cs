@@ -33,7 +33,7 @@ public class PetJsonBean
                 for (int i = 0; i < affixIdList.Length; i++) {
                     PlayerAttributeBean value = new PlayerAttributeBean();
                     value.type = int.Parse(affixIdList[i]);
-                    value.value = int.Parse(affixValueList[i]);
+                    value.value = double.Parse(affixValueList[i]);
                     mAffix.Add(value);
                 }
             }

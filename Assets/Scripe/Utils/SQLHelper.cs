@@ -396,6 +396,7 @@ public class SQLHelper
                     {
                         PlayerAttributeBean att = new PlayerAttributeBean();
                         att.type = long.Parse(ss[0]);
+                        ss[1] = ss[1].Replace("E ", "E+");
                         att.value = double.Parse(ss[1]);
                         if (bean.attributeList == null)
                         {
@@ -500,8 +501,6 @@ public class SQLHelper
         date.goodType = good.goodType;
         date.getClean();
         SQLManager.getIntance().InsertDataToSQL(date);
-        
-
     }
     public void addBook(long book)
     {

@@ -52,7 +52,7 @@ public class GameManager
 
 
     public static long mVersionCode = 25;
-    public static long mAPKVersionCode = 31;
+    public static long mAPKVersionCode = 32;
     public  long mNewAPKVersionCode = -1;
     public  long mIsMust = -1;//1为必须，0为提醒
     public string mUpdateStr = null;
@@ -182,10 +182,8 @@ public class GameManager
     private long mMosterDealLunhuiBili = 0;
     private long mMosterDealAllBili = 0;
 
-    public BigNumber mOutLineGet = new BigNumber();
 
     public void initUi(){
-        mOutLineGet = new BigNumber();
         mMosterDealHuijingBili = (long)JsonUtils.getIntance().getConfigValueForId(100045);
         mMosterDealLunhuiBili = (long)JsonUtils.getIntance().getConfigValueForId(100046);
         mMosterDealAllBili = mMosterDealHuijingBili + mMosterDealLunhuiBili;
@@ -196,6 +194,7 @@ public class GameManager
 
     private void playAd() {
         if (!GameObject.Find("Manager").GetComponent<AdManager>().isReadyToShow()) {
+
             return;
         }
         int range = Random.Range(0, 1000);
@@ -207,7 +206,7 @@ public class GameManager
             type = ActiveButtonControl.TYPE_AD_HUIJING;
             LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
             long time =(long) JsonUtils.getIntance().getConfigValueForId(100049);
-            value = level.mFightManager.attckerOutLine(level.mPlayerControl, time * 60*1000, GameManager.getIntance().getOutlineGet()).toString();
+            value = level.mFightManager.attckerOutLine(level.mPlayerControl, time * 60*1000, GameManager.getIntance().getOnlineGet()).toString();
 
         }
         else if (range < mMosterDealAllBili) {
@@ -218,6 +217,7 @@ public class GameManager
             BigNumber bigValue = BigNumber.getBigNumForString(value);
             bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
             value = bigValue.toString();
+
         }
         if (type != -1) {
             Debug.Log("==========================playAd type= " + type + " value=" + value);
@@ -260,15 +260,14 @@ public class GameManager
         //Debug.Log("=============enemy.mDieCrysta=" + enemy.mDieCrysta.toString());
         //Debug.Log("=============mCurrentCrystal=" + mCurrentCrystal.toString());
         //Debug.Log("============= getOnlineGet()=" + getOnlineGet());
-        mOutLineGet = BigNumber.add(mOutLineGet, enemy.mDieCrysta);
-        Debug.Log("============= onLineGet=" + mOutLineGet.toString());
         Debug.Log("============= updateIndex=" + mLevelManage.updateIndex);
+        BigNumber dealHunjin = mLevelManage.mPlayerControl.mSkillManager.mEventAttackManager.getDieHuijing(enemy.mDieCrysta);
         if (getOnlineGet() != 1)
         {
-            mCurrentCrystal = BigNumber.add(mCurrentCrystal, BigNumber.multiply(enemy.mDieCrysta, getOnlineGet()));
+            mCurrentCrystal = BigNumber.add(mCurrentCrystal, BigNumber.multiply(dealHunjin, getOnlineGet()));
         }
         else {
-            mCurrentCrystal = BigNumber.add(mCurrentCrystal, enemy.mDieCrysta);
+            mCurrentCrystal = BigNumber.add(mCurrentCrystal, dealHunjin);
         }
        // Debug.Log("=============mCurrentCrystal=" + mCurrentCrystal.toString());
 

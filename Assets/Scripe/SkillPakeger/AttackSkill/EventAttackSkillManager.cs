@@ -343,7 +343,7 @@ public class EventAttackSkillManager
         {
             foreach (EventAttackSkill skill in singel.mList)
             {
-
+                big = skill.getDieHuijing(big);
             }
         }
         return big;

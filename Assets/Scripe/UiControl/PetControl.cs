@@ -158,9 +158,20 @@ public class PetControl : UiControlBase
                 else {
                     affixstr = affixstr + "\n";
                 }
-                float vale = (float)b.value / 100;
-                AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
-                affixstr = affixstr + a.dec + ":" + vale + "%";
+                if (b.type < 1000)
+                {
+                    string vale = StringUtils.doubleToStringShow(b.value);
+                    string dec = b.getTypeStr();
+                    affixstr = affixstr + dec + ":" + vale ;
+
+                }
+                else {
+
+                    float vale = (float)b.value / 100;
+                    AffixJsonBean a = JsonUtils.getIntance().getAffixInfoById(b.type);
+                    affixstr = affixstr + a.dec + ":" + vale + "%";
+                }
+
             }
             mAffix.text = affixstr;
 

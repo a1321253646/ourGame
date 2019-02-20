@@ -104,7 +104,10 @@ public class PetItemControl : MonoBehaviour {
 
     }
     public PetJsonBean mJson;
+
+    public PetManager.PetLocalDate mLocalDate;
     public void init(PetManager.PetLocalDate date,PetManager manager) {
+        mLocalDate = date;
         mId = date.id;
         if (mId == 4000001 || mId == 4000006 || mId == 4000007 || mId == 4000013 || mId == 4000014|| mId == 4000009) {
             isRunSelf = false;

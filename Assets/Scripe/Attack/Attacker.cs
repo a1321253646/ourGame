@@ -40,7 +40,8 @@ public abstract class Attacker : MonoBehaviour
 
     public Attribute mSkillAttribute = new Attribute();
     public Attribute mSkillAttributePre = new Attribute();
-    
+
+    public Attribute mPetAttribute = new Attribute();
 
     public Attribute mEquipAttribute = new Attribute();
     public Attribute mEquipAttributePre = new Attribute();

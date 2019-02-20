@@ -49,7 +49,7 @@ public class ActiveButtonControl : MonoBehaviour {
     private void Update()
     {
 
-        if (mTime == -1) {
+        if (mTime == -1|| mBean.buttonType != ACTIVE_BUTTON_TYPE_AD) {
             return;
         }
         if (mShowTime == -1)
@@ -89,7 +89,7 @@ public class ActiveButtonControl : MonoBehaviour {
             return false;
         }
         float time = AdIntance.getIntance().getTime();
-        if (time == -1) {
+        if (time == -1 && mBean.buttonType == ACTIVE_BUTTON_TYPE_AD) {
             time = 0;
         }
         mTime = time;

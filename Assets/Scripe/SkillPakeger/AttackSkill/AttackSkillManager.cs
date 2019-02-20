@@ -156,7 +156,7 @@ public class AttackSkillManager
 
 
 
-    public void addSkill(List<PlayerAttributeBean> list, Attacker fighter) {
+    public void addSkill(List<PlayerAttributeBean> list, Attacker fighter) {       
         creatSkillByAffix(list, fighter);
         mAttack.getAttribute();
     }
@@ -206,11 +206,20 @@ public class AttackSkillManager
         List<AttackerSkillBase> list = new List<AttackerSkillBase>();
         foreach (PlayerAttributeBean bean in affixList)
         {
-            AttackerSkillBase skill = creatSkillById(bean.type, new List<float>() { (float)bean.value }, fighter,false);
-            if (skill != null)
+            if (bean.type < 1000)
             {
-                list.Add(skill);
+                if (mAttack is PlayControl) {
+                    ((PlayControl)mAttack).addPetAttribute(bean);
+                }
             }
+            else {
+                AttackerSkillBase skill = creatSkillById(bean.type, new List<float>() { (float)bean.value }, fighter, false);
+                if (skill != null)
+                {
+                    list.Add(skill);
+                }
+            }
+
         }
         if (list.Count == 0)
         {

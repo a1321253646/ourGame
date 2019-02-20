@@ -552,7 +552,7 @@ public class SQLManager
         // ExecuteSQLCommand(commandString);
         addList(commPath);
         //   ExecuteSQLCommand(commandString);
-        mNetHelper.delectInfo(date);
+        mNetHelper.changeInto(date);
     }
 
     public void deleteIdAndType(SQLDate date)

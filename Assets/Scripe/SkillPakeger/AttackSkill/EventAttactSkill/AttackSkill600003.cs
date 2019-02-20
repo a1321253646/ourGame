@@ -4,8 +4,27 @@ using System.Collections.Generic;
 
 public class AttackSkill600003 : EventAttackSkill
 {
-    float count1 = 0;
-    public override void Acttacking()
+    int count1 = 0;
+    float count2 = 0;
+    public override BigNumber getDieHuijing(BigNumber big)
+    {
+
+        if (count1 == 0)
+        {
+            count1 =(int) mSkillJson.getSpecialParameterValue()[0] ;
+            count2 = mSkillJson.getSpecialParameterValue()[1] ;
+        }
+        Debug.Log("========================AttackSkill600003   big =" + big.toStringWithUnit());
+        bool isSuccess = randomResult(100, count1, true);
+        if (isSuccess) {
+            big = BigNumber.multiply(big, count2);
+        }
+        Debug.Log("========================AttackSkill600003  isSuccess = " + isSuccess+" big ="+ big.toStringWithUnit());
+        return big;
+    }
+
+
+ /*   public override void Acttacking()
     {
         if(count1 == 0) {
             count1 = mSkillJson.getSpecialParameterValue()[0] / 100;
@@ -48,14 +67,14 @@ public class AttackSkill600003 : EventAttackSkill
         BigNumber big = BigNumber.getBigNumForString(count);
         GameManager.getIntance().mCurrentCrystal = BigNumber.add(GameManager.getIntance().mCurrentCrystal, big);
         GameManager.getIntance().updateGasAndCrystal();
-    }
+    }*/
     public override void endSkill()
     {
-        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_ATTACKING, this);
+        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_END_DIE_HUIJING, this);
     }
 
     public override void startSkill()
     {
-        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_ATTACKING, this);
+        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_END_DIE_HUIJING, this);
     }
 }

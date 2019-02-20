@@ -77,6 +77,7 @@ public class PetManager : MonoBehaviour {
         mPetCount--;
         mHero.mSkillManager.removeSkill(mControlList[id].gameObject.GetComponent<PetItemControl>().mJson);
         Destroy(mControlList[id].gameObject);
+        mControlList[id].mLocalDate.id = -1;
         mControlList.Remove(id);
 
         return true;

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class AttackSkill600004 : EventAttackSkill
+public class AttackSkill600015 : EventAttackSkill
 {
 
 

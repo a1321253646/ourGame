@@ -342,10 +342,20 @@ public class SQLNetManager
     }
     
     public void delectInfo(SQLDate data) {
-        string commandString = "DELETE FROM " + SQLManager.getIntance().getSqlTableName() + " WHERE GOODID=" + data.goodId;
-        ExecuteSQLCommand(commandString);
-        commandString = "INSERT INTO " + SQLManager.getIntance().getSqlTableName() + " VALUES (2,-1,-1,'0'," + data.goodId + ",-1,1)";
-        ExecuteSQLCommand(commandString);
+        if (data.type == SQLHelper.TYPE_GOOD)
+        {
+            string commandString = "DELETE FROM " + SQLManager.getIntance().getSqlTableName() + " WHERE GOODID=" + data.goodId;
+            ExecuteSQLCommand(commandString);
+            commandString = "INSERT INTO " + SQLManager.getIntance().getSqlTableName() + " VALUES (2,-1,-1,'0'," + data.goodId + ",-1,1)";
+            ExecuteSQLCommand(commandString);
+        }
+        else {
+            string commandString = "DELETE FROM " + SQLManager.getIntance().getSqlTableName() + " WHERE TYPE=" + data.type+" AND ID="+data.id;
+            ExecuteSQLCommand(commandString);
+            commandString = "INSERT INTO " + SQLManager.getIntance().getSqlTableName() + " VALUES (2,+"+ data.type+","+ data.id +",'0',-1,7,1)";
+            ExecuteSQLCommand(commandString);
+        }
+
     }
 
     public void cleanLuihui()

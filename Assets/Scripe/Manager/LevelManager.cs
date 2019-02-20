@@ -40,7 +40,20 @@ public class LevelManager : MonoBehaviour {
         mLocalManager = new LocalManager();
         mFightManager.setLoaclManager(mLocalManager);
         mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
-
+        if (GameManager.isTest)
+        {
+            Time.timeScale = 10;
+        }
+        else if (SQLHelper.getIntance().isLuiHui != -1 && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) <= SQLHelper.getIntance().isLuiHui)
+        {
+            Time.timeScale = 2;
+            GameObject.Find("jiasu_tip").transform.localScale = new Vector2(1, 1);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
+        }
         creaPlay(yBase);
       //  creatEnemyFactory(cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
@@ -68,40 +81,14 @@ public class LevelManager : MonoBehaviour {
         mGuideManager = GetComponent<GuideManager>();
         mGuideManager.init();
         isInit = true;
-        if (GameManager.isTest) {
-            Time.timeScale = 10;
-        }
-        else if (SQLHelper.getIntance().isLuiHui != -1 && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) <= SQLHelper.getIntance().isLuiHui)
-        {
-            Time.timeScale = 2;
-            GameObject.Find("jiasu_tip").transform.localScale = new Vector2(1, 1);
-        }
-        else {
-            Time.timeScale = 1;
-            GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
-        }
+
         GameManager.getIntance().isLuihuiIng = false;
-        //  SQLHelper.getIntance().updateOutTime();
+        GetComponent<AdManager>().initAd();
 
-        if (AdIntance.getIntance().getType() != -1) {
-            long type = AdIntance.getIntance().getType();
-            string value = "";
-            if (type == ActiveButtonControl.TYPE_AD_LUNHUI)
-            {
-                value = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).
-                    lunhui;
-                BigNumber bigValue = BigNumber.getBigNumForString(value);
-                bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
-                value = bigValue.toString();
-            }
-            else {
-                LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
-                long time = (long)JsonUtils.getIntance().getConfigValueForId(100049);
-                value = level.mFightManager.attckerOutLine(level.mPlayerControl, time * 60 * 1000, GameManager.getIntance().getOutlineGet()).toString();
-            }
-            GameObject.Find("active_button_list").GetComponent<ActiveListControl>().showAd(type, value, true);
+       // GameObject.Find("uid_test").GetComponent<Text>().text = SystemInfo.deviceUniqueIdentifier;
+       //  SQLHelper.getIntance().updateOutTime();
 
-        }
+
     }
 
     void Start () {

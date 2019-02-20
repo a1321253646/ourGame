@@ -27,4 +27,5 @@ public class AdIntance
         return mTime;
     }
 
+    public static bool isInit = false;
 }

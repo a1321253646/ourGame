@@ -100,6 +100,7 @@ public class NetServer
     {
         JObject json = new JObject();
         json.Add("user", SystemInfo.deviceUniqueIdentifier);
+        //json.Add("user", "7a3cff28cdeddeb1220b926073d818d8");
         JArray array = new JArray();
         JObject jb = new JObject();
         jb.Add("action", 5);

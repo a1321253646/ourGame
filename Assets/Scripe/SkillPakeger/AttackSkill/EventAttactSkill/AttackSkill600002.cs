@@ -5,22 +5,24 @@ using System.Collections.Generic;
 public class AttackSkill600002 : EventAttackSkill
 {
     float count = 0;
-    public override void Acttacking()
+
+    public override void endHurt(HurtStatus hurt)
     {
-        if (count == 0) {
-            count = mSkillJson.getSpecialParameterValue()[0]/100;
+        if (count == 0)
+        {
+            count = mSkillJson.getSpecialParameterValue()[0] / 100;
         }
-        int count1 = (int)(count * mManager.getAttacker().mAttribute.aggressivity);
-        mManager.getAttacker().AddBlood(count1);
+        mFight.AddBlood(count * hurt.blood);
     }
+
 
     public override void endSkill()
     {
-        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_ATTACKING, this);
+        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_END_EHURT, this);
     }
 
     public override void startSkill()
     {
-        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_ATTACKING, this);
+        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_END_EHURT, this);
     }
 }
