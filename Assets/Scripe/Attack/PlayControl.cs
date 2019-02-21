@@ -606,6 +606,7 @@ public class PlayControl : Attacker
     private bool isShowGuoChang = false;
 	void Update () {
         mTime += Time.deltaTime;
+
         //        Debug.Log(" isWin  ="+ isWin);
         if (isWin)
         {
@@ -625,12 +626,13 @@ public class PlayControl : Attacker
             winrun();
             if (transform.position.x > JsonUtils.getIntance().getConfigValueForId(100003))
             {
-                isStart = false;
+                isStart = false;              
                 mBackManager.move();
                 mLocalBean = new LocalBean(transform.position.x, transform.position.y, mAttackLeng, true, this);
                 mFightManager.registerAttacker(this);
                 mLevelManager.creatEnemyFactory(transform.position.x, transform.position.y+resourceData.idel_y);
                 getOutLine();
+                GameObject.Find("Manager").GetComponent<AdManager>().initAd();
             }
         }
         else if (getStatus() != mFightManager.mHeroStatus && getStatus() != Attacker.PLAY_STATUS_STANDY)

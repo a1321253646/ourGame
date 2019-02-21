@@ -46,13 +46,13 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = false;
+    public static bool isAndroid = true;
     public static bool isAdd = false;
     public static bool isTest = false;
 
 
     public static long mVersionCode = 25;
-    public static long mAPKVersionCode = 32;
+    public static long mAPKVersionCode = 33;
     public  long mNewAPKVersionCode = -1;
     public  long mIsMust = -1;//1为必须，0为提醒
     public string mUpdateStr = null;

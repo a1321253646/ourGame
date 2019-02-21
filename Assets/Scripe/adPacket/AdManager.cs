@@ -18,7 +18,7 @@ public class AdManager : MonoBehaviour
     }
 
     public void initAd() {
-        if (!AdIntance.isInit) {
+    /*    if (!AdIntance.isInit) {
             AdIntance.isInit = true;
             TGSDK.Initialize("235M0GyJMOoX7O804h63");
             TGSDK.PreloadAd();
@@ -79,20 +79,20 @@ public class AdManager : MonoBehaviour
             TGSDK.AdClickCallback = (string scene, string name) => {
                 Debug.Log("============ 广告被用户点击的回调  ====================");
             };
-        }
+        }*/
     }
 
     public void playAd() {
-        if (TGSDK.CouldShowAd("JQOki1YxoGUzpWGJjCf"))
+  /*      if (TGSDK.CouldShowAd("JQOki1YxoGUzpWGJjCf"))
         {
              TGSDK.ShowAd("JQOki1YxoGUzpWGJjCf");
             // TGSDK.ShowTestView("JQOki1YxoGUzpWGJjCf");
-        }
+        }*/
     }
 
     public bool isReadyToShow() {
-        return TGSDK.CouldShowAd("JQOki1YxoGUzpWGJjCf");
-        //return false;
+     //   return TGSDK.CouldShowAd("JQOki1YxoGUzpWGJjCf");
+        return false;
     }
 
     // Update is called once per frame

@@ -83,8 +83,7 @@ public class LevelManager : MonoBehaviour {
         isInit = true;
 
         GameManager.getIntance().isLuihuiIng = false;
-        GetComponent<AdManager>().initAd();
-
+        
        // GameObject.Find("uid_test").GetComponent<Text>().text = SystemInfo.deviceUniqueIdentifier;
        //  SQLHelper.getIntance().updateOutTime();
 

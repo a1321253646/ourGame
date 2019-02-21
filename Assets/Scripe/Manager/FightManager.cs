@@ -137,9 +137,7 @@ public class FightManager{
                 ((EnemyBase)a).endDie();
             }
             level.mPlayerControl.win();
-            GameManager.getIntance().mHeroIsAlive = true;
-
-           
+            GameManager.getIntance().mHeroIsAlive = true;            
             // return;
         }
 
