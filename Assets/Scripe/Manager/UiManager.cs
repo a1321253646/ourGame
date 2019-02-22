@@ -165,6 +165,21 @@ public class UiManager
         
     }
 
+    public void reset() {
+        mGameLevelTv.text = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).name;
+
+        //  SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
+        mGasTv.text =
+            GameManager.getIntance().mCurrentGas +
+            "/" +
+            GameManager.getIntance().startBossGas;
+
+        mStartBossGasSl.maxValue = GameManager.getIntance().startBossGas;
+        mStartBossGasSl.value = 0;
+
+        mStartBossBt.interactable = false;
+    }
+
     public void showVocation(bool isAddSql) {
         long level = BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv); 
         //Debug.Log("=================================level ==  " + level + " 100044==" + (level % (long)JsonUtils.getIntance().getConfigValueForId(100044) == 0));

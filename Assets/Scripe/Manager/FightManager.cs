@@ -12,7 +12,14 @@ public class FightManager{
     public int mHeroStatus = Attacker.PLAY_STATUS_RUN;
 
 	public Dictionary<int,Attacker> mAliveActtackers = new Dictionary<int,Attacker>();
-	public bool isEmptyEnemy(){
+
+    public void reset() {
+        id = 0;
+        mHeroStatus = Attacker.PLAY_STATUS_RUN;
+        mAliveActtackers.Clear();
+    }
+
+    public bool isEmptyEnemy(){
 		//Debug.Log ("mAliveActtackers.Count =" + mAliveActtackers.Count);
 		if (mAliveActtackers.Count < 2) {
 			return true;

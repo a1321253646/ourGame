@@ -7,6 +7,14 @@ public class LocalManager{
 	public LocalBean mLocalLink;
 	FightManager mFightManager;
 	List<LocalMultiple> mMultiple = new List<LocalMultiple> ();
+
+    public void reset() {
+        mMultiple.Clear();
+        mLocalLink = null;
+        isEnd = false;
+
+    }
+
 	public void setHeroLoacl(LocalBean local){
 		mLocalLink = local;
 		mLocalLink.previous = null;

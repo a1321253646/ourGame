@@ -20,6 +20,14 @@ public class EnemyFactory : MonoBehaviour {
     private float mZPoint = 2;
     LevelManager mLevelMnager = null;
     // Use this for initialization
+
+    private bool mIsDeal = false;
+
+    public void destroyCreat() {
+        mIsDeal = true;
+        Destroy(gameObject);
+    }
+
     void Start () {
         mLevelMnager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mBackManager = mLevelMnager.getBackManager ();
@@ -37,7 +45,7 @@ public class EnemyFactory : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (startBoss) {
+		if (startBoss || mIsDeal) {
 			return;
 		}
 		if (GameManager.getIntance ().mStartBoss) {

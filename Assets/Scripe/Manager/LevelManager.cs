@@ -22,7 +22,6 @@ public class LevelManager : MonoBehaviour {
     MapConfigBean mMapConfig = null;
     public void init()
     {
-        updateIndex = 0;
         Debug.Log("LevelManager Start");
         GameManager.getIntance().getLevelData();
         long old = GameManager.getIntance().init(this);
@@ -35,10 +34,12 @@ public class LevelManager : MonoBehaviour {
             JsonUtils.getIntance().getLevelData().map);
         yBase = mMapConfig.y_base;
         yBase = cardTop + mMapConfig.y_base;
+
         mBackManager = new BackgroundManager();
         mFightManager = new FightManager();
         mLocalManager = new LocalManager();
         mFightManager.setLoaclManager(mLocalManager);
+
         mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
         if (GameManager.isTest)
         {
@@ -88,6 +89,29 @@ public class LevelManager : MonoBehaviour {
        //  SQLHelper.getIntance().updateOutTime();
 
 
+    }
+
+    public void reset()
+    {
+        GameManager.getIntance().reStart();
+        mFightManager.mEnemyFactory.destroyCreat();
+        nengLiangDian = 0;
+        mPlayActionCount = 0;
+        starBoss = false;
+        JsonUtils.getIntance().init();
+        mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
+        mFightManager.reset();
+        mLocalManager.reset();
+
+        //GameObject.Find("Role").GetComponent<PlayControl>().resetHero();
+
+        mPlayerControl.resetHero();
+
+        foreach (NengliangkuaiControl tmp in mNengLiangKuai) {
+            tmp.init();
+        }
+
+        GameObject.Find("jineng").GetComponent<CardManager>().reset();
     }
 
     void Start () {
@@ -197,14 +221,10 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
-
-    public long updateIndex = 0;
-
     void Update () {
         if (!isInit) {
             return;
         }
-        updateIndex++;
         mTime += Time.deltaTime;
         if (mTime > 60000) {
             Debug.Log("============ 大年30修bug  ====================mTime > 60000  ");
@@ -312,11 +332,14 @@ public class LevelManager : MonoBehaviour {
 
     }
 	public void creatEnemyFactory(float x,float y)
-    {
+    {       
+
 		GameObject newobj =  GameObject.Instantiate (enemyFactory, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100004),yBase),
 			Quaternion.Euler(0.0f,0f,0.0f));
         mFightManager.mEnemyFactory = newobj.GetComponent<EnemyFactory>();
         mFightManager.mEnemyFactory.setMapConfig(mMapConfig, cardTop,x,y);
     }
+
+    
 
 }

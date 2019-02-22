@@ -74,82 +74,71 @@ public class GameBeginControl : MonoBehaviour {
             GameManager.getIntance().mInitDec = "开始配置文件初始化";
             GameManager.getIntance().mInitStatus = 1;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-            if (!GameManager.isAndroid)
-            {
-                SQLManager.getIntance().init(sqlName, tabName);
-                //  GameManager.getIntance().mInitStatus = 8;
-                Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-            }
-            else
-            {
-                SQLManager.getIntance().initPathRoot();
-            }
-            if (GameManager.isAndroid)
-            {
-
-                Thread th1 = new Thread(() =>
-                {
-                    JsonUtils.getIntance().initBefore();
-                    JsonUtils.getIntance().init();
-                    GameManager.getIntance().mInitStatus = 2;
-                });
-                th1.Start();
-            }
-            else
+#if UNITY_ANDROID || UNITY_IOS
+            SQLManager.getIntance().initPathRoot();
+            Thread th1 = new Thread(() =>
             {
                 JsonUtils.getIntance().initBefore();
                 JsonUtils.getIntance().init();
-
                 GameManager.getIntance().mInitStatus = 2;
-            }
+            });
+            th1.Start();
+#endif
+#if UNITY_EDITOR
+            SQLManager.getIntance().init(sqlName, tabName);
+            //  GameManager.getIntance().mInitStatus = 8;
+            Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+            JsonUtils.getIntance().initBefore();
+            JsonUtils.getIntance().init();
+
+            GameManager.getIntance().mInitStatus = 2;
+#endif
         }
         else if (GameManager.getIntance().mInitStatus == 2)
         {
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100025);
             GameManager.getIntance().mInitStatus = 3;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-            if (GameManager.isAndroid)
+#if UNITY_ANDROID || UNITY_IOS
+            Thread th1 = new Thread(() =>
             {
-                Thread th1 = new Thread(() =>
+                try
                 {
-                    try
+
+                    isUpdate = SQLManager.getIntance().initNoNet();
+                    Debug.Log("isUpdate = " + isUpdate);
+                    SQLManager.getIntance().startThread();
+                    if (isUpdate == 1)
                     {
-
-                        isUpdate = SQLManager.getIntance().initNoNet();
-                        Debug.Log("isUpdate = " + isUpdate);
-                        SQLManager.getIntance().startThread();
-                        if (isUpdate == 1)
-                        {
-                            GameManager.getIntance().mInitStatus = 4;
-                            Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-                        }
-                        else if (isUpdate == 2)
-                        {
-                            SQLManager.getIntance().copyToNet();
-                            GameManager.getIntance().mInitStatus = 6;
-                            Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-                        }
-                        else if (isUpdate == 3)
-                        {
-                            GameManager.getIntance().mInitStatus = 6;
-                            Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-                        }
+                        GameManager.getIntance().mInitStatus = 4;
+                        Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
                     }
-                    catch (System.Exception e) {
-                        Debug.Log("处理存档出错");
-                        Debug.Log(e.Message);
-                        
+                    else if (isUpdate == 2)
+                    {
+                        SQLManager.getIntance().copyToNet();
+                        GameManager.getIntance().mInitStatus = 6;
+                        Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
                     }
+                    else if (isUpdate == 3)
+                    {
+                        GameManager.getIntance().mInitStatus = 6;
+                        Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    Debug.Log("处理存档出错");
+                    Debug.Log(e.Message);
 
-                });
-                th1.Start();
-            }
-            else
-            {
-               // SQLManager.getIntance().init(sqlName, tabName);
-                GameManager.getIntance().mInitStatus = 8;
-                Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-            }
+                }
+
+            });
+            th1.Start();
+#endif
+#if UNITY_EDITOR
+            GameManager.getIntance().mInitStatus = 8;
+            Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+#endif
 
         }
         else if (GameManager.getIntance().mInitStatus == 4)//强制轮回
@@ -210,31 +199,30 @@ public class GameBeginControl : MonoBehaviour {
             GameManager.getIntance().mInitStatus = 9;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100030);
-            if (GameManager.isAndroid)
+#if UNITY_ANDROID || UNITY_IOS
+            Thread th1 = new Thread(() =>
             {
-                Thread th1 = new Thread(() =>
+                if (isUpdateEnd)
                 {
-                    if (isUpdateEnd)
-                    {
-                        Debug.Log(" SQLHelper.getIntance().updateIsUpdate(); ");
-                        SQLHelper.getIntance().updateIsUpdate();
-                        Debug.Log(" SQLHelper.getIntance().updateIsUpdate(); end");
-                    }
-                    Debug.Log("SQLHelper.getIntance().init();");
-                    SQLHelper.getIntance().init();
-                    Debug.Log("SQLHelper.getIntance().init(); end");
-                    GameManager.getIntance().mInitStatus = 10;
-                    Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-                });
-                th1.Start();
-            }
-            else
-            {
+                    Debug.Log(" SQLHelper.getIntance().updateIsUpdate(); ");
+                    SQLHelper.getIntance().updateIsUpdate();
+                    Debug.Log(" SQLHelper.getIntance().updateIsUpdate(); end");
+                }
+                Debug.Log("SQLHelper.getIntance().init();");
                 SQLHelper.getIntance().init();
-                
+                Debug.Log("SQLHelper.getIntance().init(); end");
                 GameManager.getIntance().mInitStatus = 10;
                 Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-            }
+            });
+            th1.Start();
+#endif
+
+#if UNITY_EDITOR
+            SQLHelper.getIntance().init();
+
+            GameManager.getIntance().mInitStatus = 10;
+            Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+#endif
 
         }
     }

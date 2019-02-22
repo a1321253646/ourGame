@@ -39,6 +39,23 @@ public class CardManager : MonoBehaviour {
         public long id;
         public bool isUse = false;
     }
+
+    public void reset() {
+        isInit = false;
+
+        foreach (CardControl card in mList) {
+            Destroy(card.gameObject);
+        }
+        mList.Clear();
+        mCardList.Clear();
+
+        mCount = 0;
+        mOutSendCardTime = 0;
+        mTime = 0;
+
+        isInit = true;
+}
+
     private List<CardUser> mCardList = new List<CardUser>();
 
     private long getRandomCard() {

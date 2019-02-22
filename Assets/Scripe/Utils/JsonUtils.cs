@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine.UI;
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 public class JsonUtils
 {
     //	private  string levelFile =  "config/level";
@@ -84,10 +87,10 @@ public class JsonUtils
     }
     public long mVocation = -1;
     public void initBefore() {
-        if (GameManager.isAndroid)
-        {
-            vocationFile = "vocation";
-        }
+
+#if UNITY_ANDROID || UNITY_IOS
+        vocationFile = "vocation";
+#endif
         readVocation();
 
         mVocation = SQLManager.getIntance().getPlayVocation();
@@ -106,32 +109,31 @@ public class JsonUtils
         Debug.Log("levelBack ==  " + levelBack);
         getEnemyFileName(level);
 
-        if (GameManager.isAndroid)
-        {
-            resourceFile = "resource";
-            configeFile = "config";
-            goodsFile = "item";
-            attributeFile = "equip";
-            composeFile = "compose";
+#if UNITY_ANDROID || UNITY_IOS
+        resourceFile = "resource";
+        configeFile = "config";
+        goodsFile = "item";
+        attributeFile = "equip";
+        composeFile = "compose";
 
-            speedValueFile = "speedvalue";
-            skillFile = "skill";
-            cardFile = "card";
-            affixFile = "affix";
-            samsaraFile = "samsara";
-            mapConfigFile = "mapconfig";
-            stringFile = "string";
-            guideFile = "guide";
-            petFile = "pet";
-        }
-        else {
-            heroFile = heroFile + ".json";
-        }
+        speedValueFile = "speedvalue";
+        skillFile = "skill";
+        cardFile = "card";
+        affixFile = "affix";
+        samsaraFile = "samsara";
+        mapConfigFile = "mapconfig";
+        stringFile = "string";
+        guideFile = "guide";
+        petFile = "pet";
+#endif
+#if UNITY_EDITOR
+        heroFile = heroFile + ".json";
+#endif
         Debug.Log("heroFile = " + heroFile);
         GameManager.getIntance().mInitDec = "开始读取配置文件";
         readAllFile();
-        
-        if (!GameManager.isAndroid && JsonUtils.getIntance().getConfigValueForId(100047) == 1)
+#if UNITY_EDITOR
+        if (JsonUtils.getIntance().getConfigValueForId(100047) == 1)
         {
             string error = JsonFileTestUtils.test();
             reReadAboutLevelFile(level);
@@ -144,6 +146,8 @@ public class JsonUtils
                 return;
             }
         }
+#endif
+
 
     }
 
@@ -166,9 +170,9 @@ public class JsonUtils
         }
         
         string back = ""+ index;
-        if (!GameManager.isAndroid) {
-            back = back + ".json";
-        }
+#if UNITY_EDITOR
+        back = back + ".json";
+#endif
 
         levelFile = "level"+ back;
         enemyFile = "enemy"+ back;
@@ -212,10 +216,9 @@ public class JsonUtils
         }
 
         string path = getVocationById(v).attributeName;
-        if (!GameManager.isAndroid)
-        {
-            path = path + ".json";
-        }
+#if UNITY_EDITOR
+        path = path + ".json";
+#endif
         if (!path.Equals(heroFile)) {
             readHeroData();
         }
@@ -293,13 +296,12 @@ public class JsonUtils
     private string readFile(string fileName) {
         //TextAsset jsonText = Resources.Load(fileName) as TextAsset;
         string str = null;
-        if (GameManager.isAndroid)
-        {
-            str = Resources.Load<TextAsset>(fileName).text;
-        }
-        else {
-            str = loadFile(Application.dataPath + "/Resources", fileName);
-        }
+#if UNITY_ANDROID || UNITY_IOS
+        str = Resources.Load<TextAsset>(fileName).text;
+#endif
+#if UNITY_EDITOR
+        str = loadFile(Application.dataPath + "/Resources", fileName);
+#endif
         //string str = loadFile(Application.dataPath + "/Resources", fileName);
         //string str = Resources.Load<TextAsset>(  fileName).text;
         Debug.Log("readFile :" + fileName + "\n " + str);

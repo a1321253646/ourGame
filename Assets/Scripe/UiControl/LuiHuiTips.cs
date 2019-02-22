@@ -329,10 +329,15 @@ public class LuiHuiTips : UiControlBase
 
 
     private void showUpdate() {
+#if UNITY_ANDROID
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
         string[] mObject = new string[1];
         jo.Call<string>("showTaptap", mObject);
+#endif
+#if UNITY_IOS
+
+#endif
     }
     private void vocation() {
         SQLHelper.getIntance().updateVocation(mVocationBean.id);

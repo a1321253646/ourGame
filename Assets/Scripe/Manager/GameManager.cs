@@ -46,7 +46,6 @@ public class GameManager
     public long isShowLuihuiPoint = 2;
     public long isShowPlayerPoint = 2;
 
-    public static bool isAndroid = true;
     public static bool isAdd = false;
     public static bool isTest = false;
 
@@ -89,6 +88,14 @@ public class GameManager
 
     public bool isAddGoodForTest = false;
 
+    public void reStart() {
+        isEnd = false;
+        isLuihuiIng = false;
+        getLevelData();
+        init(null);
+        uiManager.reset();
+    }
+
 	public void getLevelData(){
         Hero hero = JsonUtils.getIntance ().getHeroData ();
         upLevelCrystal = hero.getLvupCrystal();
@@ -105,7 +112,6 @@ public class GameManager
     public GuideManager getGuideManager() {
         return mLevelManage.mGuideManager;    
     }
-
 	public long init(LevelManager levelmanage){
         long old = 0;
         if (!isInit)
@@ -171,8 +177,11 @@ public class GameManager
 		startBossGas = level.boss_gas;
 		mBossId = level.boss_DI;
 		mCurrentGas = 0;
-        mLevelManage = levelmanage;
-        uiLevel = 99;
+        if (levelmanage != null) {
+            mLevelManage = levelmanage;
+            uiLevel = 99;
+        }
+
         getLevelData();
         
         return 0;
@@ -260,7 +269,6 @@ public class GameManager
         //Debug.Log("=============enemy.mDieCrysta=" + enemy.mDieCrysta.toString());
         //Debug.Log("=============mCurrentCrystal=" + mCurrentCrystal.toString());
         //Debug.Log("============= getOnlineGet()=" + getOnlineGet());
-        Debug.Log("============= updateIndex=" + mLevelManage.updateIndex);
         BigNumber dealHunjin = mLevelManage.mPlayerControl.mSkillManager.mEventAttackManager.getDieHuijing(enemy.mDieCrysta);
         if (getOnlineGet() != 1)
         {

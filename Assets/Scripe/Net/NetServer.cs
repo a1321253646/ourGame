@@ -11,6 +11,8 @@ public class NetServer
     List<SqlNetDate> mList = null;
     public long mTime = -1;
 
+    public static string mDeviceID = "";
+
     private static string URL_ROOT =  "http://120.79.249.55:8889";
 
     public void updateNet(List<SqlNetDate> list) {
@@ -23,7 +25,7 @@ public class NetServer
 
     private void threadRun() {
         JObject json = new JObject();
-        json.Add("user", SystemInfo.deviceUniqueIdentifier);
+        json.Add("user", mDeviceID);
         if (mList != null && mList.Count > 0) {
             JArray array = new JArray();
             for (int i = 0; i< mList.Count;i++) {
@@ -89,6 +91,12 @@ public class NetServer
 
 
     private NetServer() {
+#if UNITY_ANDROID
+        mDeviceID = SystemInfo.deviceUniqueIdentifier;
+#endif
+#if UNITY_IOS
+
+#endif
 
     }
     private static NetServer mIntance = new NetServer();
@@ -99,7 +107,7 @@ public class NetServer
     public void getLocl()
     {
         JObject json = new JObject();
-        json.Add("user", SystemInfo.deviceUniqueIdentifier);
+        json.Add("user", mDeviceID);
         //json.Add("user", "7a3cff28cdeddeb1220b926073d818d8");
         JArray array = new JArray();
         JObject jb = new JObject();
@@ -166,7 +174,7 @@ public class NetServer
 
     private void getUpdateInfo() {
         JObject json = new JObject();
-        json.Add("user", SystemInfo.deviceUniqueIdentifier);
+        json.Add("user", mDeviceID);
         JArray array = new JArray();
         JObject jb = new JObject();
         jb.Add("action", 7);
@@ -214,7 +222,7 @@ public class NetServer
     private void getRankingList()
     {
         JObject json = new JObject();
-        json.Add("user", SystemInfo.deviceUniqueIdentifier);
+        json.Add("user", mDeviceID);
         JArray array = new JArray();
         JObject jb = new JObject();
         jb.Add("action", 6);

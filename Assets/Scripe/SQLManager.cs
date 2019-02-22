@@ -15,11 +15,11 @@ public class SQLManager
     public string sqlName;
     public string tabName;
 
-        private string sqlName_old = "local88";
-        private string tabName_old = "local88";
+    private string sqlName_old = "local88";
+    private string tabName_old = "local88";
 
-        private string sqlName_new = "local891";
-        private string tabName_new = "local891";
+    private string sqlName_new = "local891";
+    private string tabName_new = "local891";
 
     object mLock = new object();
     SqliteConnection mConnet = null;
@@ -37,20 +37,30 @@ public class SQLManager
     }
 
     public int init(string sqlName, string tabName) {
+#if UNITY_ANDROID
 
-        if (!GameManager.isAndroid)
-        {
-            this.sqlName = sqlName;
-            this.tabName = tabName;
-            mPathRoot = Application.dataPath;
-            this.CreateSQL();
+        //        if (!GameManager.isAndroid)
+        //        {
 
-        }
-        else {
-            this.sqlName = sqlName_new;
+#endif
+
+#if UNITY_IOS
+                this.sqlName = sqlName_new;
             this.tabName = sqlName_new;
             mPathRoot = Application.persistentDataPath;
-        }
+#endif
+
+
+#if UNITY_EDITOR
+        //        }
+        //        else {
+        this.sqlName = sqlName;
+        this.tabName = tabName;
+        mPathRoot = Application.dataPath;
+        this.CreateSQL();
+        //        }
+#endif
+
         th1 = new Thread(threadRun);
         th1.Start();
         return 0;
@@ -66,52 +76,65 @@ public class SQLManager
 
     public string getSqlNetFilePath()
     {
-        if (!GameManager.isAndroid)
-        {
+        string path = "";
+#if UNITY_ANDROID
+        path = mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
+#endif
 
-            return mPathRoot + "/Resources/" + this.sqlName;
-        }
-        else
-        {
-            return mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
-        }
+#if UNITY_IOS
+        path = mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
+#endif
+
+#if UNITY_EDITOR
+        path = mPathRoot + "/Resources/" + this.sqlName;
+#endif
+        return path;
     }
 
     public string getSqlNetPath()
     {
-        if (!GameManager.isAndroid)
-        {
-            return "data source=" + mPathRoot + "/Resources/" + this.sqlName;
-        }
-        else
-        {
-            return "URI=file:" + mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
-        }
+        string path = "";
+#if UNITY_ANDROID
+        path = "URI=file:" + mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
+#endif
+#if UNITY_IOS 
+        path ="data source=" + mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
+#endif
+#if UNITY_EDITOR
+        path = "data source=" + mPathRoot + "/Resources/" + this.sqlName;
+#endif
+        return path;
     }
 
     private string getSqlFilePath() {
-        if (!GameManager.isAndroid)
-        {
-            
-            return mPathRoot + "/Resources/" + this.sqlName;
-        }
-        else
-        {
-            return mPathRoot + "/" + sqlName;
+        string path = "";
+#if UNITY_ANDROID
+        path = mPathRoot + "/" + sqlName;
+#endif
 
-        }
+#if UNITY_IOS
+        path = mPathRoot + "/" + sqlName;
+#endif
+
+#if UNITY_EDITOR
+        path = mPathRoot + "/Resources/" + this.sqlName; ;
+#endif
+        return path;
     }
     private string mPathRoot = "";
 
     private string getSqlPath() {
-        if (!GameManager.isAndroid)
-        {
-            return "data source=" + mPathRoot + "/Resources/" + this.sqlName;           
-        }
-        else
-        {
-            return "URI=file:" + mPathRoot + "/" + sqlName;
-        }
+        string path = "";
+#if UNITY_ANDROID
+        path = "URI=file:" + mPathRoot + "/" + sqlName;
+#endif
+#if UNITY_IOS
+        path ="data source=" + mPathRoot + "/" + sqlName;
+#endif
+#if UNITY_EDITOR
+        path = "data source=" + mPathRoot + "/Resources/" + this.sqlName;
+#endif
+        return path;
     }
     //创建数据库文件
     public void CreateSQL()
@@ -647,6 +670,7 @@ public class SQLManager
         }
         string comm = "DELETE FROM " + tabName;
         mNetHelper.cleanAllLocal();
+
         ExecuteSQLCommand(comm);
         ;
         //      SQLNetManager.getIntance().cleanAllLocal();

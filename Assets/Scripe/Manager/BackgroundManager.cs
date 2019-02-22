@@ -12,8 +12,11 @@ public class BackgroundManager{
 	public float moveSpeed = 2f;
 	public string mPath;
     private float mCardTop;
+
 	public void init(GameObject type,string path,float cardTop){
-		BgType = type;
+        isRun = true;
+
+        BgType = type;
 		mPath = path;
         mCardTop = cardTop;
 

@@ -115,7 +115,7 @@ public class RankingListControl : UiControlBase, IBeginDragHandler, IDragHandler
             mNyIndex.text =  "未上榜";
         }
         if (SQLHelper.getIntance().mPlayName == null) {
-            string name = SystemInfo.deviceUniqueIdentifier;
+            string name = NetServer.mDeviceID;
             name = "用户" + name.Substring(0, 4);
             mMyName.text = name;
         }

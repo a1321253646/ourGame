@@ -34,7 +34,7 @@ public class QieHuangChangJing : MonoBehaviour {
             c.a = friColor / 255;
             image.color = c;
             isAdd = false;
-            run(GameManager.getIntance().isWinQirHuang?1:2);
+         //   run(GameManager.getIntance().isWinQirHuang?1:2);
             eveyTime = 0.5f / 155f;
         }
         else {
@@ -49,6 +49,17 @@ public class QieHuangChangJing : MonoBehaviour {
         if (!isStart) {
             return;
         }
+
+        if (isInStartLevel) {
+            long count = SQLManager.getIntance().getListCount();
+            if (count == 0)
+            {
+                isInStartLevel = false;
+                startLevelSecond();
+            }
+            return;
+        }
+
         mTime += Time.deltaTime;
         mTime2 += Time.deltaTime; ;
 /*        if (mTime > 1) {
@@ -84,7 +95,9 @@ public class QieHuangChangJing : MonoBehaviour {
                     Dishow();
                 }
                 else {
-                   SceneManager.LoadScene(1);
+                    // SceneManager.LoadScene(1);
+                    // startLevelFrist();
+                    startLevelSecond();
                 }              
                 
             }
@@ -154,4 +167,55 @@ public class QieHuangChangJing : MonoBehaviour {
         isStart = false;
         isAdd = true;
     }
+    private bool isInStartLevel = false;
+    public void startLevelFrist() {
+
+        // 读取新的关卡json
+        if (GameManager.getIntance().mIsNeedToReReadAboutLevel)
+        {
+            JsonUtils.getIntance().reReadAboutLevelFile(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
+
+        }
+        isInStartLevel = true;
+       
+    }
+
+    public void startLevelSecond() {
+        // 重读数据库
+        //SQLHelper.getIntance().init();
+
+        GameObject.Find("Manager").GetComponent<LevelManager>().reset();
+
+        if (GameManager.getIntance().isShowQieHuang)
+        {
+            friColor = 255;
+            Color c = image.color;
+            c.a = friColor / 255;
+            image.color = c;
+        //    isAdd = false;
+            //   run(GameManager.getIntance().isWinQirHuang?1:2);
+            eveyTime = 0.5f / 155f;
+        }
+        else
+        {
+            friColor = 0;
+            Color c = image.color;
+            c.a = friColor / 255;
+            image.color = c;
+         //   isAdd = true;
+            eveyTime = 1f / 155f;
+        }
+
+        mTime2 = 0;
+        mTime = 0;
+        count = 2;
+        isStart = false;
+        isEnd = false;
+        isInStartLevel = false;
+        isAdd = true;
+        gameObject.transform.localPosition = mFri;
+    }
+
+
+
 }

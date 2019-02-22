@@ -23,8 +23,8 @@ public abstract class Attacker : MonoBehaviour
     public static int CAMP_TYPE_PLAYER = 1;
     public static int CAMP_TYPE_MONSTER = 2;
 
-    private bool isBeAttacker = false;
-	private int status = PLAY_STATUS_STANDY;
+    public bool isBeAttacker = false;
+    public int status = PLAY_STATUS_STANDY;
 	public int id = -1;
 	public double mBloodVolume = 0;
 	public float mRunSpeed;
@@ -56,9 +56,7 @@ public abstract class Attacker : MonoBehaviour
 	public List<Attacker> mAttackerTargets;
 	public ResourceBean resourceData;
 
-    public AttackSpeedBean mSpeedBean;
-    public AnimationEvent mStandEvent;
-    public AnimationEvent mFightEvent;
+
     public AnimalControlBase mAnimalControl;
     public SpriteRenderer mSpriteRender;
     public int mAttackType = ATTACK_TYPE_DEFAULT;

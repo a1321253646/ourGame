@@ -13,23 +13,18 @@ public class PlayControl : Attacker
     private LevelManager mLevelManager;
     HeroLevelUpAnimal mLevelAnimalControl;
 
-    void Start() {
+    private Vector2 mFirVetor;
 
+    void Start() {
+        mFirVetor = transform.position;
         mAttackType = Attacker.ATTACK_TYPE_HERO;
         mCampType = CAMP_TYPE_PLAYER;
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mBackManager = mLevelManager.getBackManager();
         mFightManager = mLevelManager.getFightManager();
-        //mBackManager.setBackground ("map/map_03");
         toString("Play");
-        mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
-        setHeroData();
-        //  startGame();
-
-        upLunhui();
-        initEquip();
         int count = 1;
-        mFightManager.registerAttacker(this);
+        resetHero();
         GameObject.Find("Manager").GetComponent<PetManager>().init();
         mLevelAnimalControl = new HeroLevelUpAnimal(mLevelAnimal, JsonUtils.getIntance().getEnemyResourceData(40002), this);
         if (GameManager.isAdd)
@@ -101,9 +96,43 @@ public class PlayControl : Attacker
             }
 
             GameObject.Find("active_button_list").GetComponent<ActiveListControl>().showAd(type, value, true);
-
         }
     }
+
+    public void resetHero() {
+        isBeAttacker = false;
+        status = PLAY_STATUS_RUN;
+        id = -1;
+        mBloodVolume = 0;
+        mAttackLeng = 1;
+        mDieGas = 0;
+        bloodBili = -1;
+        bloodDistance = -1;
+        mTime = 0;
+        isShowGuoChang = false;
+        isWin = false;
+        isWinEnd = false;
+        isStop = false;
+        oldStatus = PLAY_STATUS_RUN;
+        isStart = false;
+        mVoication = -1;
+      //  if (mAttackerTargets != null) {
+      //      mAttackerTargets.Clear();
+      //  }
+
+       // mAttackerTargets = null;
+
+        transform.position = mFirVetor;
+
+        setHeroData();
+        upLunhui();
+        initEquip();
+
+        mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
+        mFightManager.registerAttacker(this);
+        startGame();
+    }
+
 
     private void getOutLine() {
         Debug.Log("============ 大年30修bug  ====================getOutLine（）GameManager.getIntance().isHaveOutGet=" + GameManager.getIntance().isHaveOutGet);
@@ -650,7 +679,7 @@ public class PlayControl : Attacker
                 mBackManager.move();
             }
         }
-
+        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
         mSkillManager.upDate();
         mAnimalControl.update();
         mLevelAnimalControl.updateAnimal();
