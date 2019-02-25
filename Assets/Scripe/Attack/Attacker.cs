@@ -32,6 +32,8 @@ public abstract class Attacker : MonoBehaviour
 	public float mDieGas = 0;
 	public BigNumber mDieCrysta ;
 
+    public CardManagerBase mCardManager = null;
+
     public AttackSkillManager mSkillManager;
 
     public Attribute mAttribute = new Attribute();

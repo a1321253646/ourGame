@@ -13,7 +13,7 @@ public class SkillObject100015 : SkillObject
     void endAnimal(int status) {
         mSkillStatus = SKILL_STATUS_END;
         actionEnd();
-        GameObject.Find("jineng").GetComponent<CardManager>().giveupCard(CardManager.GIVEUP_CARD_RANGE);
+        mAttacker.mCardManager.giveupCard(CardManager.GIVEUP_CARD_RANGE);
         Destroy(gameObject, 0);
     }
 

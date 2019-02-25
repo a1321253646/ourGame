@@ -16,7 +16,7 @@ public class NormalAttackSkill100014 : NormalAttackSkillBase
         else {
             count = (long)mParam[0];
         }
-        GameObject.Find("jineng").GetComponent<CardManager>().addCards(count);
+        mFight.mCardManager.addCards(count);
         mStatus = SKILL_STATUS_END;
     }
 }

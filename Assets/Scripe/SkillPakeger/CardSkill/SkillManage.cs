@@ -16,6 +16,10 @@ public class SkillManage
         dealSkillObject(attacker, newobj, skill, x, y, campType, isGiveup);
     }
 
+    public void bossAddSkill(Attacker attacker, SkillJsonBean skill) {
+
+    }
+
     public void addSkill(Attacker attacker, SkillJsonBean skill,float x,float y,int campType) {
         addSkill(attacker, skill, x, y, campType, false);
     }

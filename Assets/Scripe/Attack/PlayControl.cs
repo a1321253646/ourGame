@@ -22,6 +22,7 @@ public class PlayControl : Attacker
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mBackManager = mLevelManager.getBackManager();
         mFightManager = mLevelManager.getFightManager();
+        
         toString("Play");
         int count = 1;
         resetHero();
@@ -197,7 +198,7 @@ public class PlayControl : Attacker
 
     void fightEcent(int status) {
         if (status == ActionFrameBean.ACTION_ATTACK) {
-            mLevelManager.playerAction();
+            mCardManager.playerAction();
             mFightManager.attackerAction(id);
         }
     }
@@ -698,6 +699,7 @@ public class PlayControl : Attacker
         isStart = true;
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mBackManager = mLevelManager.getBackManager();
+        mCardManager = GameObject.Find("jineng").GetComponent<CardManager>();
         mBackManager.stop();
     }
 

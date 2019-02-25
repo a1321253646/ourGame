@@ -29,7 +29,7 @@ public class AnimalAttackSkill100023 : AnimalAttackSkillBase
     {
         if (status == ActionFrameBean.ACTION_NONE)
         {
-            long count = GameObject.Find("jineng").GetComponent<CardManager>().giveupCard(CardManager.GIVEUP_CARD_ALL);
+            long count = mFight.mCardManager.giveupCard(CardManager.GIVEUP_CARD_ALL);
             mManager.getAttacker().AddBlood(mManager.getAttacker().mAttribute.maxBloodVolume * mParam[0] * count/100);
         }
     }

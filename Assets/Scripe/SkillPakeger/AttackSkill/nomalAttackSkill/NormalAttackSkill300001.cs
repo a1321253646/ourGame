@@ -8,9 +8,9 @@ public class NormalAttackSkill300001 : NormalAttackSkillBase
 
     public override void startSkill()
     {
-        float a1 = mParam[0];
+        long a1 =(long) mParam[0];
         float a2 = mParam[1];
-        GameObject.Find("Manager").GetComponent<LevelManager>().addNengliangDian(a1);
+        mFight.mCardManager.addNengliangDian(a1);
         Attacker a = mManager.getAttacker();
         a.BeKillAttack(a.mAttribute.maxBloodVolume * (a2 / 100), a);
         mStatus = SKILL_STATUS_END;

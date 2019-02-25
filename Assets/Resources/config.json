@@ -280,5 +280,17 @@
     "value": 2,
     "remark": "广告最多显示时间",
     "Column3": ""
+  },
+  {
+    "id": 100051,
+    "value": 4,
+    "remark": "boss开始出卡牌的时间",
+    "Column3": ""
+  },
+  {
+    "id": 100052,
+    "value": 5,
+    "remark": "boss每张牌发牌间隔（单位秒）",
+    "Column3": ""
   }
 ]

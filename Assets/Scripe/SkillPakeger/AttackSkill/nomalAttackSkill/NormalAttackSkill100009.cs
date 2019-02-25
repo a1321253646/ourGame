@@ -11,7 +11,7 @@ public class NormalAttackSkill100009 : NormalAttackSkillBase
 
         long count = (long)mParam[0];     
 
-        GameObject.Find("jineng").GetComponent<CardManager>().addCards((long)mParam[0]);
+        mFight.mCardManager.addCards((long)mParam[0]);
         mStatus = SKILL_STATUS_END;
     }
 }

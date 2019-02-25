@@ -32,7 +32,6 @@ public class CardShowControl : UiControlBase
     }
 
     LevelManager mLevelManager;
-    CardManager mCardManager;
     Text mUserCount ;
     ScrollRect mUserScroll;
     ScrollRect mBackScroll;
@@ -130,7 +129,7 @@ public class CardShowControl : UiControlBase
                 // item.init(id, 113, 166);
                 ItemOnDrag item = mUserListGb[i].GetComponent<ItemOnDrag>();
                 item.mBean = card;
-                item.init(mCardManager, card.goodId, false,mCardManager.card, mRoot, mUserScroll);
+                item.init(mLevelManager.mPlayerControl.mCardManager, card.goodId, false, mLevelManager.mPlayerControl.mCardManager.card, mRoot, mUserScroll);
                 
                 break;
             }
@@ -169,7 +168,7 @@ public class CardShowControl : UiControlBase
                 ui.init(bean.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
                 ItemOnDrag item = mBackListGb[count].GetComponent<ItemOnDrag>();
                 item.mBean = bean;
-                item.init(mCardManager, bean.goodId, true, mCardManager.card, mRoot, mBackScroll);
+                item.init(mLevelManager.mPlayerControl.mCardManager, bean.goodId, true, mLevelManager.mPlayerControl.mCardManager.card, mRoot, mBackScroll);
                 
                 break;
             }
@@ -311,7 +310,6 @@ public class CardShowControl : UiControlBase
         mBackListGl = GameObject.Find("cardList").GetComponent<GridLayoutGroup>();
         mUserCount = GameObject.Find("title01").GetComponent<Text>();
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
-        mCardManager = GameObject.Find("jineng").GetComponent<CardManager>();
         mUserScroll = GameObject.Find("user_card_list_root").GetComponent<ScrollRect>();
         mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
         mRoot = GameObject.Find("Canvas").GetComponent<Transform>();

@@ -16,6 +16,8 @@ public class Level
 	public float levelspeedup;
 	public string lunhui;
 	public string hunjing;
+    public long card;
+
 
     public BigNumber mOfflinereward;
     public BigNumber mReincarnation;

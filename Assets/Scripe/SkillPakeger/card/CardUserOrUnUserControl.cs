@@ -124,7 +124,7 @@ public class CardUserOrUnUserControl : MonoBehaviour
             {
                 x = Screen.width - mWitch;
             }
-            mClickShow.GetComponent<CardUiControl>().init(mCard.id, CardUiControl.TYPE_CARD_PLAY, mManager.getHero());
+            mClickShow.GetComponent<CardUiControl>().init(mCard.id, CardUiControl.TYPE_CARD_PLAY, mManager.getAttacker());
             if (mClickShowX == -1)
             {
                 mClickShowX = mClickShow.transform.transform.position.x;
@@ -146,7 +146,7 @@ public class CardUserOrUnUserControl : MonoBehaviour
             mIndicator.transform.SetSiblingIndex(99999);
             transform.GetChild(0).localScale = new Vector3(0, 0, 1);
             CardUiControl ui = mIndicator.GetComponent<CardUiControl>();
-            ui.init(mCard.id, CardUiControl.TYPE_CARD_PLAY, mManager.getHero());
+            ui.init(mCard.id, CardUiControl.TYPE_CARD_PLAY, mManager.getAttacker());
             ui.init(mCard.id, mX, mY);
         }
         else

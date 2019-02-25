@@ -37,6 +37,7 @@ public class JsonUtils
     private string stringFile = "string.json";
     private string petFile = "pet.json";
     private string vocationFile = "vocation.json";
+    private string cardListFile = "bosscard.json";
 
 
     /*private string levelFile = "level";
@@ -80,6 +81,7 @@ public class JsonUtils
     List<GuideJsonBean> mguideDate;
     List<StringJsonBean> mStringDate;
     List<PetJsonBean> mPetDate;
+    List<BossCardJsonBean> mBossCardDate;
     List<VocationDecBean> mVocationDate;
     Dictionary<long, SamsaraJsonBean> mSamsaraDate = new Dictionary<long, SamsaraJsonBean>();
     private JsonUtils() {
@@ -125,6 +127,7 @@ public class JsonUtils
         stringFile = "string";
         guideFile = "guide";
         petFile = "pet";
+        cardListFile = "bosscard";
 #endif
 #if UNITY_EDITOR
         heroFile = heroFile + ".json";
@@ -259,7 +262,7 @@ public class JsonUtils
         GameManager.getIntance().mInitDec = getStringById(100022);
 
         readPetInfo();
-
+        readBossCardInfo();
         readAboutLevelFile();
 
         GameManager.getIntance().mInitDec = getStringById(100024);
@@ -320,6 +323,11 @@ public class JsonUtils
     private void readPetInfo() {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(petFile));
         mPetDate = arrdata.ToObject<List<PetJsonBean>>();
+    }
+
+    private void readBossCardInfo() {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(cardListFile));
+        mBossCardDate = arrdata.ToObject<List<BossCardJsonBean>>();
     }
 
     private void readCardInfo()
@@ -393,6 +401,18 @@ public class JsonUtils
         }
         return null;
     }
+
+    public BossCardJsonBean getBossCardListById(long id) {
+        foreach (BossCardJsonBean bean in mBossCardDate)
+        {
+            if (bean.id == id)
+            {
+                return bean;
+            }
+        }
+        return null;
+    }
+
 
     public SamsaraJsonBean getSamsaraInfoById(long id) {
         if (mSamsaraDate.ContainsKey(id))

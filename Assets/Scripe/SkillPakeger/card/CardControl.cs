@@ -19,7 +19,7 @@ public class CardControl : MonoBehaviour
 
     public SkillJsonBean mSkill;
     public CardJsonBean mCard;
-    private CardManager mManager;
+    private CardManagerBase mManager;
     private int targetType;
     List<Attacker> mTargetList;
     private float mTargetX =-1;
@@ -97,7 +97,7 @@ public class CardControl : MonoBehaviour
     public void OnpointUp(BaseEventData date) {
         if (mStatue == STATUE_CARP_UP)
         {
-            long cost = mManager.getHero().mSkillManager.getDownCardCost() > mCard.cost ? 0 : mCard.cost - mManager.getHero().mSkillManager.getDownCardCost();
+            long cost = mManager.getAttacker().mSkillManager.getDownCardCost() > mCard.cost ? 0 : mCard.cost - mManager.getAttacker().mSkillManager.getDownCardCost();
             if (mSkill.shape_type == SkillTargetManager.TYPE_SHAPE_POINT && (mTargetList == null || mTargetList.Count == 0)) {
                 setStatus(STATUE_CARP_DEFAULT);
                 GameObject obj = Resources.Load<GameObject>("prefab/tip_text");
@@ -113,7 +113,7 @@ public class CardControl : MonoBehaviour
                 UiManager.FlyTo(tv);
                 return;
             }
-            else if (!mManager.userCard(mManager.getHero(),mIndex, cost))
+            else if (!mManager.userCard(mIndex, cost))
             {
                 setStatus(STATUE_CARP_DEFAULT);
                 GameObject obj = Resources.Load<GameObject>("prefab/tip_text");
@@ -138,11 +138,11 @@ public class CardControl : MonoBehaviour
                 }
             }
             else if (mSkill.shape_type == 6) {
-                mManager.getHero().mSkillManager.addSkill(mSkill.id, mManager.getHero());
+                mManager.getAttacker().mSkillManager.addSkill(mSkill.id, mManager.getAttacker());
             }
             else
             {
-                SkillManage.getIntance().addSkill(mManager.getHero(), mSkill, mClickV.x, mClickV.y, targetType);
+                SkillManage.getIntance().addSkill(mManager.getAttacker(), mSkill, mClickV.x, mClickV.y, targetType);
             }
 
             setStatus(STATUE_CARP_DEFAULT);                 
@@ -163,7 +163,7 @@ public class CardControl : MonoBehaviour
 
     public long giveUp() {
         if (isGiveUpDeal()) {
-            mManager.getHero().mSkillManager.addSkill(mSkill.id, mManager.getHero(), true);
+            mManager.getAttacker().mSkillManager.addSkill(mSkill.id, mManager.getAttacker(), true);
         }
         Destroy(gameObject, 0);
         return mCard.cost;
@@ -246,7 +246,7 @@ public class CardControl : MonoBehaviour
             else {
                 x = transform.GetChild(0).position.x;
             }
-            mClickShow.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getHero(), x, mClickShow.transform.position.y);
+            mClickShow.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getAttacker(), x, mClickShow.transform.position.y);
         }
         else {
 
@@ -295,7 +295,7 @@ public class CardControl : MonoBehaviour
                 }*/
     }
 
-    public void init(int index, CardManager manage,long cardId) {
+    public void init(int index, CardManagerBase manage,long cardId) {
         Debug.Log("init card id =" + cardId);
         CardJsonBean card = JsonUtils.getIntance().getCardInfoById(cardId);
         isInit = true;

@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour {
 	public FightManager mFightManager;
 	public LocalManager mLocalManager;
     public PlayControl mPlayerControl;
-    public List<NengliangkuaiControl> mNengLiangKuai = new List<NengliangkuaiControl>();
+    
     public GuideManager mGuideManager;
     private bool isInit = false;
     float cardTop = 0;
@@ -73,10 +73,7 @@ public class LevelManager : MonoBehaviour {
             
 
 
-        GameObject.Find("jineng").GetComponent<CardManager>().init();
-        nengLiangDian = 0;
-        mNengLiangKuai.Clear();
-        initNengliangkuai();
+        mPlayerControl.mCardManager.init(mPlayerControl);
         BackpackManager.getIntance().updateZhuangbeiItem(true);
         mTime = 0;
         mGuideManager = GetComponent<GuideManager>();
@@ -95,8 +92,6 @@ public class LevelManager : MonoBehaviour {
     {
         GameManager.getIntance().reStart();
         mFightManager.mEnemyFactory.destroyCreat();
-        nengLiangDian = 0;
-        mPlayActionCount = 0;
         starBoss = false;
         JsonUtils.getIntance().init();
         mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
@@ -107,78 +102,15 @@ public class LevelManager : MonoBehaviour {
 
         mPlayerControl.resetHero();
 
-        foreach (NengliangkuaiControl tmp in mNengLiangKuai) {
-            tmp.init();
-        }
-
-        GameObject.Find("jineng").GetComponent<CardManager>().reset();
+        mPlayerControl.mCardManager.reset();
     }
 
     void Start () {
         //init();
     }
 
-    private void initNengliangkuai() {
-        mNengLiangKuai.Clear();
-        for (int i = 1; i <= 10; i++)
-        {
-            NengliangkuaiControl tmp1 = GameObject.Find("nengliangkuai_" + i).GetComponent<NengliangkuaiControl>();
-            tmp1.init();
-            tmp1.setCount(nengLiangDian);
-            mNengLiangKuai.Add(tmp1);
-        }
-    }
-
-    private int mPlayActionCount = 0;
-
-    public void playerAction() {
-        mPlayActionCount++;
-        if (mPlayActionCount >= JsonUtils.getIntance().getConfigValueForId(100014)) {
-            addNengliangDian(1);
-            mPlayActionCount = 0;
-        }
-    }
-
-    public void addNengliangDian(float nengliang) {
-//        Debug.Log("addNengliangDian= " + nengliang);
-        if (nengLiangDian >= 10) {
-            nengLiangDian = 10;
-            return;
-        }
-        if (mNengLiangKuai.Count < 10) {
-            
-            initNengliangkuai();
-        }
-        nengLiangDian += nengliang;
-        if (nengLiangDian >= 10)
-        {
-            nengLiangDian = 10;
-        }
-        for (int i = 0; i < 10; i++)
-        {
-            mNengLiangKuai[i].setCount(nengLiangDian);
-        }
-    }
-    public bool delectNengliangdian(float nengliang) {
-        if (nengliang > nengLiangDian) {
-            return false;
-        }
-        if (mNengLiangKuai.Count < 10)
-        {
-            initNengliangkuai();
-        }
-        nengLiangDian -= nengliang;
-        for (int i = 0; i < 10; i++)
-        {
-            mNengLiangKuai[i].setCount(nengLiangDian);
-        }
-        return true;
-    }
-
-
 	// Update is called once per frame
 	bool starBoss = false;
-    public float nengLiangDian = 0;
     public float mTime = 0;
     private long mOld = -1;
     private void OnApplicationPause(bool pause)

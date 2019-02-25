@@ -43,7 +43,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                 }
                 mIsOndragDown = true;
                 GameObject ob = GameObject.Find("kapai_click");
-                ob.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getHero(), mCurPos.x, mCurPos.y);
+                ob.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getAttacker(), mCurPos.x, mCurPos.y);
                 long result = GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_OBJECT_CLICK, mCard.id);
                 mCurTime = 0f;
                 mIsDown = false;
@@ -164,7 +164,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                     mNewDrag = mIndicator.AddComponent<NewItemOnDrag>();
                 mIndicator.transform.position = Input.mousePosition;
                 mUiContorl = mIndicator.GetComponent<CardUiControl>();
-                mUiContorl.init(mCard.id, CardUiControl.TYPE_CARD_PLAY, mManager.getHero());
+                mUiContorl.init(mCard.id, CardUiControl.TYPE_CARD_PLAY, mManager.getAttacker());
                 mUiContorl.init(mCard.id, 113f, 166f);
                 if (mRootContorl.count == 1)
                 {
@@ -186,7 +186,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         mIsOndragDown = false;
         mScrollRect.OnEndDrag(eventData);
     }
-    private CardManager mManager;
+    private CardManagerBase mManager;
     private bool isUser;
     private bool isInit = false;
     private CardJsonBean mCard;
@@ -195,7 +195,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         mScrollRect = scrollRect;
     }
 
-    public void init(CardManager manage, long cardId, bool isUser, GameObject newItem, Transform newItemRoot, ScrollRect scrollRect)
+    public void init(CardManagerBase manage, long cardId, bool isUser, GameObject newItem, Transform newItemRoot, ScrollRect scrollRect)
     {
         mNewItem = newItem;
         mNewItemRoot = newItemRoot;
