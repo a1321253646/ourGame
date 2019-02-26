@@ -1,0 +1,6 @@
+Assets/TGSDK/Plugins/1.8.3/iOS/frameworks/AdColony.framework/AdColony filter=lfs diff=lfs merge=lfs -text
+Assets/TGSDK/Plugins/1.8.3/iOS/frameworks/AppLovinSDK filter=lfs diff=lfs merge=lfs -text
+Assets/TGSDK/Plugins/1.8.3/iOS/frameworks/FBAudienceNetwork.framework/FBAudienceNetwork filter=lfs diff=lfs merge=lfs -text
+Assets/TGSDK/Plugins/1.8.3/iOS/frameworks/InMobi.framework/InMobi filter=lfs diff=lfs merge=lfs -text
+Assets/TGSDK/Plugins/1.8.3/iOS/frameworks/WindSDK.framework/WindSDK filter=lfs diff=lfs merge=lfs -text
+Assets/TGSDK/Plugins/1.8.3/iOS/frameworks/GoogleMobileAds.framework/GoogleMobileAds filter=lfs diff=lfs merge=lfs -text
