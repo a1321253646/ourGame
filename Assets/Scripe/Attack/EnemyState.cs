@@ -20,15 +20,18 @@ public class EnemyState{
 		bloodOffet = new Vector3 (mResourceData.getBloodOffset().x, mResourceData.getBloodOffset().y, 0);
 		HP_imageGameobject = Resources.Load<GameObject> ("prefab/enemyblood") ;		 
 		HP_Parent = GameObject.Find("enemyStatePlane").transform;  
-		EnemySceenPosition=Camera.main.WorldToScreenPoint(mEnemy.transform.position);  
-		HP_imageGameObjectClone = GameObject.Instantiate(HP_imageGameobject,
-			new Vector2 (EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);  
-		HP_imageGameObjectClone.transform.localScale = new Vector3 (  mResourceData.blood_witch,1f,0);
-		HP_imageGameObjectClone.transform.SetParent(HP_Parent); 
-		mHpSl = HP_imageGameObjectClone.GetComponent<Slider> ();
+		EnemySceenPosition=Camera.main.WorldToScreenPoint(mEnemy.transform.position);
+        if (enemy.mAttackType == Attacker.ATTACK_TYPE_ENEMY) {
+            HP_imageGameObjectClone = GameObject.Instantiate(HP_imageGameobject,
+                new Vector2(EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
+            HP_imageGameObjectClone.transform.localScale = new Vector3(mResourceData.blood_witch, 1f, 0);
+            HP_imageGameObjectClone.transform.SetParent(HP_Parent);
+            mHpSl = HP_imageGameObjectClone.GetComponent<Slider>();
+            EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position) + new Vector3(0, 0, 0);
+            HP_imageGameObjectClone.transform.position = EnemySceenPosition;
+        }
         resetHp();
-        EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position)+new Vector3(0,0,0);  
-		HP_imageGameObjectClone.transform.position = EnemySceenPosition;
+
 		//GameObject.Instantiate (getEnemyPrefab(res), new Vector2 (transform.position.x, transform.position.y),Quaternion.Euler(0.0f,0f,0.0f));
 		 
 	}
@@ -41,8 +44,15 @@ public class EnemyState{
     }
 	public void hurt(HurtStatus status)
     {
-		mHpSl.value =(float) (mEnemy.mBloodVolume/bili);
-		if (mEnemy.mBloodVolume <= 0) {
+        if (mEnemy.mAttackType == Attacker.ATTACK_TYPE_ENEMY)
+        {
+            mHpSl.value = (float)(mEnemy.mBloodVolume / bili);
+        }
+        else
+        {
+            GameManager.getIntance().setBossBlood(mEnemy.mBloodVolume , mEnemy.mAttribute.maxBloodVolume);
+        }
+		if (mEnemy.mBloodVolume <= 0 && mEnemy.mAttackType == Attacker.ATTACK_TYPE_ENEMY) {
 			GameObject.Destroy (HP_imageGameObjectClone);
 			HP_imageGameObjectClone = null;
 
@@ -93,7 +103,15 @@ public class EnemyState{
         if (blood == 0) {
             return;    
         }
-        mHpSl.value = (float)(mEnemy.mBloodVolume / bili);
+        if (mEnemy.mAttackType == Attacker.ATTACK_TYPE_ENEMY)
+        {
+            mHpSl.value = (float)(mEnemy.mBloodVolume / bili);
+        }
+        else
+        {
+            GameManager.getIntance().setBossBlood(mEnemy.mBloodVolume, mEnemy.mAttribute.maxBloodVolume);
+        }
+       
         GameObject obj = Resources.Load<GameObject>("prefab/hurt");
         EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position);
         GameObject text = GameObject.Instantiate(obj,
@@ -112,8 +130,14 @@ public class EnemyState{
         {
             bili = mEnemy.mAttribute.maxBloodVolume / float.MaxValue + 1;
         }
+        if (mEnemy.mAttackType == Attacker.ATTACK_TYPE_ENEMY)
+        {
+            mHpSl.maxValue = (float)(mEnemy.mAttribute.maxBloodVolume / bili);
+            mHpSl.value = (float)(mEnemy.mBloodVolume / bili);
+        }
+        else {
+            GameManager.getIntance().setBossBlood(mEnemy.mBloodVolume, mEnemy.mAttribute.maxBloodVolume);
+        }
 
-        mHpSl.maxValue = (float)(mEnemy.mAttribute.maxBloodVolume / bili);
-        mHpSl.value = (float)(mEnemy.mBloodVolume / bili);
     }
 }

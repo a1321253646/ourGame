@@ -13,7 +13,7 @@ public class SkillObject100021 : SkillObject
     void endAnimal(int status) {
         mSkillStatus = SKILL_STATUS_END;
         actionEnd();
-        mAttacker.mCardManager.giveupCard(CardManager.GIVEUP_CARD_RANGE);
+        mAttacker.mCardManager.giveupCard(CardManagerBase.GIVEUP_CARD_RANGE);
         Destroy(gameObject, 0);
     }
 

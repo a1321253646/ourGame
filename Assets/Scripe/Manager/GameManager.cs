@@ -234,8 +234,11 @@ public class GameManager
         }
 
     }
-
-	public void setBlood(double blood,double max){
+    public void setBossBlood(double blood, double max)
+    {
+        uiManager.changeBossBlod(blood, max);
+    }
+    public void setBlood(double blood,double max){
         uiManager.changeHeroBlood (blood,max);
 	}
 	public void heroUp(){
@@ -429,6 +432,9 @@ public class GameManager
             Debug.Log("setVoice save isVoice= "+ isVoice);
             SQLHelper.getIntance().updateIsVoice(isVoice ? 1 : 2);
         }
+    }
+    public UiManager getUiManager() {
+        return uiManager;
     }
 }
 

@@ -2,156 +2,89 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class BossCardManager : MonoBehaviour
+public class BossCardManager : CardManagerBase
 {
     BossCardJsonBean mBean = null;
-    bool isShow = false;
-    private int attckIndex = 0;
     private int cardIndex = 0;
-    private long nengLiang = 0;
-
-    private int addNengliangAttack = 0;
-    private float startCardTime = -1;
-    private float nextCardTime = -1;
-
-    private int addCard = 0;
-    private float mTime = 0;
-    private float mAddCardTime = 0;
-    private List<CardJsonBean> mCardIdList = new List<CardJsonBean>();
-    private Attacker mAttacker = null;
     private Attacker mHero = null;
-    public void show(Attacker boss) {
-        mAttacker = boss;
+    
+    public void show() {
         mHero = GameObject.Find("Manager").GetComponent<LevelManager>().mPlayerControl;
-        if (addNengliangAttack == 0) {
-            addNengliangAttack = (int)JsonUtils.getIntance().getConfigValueForId(100051);
-            startCardTime = JsonUtils.getIntance().getConfigValueForId(100051);
-            nextCardTime = JsonUtils.getIntance().getConfigValueForId(100052);
-        }
-        attckIndex = 0;
-        cardIndex = 0;
-        nengLiang = 0;
-        mTime = 0;
-        mAddCardTime = 0;
-        addCard = 0;
-        isShow = true;
-        mCardIdList.Clear();
+        GameManager.getIntance().getUiManager().showBossUi();
         Level level = JsonUtils.getIntance().getLevelData(
             BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
         mBean = JsonUtils.getIntance().getBossCardListById(level.card);
-    }
-    public void bossAttack() {
-        attckIndex++;
-        if (attckIndex >= addNengliangAttack) {
-            attckIndex = attckIndex - addNengliangAttack;
-            if (nengLiang < 10) {
-                nengLiang++;
-                updateBossNengliangShow();
-            }
-        }
+        isShow = true;
     }
 
-    private void isUserCard() {
-        if (mCardIdList.Count > 0)
-        {
-            CardJsonBean bean = mCardIdList[0];
-            if (bean.cost < nengLiang)
-            {
-                nengLiang = nengLiang - bean.cost;
-                updateBossNengliangShow();
-                useCard(bean);
-                mCardIdList.Remove(bean);
-                updateBossCardShow();
-            }
-        }
-    }
-
-    public void addNengLiang(long add) {
-        nengLiang = nengLiang + add;
-        if (nengLiang > 10) {
-            nengLiang = 10;
-            updateBossNengliangShow();
-        }
-    }
-
-    public void addCardCount(int add) {
-        addCard += add;
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!isShow  ) {
+    public void disShow() {
+        if (!isShow) {
             return;
         }
-        if(mBean.getCardList() == null || mBean.getCardList().Count == 0) {
-            return;    
-        }
-        mTime += Time.deltaTime;
-        if (mTime < startCardTime) {
-            return;
-        }
-
-        isUserCard();
-        if (cardIndex >= mBean.getCardList().Count) {
-            return;
-        }
-        if (addCard > 0) {
-            mAddCardTime += Time.deltaTime;
-            if (mAddCardTime > 0.1) {
-                addCard--;
-                mAddCardTime = mAddCardTime - 0.1f;
-                addBossCard();
-            }
-        }
-        if (mTime > startCardTime + nextCardTime) {
-            mTime = mTime - nextCardTime;
-            addBossCard();
-        }
-    }
-    private void updateBossNengliangShow()
-    {
-
-    }
-
-    private void showUi()
-    {
-
-    }
-
-    private void updateBossCardShow() {
-
-    }
-
-    public void disShow()
-    {
+        GameManager.getIntance().getUiManager().showGasUi();
+        reset();
         isShow = false;
     }
 
-    private void addBossCard() {
-       
-        CardJsonBean card = JsonUtils.getIntance().getCardInfoById(mBean.getCardList()[cardIndex]);
-        mCardIdList.Add(card);
-        cardIndex++;
-        updateBossCardShow();
+
+    public override void resetEnd()
+    {
+
+
     }
 
-    private void useCard(CardJsonBean bean) {
-        SkillJsonBean skill = JsonUtils.getIntance().getSkillInfoById(bean.skill_id);
-
-        if (skill.shape_type == 4)
+    private void isUserCard() {
+        if (mCardIdList.Count > 0 && mList[0].isInTarget)
         {
-            mHero.mSkillManager.addSkill(skill.id, mAttacker);
-        }
-        else if (skill.shape_type == 6)
-        {
-            mAttacker.mSkillManager.addSkill(skill.id, mAttacker);
-        }
-        else
-        {
-            SkillManage.getIntance().bossAddSkill(mAttacker, skill);
+            CardJsonBean bean = mCardIdList[0];
+            userCard(0, bean.cost);
         }
     }
+    // Update is called once per frame
+    public override void updateEnd()
+    {
+        isUserCard();
+    }
+
+    public override long getCreatCard()
+    {
+        if (cardIndex < mBean.getCardList().Count) {
+            long id =  mBean.getCardList()[cardIndex];
+            cardIndex++;
+            return id;
+        }
+        return 0;
+    }
+    public override void useEnd(CardControl cardControl)
+    {
+        Debug.Log(" ---------------------------- useEnd");
+
+        int targetType = Attacker.CAMP_TYPE_DEFAULT;
+        if (cardControl.mSkill.target_type == SkillJsonBean.TYPE_SELF)
+        {
+            targetType = Attacker.CAMP_TYPE_MONSTER ;
+        }
+        else if (cardControl.mSkill.target_type == SkillJsonBean.TYPE_ENEMY)
+        {
+            targetType = Attacker.CAMP_TYPE_PLAYER;
+        }
+
+        if (cardControl.mSkill.shape_type == 4)
+        {
+            if (mHero != null && mHero.status != Attacker.PLAY_STATUS_DIE)
+            {
+                mHero.mSkillManager.addSkill(cardControl.mSkill.id, mAttacker);
+            }
+        }
+        else if (cardControl.mSkill.shape_type == 6)
+        {
+            mAttacker.mSkillManager.addSkill(cardControl.mSkill.id,mAttacker);
+        }
+        else if(mHero != null && mHero.status != Attacker.PLAY_STATUS_DIE)
+        {
+            SkillManage.getIntance().bossAddSkill(mAttacker, mHero,cardControl.mSkill, targetType);
+        }
+        Destroy(cardControl.gameObject);
+    }
+
 }

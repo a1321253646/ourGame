@@ -95,10 +95,13 @@ public class LocalManager{
 		}
 	}
 	private void heroAttackTarget(){
+        
         if (mLocalLink == null) {
             return;
         }
-		LocalBean tmp = mLocalLink.next;
+//        Debug.Log(" ================mLocalLink.mAttacker.mAttackerTargets.Count================================ " + mLocalLink.mAttacker.mAttackerTargets.Count);
+
+        LocalBean tmp = mLocalLink.next;
 
 		while (tmp != null) {
 			float leng = mLocalLink.mCurrentX + mLocalLink.mAttacker.resourceData.getHurtOffset().x + mLocalLink.mAttackLeng;
@@ -127,6 +130,7 @@ public class LocalManager{
 			}
 			tmp = tmp.next;
 		}
+//        Debug.Log(" ================mLocalLink.mAttacker.mAttackerTargets.Count================================ " + mLocalLink.mAttacker.mAttackerTargets.Count);
         if (mLocalLink.mAttacker.mAttackerTargets.Count > 0)
         {
             mFightManager.mHeroStatus = Attacker.PLAY_STATUS_FIGHT;

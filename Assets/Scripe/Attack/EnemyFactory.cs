@@ -99,12 +99,13 @@ public class EnemyFactory : MonoBehaviour {
             game, new Vector3 (transform.position.x, getYRamdom()- bean.idel_y,mZPoint),Quaternion.Euler(0.0f,0f,0.0f));
         mZPoint -= 0.1f;
         EnemyBase enmey = newobj.GetComponent<EnemyBase> ();
-		enmey.init (data,bean);
+		
 		if (isBoss) {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_BOSS;
 		} else {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_ENEMY;
 		}
+        enmey.init(data, bean);
         enmey.mCampType = Attacker.CAMP_TYPE_MONSTER;
         enmey.setTarget(new Vector2(mHeroX, mHeroY));
         mLevelMnager.mPlayerControl.mSkillManager.mEventAttackManager.debuffMonster(enmey);

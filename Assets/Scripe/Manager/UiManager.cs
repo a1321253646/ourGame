@@ -6,17 +6,28 @@ using System.Collections.Generic;
 
 public class UiManager 
 {	
-	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv;
-	Slider mHpSl,mStartBossGasSl;
+	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv,mBossHpTv;
+	Slider mHpSl,mStartBossGasSl,mBossHpSl;
 	Button mStartBossBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton,mRankingButton;
     public Button mLvUpBt;
     Image autoBack;
     Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint/*,mVoiceImage*/;
     //Sprite mAutoYes, mAutoNo,mVoiceOpen,mVoiceClose;
 
+    float mGasFristX,mBossFristX;
+
+    GameObject mBossUiRoot, mGasUiRoot;
+    bool isChangeUi = false;
+    bool isGasRuning = false;
+    bool isBossRuning = false;
+    bool isShowBoss = false;
+    float mChangeUiXeach = 0;
+    float mWidth = 0;
+    float mxBili = 0;
     ActiveListControl mActiveListControl;
 
     bool isAuto = false;
+
 	public void init(){
         
         mHeroLvTv = GameObject.Find ("lv_labe").GetComponent<Text> ();
@@ -42,6 +53,20 @@ public class UiManager
         mCardUiPoint = GameObject.Find ("skilcard_ui_point").GetComponent<Image> ();
         mSettingButton = GameObject.Find("setting_button").GetComponent<Button>();
         mRankingButton = GameObject.Find("ranking_list_button").GetComponent<Button>();
+
+        mBossUiRoot = GameObject.Find("boss_info");
+        mGasUiRoot = GameObject.Find("moqi_root");
+        mBossHpTv = GameObject.Find("boss_hp_show").GetComponent<Text>();
+        mBossHpSl = GameObject.Find("boss_blood").GetComponent<Slider>();
+
+        mGasFristX = mGasUiRoot.GetComponent<RectTransform>().position.x;
+        mBossFristX = mBossUiRoot.GetComponent<RectTransform>().position.x;
+        mWidth = mBossUiRoot.GetComponent<RectTransform>().rect.x;
+
+        float x = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.x;
+        mxBili = Screen.width / x;
+
+        mChangeUiXeach = (mBossUiRoot.transform.position.x - mGasUiRoot.transform.position.x) / 0.5f * Time.deltaTime;
 
         //        mVoiceImage = GameObject.Find ("voice_button").GetComponent<Image> ();
         //        mVoiceButton = GameObject.Find("voice_button").GetComponent<Button> ();
@@ -281,7 +306,27 @@ public class UiManager
 		}
 	}
 
-	public void changeHeroBlood(double current,double max){
+    public void changeBossBlod(double current, double max) {
+        double bili = 1;
+        if (current < 0)
+        {
+            mBossHpTv.text = 0 + "/" + StringUtils.doubleToStringShow(max);
+        }
+        else
+        {
+            mBossHpTv.text = StringUtils.doubleToStringShow(current) + "/" + StringUtils.doubleToStringShow(max);
+        }
+        if (max > float.MaxValue)
+        {
+            bili = max / float.MaxValue + 1;
+        }
+
+        mBossHpSl.maxValue = (float)(max / bili);
+        mBossHpSl.value = (float)(current / bili);
+    }
+
+
+    public void changeHeroBlood(double current,double max){
         double bili = 1;
 
 //        Debug.Log("============================current = " + current + "max =" + max);
@@ -437,6 +482,89 @@ public class UiManager
         }
         else {
             transfor.localScale = new Vector3(0, 0, 0);
+        }
+    }
+
+    public void showBossUi() {
+        isChangeUi = true;
+        isShowBoss = true;
+        isGasRuning = true;
+        isBossRuning = false;
+    }
+    public void showGasUi() {
+        isChangeUi = true;
+        isShowBoss = false;
+        isGasRuning = false;
+        isBossRuning = true;
+    }
+
+    public void upDate() {
+        if (!isChangeUi) {
+            return;
+        }
+        if (isShowBoss)
+        {
+
+
+            if (isGasRuning)
+            {
+                if (mGasUiRoot.transform.position.x + mChangeUiXeach >= mBossFristX+ mWidth/ 2 *mxBili)
+                {
+                    mGasUiRoot.transform.Translate(Vector2.right * (mBossFristX + mWidth / 2*mxBili - mGasUiRoot.transform.position.x));
+                    isGasRuning = false;
+                    isBossRuning = true;
+                }
+                else
+                {
+                    mGasUiRoot.transform.Translate(Vector2.right * mChangeUiXeach);
+                }
+            }
+            else if (isBossRuning)
+            {
+                if (mBossUiRoot.transform.position.x - mChangeUiXeach <= mGasFristX- mWidth/ 2*mxBili)
+                {
+                    mBossUiRoot.transform.Translate(Vector2.left * (mBossUiRoot.transform.position.x - mGasFristX+mWidth/ 2*mxBili));
+                    isBossRuning = false;
+                }
+                else
+                {
+                    mBossUiRoot.transform.Translate(Vector2.left * mChangeUiXeach);
+                }
+            }
+            else {
+                isChangeUi = false;
+            }
+        }
+        else {
+            if (isBossRuning)
+            {
+                if (mBossUiRoot.transform.position.x + mChangeUiXeach >= mBossFristX )
+                {
+                    mBossUiRoot.transform.Translate(Vector2.right * (mBossFristX - mBossUiRoot.transform.position.x));
+                    isGasRuning = true;
+                    isBossRuning = false;
+                }
+                else
+                {
+                    mBossUiRoot.transform.Translate(Vector2.right * mChangeUiXeach);
+                }
+            }
+            else if (isGasRuning)
+            {
+                if (mGasUiRoot.transform.position.x - mChangeUiXeach <= mGasFristX )
+                {
+                    mGasUiRoot.transform.Translate(Vector2.left * (mGasUiRoot.transform.position.x - mGasFristX));
+                    isBossRuning = false;
+                }
+                else
+                {
+                    mGasUiRoot.transform.Translate(Vector2.left * mChangeUiXeach);
+                }
+            }
+            else
+            {
+                isChangeUi = false;
+            }
         }
     }
 }

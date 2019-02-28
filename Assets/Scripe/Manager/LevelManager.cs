@@ -206,7 +206,7 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi(dec,LuiHuiTips.TYPPE_UPDATE);
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
         }
-
+        GameManager.getIntance().getUiManager().upDate();
     }
 	public BackgroundManager getBackManager(){
 		return mBackManager;

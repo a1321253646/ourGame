@@ -28,7 +28,7 @@ public class AnimalAttackSkill100027 : AnimalAttackSkillBase
     {
         if (status == ActionFrameBean.ACTION_NONE)
         {
-            long count = mFight.mCardManager.giveupCard(CardManager.GIVEUP_CARD_MIX);
+            long count = mFight.mCardManager.giveupCard(CardManagerBase.GIVEUP_CARD_MIX);
             mManager.getAttacker().AddBlood(mManager.getAttacker().mAttribute.maxBloodVolume * mParam[0]/100 * count);
         }
     }

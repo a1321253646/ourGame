@@ -25,9 +25,11 @@ public abstract class SkillObject : MonoBehaviour
     bool isGiveUp = false;
 
     public List<Attacker> mTargetList;
-    public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType,bool giveup) {
+    public bool isBoss = false;
+    public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType,bool giveup,bool boss) {
         isGiveUp = giveup;
         mLocalManager = manage;
+        isBoss = boss;
         mBean = bean;
         if (bean.skill_resource > 0) {
             mResource = JsonUtils.getIntance().getEnemyResourceData(bean.skill_resource);
@@ -49,7 +51,11 @@ public abstract class SkillObject : MonoBehaviour
     }
 
     public void updateLocal(float x) {
-        mLocal.x = mLocal.x - x;
+        if (!isBoss) {
+            gameObject.transform.Translate(Vector2.left * x);
+            mLocal.x = mLocal.x - x;
+        }
+
     }
 
     public abstract void initEnd();

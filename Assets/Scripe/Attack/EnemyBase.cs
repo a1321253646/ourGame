@@ -39,7 +39,12 @@ public class EnemyBase : Attacker {
     {
         if (status == ActionFrameBean.ACTION_ATTACK)
         {
+            if (mAttackType == Attacker.ATTACK_TYPE_BOSS)
+            {
+                mCardManager.playerAction();
+            }
             mFightManager.attackerAction(id);
+
         }
     }
     void dieEcent(int status)
@@ -60,7 +65,17 @@ public class EnemyBase : Attacker {
         mAnimalControl.update();
         mSkillManager.upDate();
     }
+    public void endDieNoshow()
+    {
+        if (status != ActionFrameBean.ACTION_DIE) {
+            status = ActionFrameBean.ACTION_DIE;
+            mState.delectBlood();
+            Destroy(gameObject);
+        }
 
+        // setStatus(ActionFrameBean.ACTION_DIE);
+
+    }
     public void endDie()
     {
         setStatus(ActionFrameBean.ACTION_DIE);
@@ -188,6 +203,12 @@ public class EnemyBase : Attacker {
 		//toString ("enemy");
 		mState = new EnemyState (this);
         upDataSpeed();
+        if (mAttackType == Attacker.ATTACK_TYPE_BOSS) {
+            mCardManager = GameObject.Find("boss_info").GetComponent<BossCardManager>();
+            mCardManager.init(this);
+            ((BossCardManager)mCardManager).show();
+        }
+
 	}
 
 	public int dieGas = 0;
@@ -208,8 +229,9 @@ public class EnemyBase : Attacker {
         if (mBloodVolume <= 0)
         {
             mSkillManager.mEventAttackManager.removeAll();
-            Die();
+            Die();                    
             mFightManager.unRegisterAttacker(this);
+
         }
         mState.hurt(status);
         return status.blood;

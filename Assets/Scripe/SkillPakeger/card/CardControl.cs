@@ -15,7 +15,7 @@ public class CardControl : MonoBehaviour
     private Image mImageTop ;
     private int mStatue = STATUE_CARP_DEFAULT;
     private bool isInit = false;
-    private bool isInTarget = false;
+    public bool isInTarget = false;
 
     public SkillJsonBean mSkill;
     public CardJsonBean mCard;
@@ -303,25 +303,28 @@ public class CardControl : MonoBehaviour
         mCard = card;
         mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);
         mIndex = index;
-        EventTrigger tri = gameObject.AddComponent<EventTrigger>();
-        tri.triggers = new List<EventTrigger.Entry>();
 
-        EventTrigger.Entry entry1 = new EventTrigger.Entry();
-        entry1.eventID = EventTriggerType.PointerDown;
-        UnityAction<BaseEventData> callback1 = new UnityAction<BaseEventData>(OnpointDown);
-        entry1.callback.AddListener(callback1);
-        EventTrigger.Entry entry2 = new EventTrigger.Entry();
-        entry2.eventID = EventTriggerType.Drag;
-        UnityAction<BaseEventData> callback2 = new UnityAction<BaseEventData>(OnDrag);
-        entry2.callback.AddListener(callback2);
-        EventTrigger.Entry entry3 = new EventTrigger.Entry();
-        entry3.eventID = EventTriggerType.PointerUp;
-        UnityAction<BaseEventData> callback3 = new UnityAction<BaseEventData>(OnpointUp);
-        entry3.callback.AddListener(callback3);
-        
-        tri.triggers.Add(entry1);
-        tri.triggers.Add(entry2);
-        tri.triggers.Add(entry3);
+        if (manage.mAttacker.mAttackType == Attacker.ATTACK_TYPE_HERO) {
+            EventTrigger tri = gameObject.AddComponent<EventTrigger>();
+            tri.triggers = new List<EventTrigger.Entry>();
+            EventTrigger.Entry entry1 = new EventTrigger.Entry();
+            entry1.eventID = EventTriggerType.PointerDown;
+            UnityAction<BaseEventData> callback1 = new UnityAction<BaseEventData>(OnpointDown);
+            entry1.callback.AddListener(callback1);
+            EventTrigger.Entry entry2 = new EventTrigger.Entry();
+            entry2.eventID = EventTriggerType.Drag;
+            UnityAction<BaseEventData> callback2 = new UnityAction<BaseEventData>(OnDrag);
+            entry2.callback.AddListener(callback2);
+            EventTrigger.Entry entry3 = new EventTrigger.Entry();
+            entry3.eventID = EventTriggerType.PointerUp;
+            UnityAction<BaseEventData> callback3 = new UnityAction<BaseEventData>(OnpointUp);
+            entry3.callback.AddListener(callback3);
+
+            tri.triggers.Add(entry1);
+            tri.triggers.Add(entry2);
+            tri.triggers.Add(entry3);
+        }
+
         //添加事件触发记录到GameObject的事件触发组件  
 
         if (mImageBottom == null)

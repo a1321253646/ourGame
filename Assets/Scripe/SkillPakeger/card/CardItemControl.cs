@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class CardItemControl : MonoBehaviour {
-    CardManager mManager;
+//    CardManagerBase mManager;
     long mCardId;
     SkillJsonBean mSkillJson;
     

@@ -29,7 +29,7 @@ public class SkillObject100022 : SkillObject
                 return;
             }
             
-            long count = mAttacker.mCardManager.giveupCard(CardManager.GIVEUP_CARD_ALL); 
+            long count = mAttacker.mCardManager.giveupCard(CardManagerBase.GIVEUP_CARD_ALL); 
             foreach (Attacker attack in mTargetList) {
                 double hurt =  calcuator.getValue(mAttacker, attack)* count;
                 Debug.Log("========================fightEcent hurt="+ hurt);

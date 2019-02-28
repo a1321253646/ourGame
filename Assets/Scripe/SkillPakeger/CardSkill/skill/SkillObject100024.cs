@@ -28,7 +28,7 @@ public class SkillObject100024 : SkillObject
                 Debug.Log("getTargetList null");
                 return;
             }
-            long count = mAttacker.mCardManager.giveupCard(CardManager.GIVEUP_CARD_MAX); 
+            long count = mAttacker.mCardManager.giveupCard(CardManagerBase.GIVEUP_CARD_MAX); 
             foreach (Attacker attack in mTargetList) {
                 double hurt =  calcuator.getValue(mAttacker, attack)* count;
                 Debug.Log("========================fightEcent hurt="+ hurt);

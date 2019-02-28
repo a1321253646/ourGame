@@ -96,11 +96,18 @@ public abstract class Attacker : MonoBehaviour
         return status;
     }
 
+    public void restart() {
+        Debug.Log("--------------------------------------------startLevelSecond--------------------------------------------------------------");
+        this.status = ActionFrameBean.ACTION_MOVE;
+        mAnimalControl.isLastSet = false;
+        changeAnim();
+    }
+
     public void setStatus(int status) {
         if (isStop && status != ActionFrameBean.ACTION_DIE) {
             return;
         }
-        this.status = status;
+        this.status = status;       
         changeAnim();
     }
 
@@ -142,6 +149,7 @@ public abstract class Attacker : MonoBehaviour
         setStatus(ActionFrameBean.ACTION_STANDY);
     }
 	public void Fight(){
+      
         setStatus(ActionFrameBean.ACTION_ATTACK);
     }
 	public void Die(){

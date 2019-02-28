@@ -17,7 +17,7 @@ public class PlayControl : Attacker
 
     void Start() {
         mFirVetor = transform.position;
-        mAttackType = Attacker.ATTACK_TYPE_HERO;
+        
         mCampType = CAMP_TYPE_PLAYER;
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mBackManager = mLevelManager.getBackManager();
@@ -102,7 +102,8 @@ public class PlayControl : Attacker
 
     public void resetHero() {
         isBeAttacker = false;
-        status = PLAY_STATUS_RUN;
+        
+     //   status = PLAY_STATUS_RUN;
         id = -1;
         mBloodVolume = 0;
         mAttackLeng = 1;
@@ -117,9 +118,9 @@ public class PlayControl : Attacker
         oldStatus = PLAY_STATUS_RUN;
         isStart = false;
         mVoication = -1;
-      //  if (mAttackerTargets != null) {
-      //      mAttackerTargets.Clear();
-      //  }
+        if (mAttackerTargets != null) {
+            mAttackerTargets.Clear();
+        }
 
        // mAttackerTargets = null;
 
@@ -128,7 +129,16 @@ public class PlayControl : Attacker
         setHeroData();
         upLunhui();
         initEquip();
-
+       
+        if (status != PLAY_STATUS_RUN)
+        {
+            restart();
+        }
+        if(mLocalBean != null) {
+            mLocalBean.next = null;
+            mLocalBean.mTargetX = -999;
+            mLocalBean.mTargetY = -999;
+        }
         mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
         mFightManager.registerAttacker(this);
         startGame();
@@ -680,7 +690,7 @@ public class PlayControl : Attacker
                 mBackManager.move();
             }
         }
-        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
+//        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
         mSkillManager.upDate();
         mAnimalControl.update();
         mLevelAnimalControl.updateAnimal();
@@ -695,11 +705,12 @@ public class PlayControl : Attacker
     }
     private bool isStart = false;
     public void startGame() {
+        mAttackType = Attacker.ATTACK_TYPE_HERO;
         startComment();
         isStart = true;
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mBackManager = mLevelManager.getBackManager();
-        mCardManager = GameObject.Find("jineng").GetComponent<CardManager>();
+        mCardManager = GameObject.Find("jineng").GetComponent<HeroCardManager>();
         mBackManager.stop();
     }
 

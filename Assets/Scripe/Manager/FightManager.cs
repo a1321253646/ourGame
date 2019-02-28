@@ -16,7 +16,17 @@ public class FightManager{
     public void reset() {
         id = 0;
         mHeroStatus = Attacker.PLAY_STATUS_RUN;
+        foreach (Attacker a in mAliveActtackers.Values)
+        {
+            if (a is PlayControl)
+            {
+                continue;
+            }
+            ((EnemyBase)a).endDieNoshow();
+        }
         mAliveActtackers.Clear();
+
+
     }
 
     public bool isEmptyEnemy(){
@@ -55,7 +65,8 @@ public class FightManager{
 	public void unRegisterAttacker(Attacker attcker){
 
         if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
-			GameManager.getIntance ().mHeroIsAlive = false;
+            GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
+            GameManager.getIntance ().mHeroIsAlive = false;
             //SceneManager.UnloadSceneAsync (0);
             GameObject.Find("Manager").GetComponent<LevelManager>().getBackManager().stop();
             foreach (Attacker a in mAliveActtackers.Values)
@@ -66,6 +77,9 @@ public class FightManager{
                 }
                 ((EnemyBase)a).Standy();
             }
+              if (attcker.mAttackerTargets != null) {
+                attcker.mAttackerTargets.Clear();
+              }
             if (SQLHelper.getIntance().isLuiHui != -1 && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) <= SQLHelper.getIntance().isLuiHui) {
                 long deal = SQLHelper.getIntance().isLuiHuiDeal;
                 if (deal == -1)
@@ -109,6 +123,7 @@ public class FightManager{
         }
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
         {
+            GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
             if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) == 0)
             {
                 GameManager.getIntance().mCurrentLevel = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100019) + 1) ;

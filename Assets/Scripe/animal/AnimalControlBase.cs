@@ -13,7 +13,7 @@ public class AnimalControlBase
     private ResourceBean mResource;
     private SpriteRenderer mSpriteRender;
     private float mAnimalTime = 0;
-    private bool isLastSet = false;
+    public  bool isLastSet = false;
     Image mImage;
     private Dictionary<int, AnimalStatu.animalEnd> mEndCall = new Dictionary<int, AnimalStatu.animalEnd>();
     private Dictionary<int, AnimalStatu.animalBegin> mStratCall = new Dictionary<int, AnimalStatu.animalBegin>();

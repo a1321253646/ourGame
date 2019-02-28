@@ -20,12 +20,13 @@ public abstract class CardManagerBase : MonoBehaviour {
     public GameObject mCardLocalUp, mCardLocalTop;
     public GameObject indicator;
 
-    public abstract void nengliangShowUpdate();
-    public abstract void addCardUpdate(CardJsonBean card);
-    public abstract void giveUpCardDeal(int index);
-    public abstract void userCardDeal(int index);
+ //   public abstract void addCardUpdate(CardJsonBean card);
+ //   public abstract void giveUpCardDeal(int index);
+  //  public abstract void userCardDeal(int index);
     public abstract long getCreatCard();
     public abstract void resetEnd();
+    public abstract void updateEnd();
+
 
     public static float CREADT_CARD_TIME = -1;
     public static float OUT_CREADT_CARD_TIME = 0.1f;
@@ -38,6 +39,12 @@ public abstract class CardManagerBase : MonoBehaviour {
     public GameObject card;
     public LocalManager mLocalManage;
 
+    public List<NengliangkuaiControl> mNengLiangKuai = new List<NengliangkuaiControl>();
+    public List<GameObject> mCardLoaclList = new List<GameObject>();
+    public float mYdel;
+    public List<CardControl> mList = new List<CardControl>();
+
+    public bool isShow = false;
 
     public void reset() {
         isInit = false;
@@ -47,7 +54,19 @@ public abstract class CardManagerBase : MonoBehaviour {
         mTime = 0;
         mCardIdList.Clear();      
         nengLiangDian = 0;
+
+        foreach (CardControl card in mList)
+        {
+            Destroy(card.gameObject);
+        }
+        mList.Clear();
+
+        for (int i = 0; i < 10; i++)
+        {
+            mNengLiangKuai[i].setCount(nengLiangDian);
+        }
         resetEnd();
+
         isInit = true;
     }
 
@@ -56,6 +75,9 @@ public abstract class CardManagerBase : MonoBehaviour {
     {
         if (!isInit)
         {
+            return;
+        }
+        if (this is BossCardManager && !isShow) {
             return;
         }
         if (mMaxCardCount == 0)
@@ -88,6 +110,7 @@ public abstract class CardManagerBase : MonoBehaviour {
                 addCard(random);
             }
         }
+        updateEnd();
     }
 
     public LocalManager getLocalManager()
@@ -109,6 +132,33 @@ public abstract class CardManagerBase : MonoBehaviour {
     {
         isInit = true;
         mAttacker = attacker;
+        if (mCardLoaclList.Count == 0)
+        {
+            string name = "";
+            if (mAttacker.mAttackType == Attacker.ATTACK_TYPE_HERO)
+            {
+                name = "kapai_local_";
+            }
+            else
+            {
+                name = "boss_kapai_local_";
+            }
+            for (int i = 1; i <= 6; i++)
+            {
+                mCardLoaclList.Add(GameObject.Find(name + i));
+            }
+            mYdel = mCardLoaclList[0].transform.position.y;
+            if (mAttacker.mAttackType == Attacker.ATTACK_TYPE_HERO)
+            {
+                mCardLocalUp = GameObject.Find("kapai_local_up");
+                mCardLocalTop = GameObject.Find("kapai_local_up_top");
+                // mYdel = mCardLoaclList[0].transform.position.y + 20;
+            }
+            else
+            {
+
+            }
+        }
         if (CREADT_CARD_TIME == -1)
         {
             if (attacker.mAttackType == Attacker.ATTACK_TYPE_HERO)
@@ -122,6 +172,7 @@ public abstract class CardManagerBase : MonoBehaviour {
                 addNengliangAttack = (int)JsonUtils.getIntance().getConfigValueForId(100014);
             }
         }
+        initNengliangkuai();
     }
 
     public void addCard(long id)
@@ -163,6 +214,7 @@ public abstract class CardManagerBase : MonoBehaviour {
 
     public bool delectNengliangdian(float nengliang)
     {
+        Debug.Log("---------------------------- delectNengliangdian -------------------------------- nengliang= " + nengliang+ " nengLiangDian="+ nengLiangDian);
         if (nengliang > nengLiangDian)
         {
             return false;
@@ -258,17 +310,7 @@ public abstract class CardManagerBase : MonoBehaviour {
         }
         return -1;
     }
-    public bool userCard(int index, float cost)
-    {
-        cost = mAttacker.mSkillManager.mEventAttackManager.getCardCost((int)cost);
-        if (!delectNengliangdian(cost))
-        {
-            return false;
-        }
-        mCardIdList.RemoveAt(index);
-        userCardDeal(index);
-        return true;
-    }
+
 
     public float getUpLocalY()
     {
@@ -284,6 +326,126 @@ public abstract class CardManagerBase : MonoBehaviour {
     }
     public virtual float getLocalXByIndex(int index)
     {
-        return 0;
+        return mCardLoaclList[index].transform.position.x;
     }
+    public void initNengliangkuai()
+    {
+        string nengkuiName = "";
+        if (mAttacker.mAttackType == Attacker.ATTACK_TYPE_HERO)
+        {
+            nengkuiName = "nengliangkuai_";
+        }
+        else
+        {
+            nengkuiName = "boss_nengliangkuai_";
+        }
+        mNengLiangKuai.Clear();
+        for (int i = 1; i <= 10; i++)
+        {
+            NengliangkuaiControl tmp1 = GameObject.Find(nengkuiName + i).GetComponent<NengliangkuaiControl>();
+            tmp1.init();
+            tmp1.setCount(nengLiangDian);
+            mNengLiangKuai.Add(tmp1);
+        }
+    }
+
+    public void nengliangShowUpdate()
+    {
+        if (mNengLiangKuai.Count < 10)
+        {
+
+            initNengliangkuai();
+        }
+        if (nengLiangDian >= 10)
+        {
+            nengLiangDian = 10;
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            mNengLiangKuai[i].setCount(nengLiangDian);
+        }
+    }
+
+    public  void addCardUpdate(CardJsonBean addCard)
+    {
+        mTime = 0;
+        GameObject newobj = GameObject.Instantiate(
+                card, new Vector2(2500, mYdel ), Quaternion.Euler(0.0f, 0f, 0.0f));;
+        if (mAttacker.mAttackType == Attacker.ATTACK_TYPE_HERO)
+        {
+        //    newobj = GameObject.Instantiate(
+        //        card, new Vector2(2500, mYdel - 23), Quaternion.Euler(0.0f, 0f, 0.0f));
+            newobj.AddComponent<CardControl>();
+            newobj.GetComponent<CardUiControl>().init(addCard.id, 107, 146);
+        }
+        else
+        {
+         //   newobj = 
+            newobj.AddComponent<CardControl>();
+            newobj.GetComponent<CardUiControl>().init(addCard.id, 27.71f, 31.79f);
+        }
+
+        newobj.GetComponent<CardUiControl>().init(addCard.id, CardUiControl.TYPE_CARD_PLAY, mAttacker);
+        newobj.GetComponent<CardUiControl>().showCard();
+        CardControl enmey = newobj.GetComponent<CardControl>();
+        newobj.transform.SetParent(gameObject.transform);
+        newobj.transform.localScale = Vector3.one;
+        //enmey.init(id, 107, 146);
+        enmey.init(mList.Count, this, addCard.id);
+        mList.Add(enmey);
+    }
+
+    public void giveUpCardDeal(int index)
+    {
+        for (int i = 0; i < mList.Count;)
+        {
+            if (mList[i].mIndex != index)
+            {
+                mList[i].deleteCard(index);
+                i++;
+            }
+            else
+            {
+                mList[i].giveUp();
+                mList.Remove(mList[i]);
+            }
+        }
+    }
+    public bool userCard(int index, float cost)
+    {
+        cost = mAttacker.mSkillManager.mEventAttackManager.getCardCost((int)cost);
+        if (!delectNengliangdian(cost))
+        {
+            return false;
+        }
+        mCardIdList.RemoveAt(index);
+        userCardDeal(index);
+        return true;
+    }
+    public void userCardDeal(int index)
+    {
+        CardControl card = null;
+        for (int i = 0; i < mList.Count;)
+        {
+            if (mList[i].mIndex != index)
+            {
+                mList[i].deleteCard(index);
+                i++;
+            }
+            else
+            {
+                card = mList[i];
+                mList.Remove(mList[i]);
+            }
+        }
+        if(card != null) {
+            useEnd(card);
+        }
+       
+    }
+    public virtual void useEnd(CardControl cardControl)
+    {
+
+    }
+
 }

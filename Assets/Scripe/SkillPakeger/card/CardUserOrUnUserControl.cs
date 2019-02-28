@@ -19,7 +19,7 @@ public class CardUserOrUnUserControl : MonoBehaviour
 
     public SkillJsonBean mSkill;
     public CardJsonBean mCard;
-    private CardManager mManager;
+    private CardManagerBase mManager;
     private int targetType;
     List<Attacker> mTargetList;
     private float mTargetX = -1;
@@ -158,7 +158,7 @@ public class CardUserOrUnUserControl : MonoBehaviour
     }
     private bool isUser = false;
 
-    public void init(CardManager manage, long cardId,bool isUser)
+    public void init(CardManagerBase manage, long cardId,bool isUser)
     {
         this.isUser = isUser;
         Debug.Log("init card id =" + cardId);
