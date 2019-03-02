@@ -84,7 +84,7 @@ public class GameBeginControl : MonoBehaviour {
             });
             th1.Start();
 #endif
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
             SQLManager.getIntance().init(sqlName, tabName);
             //  GameManager.getIntance().mInitStatus = 8;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
@@ -135,7 +135,7 @@ public class GameBeginControl : MonoBehaviour {
             });
             th1.Start();
 #endif
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
             GameManager.getIntance().mInitStatus = 8;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
 #endif
@@ -217,7 +217,7 @@ public class GameBeginControl : MonoBehaviour {
             th1.Start();
 #endif
 
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
             SQLHelper.getIntance().init();
 
             GameManager.getIntance().mInitStatus = 10;

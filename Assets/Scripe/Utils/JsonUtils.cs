@@ -129,13 +129,13 @@ public class JsonUtils
         petFile = "pet";
         cardListFile = "bosscard";
 #endif
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
         heroFile = heroFile + ".json";
 #endif
         Debug.Log("heroFile = " + heroFile);
         GameManager.getIntance().mInitDec = "开始读取配置文件";
         readAllFile();
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
         if (JsonUtils.getIntance().getConfigValueForId(100047) == 1)
         {
             string error = JsonFileTestUtils.test();
@@ -173,7 +173,7 @@ public class JsonUtils
         }
         
         string back = ""+ index;
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
         back = back + ".json";
 #endif
 
@@ -219,7 +219,7 @@ public class JsonUtils
         }
 
         string path = getVocationById(v).attributeName;
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
         path = path + ".json";
 #endif
         if (!path.Equals(heroFile)) {
@@ -302,7 +302,7 @@ public class JsonUtils
 #if UNITY_ANDROID || UNITY_IOS
         str = Resources.Load<TextAsset>(fileName).text;
 #endif
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
         str = loadFile(Application.dataPath + "/Resources", fileName);
 #endif
         //string str = loadFile(Application.dataPath + "/Resources", fileName);

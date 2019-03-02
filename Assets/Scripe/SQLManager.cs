@@ -51,7 +51,7 @@ public class SQLManager
 #endif
 
 
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
         //        }
         //        else {
         this.sqlName = sqlName;
@@ -85,7 +85,7 @@ public class SQLManager
         path = mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
 #endif
 
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
         path = mPathRoot + "/Resources/" + this.sqlName;
 #endif
         return path;
@@ -100,7 +100,7 @@ public class SQLManager
 #if UNITY_IOS 
         path ="data source=" + mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
 #endif
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
         path = "data source=" + mPathRoot + "/Resources/" + this.sqlName;
 #endif
         return path;
@@ -116,7 +116,7 @@ public class SQLManager
         path = mPathRoot + "/" + sqlName;
 #endif
 
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
         path = mPathRoot + "/Resources/" + this.sqlName; ;
 #endif
         return path;
@@ -131,7 +131,7 @@ public class SQLManager
 #if UNITY_IOS
         path ="data source=" + mPathRoot + "/" + sqlName;
 #endif
-#if UNITY_EDITOR
+#if UNITY_STANDALONE
         path = "data source=" + mPathRoot + "/Resources/" + this.sqlName;
 #endif
         return path;
