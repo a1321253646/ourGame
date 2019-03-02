@@ -10,7 +10,7 @@ public class AttackSkill600012 : EventAttackSkill
     LocalManager mLocal = null;
     public override void debuffMonster(Attacker monster)
     {
-        monster.mSkillAttributePre.attackSpeed -= count1;
+        monster.mAllAttributePre.minus(mSkillIndex, AttributePre.attackSpeed, (long)count1);
         monster.getAttribute();
     }
 
@@ -22,7 +22,8 @@ public class AttackSkill600012 : EventAttackSkill
         {
             if (!list.mIsHero)
             {
-                list.mAttacker.mSkillAttributePre.attackSpeed += count1;
+
+                list.mAttacker.mAllAttributePre.add(mSkillIndex, AttributePre.attackSpeed, (long)count1);
                 list.mAttacker.getAttribute();
             }
             list = list.next;
@@ -39,7 +40,7 @@ public class AttackSkill600012 : EventAttackSkill
         LocalBean list = mLocal.mLocalLink;
         while (list != null) {
             if (!list.mIsHero) {
-                list.mAttacker.mSkillAttributePre.attackSpeed -= count1;
+                list.mAttacker.mAllAttributePre.minus(mSkillIndex, AttributePre.attackSpeed, (long)count1);;
                 list.mAttacker.getAttribute();
             }
             list = list.next;

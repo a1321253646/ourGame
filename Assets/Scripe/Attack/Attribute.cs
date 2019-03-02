@@ -26,16 +26,19 @@
     }
     public Attribute chen(Attribute adder)
     {
-        aggressivity = chenGetDouble(aggressivity, adder.aggressivity / 10000) ;
-        defense = chenGetDouble(defense, adder.defense / 10000);
+        aggressivity = chenGetDouble(aggressivity, adder.aggressivity) ;
+        defense = chenGetDouble(defense, adder.defense );
+        maxBloodVolume = chenGetDouble(maxBloodVolume, adder.maxBloodVolume);
+        hurt = (float)chenGetInt(hurt, adder.hurt);
+        crtHurt = chenGetDouble(crtHurt, adder.crtHurt);
+        readHurt = chenGetDouble(readHurt, adder.readHurt);
+        attackSpeed = (float)chenGetInt(attackSpeed, adder.attackSpeed);
+
         rate = (float)chenGetInt(rate, adder.rate / 10000);
         evd = (float)chenGetInt(evd, adder.evd / 10000);
-        maxBloodVolume = chenGetDouble(maxBloodVolume, adder.maxBloodVolume / 10000);
         crt = (float)chenGetInt(crt, adder.crt / 10000);
-        hurt = (float)chenGetInt(hurt, adder.hurt / 10000);
-        crtHurt = chenGetDouble(crtHurt, adder.crtHurt / 10000);
-        readHurt = chenGetDouble(readHurt, adder.readHurt / 10000);
-        attackSpeed = (float)chenGetInt(attackSpeed, adder.attackSpeed / 10000);
+
+
         return this;
     }
 
@@ -67,16 +70,16 @@
         attackSpeed = 0;
     }
     public Attribute setToPre() {
-        aggressivity = 10000;
-        defense = 10000;
-        rate = 10000;
-        evd = 10000;
-        maxBloodVolume = 10000;
-        crt = 10000;
-        hurt = 10000;
-        crtHurt = 10000;
-        readHurt = 10000;
-        attackSpeed = 10000;
+        aggressivity = 1;
+        defense = 1;
+        rate = 0;
+        evd = 0;
+        maxBloodVolume = 1;
+        crt = 0;
+        hurt = 1;
+        crtHurt = 1;
+        readHurt = 1;
+        attackSpeed = 1;
         return this;
     }
     public string toString() {

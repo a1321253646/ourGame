@@ -8,26 +8,26 @@ public class SkillManage
     public GameObject mSkillObject;
     public LocalManager mLocalManager;
     BackgroundManager mBackManager;
-    public void addSkill(Attacker attacker, SkillJsonBean skill, float x, float y, int campType, bool isGiveup,bool isBoss) {
+    public void addSkill(Attacker attacker, SkillJsonBean skill, float x, float y, int campType, bool isGiveup,bool isBoss, long skillIndex) {
         Debug.Log("addSkill x=" + x + " y = " + y);
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(skill.skill_resource);
         GameObject newobj = GameObject.Instantiate(
                 mSkillObject, new Vector2(x - bean.getHurtOffset().x, y - bean.getHurtOffset().y), Quaternion.Euler(0.0f, 0f, 0.0f));
-        dealSkillObject(attacker, newobj, skill, x, y, campType, isGiveup, isBoss);
+        dealSkillObject(attacker, newobj, skill, x, y, campType, isGiveup, isBoss,skillIndex);
     }
 
-    public void bossAddSkill(Attacker attacker,Attacker hero ,SkillJsonBean skill, int campType) {
-        addSkill(attacker, skill, hero.mLocalBean.mCurrentX, hero.mLocalBean.mCurrentY, campType,false,true);
+    public void bossAddSkill(Attacker attacker,Attacker hero ,SkillJsonBean skill, int campType, long skillIndex) {
+        addSkill(attacker, skill, hero.mLocalBean.mCurrentX, hero.mLocalBean.mCurrentY, campType,false,true, skillIndex);
     }
 
-    public void addSkill(Attacker attacker, SkillJsonBean skill,float x,float y,int campType) {
-        addSkill(attacker, skill, x, y, campType, false,false);
+    public void addSkill(Attacker attacker, SkillJsonBean skill,float x,float y,int campType, long skillIndex) {
+        addSkill(attacker, skill, x, y, campType, false,false, skillIndex);
     }
 
-    private void dealSkillObject(Attacker attacker, GameObject newobj, SkillJsonBean skill, float x, float y, int campType, bool isGiveup,bool isBoss) {
+    private void dealSkillObject(Attacker attacker, GameObject newobj, SkillJsonBean skill, float x, float y, int campType, bool isGiveup, bool isBoss,long skillIndex) {
         SkillFactory.skillObjectAddComponet(newobj, skill);
         SkillObject skillComponent = newobj.GetComponent<SkillObject>();
-        skillComponent.init(attacker, mLocalManager,skill, x, y, campType,isGiveup, isBoss);
+        skillComponent.init(attacker, mLocalManager,skill, x, y, campType,isGiveup, isBoss, skillIndex);
         mSkillList.Add(skillComponent);
     }
 

@@ -73,16 +73,17 @@ public class BossCardManager : CardManagerBase
         {
             if (mHero != null && mHero.status != Attacker.PLAY_STATUS_DIE)
             {
-                mHero.mSkillManager.addSkill(cardControl.mSkill.id, mAttacker);
+                mHero.mSkillManager.addSkill(cardControl.mSkill.id, mAttacker, SkillIndexUtil.getIntance().getSkillIndexByCardId(true, cardControl.mCard.id));
             }
         }
         else if (cardControl.mSkill.shape_type == 6)
         {
-            mAttacker.mSkillManager.addSkill(cardControl.mSkill.id,mAttacker);
+            mAttacker.mSkillManager.addSkill(cardControl.mSkill.id,mAttacker, SkillIndexUtil.getIntance().getSkillIndexByCardId(true, cardControl.mCard.id));
         }
         else if(mHero != null && mHero.status != Attacker.PLAY_STATUS_DIE)
         {
-            SkillManage.getIntance().bossAddSkill(mAttacker, mHero,cardControl.mSkill, targetType);
+            SkillManage.getIntance().bossAddSkill(mAttacker, mHero,cardControl.mSkill,
+                targetType,SkillIndexUtil.getIntance().getSkillIndexByCardId(true, cardControl.mCard.id));
         }
         Destroy(cardControl.gameObject);
     }

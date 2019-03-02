@@ -12,7 +12,7 @@ public class AnimalAttackSkill100017 : AnimalAttackSkillBase
     public override void endSkill()
     {
         mManager.mEventAttackManager.unRegisterTimeSkill(this);
-        mManager.getAttacker().mSkillAttributePre.aggressivity -= value1 * 100;
+        mManager.getAttacker().mAllAttributePre.minus(mSkillIndex, AttributePre.aggressivity, (long)value1 * 100);
         mManager.getAttacker().getAttribute();
         mStatus = SKILL_STATUS_END;
     }
@@ -31,7 +31,7 @@ public class AnimalAttackSkill100017 : AnimalAttackSkillBase
             value2 = mParam[1];
         }
         mTime = 0;
-        mManager.getAttacker().mSkillAttributePre.aggressivity += value1 * 100;
+        mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.aggressivity, (long)value1 * 100);
         mManager.getAttacker().getAttribute();
         isInit = true;
     }
@@ -51,7 +51,7 @@ public class AnimalAttackSkill100017 : AnimalAttackSkillBase
     private float value2 = 0; 
     public override bool add(List<float> count, bool isGive)
     {
-        mManager.getAttacker().mSkillAttributePre.aggressivity -= value1*100;
+        mManager.getAttacker().mAllAttributePre.minus(mSkillIndex, AttributePre.aggressivity, (long)value1 * 100);
         if (isGive)
         {
             value1 = mParam[2];
@@ -62,7 +62,7 @@ public class AnimalAttackSkill100017 : AnimalAttackSkillBase
             value2 = mParam[1];
         }
         mTime = 0;
-        mManager.getAttacker().mSkillAttributePre.aggressivity += value1*100;
+        mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.aggressivity, (long)value1 * 100);
         mManager.getAttacker().getAttribute();
         return true;
     }

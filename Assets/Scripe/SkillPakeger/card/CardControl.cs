@@ -134,15 +134,18 @@ public class CardControl : MonoBehaviour
             {
                 if (mTargetList != null && mTargetList.Count > 0)
                 {
-                    mTargetList[0].mSkillManager.addSkill(mSkill.id, mManager.getLocalManager().mLocalLink.mAttacker);
+                    mTargetList[0].mSkillManager.addSkill(mSkill.id, mManager.getLocalManager().mLocalLink.mAttacker,
+                    SkillIndexUtil.getIntance().getSkillIndexByCardId(false, mCard.id));
                 }
             }
             else if (mSkill.shape_type == 6) {
-                mManager.getAttacker().mSkillManager.addSkill(mSkill.id, mManager.getAttacker());
+                mManager.getAttacker().mSkillManager.addSkill(mSkill.id, mManager.getAttacker(),
+                    SkillIndexUtil.getIntance().getSkillIndexByCardId(false, mCard.id));
             }
             else
             {
-                SkillManage.getIntance().addSkill(mManager.getAttacker(), mSkill, mClickV.x, mClickV.y, targetType);
+                SkillManage.getIntance().addSkill(mManager.getAttacker(), mSkill, mClickV.x, mClickV.y, targetType ,
+                    SkillIndexUtil.getIntance().getSkillIndexByCardId(false, mCard.id));
             }
 
             setStatus(STATUE_CARP_DEFAULT);                 
@@ -163,7 +166,8 @@ public class CardControl : MonoBehaviour
 
     public long giveUp() {
         if (isGiveUpDeal()) {
-            mManager.getAttacker().mSkillManager.addSkill(mSkill.id, mManager.getAttacker(), true);
+            mManager.getAttacker().mSkillManager.addSkill(mSkill.id, mManager.getAttacker(), true,
+                    SkillIndexUtil.getIntance().getSkillIndexByCardId(mManager.getAttacker().mAttackType == Attacker.ATTACK_TYPE_BOSS, mCard.id));
         }
         Destroy(gameObject, 0);
         return mCard.cost;

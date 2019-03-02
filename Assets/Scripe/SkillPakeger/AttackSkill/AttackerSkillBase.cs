@@ -5,7 +5,7 @@ using System;
 
 public abstract class AttackerSkillBase
 {
-
+    
     public static int SKILL_STATUS_DEFAULT = 1;
     public static int SKILL_STATUS_START = 2;
     public static int SKILL_STATUS_RUNNING = 3;
@@ -16,7 +16,9 @@ public abstract class AttackerSkillBase
     public Attacker mFight;
     public List<float> mParam;
     public SkillJsonBean mSkillJson;
-    public abstract void initSkill(AttackSkillManager manager, long skillId, Attacker fight,List<float> value, GameObject newobj,bool isGiveup);
+    public long mSkillIndex = 0;
+
+    public abstract void initSkill(AttackSkillManager manager, long skillId, Attacker fight,List<float> value, GameObject newobj,bool isGiveup,long skillIndex);
     public abstract void startSkill();
     public abstract void endSkill();
     public float mValue = 0;

@@ -58,7 +58,7 @@ public class PetManager : MonoBehaviour {
                 petFight(b.goodId);
             }
             PetJsonBean bean = JsonUtils.getIntance().getPetInfoById(b.goodId);
-            mHero.mSkillManager.addSkill(bean.getAffixList(), mHero);
+            mHero.mSkillManager.addSkill(bean.getAffixList(), mHero,SkillIndexUtil.getIntance().getPetIndexByPetId(false,bean.id));
         }
     }
     public void addPet(long id) {
@@ -106,8 +106,9 @@ public class PetManager : MonoBehaviour {
         Debug.Log("PetItemControl pet=" + pet);
         Debug.Log("PetItemControl mHero=" + mHero);
         Debug.Log("PetItemControl mHero.mSkillManager=" + mHero.mSkillManager);
+
         mHero.mSkillManager.
-            addSkill(pet.mJson, mHero);
+            addSkill(pet.mJson, mHero, SkillIndexUtil.getIntance().getPetIndexByPetId(false, id));
         return true;
     }
     public Point getNewMoveTarget(long id) {

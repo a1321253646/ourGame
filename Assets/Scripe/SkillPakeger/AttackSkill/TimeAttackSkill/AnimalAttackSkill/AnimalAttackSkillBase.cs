@@ -10,8 +10,9 @@ public abstract class AnimalAttackSkillBase : TimeAttackSkillBase
     public CalculatorUtil mCalcuator;
     public GameObject mSprinter;
    
-    public override void initSkill(AttackSkillManager manager, long skillId, Attacker fight, List<float> value, GameObject newobj, bool giveup)
+    public override void initSkill(AttackSkillManager manager, long skillId, Attacker fight, List<float> value, GameObject newobj, bool giveup, long skillIndex)
     {
+        mSkillIndex = skillIndex;
         isGiveup = giveup;
         mManager = manager;
         mFight = fight;

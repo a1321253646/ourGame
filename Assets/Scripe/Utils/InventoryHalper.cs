@@ -367,6 +367,7 @@ public class InventoryHalper
     {
         Debug.Log("========================addRoleUse = " + mUser.Count);
         if (mUser.Count < 6) {
+            SkillIndexUtil.getIntance().getEquitIndexByGoodId(false,bean.sqlGoodId);
             bean.goodType = SQLDate.GOOD_TYPE_ZHUANGBEI;
             SQLHelper.getIntance().changeGoodTyppe(bean);
             mUser.Add(bean);

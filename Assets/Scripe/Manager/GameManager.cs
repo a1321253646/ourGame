@@ -68,6 +68,8 @@ public class GameManager
 
     public string mGameErrorString = "";
 
+
+
     public float getOnlineGet() {
         return 1+ mLunhuiOnlineGet+ mCardOnlineGet;
     }

@@ -50,13 +50,13 @@ public class AttackSkillManager
         return mAttack;
     }
 
-    public void addSkill(long skillId, Attacker fighter,bool isGiveUp) {
+    public void addSkill(long skillId, Attacker fighter,bool isGiveUp,long index) {
         if (getAttacker().getStatus() == ActionFrameBean.ACTION_DIE)
         {
             return;
         }
         SkillJsonBean skill = JsonUtils.getIntance().getSkillInfoById(skillId);
-        addSkill(skill, fighter, isGiveUp);
+        addSkill(skill, fighter, isGiveUp, index);
 
         Debug.Log("===============addSkill id=" + skillId);
     }
@@ -69,12 +69,12 @@ public class AttackSkillManager
     }
 
 
-    public void addSkill(long skillId, Attacker fighter)
+    public void addSkill(long skillId, Attacker fighter,long index)
     {
-        addSkill(skillId, fighter, false);
+        addSkill(skillId, fighter, false,index);
     }
 
-    public void addSkill(PlayerBackpackBean bean, Attacker fighter) {
+    public void addSkill(PlayerBackpackBean bean, Attacker fighter,long index) {
         if (mBackpackSkill.ContainsKey(bean)) {
             removeSkill(bean);
         }
@@ -116,14 +116,14 @@ public class AttackSkillManager
                 count--;
             }
         }
-        List<AttackerSkillBase> list = creatSkillByAffix(list2, fighter);
+        List<AttackerSkillBase> list = creatSkillByAffix(list2, fighter,index);
         if (list != null) {
             mBackpackSkill.Add(bean, list);
         }
     }
 
 
-    public void addSkill(SkillJsonBean json, Attacker fighter,bool isGiveup)
+    public void addSkill(SkillJsonBean json, Attacker fighter,bool isGiveup,long index)
     {
         if (getAttacker().getStatus() == ActionFrameBean.ACTION_DIE) {
             return;
@@ -136,7 +136,7 @@ public class AttackSkillManager
             if (skill.mStatus == AttackerSkillBase.SKILL_STATUS_END)
             {
                 mIdSkill.Remove(json.id);
-                skill = creatSkillById(json.id, json.getSpecialParameterValue(), fighter, isGiveup);
+                skill = creatSkillById(json.id, json.getSpecialParameterValue(), fighter, isGiveup, index);
                 mIdSkill.Add(json.id, skill);
             }
             else
@@ -146,23 +146,23 @@ public class AttackSkillManager
         }
         else
         {
-            skill = creatSkillById(json.id, json.getSpecialParameterValue(), fighter, isGiveup);
+            skill = creatSkillById(json.id, json.getSpecialParameterValue(), fighter, isGiveup, index);
             mIdSkill.Add(json.id, skill);
         }
     }
-    public void addSkill(SkillJsonBean json, Attacker fighter) {
-        addSkill(json, fighter, false);
+    public void addSkill(SkillJsonBean json, Attacker fighter,long index) {
+        addSkill(json, fighter, false,index);
     }
 
 
 
-    public void addSkill(List<PlayerAttributeBean> list, Attacker fighter) {       
-        creatSkillByAffix(list, fighter);
+    public void addSkill(List<PlayerAttributeBean> list, Attacker fighter,long index) {       
+        creatSkillByAffix(list, fighter,index);
         mAttack.getAttribute();
     }
 
 
-    public void addSkill(PetJsonBean pet, Attacker fighter) {
+    public void addSkill(PetJsonBean pet, Attacker fighter,long index) {
         //List<AttackerSkillBase> list = creatSkillByAffix(pet.getAffixList(), fighter);
         // if (list == null)
         // {
@@ -170,7 +170,7 @@ public class AttackSkillManager
         // }
         Debug.Log("=====================addSkill pet.skillId=" + pet.skillId);
         if (pet.skillId != 0) {
-            AttackerSkillBase skill = creatSkillById(pet.skillId, null, fighter,false);
+            AttackerSkillBase skill = creatSkillById(pet.skillId, null, fighter,false,index);
             list.Add(skill);
         }
         if (list.Count > 0) {
@@ -202,7 +202,7 @@ public class AttackSkillManager
             skill.endSkill();    
         }
     }
-    private List<AttackerSkillBase> creatSkillByAffix(List<PlayerAttributeBean> affixList, Attacker fighter) {
+    private List<AttackerSkillBase> creatSkillByAffix(List<PlayerAttributeBean> affixList, Attacker fighter,long index) {
         List<AttackerSkillBase> list = new List<AttackerSkillBase>();
         foreach (PlayerAttributeBean bean in affixList)
         {
@@ -213,7 +213,7 @@ public class AttackSkillManager
                 }
             }
             else {
-                AttackerSkillBase skill = creatSkillById(bean.type, new List<float>() { (float)bean.value }, fighter, false);
+                AttackerSkillBase skill = creatSkillById(bean.type, new List<float>() { (float)bean.value }, fighter, false,index);
                 if (skill != null)
                 {
                     list.Add(skill);
@@ -227,7 +227,7 @@ public class AttackSkillManager
         }
         return list;
     }
-    private AttackerSkillBase creatSkillById(long id, List<float> value, Attacker fighter,bool isGiveups)
+    private AttackerSkillBase creatSkillById(long id, List<float> value, Attacker fighter,bool isGiveups,long skillIndex)
     {
         AttackerSkillBase skill = AttackerFactory.getSkillById(id);
         if (skill == null) {
@@ -257,10 +257,10 @@ public class AttackSkillManager
                     mAttack.transform.position.y + mAttack.resourceData.idel_y + yDel - skillP.y),
                     Quaternion.Euler(0.0f, 0f, 0.0f));
             Debug.Log("============================== creatSkillById=" + newobj);
-            skill.initSkill(this, id, fighter, value, newobj, isGiveups);
+            skill.initSkill(this, id, fighter, value, newobj, isGiveups, skillIndex);
         }
         else {
-            skill.initSkill(this, id, fighter, value, null, isGiveups);
+            skill.initSkill(this, id, fighter, value, null, isGiveups, skillIndex);
         }
         skill.startSkill();
         return skill;

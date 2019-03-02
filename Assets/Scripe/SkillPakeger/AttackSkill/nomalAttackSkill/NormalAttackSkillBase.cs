@@ -6,8 +6,9 @@ using System;
 public abstract class NormalAttackSkillBase : AttackerSkillBase
 {
     public bool isGiveup = false;
-    public override void initSkill(AttackSkillManager manager, long skillId, Attacker fight, List<float> par, GameObject newobj,bool giveup)
+    public override void initSkill(AttackSkillManager manager, long skillId, Attacker fight, List<float> par, GameObject newobj,bool giveup, long skillIndex)
     {
+        mSkillIndex = skillIndex;
         isGiveup = giveup;
         mManager = manager;
         mFight = fight;

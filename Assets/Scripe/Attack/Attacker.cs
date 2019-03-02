@@ -39,20 +39,14 @@ public abstract class Attacker : MonoBehaviour
     public Attribute mAttribute = new Attribute();
 
     public Attribute mBaseAttribute = new Attribute();
-
     public Attribute mSkillAttribute = new Attribute();
-    public Attribute mSkillAttributePre = new Attribute();
-
     public Attribute mPetAttribute = new Attribute();
-
     public Attribute mEquipAttribute = new Attribute();
-    public Attribute mEquipAttributePre = new Attribute();
-
     public Attribute mLunhuiAttribute = new Attribute();
-    public Attribute mLunhuiAttributePre = new Attribute();
-
+    
     public Attribute mAllAttribute = new Attribute();
-    public Attribute mAllAttributePre = new Attribute().setToPre();
+
+    public AttributePre mAllAttributePre = new AttributePre();
 
     public LocalBean mLocalBean;
 	public List<Attacker> mAttackerTargets;

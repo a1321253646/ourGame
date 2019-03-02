@@ -3,14 +3,13 @@ public class NormalAttackSkill400002 : NormalAttackSkillBase
 {
     public override void endSkill()
     {
-        Attacker a = mManager.getAttacker();
-        a.mSkillAttributePre.aggressivity -= value;
+        mManager.getAttacker().mAllAttributePre.minus(mSkillIndex, AttributePre.aggressivity, (long)value);
 
     }
 
     public override void startSkill()
     {
-        Attacker a = mManager.getAttacker();
-        a.mSkillAttributePre.aggressivity += value;
+
+        mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.aggressivity, (long)value);
     }
 }

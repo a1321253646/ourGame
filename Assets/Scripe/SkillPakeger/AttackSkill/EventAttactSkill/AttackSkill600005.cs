@@ -17,10 +17,11 @@ public class AttackSkill600005 : EventAttackSkill
         }
         count2 += count1;
         if (count2 > count3) {
+            mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.defense, (long)(count3 - count2));
             count2 = count3;
             return;
         }
-        mManager.getAttacker().mSkillAttributePre.defense += count1;
+        mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.defense, (long)(count1));
         Debug.Log("startSkill killEnemy count2=" + count2);
         mManager.getAttacker().getAttribute();
     }
@@ -28,7 +29,7 @@ public class AttackSkill600005 : EventAttackSkill
     public override void endSkill()
     {
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_HURT_DIE, this);
-        mManager.getAttacker().mSkillAttributePre.defense -= count2;
+        mManager.getAttacker().mAllAttributePre.minus(mSkillIndex, AttributePre.defense, (long) count2);
         mManager.getAttacker().getAttribute();
     }
 

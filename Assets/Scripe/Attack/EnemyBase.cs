@@ -261,21 +261,16 @@ public class EnemyBase : Attacker {
 
         mAttribute.clear();
         mAllAttribute.clear();
-        mAllAttributePre.setToPre();
 
         mAllAttribute.add(mBaseAttribute);
         mAllAttribute.add(mEquipAttribute);
-        mAllAttribute.add(mLunhuiAttribute);
         mAllAttribute.add(mSkillAttribute);
-
-        mAllAttributePre.add(mEquipAttributePre);
-        mAllAttributePre.add(mLunhuiAttributePre);
-        mAllAttributePre.add(mSkillAttributePre);
+        mAllAttribute.add(mLunhuiAttribute);
 
 
         mAttribute.add(mAllAttribute);
-        //Debug.Log("===============mAttribute.mAttribute = " + mAllAttribute);
-        mAttribute.chen(mAllAttributePre);
+        mAttribute.chen(mAllAttributePre.getAll());
+
         mBloodVolume = mAttribute.maxBloodVolume * bloodBili;
         upDataSpeed();
         mState.resetHp();

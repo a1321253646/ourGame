@@ -3,14 +3,13 @@ public class NormalAttackSkill400003 : NormalAttackSkillBase
 {
     public override void endSkill()
     {
-        Attacker a = mManager.getAttacker();
-        a.mSkillAttributePre.maxBloodVolume -= value ;
+
+        mManager.getAttacker().mAllAttributePre.minus(mSkillIndex, AttributePre.maxBloodVolume, (long)value);
 
     }
 
     public override void startSkill()
     {
-        Attacker a = mManager.getAttacker();
-        a.mSkillAttributePre.maxBloodVolume += value;
+        mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.maxBloodVolume, (long)value);
     }
 }

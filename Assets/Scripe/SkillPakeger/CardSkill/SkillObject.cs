@@ -23,10 +23,11 @@ public abstract class SkillObject : MonoBehaviour
     public AnimalControlBase mAnimalControl;
     public Attacker mAttacker;
     bool isGiveUp = false;
-
+    public long mSkillIndex = 0;
     public List<Attacker> mTargetList;
     public bool isBoss = false;
-    public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType,bool giveup,bool boss) {
+    public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType,bool giveup,bool boss, long skillIndex) {
+        mSkillIndex = skillIndex;
         isGiveUp = giveup;
         mLocalManager = manage;
         isBoss = boss;
@@ -109,7 +110,8 @@ public abstract class SkillObject : MonoBehaviour
                     foreach (Attacker a in mTargetList)
                     {
                         dealNextSkillForEach(nextSkill, a);
-                        a.mSkillManager.addSkill(nextSkill, mAttacker);
+                        a.mSkillManager.addSkill(nextSkill, mAttacker,
+                    SkillIndexUtil.getIntance().getSkillIndexByCardId(isBoss, mSkillIndex));
                     }
                 }
             }
@@ -134,7 +136,8 @@ public abstract class SkillObject : MonoBehaviour
                 }
                 else if((nextSkill.shape_type != 0))
                 {
-                    SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type);
+                    SkillManage.getIntance().addSkill(mAttacker, nextSkill, mLocal.x, mLocal.y, type,
+                          SkillIndexUtil.getIntance().getSkillIndexByCardId(isBoss, mSkillIndex));
                 }               
             }
         }
