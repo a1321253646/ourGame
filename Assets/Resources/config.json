@@ -283,7 +283,7 @@
   },
   {
     "id": 100051,
-    "value": 4,
+    "value": 0.1,
     "remark": "boss开始出卡牌的时间",
     "Column3": ""
   },
@@ -291,6 +291,12 @@
     "id": 100052,
     "value": 5,
     "remark": "boss每张牌发牌间隔（单位秒）",
+    "Column3": ""
+  },
+  {
+    "id": 100053,
+    "value": 2,
+    "remark": "bossn刀=1点能量",
     "Column3": ""
   }
 ]

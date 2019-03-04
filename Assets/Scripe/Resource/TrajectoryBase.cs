@@ -32,10 +32,18 @@ public class TrajectoryBase : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+
   //      Debug.Log("traject update isdun"+isRUn);
 		if (!isRUn)
 			return;
-		if (mBackManager.isRun) {
+        if (GameManager.getIntance().isEnd)
+        {
+            isRUn = false;
+            Destroy(gameObject);
+            return;
+        }
+
+        if (mBackManager.isRun) {
             gameObject.transform.Translate (Vector2.left * (mBackManager.moveSpeed + speed) * Time.deltaTime);
 		} else {
             gameObject.transform.Translate (Vector2.left *  speed * Time.deltaTime);

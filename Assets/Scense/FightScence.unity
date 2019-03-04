@@ -4181,7 +4181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.0000242893}
+  m_AnchoredPosition: {x: 0, y: 0.00008532446}
   m_SizeDelta: {x: 640, y: 364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &216154750
@@ -10293,8 +10293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83dc1d9eca0f654c8953c8459a4da4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sqlName: local919
-  tabName: local919
+  sqlName: local117
+  tabName: local117
 --- !u!1001 &528136680
 Prefab:
   m_ObjectHideFlags: 0
@@ -11902,12 +11902,12 @@ Prefab:
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -49.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 8.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224961009089798858, guid: bf9641b921bf4274ca5788d89af2afac,
         type: 2}
@@ -13786,7 +13786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 428.30005, y: 0.000015258789}
+  m_AnchoredPosition: {x: 428.25012, y: 0.000015258789}
   m_SizeDelta: {x: 428.30005, y: 92.06}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &670317531
@@ -13842,6 +13842,8 @@ MonoBehaviour:
   mCardLocalUp: {fileID: 0}
   mCardLocalTop: {fileID: 0}
   indicator: {fileID: 0}
+  CREADT_CARD_TIME: -1
+  FRIST_CARD_TIME: -1
   isInit: 0
   mMaxCardCount: 0
   mAttacker: {fileID: 0}
@@ -13851,6 +13853,7 @@ MonoBehaviour:
   mYdel: 0
   mList: []
   isShow: 0
+  isFristCreat: 0
 --- !u!1 &677060284
 GameObject:
   m_ObjectHideFlags: 0
@@ -19990,7 +19993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &980841451
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22639,7 +22642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1080700270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28834,7 +28837,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1383590297
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34796,6 +34799,22 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!1 &1661649456 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1145885225633826, guid: c9774044a1cc75446ae5e41d4a6c78d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1895781575}
+--- !u!114 &1661649457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1661649456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271cadda520f56f4f847d17ab21bf2a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1661921992
 GameObject:
   m_ObjectHideFlags: 0
@@ -35099,6 +35118,8 @@ MonoBehaviour:
   mCardLocalUp: {fileID: 0}
   mCardLocalTop: {fileID: 0}
   indicator: {fileID: 1180183373433390, guid: dc2acde67d71d2449a110ee21739bf39, type: 2}
+  CREADT_CARD_TIME: -1
+  FRIST_CARD_TIME: -1
   isInit: 0
   mMaxCardCount: 0
   mAttacker: {fileID: 0}
@@ -35108,6 +35129,7 @@ MonoBehaviour:
   mYdel: 0
   mList: []
   isShow: 0
+  isFristCreat: 0
 --- !u!114 &1682031354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39544,12 +39566,12 @@ Prefab:
     - target: {fileID: 224750971417808666, guid: c9774044a1cc75446ae5e41d4a6c78d9,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1501
+      value: 511.8
       objectReference: {fileID: 0}
     - target: {fileID: 224750971417808666, guid: c9774044a1cc75446ae5e41d4a6c78d9,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 578
+      value: 211.99997
       objectReference: {fileID: 0}
     - target: {fileID: 224750971417808666, guid: c9774044a1cc75446ae5e41d4a6c78d9,
         type: 2}
@@ -39593,7 +39615,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1145885225633826, guid: c9774044a1cc75446ae5e41d4a6c78d9, type: 2}
       propertyPath: m_Name
-      value: card2222
+      value: boss_card
+      objectReference: {fileID: 0}
+    - target: {fileID: 224750971417808666, guid: c9774044a1cc75446ae5e41d4a6c78d9,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224750971417808666, guid: c9774044a1cc75446ae5e41d4a6c78d9,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9774044a1cc75446ae5e41d4a6c78d9, type: 2}
@@ -43733,7 +43765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000034896137}
+  m_AnchoredPosition: {x: 0, y: -0.0000012500292}
   m_SizeDelta: {x: 779, y: 252.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046663711

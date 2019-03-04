@@ -158,9 +158,9 @@ public class LevelManager : MonoBehaviour {
             return;
         }
         mTime += Time.deltaTime;
-        if (mTime > 60000) {
+        if (mTime > 60) {
             Debug.Log("============ 大年30修bug  ====================mTime > 60000  ");
-            mTime = mTime - 60000;
+            mTime = mTime - 60;
             SQLHelper.getIntance().updateOutTime();
         }
         mLocalManager.upData ();

@@ -3,6 +3,7 @@ public class NormalAttackSkill400002 : NormalAttackSkillBase
 {
     public override void endSkill()
     {
+        Debug.Log("-----------------NormalAttackSkill400002 endSkill");
         mManager.getAttacker().mAllAttributePre.minus(mSkillIndex, AttributePre.aggressivity, (long)value);
 
     }

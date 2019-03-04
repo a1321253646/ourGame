@@ -6,6 +6,7 @@ public class BossCardJsonBean : MonoBehaviour
 {
     public long id;
     public string value;
+    public long random;
 
     private List<long> cardList = null;
 

@@ -1,24 +1,31 @@
-﻿using System.Collections.Generic;
-
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 public class AttributePre
 {
 
     public static long aggressivity = 1;
     public static long defense = 2;
     public static long maxBloodVolume = 3;
-    public static long rate = 4;
-    public static long evd = 5;
-    public static long crt = 6;
     public static long hurt = 7;
     public static long crtHurt = 8;
     public static long readHurt = 9;
     public static long attackSpeed = 10;
+
+    private AttributePre() {
+
+    }
+    public AttributePre(Attacker attacker) {
+        mAttacker = attacker;
+    }
+    public Attacker mAttacker;
 
     private Dictionary<long, Dictionary<long, long>> mAttributePre = new Dictionary<long, Dictionary<long, long>>();
 
     Attribute mAll = new Attribute().setToPre();
 
     public void add(long id,long type,long value) {
+        Debug.Log("===============id = " + id+ " type = "+type+" value = "+value);
         if (mAttributePre.ContainsKey(id))
         {
             Dictionary<long, long> dic = mAttributePre[id];
@@ -67,11 +74,16 @@ public class AttributePre
     }
 
     public void delete(long id) {
+        Debug.Log(" id ==" + id);
+        if (!mAttributePre.ContainsKey(id)) {
+            return;
+        }
         Dictionary<long, long> dic = mAttributePre[id];
         foreach (long type in dic.Keys) {
             deleteAll(type, dic[type]);
         }
         mAttributePre.Remove(id);
+        mAttacker.getAttribute();
     }
 
     private void deleteAll(long type, long value) {
@@ -86,18 +98,6 @@ public class AttributePre
         else if (type == maxBloodVolume)
         {
             mAll.maxBloodVolume = mAll.maxBloodVolume / value;
-        }
-        else if (type == rate)
-        {
-            mAll.rate = mAll.rate - value;
-        }
-        else if (type == evd)
-        {
-            mAll.evd = mAll.evd  - value;
-        }
-        else if (type == crt)
-        {
-            mAll.crt = mAll.crt- value;
         }
         else if (type == hurt)
         {
@@ -115,9 +115,11 @@ public class AttributePre
         {
             mAll.attackSpeed = mAll.attackSpeed / value;
         }
+       
     }
 
     private void dealAll(long type, long oldValue,long newValue) {
+        Debug.Log("===============type = " + type + " oldValue = " + oldValue + " newValue = " + newValue);
         if (type == aggressivity) {
             mAll.aggressivity = mAll.aggressivity / oldValue * newValue;
         }
@@ -127,18 +129,6 @@ public class AttributePre
         else if (type == maxBloodVolume)
         {
             mAll.maxBloodVolume = mAll.maxBloodVolume / oldValue * newValue;
-        }
-        else if (type == rate)
-        {
-            mAll.rate = mAll.rate - oldValue + newValue;
-        }
-        else if (type == evd)
-        {
-            mAll.evd = mAll.evd - oldValue + newValue;
-        }
-        else if (type == crt)
-        {
-            mAll.crt = mAll.crt - oldValue + newValue;
         }
         else if (type == hurt)
         {
@@ -156,11 +146,15 @@ public class AttributePre
         {
             mAll.attackSpeed = mAll.attackSpeed / oldValue * newValue;
         }
-
+        mAttacker.getAttribute();
     }
 
 
     public Attribute getAll() {
         return mAll;
+    }
+
+    public void clear() {
+     //   mAll.setToPre();
     }
 }

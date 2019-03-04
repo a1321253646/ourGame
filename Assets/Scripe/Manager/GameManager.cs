@@ -161,12 +161,13 @@ public class GameManager
             {
                 mReincarnation = BigNumber.getBigNumForString("2.1E+40");
             }
+            
             else
             {
                 mReincarnation = SQLHelper.getIntance().mLunhuiValue;
               //  mReincarnation = BigNumber.getBigNumForString("2.1E+40");
             }
-        //    mReincarnation = SQLHelper.getIntance().mLunhuiValue;
+            //    mReincarnation = SQLHelper.getIntance().mLunhuiValue;
 
             isShowPlayerPoint = SQLHelper.getIntance().isShowPlayerPoint;
             isShowBackpackPoint = SQLHelper.getIntance().isShowBackpackPoint;

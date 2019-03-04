@@ -63,7 +63,7 @@ public class FightResource
 	}
 
 	public void trajectoryActionIsEnd(){
-        if (!creatHit())
+        if (!creatHit() && mAttacker.mAttackerTargets.Count > 0)
         {
             mAttacker.attackSync(mHurtBlood.blood);
             mAttacker.mAttackerTargets[0].BeAttack(mHurtBlood , mAttacker);

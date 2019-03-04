@@ -28,7 +28,8 @@ public abstract class CardManagerBase : MonoBehaviour {
     public abstract void updateEnd();
 
 
-    public static float CREADT_CARD_TIME = -1;
+    public float CREADT_CARD_TIME = -1;
+    public float FRIST_CARD_TIME = -1;
     public static float OUT_CREADT_CARD_TIME = 0.1f;
 
     public bool isInit = false;
@@ -45,6 +46,7 @@ public abstract class CardManagerBase : MonoBehaviour {
     public List<CardControl> mList = new List<CardControl>();
 
     public bool isShow = false;
+    public bool isFristCreat = false;
 
     public void reset() {
         isInit = false;
@@ -54,6 +56,7 @@ public abstract class CardManagerBase : MonoBehaviour {
         mTime = 0;
         mCardIdList.Clear();      
         nengLiangDian = 0;
+        isFristCreat = false;
 
         foreach (CardControl card in mList)
         {
@@ -80,6 +83,7 @@ public abstract class CardManagerBase : MonoBehaviour {
         if (this is BossCardManager && !isShow) {
             return;
         }
+        
         if (mMaxCardCount == 0)
         {
             mMaxCardCount = (int)JsonUtils.getIntance().getConfigValueForId(100015);
@@ -101,9 +105,20 @@ public abstract class CardManagerBase : MonoBehaviour {
             //return;
         }
         mTime += Time.deltaTime;
-
-        if (mTime >= CREADT_CARD_TIME && mCardIdList.Count < mMaxCardCount)
+        if (mTime < FRIST_CARD_TIME) {
+            return;
+        }
+        if (!isFristCreat) {
+            isFristCreat = true;
+            long random = getCreatCard();
+            if (random != 0)
+            {
+                addCard(random);
+            }
+        }
+        if (mTime >= CREADT_CARD_TIME+ FRIST_CARD_TIME && mCardIdList.Count < mMaxCardCount)
         {
+            mTime -= CREADT_CARD_TIME;
             long random = getCreatCard();
             if (random != 0)
             {
@@ -164,12 +179,14 @@ public abstract class CardManagerBase : MonoBehaviour {
             if (attacker.mAttackType == Attacker.ATTACK_TYPE_HERO)
             {
                 CREADT_CARD_TIME = JsonUtils.getIntance().getConfigValueForId(100043);
+                FRIST_CARD_TIME = JsonUtils.getIntance().getConfigValueForId(100013);
                 addNengliangAttack =(int) JsonUtils.getIntance().getConfigValueForId(100014);
             }
             else
             {
-                CREADT_CARD_TIME = JsonUtils.getIntance().getConfigValueForId(100051);
-                addNengliangAttack = (int)JsonUtils.getIntance().getConfigValueForId(100014);
+                CREADT_CARD_TIME = JsonUtils.getIntance().getConfigValueForId(100052);
+                FRIST_CARD_TIME = JsonUtils.getIntance().getConfigValueForId(100051);
+                addNengliangAttack = (int)JsonUtils.getIntance().getConfigValueForId(100053);
             }
         }
         initNengliangkuai();
@@ -179,7 +196,6 @@ public abstract class CardManagerBase : MonoBehaviour {
     {
         CardJsonBean card = JsonUtils.getIntance().getCardInfoById(id);
         mCardIdList.Add(card);
-        mTime = 0;
         addCardUpdate(card);
     }
 
@@ -214,7 +230,7 @@ public abstract class CardManagerBase : MonoBehaviour {
 
     public bool delectNengliangdian(float nengliang)
     {
-        Debug.Log("---------------------------- delectNengliangdian -------------------------------- nengliang= " + nengliang+ " nengLiangDian="+ nengLiangDian);
+//        Debug.Log("---------------------------- delectNengliangdian -------------------------------- nengliang= " + nengliang+ " nengLiangDian="+ nengLiangDian);
         if (nengliang > nengLiangDian)
         {
             return false;
@@ -368,7 +384,7 @@ public abstract class CardManagerBase : MonoBehaviour {
 
     public  void addCardUpdate(CardJsonBean addCard)
     {
-        mTime = 0;
+
         GameObject newobj = GameObject.Instantiate(
                 card, new Vector2(2500, mYdel ), Quaternion.Euler(0.0f, 0f, 0.0f));;
         if (mAttacker.mAttackType == Attacker.ATTACK_TYPE_HERO)

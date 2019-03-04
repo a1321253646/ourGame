@@ -178,7 +178,8 @@ public class EnemyBase : Attacker {
 	}
 	public Enemy mData;
 	public void init(Enemy data,ResourceBean resource){
-		resourceData= resource;
+        mAllAttributePre = new AttributePre(this); 
+        resourceData = resource;
         initAnimalEvent();
         mData = data;
         mBaseAttribute.aggressivity = data.monster_attack;

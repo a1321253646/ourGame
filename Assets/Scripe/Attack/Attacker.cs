@@ -46,8 +46,8 @@ public abstract class Attacker : MonoBehaviour
     
     public Attribute mAllAttribute = new Attribute();
 
-    public AttributePre mAllAttributePre = new AttributePre();
-
+    public AttributePre mAllAttributePre ;
+    
     public LocalBean mLocalBean;
 	public List<Attacker> mAttackerTargets;
 	public ResourceBean resourceData;

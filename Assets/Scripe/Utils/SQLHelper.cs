@@ -29,6 +29,8 @@ public class SQLHelper
     public long mPlayVocation = -1;
     public long mVersionCode=-1;
 
+    public long mCardLevel = -1;
+    public long mCardListId = -1;
 
     public BigNumber mOutLineGet = null;
 
@@ -56,6 +58,7 @@ public class SQLHelper
     public static long GAME_ID_PLAYER_VOCATION = 22;
     public static long GAME_ID_OUTLINE_VALUE = 24;
     public static long GAME_ID_VERSION_CODE = 25;
+    public static long GAME_ID_LEVEL_CARD = 26;
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -80,6 +83,8 @@ public class SQLHelper
     Dictionary<long,long> mLunhuui = new Dictionary<long, long>();
     Dictionary<long,long> mDropDeviceCount = new Dictionary<long, long>();
     NetHelper mNetHelp = new NetHelper();
+
+    
 
   //  SQLManager SQLManager.getIntance() = null;
     private SQLHelper()
@@ -136,9 +141,9 @@ public class SQLHelper
                 if (date.type == TYPE_LUNHUI)
                 {
                     long tmp = long.Parse(date.extan);
-                    if (tmp > 40) {
-                        tmp = 40;
-                    }
+                //    if (tmp > 40) {
+                //        tmp = 40;
+                //    }
                     long count =BaseDateHelper.encodeLong(tmp) ;
                     if (mLunhuui.ContainsKey(date.id) )
                     {
@@ -227,7 +232,7 @@ public class SQLHelper
                 {
                     if (date.id == GAME_ID_LEVEL)
                     {
-                        mGameLevel =BaseDateHelper.encodeLong(long.Parse(date.extan)) ;
+                        mGameLevel = BaseDateHelper.encodeLong(long.Parse(date.extan));
                     }
                     else if (date.id == GAME_ID_HERO)
                     {
@@ -239,7 +244,7 @@ public class SQLHelper
                     }
                     else if (date.id == GAME_ID_LUNHUI)
                     {
-                        mLunhuiValue = BigNumber.getBigNumForString(date.extan); 
+                        mLunhuiValue = BigNumber.getBigNumForString(date.extan);
 
                     }
                     else if (date.id == GAME_ID_MOJING)
@@ -248,7 +253,8 @@ public class SQLHelper
                         mMojing = BigNumber.getBigNumForString(date.extan);
 
                     }
-                    else if (date.id == GAME_ID_TIME) {
+                    else if (date.id == GAME_ID_TIME)
+                    {
                         mOutTime = long.Parse(date.extan);
                         Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
@@ -337,6 +343,11 @@ public class SQLHelper
                     {
                         mVersionCode = long.Parse(date.extan);
                         Debug.Log("读取数据库 版本号 " + mVersionCode);
+                    }
+                    else if (date.id == GAME_ID_LEVEL_CARD) {
+                        string[] strs = date.extan.Split(',');
+                        mCardLevel = long.Parse(strs[0]);
+                        mCardListId = long.Parse(strs[1]);
                     }
                 }
             }
@@ -1027,6 +1038,18 @@ public class SQLHelper
             updateGame(GAME_ID_LUNHUI, value.toString());
         }
         mLunhuiValue = value;     
+    }
+
+    public void updateLevelCardId(long level, long id) {
+        if (mCardLevel == -1)
+        {
+            addGame(GAME_ID_LEVEL_CARD, level + "," + id);
+        }
+        else {
+            updateGame(GAME_ID_LEVEL_CARD, level + "," + id);
+        }
+        mCardLevel = level;
+        mCardListId = id;
     }
 
     public void updateDropValue(long drop, long value)

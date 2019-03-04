@@ -15,9 +15,11 @@ public class SkillManage
                 mSkillObject, new Vector2(x - bean.getHurtOffset().x, y - bean.getHurtOffset().y), Quaternion.Euler(0.0f, 0f, 0.0f));
         dealSkillObject(attacker, newobj, skill, x, y, campType, isGiveup, isBoss,skillIndex);
     }
-
+    //,
+   // 
     public void bossAddSkill(Attacker attacker,Attacker hero ,SkillJsonBean skill, int campType, long skillIndex) {
-        addSkill(attacker, skill, hero.mLocalBean.mCurrentX, hero.mLocalBean.mCurrentY, campType,false,true, skillIndex);
+        //addSkill(attacker, skill, hero.mLocalBean.mCurrentX, hero.mLocalBean.mCurrentY, campType,false,true, skillIndex);
+        addSkill(attacker, skill, hero.mLocalBean.mCurrentX + hero.resourceData.getHurtOffset().x, hero.mLocalBean.mCurrentY + hero.resourceData.getHurtOffset().y, campType,false,true, skillIndex);
     }
 
     public void addSkill(Attacker attacker, SkillJsonBean skill,float x,float y,int campType, long skillIndex) {

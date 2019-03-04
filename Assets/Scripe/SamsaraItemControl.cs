@@ -14,6 +14,7 @@ public class SamsaraItemControl : MonoBehaviour {
     private Text mButtonText;
     private Button mLevelUp;
     private SamSaraListControl mListControl;
+    
     public void init(long id, SamSaraListControl control) {
         mId = id;
         mListControl = control;
@@ -47,6 +48,7 @@ public class SamsaraItemControl : MonoBehaviour {
     public void upDate()
     {
         mLevel = InventoryHalper.getIntance().getSamsaraLevelById(mId);
+        Debug.Log("---------------------------------InventoryHalper.getIntance().getSamsaraLevelById(mId) = " + InventoryHalper.getIntance().getSamsaraLevelById(mId));
         if (BaseDateHelper.decodeLong(mLevel)  == 0)
         {
 
@@ -56,7 +58,7 @@ public class SamsaraItemControl : MonoBehaviour {
         {
             mNoStudy.transform.localScale = new Vector2(0, 0);
         }
-        
+        Debug.Log("---------------------------------BaseDateHelper.decodeLong(mLevel) = " + BaseDateHelper.decodeLong(mLevel));
         if (BaseDateHelper.decodeLong(mLevel) == 0)
         {
             mSamsaraName.text = "" + mJsonBean.name ;
@@ -71,20 +73,28 @@ public class SamsaraItemControl : MonoBehaviour {
             mLvel.text = "Lv:" + BaseDateHelper.decodeLong(mLevel);
             mSamsaraValue.text = getAttribute();
         }
+        isEnableLevelUp();
         BigNumber big = JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, BaseDateHelper.decodeLong(mLevel) + 1);
+        Debug.Log("sonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, BaseDateHelper.decodeLong(mLevel) + 1) = " + big.toString());
+        Debug.Log("sonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, BaseDateHelper.decodeLong(mLevel) + 1) = " + big.isEmpty());
+
         if (big.isEmpty()) {
-            mLevelUp.interactable = false;
+            mLvelUpCost.text = "---";
         }
         else {
             mLvelUpCost.text = "消耗：" + big.toStringWithUnit() + "轮回点";
-            isEnableLevelUp();
+
         }
-        
+        isEnableLevelUp();
     }
 
     public void isEnableLevelUp() {
         BigNumber rein =  GameManager.getIntance().mReincarnation;
-
+        if (JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, BaseDateHelper.decodeLong(mLevel) + 1).isEmpty()) {
+            mLevelUp.interactable = false;
+            return;
+        }
+        
         if (GameManager.getIntance().mReincarnation.ieEquit(JsonUtils.getIntance().getSamsaraCostByIdAndLevel(mId, BaseDateHelper.decodeLong(mLevel) + 1)) != -1)
         {
             mLevelUp.interactable = true;

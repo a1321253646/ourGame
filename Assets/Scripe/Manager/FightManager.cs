@@ -67,6 +67,7 @@ public class FightManager{
         if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
             GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
             GameManager.getIntance ().mHeroIsAlive = false;
+            GameManager.getIntance().isEnd = true;
             //SceneManager.UnloadSceneAsync (0);
             GameObject.Find("Manager").GetComponent<LevelManager>().getBackManager().stop();
             foreach (Attacker a in mAliveActtackers.Values)
@@ -257,8 +258,8 @@ public class FightManager{
         //  Debug.Log("=================attckerOutLine  离线衰减=" + JsonUtils.getIntance().getConfigValueForId(100048));
         //  Debug.Log("=================attckerOutLine  计算衰减后=" + outlineGet.toString());
         //  if (outlineGet == null || outlineGet.toStringWithUnit().Equals("0K") || outlineGet.toStringWithUnit().Equals("0k") ) {
-       //  Text text = GameObject.Find("uid_test").GetComponent<Text>();
-       //  text.text = str;
+         Text text = GameObject.Find("uid_test").GetComponent<Text>();
+         text.text = str;
         //   GameObject ob = GameObject.Find("game_error_messge");
         //  ob.transform.localPosition = new Vector2(0, 0);
         //  ob.transform.SetSiblingIndex(GameManager.getIntance().getUiLevel());
@@ -274,9 +275,9 @@ public class FightManager{
 		if (attacker!= null && attacker.mAttackerTargets != null && attacker.mAttackerTargets.Count > 0) {
 			if (attacker is EnemyBase) {//enemy only one target
 				FightResource resouce = new FightResource (attacker, mEnemyFactory);
-                Debug.Log("attackBllod");
+//                Debug.Log("attackBllod");
                 hurtBlood = attackBllod(attacker, attacker.mAttackerTargets[0]);
-                Debug.Log("attackBllod");
+//                Debug.Log("attackBllod");
                 attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood);
                 hurtBlood = resouce.hurt(hurtBlood);
                 if (hurtBlood != null && attacker.mAttackerTargets.Count >0) {

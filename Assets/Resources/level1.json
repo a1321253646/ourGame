@@ -102,7 +102,7 @@
     "levelspeedup": 0,
     "lunhui": "11",
     "hunjing": "100",
-    "card": 10007
+    "card": 10001
   },
   {
     "id": -2,
@@ -117,7 +117,7 @@
     "levelspeedup": 0,
     "lunhui": "12",
     "hunjing": "100",
-    "card": 10008
+    "card": 10002
   },
   {
     "id": -1,
@@ -132,7 +132,7 @@
     "levelspeedup": 0,
     "lunhui": "13",
     "hunjing": "100",
-    "card": 10009
+    "card": 10003
   },
   {
     "id": 0,
@@ -147,7 +147,7 @@
     "levelspeedup": 0,
     "lunhui": "14",
     "hunjing": "100",
-    "card": 10010
+    "card": 10004
   },
   {
     "id": 1,
@@ -162,7 +162,7 @@
     "levelspeedup": 1,
     "lunhui": "15",
     "hunjing": "100",
-    "card": 10011
+    "card": 10005
   },
   {
     "id": 2,
@@ -177,7 +177,7 @@
     "levelspeedup": 2,
     "lunhui": "16",
     "hunjing": "100",
-    "card": 10012
+    "card": 10006
   },
   {
     "id": 3,

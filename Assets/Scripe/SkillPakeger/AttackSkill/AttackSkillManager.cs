@@ -168,7 +168,7 @@ public class AttackSkillManager
         // {
            List<AttackerSkillBase> list = new List<AttackerSkillBase>();
         // }
-        Debug.Log("=====================addSkill pet.skillId=" + pet.skillId);
+        Debug.Log("=====================addSkill pet.skillId=" + pet.skillId+ "  index = "+ index);
         if (pet.skillId != 0) {
             AttackerSkillBase skill = creatSkillById(pet.skillId, null, fighter,false,index);
             list.Add(skill);
@@ -206,6 +206,7 @@ public class AttackSkillManager
         List<AttackerSkillBase> list = new List<AttackerSkillBase>();
         foreach (PlayerAttributeBean bean in affixList)
         {
+            Debug.Log("creatSkillByAffix  bean.type=" + bean.type + " bean.value=" + bean.value);
             if (bean.type < 1000)
             {
                 if (mAttack is PlayControl) {

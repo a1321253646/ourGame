@@ -100,6 +100,8 @@ public class PlayControl : Attacker
         }
     }
 
+    private bool isFristStart = true;
+
     public void resetHero() {
         isBeAttacker = false;
         
@@ -117,6 +119,7 @@ public class PlayControl : Attacker
         isStop = false;
         oldStatus = PLAY_STATUS_RUN;
         isStart = false;
+        mAllAttributePre.clear();
         mVoication = -1;
         if (mAttackerTargets != null) {
             mAttackerTargets.Clear();
@@ -127,14 +130,16 @@ public class PlayControl : Attacker
         transform.position = mFirVetor;
 
         setHeroData();
+
         upLunhui();
         initEquip();
-       
-        if (status != PLAY_STATUS_RUN)
+        if (!isFristStart)
         {
             restart();
         }
-        if(mLocalBean != null) {
+        isFristStart = false;
+        oldStatus = PLAY_STATUS_RUN;
+        if (mLocalBean != null) {
             mLocalBean.next = null;
             mLocalBean.mTargetX = -999;
             mLocalBean.mTargetY = -999;
@@ -253,8 +258,13 @@ public class PlayControl : Attacker
         }
     }
 
+    private bool isInit = false;
 
     public void initEquip(bool isAddSkill) {
+        if (isInit) {
+            return;
+        }
+        isInit = true;
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();
         bloodBili = mBloodVolume/mAttribute.maxBloodVolume;
         bloodDistance = -1;
@@ -302,6 +312,7 @@ public class PlayControl : Attacker
                 }
             }
             Debug.Log("addSkill initEquip");
+            
             mSkillManager.addSkill(bean, this,SkillIndexUtil.getIntance().getEquitIndexByGoodId(false,bean.sqlGoodId));           
         }
         Debug.Log("initEquip");
@@ -334,7 +345,7 @@ public class PlayControl : Attacker
             long level = BaseDateHelper.decodeLong(samsaras[key]) ;
             Debug.Log("level = " + level);
             if(level != 0) {
-                long index = SkillIndexUtil.getIntance().getSamIndexBySamId(false, key);
+               long index = SkillIndexUtil.getIntance().getSamIndexBySamId(false, key);
                mAllAttributePre.delete(index);
                 
                SamsaraJsonBean sam=  JsonUtils.getIntance().getSamsaraInfoById(key);
@@ -468,8 +479,9 @@ public class PlayControl : Attacker
 
         mAttribute.add(mAllAttribute);
         //Debug.Log("===============mAttribute.mAttribute = " + mAllAttribute);
+        Debug.Log("===============mAttribute.mAllAttributePre = " + mAttribute.toString());
         mAttribute.chen(mAllAttributePre.getAll());
-        //Debug.Log("===============mAttribute.mAllAttributePre = " + mAllAttributePre);
+        Debug.Log("===============mAttribute.mAllAttributePre = " + mAllAttributePre.getAll().toString());
         //Debug.Log("===============mAttribute.mAttribute = " + mAttribute);
         if (bloodDistance != -1)
         {
@@ -704,6 +716,9 @@ public class PlayControl : Attacker
     }
     private bool isStart = false;
     public void startGame() {
+        if(mAllAttributePre == null) {
+            mAllAttributePre = new AttributePre(this);
+        }    
         mAttackType = Attacker.ATTACK_TYPE_HERO;
         startComment();
         isStart = true;

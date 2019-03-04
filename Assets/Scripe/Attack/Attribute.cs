@@ -34,9 +34,9 @@
         readHurt = chenGetDouble(readHurt, adder.readHurt);
         attackSpeed = (float)chenGetInt(attackSpeed, adder.attackSpeed);
 
-        rate = (float)chenGetInt(rate, adder.rate / 10000);
-        evd = (float)chenGetInt(evd, adder.evd / 10000);
-        crt = (float)chenGetInt(crt, adder.crt / 10000);
+    //    rate = (float)chenGetInt(rate, adder.rate / 10000);
+     //   evd = (float)chenGetInt(evd, adder.evd / 10000);
+     //   crt = (float)chenGetInt(crt, adder.crt / 10000);
 
 
         return this;
