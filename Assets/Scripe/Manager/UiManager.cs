@@ -199,6 +199,8 @@ public class UiManager
             "/" +
             GameManager.getIntance().startBossGas;
 
+        refreshData();
+
         mStartBossGasSl.maxValue = GameManager.getIntance().startBossGas;
         mStartBossGasSl.value = 0;
 

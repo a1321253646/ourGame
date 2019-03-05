@@ -7,7 +7,7 @@
     "activateIcon": "pet_head_01_1",
     "moactivateImage": "pet_001_no",
     "des": "深渊中最好的棒球手，因为跟深渊魔王打球时不懂得让球而被关了起来",
-    "affixId": "100,400004",
+    "affixId": "100,400001",
     "value": "18000,2500",
     "skillId": 600001,
     "skil_name": "本垒打",

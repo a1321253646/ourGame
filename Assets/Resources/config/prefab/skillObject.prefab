@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4339519897307374}
   - component: {fileID: 212032569839274890}
+  - component: {fileID: 114173927487207966}
   m_Layer: 5
   m_Name: skillObject
   m_TagString: Untagged
@@ -40,6 +41,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114173927487207966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1414704113077492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1145a25c336e55048804837d3f7c733a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212032569839274890
 SpriteRenderer:
   m_ObjectHideFlags: 1

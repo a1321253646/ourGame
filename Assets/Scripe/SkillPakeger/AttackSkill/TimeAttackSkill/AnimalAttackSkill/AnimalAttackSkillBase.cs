@@ -30,8 +30,14 @@ public abstract class AnimalAttackSkillBase : TimeAttackSkillBase
         mSprinter = newobj;
     }
     public override void upDateSkill() {
+
         if (!isInit || mStatus == SKILL_STATUS_END) { 
             return;
+        }
+        if (GameManager.getIntance().isEnd)
+        {
+
+     //       GameObject.Destroy(mSprinter, 0.1f);
         }
         mAnimal.update();
         updateSkillEnd();
@@ -54,5 +60,9 @@ public abstract class AnimalAttackSkillBase : TimeAttackSkillBase
             mSprinter.transform.Translate(Vector2.left * x);
         }
 
+    }
+    public override void addValueEnd()
+    {
+        mAnimal.reStart();
     }
 }

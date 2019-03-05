@@ -21,6 +21,9 @@ public class InventoryHalper
     }
     private InventoryHalper() {
         //读数据库中的玩家拥有的物品
+        init();
+    }
+    public void init() {
         mList = SQLHelper.getIntance().getAllGood();
         mCard = SQLHelper.getIntance().getCard();
         mUser = SQLHelper.getIntance().getUserd();
@@ -28,6 +31,7 @@ public class InventoryHalper
         mSamsaraLevel = SQLHelper.getIntance().getLunHui();
         mDropDeviceUsed = SQLHelper.getIntance().getDropDevice();
     }
+
     public void dealClear() {
       //  mDropDeviceUsed.Clear();
       //  mList.Clear();

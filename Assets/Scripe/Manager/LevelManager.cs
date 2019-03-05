@@ -103,6 +103,24 @@ public class LevelManager : MonoBehaviour {
         mPlayerControl.resetHero();
 
         mPlayerControl.mCardManager.reset();
+        BackpackManager.getIntance().updateZhuangbeiItem(true);
+        GameManager.getIntance().isEnd = false;
+        //GameObject.Find("")
+        mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
+        if (GameManager.isTest)
+        {
+            Time.timeScale = 10;
+        }
+        else if (SQLHelper.getIntance().isLuiHui != -1 && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) <= SQLHelper.getIntance().isLuiHui)
+        {
+            Time.timeScale = 2;
+            GameObject.Find("jiasu_tip").transform.localScale = new Vector2(1, 1);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
+        }
     }
 
     void Start () {

@@ -96,10 +96,10 @@ public class QieHuangChangJing : MonoBehaviour {
                 }
                 else {
                     // SceneManager.LoadScene(1);
-                    // startLevelFrist();
-                    startLevelSecond();
-                }              
-                
+                     startLevelFrist();
+                    //startLevelSecond();
+                }
+
             }
             else {
                 Color c = image.color;
@@ -182,8 +182,8 @@ public class QieHuangChangJing : MonoBehaviour {
 
     public void startLevelSecond() {
         // 重读数据库
-        //SQLHelper.getIntance().init();
-
+        SQLHelper.getIntance().init();
+        InventoryHalper.getIntance().init();
         GameObject.Find("Manager").GetComponent<LevelManager>().reset();
 
         if (GameManager.getIntance().isShowQieHuang)
@@ -214,6 +214,7 @@ public class QieHuangChangJing : MonoBehaviour {
         isInStartLevel = false;
         isAdd = true;
         gameObject.transform.localPosition = mFri;
+        SQLHelper.getIntance().updateOutTime();
     }
 
 

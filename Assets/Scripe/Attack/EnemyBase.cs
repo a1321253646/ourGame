@@ -248,6 +248,7 @@ public class EnemyBase : Attacker {
     }
     public override void AddBlood(double value)
     {
+
         if (mBloodVolume + value > mAttribute.maxBloodVolume)
         {
             value = mAttribute.maxBloodVolume - mBloodVolume;

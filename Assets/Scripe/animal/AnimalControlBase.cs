@@ -87,6 +87,20 @@ public class AnimalControlBase
     public void start() {
         isStart = true;
     }
+
+    public void reStart() {
+        isStart = true;
+        mAnimalTime = 0;
+        mCurrentAnimalStatu.initAnimal();
+     /*   if (mAnimalStatuList.Count == 1 && mAnimalStatuList[0].statue == ActionFrameBean.ACTION_NONE)
+        {
+            changeStatue(mAnimalStatuList[0]);
+        }
+        else
+        {
+            changeStatue(mAnimalStatuList[ActionFrameBean.ACTION_STANDY]);
+        }*/
+    }
     public void end(Sprite endSprite)
     {
         isStart = false;

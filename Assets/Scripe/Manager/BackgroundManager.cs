@@ -38,14 +38,18 @@ public class BackgroundManager{
 		newobj =  GameObject.Instantiate (BgType, new Vector2 (23.668f,-0.009f),Quaternion.Euler(0.0f,0.0f,0.0f));
 	//	newobj.transform.localScale.Set (2.769776f, 5.359474f, 1);
 		sp2 = newobj.GetComponent<BackgroundTransform> ();*/
-		GameObject newobj =  GameObject.Instantiate (BgType, new Vector2 (0f,mCardTop),Quaternion.Euler(0.0f,0.0f,0.0f));
-		sp1 = newobj.GetComponent<BackgroundTransform> ();
+
 //		Vector3 vertor=  newobj.GetComponent<MeshFilter> ().mesh.bounds.size;
 //		sp1 = newobj.GetComponent<BackgroundTransform> ();
 //		float x = vertor.x * newobj.transform.lossyScale.x;
 //		Debug.Log ("x = " + x);
-		newobj =  GameObject.Instantiate (BgType, new Vector2 (20.22f, mCardTop),Quaternion.Euler(0.0f,0.0f,0.0f));
-		sp2 = newobj.GetComponent<BackgroundTransform> ();
+
+        if (sp1 == null) {
+            GameObject newobj = GameObject.Instantiate(BgType, new Vector2(0f, mCardTop), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+            sp1 = newobj.GetComponent<BackgroundTransform>();
+            newobj = GameObject.Instantiate(BgType, new Vector2(20.22f, mCardTop), Quaternion.Euler(0.0f, 0.0f, 0.0f));
+            sp2 = newobj.GetComponent<BackgroundTransform>();
+        }
 	}
 	public void setBackground(string path){ 
 		if (path == null || path.Length < 1) {

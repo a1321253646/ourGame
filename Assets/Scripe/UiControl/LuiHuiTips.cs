@@ -172,6 +172,7 @@ public class LuiHuiTips : UiControlBase
     private void sure(BigNumber tmp) {
         //Time.timeScale = 1;
         GameManager.getIntance().isLuihuiIng = true;
+        GameManager.getIntance().isEnd = true;
         GameManager.getIntance().uiManager.setLunhuiPointShow(1);
         
 

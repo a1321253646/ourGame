@@ -117,7 +117,10 @@ public abstract class Attacker : MonoBehaviour
 	}
 
 	public void startComment () {
-        mSkillManager = new AttackSkillManager(this);
+
+        if (mSkillManager == null) {
+            mSkillManager = new AttackSkillManager(this);
+        }       
 
     }
 

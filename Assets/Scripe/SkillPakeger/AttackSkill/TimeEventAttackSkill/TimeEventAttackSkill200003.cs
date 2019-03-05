@@ -50,11 +50,14 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
 
     public override void upDateSkill()
     {
+
         if (!isInit)
         {
             return;
         }
+
         mTime += Time.deltaTime;
+        Debug.Log("==================================TimeEventAttackSkill200003 value=" + value + " mTime = " + mTime);
         //}
         if (mTime > value)
         {

@@ -35,7 +35,12 @@ public abstract class AttackerSkillBase
 
     public void addValue(float value) {
         mValue += value;
+        addValueEnd();
     }
+    public virtual void addValueEnd()
+    {
+    }
+
     public bool randomResult(int max, int value, bool isPri)
     {
         int rangeRadomNum = UnityEngine.Random.Range(0, max);

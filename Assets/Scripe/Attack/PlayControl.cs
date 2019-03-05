@@ -104,7 +104,9 @@ public class PlayControl : Attacker
 
     public void resetHero() {
         isBeAttacker = false;
-        
+        if(mSkillManager != null) {
+            mSkillManager.removeAllSkill();    
+        }
      //   status = PLAY_STATUS_RUN;
         id = -1;
         mBloodVolume = 0;
@@ -120,6 +122,7 @@ public class PlayControl : Attacker
         oldStatus = PLAY_STATUS_RUN;
         isStart = false;
         mAllAttributePre.clear();
+
         mVoication = -1;
         if (mAttackerTargets != null) {
             mAttackerTargets.Clear();
@@ -259,16 +262,22 @@ public class PlayControl : Attacker
     }
 
     private bool isInit = false;
-
-    public void initEquip(bool isAddSkill) {
-        if (isInit) {
-            return;
-        }
+    public void initEquip(bool isAddSkill)
+    {
+        initEquip(isAddSkill, true);
+    }
+    public void initEquip(bool isAddSkill,bool isIniting) {
+        //if (isInit && isIniting) {
+        //    return;
+       // }
         isInit = true;
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();
         bloodBili = mBloodVolume/mAttribute.maxBloodVolume;
         bloodDistance = -1;
+        Debug.Log("===============initEquip mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
         mEquipAttribute.clear();
+        
+        Debug.Log("===============initEquip mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
         foreach (PlayerBackpackBean bean in list)
         {
             Debug.Log(" bean = " + bean.goodId);
@@ -461,15 +470,20 @@ public class PlayControl : Attacker
         mAllAttribute.clear();
 
         mAllAttribute.add(mBaseAttribute);
-        //Debug.Log("===============mBaseAttribute = " + mBaseAttribute.toString());
+        Debug.Log("===============mBaseAttribute = " + mBaseAttribute.toString());
+        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
         mAllAttribute.add(mEquipAttribute);
-        //Debug.Log("===============mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
+        Debug.Log("===============mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
+        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
         mAllAttribute.add(mLunhuiAttribute);
-        //Debug.Log("===============mAttribute.mLunhuiAttribute = " + mLunhuiAttribute.toString());
+        Debug.Log("===============mAttribute.mLunhuiAttribute = " + mLunhuiAttribute.toString());
+        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
         mAllAttribute.add(mSkillAttribute);
+        Debug.Log("===============mAttribute.mSkillAttribute = " + mSkillAttribute.toString());
+        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
         mAllAttribute.add(mPetAttribute);
-        //Debug.Log("===============mAttribute.mSkillAttribute = " + mSkillAttribute.toString());
-        // Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+        Debug.Log("===============mAttribute.mSkillAttribute = " + mPetAttribute.toString());
+        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
 
         //Debug.Log("===============mAttribute.mEquipAttributePre = " + mEquipAttributePre.toString());
         //Debug.Log("===============mAttribute.mLunhuiAttributePre = " + mLunhuiAttributePre.toString());

@@ -121,7 +121,31 @@ public class AttackSkillManager
             mBackpackSkill.Add(bean, list);
         }
     }
+    public void removeAllSkill() {
+        List<PlayerBackpackBean> list = new List<PlayerBackpackBean>();
+        foreach (PlayerBackpackBean bean in mBackpackSkill.Keys) {
+            list.Add(bean);
+        }
+        while (list.Count > 0)
+        {
+            PlayerBackpackBean bean = list[0];
+            removeSkill(bean);
+            list.Remove(bean);
+        }
 
+        List<long> list2 = new List<long>();
+        foreach (long id in mIdSkill.Keys)
+        {
+            list2.Add(id);
+        }
+        while (list2.Count > 0)
+        {
+            long bean = list2[0];
+            removeSkill(bean);
+            list2.Remove(bean);
+        }
+
+    }
 
     public void addSkill(SkillJsonBean json, Attacker fighter,bool isGiveup,long index)
     {

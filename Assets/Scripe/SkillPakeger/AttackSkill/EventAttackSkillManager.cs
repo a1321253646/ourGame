@@ -79,8 +79,8 @@ public class EventAttackSkillManager
     }
     public void upDateLocal(float x, float y)
     {
-        foreach (TimeAttackSkillBase skill in mTimeList)
-        {
+        for (int i = 0; i < mTimeList.Count; i++) {
+            TimeAttackSkillBase skill = mTimeList[i];
             skill.upDateLocal(x,y);
         }
     }
@@ -109,7 +109,9 @@ public class EventAttackSkillManager
             return null;
         }
         else {
-            foreach (EventAttackSkill skill in singel.mList) {
+            for (int i = 0; i < singel.mList.Count; i++)
+            {
+                EventAttackSkill skill = singel.mList[i];
                 EquipKeyAndValue value = skill.beforeActtack();
                 if (value != null) {
                     list.Add(value);
@@ -128,8 +130,9 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 skill.Acttacking();
             }
         }
@@ -144,8 +147,9 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 skill.beforeHurt(hurt);
             }
         }
@@ -160,8 +164,10 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 skill.endHurt(hurt);
             }
         }
@@ -176,8 +182,9 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 skill.allHurt(fighter, hurt);
             }
         }
@@ -192,8 +199,9 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 skill.beforeBeHurt(fighter,hurt);
             }
         }
@@ -209,8 +217,9 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 skill.endBeHurt(fighter,hurt);
             }
         }
@@ -225,8 +234,9 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 skill.killEnemy();
             }
         }
@@ -242,8 +252,9 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 cost2 = skill.getCardCost(cost2);
             }
         }
@@ -325,8 +336,9 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 skill.debuffMonster(monster);
             }
         }
@@ -341,8 +353,9 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 big = skill.getDieHuijing(big);
             }
         }
@@ -374,8 +387,9 @@ public class EventAttackSkillManager
         }
         else
         {
-            foreach (EventAttackSkill skill in singel.mList)
+            for (int i = 0; i < singel.mList.Count; i++)
             {
+                EventAttackSkill skill = singel.mList[i];
                 if (skill.endGetDrop()) {
                     return true;
                 }

@@ -136,7 +136,7 @@ public class BackpackManager
         mInvertoryControl.update(false);
         mHeroControl.upDateUi(false);
         updateZhuangbeiItem(false);
-        mLevel.mPlayerControl.initEquip(false);
+        mLevel.mPlayerControl.initEquip(false,false);
     }
     public bool use(PlayerBackpackBean bean, long count, int type) {
         if (type == TipControl.USE_TYPE)
