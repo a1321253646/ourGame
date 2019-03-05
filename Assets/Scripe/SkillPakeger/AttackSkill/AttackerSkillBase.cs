@@ -54,6 +54,7 @@ public abstract class AttackerSkillBase
     public virtual bool add(List<float> count,bool isGive)
     {
         value = value + count[0];
+        addValueEnd();
         return true;
     }
     public virtual bool isAnimal() {

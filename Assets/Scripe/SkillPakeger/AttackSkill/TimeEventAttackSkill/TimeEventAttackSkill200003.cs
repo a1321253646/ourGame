@@ -11,6 +11,9 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_END_EHURT, this);
         mManager.mEventAttackManager.unRegisterTimeEventSkill(this);
         mStatus = SKILL_STATUS_END;
+        GameObject.Destroy(mSpriteRender, 0.1f);
+        mSpriteRender = null;
+        mAnimal = null;
     }
     public override void initEnd(GameObject newobj)
     {
@@ -23,9 +26,7 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
     }
     void endAnimal(int status)
     {
-        GameObject.Destroy(mSpriteRender, 0.1f);
-        mSpriteRender = null;
-        mAnimal = null;
+        mSpriteRender.transform.localScale = new Vector2(0,0);
     }
     float count1 = 0;
     public override void endHurt( HurtStatus hurt)
@@ -71,5 +72,10 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
     public override bool isAnimal()
     {
         return true;
+    }
+    public override void addValueEnd()
+    {
+        mSpriteRender.transform.localScale = new Vector2(1, 1);
+        mAnimal.reStart();
     }
 }

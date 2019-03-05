@@ -21,7 +21,8 @@ public class AttackSkill600009 : EventAttackSkill
             return;
         }
         Debug.Log("AttackSkill600009 count2 = " + count2);
-        mManager.carHurtPre += count1;
+
+        mManager.carHurtPre.AddFloat(60009, 1+count2);
         mManager.getAttacker().getAttribute();
         //        value++;
         //        mManager.getAttacker().mSkillAttributePre.defense += (value * count1);
@@ -30,7 +31,7 @@ public class AttackSkill600009 : EventAttackSkill
     public override void endSkill()
     {
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_HURT_DIE, this);
-        mManager.carHurtPre -= count2;
+        mManager.carHurtPre.deletById(60009);
         mManager.getAttacker().getAttribute();
     }
 

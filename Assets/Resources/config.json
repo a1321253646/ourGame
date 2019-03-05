@@ -259,7 +259,7 @@
   },
   {
     "id": 100047,
-    "value": 1,
+    "value": 0,
     "remark": "开启json文件测试，非1关闭",
     "Column3": ""
   },
@@ -297,6 +297,12 @@
     "id": 100053,
     "value": 2,
     "remark": "bossn刀=1点能量",
+    "Column3": ""
+  },
+  {
+    "id": 100054,
+    "value": 4,
+    "remark": "测试时加速的倍数",
     "Column3": ""
   }
 ]

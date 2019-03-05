@@ -258,8 +258,8 @@ public class FightManager{
         //  Debug.Log("=================attckerOutLine  离线衰减=" + JsonUtils.getIntance().getConfigValueForId(100048));
         //  Debug.Log("=================attckerOutLine  计算衰减后=" + outlineGet.toString());
         //  if (outlineGet == null || outlineGet.toStringWithUnit().Equals("0K") || outlineGet.toStringWithUnit().Equals("0k") ) {
-         Text text = GameObject.Find("uid_test").GetComponent<Text>();
-         text.text = str;
+        // Text text = GameObject.Find("uid_test").GetComponent<Text>();
+         //text.text = str;
         //   GameObject ob = GameObject.Find("game_error_messge");
         //  ob.transform.localPosition = new Vector2(0, 0);
         //  ob.transform.SetSiblingIndex(GameManager.getIntance().getUiLevel());

@@ -12,12 +12,14 @@ public class AttackSkillManager
     private Dictionary<long, AttackerSkillBase> mIdSkill = new Dictionary<long, AttackerSkillBase>();
 
     public long cardDownCardCost = 0;
-    public float carHurtPre = 0;
-    public float cardCardHurtPre = 0;
-
     public long lunhuiDownCardCost = 0;
-    public float lunhuiHurtPre = 0;
-    public float lunhuiCardHurtPre = 0;
+
+    public MultipleAffixBean carHurtPre = new MultipleAffixBean();
+    public MultipleAffixBean cardCardHurtPre = new MultipleAffixBean();
+
+    public MultipleAffixBean lunhuiHurtPre = new MultipleAffixBean();
+    public MultipleAffixBean lunhuiCardHurtPre = new MultipleAffixBean();
+
 
     public AttackerSkillBase getAttackerById(long id) {
         if (mIdSkill.ContainsKey(id)) {
@@ -32,11 +34,11 @@ public class AttackSkillManager
     }
     public float getHurtPre()
     {
-        return 1 + carHurtPre + lunhuiHurtPre;
+        return (carHurtPre.getValue() * lunhuiHurtPre.getValue());
     }
     public float getCardHurtPre()
     {
-        return 1 + cardCardHurtPre + lunhuiCardHurtPre;
+        return (cardCardHurtPre.getValue() * lunhuiCardHurtPre.getValue());
     }
 
     public AttackSkillManager(Attacker attack)

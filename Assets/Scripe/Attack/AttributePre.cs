@@ -80,13 +80,13 @@ public class AttributePre
         }
         Dictionary<long, long> dic = mAttributePre[id];
         foreach (long type in dic.Keys) {
-            deleteAll(type, dic[type]);
+            deleteAll(type, dic[type]/10000+1);
         }
         mAttributePre.Remove(id);
         mAttacker.getAttribute();
     }
 
-    private void deleteAll(long type, long value) {
+    private void deleteAll(long type, float value) {
         if (type == aggressivity)
         {
             mAll.aggressivity = mAll.aggressivity / value;
@@ -155,6 +155,7 @@ public class AttributePre
     }
 
     public void clear() {
-     //   mAll.setToPre();
+        mAll.setToPre();
+        mAttributePre.Clear();
     }
 }

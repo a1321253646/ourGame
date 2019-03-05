@@ -3,11 +3,11 @@ public class NormalAttackSkill400007 : NormalAttackSkillBase
 {
     public override void endSkill()
     {
-        mManager.cardCardHurtPre -= ((float)value / 10000);
+        mManager.carHurtPre.deletById(400007);
     }
 
     public override void startSkill()
     {
-        mManager.cardCardHurtPre += ((float)value / 10000);
+        mManager.carHurtPre.AddFloat(400007, 1 + ((float)value / 10000));
     }
 }

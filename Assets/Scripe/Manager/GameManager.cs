@@ -33,13 +33,15 @@ public class GameManager
     public int mInitStatus = -1;//0为开始初始化 1 为开始读取json文件 2为json文件读取完成 3为开始处理本地数据库 4 为本地数据库处理完成 5为开始同步网络数据库 
                                 //6为网络数据库同步完成  7 将网络数据同步到本地 8 完成网络数据本地化 9为存档读取 10读取存档完成
     public string mInitDec = "";
-    public float mLunhuiOnlineGet = 0;
-    public float mLunhuiOutlineGet = 0;
-    public float mLunhuiLunhuiGet = 0;
 
-    public float mCardOnlineGet = 0;
-    public float mCardOutlineGet = 0;
-    public float mCardLunhuiGet = 0;
+    public MultipleAffixBean mLunhuiOnlineGet = new MultipleAffixBean();
+    public MultipleAffixBean mLunhuiOutlineGet = new MultipleAffixBean();
+    public MultipleAffixBean mLunhuiLunhuiGet = new MultipleAffixBean();
+
+    public MultipleAffixBean mCardOnlineGet = new MultipleAffixBean();
+    public MultipleAffixBean mCardOutlineGet = new MultipleAffixBean();
+    public MultipleAffixBean mCardLunhuiGet = new MultipleAffixBean();
+
 
     public long isShowCardPoint = 2;
     public long isShowBackpackPoint = 2;
@@ -71,15 +73,15 @@ public class GameManager
 
 
     public float getOnlineGet() {
-        return 1+ mLunhuiOnlineGet+ mCardOnlineGet;
+        return mLunhuiOnlineGet.getValue() * mCardOnlineGet.getValue();
     }
     public float getOutlineGet()
     {
-        return 1+ mLunhuiOutlineGet+ mCardOutlineGet;
+        return mLunhuiOutlineGet.getValue() * mCardOutlineGet.getValue();
     }
     public float getLunhuiGet()
     {
-        return 1+mLunhuiLunhuiGet+ mCardLunhuiGet;
+        return mLunhuiLunhuiGet.getValue() * mCardLunhuiGet.getValue();
     }
     private GameManager(){
     }

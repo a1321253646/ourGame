@@ -7,4 +7,5 @@ public abstract class TimeEventAttackSkillBase : EventAttackSkill
     public float mTime = 0;
     public bool isInit = false;
     public abstract void upDateSkill();
+
 }

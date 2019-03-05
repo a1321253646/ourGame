@@ -41,9 +41,9 @@ public class LevelManager : MonoBehaviour {
         mFightManager.setLoaclManager(mLocalManager);
 
         mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
-        if (GameManager.isTest)
+        if (JsonUtils.getIntance().getConfigValueForId(100047) == 1)
         {
-            Time.timeScale = 10;
+            Time.timeScale = JsonUtils.getIntance().getConfigValueForId(100054);
         }
         else if (SQLHelper.getIntance().isLuiHui != -1 && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) <= SQLHelper.getIntance().isLuiHui)
         {
@@ -107,9 +107,9 @@ public class LevelManager : MonoBehaviour {
         GameManager.getIntance().isEnd = false;
         //GameObject.Find("")
         mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
-        if (GameManager.isTest)
+        if (JsonUtils.getIntance().getConfigValueForId(100047) == 1)
         {
-            Time.timeScale = 10;
+            Time.timeScale = JsonUtils.getIntance().getConfigValueForId(100054);
         }
         else if (SQLHelper.getIntance().isLuiHui != -1 && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) <= SQLHelper.getIntance().isLuiHui)
         {

@@ -121,15 +121,17 @@ public class PlayControl : Attacker
         isStop = false;
         oldStatus = PLAY_STATUS_RUN;
         isStart = false;
-        mAllAttributePre.clear();
 
         mVoication = -1;
         if (mAttackerTargets != null) {
             mAttackerTargets.Clear();
         }
 
-       // mAttackerTargets = null;
-
+        // mAttackerTargets = null;
+        if (mAllAttributePre != null)
+        {
+            mAllAttributePre.clear();
+        }
         transform.position = mFirVetor;
 
         setHeroData();
@@ -274,10 +276,8 @@ public class PlayControl : Attacker
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getRoleUseList();
         bloodBili = mBloodVolume/mAttribute.maxBloodVolume;
         bloodDistance = -1;
-        Debug.Log("===============initEquip mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
         mEquipAttribute.clear();
         
-        Debug.Log("===============initEquip mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
         foreach (PlayerBackpackBean bean in list)
         {
             Debug.Log(" bean = " + bean.goodId);
@@ -341,12 +341,12 @@ public class PlayControl : Attacker
         bloodDistance = -1;
         mLunhuiAttribute.clear();
         mSkillManager.lunhuiDownCardCost = 0;
-        mSkillManager.lunhuiCardHurtPre = 0;
-        mSkillManager.lunhuiHurtPre = 0;
+        mSkillManager.lunhuiCardHurtPre.clear();
+        mSkillManager.lunhuiHurtPre.clear();
 
-        GameManager.getIntance().mLunhuiOnlineGet = 0;
-        GameManager.getIntance().mLunhuiOutlineGet = 0;
-        GameManager.getIntance().mLunhuiLunhuiGet = 0;
+        GameManager.getIntance().mLunhuiOnlineGet.clear();
+        GameManager.getIntance().mLunhuiOutlineGet.clear();
+        GameManager.getIntance().mLunhuiLunhuiGet.clear();
 
         Dictionary<long, long>  samsaras= InventoryHalper.getIntance().getSamsaraLevelDate();
         Dictionary<long, long>.KeyCollection keys= samsaras.Keys;
@@ -355,7 +355,7 @@ public class PlayControl : Attacker
             Debug.Log("level = " + level);
             if(level != 0) {
                long index = SkillIndexUtil.getIntance().getSamIndexBySamId(false, key);
-               mAllAttributePre.delete(index);
+              // mAllAttributePre.delete(index);
                 
                SamsaraJsonBean sam=  JsonUtils.getIntance().getSamsaraInfoById(key);
                List<SamsaraValueBean> beanValue = sam.levelList[level];
@@ -397,8 +397,9 @@ public class PlayControl : Attacker
                         mLunhuiAttribute.attackSpeed += date.value;
                     }
                     else if (date.type == 400001) {
-                        mSkillManager.lunhuiHurtPre += ((float)date.value / 10000);
-                        
+                        mSkillManager.lunhuiHurtPre.AddFloat(index,1 + (float)date.value / 10000);
+
+
                     }
                     else if (date.type == 400002)
                     {
@@ -410,7 +411,9 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 400004)
                     {
+                        getAttribute();
                         mAllAttributePre.add(index, AttributePre.defense, date.value);
+                        getAttribute();
                     }
                     else if (date.type == 400005)
                     {
@@ -422,7 +425,7 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 400007)
                     {
-                        mSkillManager.lunhuiCardHurtPre += ((float)date.value/10000);
+                        mSkillManager.lunhuiCardHurtPre.AddFloat(index, 1 + (float)date.value / 10000);
                     }
                     else if (date.type == 400008)
                     {
@@ -435,15 +438,16 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 500001)
                     {
-                        GameManager.getIntance().mLunhuiOnlineGet += ((float)date.value/10000);
+                        GameManager.getIntance().mLunhuiOnlineGet.AddFloat(index,1 + ((float)date.value / 10000));
+   
                     }
                     else if (date.type == 500002)
                     {
-                        GameManager.getIntance().mLunhuiOutlineGet += ((float)date.value / 10000);
+                        GameManager.getIntance().mLunhuiOutlineGet.AddFloat(index, 1 + ((float)date.value / 10000));
                     }
                     else if (date.type == 500003)
                     {
-                        GameManager.getIntance().mLunhuiLunhuiGet += ((float)date.value / 10000);
+                        GameManager.getIntance().mLunhuiLunhuiGet.AddFloat(index, 1 + ((float)date.value / 10000));
                     }
                    
                 }  
