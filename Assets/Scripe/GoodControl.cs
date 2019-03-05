@@ -202,10 +202,31 @@ public class GoodControl : MonoBehaviour {
     private void showStart()
     {
 
+        long type = mStart / 5;
+        long start = mStart % 5;
+        string path = "35";
+        if (type == 0)
+        {
+            path = "35";
+        }
+        else if (type == 1)
+        {
+            path = "36";
+        }
+        else if (type == 2)
+        {
+            path = "42";
+        }else if (type == 3)
+        {
+            path = "37";
+        }
+        path = "UI_yellow/zhujiemian/" + path;
+
         for (int i = 0; i < 5; i++) {
-            if (i < mStart)
+            if (i < start)
             {
                 mStarts[i].transform.localScale = new Vector2(1, 1);
+                mStarts[i].sprite =Resources.Load(path, typeof(Sprite)) as Sprite;
             }
             else {
                 mStarts[i].transform.localScale = new Vector2(0, 0);
