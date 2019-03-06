@@ -101,8 +101,7 @@ public class AdManager : MonoBehaviour
     }
 
     public bool isReadyToShow() {
-        //   return TGSDK.CouldShowAd(mAdId);
-        return false;
+           return TGSDK.CouldShowAd(mAdId);
     }
 
     // Update is called once per frame
