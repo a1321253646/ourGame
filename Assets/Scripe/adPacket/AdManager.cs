@@ -28,7 +28,7 @@ public class AdManager : MonoBehaviour
     }
 
     public void initAd() {
-        /*    if (!AdIntance.isInit) {
+            if (!AdIntance.isInit) {
                 AdIntance.isInit = true;
                 TGSDK.Initialize(mUserId);
                 TGSDK.PreloadAd();
@@ -89,15 +89,15 @@ public class AdManager : MonoBehaviour
                 TGSDK.AdClickCallback = (string scene, string name) => {
                     Debug.Log("============ 广告被用户点击的回调  ====================");
                 };
-            }*/
+            }
     }
 
     public void playAd() {
-        /*      if (TGSDK.CouldShowAd(mAdId))
+              if (TGSDK.CouldShowAd(mAdId))
               {
                    TGSDK.ShowAd(mAdId);
                   // TGSDK.ShowTestView(mAdId);
-              }*/
+              }
     }
 
     public bool isReadyToShow() {

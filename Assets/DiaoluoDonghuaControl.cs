@@ -33,7 +33,7 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
                 GameManager.getIntance().updateGasAndCrystal();
                 if (mId != -1) {
                     GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_OBJECT_DROP, mId);
-                    if (mId < InventoryHalper.TABID_3_START_ID)
+                    if (mId < InventoryHalper.TABID_3_START_ID || mId > InventoryHalper.TABID_5_START_ID)
                     {
                         GameManager.getIntance().uiManager.setPackPointShow(1);
                     }
@@ -41,7 +41,7 @@ public class DiaoluoDonghuaControl : MonoBehaviour {
                     {
                         GameManager.getIntance().uiManager.setCardPointShow(1);
                     }
-                    else if (mId > InventoryHalper.TABID_4_START_ID)
+                    else if (mId > InventoryHalper.TABID_4_START_ID && mId < InventoryHalper.TABID_5_START_ID)
                     {
                         GameManager.getIntance().uiManager.setRolePointShow(1);
                     }

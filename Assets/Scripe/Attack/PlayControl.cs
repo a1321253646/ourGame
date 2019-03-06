@@ -604,7 +604,7 @@ public class PlayControl : Attacker
     public void vocation() {
         if ( SQLHelper.getIntance().mPlayVocation != mVoication) {
             long skill = JsonUtils.getIntance().getVocationById(mVoication).skill;
-            if (skill != -1) {
+            if (mSkillManager!= null && skill != -1) {
                 mSkillManager.removeSkill(skill);
             }
         }

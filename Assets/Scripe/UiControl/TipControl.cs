@@ -123,12 +123,12 @@ public class TipControl : UiControlBase
 
     private void updataTip()
     {
-/*        if (mTipImage == null) {
-            mTipImage = GameObject.Find("box_icon_tip").GetComponent<Image>();
-        }
-        if (mTipCount == null) {
-            mTipCount = GameObject.Find("box_text_tip").GetComponent<Text>();
-        }*/
+        /*        if (mTipImage == null) {
+                    mTipImage = GameObject.Find("box_icon_tip").GetComponent<Image>();
+                }
+                if (mTipCount == null) {
+                    mTipCount = GameObject.Find("box_text_tip").GetComponent<Text>();
+                }*/
         string img = null;
         string name = null;
         long tabID = mBean.tabId;
@@ -139,7 +139,8 @@ public class TipControl : UiControlBase
             {
                 mBean.tabId = GoodControl.TABID_ITEM_TYPE;
             }
-            else if (mBean.goodId > InventoryHalper.TABID_2_START_ID && mBean.goodId < InventoryHalper.TABID_3_START_ID)
+            else if ((mBean.goodId > InventoryHalper.TABID_2_START_ID && mBean.goodId < InventoryHalper.TABID_3_START_ID)||
+                mBean.goodId > InventoryHalper.TABID_5_START_ID)
             {
                 mBean.tabId = GoodControl.TABID_EQUIP_TYPY;
             }

@@ -202,8 +202,14 @@ public class GoodControl : MonoBehaviour {
     private void showStart()
     {
 
-        long type = mStart / 5;
+        long type = 0;
+        if (mStart > 0) {
+            type =( mStart-1) / 5;
+        }
         long start = mStart % 5;
+        if (mStart >4 && start == 0) {
+            start = 5;
+        }
         string path = "35";
         if (type == 0)
         {

@@ -119,7 +119,8 @@ public class JsonFileTestUtils
         string back = "";
         for (int i = 0; i < detail.mItemList.Count; i++) {
             long goodId = detail.mItemList[i].itemId;
-            if (goodId > InventoryHalper.TABID_2_START_ID && goodId < InventoryHalper.TABID_3_START_ID)
+            if ((goodId > InventoryHalper.TABID_2_START_ID && goodId < InventoryHalper.TABID_3_START_ID)||
+                goodId > InventoryHalper.TABID_5_START_ID)
             {
                 AccouterJsonBean good = JsonUtils.getIntance().getAccouterInfoById(goodId);
                 if (good == null)

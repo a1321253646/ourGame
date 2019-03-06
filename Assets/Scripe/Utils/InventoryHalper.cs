@@ -65,7 +65,8 @@ public class InventoryHalper
             path = BackpackManager.getIntance().getGoodInfoById(id).icon;
             path = "backpackIcon/" + path;
         }
-        else if (id > TABID_2_START_ID && id < TABID_3_START_ID)
+        else if ((id > TABID_2_START_ID && id < TABID_3_START_ID)||
+            id > TABID_5_START_ID)
         {
             path = BackpackManager.getIntance().getAccouterInfoById(id).icon;
 
@@ -76,9 +77,6 @@ public class InventoryHalper
             path = BackpackManager.getIntance().getCardInfoById(id).icon;
             path = "backpackIcon/" + path;
         }
-        else if (id > TABID_4_START_ID) {
-
-        }
         
         return path;
     }
@@ -86,6 +84,7 @@ public class InventoryHalper
     public static long TABID_2_START_ID = 200000;
     public static long TABID_3_START_ID = 3000000;
     public static long TABID_4_START_ID = 4000000;
+    public static long TABID_5_START_ID = 20000000;
                                          
 
     public void updatePoint(PlayerBackpackBean bean) {
@@ -121,7 +120,8 @@ public class InventoryHalper
                 newBean.tabId = jb.tabid;
                 newBean.isShowPoint = 1;
             }
-            else if (id > TABID_2_START_ID && id < TABID_3_START_ID)
+            else if ((id > TABID_2_START_ID && id < TABID_3_START_ID)||
+                id > TABID_5_START_ID)
             {
                 AccouterJsonBean jb = BackpackManager.getIntance().getAccouterInfoById(id);
 
@@ -173,7 +173,7 @@ public class InventoryHalper
                 newBean.isShowPoint = 1;
                 newBean.goodType = SQLDate.GOOD_TYPE_CARD;
             }
-            else if (id > TABID_4_START_ID)
+            else if (id > TABID_4_START_ID && id < TABID_5_START_ID)
             {
                 newBean.goodId = id;
                 newBean.sortID = -1;
