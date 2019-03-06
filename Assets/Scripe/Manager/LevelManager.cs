@@ -92,11 +92,14 @@ public class LevelManager : MonoBehaviour {
     {
         GameManager.getIntance().reStart();
         starBoss = false;
+        if (mFightManager.mEnemyFactory != null)
+        {
+            mFightManager.mEnemyFactory.destroyCreat();
+        }
         JsonUtils.getIntance().init();
         mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
         mFightManager.reset();
         mLocalManager.reset();
-
         //GameObject.Find("Role").GetComponent<PlayControl>().resetHero();
 
         mPlayerControl.resetHero();
@@ -282,9 +285,7 @@ public class LevelManager : MonoBehaviour {
     }
 	public void creatEnemyFactory(float x,float y)
     {
-        if (mFightManager.mEnemyFactory != null) {
-            mFightManager.mEnemyFactory.destroyCreat();
-        }
+
 		GameObject newobj =  GameObject.Instantiate (enemyFactory, new Vector2 (JsonUtils.getIntance().getConfigValueForId(100004),yBase),
 			Quaternion.Euler(0.0f,0f,0.0f));
         mFightManager.mEnemyFactory = newobj.GetComponent<EnemyFactory>();

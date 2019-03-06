@@ -45,7 +45,7 @@ public class EnemyFactory : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (startBoss || mIsDeal) {
+		if (startBoss || mIsDeal || GameManager.getIntance().isEnd) {
 			return;
 		}
 		if (GameManager.getIntance ().mStartBoss) {
