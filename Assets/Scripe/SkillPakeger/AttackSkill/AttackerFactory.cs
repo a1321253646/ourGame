@@ -4,6 +4,9 @@ using System.Collections;
 public class AttackerFactory 
 {
     public static AttackerSkillBase getSkillById(long id) {
+        if (id > 400000 && id < 500000) {
+            id = id % 10+ 400000;
+        }
         if (id == 100002) {
             return new AnimalAttackSkill100002();
         }

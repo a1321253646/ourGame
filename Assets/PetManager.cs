@@ -31,7 +31,7 @@ public class PetManager : MonoBehaviour {
     float xDistance;
     public float yDistance;
     public void init() {
-         mHero = GameObject.Find("Manager").GetComponent<LevelManager>().mPlayerControl;
+        mHero = GameObject.Find("Manager").GetComponent<LevelManager>().mPlayerControl;
         xMin = JsonUtils.getIntance().getConfigValueForId(100034);
         xMax = JsonUtils.getIntance().getConfigValueForId(100035);
         yMax = JsonUtils.getIntance().getConfigValueForId(100036);
@@ -52,15 +52,22 @@ public class PetManager : MonoBehaviour {
                 mLocalList.Add(local);
             }
         }
+        //reInit();
+    }
+    public void reInit() {
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
-        foreach (PlayerBackpackBean b in list) {
-            if (b.goodType == SQLDate.GOOD_TYPE_USER_PET) {
+        foreach (PlayerBackpackBean b in list)
+        {
+            if (b.goodType == SQLDate.GOOD_TYPE_USER_PET)
+            {
+                petReset(b.goodId);
                 petFight(b.goodId);
             }
             PetJsonBean bean = JsonUtils.getIntance().getPetInfoById(b.goodId);
-            mHero.mSkillManager.addSkill(bean.getAffixList(), mHero,SkillIndexUtil.getIntance().getPetIndexByPetId(false,bean.id));
+            mHero.mSkillManager.addSkill(bean.getAffixList(), mHero, SkillIndexUtil.getIntance().getPetIndexByPetId(false, bean.id));
         }
     }
+
     public void addPet(long id) {
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
         foreach (PlayerBackpackBean b in list) {
@@ -74,11 +81,14 @@ public class PetManager : MonoBehaviour {
         GameObject.Find("pet").GetComponent<PetControl>().addPet(bean);
     }
     public bool petReset(long id) {
-        mPetCount--;
-        mHero.mSkillManager.removeSkill(mControlList[id].gameObject.GetComponent<PetItemControl>().mJson);
-        Destroy(mControlList[id].gameObject);
-        mControlList[id].mLocalDate.id = -1;
-        mControlList.Remove(id);
+        if (mControlList.ContainsKey(id)) {
+            mPetCount--;
+            mHero.mSkillManager.removeSkill(mControlList[id].gameObject.GetComponent<PetItemControl>().mJson);
+            Destroy(mControlList[id].gameObject);
+            mControlList[id].mLocalDate.id = -1;
+            mControlList.Remove(id);
+        }
+
 
         return true;
     }

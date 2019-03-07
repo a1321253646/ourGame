@@ -25,13 +25,14 @@ public class PlayControl : Attacker
         
         toString("Play");
         int count = 1;
-        resetHero();
         GameObject.Find("Manager").GetComponent<PetManager>().init();
+        resetHero();
+        
         mLevelAnimalControl = new HeroLevelUpAnimal(mLevelAnimal, JsonUtils.getIntance().getEnemyResourceData(40002), this);
         if (GameManager.isAdd)
         {
             GameManager.getIntance().isAddGoodForTest = true;
-            BackpackManager.getIntance().addGoods(3000001, count);
+           /* BackpackManager.getIntance().addGoods(3000001, count);
             BackpackManager.getIntance().addGoods(3000002, count);
             BackpackManager.getIntance().addGoods(3000003, count);
             BackpackManager.getIntance().addGoods(3000004, count);
@@ -72,8 +73,11 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(4000010, count);
             BackpackManager.getIntance().addGoods(4000011, count);
             BackpackManager.getIntance().addGoods(4000012, count);
-            BackpackManager.getIntance().addGoods(4000013, count);
-            BackpackManager.getIntance().addGoods(4000014, count);
+            BackpackManager.getIntance().addGoods(4000013, count);*/
+            BackpackManager.getIntance().addGoods(22054024, count);
+            BackpackManager.getIntance().addGoods(22054024, count);
+            BackpackManager.getIntance().addGoods(22053023, count);
+            BackpackManager.getIntance().addGoods(22052018, count);
 
         }
         getOutLine();
@@ -105,9 +109,15 @@ public class PlayControl : Attacker
     public void resetHero() {
         isBeAttacker = false;
         if(mSkillManager != null) {
-            mSkillManager.removeAllSkill();    
+            mSkillManager.removeAllSkill();
+            mSkillManager.cardCardHurtPre.clear();
+            mSkillManager.carHurtPre.clear();
         }
-     //   status = PLAY_STATUS_RUN;
+        if (mVoication != -1) {
+            resourceData = null;
+        }
+        mPetAttribute.clear();
+        //   status = PLAY_STATUS_RUN;
         id = -1;
         mBloodVolume = 0;
         mAttackLeng = 1;
@@ -138,6 +148,7 @@ public class PlayControl : Attacker
 
         upLunhui();
         initEquip();
+        GameObject.Find("Manager").GetComponent<PetManager>().reInit();
         if (!isFristStart)
         {
             restart();

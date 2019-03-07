@@ -150,6 +150,7 @@ public class GoodControl : MonoBehaviour {
             mImage.color = Color.clear;
             mBack.sprite = Resources.
                 Load("UI_yellow/box_gride", typeof(Sprite)) as Sprite;
+            mStart = 0;
         }
         long level = 0;
         if (bean != null && bean.attributeList != null && bean.attributeList.Count > 0) {

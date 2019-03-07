@@ -146,6 +146,17 @@ public class AttackSkillManager
             removeSkill(bean);
             list2.Remove(bean);
         }
+        List<PetJsonBean> list3 = new List<PetJsonBean>();
+        foreach (PetJsonBean id in mPetSkill.Keys)
+        {
+            list3.Add(id);
+        }
+        while (list3.Count > 0)
+        {
+            PetJsonBean bean = list3[0];
+            removeSkill(bean);
+            list3.Remove(bean);
+        }
 
     }
 
