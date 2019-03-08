@@ -97,7 +97,7 @@ public class LevelManager : MonoBehaviour {
             mFightManager.mEnemyFactory.destroyCreat();
         }
         JsonUtils.getIntance().init();
-        mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
+        // mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
         mFightManager.reset();
         mLocalManager.reset();
         //GameObject.Find("Role").GetComponent<PlayControl>().resetHero();

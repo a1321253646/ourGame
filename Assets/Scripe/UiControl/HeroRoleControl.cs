@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HeroRoleControl : UiControlBase
 {
-    public bool isShow = false;
+    
     List< PlayerBackpackBean> mHeroEquipl;
     Dictionary<long, GoodControl> mHeroGoodControl = new Dictionary<long, GoodControl>();
     Image mRoleShow;

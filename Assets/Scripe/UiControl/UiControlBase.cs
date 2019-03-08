@@ -3,6 +3,9 @@ using System.Collections;
 
 public abstract class UiControlBase : MonoBehaviour
 {
+
+    public bool isShow = false;
+
     public bool isInit = false;
     public Vector2 mFri;
     public abstract void init();
@@ -26,10 +29,12 @@ public abstract class UiControlBase : MonoBehaviour
     }
 
     public void remove() {
+        isShow = false;
         transform.localPosition = mFri;
     }
 
     public void showUiControl() {
+        isShow = true;
         show();
     }
 }

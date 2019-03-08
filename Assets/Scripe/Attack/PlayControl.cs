@@ -73,11 +73,11 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(4000010, count);
             BackpackManager.getIntance().addGoods(4000011, count);
             BackpackManager.getIntance().addGoods(4000012, count);
-            BackpackManager.getIntance().addGoods(4000013, count);*/
+            BackpackManager.getIntance().addGoods(4000013, count);
             BackpackManager.getIntance().addGoods(22054024, count);
             BackpackManager.getIntance().addGoods(22054024, count);
-            BackpackManager.getIntance().addGoods(22053023, count);
-            BackpackManager.getIntance().addGoods(22052018, count);
+            BackpackManager.getIntance().addGoods(22053023, count);*/
+            BackpackManager.getIntance().addGoods(4000005, count);
 
         }
         getOutLine();
@@ -115,6 +115,9 @@ public class PlayControl : Attacker
         }
         if (mVoication != -1) {
             resourceData = null;
+        }
+        if (mSkillAttribute != null) {
+            mSkillAttribute.clear();
         }
         mPetAttribute.clear();
         //   status = PLAY_STATUS_RUN;

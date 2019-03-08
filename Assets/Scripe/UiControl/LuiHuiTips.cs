@@ -181,7 +181,7 @@ public class LuiHuiTips : UiControlBase
         GameManager.getIntance().mReincarnation = BigNumber.add(GameManager.getIntance().mReincarnation, tmp);
         SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         GameManager.getIntance().isAddGoodForTest = false;
-        UiControlManager.getIntance().removeAll();
+   //     UiControlManager.getIntance().removeAll();
 
         Level level = JsonUtils.getIntance().getLevelData();
         SQLHelper.getIntance().updateIsLunhuiValue((long)level.levelspeedup);

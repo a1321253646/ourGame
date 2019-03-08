@@ -21,7 +21,6 @@ public class PetControl : UiControlBase
             mAnimalControl.update();
         }
 	}
-    private bool isShow = false;
     private int mLevel = 0;
     public bool isInTop() {
         int level = GameManager.getIntance().getUiCurrentLevel();
