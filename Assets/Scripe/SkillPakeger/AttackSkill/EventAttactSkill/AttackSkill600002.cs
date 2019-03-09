@@ -8,6 +8,7 @@ public class AttackSkill600002 : EventAttackSkill
 
     public override void endHurt(HurtStatus hurt)
     {
+
         if (count == 0)
         {
             count = mSkillJson.getSpecialParameterValue()[0] / 100;

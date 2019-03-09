@@ -170,7 +170,7 @@ public class GameManager
               //  mReincarnation = BigNumber.getBigNumForString("2.1E+40");
             }
             //    mReincarnation = SQLHelper.getIntance().mLunhuiValue;
-
+            mReincarnation = BigNumber.getBigNumForString("2.1E+40");
             isShowPlayerPoint = SQLHelper.getIntance().isShowPlayerPoint;
             isShowBackpackPoint = SQLHelper.getIntance().isShowBackpackPoint;
             isShowLuihuiPoint = SQLHelper.getIntance().isShowLuihuiPoint;

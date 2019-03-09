@@ -18,6 +18,7 @@ public class AttackSkill600004 : EventAttackSkill
         }
 
         bool isSuccess = randomResult(10000, count, false);
+
         if (isSuccess)
         {
             mManager.getAttacker().AddBlood((count1 * hurt.blood));

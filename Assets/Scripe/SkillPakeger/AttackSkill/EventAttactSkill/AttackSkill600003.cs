@@ -8,18 +8,17 @@ public class AttackSkill600003 : EventAttackSkill
     float count2 = 0;
     public override BigNumber getDieHuijing(BigNumber big)
     {
-
+       
         if (count1 == 0)
         {
             count1 =(int) mSkillJson.getSpecialParameterValue()[0] ;
             count2 = mSkillJson.getSpecialParameterValue()[1] ;
         }
-        Debug.Log("========================AttackSkill600003   big =" + big.toStringWithUnit());
+   
         bool isSuccess = randomResult(100, count1, true);
         if (isSuccess) {
             big = BigNumber.multiply(big, count2);
         }
-        Debug.Log("========================AttackSkill600003  isSuccess = " + isSuccess+" big ="+ big.toStringWithUnit());
         return big;
     }
 

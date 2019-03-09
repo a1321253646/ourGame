@@ -16,6 +16,7 @@ public class AttackSkill600012 : EventAttackSkill
 
     public override void endSkill()
     {
+        
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_MONSTER_DEBUFF, this);
         LocalBean list = mLocal.mLocalLink;
         while (list != null)

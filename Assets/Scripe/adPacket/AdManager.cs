@@ -11,7 +11,9 @@ public class AdManager : MonoBehaviour
     private float timeScale = 0;
     private string mUserId = "235M0GyJMOoX7O804h63";
     private string mAdId = "JQOki1YxoGUzpWGJjCf";
-  //  private bool isFristLoading = true;
+    //  private bool isFristLoading = true;
+
+    private bool isOpenAD = false;
 
     void Start()
     {
@@ -28,6 +30,9 @@ public class AdManager : MonoBehaviour
     }
 
     public void initAd() {
+        if (!isOpenAD) {
+            return;
+        }
             if (!AdIntance.isInit) {
                 AdIntance.isInit = true;
                 TGSDK.Initialize(mUserId);
@@ -93,7 +98,11 @@ public class AdManager : MonoBehaviour
     }
 
     public void playAd() {
-              if (TGSDK.CouldShowAd(mAdId))
+        if (!isOpenAD)
+        {
+            return;
+        }
+        if (TGSDK.CouldShowAd(mAdId))
               {
                    TGSDK.ShowAd(mAdId);
                   // TGSDK.ShowTestView(mAdId);
@@ -101,7 +110,11 @@ public class AdManager : MonoBehaviour
     }
 
     public bool isReadyToShow() {
-           return TGSDK.CouldShowAd(mAdId);
+        if (!isOpenAD)
+        {
+            return false;
+        }
+        return TGSDK.CouldShowAd(mAdId);
     }
 
     // Update is called once per frame

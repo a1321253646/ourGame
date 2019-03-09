@@ -2033,6 +2033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91cd5dd08ee319643a8338193d527b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -4181,7 +4182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.00007006567}
+  m_AnchoredPosition: {x: 0, y: -0.000021487067}
   m_SizeDelta: {x: 640, y: 364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &216154750
@@ -9518,6 +9519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2817294210957c46a83348e07d92c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -10293,8 +10295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83dc1d9eca0f654c8953c8459a4da4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sqlName: local117
-  tabName: local117
+  sqlName: local201
+  tabName: local201
 --- !u!1001 &528136680
 Prefab:
   m_ObjectHideFlags: 0
@@ -12152,10 +12154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1e2bd5e99235dc47923e8e772d56cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
-  isShow: 0
 --- !u!114 &600472136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13549,6 +13551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 587cd3fab7eca934c898e32b49497693, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -17580,6 +17583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ee43b9e55d2a34b9ccc35d1f55d140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -18642,6 +18646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71dcc8a123cb50a41a4a4531cbaa7e97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -21142,6 +21147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756903b664d753a4ea1bed5c0299756f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -32244,6 +32250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b786518b43804664b831bd301ccb6dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -35117,7 +35124,7 @@ MonoBehaviour:
   mTime: 0
   mCardLocalUp: {fileID: 0}
   mCardLocalTop: {fileID: 0}
-  indicator: {fileID: 1180183373433390, guid: dc2acde67d71d2449a110ee21739bf39, type: 2}
+  indicator: {fileID: 1180183373433390, guid: f072228747f0b2e4998ec70c7827f772, type: 2}
   CREADT_CARD_TIME: -1
   FRIST_CARD_TIME: -1
   isInit: 0
@@ -36068,6 +36075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b7b8c2a335898f4792257b130bfe82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -36405,6 +36413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0556639eabe0164e8948aa17cff32f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -38662,6 +38671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bfccbc7ad5d4940be402a1864ff75b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -38751,6 +38761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f70c4dd02c78745a04ced33415c193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShow: 0
   isInit: 0
   mFri: {x: 0, y: 0}
   mControlType: -1
@@ -43765,7 +43776,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0000056450226}
+  m_AnchoredPosition: {x: 0, y: -0.000027843056}
   m_SizeDelta: {x: 779, y: 252.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046663711

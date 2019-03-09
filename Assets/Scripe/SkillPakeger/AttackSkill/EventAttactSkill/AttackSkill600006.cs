@@ -8,14 +8,14 @@ public class AttackSkill600006 : EventAttackSkill
 
     int count1 = 0;
     int count2 = 0;
-    int count3 = 0;
+    int count3 = -1;
     public override void killEnemy()
     {
         if(count2 == count3)
         {
             return;
         }
-        Debug.Log("startSkill killEnemy");
+
         if (count1 == 0) { 
             count1 = (int)(mSkillJson.getSpecialParameterValue()[0] *100);
             count3 = (int)(mSkillJson.getSpecialParameterValue()[1]) * 100;
@@ -28,7 +28,7 @@ public class AttackSkill600006 : EventAttackSkill
             count2 = count3;           
             return;
         }
-        Debug.Log("startSkill killEnemy count2="+ count2);
+
         mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.aggressivity, (long)count1);
         mManager.getAttacker().getAttribute();
 

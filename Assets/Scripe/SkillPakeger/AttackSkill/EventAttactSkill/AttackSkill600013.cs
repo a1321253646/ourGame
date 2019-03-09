@@ -20,6 +20,7 @@ public class AttackSkill600013 : EventAttackSkill
         LocalBean list = mLocal.mLocalLink;
         while (list != null)
         {
+
             if (!list.mIsHero)
             {
  

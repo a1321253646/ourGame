@@ -7,12 +7,14 @@ public class AttackSkill600001 : EventAttackSkill
     int count = 0;
     public override EquipKeyAndValue beforeActtack()
     {
+       
         if (count == 0)
         {
             count = (int)(mSkillJson.getSpecialParameterValue()[0] * 100);
         }
 
         bool isCrt = randomResult(10000, count, true);
+
         if (!isCrt)
         {
             return null;

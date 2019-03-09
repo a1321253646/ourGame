@@ -166,6 +166,8 @@ public class LuiHuiTips : UiControlBase
         Level level = JsonUtils.getIntance().getLevelData();
         BigNumber tmp = BigNumber.multiply(level.getReincarnation(), GameManager.getIntance().getLunhuiGet());
         sure(tmp);
+        toremoveUi();
+        UiControlManager.getIntance().remove(UiControlManager.TYPE_SAMSARA);
 
     }
 

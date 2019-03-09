@@ -21,8 +21,9 @@ public class AttackSkill600005 : EventAttackSkill
             count2 = count3;
             return;
         }
+
         mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.defense, (long)(count1));
-        Debug.Log("startSkill killEnemy count2=" + count2);
+
         mManager.getAttacker().getAttribute();
     }
 

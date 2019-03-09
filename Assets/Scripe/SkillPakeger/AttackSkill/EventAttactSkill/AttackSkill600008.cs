@@ -21,7 +21,7 @@ public class AttackSkill600008 : EventAttackSkill
             count2 = count3;
             return;
         }
-        Debug.Log(" AttackSkill600008 count2 = " + count2);
+       
         mManager.getAttacker().mSkillAttribute.crt += count1;
         mManager.getAttacker().getAttribute();
 //        value++;

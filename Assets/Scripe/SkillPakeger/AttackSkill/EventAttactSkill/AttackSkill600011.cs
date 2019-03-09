@@ -12,6 +12,7 @@ public class AttackSkill600011 : EventAttackSkill
         }
 
         bool isCrt = randomResult(10000, count, true);
+        
         if (isCrt)
         {
             Debug.Log("无消耗");
