@@ -152,6 +152,8 @@ public class GameManager
                 mCurrentCrystal = SQLHelper.getIntance().mMojing;
                 //mCurrentCrystal = BigNumber.getBigNumForString("0");
             }
+
+
             long auto = SQLHelper.getIntance().isAutoBoss;
             if (auto == -1 || auto == 1) {
                 isAuto = false;
@@ -170,7 +172,8 @@ public class GameManager
               //  mReincarnation = BigNumber.getBigNumForString("2.1E+40");
             }
             //    mReincarnation = SQLHelper.getIntance().mLunhuiValue;
-            mReincarnation = BigNumber.getBigNumForString("2.1E+40");
+
+
             isShowPlayerPoint = SQLHelper.getIntance().isShowPlayerPoint;
             isShowBackpackPoint = SQLHelper.getIntance().isShowBackpackPoint;
             isShowLuihuiPoint = SQLHelper.getIntance().isShowLuihuiPoint;
