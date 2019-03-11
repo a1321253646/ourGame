@@ -765,9 +765,6 @@ public class SQLHelper
     private string activeButtonToString(ActiveButtonBean value) {
         string str = "";
         str = "" + value.adType;
-        if (value.count != null && value.count.Length > 0) {
-            str = str + "," + value.count;
-        }
         return str;
     }
     private ActiveButtonBean stringToActiveButton(string value)
@@ -775,15 +772,7 @@ public class SQLHelper
         ActiveButtonBean button = new ActiveButtonBean();
         if (value != null && value.Length > 0)
         {
-            string[] strs = value.Split(',');
-            if (strs.Length == 2)
-            {
-                button.adType = long.Parse(strs[0]);
-                button.count = strs[1];
-            }
-            else {
-                button.adType = long.Parse(strs[0]);
-            }
+            button.adType = long.Parse(value);
         }
         return button;
     }

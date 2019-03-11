@@ -11,9 +11,9 @@ public class AdUiControl : UiControlBase
 
     long mAdType = -1;
     BigNumber mCount  = null ;
-    public void setDate(long type , string count) {
+    public void setDate(long type) {
         mAdType = type;
-        mCount = BigNumber.getBigNumForString(count);
+        mCount = BigNumber.getBigNumForString(getAdValue());
         string str = "观看影片，即可免费获得S1S2";
         str=str.Replace("S1", mCount.toStringWithUnit());
         if (mAdType == ActiveButtonControl.TYPE_AD_LUNHUI)
@@ -30,6 +30,26 @@ public class AdUiControl : UiControlBase
         mDec.text = str;
 
         toShowUi();
+    }
+
+    private string getAdValue() {
+        string value = null;
+        if (mAdType == ActiveButtonControl.TYPE_AD_LUNHUI)
+        {
+            value = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).
+                lunhui;
+            BigNumber bigValue = BigNumber.getBigNumForString(value);
+            bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
+            value = bigValue.toString();
+        }
+        else
+        {
+            LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
+            long time = (long)JsonUtils.getIntance().getConfigValueForId(100049);
+            value = level.mFightManager.attckerOutLine(level.mPlayerControl, time * 60 * 1000, GameManager.getIntance().getOutlineGet()).toString();
+        }
+
+        return value;
     }
 
     public override void init()
@@ -55,8 +75,8 @@ public class AdUiControl : UiControlBase
     }
 
     public void playIsFinish(bool finish) {
-        if (finish)
-        {
+      //  if (finish)
+      //  {
             if (mAdType == ActiveButtonControl.TYPE_AD_LUNHUI)
             {
                 GameManager.getIntance().mReincarnation = BigNumber.add(GameManager.getIntance().mReincarnation, mCount);
@@ -71,7 +91,7 @@ public class AdUiControl : UiControlBase
                 GameManager.getIntance().updataGasAndCrystal();
             }
             GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeAd();
-        }
+      //  }
         toremoveUi();
     }
 }

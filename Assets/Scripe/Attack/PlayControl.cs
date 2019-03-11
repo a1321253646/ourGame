@@ -47,29 +47,15 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(4000012, count);
             BackpackManager.getIntance().addGoods(4000013, count);
             BackpackManager.getIntance().addGoods(4000014, count);
+            BackpackManager.getIntance().addGoods(3000008, count);
 
         }
         getOutLine();
         if (AdIntance.getIntance().getType() != -1)
         {
             long type = AdIntance.getIntance().getType();
-            string value = "";
-            if (type == ActiveButtonControl.TYPE_AD_LUNHUI)
-            {
-                value = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).
-                    lunhui;
-                BigNumber bigValue = BigNumber.getBigNumForString(value);
-                bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
-                value = bigValue.toString();
-            }
-            else
-            {
-                LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
-                long time = (long)JsonUtils.getIntance().getConfigValueForId(100049);
-                value = level.mFightManager.attckerOutLine(level.mPlayerControl, time * 60 * 1000, GameManager.getIntance().getOutlineGet()).toString();
-            }
 
-            GameObject.Find("active_button_list").GetComponent<ActiveListControl>().showAd(type, value, true);
+            GameObject.Find("active_button_list").GetComponent<ActiveListControl>().showAd(type, true);
         }
     }
 

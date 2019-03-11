@@ -77,7 +77,7 @@ public class HeroRoleControl : UiControlBase
             "生    命：" + StringUtils.doubleToStringShow(plya.mAttribute.maxBloodVolume) + "\n" +
             "闪    避：" + (plya.mAttribute.evd/100 )+"%\n"+
             "暴    击：" + (plya.mAttribute.crt / 100 )+"%\n" +
-            "攻    速：" + plya.mAttribute.attackSpeed + "\n" +
+            "攻    速：" + StringUtils.doubleToStringShow(plya.mAttribute.attackSpeed) + "\n" +
             "暴击伤害：" + StringUtils.doubleToStringShow(plya.mAttribute.crtHurt) +"\n"+
             "真实伤害：" + StringUtils.doubleToStringShow(plya.mAttribute.readHurt) +"\n";
     }
