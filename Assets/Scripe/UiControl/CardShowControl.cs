@@ -37,6 +37,8 @@ public class CardShowControl : UiControlBase
     ScrollRect mBackScroll;
     Transform mRoot;
 
+    private long mAllUserListCount = 0;
+
     public void upDateUi() {
         updateBackCard();
         updateUserd();
@@ -45,29 +47,64 @@ public class CardShowControl : UiControlBase
         clearUserUi();
         if (mUserListGb.Count == 0)
         {
-            for (int i = 0; i < JsonUtils.getIntance().getConfigValueForId(100016); i++)
-            {
-                GameObject good = GameObject.Instantiate(CardObject,
-                      new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-                CardUiControl ui = good.GetComponent<CardUiControl>();
-                
-                good.transform.parent = mUserListGl.transform;
-                good.transform.localScale = Vector2.one;
-                good.AddComponent<ItemOnDrag>();
-                good.GetComponent<ItemOnDrag>().init(mUserScroll);
-                mUserListGb.Add(good);
-                ui.init(-1, 105, 143);
-                ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
-            }
-            setWitch(mUserListGl, mUserListGb.Count);
+            upDataCardCount();
+            mUserCount.text = 0 + "/" + mAllUserListCount;
         }
-        mUserCount.text = + mUserListGb.Count + "/30";
+        
         List<PlayerBackpackBean> user = InventoryHalper.getIntance().getUsercard();
 
         foreach (PlayerBackpackBean bean in user)
         {
             addUserUi(bean);
         }
+    }
+    public void upDataCardCount() {
+        long count =  getCardCount();
+        long oldCount = mUserListGb.Count;
+        for (int i = 0; i < count - oldCount; i++)
+        {
+            GameObject good = GameObject.Instantiate(CardObject,
+                  new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            CardUiControl ui = good.GetComponent<CardUiControl>();
+
+            good.transform.parent = mUserListGl.transform;
+            good.transform.localScale = Vector2.one;
+            good.AddComponent<ItemOnDrag>();
+            good.GetComponent<ItemOnDrag>().init(mUserScroll);
+            mUserListGb.Add(good);
+            ui.init(-1, 105, 143);
+            ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
+        }
+        setWitch(mUserListGl, mUserListGb.Count);
+        
+
+    }
+
+    private long getCardCount() {
+        long cardCount = (long)JsonUtils.getIntance().getConfigValueForId(100016);
+        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(10);
+        long value = 0;
+
+        if (luihuiLevel != BaseDateHelper.encodeLong(0))
+        {
+            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(10, BaseDateHelper.decodeLong(luihuiLevel));
+            foreach (SamsaraValueBean bean in list)
+            {
+                if (bean.type == 500005)
+                {
+                    value = bean.value;
+                    break;
+                }
+            }
+            if (value != 0)
+            {
+
+                cardCount += value;
+            }
+            
+        }
+        mAllUserListCount = cardCount;
+        return cardCount;
     }
 
     private void updateBackCard() {
@@ -124,8 +161,8 @@ public class CardShowControl : UiControlBase
             if (ui.mCardId == -1) {
                 ui.init(card.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
                 ui.init(card.goodId, 105, 143);
-                
-                mUserCount.text =  (i+1) + "/" + JsonUtils.getIntance().getConfigValueForId(100016) ;
+
+                mUserCount.text = (i + 1) + "/" + mAllUserListCount;
                 // item.init(id, 113, 166);
                 ItemOnDrag item = mUserListGb[i].GetComponent<ItemOnDrag>();
                 item.mBean = card;

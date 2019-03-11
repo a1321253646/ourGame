@@ -371,6 +371,7 @@ public class UiManager
     bool isGuide = false;
 
     public void addGas() {
+        mStartBossGasSl.maxValue = GameManager.getIntance().startBossGas;
         if (GameManager.getIntance().mCurrentGas > GameManager.getIntance().startBossGas)
         {
             mGasTv.text = GameManager.getIntance().startBossGas + "/" + GameManager.getIntance().startBossGas;

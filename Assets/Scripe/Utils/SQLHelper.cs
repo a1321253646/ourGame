@@ -93,10 +93,10 @@ public class SQLHelper
     }
 
     public void init() {
-        Debug.Log("readAllTable");
+//        Debug.Log("readAllTable");
         mList = SQLManager.getIntance().readAllTable();
         if (mList != null) {
-            Debug.Log("SQLHelper init mlist coutn =  " + mList.Count);
+//            Debug.Log("SQLHelper init mlist coutn =  " + mList.Count);
         }
         
         mLunhuui.Clear();
@@ -137,7 +137,7 @@ public class SQLHelper
         {
             foreach (SQLDate date in mList)
             {
-                Debug.Log("读取数据库 " + date.toString());
+//                Debug.Log("读取数据库 " + date.toString());
                 if (date.type == TYPE_LUNHUI)
                 {
                     long tmp = long.Parse(date.extan);
@@ -170,7 +170,7 @@ public class SQLHelper
                     else {
                         mDropDeviceCount.Add(date.id, long.Parse(date.extan));
                     }
-                    Debug.Log("读取数据库  掉落器 id= " + date.id + " count =" + mDropDeviceCount[date.id]);
+//                    Debug.Log("读取数据库  掉落器 id= " + date.id + " count =" + mDropDeviceCount[date.id]);
                 }
                 else if (date.type == TYPE_GOOD)
                 {
@@ -182,7 +182,7 @@ public class SQLHelper
                         maxGoodIdTmp = bean.sqlGoodId;
                     }
                     bean.goodType = date.goodType;
-                    Debug.Log("读取数据库  id= " + bean.goodId + " count =" + bean.count);
+//                    Debug.Log("读取数据库  id= " + bean.goodId + " count =" + bean.count);
                     if (mALLGood.Count == 0) {
                         mALLGood.Add(bean);
                     }
@@ -218,7 +218,7 @@ public class SQLHelper
                 {
                   //  long id = long.Parse(date.extan);
                     mGuide.Add(date.id);
-                    Debug.Log("读取数据库 已经引导 " + date.id);
+//                    Debug.Log("读取数据库 已经引导 " + date.id);
                 }
                 else if (date.type == TYPE_ACTIVITY_BUTTON)
                 {
@@ -226,7 +226,7 @@ public class SQLHelper
                     ActiveButtonBean bean = stringToActiveButton(date.extan);
                     bean.buttonType = date.id;
                     mActiveList.Add(bean);
-                    Debug.Log("活动按钮显示  buttonType" + bean.buttonType);
+//                    Debug.Log("活动按钮显示  buttonType" + bean.buttonType);
                 }
                 else if (date.type == TYPE_GAME)
                 {
@@ -249,19 +249,19 @@ public class SQLHelper
                     }
                     else if (date.id == GAME_ID_MOJING)
                     {
-                        Debug.Log("读取数据库 mMojing" + date.extan);
+//                        Debug.Log("读取数据库 mMojing" + date.extan);
                         mMojing = BigNumber.getBigNumForString(date.extan);
 
                     }
                     else if (date.id == GAME_ID_TIME)
                     {
                         mOutTime = long.Parse(date.extan);
-                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_IS_UPDATE)
                     {
                         isUpdate = long.Parse(date.extan);
-                        Debug.Log("读取数据库 是否已更新" + mOutTime);
+//                        Debug.Log("读取数据库 是否已更新" + mOutTime);
                     }
                     /*   else if (date.id == GAME_ID_GUIDE)
                        {
@@ -272,77 +272,77 @@ public class SQLHelper
                     else if (date.id == GAME_ID_POINT_PLAYER)
                     {
                         isShowPlayerPoint = long.Parse(date.extan);
-                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_POINT_BACKPACK)
                     {
                         isShowBackpackPoint = long.Parse(date.extan);
-                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_POINT_LUNHUI)
                     {
                         isShowLuihuiPoint = long.Parse(date.extan);
-                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_POINT_CARD)
                     {
                         isShowCardPoint = long.Parse(date.extan);
-                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_FRIST_START)
                     {
                         isFristStartGame = long.Parse(date.extan);
-                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_NO_LUNHUI)
                     {
                         isLuiHui = long.Parse(date.extan);
-                        Debug.Log("读取数据库 是否轮回 " + isLuiHui);
+//                        Debug.Log("读取数据库 是否轮回 " + isLuiHui);
                     }
                     else if (date.id == GAME_ID_IS_VOICE)
                     {
                         isVoice = long.Parse(date.extan);
-                        Debug.Log("读取数据库 是否开启音量 " + isVoice);
+ //                       Debug.Log("读取数据库 是否开启音量 " + isVoice);
                     }
                     else if (date.id == GAME_ID_LUNHUI_DEAL)
                     {
                         isLuiHuiDeal = long.Parse(date.extan);
-                        Debug.Log("读取数据库 轮回后死亡 " + isLuiHuiDeal);
+//                        Debug.Log("读取数据库 轮回后死亡 " + isLuiHuiDeal);
                     }
                     else if (date.id == GAME_ID_GOOD_MAXID)
                     {
                         mMaxGoodId = long.Parse(date.extan);
-                        Debug.Log("读取数据库 最大物品id " + mMaxGoodId);
+//                        Debug.Log("读取数据库 最大物品id " + mMaxGoodId);
                     }
                     else if (date.id == GAME_ID_POINT_PETTABLE)
                     {
                         isShowPetTablePoint = long.Parse(date.extan);
-                        Debug.Log("读取数据库 是否显示宠物小红点 " + isShowPetTablePoint);
+//                        Debug.Log("读取数据库 是否显示宠物小红点 " + isShowPetTablePoint);
                     }
                     else if (date.id == GAME_ID_MAX_TIME)
                     {
                         mMaxOutTime = long.Parse(date.extan);
-                        Debug.Log("读取数据库 最大离线时间 " + mMaxOutTime);
+//                        Debug.Log("读取数据库 最大离线时间 " + mMaxOutTime);
                     }
                     else if (date.id == GAME_ID_PLAYER_NAME)
                     {
                         mPlayName = date.extan;
-                        Debug.Log("读取数据库 用户名称 " + mPlayName);
+//                        Debug.Log("读取数据库 用户名称 " + mPlayName);
                     }
                     else if (date.id == GAME_ID_PLAYER_VOCATION)
                     {
                         mPlayVocation = long.Parse(date.extan);
-                        Debug.Log("读取数据库 角色职业 " + mPlayVocation);
+//                        Debug.Log("读取数据库 角色职业 " + mPlayVocation);
                     }
                     else if (date.id == GAME_ID_OUTLINE_VALUE)
                     {
                         mOutLineGet = BigNumber.getBigNumForString(date.extan);
-                        Debug.Log("读取数据库 离线获取每分钟收益 " + mOutLineGet.toStringWithUnit());
+//                        Debug.Log("读取数据库 离线获取每分钟收益 " + mOutLineGet.toStringWithUnit());
                     }
                     else if (date.id == GAME_ID_VERSION_CODE)
                     {
                         mVersionCode = long.Parse(date.extan);
-                        Debug.Log("读取数据库 版本号 " + mVersionCode);
+//                        Debug.Log("读取数据库 版本号 " + mVersionCode);
                     }
                     else if (date.id == GAME_ID_LEVEL_CARD) {
                         string[] strs = date.extan.Split(',');
@@ -792,7 +792,7 @@ public class SQLHelper
     public void addGuide(long value)
     {
         SQLManager.getIntance().deleteGuide(value);
-        Debug.Log("addGuide  =" + value);
+//        Debug.Log("addGuide  =" + value);
         SQLDate date = new SQLDate();
         date.extan = "-1";
         date.type = TYPE_GUIDE;

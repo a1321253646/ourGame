@@ -67,7 +67,6 @@ public class GameManager
 
     public  bool mIsNeedToReReadAboutLevel = false;
 
-
     public string mGameErrorString = "";
 
 
@@ -95,8 +94,10 @@ public class GameManager
     public void reStart() {
         isEnd = false;
         isLuihuiIng = false;
+        isInit = false;
         getLevelData();
         init(null);
+        
         uiManager.reset();
     }
 
@@ -172,18 +173,19 @@ public class GameManager
               //  mReincarnation = BigNumber.getBigNumForString("2.1E+40");
             }
             //    mReincarnation = SQLHelper.getIntance().mLunhuiValue;
-
+            mReincarnation = BigNumber.getBigNumForString("2.1E+40");
 
             isShowPlayerPoint = SQLHelper.getIntance().isShowPlayerPoint;
             isShowBackpackPoint = SQLHelper.getIntance().isShowBackpackPoint;
             isShowLuihuiPoint = SQLHelper.getIntance().isShowLuihuiPoint;
             isShowCardPoint = SQLHelper.getIntance().isShowCardPoint;
         }
-       // mCurrentLevel = 1;
+        // mCurrentLevel = 1;
 
-        Level level = JsonUtils.getIntance ().getLevelData ();
-		startBossGas = level.boss_gas;
-		mBossId = level.boss_DI;
+        updateBossGase(false);
+
+        Level level = JsonUtils.getIntance().getLevelData();
+        mBossId = level.boss_DI;
 		mCurrentGas = 0;
         if (levelmanage != null) {
             mLevelManage = levelmanage;
@@ -193,6 +195,38 @@ public class GameManager
         getLevelData();
         
         return 0;
+    }
+
+    public void updateBossGase(bool isUpdateUi) {
+        Level level = JsonUtils.getIntance().getLevelData();
+        startBossGas = level.boss_gas;
+        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(15);
+        long value = 0;
+
+        if (luihuiLevel != BaseDateHelper.encodeLong(0))
+        {
+           
+            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(15, BaseDateHelper.decodeLong(luihuiLevel));
+            foreach (SamsaraValueBean bean in list)
+            {
+                if (bean.type == 500010)
+                {
+                    value = bean.value;
+                    break;
+                }
+            }
+            if (value != 0)
+            {
+                startBossGas = startBossGas - value;
+                if (startBossGas < 0) {
+                    startBossGas = 0;
+                }
+            }
+        }
+        if (isUpdateUi) {
+            uiManager.addGas();
+        }
+
     }
 
     private long mMosterDealHuijingBili = 0;

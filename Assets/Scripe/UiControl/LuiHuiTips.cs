@@ -187,14 +187,37 @@ public class LuiHuiTips : UiControlBase
 
         Level level = JsonUtils.getIntance().getLevelData();
         SQLHelper.getIntance().updateIsLunhuiValue((long)level.levelspeedup);
-
+        long oldLevel =BaseDateHelper.decodeLong( GameManager.getIntance().mCurrentLevel);
         InventoryHalper.getIntance().dealClear();
+
         // GameManager.getIntance().mCurrentCrystal = new BigNumber();
         //SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
-        // GameManager.getIntance().mHeroLv = 1;
-        // SQLHelper.getIntance().updateHeroLevel(1);
-        // GameManager.getIntance().mCurrentLevel = 1;
-        // SQLHelper.getIntance().updateGameLevel(1);
+        long newLevel = 1;
+        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(9);
+        long value = 0;
+
+        if (luihuiLevel != BaseDateHelper.encodeLong(0)) 
+        {
+            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(9, BaseDateHelper.decodeLong(luihuiLevel));
+            foreach (SamsaraValueBean bean in list)
+            {
+                if (bean.type == 500004)
+                {
+                    value = bean.value;
+                    break;
+                }
+            }
+            if (value != 0)
+            {
+                float bili = value / 10000f;
+
+                newLevel = (long)(oldLevel * bili);
+                
+            }
+        }
+
+        
+        SQLHelper.getIntance().updateGameLevel(BaseDateHelper.encodeLong(newLevel));
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
     }
 

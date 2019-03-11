@@ -211,7 +211,7 @@ public class SQLManager
             //        using (SqliteConnection cnn =)
             using (reader)
             {
-                Debug.Log("readAllTable");
+//                Debug.Log("readAllTable");
 
                 SqliteCommand command = mConnet.CreateCommand();
                 command.CommandText = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_LEVEL + " AND TYPE=" + SQLHelper.TYPE_GAME;
@@ -771,7 +771,7 @@ public class SQLManager
                 date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
                 date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
                 date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
-                Debug.Log("readAllTable date.type  = " + date.type + " id = " + date.id + " extan = " + date.extan + " date.goodId" + date.goodId + " date.goodType=" + date.goodType + " date.isClean= " + date.isClean);
+//                Debug.Log("readAllTable date.type  = " + date.type + " id = " + date.id + " extan = " + date.extan + " date.goodId" + date.goodId + " date.goodType=" + date.goodType + " date.isClean= " + date.isClean);
                 //            Debug.Log("readAllTable date.type  = " + date.id);
                 list.Add(date);
             }

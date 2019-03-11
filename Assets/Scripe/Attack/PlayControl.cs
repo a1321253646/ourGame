@@ -457,20 +457,20 @@ public class PlayControl : Attacker
         mAllAttribute.clear();
 
         mAllAttribute.add(mBaseAttribute);
-        Debug.Log("===============mBaseAttribute = " + mBaseAttribute.toString());
-        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+//        Debug.Log("===============mBaseAttribute = " + mBaseAttribute.toString());
+//        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
         mAllAttribute.add(mEquipAttribute);
-        Debug.Log("===============mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
-        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+//        Debug.Log("===============mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
+//        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
         mAllAttribute.add(mLunhuiAttribute);
-        Debug.Log("===============mAttribute.mLunhuiAttribute = " + mLunhuiAttribute.toString());
-        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+//        Debug.Log("===============mAttribute.mLunhuiAttribute = " + mLunhuiAttribute.toString());
+//        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
         mAllAttribute.add(mSkillAttribute);
-        Debug.Log("===============mAttribute.mSkillAttribute = " + mSkillAttribute.toString());
-        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+//        Debug.Log("===============mAttribute.mSkillAttribute = " + mSkillAttribute.toString());
+//        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
         mAllAttribute.add(mPetAttribute);
-        Debug.Log("===============mAttribute.mSkillAttribute = " + mPetAttribute.toString());
-        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+//        Debug.Log("===============mAttribute.mSkillAttribute = " + mPetAttribute.toString());
+//        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
 
         //Debug.Log("===============mAttribute.mEquipAttributePre = " + mEquipAttributePre.toString());
         //Debug.Log("===============mAttribute.mLunhuiAttributePre = " + mLunhuiAttributePre.toString());
@@ -480,9 +480,9 @@ public class PlayControl : Attacker
 
         mAttribute.add(mAllAttribute);
         //Debug.Log("===============mAttribute.mAttribute = " + mAllAttribute);
-        Debug.Log("===============mAttribute.mAllAttributePre = " + mAttribute.toString());
+//        Debug.Log("===============mAttribute.mAllAttributePre = " + mAttribute.toString());
         mAttribute.chen(mAllAttributePre.getAll());
-        Debug.Log("===============mAttribute.mAllAttributePre = " + mAllAttributePre.getAll().toString());
+//        Debug.Log("===============mAttribute.mAllAttributePre = " + mAllAttributePre.getAll().toString());
         //Debug.Log("===============mAttribute.mAttribute = " + mAttribute);
         if (bloodDistance != -1)
         {

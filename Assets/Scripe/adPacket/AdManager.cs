@@ -13,7 +13,7 @@ public class AdManager : MonoBehaviour
     private string mAdId = "JQOki1YxoGUzpWGJjCf";
     //  private bool isFristLoading = true;
 
-    private bool isOpenAD = false;
+    private bool isOpenAD = true;
 
     void Start()
     {

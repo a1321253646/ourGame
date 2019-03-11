@@ -104,11 +104,11 @@ public class JsonUtils
         heroFile = getVocationById(mVocation).attributeName;
         
         string levelBack = "";
-        Debug.Log("level ==  " + level);
+//        Debug.Log("level ==  " + level);
         if (level > 1000) {
             levelBack = (level / 1000)+"";
         }
-        Debug.Log("levelBack ==  " + levelBack);
+//        Debug.Log("levelBack ==  " + levelBack);
         getEnemyFileName(level);
 
 #if UNITY_ANDROID || UNITY_IOS
@@ -163,7 +163,7 @@ public class JsonUtils
         dropDeviceFile = "dropdevice";
 
         long index = 1;
-        Debug.Log("getEnemyFileName level = "+level);
+//        Debug.Log("getEnemyFileName level = "+level);
         if (level < 0  )
         {
             index = 1;
@@ -276,7 +276,7 @@ public class JsonUtils
     public string loadFile(string path, string fileName)
     {
         StreamReader sr = null;
-        Debug.Log("file = " + path + "//" + fileName);
+//        Debug.Log("file = " + path + "//" + fileName);
         try
         {
             sr = File.OpenText(path + "//" + fileName);
@@ -289,7 +289,7 @@ public class JsonUtils
         }
         string line;
         string str = sr.ReadToEnd();
-        Debug.Log(fileName + ":\n" + str);
+//        Debug.Log(fileName + ":\n" + str);
         sr.Close();
         sr.Dispose();
         return str;
@@ -465,6 +465,7 @@ public class JsonUtils
 
     public List<SamsaraValueBean> getSamsaraVulueInfoByIdAndLevel(long id, long level) {
         if (mSamsaraDate.ContainsKey(id)) {
+            Debug.Log("getSamsaraVulueInfoByIdAndLevel id=" + id + " count= " + mSamsaraDate[id].levelList.Count);
             SamsaraJsonBean tmp = mSamsaraDate[id];
             if (tmp.levelList != null && tmp.levelList.ContainsKey(level)) {
                 return tmp.levelList[level];

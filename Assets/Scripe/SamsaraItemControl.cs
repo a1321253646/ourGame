@@ -85,6 +85,11 @@ public class SamsaraItemControl : MonoBehaviour {
             mLvelUpCost.text = "消耗：" + big.toStringWithUnit() + "轮回点";
 
         }
+        if (mId == 15) {
+            GameManager.getIntance().updateBossGase(true);
+        }else if(mId == 10){
+            GameObject.Find("Card2").GetComponent<CardShowControl>().upDataCardCount();
+        }
         isEnableLevelUp();
     }
 
@@ -155,7 +160,14 @@ public class SamsaraItemControl : MonoBehaviour {
             else if (bean.type > 400000)
             {
                 AffixJsonBean aj = JsonUtils.getIntance().getAffixInfoById(bean.type);
-                text +=(aj.dec+ ":" + (bean.value/100f)+"%");
+                if (mId == 15 || mId == 10)
+                {
+                    text += (aj.dec + ":" + bean.value );
+                }
+                else{
+                    text += (aj.dec + ":" + (bean.value / 100f) + "%");
+                }
+                
                 Debug.Log(text);
             }
 

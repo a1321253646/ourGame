@@ -10295,8 +10295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83dc1d9eca0f654c8953c8459a4da4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sqlName: local201
-  tabName: local201
+  sqlName: local206
+  tabName: local206
 --- !u!1001 &528136680
 Prefab:
   m_ObjectHideFlags: 0
@@ -43776,7 +43776,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0000017009377}
+  m_AnchoredPosition: {x: 0, y: -0.000027256183}
   m_SizeDelta: {x: 779, y: 252.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046663711
