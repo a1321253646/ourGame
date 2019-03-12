@@ -5,6 +5,5 @@ public class ActiveButtonBean
 {
     public long buttonType = -1;
     public long adType = -1;
-    public string count ;
 
 }

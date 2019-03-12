@@ -12,9 +12,6 @@ public class AdManager : MonoBehaviour
     private string mUserId = "235M0GyJMOoX7O804h63";
     private string mAdId = "JQOki1YxoGUzpWGJjCf";
     //  private bool isFristLoading = true;
-
-    private bool isOpenAD = true;
-
     void Start()
     {
 #if UNITY_ANDROID
@@ -30,9 +27,6 @@ public class AdManager : MonoBehaviour
     }
 
     public void initAd() {
-        if (!isOpenAD) {
-            return;
-        }
             if (!AdIntance.isInit) {
                 AdIntance.isInit = true;
                 TGSDK.Initialize(mUserId);
@@ -98,10 +92,7 @@ public class AdManager : MonoBehaviour
     }
 
     public void playAd() {
-        if (!isOpenAD)
-        {
-            return;
-        }
+
         if (TGSDK.CouldShowAd(mAdId))
               {
                    TGSDK.ShowAd(mAdId);
@@ -110,10 +101,6 @@ public class AdManager : MonoBehaviour
     }
 
     public bool isReadyToShow() {
-        if (!isOpenAD)
-        {
-            return false;
-        }
         return TGSDK.CouldShowAd(mAdId);
     }
 

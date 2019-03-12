@@ -14,6 +14,7 @@ public class PetManager : MonoBehaviour {
         public long id;
     }
     List<PetLocalDate> mLocalList = new List<PetLocalDate>();
+    List<float> mZIdex = new List<float>();
     Dictionary<long, PetItemControl> mControlList = new Dictionary<long, PetItemControl>();
     int mPetCount = 0;
     public bool isFull() {
@@ -55,6 +56,19 @@ public class PetManager : MonoBehaviour {
         //reInit();
     }
     public void reInit() {
+        mZIdex.Clear();
+        mZIdex.Add(-0.2f);
+        mZIdex.Add(-0.4f);
+        mZIdex.Add(-0.6f);
+        mZIdex.Add(-0.8f);
+        mZIdex.Add(-1f);
+        mZIdex.Add(-1.2f);
+        mZIdex.Add(-1.4f);
+        mZIdex.Add(-1.6f);
+        mZIdex.Add(-1.8f);
+        mZIdex.Add(-2f);
+        mZIdex.Add(-2.2f);
+        mZIdex.Add(-2.4f);
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
         foreach (PlayerBackpackBean b in list)
         {
@@ -84,12 +98,11 @@ public class PetManager : MonoBehaviour {
         if (mControlList.ContainsKey(id)) {
             mPetCount--;
             mHero.mSkillManager.removeSkill(mControlList[id].gameObject.GetComponent<PetItemControl>().mJson);
+            mZIdex.Add(mControlList[id].gameObject.transform.position.z);
             Destroy(mControlList[id].gameObject);
             mControlList[id].mLocalDate.id = -1;
             mControlList.Remove(id);
         }
-
-
         return true;
     }
     public bool petFight(long id) {
@@ -109,7 +122,8 @@ public class PetManager : MonoBehaviour {
             }
         }
         GameObject newobj = GameObject.Instantiate(
-             mPetGj, new Vector3(-10, - 10, (-0.1f* mPetCount)), Quaternion.Euler(0.0f, 0f, 0.0f));
+             mPetGj, new Vector3(-10, - 10, mZIdex[0]), Quaternion.Euler(0.0f, 0f, 0.0f));
+        mZIdex.RemoveAt(0);
         PetItemControl pet = newobj.GetComponent<PetItemControl>();
         pet.init(date,this);
         mControlList.Add(id, pet);

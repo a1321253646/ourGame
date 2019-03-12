@@ -31,14 +31,7 @@ public class ActiveButtonControl : MonoBehaviour {
     }
     private float mTime = -1;
     private float mShowTime = -1;
-    public void setShowTime(float time) {
-        mTime = time;
-    }
 
-    public void startShowTime() {
-        mTime = 0;
-        AdIntance.getIntance().setTime(mTime);
-    }
     public void removeShowTime()
     {
         mTime = -1;
@@ -48,7 +41,7 @@ public class ActiveButtonControl : MonoBehaviour {
 
     private void Update()
     {
-
+    //    Debug.Log("==================ActiveButtonControl Update  mTime=  " + mTime + " mShowTime=" + mShowTime);
         if (mTime == -1|| mBean.buttonType != ACTIVE_BUTTON_TYPE_AD) {
             return;
         }
@@ -56,7 +49,7 @@ public class ActiveButtonControl : MonoBehaviour {
         {
             mShowTime = JsonUtils.getIntance().getConfigValueForId(100050) * 60;
         }
-      //  Debug.Log("==================ActiveButtonControl Update  mTime=  " + mTime + " mShowTime=" + mShowTime);
+        
         mTime += Time.deltaTime;
 
         
@@ -67,7 +60,7 @@ public class ActiveButtonControl : MonoBehaviour {
         }
     }
 
-    public bool init(long type,long adId , string count,bool isAddSql) {
+    public bool init(long type,long adId , bool isAddSql) {
 
         if( type == mBean.buttonType) {
             return true;
@@ -89,12 +82,11 @@ public class ActiveButtonControl : MonoBehaviour {
             return false;
         }
         float time = AdIntance.getIntance().getTime();
-        if (time == -1 && mBean.buttonType == ACTIVE_BUTTON_TYPE_AD) {
-            time = 0;
-        }
-        mTime = time;
+      //  if (time == -1 && mBean.buttonType == ACTIVE_BUTTON_TYPE_AD) {
+      //      time = 0;
+      //  }
+        mTime = 0;
         mBean.adType = adId;
-        mBean.count = count;
         mBean.buttonType = type;
         show(isAddSql);
         return true;
@@ -132,7 +124,7 @@ public class ActiveButtonControl : MonoBehaviour {
             //            mControl.removeVocation();
         }
         else if(mBean.buttonType == ACTIVE_BUTTON_TYPE_AD) {
-            GameObject.Find("advert").GetComponent<AdUiControl>().setDate(mBean.adType, mBean.count);
+            GameObject.Find("advert").GetComponent<AdUiControl>().setDate(mBean.adType);
         }       
     }
 

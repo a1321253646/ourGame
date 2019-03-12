@@ -11,15 +11,15 @@ public class ActiveListControl : MonoBehaviour {
         mButtonList = GetComponentsInChildren<ActiveButtonControl>();
     }
 
-    public void showAd(long adId, string count, bool isAddSql)
+    public void showAd(long adId, bool isAddSql)
     {
-        showAd(adId, count, isAddSql, false);
+        showAd(adId, isAddSql, false);
 
     }
 
-    public void showAd(long adId, string count, bool isAddSql,bool isNewTime) {
+    public void showAd(long adId, bool isAddSql,bool isNewTime) {
         int i = 0;
-        while (i < mButtonList.Length && !mButtonList[i].init(ActiveButtonControl.ACTIVE_BUTTON_TYPE_AD, adId, count, isAddSql))
+        while (i < mButtonList.Length && !mButtonList[i].init(ActiveButtonControl.ACTIVE_BUTTON_TYPE_AD, adId, isAddSql))
         {
             i++;
         }
@@ -28,7 +28,7 @@ public class ActiveListControl : MonoBehaviour {
     public void showVocation(bool isAddSql) {
      //   Debug.Log("=================================showVocation");
         int i = 0;
-        while (i < mButtonList.Length && !mButtonList[i].init(ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION, 0, null,isAddSql)) {
+        while (i < mButtonList.Length && !mButtonList[i].init(ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION, 0, isAddSql)) {
             i++;
         }
     }
@@ -61,7 +61,7 @@ public class ActiveListControl : MonoBehaviour {
         int i = index +1;
         if (i < mButtonList.Length) {
             ActiveButtonBean bean = mButtonList[i].mBean;
-            mButtonList[index].init(bean.buttonType, bean.adType, bean.count, false);
+            mButtonList[index].init(bean.buttonType, bean.adType,  false);
             mButtonList[i].removeShow(bean.buttonType,false);
             updateIcon(i);
         }
