@@ -21,6 +21,9 @@ public class EventAttackSkillManager
     public static int EVENT_SKILL_ATTACKING = 15;
     public static int EVENT_SKILL_MONSTER_DEBUFF = 16;
     public static int EVENT_SKILL_ALL_HURT = 17;
+    public static int EVENT_SKILL_BOSS_DEBUFF = 18;
+    public static int EVENT_SKILL_LITTER_DEBUFF = 19;
+    public static int EVENT_SKILL_BEFOOR_DIE = 20;
 
     Dictionary<long, EventAttackSkillManagerSingle> mManagerList = new Dictionary<long, EventAttackSkillManagerSingle>();
     public List<TimeAttackSkillBase> mTimeList = new List<TimeAttackSkillBase>();
@@ -340,6 +343,54 @@ public class EventAttackSkillManager
             {
                 EventAttackSkill skill = singel.mList[i];
                 skill.debuffMonster(monster);
+            }
+        }
+    }
+    public void debuffLitterMonster(Attacker monster)
+    {
+        EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_LITTER_DEBUFF);
+        if (singel == null || singel.mList.Count == 0)
+        {
+            return;
+        }
+        else
+        {
+            for (int i = 0; i < singel.mList.Count; i++)
+            {
+                EventAttackSkill skill = singel.mList[i];
+                skill.debuffLitterMonster(monster);
+            }
+        }
+    }
+    public void debuffBoss(Attacker monster)
+    {
+        EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BOSS_DEBUFF);
+        if (singel == null || singel.mList.Count == 0)
+        {
+            return;
+        }
+        else
+        {
+            for (int i = 0; i < singel.mList.Count; i++)
+            {
+                EventAttackSkill skill = singel.mList[i];
+                skill.debuffBoss(monster);
+            }
+        }
+    }
+    public void befroeDie()
+    {
+        EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BEFOOR_DIE);
+        if (singel == null || singel.mList.Count == 0)
+        {
+            return;
+        }
+        else
+        {
+            for (int i = 0; i < singel.mList.Count; i++)
+            {
+                EventAttackSkill skill = singel.mList[i];
+                skill.beforeDie();
             }
         }
     }

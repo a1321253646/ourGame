@@ -24,14 +24,14 @@ public class AttackSkill600005 : EventAttackSkill
 
         mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.defense, (long)(count1));
 
-        mManager.getAttacker().getAttribute();
+        mManager.getAttacker().getAttribute(true);
     }
 
     public override void endSkill()
     {
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_HURT_DIE, this);
         mManager.getAttacker().mAllAttributePre.minus(mSkillIndex, AttributePre.defense, (long) count2);
-        mManager.getAttacker().getAttribute();
+        mManager.getAttacker().getAttribute(true);
     }
 
     public override void startSkill()

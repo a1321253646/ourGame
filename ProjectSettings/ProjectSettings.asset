@@ -16,7 +16,7 @@ PlayerSettings:
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
-  m_ShowUnitySplashScreen: 0
+  m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
@@ -39,8 +39,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 989fbdb9f90f7e24e8ccdd0de34b7463,
-    type: 3}
+  m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
@@ -127,7 +126,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: v0.35
+  bundleVersion: 1.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -159,12 +158,16 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.jackzheng.ourGame
+    Android: 
+    Standalone: "unity.DefaultCompany.\u9003\u51FA\u6DF1\u6E0A"
+    Tizen: 
+    iOS: com.Company.ProductName
+    tvOS: 
   buildNumber:
-    Standalone: 12
+    iOS: 
   AndroidBundleVersionCode: 35
   AndroidMinSdkVersion: 16
-  AndroidTargetSdkVersion: 22
+  AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   stripEngineCode: 1
@@ -236,7 +239,7 @@ PlayerSettings:
   iOSMetalForceHardShadows: 0
   metalEditorSupport: 1
   metalAPIValidation: 1
-  iOSRenderExtraFrameOnPause: 0
+  iOSRenderExtraFrameOnPause: 1
   appleDeveloperTeamID: 
   iOSManualSigningProvisioningProfileID: 
   tvOSManualSigningProvisioningProfileID: 
@@ -255,7 +258,7 @@ PlayerSettings:
   m_AndroidBanners:
   - width: 320
     height: 180
-    banner: {fileID: 2800000, guid: 989fbdb9f90f7e24e8ccdd0de34b7463, type: 3}
+    banner: {fileID: 0}
   androidGamepadSupportLevel: 0
   resolutionDialogBanner: {fileID: 2800000, guid: 989fbdb9f90f7e24e8ccdd0de34b7463,
     type: 3}
@@ -264,56 +267,64 @@ PlayerSettings:
     m_Icons:
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: 989fbdb9f90f7e24e8ccdd0de34b7463, type: 3}
-      m_Width: 192
-      m_Height: 192
+      m_Width: 151991724
+      m_Height: 151991724
       m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 144
-      m_Height: 144
+      m_Width: 151991724
+      m_Height: 151991724
       m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 96
-      m_Height: 96
+      m_Width: 151991724
+      m_Height: 151991724
       m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 72
-      m_Height: 72
+      m_Width: 151991724
+      m_Height: 151991724
       m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 48
-      m_Height: 48
+      m_Width: 151991724
+      m_Height: 151991724
       m_Kind: 0
     - serializedVersion: 2
       m_Icon: {fileID: 0}
-      m_Width: 36
-      m_Height: 36
+      m_Width: 151991724
+      m_Height: 151991724
       m_Kind: 0
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
       m_Icon: {fileID: 2800000, guid: 989fbdb9f90f7e24e8ccdd0de34b7463, type: 3}
-      m_Width: 128
-      m_Height: 128
+      m_Width: 151991768
+      m_Height: 151991768
       m_Kind: 0
   m_BuildTargetBatching:
   - m_BuildTarget: Android
     m_StaticBatching: 1
     m_DynamicBatching: 1
-  m_BuildTargetGraphicsAPIs: []
+  m_BuildTargetGraphicsAPIs:
+  - m_BuildTarget: AndroidPlayer
+    m_APIs: 08000000
+    m_Automatic: 0
   m_BuildTargetVRSettings: []
   m_BuildTargetEnableVuforiaSettings: []
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   m_TemplateCustomTags: {}
   mobileMTRendering:
-    Android: 1
     iPhone: 1
     tvOS: 1
-  m_BuildTargetGroupLightmapEncodingQuality: []
+  m_BuildTargetGroupLightmapEncodingQuality:
+  - m_BuildTarget: Standalone
+    m_EncodingQuality: 1
+  - m_BuildTarget: XboxOne
+    m_EncodingQuality: 1
+  - m_BuildTarget: PS4
+    m_EncodingQuality: 1
   wiiUTitleID: 0005000011000000
   wiiUGroupID: 00010000
   wiiUCommonSaveSize: 4096
@@ -502,7 +513,7 @@ PlayerSettings:
   ps4DownloadDataSize: 0
   ps4GarlicHeapSize: 2048
   ps4ProGarlicHeapSize: 2560
-  ps4Passcode: frAQBc8Wsa1xVPfvJcrgRYwTiizs2trQ
+  ps4Passcode: F69AzBlax3CF3EDNhm3soLBPh71Yexui
   ps4pnSessions: 1
   ps4pnPresence: 1
   ps4pnFriends: 1
@@ -600,9 +611,7 @@ PlayerSettings:
   incrementalIl2cppBuild: {}
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 0
-  apiCompatibilityLevelPerPlatform:
-    Android: 1
-    Standalone: 1
+  apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: guajig'pg
@@ -678,17 +687,12 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled:
-    Build: 0
-    Collab: 0
-    ErrorHub: 0
-    Hub: 0
-    UNet: 0
+  cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 99452308-6f7e-45c9-b0da-4b66e41b4c6a
-  projectName: guajig'pg
-  organizationId: zsbin
+  cloudProjectId: 
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

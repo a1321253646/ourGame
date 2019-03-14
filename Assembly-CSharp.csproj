@@ -1,232 +1,144 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>4</LangVersion>
-  </PropertyGroup>
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
-    <ProjectGuid>{7072D463-D0A1-AB30-3395-FAC51A15A144}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <BaseDirectory>Assets</BaseDirectory>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{7072D463-D0A1-AB30-3395-FAC51A15A144}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2017_4_0;UNITY_2017_4;UNITY_2017;PLATFORM_ARCH_64;UNITY_64;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_7_1;UNITY_4_7;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>Temp\bin\Release\</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+	<Reference Include="System" />
     <Reference Include="System.XML" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="UnityEngine">
-      <HintPath>D:/Program Files/Unity/Editor/Data/Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>D:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
-    </Reference>
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>D:/Program Files/Unity4_7_1/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>D:/Program Files/Unity4_7_1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ComposeEquipListControl.cs" />
-     <Compile Include="Assets\ComposeListPartControl.cs" />
-     <Compile Include="Assets\DepictTextControl.cs" />
-     <Compile Include="Assets\EquipGrideControl.cs" />
-     <Compile Include="Assets\HeroRoleControl.cs" />
-     <Compile Include="Assets\NengliangkuaiControl.cs" />
-     <Compile Include="Assets\SamsaraItemControl.cs" />
-     <Compile Include="Assets\SamSaraListControl.cs" />
-     <Compile Include="Assets\SamsaraManage.cs" />
-     <Compile Include="Assets\Scripe\animal\AnimalCallBecakListen.cs" />
-     <Compile Include="Assets\Scripe\animal\AnimalControlBase.cs" />
-     <Compile Include="Assets\Scripe\animal\AnimalStatu.cs" />
+     <Compile Include="Assets\PetIconShowControl.cs" />
+     <Compile Include="Assets\RankingListItemControl.cs" />
      <Compile Include="Assets\Scripe\Attack\Attacker.cs" />
-     <Compile Include="Assets\Scripe\Attack\AttackSpeedBean.cs" />
-     <Compile Include="Assets\Scripe\Attack\Attribute.cs" />
-     <Compile Include="Assets\Scripe\Attack\EnemyBase.cs" />
-     <Compile Include="Assets\Scripe\Attack\EnemyFactory.cs" />
+     <Compile Include="Assets\Scripe\Attack\AttributePre.cs" />
      <Compile Include="Assets\Scripe\Attack\EnemyState.cs" />
      <Compile Include="Assets\Scripe\Attack\HeroState.cs" />
      <Compile Include="Assets\Scripe\Attack\PlayControl.cs" />
-     <Compile Include="Assets\Scripe\Attack\SpeedValueJsonBean.cs" />
-     <Compile Include="Assets\Scripe\BackControl.cs" />
-     <Compile Include="Assets\Scripe\Bean\AccouterJsonBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\ActionFrameBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\AttributeBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\CalculatorUtilBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\CardJsonBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\ComposeJsonBen.cs" />
-     <Compile Include="Assets\Scripe\Bean\ComposeNeedItemBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\ConfigNote.cs" />
-     <Compile Include="Assets\Scripe\Bean\DropDevice.cs" />
-     <Compile Include="Assets\Scripe\Bean\DropDeviceDetail.cs" />
-     <Compile Include="Assets\Scripe\Bean\DropDeviceDetailJson.cs" />
-     <Compile Include="Assets\Scripe\Bean\Enemy.cs" />
-     <Compile Include="Assets\Scripe\Bean\FellObjectBean.cs" />
      <Compile Include="Assets\Scripe\Bean\GoodJsonBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\Hero.cs" />
-     <Compile Include="Assets\Scripe\Bean\HurtStatus.cs" />
-     <Compile Include="Assets\Scripe\Bean\Level.cs" />
+     <Compile Include="Assets\Scripe\Bean\GuideJsonBean.cs" />
      <Compile Include="Assets\Scripe\Bean\LevelEnemy.cs" />
-     <Compile Include="Assets\Scripe\Bean\LevelEnemyWellen.cs" />
-     <Compile Include="Assets\Scripe\Bean\LocalBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\LocalMultiple.cs" />
      <Compile Include="Assets\Scripe\Bean\LocalNote.cs" />
-     <Compile Include="Assets\Scripe\Bean\PlayerAttributeBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\PlayerBackpackBean.cs" />
+     <Compile Include="Assets\Scripe\Bean\MapConfigBean.cs" />
+     <Compile Include="Assets\Scripe\Bean\MultipleAffixBean.cs" />
      <Compile Include="Assets\Scripe\Bean\Point.cs" />
-     <Compile Include="Assets\Scripe\Bean\ResourceBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\SamsaraJsonBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\SamsaraValueBean.cs" />
-     <Compile Include="Assets\Scripe\Bean\SkillJsonBean.cs" />
      <Compile Include="Assets\Scripe\ComposeControl.cs" />
-     <Compile Include="Assets\Scripe\GoodControl.cs" />
-     <Compile Include="Assets\Scripe\IvertoryControl.cs" />
-     <Compile Include="Assets\Scripe\Manager\BackgroundManager.cs" />
-     <Compile Include="Assets\Scripe\Manager\BackpackManager.cs" />
+     <Compile Include="Assets\Scripe\EquipGrideControl.cs" />
+     <Compile Include="Assets\Scripe\GameCamera.cs" />
+     <Compile Include="Assets\Scripe\GuideAction\GuideActionButton.cs" />
+     <Compile Include="Assets\Scripe\GuideAction\GuideActionCardUiShowInfo.cs" />
+     <Compile Include="Assets\Scripe\GuideAction\GuideActionUserCard.cs" />
+     <Compile Include="Assets\Scripe\GuideAction\GuideControl.cs" />
+     <Compile Include="Assets\Scripe\GuideAction\GuideManager.cs" />
      <Compile Include="Assets\Scripe\Manager\FightManager.cs" />
      <Compile Include="Assets\Scripe\Manager\GameManager.cs" />
-     <Compile Include="Assets\Scripe\Manager\GameOverManager.cs" />
-     <Compile Include="Assets\Scripe\Manager\LevelManager.cs" />
-     <Compile Include="Assets\Scripe\Manager\LocalManager.cs" />
-     <Compile Include="Assets\Scripe\Manager\SkillManager.cs" />
-     <Compile Include="Assets\Scripe\Manager\UiManager.cs" />
-     <Compile Include="Assets\Scripe\Resource\BackgroundTransform.cs" />
-     <Compile Include="Assets\Scripe\Resource\FightResource.cs" />
-     <Compile Include="Assets\Scripe\Resource\HitBase.cs" />
-     <Compile Include="Assets\Scripe\Resource\HurtText.cs" />
+     <Compile Include="Assets\Scripe\NewItemOnDrag.cs" />
      <Compile Include="Assets\Scripe\Resource\TrajectoryBase.cs" />
+     <Compile Include="Assets\Scripe\SQLManager.cs" />
+     <Compile Include="Assets\Scripe\SamSaraListControl.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\AttackerFactory.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\AttackerSkillBase.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\EventAttactSkill\AttackSkill200001.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\EventAttactSkill\AttackSkill500006.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\EventAttactSkill\AttackSkill600007.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\EventAttactSkill\AttackSkill600008.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\EventAttactSkill\AttackSkill700001.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\EventAttactSkill\EventAttackSkill.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\TimeAttackSkill\AnimalAttackSkill\AnimalAttackSkill100016.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\TimeAttackSkill\AnimalAttackSkill\AnimalAttackSkill100026.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\TimeAttackSkill\TimeAttackSkillBase.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\nomalAttackSkill\NormalAttackSkill100014.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\AttackSkill\nomalAttackSkill\NormalAttackSkill400008.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\CardSkill\SkillLocalBean.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\CardSkill\pointer\SkillTargetEllipseDeal.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\CardSkill\pointer\SkillTargetManager.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\CardSkill\pointer\SkillTargetROUNDDeal.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\CardSkill\pointer\SkillTargetSquarenessDeal.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\CardSkill\skill\SkillObject100003.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\card\BossCardControl.cs" />
      <Compile Include="Assets\Scripe\SkillPakeger\card\CardControl.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\card\CardItemControl.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\card\CardManager.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\card\CardShowControl.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\card\CardUiControl.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\pointer\SkillTargetEllipseDeal.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\pointer\SkillTargetManager.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\pointer\SkillTargetPointDeal.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\pointer\SkillTargetROUNDDeal.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\pointer\SkillTargetSquarenessDeal.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\CalculatorUtil.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillLocalBean.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillManage.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillType\SkillObject.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillType\SkillObject1.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillType\SkillObject10.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillType\SkillObject3.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillType\SkillObject30001.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillType\SkillObject30002.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillType\SkillObject30003.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillType\SkillObject6.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skill\SkillType\SkillObject8.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillAttack\AttackSkillBase.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillAttack\AttackSkillManager.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillAttack\noAnimal\AttackSkill10002.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillAttack\noAnimal\AttackSkill10003.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillAttack\noAnimal\AttackSkill20001.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillAttack\noAnimal\AttackSkill4.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillAttack\noAnimal\AttackSkillNoAnimal.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillAttack\withAnimal\AttackSkill10001.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillAttack\withAnimal\AttackSkill2.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillAttack\withAnimal\AttackSkillWithAnimal.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillNoTargetLock\NotargetBase.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\skillNoTargetLock\NoTargetSkillLockBase.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\SkillStyle\SkillParameterSplitHelper.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\SkillStyle\SkillStyle10008.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\SkillStyle\SkillStyle10009.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\SkillStyle\SkillStyle10010.cs" />
-     <Compile Include="Assets\Scripe\SkillPakeger\SkillStyle\SkillStyleBase.cs" />
-     <Compile Include="Assets\Scripe\testdongzuo.cs" />
-     <Compile Include="Assets\Scripe\testmanager.cs" />
-     <Compile Include="Assets\Scripe\Utils\InventoryHalper.cs" />
+     <Compile Include="Assets\Scripe\SkillPakeger\card\HeroCardManager.cs" />
+     <Compile Include="Assets\Scripe\UiControl\IvertoryControl.cs" />
+     <Compile Include="Assets\Scripe\Utils\BigNumberUnit.cs" />
+     <Compile Include="Assets\Scripe\Utils\CalculatorUtil.cs" />
      <Compile Include="Assets\Scripe\Utils\JsonUtils.cs" />
-     <Compile Include="Assets\Scripe\Utils\PointUtils.cs" />
-     <Compile Include="Assets\Scripe\Utils\SQLite.cs" />
-     <Compile Include="Assets\Scripe\Utils\SQLMananger.cs" />
-     <Compile Include="Assets\TipControl.cs" />
-     <Compile Include="Assets\UserCardListControl.cs" />
-     <None Include="Assets\Resources\icon\equipicon\新建文本文档.txt" />
-     <None Include="Assets\Resources\icon\itemicon\新建文本文档 1.txt" />
-     <None Include="Assets\Plugin\DOTween\readme.txt" />
-     <None Include="Assets\Resources\icon\samsara\新建文本文档 1.txt" />
-     <None Include="Assets\Resources\icon\card\新建文本文档 1.txt" />
+     <Compile Include="Assets\Scripe\Utils\SkillIndexUtil.cs" />
+     <Compile Include="Assets\Scripe\Utils\StringUtils.cs" />
+     <Compile Include="Assets\Scripe\testdongzuo.cs" />
+     <Compile Include="Assets\SkillObjectControl.cs" />
+     <Compile Include="Assets\TGSDK\Example\ExampleScript.cs" />
+     <Compile Include="Assets\TGXcode\AssetCatalog.cs" />
+     <Compile Include="Assets\TGXcode\PBX\Sections.cs" />
+     <Compile Include="Assets\VocationCardControl.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.TestRunner">
- <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Timeline">
- <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UIAutomation">
- <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.GoogleAudioSpatializer">
- <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.HoloLens">
- <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ <HintPath>D:/Program Files/Unity4_7_1/Editor/Data/UnityExtensions/Unity/GUISystem/4.7.1/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Data.Sqlite">
- <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugin/Mono.Data.Sqlite.dll</HintPath>
+ <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugins/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugin/Newtonsoft.Json.dll</HintPath>
+ <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="SqliteForUnity3D">
+ <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugins/SqliteForUnity3D.dll</HintPath>
  </Reference>
  <Reference Include="System.Data">
- <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugin/System.Data.dll</HintPath>
+ <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugins/System.Data.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugin/DOTween/DOTween.dll</HintPath>
+ <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugins/DOTween/DOTween.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+ <Reference Include="DOTween43">
+ <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugins/DOTween/DOTween43.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+ <Reference Include="DOTween46">
+ <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugins/DOTween/DOTween46.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.StandardEvents">
- <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
+ <Reference Include="DOTween50">
+ <HintPath>E:/unityProject/ourGame/ourGame/Assets/Plugins/DOTween/DOTween50.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
+	   Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">

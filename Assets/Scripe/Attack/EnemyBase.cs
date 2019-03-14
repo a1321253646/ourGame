@@ -229,6 +229,11 @@ public class EnemyBase : Attacker {
 
         if (mBloodVolume <= 0)
         {
+            mSkillManager.mEventAttackManager.befroeDie();
+        }
+
+        if (mBloodVolume <= 0)
+        {
             mSkillManager.mEventAttackManager.removeAll();
             Die();                    
             mFightManager.unRegisterAttacker(this);
@@ -257,23 +262,8 @@ public class EnemyBase : Attacker {
         mState.add(value); ;
     }
 
-    public override void getAttribute()
+    public override void getAttributeEnd()
     {
-        double bloodBili = mBloodVolume / mAttribute.maxBloodVolume;
-
-        mAttribute.clear();
-        mAllAttribute.clear();
-
-        mAllAttribute.add(mBaseAttribute);
-        mAllAttribute.add(mEquipAttribute);
-        mAllAttribute.add(mSkillAttribute);
-        mAllAttribute.add(mLunhuiAttribute);
-
-
-        mAttribute.add(mAllAttribute);
-        mAttribute.chen(mAllAttributePre.getAll());
-
-        mBloodVolume = mAttribute.maxBloodVolume * bloodBili;
         upDataSpeed();
         mState.resetHp();
     }

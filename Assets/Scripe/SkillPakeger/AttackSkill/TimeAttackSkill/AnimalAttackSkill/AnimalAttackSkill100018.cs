@@ -13,7 +13,7 @@ public class AnimalAttackSkill100018 : AnimalAttackSkillBase
     {
         mManager.mEventAttackManager.unRegisterTimeSkill(this);
         mManager.getAttacker().mSkillAttribute.evd -= value1 * 100;
-        mManager.getAttacker().getAttribute();
+        mManager.getAttacker().getAttribute(true);
         mStatus = SKILL_STATUS_END;
     }
 
@@ -32,7 +32,7 @@ public class AnimalAttackSkill100018 : AnimalAttackSkillBase
         }
         mTime = 0;
         mManager.getAttacker().mSkillAttribute.evd += value1 * 100;
-        mManager.getAttacker().getAttribute();
+        mManager.getAttacker().getAttribute(true);
         isInit = true;
     }
 
@@ -63,7 +63,7 @@ public class AnimalAttackSkill100018 : AnimalAttackSkillBase
         }
         mTime = 0;
         mManager.getAttacker().mSkillAttribute.evd += value1*100;
-        mManager.getAttacker().getAttribute();
+        mManager.getAttacker().getAttribute(true);
         return true;
     }
 }

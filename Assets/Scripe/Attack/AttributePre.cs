@@ -47,6 +47,29 @@ public class AttributePre
             dealAll(type, 10000, 10000 + value);
         }
     }
+    public void updateDebuff(long id, long type, long value) {
+        if (mAttributePre.ContainsKey(id))
+        {
+            Dictionary<long, long> dic = mAttributePre[id];
+            if (dic.ContainsKey(type))
+            {
+                dic.Remove(type);
+            }
+            else
+            {
+                dic.Add(type, 10000 - value);
+                dealAll(type, 10000, 10000 - value);
+            }
+        }
+        else
+        {
+            Dictionary<long, long> dic = new Dictionary<long, long>();
+            dic.Add(type, 10000 - value);
+            mAttributePre.Add(id, dic);
+            dealAll(type, 10000, 10000 - value);
+        }
+    }
+
     public void minus(long id, long type, long value)
     {
         if (mAttributePre.ContainsKey(id))
@@ -83,7 +106,7 @@ public class AttributePre
             deleteAll(type, dic[type]/10000+1);
         }
         mAttributePre.Remove(id);
-        mAttacker.getAttribute();
+        mAttacker.getAttribute(true);
     }
 
     private void deleteAll(long type, float value) {
@@ -146,7 +169,7 @@ public class AttributePre
         {
             mAll.attackSpeed = mAll.attackSpeed / oldValue * newValue;
         }
-        mAttacker.getAttribute();
+        mAttacker.getAttribute(true);
     }
 
 

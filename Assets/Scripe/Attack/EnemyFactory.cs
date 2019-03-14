@@ -102,9 +102,12 @@ public class EnemyFactory : MonoBehaviour {
 		
 		if (isBoss) {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_BOSS;
-		} else {
+            mLevelMnager.mPlayerControl.mSkillManager.mEventAttackManager.debuffBoss(enmey);
+
+        } else {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_ENEMY;
-		}
+            mLevelMnager.mPlayerControl.mSkillManager.mEventAttackManager.debuffLitterMonster(enmey);
+        }
         enmey.init(data, bean);
         enmey.mCampType = Attacker.CAMP_TYPE_MONSTER;
         enmey.setTarget(new Vector2(mHeroX, mHeroY));

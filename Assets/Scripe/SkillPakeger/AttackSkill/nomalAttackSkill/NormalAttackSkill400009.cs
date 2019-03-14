@@ -11,6 +11,6 @@ public class NormalAttackSkill400009 : NormalAttackSkillBase
     {
         Attacker a = mManager.getAttacker();
         a.mAllAttributePre.add(mSkillIndex, AttributePre.attackSpeed, (long)value );
-        a.getAttribute();
+        a.getAttribute(true);
     }
 }

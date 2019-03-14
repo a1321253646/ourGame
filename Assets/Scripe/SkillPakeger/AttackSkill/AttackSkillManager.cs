@@ -195,7 +195,7 @@ public class AttackSkillManager
 
     public void addSkill(List<PlayerAttributeBean> list, Attacker fighter,long index) {       
         creatSkillByAffix(list, fighter,index);
-        mAttack.getAttribute();
+        mAttack.getAttribute(true);
     }
 
 
@@ -214,7 +214,7 @@ public class AttackSkillManager
             mPetSkill.Add(pet, list);
         }
         Debug.Log("addSkill PetJsonBean");
-        mAttack.getAttribute();
+        mAttack.getAttribute(true);
     }
 
     public void removeSkill(PetJsonBean pet) {
@@ -223,7 +223,7 @@ public class AttackSkillManager
             mPetSkill.Remove(pet);
         }
         Debug.Log("addSkill PetJsonBean");
-        mAttack.getAttribute();
+        mAttack.getAttribute(true);
     }
     public void removeSkill(PlayerBackpackBean bean)
     {

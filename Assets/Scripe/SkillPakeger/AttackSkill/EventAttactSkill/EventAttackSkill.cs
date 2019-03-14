@@ -27,7 +27,7 @@ public abstract class EventAttackSkill : AttackerSkillBase
     {
 
     }
-    public virtual void beforeHurt(HurtStatus hurt) {
+    public virtual void beforeHurt(HurtStatus hurt,Attacker attacker) {
 
     }
     public virtual void endHurt(HurtStatus hurt) {
@@ -78,4 +78,18 @@ public abstract class EventAttackSkill : AttackerSkillBase
     {
        
     }
+    public virtual void debuffLitterMonster(Attacker monster)
+    {
+
+    }
+    public virtual void debuffBoss(Attacker monster)
+    {
+
+    }
+
+    public virtual void beforeDie()
+    {
+
+    }
+
 }

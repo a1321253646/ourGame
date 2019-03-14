@@ -30,7 +30,7 @@ public class AttackSkill600006 : EventAttackSkill
         }
 
         mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.aggressivity, (long)count1);
-        mManager.getAttacker().getAttribute();
+        mManager.getAttacker().getAttribute(true);
 
 
     }
@@ -38,7 +38,7 @@ public class AttackSkill600006 : EventAttackSkill
     {
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_HURT_DIE, this);
         mManager.getAttacker().mAllAttributePre.minus(mSkillIndex, AttributePre.aggressivity, (long)count2);
-        mManager.getAttacker().getAttribute();
+        mManager.getAttacker().getAttribute(true);
     }
 
     public override void startSkill()

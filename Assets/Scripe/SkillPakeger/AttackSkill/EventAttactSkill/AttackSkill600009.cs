@@ -24,7 +24,7 @@ public class AttackSkill600009 : EventAttackSkill
         
 
         mManager.carHurtPre.AddFloat(60009, 1+count2);
-        mManager.getAttacker().getAttribute();
+        mManager.getAttacker().getAttribute(true);
         //        value++;
         //        mManager.getAttacker().mSkillAttributePre.defense += (value * count1);
 
@@ -33,7 +33,7 @@ public class AttackSkill600009 : EventAttackSkill
     {
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_HURT_DIE, this);
         mManager.carHurtPre.deletById(60009);
-        mManager.getAttacker().getAttribute();
+        mManager.getAttacker().getAttribute(true);
     }
 
     public override void startSkill()

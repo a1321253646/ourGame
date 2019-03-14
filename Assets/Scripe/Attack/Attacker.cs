@@ -52,6 +52,7 @@ public abstract class Attacker : MonoBehaviour
 	public List<Attacker> mAttackerTargets;
 	public ResourceBean resourceData;
 
+    public Dictionary<long, bool> mBuffList = new Dictionary<long, bool>();
 
     public AnimalControlBase mAnimalControl;
     public SpriteRenderer mSpriteRender;
@@ -84,7 +85,7 @@ public abstract class Attacker : MonoBehaviour
     }
     public abstract double BeAttack (HurtStatus status, Attacker hurter);
     public abstract double BeKillAttack( double value, Attacker hurter);
-    public abstract void getAttribute();
+    public abstract void getAttributeEnd();
     public abstract void AddBlood(double value);
     public int getStatus() {
         return status;
@@ -177,6 +178,59 @@ public abstract class Attacker : MonoBehaviour
     }
     public void skillAttack(double value,Attacker hurter) {
         BeKillAttack( value,hurter);
+    }
+
+    public double bloodBili = -1;
+    public double bloodDistance = -1;
+    public void getAttribute(bool isGetBili)
+    {
+        if (isGetBili)
+        {
+            bloodDistance = -1;
+            bloodBili = mBloodVolume / mAttribute.maxBloodVolume;
+        }
+
+        mAttribute.clear();
+        mAllAttribute.clear();
+
+        mAllAttribute.add(mBaseAttribute);
+        //        Debug.Log("===============mBaseAttribute = " + mBaseAttribute.toString());
+        //        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+        mAllAttribute.add(mEquipAttribute);
+        //        Debug.Log("===============mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
+        //        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+        mAllAttribute.add(mLunhuiAttribute);
+        //        Debug.Log("===============mAttribute.mLunhuiAttribute = " + mLunhuiAttribute.toString());
+        //        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+        mAllAttribute.add(mSkillAttribute);
+        //        Debug.Log("===============mAttribute.mSkillAttribute = " + mSkillAttribute.toString());
+        //        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+        mAllAttribute.add(mPetAttribute);
+        //        Debug.Log("===============mAttribute.mSkillAttribute = " + mPetAttribute.toString());
+        //        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+
+        //Debug.Log("===============mAttribute.mEquipAttributePre = " + mEquipAttributePre.toString());
+        //Debug.Log("===============mAttribute.mLunhuiAttributePre = " + mLunhuiAttributePre.toString());
+        //Debug.Log("===============mAttribute.mSkillAttributePre = " + mSkillAttributePre.toString());
+        //Debug.Log("===============mAttribute.mAllAttributePre = " + mAllAttributePre.toString());
+
+
+        mAttribute.add(mAllAttribute);
+        //Debug.Log("===============mAttribute.mAttribute = " + mAllAttribute);
+        //        Debug.Log("===============mAttribute.mAllAttributePre = " + mAttribute.toString());
+        mAttribute.chen(mAllAttributePre.getAll());
+        //        Debug.Log("===============mAttribute.mAllAttributePre = " + mAllAttributePre.getAll().toString());
+        //Debug.Log("===============mAttribute.mAttribute = " + mAttribute);
+        if (bloodDistance != -1)
+        {
+            mBloodVolume = mAttribute.maxBloodVolume - bloodDistance;
+        }
+        else
+        {
+            mBloodVolume = mAttribute.maxBloodVolume * bloodBili;
+        }
+
+        getAttributeEnd();
     }
 
 

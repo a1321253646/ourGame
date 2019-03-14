@@ -11,7 +11,7 @@ public class AttackSkill600012 : EventAttackSkill
     public override void debuffMonster(Attacker monster)
     {
         monster.mAllAttributePre.minus(mSkillIndex, AttributePre.attackSpeed, (long)count1);
-        monster.getAttribute();
+        monster.getAttribute(true);
     }
 
     public override void endSkill()
@@ -25,7 +25,7 @@ public class AttackSkill600012 : EventAttackSkill
             {
 
                 list.mAttacker.mAllAttributePre.add(mSkillIndex, AttributePre.attackSpeed, (long)count1);
-                list.mAttacker.getAttribute();
+                list.mAttacker.getAttribute(true);
             }
             list = list.next;
         }
@@ -42,7 +42,7 @@ public class AttackSkill600012 : EventAttackSkill
         while (list != null) {
             if (!list.mIsHero) {
                 list.mAttacker.mAllAttributePre.minus(mSkillIndex, AttributePre.attackSpeed, (long)count1);;
-                list.mAttacker.getAttribute();
+                list.mAttacker.getAttribute(true);
             }
             list = list.next;
         }
