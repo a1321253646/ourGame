@@ -60,6 +60,7 @@ public class LuiHuiTips : UiControlBase
         gameObject.transform.localPosition = new Vector2(0, 0);
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);
+        mDes.alignment = TextAnchor.UpperLeft;
     }
 
     public void showUi(string dec) {
@@ -80,6 +81,7 @@ public class LuiHuiTips : UiControlBase
         dec = dec.Replace("%D", mLuiHui.toStringWithUnit() + "");
         mButtonDec.text = "确定";
         mDes.text = dec;
+        mDes.alignment = TextAnchor.UpperLeft;
     }
     private BigNumber mLuiHui;
     public void showUi()
@@ -100,6 +102,7 @@ public class LuiHuiTips : UiControlBase
         dec =dec.Replace("%D", tmp.toStringWithUnit() + "");
         mButtonDec.text = "轮回";
         mDes.text = dec;
+        mDes.alignment = TextAnchor.UpperLeft;
     }
 
     public void showUi(string str,int type) {
@@ -138,6 +141,7 @@ public class LuiHuiTips : UiControlBase
             }
 
         }
+        mDes.alignment = TextAnchor.UpperLeft;
     }
     VocationDecBean mVocationBean = null;
     public void showUi(long  vocation)
@@ -149,7 +153,8 @@ public class LuiHuiTips : UiControlBase
         mLeftDec.text = "确定";
         mRightDec.text = "取消";
         mVocationBean = JsonUtils.getIntance().getVocationById(vocation);
-        mDes.text = mVocationBean.tip_dec;     
+        mDes.text = mVocationBean.tip_dec;
+        mDes.alignment = TextAnchor.MiddleCenter;
     }
     public void showUiQiangzhi()
     {
@@ -160,6 +165,7 @@ public class LuiHuiTips : UiControlBase
         mLeftDec.text = "确定";
         mRightDec.text = "取消";
         mDes.text = JsonUtils.getIntance().getStringById(100037);
+        mDes.alignment = TextAnchor.UpperLeft;
     }
 
     /*  public void showUi(string str, int type)

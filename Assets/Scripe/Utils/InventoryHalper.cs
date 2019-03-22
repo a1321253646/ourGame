@@ -39,23 +39,29 @@ public class InventoryHalper
       //  mCard.Clear();
         SQLHelper.getIntance().deleteLuihui();
     }
-    public void useCard(PlayerBackpackBean bean)
-    {
-        bean.goodType = SQLDate.GOOD_TYPE_USER_CARD;
-        SQLHelper.getIntance().changeGoodTyppe(bean);
-        mCard.Add(bean);
-    }
-    public void removeUserCard(PlayerBackpackBean bean)
-    {
-        bean.goodType = SQLDate.GOOD_TYPE_CARD;
-        SQLHelper.getIntance().changeGoodTyppe(bean);
+    public void useCard(long sqlGoodId)
+    {   
         foreach (PlayerBackpackBean b in mList)
         {
-            if (b.sqlGoodId == bean.sqlGoodId) {
-                b.goodType = bean.goodType;
+            if (b.sqlGoodId == sqlGoodId)
+            {
+                b.goodType = SQLDate.GOOD_TYPE_USER_CARD;
+                mCard.Add(b);
+                SQLHelper.getIntance().changeGoodTyppe(b);
             }
         }
-        mCard.Remove(bean);
+    }
+    public void removeUserCard(long sqlGoodId)
+    {
+        foreach (PlayerBackpackBean b in mList)
+        {
+            if (b.sqlGoodId == sqlGoodId)
+            {
+                b.goodType = SQLDate.GOOD_TYPE_CARD;
+                mCard.Add(b);
+                SQLHelper.getIntance().changeGoodTyppe(b);
+            }
+        }
     }
     public string getIcon(long id)
     {
@@ -314,7 +320,7 @@ public class InventoryHalper
     }
     public bool use(PlayerBackpackBean bean)
     {        
-        return addRoleUse(bean);
+        return addRoleUse(bean.sqlGoodId);
     }
     private bool isAddSuccess = true;
     public long useBook(PlayerBackpackBean bean,long count) {
@@ -354,27 +360,33 @@ public class InventoryHalper
         }
         return false;
     }
-    public void unUse(PlayerBackpackBean bean) {
-        bean.goodType = SQLDate.GOOD_TYPE_BACKPACK;
-        mUser.Remove(bean);
-        SQLHelper.getIntance().changeGoodTyppe(bean);
+    public void unUse(long sqlId) {        
+        
         foreach (PlayerBackpackBean b in mList)
         {
-            if (b.sqlGoodId == bean.sqlGoodId)
+            if (b.sqlGoodId == sqlId)
             {
-                b.goodType = bean.goodType;
+                b.goodType = SQLDate.GOOD_TYPE_BACKPACK;
+                mUser.Remove(b);
+                SQLHelper.getIntance().changeGoodTyppe(b);
             }
         }
     }
 
-    private bool addRoleUse(PlayerBackpackBean bean)
+    private bool addRoleUse(long sqlId)
     {
         Debug.Log("========================addRoleUse = " + mUser.Count);
         if (mUser.Count < 6) {
-            SkillIndexUtil.getIntance().getEquitIndexByGoodId(false,bean.sqlGoodId);
-            bean.goodType = SQLDate.GOOD_TYPE_ZHUANGBEI;
-            SQLHelper.getIntance().changeGoodTyppe(bean);
-            mUser.Add(bean);
+            SkillIndexUtil.getIntance().getEquitIndexByGoodId(false, sqlId);
+            foreach (PlayerBackpackBean b in mList)
+            {
+                if (b.sqlGoodId == sqlId)
+                {
+                    b.goodType = SQLDate.GOOD_TYPE_ZHUANGBEI;
+                    mUser.Add(b);
+                    SQLHelper.getIntance().changeGoodTyppe(b);
+                }
+            }
             return true;
         }
         return false;

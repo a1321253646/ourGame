@@ -33,21 +33,34 @@ public class PlayControl : Attacker
         {
             GameManager.getIntance().isAddGoodForTest = true;
 
-            BackpackManager.getIntance().addGoods(4000001, count);
-            BackpackManager.getIntance().addGoods(4000002, count);
-            BackpackManager.getIntance().addGoods(4000003, count);
-            BackpackManager.getIntance().addGoods(4000004, count);
-            BackpackManager.getIntance().addGoods(4000005, count);
-            BackpackManager.getIntance().addGoods(4000006, count);
-            BackpackManager.getIntance().addGoods(4000007, count);
-            BackpackManager.getIntance().addGoods(4000008, count);
-            BackpackManager.getIntance().addGoods(4000009, count);
-            BackpackManager.getIntance().addGoods(4000010, count);
-            BackpackManager.getIntance().addGoods(4000011, count);
-            BackpackManager.getIntance().addGoods(4000012, count);
-            BackpackManager.getIntance().addGoods(4000013, count);
-            BackpackManager.getIntance().addGoods(4000014, count);
+            BackpackManager.getIntance().addGoods(3000001, count);
+            BackpackManager.getIntance().addGoods(3000002, count);
+            BackpackManager.getIntance().addGoods(3000003, count);
+            BackpackManager.getIntance().addGoods(3000004, count);
+            BackpackManager.getIntance().addGoods(3000005, count);
+            BackpackManager.getIntance().addGoods(3000006, count);
+            BackpackManager.getIntance().addGoods(3000007, count);
             BackpackManager.getIntance().addGoods(3000008, count);
+            BackpackManager.getIntance().addGoods(3000009, count);
+            BackpackManager.getIntance().addGoods(3000010, count);
+            BackpackManager.getIntance().addGoods(3000011, count);
+            BackpackManager.getIntance().addGoods(3000012, count);
+            BackpackManager.getIntance().addGoods(3000013, count);
+            BackpackManager.getIntance().addGoods(3000014, count);
+            BackpackManager.getIntance().addGoods(3000015, count);
+            BackpackManager.getIntance().addGoods(3000016, count);
+            BackpackManager.getIntance().addGoods(3000017, count);
+            BackpackManager.getIntance().addGoods(3000018, count);
+            BackpackManager.getIntance().addGoods(3000019, count);
+            BackpackManager.getIntance().addGoods(3000020, count);
+            BackpackManager.getIntance().addGoods(3000021, count);
+            BackpackManager.getIntance().addGoods(3000022, count);
+            BackpackManager.getIntance().addGoods(3000023, count);
+            BackpackManager.getIntance().addGoods(3000024, count);
+            BackpackManager.getIntance().addGoods(3000025, count);
+            BackpackManager.getIntance().addGoods(3000026, count);
+            BackpackManager.getIntance().addGoods(3000027, count);
+            BackpackManager.getIntance().addGoods(3000028, count);
 
         }
         getOutLine();
@@ -127,6 +140,15 @@ public class PlayControl : Attacker
         {
             GameObject.Find("attribute_show").GetComponent<AttributeShowManager>().showEnemy(this);
         }
+
+        Vector3 tmp = PointUtils.screenTransToWorld(GameObject.Find("kapai_local_top").transform.position);
+        Vector3 tmp2 = PointUtils.screenTransToWorld(GameObject.Find("kapai_local_bottom").transform.position);
+        float cardTop = tmp.y - tmp2.y;
+        MapConfigBean mMapConfig = JsonUtils.getIntance().getMapConfigByResource(
+            JsonUtils.getIntance().getLevelData().map);
+        float yBase = mMapConfig.y_base;
+        yBase = cardTop + mMapConfig.y_base;
+        transform.position = new Vector2(transform.position.x,yBase- resourceData.idel_y) ;
     }
 
 
@@ -564,7 +586,7 @@ public class PlayControl : Attacker
             bloodBili = -1;
             bloodDistance = 0;
         }
-        
+        Debug.Log("before hero mBaseAttribute= " + mBaseAttribute.toString());
         Hero mHero = JsonUtils.getIntance().getHeroData();
         if (resourceData == null) {
             mVoication = SQLHelper.getIntance().mCurrentVocation;
@@ -600,8 +622,8 @@ public class PlayControl : Attacker
         mBaseAttribute.evd = mHero.dod;
 //        Debug.Log("===============英雄mHero.dod = " + mHero.dod);
         mBaseAttribute.attackSpeed = mHero.attack_speed;
-//        Debug.Log("===============英雄攻速 = " + mBaseAttribute.attackSpeed);
-
+        //        Debug.Log("===============英雄攻速 = " + mBaseAttribute.attackSpeed);
+        Debug.Log("hero mBaseAttribute= " + mBaseAttribute.toString());
         mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);
         Debug.Log("setHeroData");

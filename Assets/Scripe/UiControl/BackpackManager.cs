@@ -168,7 +168,7 @@ public class BackpackManager
         }
         else if (type == TipControl.UNUSE_TYPE)
         {
-            InventoryHalper.getIntance().unUse(bean);
+            InventoryHalper.getIntance().unUse(bean.sqlGoodId);
             mInvertoryControl.update();
             mLevel.ChangeEquip(bean, false);
             mHeroControl.upDateUi();
@@ -204,13 +204,13 @@ public class BackpackManager
             {
                 return false;
             }
-            InventoryHalper.getIntance().useCard(bean);
+            InventoryHalper.getIntance().useCard(bean.sqlGoodId);
             mInvertoryControl.update();
             mCardControl.upDateUi();
         }
         else if (type == TipControl.UNUSE_CARD_TYPE)
         {
-            InventoryHalper.getIntance().removeUserCard(bean);
+            InventoryHalper.getIntance().removeUserCard(bean.sqlGoodId);
             mInvertoryControl.update();
             mCardControl.upDateUi();
         }

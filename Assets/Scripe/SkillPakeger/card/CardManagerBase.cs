@@ -30,7 +30,7 @@ public abstract class CardManagerBase : MonoBehaviour {
 
     public float CREADT_CARD_TIME = -1;
     public float FRIST_CARD_TIME = -1;
-    public static float OUT_CREADT_CARD_TIME = 0.1f;
+    public static float OUT_CREADT_CARD_TIME = 0.01f;
 
     public bool isInit = false;
 
@@ -47,6 +47,8 @@ public abstract class CardManagerBase : MonoBehaviour {
 
     public bool isShow = false;
     public bool isFristCreat = false;
+
+    private GameObject mCreatCardX;
 
     public void reset() {
         isInit = false;
@@ -190,6 +192,7 @@ public abstract class CardManagerBase : MonoBehaviour {
             }
         }
         initNengliangkuai();
+        mCreatCardX = GameObject.Find("creat_card_x");
     }
 
     public void addCard(long id)
@@ -386,7 +389,7 @@ public abstract class CardManagerBase : MonoBehaviour {
     {
 
         GameObject newobj = GameObject.Instantiate(
-                card, new Vector2(2500, mYdel ), Quaternion.Euler(0.0f, 0f, 0.0f));;
+                card, new Vector2(mCreatCardX.transform.position.x, mYdel ), Quaternion.Euler(0.0f, 0f, 0.0f));;
         if (mAttacker.mAttackType == Attacker.ATTACK_TYPE_HERO)
         {
         //    newobj = GameObject.Instantiate(

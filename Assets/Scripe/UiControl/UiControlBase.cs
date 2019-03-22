@@ -22,6 +22,7 @@ public abstract class UiControlBase : MonoBehaviour
 
     public virtual void toShowUi() {
         UiControlManager.getIntance().show(mControlType);
+       
     }
     public virtual void toremoveUi()
     {

@@ -63,7 +63,7 @@ public class JsonUtils
 
 
     List<long> mAffixEnbleLevel = new List<long>();
-    List<Hero> heroData;
+    Dictionary<long, Hero>heroData = new Dictionary<long, Hero>();
     public List<Level> levelData;
     List<ResourceBean> resourceData;
     Dictionary<long, float> mConfig = new Dictionary<long, float>();
@@ -223,6 +223,7 @@ public class JsonUtils
         path = path + ".json";
 #endif
         if (!path.Equals(heroFile)) {
+            heroFile = path;
             readHeroData();
         }
 
@@ -680,8 +681,14 @@ public class JsonUtils
 
     private void readHeroData(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (heroFile));
-		heroData = arrdata.ToObject<List<Hero>> ();
-	}
+        List<Hero> list  = arrdata.ToObject<List<Hero>> ();
+        heroData.Clear();
+        foreach (Hero h in list) {
+            heroData.Add(h.role_lv, h);
+        }
+        
+
+    }
 	private void readLevelData(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (levelFile));
 		levelData = arrdata.ToObject<List<Level>> ();
@@ -851,11 +858,9 @@ public class JsonUtils
             mHeroLv));
 	}
 	public Hero getHeroData(long lv){
-		foreach (Hero hero in heroData) {
-			if (hero.role_lv == lv) {
-				return hero;
-			}
-		}
+        if (heroData.ContainsKey(lv)) {
+            return heroData[lv];
+        }
 		return null;
 	}
 	public void init (){

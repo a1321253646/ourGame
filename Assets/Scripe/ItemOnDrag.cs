@@ -99,11 +99,11 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         if (mIndicator != null) {
             if (isUser)
             {
-                if (eventData.position.y > Screen.height / 2 + 30)
+                if (eventData.position.y > Screen.height / 2 + 30 && BackpackManager.getIntance().use(mBean, 1, TipControl.USE_CARD_TYPE))
                 {
                     //  if (BackpackManager.getIntance().use(newBean, 1, TipControl.USE_CARD_TYPE))
                     //   {
-                    BackpackManager.getIntance().use(mBean, 1, TipControl.USE_CARD_TYPE);
+                   
                     Destroy(mIndicator);
                     //  Destroy(gameObject);
 
