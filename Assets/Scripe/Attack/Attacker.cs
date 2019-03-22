@@ -52,7 +52,7 @@ public abstract class Attacker : MonoBehaviour
 	public List<Attacker> mAttackerTargets;
 	public ResourceBean resourceData;
 
-    public Dictionary<long, bool> mBuffList = new Dictionary<long, bool>();
+    public Dictionary<long, long> mBuffList = new Dictionary<long, long>();
 
     public AnimalControlBase mAnimalControl;
     public SpriteRenderer mSpriteRender;
@@ -87,6 +87,7 @@ public abstract class Attacker : MonoBehaviour
     public abstract double BeKillAttack( double value, Attacker hurter);
     public abstract void getAttributeEnd();
     public abstract void AddBlood(double value);
+    public abstract double allHurt(HurtStatus status, Attacker hurter);
     public int getStatus() {
         return status;
     }
@@ -194,20 +195,20 @@ public abstract class Attacker : MonoBehaviour
         mAllAttribute.clear();
 
         mAllAttribute.add(mBaseAttribute);
-        //        Debug.Log("===============mBaseAttribute = " + mBaseAttribute.toString());
-        //        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+
+
         mAllAttribute.add(mEquipAttribute);
-        //        Debug.Log("===============mAttribute.mEquipAttribute = " + mEquipAttribute.toString());
-        //        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+
+
         mAllAttribute.add(mLunhuiAttribute);
-        //        Debug.Log("===============mAttribute.mLunhuiAttribute = " + mLunhuiAttribute.toString());
-        //        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+
+
         mAllAttribute.add(mSkillAttribute);
-        //        Debug.Log("===============mAttribute.mSkillAttribute = " + mSkillAttribute.toString());
-        //        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+
+
         mAllAttribute.add(mPetAttribute);
-        //        Debug.Log("===============mAttribute.mSkillAttribute = " + mPetAttribute.toString());
-        //        Debug.Log("===============mAttribute.mAllAttribute = " + mAllAttribute.toString());
+
+
 
         //Debug.Log("===============mAttribute.mEquipAttributePre = " + mEquipAttributePre.toString());
         //Debug.Log("===============mAttribute.mLunhuiAttributePre = " + mLunhuiAttributePre.toString());
@@ -216,11 +217,9 @@ public abstract class Attacker : MonoBehaviour
 
 
         mAttribute.add(mAllAttribute);
-        //Debug.Log("===============mAttribute.mAttribute = " + mAllAttribute);
-        //        Debug.Log("===============mAttribute.mAllAttributePre = " + mAttribute.toString());
         mAttribute.chen(mAllAttributePre.getAll());
-        //        Debug.Log("===============mAttribute.mAllAttributePre = " + mAllAttributePre.getAll().toString());
-        //Debug.Log("===============mAttribute.mAttribute = " + mAttribute);
+       
+//        Debug.Log("===============mAttribute.mAttribute = " + mAttribute.toString());
         if (bloodDistance != -1)
         {
             mBloodVolume = mAttribute.maxBloodVolume - bloodDistance;
@@ -232,7 +231,35 @@ public abstract class Attacker : MonoBehaviour
 
         getAttributeEnd();
     }
+    public float getLunhuiValue(long type, long id, float valueDefault)
+    {
+        float result = valueDefault;
+        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(id);
+        long value = 0;
 
+        if (luihuiLevel != BaseDateHelper.encodeLong(0))
+        {
+            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(id, BaseDateHelper.decodeLong(luihuiLevel));
+            foreach (SamsaraValueBean bean in list)
+            {
+                if (bean.type == type)
+                {
+                    value = bean.value;
+                    break;
+                }
+            }
+            if (value != 0)
+            {
+                result = value;
+
+            }
+        }
+        else
+        {
+            result = valueDefault;
+        }
+        return result;
+    }
 
 }
 

@@ -67,6 +67,7 @@ public class PlayControl : Attacker
             mSkillManager.removeAllSkill();
             mSkillManager.cardCardHurtPre.clear();
             mSkillManager.carHurtPre.clear();
+            mSkillManager.removeAllVocationSkill();
         }
         if (mVoication != -1) {
             resourceData = null;
@@ -121,6 +122,11 @@ public class PlayControl : Attacker
         mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
         mFightManager.registerAttacker(this);
         startGame();
+       
+        if (JsonUtils.getIntance().getConfigValueForId(100055) == 1)
+        {
+            GameObject.Find("attribute_show").GetComponent<AttributeShowManager>().showEnemy(this);
+        }
     }
 
 
@@ -297,8 +303,6 @@ public class PlayControl : Attacker
         getAttribute(false);
         upDataSpeed();
     }
-    private double bloodBili = -1;
-    private double bloodDistance = -1;
 
 
     public void initEquip() {
@@ -312,7 +316,7 @@ public class PlayControl : Attacker
         mSkillManager.lunhuiDownCardCost = 0;
         mSkillManager.lunhuiCardHurtPre.clear();
         mSkillManager.lunhuiHurtPre.clear();
-
+        mSkillManager.removeAllLunhuiSkill();
         GameManager.getIntance().mLunhuiOnlineGet.clear();
         GameManager.getIntance().mLunhuiOutlineGet.clear();
         GameManager.getIntance().mLunhuiLunhuiGet.clear();
@@ -321,7 +325,7 @@ public class PlayControl : Attacker
         Dictionary<long, long>.KeyCollection keys= samsaras.Keys;
         foreach (long key in keys) {
             long level = BaseDateHelper.decodeLong(samsaras[key]) ;
-            Debug.Log("level = " + level);
+//            Debug.Log("level = " + level);
             if(level != 0) {
                long index = SkillIndexUtil.getIntance().getSamIndexBySamId(false, key);
               // mAllAttributePre.delete(index);
@@ -329,6 +333,9 @@ public class PlayControl : Attacker
                SamsaraJsonBean sam=  JsonUtils.getIntance().getSamsaraInfoById(key);
                List<SamsaraValueBean> beanValue = sam.levelList[level];
                 foreach (SamsaraValueBean date in beanValue) {
+                    if (date.type > 500003 && mSkillManager.addLunhuiKill(date.type,this, index)) {
+                        continue;
+                    }
                     if (date.type == 100)
                     {
                         mLunhuiAttribute.aggressivity += date.value;
@@ -367,21 +374,32 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 400001) {
                         mSkillManager.lunhuiHurtPre.AddFloat(index,1 + (float)date.value / 10000);
-
-
                     }
                     else if (date.type == 400002)
                     {
+ //                       Debug.Log("mAllAttributePre aggressivity = " + mAllAttributePre.getAll().aggressivity);
+                        mAllAttributePre.delete(index);
+ //                       Debug.Log("mAllAttributePre aggressivity = " + mAllAttributePre.getAll().aggressivity);
                         mAllAttributePre.add(index, AttributePre.aggressivity, date.value);
+ //                       Debug.Log("mAllAttributePre aggressivity = " + mAllAttributePre.getAll().aggressivity);
+
                     }
                     else if (date.type == 400003)
                     {
-                        mAllAttributePre.add(index, AttributePre.maxBloodVolume, date.value);
+   //                     Debug.Log("mAllAttributePre maxBloodVolume = " + mAllAttributePre.getAll().maxBloodVolume);
+                        mAllAttributePre.delete(index);
+   //                     Debug.Log("mAllAttributePre maxBloodVolume = " + mAllAttributePre.getAll().maxBloodVolume);
+                        mAllAttributePre.add(index, AttributePre.maxBloodVolume,date.value);
+   //                     Debug.Log("mAllAttributePre maxBloodVolume = " + mAllAttributePre.getAll().maxBloodVolume);
                     }
                     else if (date.type == 400004)
                     {
                         //getAttribute(true);
+     //                   Debug.Log("mAllAttributePre defense = " + mAllAttributePre.getAll().defense);
+                        mAllAttributePre.delete(index);
+       //                 Debug.Log("mAllAttributePre defense = " + mAllAttributePre.getAll().defense);
                         mAllAttributePre.add(index, AttributePre.defense, date.value);
+         //               Debug.Log("mAllAttributePre defense = " + mAllAttributePre.getAll().defense);
                         //getAttribute(true);
                     }
                     else if (date.type == 400005)
@@ -518,16 +536,21 @@ public class PlayControl : Attacker
     private long mVoication = -1;
     private PlayerBackpackBean mVocationBean = new PlayerBackpackBean();
     public void vocation() {
-        /*if ( SQLHelper.getIntance().mPlayVocation != mVoication) {
-            long skill = JsonUtils.getIntance().getVocationById(mVoication).skill;
-            if (mSkillManager!= null && skill != -1) {
-                mSkillManager.removeSkill(skill);
-            }
-        }*/
-
         resourceData = null;
         setHeroData();
+    }
+    private void vocationDealSkill() {
+        mSkillManager.removeAllVocationSkill();
+        foreach (long index in SQLHelper.getIntance().mPlayVocation.Keys)
+        {
+//            Debug.Log("vocationDealSkill  index ==" + index + "  vocation= " + SQLHelper.getIntance().mPlayVocation[index]);
+            VocationDecBean v = JsonUtils.getIntance().getVocationById(SQLHelper.getIntance().mPlayVocation[index]);
+            if (v != null && v.skill != -1)
+            {
+                mSkillManager.addVocationSkill(v.skill, this, false, SkillIndexUtil.getIntance().getVocationIndexByVocationId(false, mVoication));
+            }
 
+        }
     }
 
     public void setHeroData()
@@ -544,29 +567,29 @@ public class PlayControl : Attacker
         
         Hero mHero = JsonUtils.getIntance().getHeroData();
         if (resourceData == null) {
-            mVoication = SQLHelper.getIntance().mPlayVocation;
+            mVoication = SQLHelper.getIntance().mCurrentVocation;
             if (mVoication == -1) {
                 mVoication = 1;
             }
+
+
+            //mVoication = 43003;
+
             resourceData = JsonUtils.getIntance().getEnemyResourceData(
                 JsonUtils.getIntance().getVocationById(mVoication).resource);
+            vocationDealSkill();
             initAnimalEvent();
             VocationDecBean bean = JsonUtils.getIntance().getVocationById(mVoication);
-            long skill = bean.skill;
-            if (skill != -1)
-            {
-                mSkillManager.addSkill(skill,this,false,SkillIndexUtil.getIntance().getVocationIndexByVocationId(false,mVoication));
-            }
             mAttackLeng = bean.attack_range * resourceData.zoom;
             GameObject.Find("hero").GetComponent<HeroRoleControl>().vocation();
         }
         double mMaxTmp = mBaseAttribute.maxBloodVolume;
         if (mBloodVolume < 0) {
             mBloodVolume = 0;
-            Debug.Log("mBloodVolume = " + mBloodVolume);
+//            Debug.Log("mBloodVolume = " + mBloodVolume);
         }
-        Debug.Log("mMaxTmp = " + mMaxTmp);
-        Debug.Log("mBloodVolume = " + mBloodVolume);
+//        Debug.Log("mMaxTmp = " + mMaxTmp);
+//        Debug.Log("mBloodVolume = " + mBloodVolume);
         mBaseAttribute.aggressivity = mHero.role_attack;
         mBaseAttribute.defense = mHero.role_defense;
         mBaseAttribute.maxBloodVolume = mHero.role_hp;
@@ -673,23 +696,24 @@ public class PlayControl : Attacker
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
 		return allHurt(status, hurter);
 	}
-    public double allHurt(HurtStatus status, Attacker hurter)
+    public override double allHurt(HurtStatus status, Attacker hurter)
     {
-        if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)
+ 
+        mSkillManager.mEventAttackManager.allHurt(hurter, status);
+        mBloodVolume = mBloodVolume - status.blood;
+        GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
+        if (mBloodVolume <= 0) {
+            mSkillManager.mEventAttackManager.befroeDie();
+        }
+        if (mBloodVolume <= 0)
         {
-            mSkillManager.mEventAttackManager.allHurt(hurter, status);
-            mBloodVolume = mBloodVolume - status.blood;
-            GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
-            if (mBloodVolume <= 0) {
-                mSkillManager.mEventAttackManager.befroeDie();
-            }
-            if (mBloodVolume <= 0)
+            if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)
             {
                 mFightManager.unRegisterAttacker(this);
                 Die();
-
             }
         }
+        
         mState.hurt(status);
         return status.blood;
     }
@@ -714,7 +738,7 @@ public class PlayControl : Attacker
         return allHurt(status, hurt);
     }
     public override void AddBlood(double value) {
-        Debug.Log("  play add blood =" + value);
+//        Debug.Log("  play add blood =" + value);
         if (mBloodVolume + value > mAttribute.maxBloodVolume)
         {
             value = mAttribute.maxBloodVolume - mBloodVolume;
@@ -723,4 +747,6 @@ public class PlayControl : Attacker
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);
         mState.add(value);
     }
+
+
 }

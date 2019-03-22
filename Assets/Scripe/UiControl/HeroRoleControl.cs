@@ -10,7 +10,7 @@ public class HeroRoleControl : UiControlBase
     List< PlayerBackpackBean> mHeroEquipl;
     Dictionary<long, GoodControl> mHeroGoodControl = new Dictionary<long, GoodControl>();
     Image mRoleShow;
-    private Text mText, mHeroLvTx;
+    private Text mText, mHeroLvTx,mVocation;
     private long[] mTypeAll = new long[] {1, 2, 3, 4, 5, 6};
     private Button mClose;
     private int mLevel;
@@ -69,6 +69,9 @@ public class HeroRoleControl : UiControlBase
         if (mHeroLvTx == null) {
             mHeroLvTx = GameObject.Find("hero_lv_tx").GetComponent<Text>();
         }
+        if (mVocation == null) {
+            mVocation = GameObject.Find("hero_vocation").GetComponent<Text>();
+        }
         PlayControl plya = BackpackManager.getIntance().getHero();
         mHeroLvTx.text = "勇士等级：Lv." + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv);
         mText.text =
@@ -80,6 +83,9 @@ public class HeroRoleControl : UiControlBase
             "攻    速：" + StringUtils.doubleToStringShow(plya.mAttribute.attackSpeed) + "\n" +
             "暴击伤害：" + StringUtils.doubleToStringShow(plya.mAttribute.crtHurt) +"\n"+
             "真实伤害：" + StringUtils.doubleToStringShow(plya.mAttribute.readHurt) +"\n";
+        long vocation =  SQLHelper.getIntance().mCurrentVocation;
+        VocationDecBean vo = JsonUtils.getIntance().getVocationById(vocation);
+        mVocation.text = vo.name;
     }
 
     public override void init()
@@ -141,13 +147,14 @@ public class HeroRoleControl : UiControlBase
 
         if (resourceData == null) {
             Hero mHero = JsonUtils.getIntance().getHeroData();
-            long vocation = SQLHelper.getIntance().mPlayVocation;
+            long vocation = SQLHelper.getIntance().mCurrentVocation;
             if (vocation == -1) {
                 vocation = 1;
             }
             resourceData = JsonUtils.getIntance().getEnemyResourceData(
                 JsonUtils.getIntance().getVocationById(vocation).resource);
             mRoleShow = GameObject.Find("heroRole").GetComponent<Image>();
+            mVocation = GameObject.Find("hero_vocation").GetComponent<Text>();
             mAnimalControl = new AnimalControlBase(resourceData, mRoleShow);
             mAnimalControl.setStatus(ActionFrameBean.ACTION_STANDY);
             mAnimalControl.start();

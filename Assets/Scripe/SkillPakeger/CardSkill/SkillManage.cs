@@ -4,6 +4,11 @@ using System.Collections.Generic;
 
 public class SkillManage
 {
+    public void reset()
+    {
+        mSkillList.Clear();
+    }
+
     List<SkillObject> mSkillList = new List<SkillObject>();
     public GameObject mSkillObject;
     public LocalManager mLocalManager;

@@ -110,7 +110,7 @@ public class CardControl : MonoBehaviour
                 Text tv = text.GetComponent<Text>();
                 tv.text = "请选择一个目标";
                 tv.color = Color.red;
-                UiManager.FlyTo(tv);
+                UiManager.FlyTo(tv, UiManager.FLY_UP);
                 return;
             }
             else if (!mManager.userCard(mIndex, cost))
@@ -126,7 +126,7 @@ public class CardControl : MonoBehaviour
                 Text tv = text.GetComponent<Text>();
                 tv.text = "能量点不足";
                 tv.color = Color.red;
-                UiManager.FlyTo(tv);
+                UiManager.FlyTo(tv, UiManager.FLY_UP);
                 return;
             }
             Vector3 v = PointUtils.screenTransToWorld(transform.position);

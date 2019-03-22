@@ -67,19 +67,24 @@ public class FightResource
         {
             mAttacker.attackSync(mHurtBlood.blood);
             mAttacker.mAttackerTargets[0].BeAttack(mHurtBlood , mAttacker);
+            
             mAttacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(mAttacker, mHurtBlood);
-            mAttacker.mSkillManager.mEventAttackManager.endHurt(mHurtBlood);
+            if (mAttacker.mAttackerTargets.Count > 0) {
+                mAttacker.mSkillManager.mEventAttackManager.endHurt(mHurtBlood, mAttacker.mAttackerTargets[0]);
+            }
+            
         }
 	}
 	public void hurt(){
 		if (mAttacker.mAttackerTargets.Count > 0) {
 			mAttacker.mAttackerTargets [0].BeAttack (mHurtBlood , mAttacker);
 			mAttacker.attackSync (mHurtBlood.blood);
+            
             if (mAttacker.mAttackerTargets.Count > 0) {
                 mAttacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(mAttacker, mHurtBlood);
+                mAttacker.mSkillManager.mEventAttackManager.endHurt(mHurtBlood, mAttacker.mAttackerTargets[0]);
             }
-            
-            mAttacker.mSkillManager.mEventAttackManager.endHurt(mHurtBlood);
+           
         }
 	}
 }

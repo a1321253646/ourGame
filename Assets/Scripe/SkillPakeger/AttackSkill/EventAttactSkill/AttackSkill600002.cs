@@ -6,7 +6,7 @@ public class AttackSkill600002 : EventAttackSkill
 {
     float count = 0;
 
-    public override void endHurt(HurtStatus hurt)
+    public override void endHurt(HurtStatus hurt, Attacker attacker)
     {
 
         if (count == 0)

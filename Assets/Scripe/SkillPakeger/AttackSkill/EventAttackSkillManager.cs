@@ -141,7 +141,7 @@ public class EventAttackSkillManager
         }
         return ;
     }
-    public virtual void beforeHurt(HurtStatus hurt)//造成伤害前
+    public virtual void beforeHurt(HurtStatus hurt,Attacker attacker)//造成伤害前
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_BEFORE_HURT);
         if (singel == null || singel.mList.Count == 0)
@@ -153,12 +153,12 @@ public class EventAttackSkillManager
             for (int i = 0; i < singel.mList.Count; i++)
             {
                 EventAttackSkill skill = singel.mList[i];
-                skill.beforeHurt(hurt);
+                skill.beforeHurt(hurt, attacker);
             }
         }
         return ;
     }
-    public virtual void endHurt(HurtStatus hurt)//造成伤害后
+    public virtual void endHurt(HurtStatus hurt, Attacker attacker)//造成伤害后
     {
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_END_EHURT);
         if (singel == null || singel.mList.Count == 0)
@@ -167,11 +167,10 @@ public class EventAttackSkillManager
         }
         else
         {
-
             for (int i = 0; i < singel.mList.Count; i++)
             {
                 EventAttackSkill skill = singel.mList[i];
-                skill.endHurt(hurt);
+                skill.endHurt(hurt, attacker);
             }
         }
         return ;
@@ -348,6 +347,7 @@ public class EventAttackSkillManager
     }
     public void debuffLitterMonster(Attacker monster)
     {
+//        Debug.Log("debuffLitterMonster id== "+((EnemyBase)monster).mData.id);
         EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_LITTER_DEBUFF);
         if (singel == null || singel.mList.Count == 0)
         {
@@ -357,7 +357,17 @@ public class EventAttackSkillManager
         {
             for (int i = 0; i < singel.mList.Count; i++)
             {
+                
                 EventAttackSkill skill = singel.mList[i];
+
+                if (skill.mSkillJson != null)
+                {
+//                    Debug.Log("debuffLitterMonster skill id== " + skill.mSkillJson.id);
+                }
+                else {
+//                    Debug.Log(skill +" mSkillJson == null");
+                }
+                
                 skill.debuffLitterMonster(monster);
             }
         }

@@ -41,6 +41,9 @@ public class LevelManager : MonoBehaviour {
         mFightManager.setLoaclManager(mLocalManager);
 
         mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
+        if (JsonUtils.getIntance().getConfigValueForId(100055) == 1) {
+            GameObject.Find("attribute_show").transform.localScale = new Vector2(1, 1);
+        }
         if (JsonUtils.getIntance().getConfigValueForId(100047) == 1)
         {
             Time.timeScale = JsonUtils.getIntance().getConfigValueForId(100054);
@@ -90,6 +93,8 @@ public class LevelManager : MonoBehaviour {
 
     public void reset()
     {
+        ActiveListControl a = GameObject.Find("active_button_list").GetComponent<ActiveListControl>();
+        a.removeVocation(false);
         GameManager.getIntance().reStart();
         starBoss = false;
         if (mFightManager.mEnemyFactory != null)
@@ -123,6 +128,18 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 1;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
+        SkillManage.getIntance().reset();
+
+        List<ActiveButtonBean> list = SQLHelper.getIntance().getActiveList();
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION)
+            {
+                a.showVocation(false);
+            }
+        }
+
     }
 
     void Start () {
@@ -261,12 +278,12 @@ public class LevelManager : MonoBehaviour {
     {
         Hero hero = JsonUtils.getIntance().getHeroData();
         long vocation = 1;
-        if (SQLHelper.getIntance().mPlayVocation == -1)
+        if (SQLHelper.getIntance().mCurrentVocation == -1)
         {
             vocation = 1;
         }
         else {
-            vocation = SQLHelper.getIntance().mPlayVocation;
+            vocation = SQLHelper.getIntance().mCurrentVocation;
         }
 
         Debug.Log(" SQLHelper.getIntance().mPlayVocation= " + vocation);
@@ -281,6 +298,7 @@ public class LevelManager : MonoBehaviour {
 		newobj.transform.localScale.Set (JsonUtils.getIntance().getConfigValueForId(100005), JsonUtils.getIntance().getConfigValueForId(100005), 1);
         mPlayerControl = newobj.GetComponent<PlayControl>();
         mPlayerControl.startGame();
+
 
     }
 	public void creatEnemyFactory(float x,float y)

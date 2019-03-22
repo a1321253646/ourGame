@@ -3,57 +3,67 @@ using System.Collections;
 
 public class TimeEventAttackSkill700005 : TimeEventAttackSkillBase
 {
-//    public CalculatorUtil mCalcuator;
+    long count1 = -1;
+    long count2 = -1;
+    long count3 = -1;
+    float count4 = 0;
+    bool isAdd = false;
+    public override void beforeHurt(HurtStatus hurt,Attacker attacker)
+    {
+        if(isAdd) {
+            mTime = 0;
+            return;    
+        }
+        if (count1 == -1)
+        {
+            count1 =(long) mSkillJson.getSpecialParameterValue()[0];
+            count2 = (long)mSkillJson.getSpecialParameterValue()[1] *100;
+            count3 = (long)mSkillJson.getSpecialParameterValue()[2] *100;
+            count4 = mSkillJson.getSpecialParameterValue()[3];
+        }
+        bool isCrt = randomResult(100, (int)count1, false);
+        if (isCrt)
+        {
+            mFight.mSkillAttribute.crt += count2;
+            mFight.mAllAttributePre.add(mSkillIndex, AttributePre.crtHurt, count3);
+            Debug.Log("beforeHurt mFight.mSkillAttribute.crt = " + mFight.mSkillAttribute.crt);
+            Debug.Log("beforeHurt mFight.mAllAttributePre.getAll().crtHurt = " + mFight.mAllAttributePre.getAll().crtHurt);
+            mTime = 0;
+            isAdd = true;
+        }
+    }
     public override void endSkill()
     {
         mManager.mEventAttackManager.unRegisterTimeEventSkill(this);
-        mManager.getAttacker().mAllAttributePre.delete(mSkillIndex);
+        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_BEFORE_HURT, this);
         mStatus = SKILL_STATUS_END;
-    }
-
-    int count1 = 0;
-    public override void endHurt( HurtStatus hurt)
-    {
-        mFight.AddBlood(count1 * hurt.blood);
+        if (isAdd) {
+            mFight.mSkillAttribute.crt -= count2;
+            mFight.mAllAttributePre.minus(mSkillIndex, AttributePre.crtHurt, count3);
+            Debug.Log("endSkill mFight.mSkillAttribute.crt = " + mFight.mSkillAttribute.crt);
+            Debug.Log("endSkill mFight.mAllAttributePre.getAll().crtHurt = " + mFight.mAllAttributePre.getAll().crtHurt);
+        }
     }
 
     public override void startSkill()
     {
-        
+        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_BEFORE_HURT, this);
         mManager.mEventAttackManager.registerTimeEventSkill(this);
-        value = mParam[1];
-        value = mParam[0]*100;
-
-        mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.attackSpeed, count1);
-        Debug.Log(" TimeEventAttackSkill200003 value = " + value);
-
-        isInit = true;
     }
-
 
     public override void upDateSkill()
     {
-
-        if (!isInit)
+        if (!isInit || ! isAdd)
         {
             return;
         }
         mTime += Time.deltaTime;
-        Debug.Log("==================================TimeEventAttackSkill200003 value=" + value + " mTime = " + mTime);
-        //}
-        if (mTime > value)
-        {
-            endSkill();
+        if (mTime > count4) {
+            mFight.mSkillAttribute.crt -= count2;
+            mFight.mAllAttributePre.minus(mSkillIndex, AttributePre.crtHurt, count3);
+            Debug.Log("upDateSkill mFight.mSkillAttribute.crt = " + mFight.mSkillAttribute.crt);
+            Debug.Log("upDateSkill mFight.mAllAttributePre.getAll().crtHurt = " + mFight.mAllAttributePre.getAll().crtHurt);
+            isAdd = false;
         }
-        
-    }
-    public override bool isAnimal()
-    {
-        return true;
-    }
-    public override void addValueEnd()
-    {
-        mTime = 0;
-        value = mParam[0];
     }
 }

@@ -50,7 +50,7 @@ public class ZhuangBeiItemLongPress : MonoBehaviour
             if (mLongPressTIme == 0)
             {
                 // mLongPressTIme = JsonUtils.getIntance().getConfigValueForId(100041);
-                mLongPressTIme = 0.1f;
+                mLongPressTIme = JsonUtils.getIntance().getConfigValueForId(100041); ;
             }
             if (GameManager.getIntance().mCurrentCrystal.ieEquit(mParent.updateCost) != -1)
             {

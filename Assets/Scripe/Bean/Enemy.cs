@@ -29,7 +29,7 @@ public class Enemy
     public BigNumber mDieCrystal;
 
     public BigNumber getDieCrystal() {
-        Debug.Log(" id = " + id);
+//        Debug.Log(" id = " + id);
         if (mDieCrystal == null) {
             mDieCrystal = BigNumber.getBigNumForString(die_crystal);
         }

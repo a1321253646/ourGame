@@ -119,11 +119,15 @@ public class FightManager{
         }
         mAliveActtackers.Remove(attcker.id);
         if (attcker is EnemyBase) {
-			GameManager.getIntance ().enemyDeal (attcker);
+
+
+            GameManager.getIntance ().enemyDeal (attcker);
             mLocalManager.EnemyDeal(attcker);
+
         }
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
         {
+
             GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
             if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) == 0)
             {
@@ -160,7 +164,8 @@ public class FightManager{
                 ((EnemyBase)a).endDie();
             }
             level.mPlayerControl.win();
-            GameManager.getIntance().mHeroIsAlive = true;            
+            GameManager.getIntance().mHeroIsAlive = true;
+
             // return;
         }
 
@@ -246,7 +251,7 @@ public class FightManager{
          outlineGet = BigNumber.multiply(outlineGet, outGet);
         // str += "\n=================attckerOutLine  轮回倍增=" + outGet;
         // str += "\n================attckerOutLine  计算轮回后=" + outlineGet.toString();
-        //  Debug.Log("=================attckerOutLine  轮回倍增=" + outGet);
+          Debug.Log("=================attckerOutLine  轮回倍增=" + outGet);
         //  Debug.Log("=================attckerOutLine  计算轮回后=" + outlineGet.toString());
         outlineGet = BigNumber.multiply(outlineGet, JsonUtils.getIntance().getConfigValueForId(100048));
         if(Time.timeScale > 1) {
@@ -267,6 +272,10 @@ public class FightManager{
         return outlineGet;
     }
 
+    public void AttackerFanji(Attacker attacker, HurtStatus hurtBlood) {
+
+    }
+
 	public double attackerAction(int id){
 		double hurtBloodAll = 0;
 		HurtStatus hurtBlood = null;
@@ -278,7 +287,7 @@ public class FightManager{
 //                Debug.Log("attackBllod");
                 hurtBlood = attackBllod(attacker, attacker.mAttackerTargets[0]);
 //                Debug.Log("attackBllod");
-                attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood);
+                attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood, attacker.mAttackerTargets[0]);
                 hurtBlood = resouce.hurt(hurtBlood);
                 if (hurtBlood != null && attacker.mAttackerTargets.Count >0) {
                     attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.beforeBeHurt(attacker,hurtBlood);
@@ -286,8 +295,10 @@ public class FightManager{
                     if ( attacker.mAttackerTargets.Count > 0 && attacker.mAttackerTargets[0].getStatus() != ActionFrameBean.ACTION_DIE)
                     {
                         attacker.mAttackerTargets[0].mSkillManager.mEventAttackManager.endBeHurt(attacker,hurtBlood);
-                        attacker.mSkillManager.mEventAttackManager.endHurt(hurtBlood);
+                        attacker.mSkillManager.mEventAttackManager.endHurt(hurtBlood, attacker.mAttackerTargets[0]);
+  
                     }
+                    
                     return hurtBlood.blood;
                 }
                 else {
@@ -299,15 +310,22 @@ public class FightManager{
                 int size = attacker.mAttackerTargets.Count;
                 Attacker tager = attacker.mAttackerTargets [i];
 				hurtBlood = attackBllod (attacker, tager);
-                attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood);
+                attacker.mSkillManager.mEventAttackManager.beforeHurt(hurtBlood, tager);
                 tager.mSkillManager.mEventAttackManager.beforeBeHurt(attacker,hurtBlood);
-                
+                tager.mSkillManager.mEventAttackManager.endBeHurt(attacker, hurtBlood);
                 tager.BeAttack (hurtBlood, attacker);
-                tager.mSkillManager.mEventAttackManager.endBeHurt(attacker,hurtBlood);
-                attacker.mSkillManager.mEventAttackManager.endHurt(hurtBlood);
+                
+                
+                if (tager.getStatus() != ActionFrameBean.ACTION_DIE)
+                {
+                    attacker.mSkillManager.mEventAttackManager.endHurt(hurtBlood, tager);
+                }
+
+
                 if (tager.getStatus() == ActionFrameBean.ACTION_DIE) {
                     attacker.mSkillManager.mEventAttackManager.killEnemy();
                 }
+               
                 hurtBloodAll += hurtBlood.blood;
                 i++;
              //   if (size == attacker.mAttackerTargets.Count) {

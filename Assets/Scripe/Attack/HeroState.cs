@@ -40,10 +40,10 @@ public class HeroState : MonoBehaviour
             tv.text = "" + StringUtils.doubleToStringShow(status.blood);
             tv.color = Color.yellow;
         }
-        
-		EnemySceenPosition= Camera.main.WorldToScreenPoint(mHero.transform.position)+new Vector3(0,0,0);  
+        tv.fontSize = 20;
+        EnemySceenPosition = Camera.main.WorldToScreenPoint(mHero.transform.position)+new Vector3(0,0,0);  
 		text.transform.position = EnemySceenPosition;  
-		UiManager.FlyTo (tv);
+		UiManager.FlyTo (tv, UiManager.FLY_LEFT);
 	}
     public void add(double blood) {
         if (blood == 0) {
@@ -59,9 +59,10 @@ public class HeroState : MonoBehaviour
         Text tv = text.GetComponent<Text>();
         tv.text = "+"+ StringUtils.doubleToStringShow(blood);
         tv.color = Color.green;
+        tv.fontSize = 20;
         EnemySceenPosition = Camera.main.WorldToScreenPoint(mHero.transform.position) + new Vector3(0, 0, 0);
         text.transform.position = EnemySceenPosition;
-        UiManager.FlyTo(tv);
+        UiManager.FlyTo(tv, UiManager.FLY_LEFT);
     }
 
 }

@@ -18,6 +18,7 @@ public class LuiHuiTips : UiControlBase
    // public static int TYPPE_SELF = 7;
     public static int TYPPE_LUIHUI_NEED = 8;
     public static int TYPPE_UPDATE = 9;
+    public static int TYPPE_QIANGZHI_LUNHUI = 10;
 
     Text mDes;
     Text mButtonDec,mLeftDec,mRightDec;
@@ -150,7 +151,16 @@ public class LuiHuiTips : UiControlBase
         mVocationBean = JsonUtils.getIntance().getVocationById(vocation);
         mDes.text = mVocationBean.tip_dec;     
     }
-
+    public void showUiQiangzhi()
+    {
+        toShowUi();
+        mType = TYPPE_QIANGZHI_LUNHUI;
+        mSure.transform.localScale = new Vector2(0, 0);
+        buttonList.transform.localScale = new Vector2(1, 1);
+        mLeftDec.text = "确定";
+        mRightDec.text = "取消";
+        mDes.text = JsonUtils.getIntance().getStringById(100037);
+    }
 
     /*  public void showUi(string str, int type)
       {
@@ -193,12 +203,12 @@ public class LuiHuiTips : UiControlBase
         // GameManager.getIntance().mCurrentCrystal = new BigNumber();
         //SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
         long newLevel = 1;
-        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(9);
+        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(13);
         long value = 0;
 
-        if (luihuiLevel != BaseDateHelper.encodeLong(0)) 
+        if (luihuiLevel != BaseDateHelper.encodeLong(0) && SQLHelper.getIntance().isCloseYueqiang != 1) 
         {
-            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(9, BaseDateHelper.decodeLong(luihuiLevel));
+            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(13, BaseDateHelper.decodeLong(luihuiLevel));
             foreach (SamsaraValueBean bean in list)
             {
                 if (bean.type == 500004)
@@ -215,10 +225,32 @@ public class LuiHuiTips : UiControlBase
                 
             }
         }
+        luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(14);
 
-        
+        if (luihuiLevel != BaseDateHelper.encodeLong(0) && SQLHelper.getIntance().isCloseChuangye != 1)
+        {
+            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(14, BaseDateHelper.decodeLong(luihuiLevel));
+            foreach (SamsaraValueBean bean in list)
+            {
+                if (bean.type == 500011)
+                {
+                    value = bean.value;
+                    break;
+                }
+            }
+            if (value != 0)
+            {
+                newLevel = newLevel+((long)value);
+
+            }
+        }
+        if(newLevel >= oldLevel) {
+            newLevel = oldLevel;
+        }
+        SQLHelper.getIntance().UpdateCanLunhui(BaseDateHelper.encodeLong(newLevel + (long)JsonUtils.getIntance().getConfigValueForId(100017)));
         SQLHelper.getIntance().updateGameLevel(BaseDateHelper.encodeLong(newLevel));
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
+        SQLHelper.getIntance().addHadLunhui();
     }
 
     // Update is called once per frame
@@ -249,6 +281,10 @@ public class LuiHuiTips : UiControlBase
             }
             else if (mType == TYPPE_UPDATE) {
                 Time.timeScale = mTimeScale;
+            }
+            else if (mType == TYPPE_QIANGZHI_LUNHUI)
+            {
+                sure(new BigNumber());
             }
             if (isShowSelf)
             {
@@ -310,6 +346,7 @@ public class LuiHuiTips : UiControlBase
                 showUpdate();
             }
 
+
         });
         mClose.onClick.AddListener(() =>
         {
@@ -366,7 +403,10 @@ public class LuiHuiTips : UiControlBase
 #endif
     }
     private void vocation() {
-        SQLHelper.getIntance().updateVocation(mVocationBean.id);
+
+        
+
+        SQLHelper.getIntance().updateVocation(mVocationBean.id, mVocationBean.skill != -1);
         JsonUtils.getIntance().reReadHero();
         GameObject.Find("Manager").GetComponent<LevelManager>().heroVocation();
         GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeVocation();

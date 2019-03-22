@@ -15,6 +15,7 @@ public class SQLHelper
     public BigNumber mMojing = new BigNumber();
     public long mOutTime = -1;
     public long mMaxOutTime = -1;
+    public long mMaxLevel = BaseDateHelper.encodeLong(-1);
 
     public long isShowCardPoint = -1;
     public long isShowBackpackPoint = -1;
@@ -26,11 +27,16 @@ public class SQLHelper
     public long mMaxGoodId = -1;
     public long isUpdate = -1;
     public string mPlayName =null;
-    public long mPlayVocation = -1;
+    
     public long mVersionCode=-1;
 
     public long mCardLevel = -1;
     public long mCardListId = -1;
+
+    public long isCloseYueqiang = -1;
+    public long isCloseChuangye = -1;
+    public long isHadLunhui = -1;
+    public long isCanLunhui = BaseDateHelper.encodeLong(-1);
 
     public BigNumber mOutLineGet = null;
 
@@ -59,6 +65,17 @@ public class SQLHelper
     public static long GAME_ID_OUTLINE_VALUE = 24;
     public static long GAME_ID_VERSION_CODE = 25;
     public static long GAME_ID_LEVEL_CARD = 26;
+    public static long GAME_ID_PLAYER_VOCATION_1 = 27;
+    public static long GAME_ID_PLAYER_VOCATION_2 = 28;
+    public static long GAME_ID_PLAYER_VOCATION_3 = 29;
+    public static long GAME_ID_PLAYER_VOCATION_4 = 30;
+    public static long GAME_ID_PLAYER_VOCATION_5 = 31;
+    public static long[] GAME_ID_PLAYER_VOCATION_LIST = new long[] { GAME_ID_PLAYER_VOCATION_1, GAME_ID_PLAYER_VOCATION_2, GAME_ID_PLAYER_VOCATION_3, GAME_ID_PLAYER_VOCATION_4, GAME_ID_PLAYER_VOCATION_5 };
+    public static long GAME_ID_PLAYER_MAX_LEVEL = 32;
+    public static long GAME_ID_SETTING_CLOSED_CHUANGYE = 33;
+    public static long GAME_ID_SETTING_CLOSED_YUEQIANG = 34;
+    public static long GAME_ID_HAD_LUNHUI = 35;
+    public static long GAME_ID_CAN_LUNHUI = 36;
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -72,6 +89,8 @@ public class SQLHelper
     public static long TYPE_DROP = 7;
     public static long TYPE_GUIDE = 8;
     public static long TYPE_ACTIVITY_BUTTON = 9;
+    public long mCurrentVocation = -1;
+    public Dictionary<long, long>  mPlayVocation = new Dictionary<long, long>();
 
     List<long> mGuide = new List<long>();
     List<long> mBook = new List<long>();
@@ -112,12 +131,14 @@ public class SQLHelper
         mHeroLevel = BaseDateHelper.encodeLong(-1);
         isAutoBoss = -1;
         isLuiHui = -1;
+        mMaxLevel = BaseDateHelper.encodeLong(-1);
         isLuiHuiDeal = -1;
         mLunhuiValue = new BigNumber();
         mMojing = new BigNumber();
         mOutTime = -1;
 
         mOutLineGet = null;
+        isCanLunhui = BaseDateHelper.encodeLong(-1);
 
         isShowCardPoint = -1;
         isShowBackpackPoint = -1;
@@ -125,7 +146,11 @@ public class SQLHelper
         isShowPlayerPoint = -1;
         isShowPetTablePoint = -1;
         isFristStartGame = -1;
-        mPlayVocation = -1;
+        mPlayVocation.Clear();
+        mCurrentVocation = -1;
+        isCloseYueqiang = -1;
+        isCloseChuangye = -1;
+        isHadLunhui = -1;
         isVoice = -1;
         mMaxGoodId = -1;
         isUpdate = -1;
@@ -258,6 +283,11 @@ public class SQLHelper
                         mOutTime = long.Parse(date.extan);
 //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
+                    else if (date.id == GAME_ID_PLAYER_MAX_LEVEL)
+                    {
+                        mMaxLevel = BaseDateHelper.encodeLong(long.Parse(date.extan));
+//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                    }
                     else if (date.id == GAME_ID_IS_UPDATE)
                     {
                         isUpdate = long.Parse(date.extan);
@@ -329,10 +359,29 @@ public class SQLHelper
                         mPlayName = date.extan;
 //                        Debug.Log("读取数据库 用户名称 " + mPlayName);
                     }
+                    else if (date.id == GAME_ID_PLAYER_VOCATION_1)
+                    {
+                        mPlayVocation.Add(0, long.Parse(date.extan));
+                    }
+                    else if (date.id == GAME_ID_PLAYER_VOCATION_2)
+                    {
+                        mPlayVocation.Add(1, long.Parse(date.extan));
+                    }
+                    else if (date.id == GAME_ID_PLAYER_VOCATION_3)
+                    {
+                        mPlayVocation.Add(2, long.Parse(date.extan));
+                    }
+                    else if (date.id == GAME_ID_PLAYER_VOCATION_4)
+                    {
+                        mPlayVocation.Add(3, long.Parse(date.extan));
+                    }
+                    else if (date.id == GAME_ID_PLAYER_VOCATION_5)
+                    {
+                        mPlayVocation.Add(4, long.Parse(date.extan));
+                    }
                     else if (date.id == GAME_ID_PLAYER_VOCATION)
                     {
-                        mPlayVocation = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 角色职业 " + mPlayVocation);
+                        mCurrentVocation = long.Parse(date.extan);
                     }
                     else if (date.id == GAME_ID_OUTLINE_VALUE)
                     {
@@ -348,6 +397,22 @@ public class SQLHelper
                         string[] strs = date.extan.Split(',');
                         mCardLevel = long.Parse(strs[0]);
                         mCardListId = long.Parse(strs[1]);
+                    }
+                    else if (date.id == GAME_ID_SETTING_CLOSED_CHUANGYE)
+                    {
+                        isCloseChuangye = long.Parse(date.extan);
+                    }
+                    else if (date.id == GAME_ID_SETTING_CLOSED_YUEQIANG)
+                    {
+                        isCloseYueqiang = long.Parse(date.extan) ;
+                    }
+                    else if (date.id == GAME_ID_HAD_LUNHUI)
+                    {
+                        isHadLunhui = long.Parse(date.extan) ;
+                    }
+                    else if (date.id == GAME_ID_CAN_LUNHUI)
+                    {
+                        isCanLunhui = BaseDateHelper.encodeLong(long.Parse(date.extan));
                     }
                 }
             }
@@ -376,6 +441,7 @@ public class SQLHelper
                     
                 Debug.Log("=======================maxGoodIdTmp > mMaxGoodId================================");
             }
+            
             Debug.Log("读取数据库 物品数量" + mALLGood.Count);
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100031);
         }
@@ -558,6 +624,7 @@ public class SQLHelper
         GameManager.getIntance().mCurrentLevel = BaseDateHelper.encodeLong(1);
         GameManager.getIntance().mHeroLv = BaseDateHelper.encodeLong(1);
         GameManager.getIntance().mCurrentCrystal = mMojing;
+        
     }
 
     public void changeGoodTyppe(PlayerBackpackBean good) {
@@ -629,6 +696,10 @@ public class SQLHelper
             updateGame(GAME_ID_LEVEL, BaseDateHelper.decodeLong(value));
         }
         mGameLevel = value;
+        if (mMaxLevel == BaseDateHelper.encodeLong(-1) ||
+             BaseDateHelper.decodeLong(mGameLevel) > BaseDateHelper.decodeLong(mMaxLevel)) {
+            updateMaxLevel(mGameLevel);
+        }
     }
     public void updateVersionCode(long version)
     {
@@ -657,6 +728,43 @@ public class SQLHelper
         }
         isUpdate = 1;
     }
+    public void addHadLunhui()
+    {
+        if (isHadLunhui == -1)
+        {
+            addGame(GAME_ID_HAD_LUNHUI, 1);
+
+        }
+        isHadLunhui = 1;
+    }
+    public void UpdateCanLunhui(long level)
+    {
+        if (isCanLunhui == BaseDateHelper.encodeLong(-1))
+        {
+            addGame(GAME_ID_CAN_LUNHUI, BaseDateHelper.decodeLong(level));
+
+        }
+        else
+        {
+            updateGame(GAME_ID_CAN_LUNHUI,  BaseDateHelper.decodeLong(level));
+        }
+        isCanLunhui = level;
+    }
+    private void updateMaxLevel(long level)
+    {
+        if (mMaxLevel == -1)
+        {
+            addGame(GAME_ID_PLAYER_MAX_LEVEL, BaseDateHelper.decodeLong(level));
+
+        }
+        else
+        {
+            updateGame(GAME_ID_PLAYER_MAX_LEVEL, BaseDateHelper.decodeLong(level));
+        }
+        mMaxLevel = level;
+    }
+
+
     public void updateName(string newName)
     {
         Debug.Log("sqlhelper  updateName newName = " + newName);
@@ -796,7 +904,7 @@ public class SQLHelper
 
     public void updateHeroLevel(long value)
     {
-        Debug.Log("mHeroLevel  = = " + mHeroLevel);
+//        Debug.Log("mHeroLevel  = = " + mHeroLevel);
         if (mHeroLevel == BaseDateHelper.encodeLong(-1))
         {
             addGame(GAME_ID_HERO, BaseDateHelper.decodeLong(value));
@@ -807,7 +915,7 @@ public class SQLHelper
             updateGame(GAME_ID_HERO, BaseDateHelper.decodeLong(value));
         }
         mHeroLevel = value;
-        Debug.Log("mHeroLevel  = = " + mHeroLevel);
+ //       Debug.Log("mHeroLevel  = = " + mHeroLevel);
     }
     public void updateFristStart(long value)
     {
@@ -833,8 +941,32 @@ public class SQLHelper
         }
         isVoice = value;
     }
-
-
+    public void updateIsCloseYueqiang(bool value)
+    {
+        long valueInt = value ? 1 : 2;
+        if (isCloseYueqiang == -1)
+        {
+            addGame(GAME_ID_SETTING_CLOSED_YUEQIANG, valueInt);
+        }
+        else
+        {
+            updateGame(GAME_ID_SETTING_CLOSED_YUEQIANG, valueInt);
+        }
+        isCloseYueqiang = valueInt;
+    }
+    public void updateIsCloseChuangyue(bool value)
+    {
+        long valueInt = value ? 1 : 2;
+        if (isCloseChuangye == -1)
+        {
+            addGame(GAME_ID_SETTING_CLOSED_CHUANGYE, valueInt);
+        }
+        else
+        {
+            updateGame(GAME_ID_SETTING_CLOSED_CHUANGYE, valueInt);
+        }
+        isCloseChuangye = valueInt;
+    }
     public void updatePointPlayer(long value)
     {
         if (isShowCardPoint == value)
@@ -963,18 +1095,41 @@ public class SQLHelper
     }
 
 
-    public void updateVocation(long value)
+    public void updateVocation(long value,bool isHaveSkill)
     {
-        if (mPlayVocation == -1)
+        if (mCurrentVocation == -1)
         {
             addGame(GAME_ID_PLAYER_VOCATION, value);
-         
         }
-        else
-        {
+        else {
             updateGame(GAME_ID_PLAYER_VOCATION, value);
+            
         }
-        mPlayVocation = value;
+        mCurrentVocation = value;
+        if (!isHaveSkill) {
+            if (mPlayVocation.ContainsKey(0))
+            {
+                updateGame(GAME_ID_PLAYER_VOCATION_LIST[0], value);
+            }
+            else
+            {
+                mPlayVocation.Add(0, value);
+                addGame(GAME_ID_PLAYER_VOCATION_LIST[0], value);
+            }
+            return;
+        }
+
+        for (int i = 0; i < GAME_ID_PLAYER_VOCATION_LIST.Length; i++) {
+            if (mPlayVocation.ContainsKey(i))
+            {
+                continue;
+            }
+            else {
+                mPlayVocation.Add(i, value);
+                addGame(GAME_ID_PLAYER_VOCATION_LIST[i], value);
+                break;
+            }
+        }
     }
     public void updateHunJing(BigNumber value)
     {
@@ -993,7 +1148,7 @@ public class SQLHelper
 
     private void updateGame(long id, string value)
     {
-                Debug.Log("=================================updateGame value== " + value+ "id="+id);
+//                Debug.Log("=================================updateGame value== " + value+ "id="+id);
         SQLDate date = new SQLDate();
         date.extan = value;
         date.type = TYPE_GAME;
@@ -1004,7 +1159,7 @@ public class SQLHelper
     }
     private void addGame(long id, string value)
     {
-                Debug.Log("==================================addGame value== " + value+ " id="+ id);
+  //              Debug.Log("==================================addGame value== " + value+ " id="+ id);
         SQLDate date = new SQLDate();
         date.extan =  value ;
         date.type = TYPE_GAME;

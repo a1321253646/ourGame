@@ -11,39 +11,13 @@ public class AttackSkill500009 : EventAttackSkill
     public override void addValueEnd()
     {
 
-        getLunhuiValue(500009, 14);
+        mValue = mFight.getLunhuiValue(500009, 11, 0);
         addEachAlive(AttributePre.aggressivity);
     }
 
-    private void getLunhuiValue(long type ,long id) {
-        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(id);
-        long value = 0;
 
-        if (luihuiLevel != BaseDateHelper.encodeLong(0))
-        {
-            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(id, BaseDateHelper.decodeLong(luihuiLevel));
-            foreach (SamsaraValueBean bean in list)
-            {
-                if (bean.type == type)
-                {
-                    value = bean.value;
-                    break;
-                }
-            }
-            if (value != 0)
-            {
-                mValue = value;
 
-            }
-        }
-        else
-        {
-            mValue = 10000;
-        }
-
-    }
-
-    public override void debuffLitterMonster(Attacker monster)
+    public override void debuffBoss(Attacker monster)
     {
         monster.mAllAttributePre.updateDebuff(mSkillIndex, AttributePre.aggressivity, (long)mValue);
         monster.getAttribute(true);
@@ -52,11 +26,11 @@ public class AttackSkill500009 : EventAttackSkill
     public override void endSkill()
     {
 
-        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_LITTER_DEBUFF, this);
+        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_BOSS_DEBUFF, this);
         LocalBean list = mLocal.mLocalLink;
         while (list != null)
         {
-            if (!list.mIsHero)
+            if (list.mIsHero)
             {
 
                 list.mAttacker.mAllAttributePre.updateDebuff(mSkillIndex, AttributePre.aggressivity, 0);
@@ -68,15 +42,16 @@ public class AttackSkill500009 : EventAttackSkill
 
     public override void startSkill()
     {
-        if (mValue == 0)
-        {
-            getLunhuiValue(500009, 14);
-        }
+        // if (mValue == 0)
+        // {
+        mValue = mFight.getLunhuiValue(500009, 11, 0);
+        // }
+        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_BOSS_DEBUFF, this);
         addEachAlive(AttributePre.aggressivity);
 
     }
     private void addEachAlive(long type) {
-        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_LITTER_DEBUFF, this);
+        
         mLocal = GameObject.Find("Manager").GetComponent<LevelManager>().mLocalManager;
         LocalBean list = mLocal.mLocalLink;
         while (list != null)

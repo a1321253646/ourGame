@@ -397,18 +397,38 @@ public class UiManager
         }
     }
 
-	public static void FlyTo(Graphic graphic)
+    public static int FLY_RIGHT = 1;
+    public static int FLY_LEFT = 2;
+    public static int FLY_UP = 3;
+
+	public static void FlyTo(Graphic graphic,int fly)
 	{
 		RectTransform rt = graphic.rectTransform;
 		Color c = graphic.color;
 		//c.a = 0;
 		graphic.color = c;
 		Sequence mySequence = DOTween.Sequence ();
+		Sequence mySequence2 = DOTween.Sequence ();
 
 		Tweener move1 = rt.DOMoveY(rt.position.y + 150, 2f);
-		//		Tweener alpha1 = graphic.DOColor(new Color(c.r, c.g, c.b, 1), 0.5f);
-		//		Tweener alpha2 = graphic.DOColor(new Color(c.r, c.g, c.b, 0), 0.5f);
-		mySequence.Append(move1);
+
+        Tweener move2;
+        if (fly == FLY_RIGHT)
+        {
+            move2 = rt.DOMoveX(rt.position.x + 100, 2f);
+            mySequence2.Append(move2);
+        }
+        else if (fly == FLY_LEFT)
+        {
+            move2 = rt.DOMoveX(rt.position.x - 100, 2f);
+            mySequence2.Append(move2);
+        }
+        //		Tweener alpha1 = graphic.DOColor(new Color(c.r, c.g, c.b, 1), 0.5f);
+        //		Tweener alpha2 = graphic.DOColor(new Color(c.r, c.g, c.b, 0), 0.5f);
+    
+
+        mySequence.Append(move1);
+		
 		//		mySequence.Join(alpha1);
 	//	mySequence.AppendInterval(1);
 		//		mySequence.Join(alpha2);

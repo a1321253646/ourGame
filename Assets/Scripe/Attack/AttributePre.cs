@@ -24,8 +24,10 @@ public class AttributePre
 
     Attribute mAll = new Attribute().setToPre();
 
+    
+
     public void add(long id,long type,long value) {
-        Debug.Log("===============id = " + id+ " type = "+type+" value = "+value);
+//        Debug.Log("===============add id = " + id+ " type = "+type+" value = "+value);
         if (mAttributePre.ContainsKey(id))
         {
             Dictionary<long, long> dic = mAttributePre[id];
@@ -77,6 +79,7 @@ public class AttributePre
             Dictionary<long, long> dic = mAttributePre[id];
             if (dic.ContainsKey(type))
             {
+                
                 long old = dic[type];
                 dic[type] = dic[type] - value;
                 dealAll(type, old, dic[type]);
@@ -97,19 +100,21 @@ public class AttributePre
     }
 
     public void delete(long id) {
-        Debug.Log(" id ==" + id);
+//        Debug.Log(" id ==" + id);
         if (!mAttributePre.ContainsKey(id)) {
             return;
         }
         Dictionary<long, long> dic = mAttributePre[id];
         foreach (long type in dic.Keys) {
-            deleteAll(type, dic[type]/10000+1);
+            deleteAll(type, ((float)dic[type])/10000f);
+
         }
         mAttributePre.Remove(id);
         mAttacker.getAttribute(true);
     }
 
     private void deleteAll(long type, float value) {
+        Debug.Log(" type =="+type+ " value" + value);
         if (type == aggressivity)
         {
             mAll.aggressivity = mAll.aggressivity / value;
@@ -142,9 +147,10 @@ public class AttributePre
     }
 
     private void dealAll(long type, long oldValue,long newValue) {
-        Debug.Log("===============type = " + type + " oldValue = " + oldValue + " newValue = " + newValue);
+//        Debug.Log("===============type = " + type + " oldValue = " + oldValue + " newValue = " + newValue);
         if (type == aggressivity) {
             mAll.aggressivity = mAll.aggressivity / oldValue * newValue;
+//            Debug.Log("mAll.aggressivity =" + mAll.aggressivity);
         }
         else if (type == defense) {
             mAll.defense = mAll.defense / oldValue * newValue;

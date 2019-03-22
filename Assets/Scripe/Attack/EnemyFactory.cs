@@ -102,16 +102,29 @@ public class EnemyFactory : MonoBehaviour {
 		
 		if (isBoss) {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_BOSS;
-            mLevelMnager.mPlayerControl.mSkillManager.mEventAttackManager.debuffBoss(enmey);
 
         } else {
 			enmey.mAttackType = Attacker.ATTACK_TYPE_ENEMY;
-            mLevelMnager.mPlayerControl.mSkillManager.mEventAttackManager.debuffLitterMonster(enmey);
         }
         enmey.init(data, bean);
+        if (JsonUtils.getIntance().getConfigValueForId(100055) == 1) {
+            GameObject.Find("attribute_show").GetComponent<AttributeShowManager>().showEnemy(enmey);
+        }
         enmey.mCampType = Attacker.CAMP_TYPE_MONSTER;
         enmey.setTarget(new Vector2(mHeroX, mHeroY));
         mLevelMnager.mPlayerControl.mSkillManager.mEventAttackManager.debuffMonster(enmey);
+        if (isBoss)
+        {
+            enmey.mAttackType = Attacker.ATTACK_TYPE_BOSS;
+            mLevelMnager.mPlayerControl.mSkillManager.mEventAttackManager.debuffBoss(enmey);
+
+        }
+        else
+        {
+            enmey.mAttackType = Attacker.ATTACK_TYPE_ENEMY;
+            mLevelMnager.mPlayerControl.mSkillManager.mEventAttackManager.debuffLitterMonster(enmey);
+        }
+        GameManager.getIntance().mAliveEnemy++;
     }
     private float getYRamdom() {
         float y = Random.Range(mMapConfig.y_min+ mBottom, mMapConfig.y_max+ mBottom);

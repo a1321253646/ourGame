@@ -6,7 +6,10 @@ public class AnimalAttackSkill200002 : AnimalAttackSkillBase
 {
     public override bool add(List<float> count, bool isGiveup)
     {
-        value = value + count[0];
+        if(count[0] > value- mTime) {
+            value = count[0];
+            mTime = 0;
+        }
         Debug.Log("====================AttackSkill10002 value=" + value);
         if (mTime == -1) {
             mTime = 0;
@@ -42,18 +45,13 @@ public class AnimalAttackSkill200002 : AnimalAttackSkillBase
 
     public override void updateSkillEnd()
     {
-        Debug.Log("====================AnimalAttackSkill200002  updateSkillEnd timeOut");
-        Debug.Log("====================AttackSkill10002 mTime = "+ mTime);
-        Debug.Log("====================AttackSkill10002 value = " + value);
         if (mTime != -1)
         {
             mTime += Time.deltaTime;
         }
         if (mTime > value)
         {
-            Debug.Log("====================AttackSkill10002 timeOut");
             mManager.getAttacker().cancelStop();
-            Debug.Log("=================== mManager.getAttacker().isStop = " + mManager.getAttacker().isStop);
             endSkill();
         }
     }

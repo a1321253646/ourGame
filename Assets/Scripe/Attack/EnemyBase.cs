@@ -191,10 +191,7 @@ public class EnemyBase : Attacker {
         mBaseAttribute.crt = data.cri;
         mBaseAttribute.crtHurt = data.cri_dam;
         mBaseAttribute.readHurt = data.real_dam;
-
-        mAttribute.clear();
-        mAttribute.add(mBaseAttribute);
-
+        getAttribute(false);
         mBloodVolume = mAttribute.maxBloodVolume;
         mRunSpeed = data.monster_speed;
         mAttackLeng = data.attack_range;
@@ -217,13 +214,16 @@ public class EnemyBase : Attacker {
 
 	public override double BeAttack(HurtStatus status,Attacker hurter)
     {
+
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
+
         return allHurt(status, hurter);
 
     }
 
-    public double allHurt(HurtStatus status, Attacker hurt)
+    public override double allHurt(HurtStatus status, Attacker hurt)
     {
+
         mSkillManager.mEventAttackManager.allHurt(hurt, status);
         mBloodVolume = mBloodVolume - status.blood;
 
@@ -234,12 +234,16 @@ public class EnemyBase : Attacker {
 
         if (mBloodVolume <= 0)
         {
+
+            
             mSkillManager.mEventAttackManager.removeAll();
             Die();                    
             mFightManager.unRegisterAttacker(this);
 
+
         }
         mState.hurt(status);
+
         return status.blood;
     }
 
@@ -265,6 +269,9 @@ public class EnemyBase : Attacker {
     public override void getAttributeEnd()
     {
         upDataSpeed();
-        mState.resetHp();
+        if(mState != null) {
+            mState.resetHp();
+        }
+       
     }
 }

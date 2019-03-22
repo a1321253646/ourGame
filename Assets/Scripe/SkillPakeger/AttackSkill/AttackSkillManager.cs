@@ -10,6 +10,9 @@ public class AttackSkillManager
     private Dictionary<PlayerBackpackBean, List<AttackerSkillBase>> mBackpackSkill = new Dictionary<PlayerBackpackBean, List<AttackerSkillBase>>();
     private Dictionary<PetJsonBean, List<AttackerSkillBase>> mPetSkill = new Dictionary<PetJsonBean, List<AttackerSkillBase>>();
     private Dictionary<long, AttackerSkillBase> mIdSkill = new Dictionary<long, AttackerSkillBase>();
+    private Dictionary<long, AttackerSkillBase> mLunhui = new Dictionary<long, AttackerSkillBase>();
+    private Dictionary<long, AttackerSkillBase> mVocation = new Dictionary<long, AttackerSkillBase>();
+
 
     public long cardDownCardCost = 0;
     public long lunhuiDownCardCost = 0;
@@ -50,6 +53,62 @@ public class AttackSkillManager
     public Attacker getAttacker()
     {
         return mAttack;
+    }
+
+    public bool addLunhuiKill(long skillId, Attacker fighter,long index) {
+        if (mLunhui.ContainsKey(skillId))
+        {
+
+            mLunhui[skillId].addValue(0);
+        }
+        else {
+//            Debug.Log("addLunhuiKill skillId= " + skillId);
+            AttackerSkillBase skill = creatSkillById(skillId, null, fighter, false, index);
+            if (skill == null) {
+                return false;
+            }
+            mLunhui.Add(skillId, skill);
+        }
+        return true;
+    }
+
+    public void removeAllLunhuiSkill()
+    {
+        List<long> list = new List<long>();
+        foreach (long bean in mLunhui.Keys)
+        {
+            list.Add(bean);
+        }
+        while (list.Count > 0)
+        {
+            if (mLunhui.ContainsKey(list[0])) {
+                mLunhui[list[0]].endSkill();
+                mLunhui.Remove(list[0]);
+            }
+
+            list.RemoveAt(0);
+
+        }
+    }
+    public void addVocationSkill(long skillId, Attacker fighter, bool isGiveUp, long index) {
+        if (getAttacker().getStatus() == ActionFrameBean.ACTION_DIE)
+        {
+            return;
+        }
+        SkillJsonBean skill = JsonUtils.getIntance().getSkillInfoById(skillId);
+        if (!mVocation.ContainsKey(skillId)) {
+            AttackerSkillBase bean = creatSkillById(skill.id, skill.getSpecialParameterValue(), fighter, false, index);
+            mVocation.Add(skillId, bean);
+        }      
+    //    Debug.Log("===============addVocationSkill id=" + skillId);
+    }
+
+    public void removeAllVocationSkill() {
+        foreach (long id in mVocation.Keys) {
+      //      Debug.Log("===============removeAllVocationSkill id=" + id);
+            mVocation[id].endSkill();
+        }
+        mVocation.Clear();
     }
 
     public void addSkill(long skillId, Attacker fighter,bool isGiveUp,long index) {

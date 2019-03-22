@@ -29,7 +29,7 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
         mSpriteRender.transform.localScale = new Vector2(0,0);
     }
     float count1 = 0;
-    public override void endHurt( HurtStatus hurt)
+    public override void endHurt( HurtStatus hurt, Attacker attacker)
     {
         if (count1 == 0)
         {

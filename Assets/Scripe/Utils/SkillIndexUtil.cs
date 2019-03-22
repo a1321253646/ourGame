@@ -70,6 +70,20 @@ public class SkillIndexUtil
         }
         return mEquitIndexList[id];
     }
+    public long getLunhuiIndexByGoodId(bool isBoss, long id)
+    {
+        if (isBoss)
+        {
+            id = id * 10;
+        }
+        if (!mEquitIndexList.ContainsKey(id))
+        {
+            mEquitIndexList.Add(id, getSkillIndex());
+
+        }
+        return mEquitIndexList[id];
+    }
+
     public void deleteEquitIndexByGoodId(bool isBoss, long id)
     {
         if (isBoss)

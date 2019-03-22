@@ -16,7 +16,6 @@ public class ActiveListControl : MonoBehaviour {
         showAd(adId, isAddSql, false);
 
     }
-
     public void showAd(long adId, bool isAddSql,bool isNewTime) {
         int i = 0;
         while (i < mButtonList.Length && !mButtonList[i].init(ActiveButtonControl.ACTIVE_BUTTON_TYPE_AD, adId, isAddSql))
@@ -45,10 +44,13 @@ public class ActiveListControl : MonoBehaviour {
             updateIcon(i);
         }
     }
-    public void removeVocation()
+    public void removeVocation() {
+        removeVocation(true);
+    }
+    public void removeVocation(bool isSql)
     {
         int i = 0;
-        while (i < mButtonList.Length && !mButtonList[i].removeShow(ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION))
+        while (i < mButtonList.Length && !mButtonList[i].removeShow(ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION, isSql))
         {
             i++;
         }

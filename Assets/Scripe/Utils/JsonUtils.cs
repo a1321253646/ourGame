@@ -69,7 +69,7 @@ public class JsonUtils
     Dictionary<long, float> mConfig = new Dictionary<long, float>();
    // List<ConfigNote> mConfig;
     List<GoodJsonBean> mGoods;
-    List<AccouterJsonBean> mAttribute;
+    Dictionary<long, AccouterJsonBean>  mAttribute;
     List<ComposeJsonBen> mComposeData;
     public List<DropDeviceDetail> mDropDeviceDetailData;
     public List<DropDevice> mDropDevoce;
@@ -212,7 +212,7 @@ public class JsonUtils
     }
 
     public void reReadHero() {
-        long v = SQLHelper.getIntance().mPlayVocation;
+        long v = SQLHelper.getIntance().mCurrentVocation;
         if (v == -1)
         {
             v = 1;
@@ -465,7 +465,7 @@ public class JsonUtils
 
     public List<SamsaraValueBean> getSamsaraVulueInfoByIdAndLevel(long id, long level) {
         if (mSamsaraDate.ContainsKey(id)) {
-            Debug.Log("getSamsaraVulueInfoByIdAndLevel id=" + id + " count= " + mSamsaraDate[id].levelList.Count);
+//            Debug.Log("getSamsaraVulueInfoByIdAndLevel id=" + id + " count= " + mSamsaraDate[id].levelList.Count);
             SamsaraJsonBean tmp = mSamsaraDate[id];
             if (tmp.levelList != null && tmp.levelList.ContainsKey(level)) {
                 return tmp.levelList[level];
@@ -476,7 +476,13 @@ public class JsonUtils
     private void readAttributeInfo()
     {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(attributeFile));
-        mAttribute = arrdata.ToObject<List<AccouterJsonBean>>();
+        List<AccouterJsonBean> list = arrdata.ToObject<List<AccouterJsonBean>>();
+        if(mAttribute == null) {
+            mAttribute = new Dictionary<long, AccouterJsonBean>();
+        }
+        foreach (AccouterJsonBean bean in list) {
+            mAttribute.Add(bean.id, bean);
+        }
     }
     private void readAffixInfo()
     {
@@ -618,8 +624,35 @@ public class JsonUtils
     }
 
     public VocationDecBean getVocationById(long id) {
+        if (id == 1 || id == -1)
+        {
+            id = 10000;
+        }
+        else if (id == 2)
+        {
+            id = 21001;
+        }
+        else if (id == 3) {
+            id = 31001;
+        }
+        else if (id==4) {
+            id = 41001;
+        }
+        else if (id == 5)
+        {
+            id = 22001;
+        }
+        else if (id == 6)
+        {
+            id = 32001;
+        }
+        else if (id == 7)
+        {
+            id = 42001;
+        }
         foreach (VocationDecBean note in mVocationDate)
         {
+
             if (note.id == id)
             {
                 return note;
@@ -678,10 +711,6 @@ public class JsonUtils
 	}
 
     
-    public List<AccouterJsonBean> getAccouterInfoList()
-    {
-        return mAttribute;
-    }
     public List<AffixJsonBean> getAffixInfoList()
     {
         return mAffixDate;
@@ -701,12 +730,8 @@ public class JsonUtils
 
     public AccouterJsonBean getAccouterInfoById(long id)
     {
-        foreach (AccouterJsonBean note in mAttribute)
-        {
-            if (note.id == id)
-            {
-                return note;
-            }
+        if (mAttribute.ContainsKey(id)) {
+            return mAttribute[id];
         }
         return null;
     }
@@ -926,7 +951,7 @@ public class JsonUtils
         }
     }
 	public Enemy getEnemyById(long id){
-        Debug.Log("getEnemyById id = " + id);
+//        Debug.Log("getEnemyById id = " + id);
 		return mEnemys [id];
 	}
 

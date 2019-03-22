@@ -86,7 +86,7 @@ public class EnemyState{
         }
         EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position)+bloodOffet;  
 		text.transform.position = EnemySceenPosition;  
-		UiManager.FlyTo (tv);
+		UiManager.FlyTo (tv, UiManager.FLY_RIGHT);
 	}
 
 	void PHFollowEnemy()  
@@ -123,7 +123,7 @@ public class EnemyState{
         tv.color = Color.green;
         EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position) + bloodOffet;
         text.transform.position = EnemySceenPosition;
-        UiManager.FlyTo(tv);
+        UiManager.FlyTo(tv, UiManager.FLY_RIGHT);
     }
     public void resetHp() {
         if (mEnemy.mAttribute.maxBloodVolume > float.MaxValue)

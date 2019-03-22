@@ -69,6 +69,15 @@ public class AccouterJsonBean
     }
 
     public List<EquipKeyAndBig> mCostList;
+
+    public List<EquipKeyAndBig> getCostList() {
+        if (mCostList == null)
+        {
+            mCostList = EquipKeyAndBig.getListForString(cost_up);
+        }
+        return mCostList;
+    }
+
     public BigNumber getCost(long level){
         if (mCostList == null) {
             mCostList = EquipKeyAndBig.getListForString(cost_up);

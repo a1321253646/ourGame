@@ -26,8 +26,11 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     GameObject mIndicator;
     CardUiControl mUiContorl;
     CardUiControl mRootContorl;
+    float myBili = 0;
     void Update()
     {
+
+
         if (!isInit) {
             return;
         }
@@ -43,7 +46,15 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                 }
                 mIsOndragDown = true;
                 GameObject ob = GameObject.Find("kapai_click");
-                ob.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getAttacker(), mCurPos.x, mCurPos.y);
+                float x = 0;
+                if (mCurPos.x < Screen.width / 2)
+                {
+                    x = mCurPos.x + ob.GetComponent<RectTransform>().rect.width / 2 * myBili;
+                }
+                else {
+                    x = mCurPos.x - ob.GetComponent<RectTransform>().rect.width / 2 * myBili;
+                }
+                ob.GetComponent<CardDetailShowControl>().init(mCard.id, mManager.getAttacker(), x, mCurPos.y);
                 long result = GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_OBJECT_CLICK, mCard.id);
                 mCurTime = 0f;
                 mIsDown = false;
@@ -51,7 +62,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
                     GameManager.getIntance().getGuideManager().ShowGuideNormalObject(mIndicator);
                 }
                 if (mRootContorl.count == 1) {
-                    mRootContorl.showBack();
+                    //mRootContorl.showBack();
                 }
                 
                 GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD_BACK_INFO);
@@ -218,5 +229,8 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);
 
         mRootContorl = gameObject.GetComponent<CardUiControl>();
+        float x = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.x;
+        float y = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.y;
+        myBili = Screen.height / y;
     }
 }

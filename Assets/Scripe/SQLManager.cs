@@ -482,7 +482,7 @@ public class SQLManager
             mConnet.Open();
         }
         using (reader) {
-            Debug.Log("ExecuteSQLCommand queryString="+ queryString);
+//            Debug.Log("ExecuteSQLCommand queryString="+ queryString);
             
             SqliteCommand command = mConnet.CreateCommand();
             command.CommandText = queryString;
@@ -646,7 +646,7 @@ public class SQLManager
             
         }
         
-        Debug.Log("更新数据成功!");
+//        Debug.Log("更新数据成功!");
         mNetHelper.changeInto(date);
         return true;
     }
@@ -724,7 +724,7 @@ public class SQLManager
 
     private void threadRun() {
         while (true) {
-            Debug.Log("======================================threadRun command count");
+//            Debug.Log("======================================threadRun command count");
             if (listIsEmpty())
             {
                 Thread.Sleep(1000);

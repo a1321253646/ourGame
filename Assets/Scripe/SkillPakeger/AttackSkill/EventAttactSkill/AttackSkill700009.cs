@@ -5,7 +5,7 @@ public class AttackSkill700009 : EventAttackSkill
 {
     float count1 = -1;
     float count2 = -1;
-    public override void endHurt(HurtStatus hurt)
+    public override void endHurt(HurtStatus hurt, Attacker attacker)
     {
         if (count1 == -1)
         {
@@ -15,7 +15,9 @@ public class AttackSkill700009 : EventAttackSkill
         bool isCrt = randomResult(100, (int)count1, false);
         if (isCrt)
         {
-            hurt.blood = mManager.getAttacker().mAttribute.defense * count2;
+            hurt.blood =mManager.getAttacker().mAttribute.maxBloodVolume * count2;
+            attacker.BeAttack(hurt, mFight);
+          
         }
     }
     public override void endSkill()

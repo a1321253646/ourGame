@@ -281,7 +281,7 @@ public class BigNumber
             unit1 = new BigNumberUnit();
             unit1.value = up;
             unit1.setUnit(index);
-            Debug.Log("value =" + unit1.value + " unit = " + unit1.unit);
+//            Debug.Log("value =" + unit1.value + " unit = " + unit1.unit);
             back.mList.Add(unit1);
         }
         return back;

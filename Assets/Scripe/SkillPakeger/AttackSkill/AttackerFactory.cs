@@ -113,17 +113,22 @@ public class AttackerFactory
         {
             return new NormalAttackSkill400009();
         }
-        else if (id == 500001)
+
+        else if (id == 500006)
         {
-            return new NormalAttackSkill500001();
+            return new AttackSkill500006();
         }
-        else if (id == 500002)
+        else if (id == 500007)
         {
-            return new NormalAttackSkill500002();
+            return new AttackSkill500007();
         }
-        else if (id == 500003)
+        else if (id == 500008)
         {
-            return new NormalAttackSkill500003();
+            return new AttackSkill500008();
+        }
+        else if (id == 500009)
+        {
+            return new AttackSkill500009();
         }
 
         else if (id == 200001)
@@ -197,6 +202,42 @@ public class AttackerFactory
         else if (id == 700003)
         {
             return new AttackSkill700003();
+        }
+        else if (id == 700004)
+        {
+            return new TimeEventAttackSkill700004();
+        }
+        else if (id == 700005)
+        {
+            return new TimeEventAttackSkill700005();
+        }
+        else if (id == 700006)
+        {
+            return new UpdateSkill700006();
+        }
+        else if (id == 700007)
+        {
+            return new AttackSkill700007();
+        }
+        else if (id == 700008)
+        {
+            return new AttackSkill700008();
+        }
+        else if (id == 700009)
+        {
+            return new AttackSkill700009();
+        }
+        else if (id == 700010)
+        {
+            return new TimeEventAttackSkill700010();
+        }
+        else if (id == 700011)
+        {
+            return new AttackSkill700011();
+        }
+        else if (id == 700012)
+        {
+            return new NormalAttackSkill700012();
         }
         return null;
     }

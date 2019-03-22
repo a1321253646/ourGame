@@ -82,12 +82,12 @@ public class CardShowControl : UiControlBase
 
     private long getCardCount() {
         long cardCount = (long)JsonUtils.getIntance().getConfigValueForId(100016);
-        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(10);
+        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(7);
         long value = 0;
 
         if (luihuiLevel != BaseDateHelper.encodeLong(0))
         {
-            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(10, BaseDateHelper.decodeLong(luihuiLevel));
+            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(7, BaseDateHelper.decodeLong(luihuiLevel));
             foreach (SamsaraValueBean bean in list)
             {
                 if (bean.type == 500005)

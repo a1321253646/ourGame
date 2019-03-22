@@ -26,6 +26,8 @@ public class GameManager
     public bool isError = false;
     public static long ERROR_TIME_MIN = 86400000l;
 
+    public int mAliveEnemy = 0;
+
     public List<RankingListDateBean> mRankingList = null;
     public bool mRankingListUpdate = false;
 
@@ -95,6 +97,7 @@ public class GameManager
         isEnd = false;
         isLuihuiIng = false;
         isInit = false;
+        mAliveEnemy = 0;
         getLevelData();
         init(null);
         
@@ -121,7 +124,7 @@ public class GameManager
         long old = 0;
         if (!isInit)
         {
-            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            
             isInit = true;
             mCurrentLevel = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100010)) ;
             if (mCurrentLevel == BaseDateHelper.encodeLong(-1)) {
@@ -151,9 +154,12 @@ public class GameManager
             }
             else {
                 mCurrentCrystal = SQLHelper.getIntance().mMojing;
-                //mCurrentCrystal = BigNumber.getBigNumForString("0");
             }
 
+            if (JsonUtils.getIntance().getConfigValueForId(100056) == 1) {
+                mCurrentCrystal = BigNumber.getBigNumForString("24E+22");
+            }
+           
 
             long auto = SQLHelper.getIntance().isAutoBoss;
             if (auto == -1 || auto == 1) {
@@ -170,11 +176,12 @@ public class GameManager
             else
             {
                 mReincarnation = SQLHelper.getIntance().mLunhuiValue;
-              //  mReincarnation = BigNumber.getBigNumForString("2.1E+40");
             }
-            //    mReincarnation = SQLHelper.getIntance().mLunhuiValue;
-            mReincarnation = BigNumber.getBigNumForString("2.1E+40");
-
+            if (JsonUtils.getIntance().getConfigValueForId(100056) == 1)
+            {
+                mReincarnation = BigNumber.getBigNumForString("2.1E+40");
+            }
+           
             isShowPlayerPoint = SQLHelper.getIntance().isShowPlayerPoint;
             isShowBackpackPoint = SQLHelper.getIntance().isShowBackpackPoint;
             isShowLuihuiPoint = SQLHelper.getIntance().isShowLuihuiPoint;
@@ -200,13 +207,13 @@ public class GameManager
     public void updateBossGase(bool isUpdateUi) {
         Level level = JsonUtils.getIntance().getLevelData();
         startBossGas = level.boss_gas;
-        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(15);
+        long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(12);
         long value = 0;
 
         if (luihuiLevel != BaseDateHelper.encodeLong(0))
         {
            
-            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(15, BaseDateHelper.decodeLong(luihuiLevel));
+            List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(12, BaseDateHelper.decodeLong(luihuiLevel));
             foreach (SamsaraValueBean bean in list)
             {
                 if (bean.type == 500010)
@@ -302,7 +309,7 @@ public class GameManager
         }
         mCurrentGas += enemy.mDieGas;
         //Debug.Log("=============enemy.mDieCrysta=" + enemy.mDieCrysta.toString());
-        //Debug.Log("=============mCurrentCrystal=" + mCurrentCrystal.toString());
+      //  Debug.Log("=============mCurrentCrystal=" + mCurrentCrystal.toString());
         //Debug.Log("============= getOnlineGet()=" + getOnlineGet());
         BigNumber dealHunjin = mLevelManage.mPlayerControl.mSkillManager.mEventAttackManager.getDieHuijing(enemy.mDieCrysta);
         if (getOnlineGet() != 1)
@@ -317,7 +324,7 @@ public class GameManager
         uiManager.addGas();
         if (enemy is EnemyBase) {
 
-
+            mAliveEnemy--;
             EnemyBase tmp = (EnemyBase)enemy;
             int count = 1;
             if (mLevelManage.mPlayerControl.mSkillManager.mEventAttackManager.endGetDrop()) {
@@ -373,8 +380,7 @@ public class GameManager
             }
         }
         showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", mCurrentGas);
-        
-	}
+    }
     public void updateGasAndCrystal() {
         SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
         if (uiManager != null) {

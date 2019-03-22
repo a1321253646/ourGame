@@ -12,7 +12,6 @@ public class BackpackManager
     private List<PlayerBackpackBean> mInventoryList;
     private List<PlayerBackpackBean> mHeroEquip;
     private List<GoodJsonBean> mGoodInfoList;
-    private List<AccouterJsonBean> mAccouterInfoList;
     private List<CardJsonBean> mCardInfoList;
 
 
@@ -51,7 +50,6 @@ public class BackpackManager
         mInventoryList = InventoryHalper.getIntance().getInventorys();
         mHeroEquip = InventoryHalper.getIntance().getRoleUseList();
         mGoodInfoList = JsonUtils.getIntance().getGoodInfoList();
-        mAccouterInfoList = JsonUtils.getIntance().getAccouterInfoList();
         mCardInfoList = JsonUtils.getIntance().getCardInfos();
         mBackpack = GameObject.Find("Backpack").GetComponent<RectTransform>();
         mInvertoryControl = mBackpack.GetComponentInChildren<IvertoryControl>();
@@ -89,17 +87,6 @@ public class BackpackManager
         return null;
     }
 
-    public AccouterJsonBean getAccouterInfoById(long id)
-    {
-        foreach (AccouterJsonBean bean in mAccouterInfoList)
-        {
-            if (bean.id == id)
-            {
-                return bean;
-            }
-        }
-        return null;
-    }
 
     public CardJsonBean getCardInfoById(long id) {
         foreach (CardJsonBean bean in mCardInfoList)
@@ -162,19 +149,8 @@ public class BackpackManager
                     break;
                 }
             }
-            BigNumber b1 = aj.getSale();
-            BigNumber b2 = aj.getSaleLevel();
-
-            Debug.Log("=====================SALE_TYPE=========================");
-            Debug.Log("getSale="+ b1.toString());
-            Debug.Log("getSaleLevel="+b2.toString());
-            Debug.Log("level= "+ level);
-            if (!b2.isEmpty()) {
-                b2 = BigNumber.multiply(b2, level);
-                b1 = BigNumber.add(b1, b2);
-            }
-            Debug.Log("sale= " + b1.toString());
-            Debug.Log("=====================SALE_TYPE=========================End");
+            BigNumber b1 = getSavePrice(bean.goodId, level);
+            Debug.Log("save BigNumber = " + b1.toString());
             if (!b1.isEmpty()) {
                 GameManager.getIntance().mCurrentCrystal = BigNumber.add(GameManager.getIntance().mCurrentCrystal, b1);
                 GameManager.getIntance().updataGasAndCrystal();
@@ -240,6 +216,53 @@ public class BackpackManager
         }
         return true;
     }
+    private BigNumber getSavePrice(long id ,long level) {
+        AccouterJsonBean acc =  JsonUtils.getIntance().getAccouterInfoById(id);
+        BigNumber result = new BigNumber();
+        result = BigNumber.add(result, acc.getSale());
+        Debug.Log(" acc.getSale() = " + result.toString());
+        if(level == 0) {
+            return result;
+        }
+        BigNumber cost = acc.getCost();
+        Debug.Log(" level1 = " + cost.toString());
+        result = BigNumber.add(result, cost);
+        Debug.Log(" result = " + result.toString());
+        BigNumber levelCost = cost;
+
+        List <EquipKeyAndBig>  list  = acc.getCostList();
+        long haveDone = 1;
+       
+        foreach (EquipKeyAndBig key in list) {
+            Debug.Log("key ==" + key);
+            long dle = 0;
+            if (key.key <= level)
+            {
+                
+                dle = key.key - haveDone;
+                haveDone = key.key;
+            }
+            else {
+                
+                dle = level - haveDone;
+                haveDone = level;
+            }
+            
+            BigNumber first = BigNumber.add(levelCost, key.value);
+            levelCost = BigNumber.add(BigNumber.multiply(key.value, dle), levelCost);
+            BigNumber tmp = BigNumber.multiply(BigNumber.add(first, levelCost), dle / 2);
+            Debug.Log("first ==" + first.toString()+ " levelCost = "+ levelCost.toString()+ " dle = "+ dle+ " tmp="+ tmp.toString());
+            result = BigNumber.add(result, tmp);
+            Debug.Log(" result = " + result.toString());
+            if (key.key >= level)
+            {
+                break;
+            }
+        }
+
+        return result;
+    }
+
 
     public void upLunhui() {
         mLevel.upLunhui();

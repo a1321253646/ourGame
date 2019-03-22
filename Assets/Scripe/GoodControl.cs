@@ -121,9 +121,10 @@ public class GoodControl : MonoBehaviour {
                 if (bean.tabId == TABID_EQUIP_TYPY)
                 {
                     img = InventoryHalper.getIntance().getIcon(id);
-                    mMaxCout = BackpackManager.getIntance().getAccouterInfoById(id).stacking;
-                    back = "UI_yellow/box_gride_" + BackpackManager.getIntance().getAccouterInfoById(id).quality;
-                    mStart = BackpackManager.getIntance().getAccouterInfoById(id).stars;
+                AccouterJsonBean bean = JsonUtils.getIntance().getAccouterInfoById(id);
+                    mMaxCout = bean.stacking;
+                    back = "UI_yellow/box_gride_" + bean.quality;
+                    mStart = bean.stars;
                 }
                 else if (bean.tabId == TABID_ITEM_TYPE)
                 {
@@ -193,9 +194,9 @@ public class GoodControl : MonoBehaviour {
     {
         //       Debug.Log("GoodControl updateUi id = " + id);
         this.bean = bean;
-        if (this.bean != null) {
-            Debug.Log("updateUi bean.id=" + this.bean.goodId);
-        }
+ //       if (this.bean != null) {
+//            Debug.Log("updateUi bean.id=" + this.bean.goodId);
+ //       }
         
         return updateUi(id, count);
     }

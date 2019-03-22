@@ -12,7 +12,10 @@
     "shape_resource_id": "shape_1",
     "leng": 4,
     "wight": 2,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100002,
@@ -27,7 +30,10 @@
     "shape_resource_id": "shape_2",
     "leng": 0.5,
     "wight": 0.5,
-    "point_type": 3
+    "point_type": 3,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100003,
@@ -42,7 +48,10 @@
     "shape_resource_id": "shape_1",
     "leng": 4.15,
     "wight": 3.5,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100004,
@@ -57,7 +66,10 @@
     "shape_resource_id": "shape_1",
     "leng": 2.5,
     "wight": 3,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100005,
@@ -72,7 +84,10 @@
     "shape_resource_id": "shape_1",
     "leng": 2,
     "wight": 0.8,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100006,
@@ -87,7 +102,10 @@
     "shape_resource_id": "shape_1",
     "leng": 1.6,
     "wight": 0.45,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100007,
@@ -102,7 +120,10 @@
     "shape_resource_id": "shape_1",
     "leng": 4.5,
     "wight": 2,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100008,
@@ -117,7 +138,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 3
+    "point_type": 3,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100009,
@@ -132,7 +156,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100010,
@@ -147,7 +174,10 @@
     "shape_resource_id": "shape_1",
     "leng": 2,
     "wight": 0.25,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100011,
@@ -162,7 +192,10 @@
     "shape_resource_id": "shape_1",
     "leng": 3.3,
     "wight": 2,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100012,
@@ -177,7 +210,10 @@
     "shape_resource_id": "shape_1",
     "leng": 0.52,
     "wight": 0.117,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100013,
@@ -192,7 +228,10 @@
     "shape_resource_id": "shape_1",
     "leng": 1.77,
     "wight": 0.5,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 200001,
@@ -207,7 +246,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 200002,
@@ -222,7 +264,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 1
+    "point_type": 1,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 200003,
@@ -237,7 +282,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 3
+    "point_type": 3,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 300001,
@@ -252,7 +300,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0.0
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600001,
@@ -267,7 +318,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600002,
@@ -282,7 +336,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600003,
@@ -297,7 +354,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600004,
@@ -312,7 +372,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600005,
@@ -327,7 +390,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600006,
@@ -342,7 +408,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600007,
@@ -357,7 +426,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600008,
@@ -372,7 +444,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600009,
@@ -387,7 +462,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600010,
@@ -402,7 +480,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600011,
@@ -417,7 +498,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600012,
@@ -432,7 +516,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600013,
@@ -447,7 +534,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600014,
@@ -462,7 +552,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 600015,
@@ -477,7 +570,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100014,
@@ -492,7 +588,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0.0
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100015,
@@ -507,7 +606,10 @@
     "shape_resource_id": "shape_1",
     "leng": 1.28,
     "wight": 0.4,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100016,
@@ -522,7 +624,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 3
+    "point_type": 3,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100017,
@@ -537,7 +642,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 2
+    "point_type": 2,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100018,
@@ -552,7 +660,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 2
+    "point_type": 2,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100019,
@@ -567,7 +678,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 2
+    "point_type": 2,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100020,
@@ -582,7 +696,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 3
+    "point_type": 3,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100021,
@@ -597,7 +714,10 @@
     "shape_resource_id": "shape_1",
     "leng": 4,
     "wight": 3,
-    "point_type": 0.0
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100022,
@@ -612,7 +732,10 @@
     "shape_resource_id": "shape_1",
     "leng": 5,
     "wight": 1,
-    "point_type": 0.0
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100023,
@@ -627,7 +750,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 3
+    "point_type": 3,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100024,
@@ -642,7 +768,10 @@
     "shape_resource_id": "shape_1",
     "leng": 2.6,
     "wight": 1,
-    "point_type": 0.0
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100025,
@@ -657,7 +786,10 @@
     "shape_resource_id": "shape_1",
     "leng": 5,
     "wight": 2,
-    "point_type": 0.0
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100026,
@@ -672,7 +804,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 3
+    "point_type": 3,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 100027,
@@ -687,7 +822,10 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 3
+    "point_type": 3,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 700001,
@@ -702,22 +840,28 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 700002,
     "target_type": 3,
     "effects_parameter": "0",
     "calculator": "",
-    "special_parameter_value": "20,50",
+    "special_parameter_value": "100,50",
     "next_skill": "",
-    "skill_describe": "每次被攻击S1%概率反伤，反伤效果S2%",
+    "skill_describe": "每次被攻击S1%概率反伤，反伤伤害为自身防御力*S2%。",
     "skill_resource": 0.0,
     "shape_type": 0,
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
   },
   {
     "id": 700003,
@@ -732,6 +876,297 @@
     "shape_resource_id": "",
     "leng": 0.0,
     "wight": 0.0,
-    "point_type": 0
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 700004,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "50,50,2",
+    "next_skill": "",
+    "skill_describe": "攻击时有S1%概率使目标进入破甲状态，减少S2%防御，持续S3s（效果不叠加，刷新持续时间）",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 700005,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "50,10,100,2",
+    "next_skill": "",
+    "skill_describe": "攻击时有S1概率进入狂气状态，增加S2%暴击，提升S3%暴伤，持续S4s（效果不叠加，刷新持续时间）",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 700006,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "50",
+    "next_skill": "",
+    "skill_describe": "当仅有1只怪物时，提升S2%攻击",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 700007,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "10,2",
+    "next_skill": "",
+    "skill_describe": "攻击时有S1概率眩晕敌人S2s",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 700008,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "50,10",
+    "next_skill": "",
+    "skill_describe": "受到致命一击时，有S1%概率恢复S2%生命值",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 700009,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "10,50",
+    "next_skill": "",
+    "skill_describe": "攻击时S1概率对敌人造成S2%骑士总血量的伤害",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 700010,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "100,10",
+    "next_skill": "",
+    "skill_describe": "击杀敌人后，获得S1%攻速提升，持续S2s（效果不叠加，刷新持续时间）",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 700011,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "10,20",
+    "next_skill": "",
+    "skill_describe": "攻击时S1概率使目标进入威慑状态，降低目标防御及攻击S2%",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 700012,
+    "target_type": 3,
+    "effects_parameter": "0",
+    "calculator": "",
+    "special_parameter_value": "20",
+    "next_skill": "",
+    "skill_describe": "增加S1%闪避",
+    "skill_resource": 0.0,
+    "shape_type": 0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 0.0,
+    "target_type": 0.0,
+    "effects_parameter": "",
+    "calculator": "",
+    "special_parameter_value": "",
+    "next_skill": "",
+    "skill_describe": "",
+    "skill_resource": 0.0,
+    "shape_type": 0.0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 0.0,
+    "target_type": 0.0,
+    "effects_parameter": "",
+    "calculator": "",
+    "special_parameter_value": "",
+    "next_skill": "",
+    "skill_describe": "",
+    "skill_resource": 0.0,
+    "shape_type": 0.0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 0.0,
+    "target_type": 0.0,
+    "effects_parameter": "",
+    "calculator": "",
+    "special_parameter_value": "",
+    "next_skill": "",
+    "skill_describe": "",
+    "skill_resource": 0.0,
+    "shape_type": 0.0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 0.0,
+    "target_type": 0.0,
+    "effects_parameter": "",
+    "calculator": "",
+    "special_parameter_value": "",
+    "next_skill": "",
+    "skill_describe": "",
+    "skill_resource": 0.0,
+    "shape_type": 0.0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 0.0,
+    "target_type": 0.0,
+    "effects_parameter": "",
+    "calculator": "",
+    "special_parameter_value": "",
+    "next_skill": "",
+    "skill_describe": "",
+    "skill_resource": 0.0,
+    "shape_type": 0.0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 0.0,
+    "target_type": 0.0,
+    "effects_parameter": "",
+    "calculator": "",
+    "special_parameter_value": "",
+    "next_skill": "",
+    "skill_describe": "",
+    "skill_resource": 0.0,
+    "shape_type": 0.0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.0
+  },
+  {
+    "id": 0.0,
+    "target_type": 0.0,
+    "effects_parameter": "",
+    "calculator": "",
+    "special_parameter_value": "",
+    "next_skill": "",
+    "skill_describe": "",
+    "skill_resource": 0.0,
+    "shape_type": 0.0,
+    "shape_resource_id": "",
+    "leng": 0.0,
+    "wight": 0.0,
+    "point_type": 0.0,
+    "Column13": "",
+    "Column14": "",
+    "Column15": 0.731
   }
 ]

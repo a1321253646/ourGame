@@ -68,7 +68,7 @@ public class InventoryHalper
         else if ((id > TABID_2_START_ID && id < TABID_3_START_ID)||
             id > TABID_5_START_ID)
         {
-            path = BackpackManager.getIntance().getAccouterInfoById(id).icon;
+            path = JsonUtils.getIntance().getAccouterInfoById(id).icon;
 
             path = "icon/equipicon/" + path;
         }
@@ -123,8 +123,8 @@ public class InventoryHalper
             else if ((id > TABID_2_START_ID && id < TABID_3_START_ID)||
                 id > TABID_5_START_ID)
             {
-                AccouterJsonBean jb = BackpackManager.getIntance().getAccouterInfoById(id);
-
+                AccouterJsonBean jb = JsonUtils.getIntance().getAccouterInfoById(id);
+                Debug.Log("addInventory == " + id);
                 newBean.goodId = id;
                 newBean.sortID = jb.sortID;
                 newBean.count = count;

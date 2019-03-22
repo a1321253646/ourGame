@@ -30,7 +30,7 @@ public abstract class EventAttackSkill : AttackerSkillBase
     public virtual void beforeHurt(HurtStatus hurt,Attacker attacker) {
 
     }
-    public virtual void endHurt(HurtStatus hurt) {
+    public virtual void endHurt(HurtStatus hurt, Attacker attacker) {
 
     }
     public virtual void allHurt(Attacker fighter, HurtStatus hurt)

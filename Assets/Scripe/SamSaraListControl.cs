@@ -9,7 +9,7 @@ public class SamSaraListControl : MonoBehaviour {
     float mWitch = 0;
 
     public void init() {
-        mVerivlaLayou = mVerivlaLayou = GetComponent<VerticalLayoutGroup>();
+        mVerivlaLayou = GetComponent<VerticalLayoutGroup>();
         setUiShow();
         mWitch =gameObject.GetComponent<RectTransform>().rect.width;
     }
@@ -19,7 +19,30 @@ public class SamSaraListControl : MonoBehaviour {
         if (list == null || list.Count == 0) {
             return;
         }
-        Dictionary<long, SamsaraJsonBean>.KeyCollection keys=  list.Keys;
+        Dictionary<long, SamsaraJsonBean>.KeyCollection listKey=  list.Keys;
+        List<long> keys = new List<long>();
+        foreach (long key in listKey) {
+            if (keys.Count == 0)
+            {
+                keys.Add(key);
+            }
+            else {
+                int i = 0;
+                for (; i < keys.Count; i++) {
+                    if (list[keys[i]].sort > list[key].sort){
+                       
+                        break;
+                    }
+                }
+                if (i < keys.Count)
+                {
+                    keys.Insert(i, key);
+                }
+                else {
+                    keys.Add(key);
+                }
+            }
+        }
         foreach (long key in keys)
         {
             SamsaraJsonBean bean = list[key];

@@ -5,59 +5,51 @@ public class TimeEventAttackSkill700010 : TimeEventAttackSkillBase
 {
     //    public CalculatorUtil mCalcuator;
 
-    public override void beforeBeHurt(Attacker fighter, HurtStatus hurt) {
-        if (value == 0) {
-            value = mParam[0];
+    public override void killEnemy() {
+        if (isActionIng)
+        {
+            mTime = 0;
+        }
+        else {
+            mFight.mAllAttributePre.add(mSkillIndex, AttributePre.attackSpeed, count1);
+            mTime = 0;
+            isActionIng = true;
         }
     }
 
     public override void endSkill()
     {
         mManager.mEventAttackManager.unRegisterTimeEventSkill(this);
+        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_HURT_DIE, this);
         mManager.getAttacker().mAllAttributePre.delete(mSkillIndex);
         mStatus = SKILL_STATUS_END;
     }
     long count1;
+    float count2;
     public override void startSkill()
     {
-        
+        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_HURT_DIE, this);
         mManager.mEventAttackManager.registerTimeEventSkill(this);
-        value = mParam[1];
-        count1 = ((int)mParam[0])*100;
-
-       
-        Debug.Log(" TimeEventAttackSkill200010 value = " + value);
-
+        count2 = mParam[1];
+        count1 = ((int)mParam[0])*100;      
         isInit = true;
     }
     private bool isActionIng = false;
 
-    private void isAction() {
-        if (!isActionIng) {
-            mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.attackSpeed, count1);
-        }
-        isActionIng = true;
-        mTime = 0;
-        value = mParam[0];
-    }
-    private void isActionEnd() {
-        isActionIng = false;
-        mManager.getAttacker().mAllAttributePre.delete(mSkillIndex);
-    }
-
     public override void upDateSkill()
     {
 
-        if (!isInit)
+        if (!isInit || !isActionIng)
         {
             return;
         }
         mTime += Time.deltaTime;
         Debug.Log("==================================TimeEventAttackSkill200010 value=" + value + " mTime = " + mTime);
         //}
-        if (mTime > value)
+        if (mTime > count2)
         {
-            endSkill();
+            isActionIng = false;
+            mFight.mAllAttributePre.minus(mSkillIndex, AttributePre.attackSpeed, count1);
         }
         
     }

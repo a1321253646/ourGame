@@ -219,7 +219,7 @@ public abstract class CardManagerBase : MonoBehaviour {
     {
         //        Debug.Log("addNengliangDian= " + nengliang);
         nengLiangDian++;
-        Debug.Log("========playerAction addNengliangDian=" + mPlayActionCount + " addNengliangAttack=" + addNengliangAttack);
+//        Debug.Log("========playerAction addNengliangDian=" + mPlayActionCount + " addNengliangAttack=" + addNengliangAttack);
         if (nengLiangDian > 10)
         {
             nengLiangDian = 10;

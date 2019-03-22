@@ -11,7 +11,7 @@ public class VocationControl : UiControlBase
     private Button mClose, mNoSelect;
 
     public override void show() {
-        long id = SQLHelper.getIntance().mPlayVocation;
+        long id = SQLHelper.getIntance().mCurrentVocation;
         if (id == -1) {
             id = 1;
         }

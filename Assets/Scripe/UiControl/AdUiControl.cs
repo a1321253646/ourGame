@@ -36,8 +36,11 @@ public class AdUiControl : UiControlBase
         string value = null;
         if (mAdType == ActiveButtonControl.TYPE_AD_LUNHUI)
         {
-            value = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)).
-                lunhui;
+            long level = BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel);
+            if (level == -1) {
+                level = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel);
+            }
+            value = JsonUtils.getIntance().getLevelData(level).lunhui;
             BigNumber bigValue = BigNumber.getBigNumForString(value);
             bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
             value = bigValue.toString();

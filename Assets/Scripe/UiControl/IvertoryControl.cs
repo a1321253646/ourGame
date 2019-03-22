@@ -54,6 +54,7 @@ public class IvertoryControl : UiControlBase
                 }
                 GoodControl good = mGoodsControl[mGoodIndex];
                 addCount = good.updateUi(bean.goodId, addCount, bean);
+ 
                 mGoodIndex++;
             }
         }

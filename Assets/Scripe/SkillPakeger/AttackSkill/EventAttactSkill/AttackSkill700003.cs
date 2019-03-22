@@ -5,7 +5,7 @@ public class AttackSkill700003 : EventAttackSkill
 {
     float count1 = -1;
     float count2 = -1;
-    public override void beforeHurt(HurtStatus hurt)
+    public override void beforeHurt(HurtStatus hurt,Attacker attacker)
     {
         if (count1 == -1)
         {

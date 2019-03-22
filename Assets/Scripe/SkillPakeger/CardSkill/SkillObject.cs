@@ -52,7 +52,11 @@ public abstract class SkillObject : MonoBehaviour
     }
 
     public void updateLocal(float x) {
-        if (!isBoss) {
+        if (GameManager.getIntance().isEnd) {
+            mSkillStatus = SKILL_STATUS_END;
+            Destroy(gameObject);
+        }
+        if (!isBoss && mSkillStatus != SKILL_STATUS_END) {
             gameObject.transform.Translate(Vector2.left * x);
             mLocal.x = mLocal.x - x;
         }

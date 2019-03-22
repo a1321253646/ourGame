@@ -11,10 +11,10 @@ public class AttackSkill700008 : EventAttackSkill
     public override void beforeDie()
     {
         if(count1 == 0) { 
-            count1 = (int)(mSkillJson.getSpecialParameterValue()[0] * 100);
+            count1 = (int)mSkillJson.getSpecialParameterValue()[0] ;
             count2 = mSkillJson.getSpecialParameterValue()[1] / 100;
         }
-        bool isAction = randomResult(100, count1, false);
+        bool isAction = randomResult(100, count1, true);
         if (isAction) {
             mManager.getAttacker().AddBlood(mManager.getAttacker().mAttribute.maxBloodVolume * count2);
         }

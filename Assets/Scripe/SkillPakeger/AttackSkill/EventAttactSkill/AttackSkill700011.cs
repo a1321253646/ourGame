@@ -18,18 +18,18 @@ public class AttackSkill700011 : EventAttackSkill
         bool isCrt = randomResult(100, count1, false);
         if (isCrt)
         {
-            attacker.mBuffList.Add(700011, true);
-            attacker.mAllAttributePre.minus(mSkillIndex,AttributePre.defense,count1);
-            attacker.mAllAttributePre.minus(mSkillIndex,AttributePre.aggressivity,count1);
+            attacker.mBuffList.Add(700011, -1);
+            attacker.mAllAttributePre.minus(mSkillIndex,AttributePre.defense, count2);
+            attacker.mAllAttributePre.minus(mSkillIndex,AttributePre.aggressivity, count2);
         }
     }
     public override void endSkill()
     {
-        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_END_EHURT, this);
+        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_BEFORE_HURT, this);
     }
 
     public override void startSkill()
     {
-        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_END_EHURT, this);
+        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_BEFORE_HURT, this);
     }
 }

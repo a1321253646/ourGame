@@ -90,7 +90,7 @@ public class TipControl : UiControlBase
                     Text tv = text.GetComponent<Text>();
                     tv.text = "已装备全部装备，请先脱下一件";
                     tv.color = Color.red;
-                    UiManager.FlyTo(tv);
+                    UiManager.FlyTo(tv,UiManager.FLY_UP);
                 }
             }
         }
