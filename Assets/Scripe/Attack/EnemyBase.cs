@@ -202,9 +202,7 @@ public class EnemyBase : Attacker {
 		mState = new EnemyState (this);
         upDataSpeed();
         if (mAttackType == Attacker.ATTACK_TYPE_BOSS) {
-            mCardManager = GameObject.Find("boss_info").GetComponent<BossCardManager>();
-            mCardManager.init(this);
-            ((BossCardManager)mCardManager).show();
+            GameManager.getIntance().getUiManager().showBossUi();
         }
 
 	}

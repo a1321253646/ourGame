@@ -211,7 +211,7 @@ public class LuiHuiTips : UiControlBase
         long newLevel = 1;
         long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(13);
         long value = 0;
-
+ 
         if (luihuiLevel != BaseDateHelper.encodeLong(0) && SQLHelper.getIntance().isCloseYueqiang != 1) 
         {
             List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(13, BaseDateHelper.decodeLong(luihuiLevel));
@@ -250,9 +250,11 @@ public class LuiHuiTips : UiControlBase
 
             }
         }
-        if(newLevel >= oldLevel) {
+
+        if (newLevel >= oldLevel) {
             newLevel = oldLevel;
         }
+        Debug.Log("newLevel = " + newLevel);
         SQLHelper.getIntance().UpdateCanLunhui(BaseDateHelper.encodeLong(newLevel + (long)JsonUtils.getIntance().getConfigValueForId(100017)));
         SQLHelper.getIntance().updateGameLevel(BaseDateHelper.encodeLong(newLevel));
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
@@ -290,7 +292,9 @@ public class LuiHuiTips : UiControlBase
             }
             else if (mType == TYPPE_QIANGZHI_LUNHUI)
             {
+                UiControlManager.getIntance().remove(UiControlManager.TYPE_SAMSARA);
                 sure(new BigNumber());
+
             }
             if (isShowSelf)
             {

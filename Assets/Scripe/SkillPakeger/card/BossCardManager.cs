@@ -12,7 +12,7 @@ public class BossCardManager : CardManagerBase
     public void show() {
         mHero = GameObject.Find("Manager").GetComponent<LevelManager>().mPlayerControl;
         mBossCardControl = GameObject.Find("boss_card").GetComponent<BossCardControl>();
-        GameManager.getIntance().getUiManager().showBossUi();
+       
         Level level = JsonUtils.getIntance().getLevelData(
             BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
         mBean = JsonUtils.getIntance().getBossCardListById(level.getCardListId());

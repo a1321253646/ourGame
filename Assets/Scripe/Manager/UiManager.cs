@@ -547,6 +547,9 @@ public class UiManager
                 if (mBossUiRoot.transform.position.x - mChangeUiXeach <= mGasFristX- mWidth/ 2*mxBili)
                 {
                     mBossUiRoot.transform.Translate(Vector2.left * (mBossUiRoot.transform.position.x - mGasFristX+mWidth/ 2*mxBili));
+                    BossCardManager card = GameObject.Find("boss_info").GetComponent<BossCardManager>();
+                    card.init(GameManager.getIntance().mBoss);
+                    card.show();
                     isBossRuning = false;
                 }
                 else

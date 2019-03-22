@@ -38,6 +38,9 @@ public class SQLDate
                id == SQLHelper.GAME_ID_VERSION_CODE ||
                id == SQLHelper.GAME_ID_MAX_TIME ||
                id == SQLHelper.GAME_ID_PLAYER_MAX_LEVEL ||
+               id == SQLHelper.GAME_ID_SETTING_CLOSED_YUEQIANG ||
+               id == SQLHelper.GAME_ID_SETTING_CLOSED_CHUANGYE ||
+               id == SQLHelper.GAME_ID_CAN_LUNHUI ||
                id == SQLHelper.GAME_ID_HAD_LUNHUI)
             {
                 isClean = SQLDate.CLEAR_NO;

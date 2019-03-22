@@ -117,6 +117,7 @@ public class EnemyFactory : MonoBehaviour {
         {
             enmey.mAttackType = Attacker.ATTACK_TYPE_BOSS;
             mLevelMnager.mPlayerControl.mSkillManager.mEventAttackManager.debuffBoss(enmey);
+            GameManager.getIntance().mBoss = enmey;
 
         }
         else

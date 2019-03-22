@@ -31,6 +31,7 @@ public class GameManager
     public List<RankingListDateBean> mRankingList = null;
     public bool mRankingListUpdate = false;
 
+    public Attacker mBoss;
 
     public int mInitStatus = -1;//0为开始初始化 1 为开始读取json文件 2为json文件读取完成 3为开始处理本地数据库 4 为本地数据库处理完成 5为开始同步网络数据库 
                                 //6为网络数据库同步完成  7 将网络数据同步到本地 8 完成网络数据本地化 9为存档读取 10读取存档完成
