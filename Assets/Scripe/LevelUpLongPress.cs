@@ -6,6 +6,7 @@ public class LevelUpLongPress : MonoBehaviour
     private bool IsStart = false;
     private float mLongPressTIme = -1;
     private float mTime = 0;
+
     void Update()
     {
         if (GameManager.getIntance().uiManager == null || GameManager.getIntance().uiManager.mLvUpBt == null) {

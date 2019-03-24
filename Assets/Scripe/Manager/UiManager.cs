@@ -290,7 +290,7 @@ public class UiManager
         }
     }
 
-	public void refreshData(){
+    public void refreshData(){
 		mHeroLvTv.text = "" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv);
         mLvUpCrystalTv.text =  GameManager.getIntance ().upLevelCrystal.toStringWithUnit();
 		mCurrentCrystalTv.text =   GameManager.getIntance ().mCurrentCrystal.toStringWithUnit();
@@ -305,7 +305,7 @@ public class UiManager
 			mLvUpBt.interactable = true;
 		} else {
 			mLvUpBt.interactable = false;
-		}
+        }
 	}
 
     public void changeBossBlod(double current, double max) {

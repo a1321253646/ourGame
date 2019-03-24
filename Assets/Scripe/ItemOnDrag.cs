@@ -27,6 +27,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     CardUiControl mUiContorl;
     CardUiControl mRootContorl;
     float myBili = 0;
+
     void Update()
     {
 
