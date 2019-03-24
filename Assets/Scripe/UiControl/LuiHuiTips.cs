@@ -333,9 +333,14 @@ public class LuiHuiTips : UiControlBase
                 sure();
             }else if (mType == TYPPE_LUIHUI_NEED) {
                 Time.timeScale = 1;
-                
-                sure(mLuiHui);
-                SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
+                toremoveUi();
+                if (SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode)
+                {
+                    SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
+                    sure(mLuiHui);
+                    
+                   
+                }
             }
             else if (mType == TYPPE_TIP)
             {
@@ -355,8 +360,6 @@ public class LuiHuiTips : UiControlBase
                 mTimeScale = Time.timeScale;
                 showUpdate();
             }
-
-
         });
         mClose.onClick.AddListener(() =>
         {
@@ -383,9 +386,13 @@ public class LuiHuiTips : UiControlBase
             else if (mType == TYPPE_LUIHUI_NEED)
             {
                 Time.timeScale = 1;
-
-                sure(mLuiHui);
-                SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
+                toremoveUi();
+                if (SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode)
+                {
+                    sure(mLuiHui);
+                    SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
+                 
+                }             
             }
             else if (mType == TYPPE_UPDATE && GameManager.getIntance().mIsMust == 1)
             {

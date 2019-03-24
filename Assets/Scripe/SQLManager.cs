@@ -306,7 +306,7 @@ public class SQLManager
                             InsertDataToSQL(date, true);
                         }
                     }
-                    SQLDate count = new SQLDate();
+/*                    SQLDate count = new SQLDate();
                     count.type = SQLHelper.TYPE_GAME;
                     count.id = SQLHelper.GAME_ID_LEVEL;
                     count.isClean = SQLDate.CLEAR;
@@ -376,7 +376,7 @@ public class SQLManager
                     count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
                     count.goodId = SQLDate.DEFAULT_GOOD_ID;
                     count.extan = "1";
-                    InsertDataToSQL(count, true);
+                    InsertDataToSQL(count, true);*/
 
                     return 1;
                 }

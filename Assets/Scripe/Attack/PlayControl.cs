@@ -662,6 +662,15 @@ public class PlayControl : Attacker
                 mFightManager.registerAttacker(this);
                 mLevelManager.creatEnemyFactory(transform.position.x, transform.position.y+resourceData.idel_y);
                 getOutLine();
+                if (SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode)
+                {
+
+                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().
+                        showUi("本次更新新卡牌以及转职系统，为了您的游戏正常进行，将强制轮回，本次轮回您将获得双倍轮回值共%D点。给您带来不便，我们表示抱歉。");
+                    Time.timeScale = 0;
+                    return;
+
+                }
                 GameObject.Find("Manager").GetComponent<AdManager>().initAd();
             }
         }
