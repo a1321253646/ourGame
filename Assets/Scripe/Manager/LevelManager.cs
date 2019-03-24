@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
         creaPlay(yBase);
-      //  creatEnemyFactory(cardTop);
+        //  creatEnemyFactory(cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setLoclaManager(mLocalManager);
         SkillManage.getIntance().setBackManagerManager(mBackManager);
@@ -169,7 +169,7 @@ public class LevelManager : MonoBehaviour {
                     SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
                 }
 
-                if (outTime > JsonUtils.getIntance().getConfigValueForId(100032))
+                if (outTime > JsonUtils.getIntance().getConfigValueForId(100032) && SQLHelper.getIntance().mVersionCode >= GameManager.mVersionCode)
                 {
                     BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "", "" + outGet.toStringWithUnit());
                 }

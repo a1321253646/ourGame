@@ -119,6 +119,18 @@ public class PlayControl : Attacker
         setHeroData();
 
         upLunhui();
+
+        if (SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode)
+        {
+
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().
+                showUi("本次更新新卡牌以及转职系统，为了您的游戏正常进行，将强制轮回，本次轮回您将获得双倍轮回值共%D点。给您带来不便，我们表示抱歉。");
+            UiControlManager.getIntance().show(UiControlManager.TYPE_LUIHUI);
+            Time.timeScale = 0;
+            return;
+
+        }
+
         initEquip();
         GameObject.Find("Manager").GetComponent<PetManager>().reInit();
         if (!isFristStart)
@@ -173,7 +185,7 @@ public class PlayControl : Attacker
                     SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
                 }
 
-                if (old2 > JsonUtils.getIntance().getConfigValueForId(100032))
+                if (old2 > JsonUtils.getIntance().getConfigValueForId(100032) &&&& SQLHelper.getIntance().mVersionCode >= GameManager.mVersionCode)
                 {
                     BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "", "" + outGet.toStringWithUnit());
                 }
@@ -662,15 +674,6 @@ public class PlayControl : Attacker
                 mFightManager.registerAttacker(this);
                 mLevelManager.creatEnemyFactory(transform.position.x, transform.position.y+resourceData.idel_y);
                 getOutLine();
-                if (SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode)
-                {
-
-                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().
-                        showUi("本次更新新卡牌以及转职系统，为了您的游戏正常进行，将强制轮回，本次轮回您将获得双倍轮回值共%D点。给您带来不便，我们表示抱歉。");
-                    Time.timeScale = 0;
-                    return;
-
-                }
                 GameObject.Find("Manager").GetComponent<AdManager>().initAd();
             }
         }

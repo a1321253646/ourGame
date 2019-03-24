@@ -64,6 +64,9 @@ public class LuiHuiTips : UiControlBase
     }
 
     public void showUi(string dec) {
+
+        GameObject.Find("lunhui_tips_back").transform.localScale = new Vector2(1, 1);
+
         mSure.transform.localScale = new Vector2(1, 1);
         buttonList.transform.localScale = new Vector2(0, 0);
         mType = TYPPE_LUIHUI_NEED;
@@ -334,8 +337,10 @@ public class LuiHuiTips : UiControlBase
             }else if (mType == TYPPE_LUIHUI_NEED) {
                 Time.timeScale = 1;
                 toremoveUi();
+                GameObject.Find("lunhui_tips_back").transform.localScale = new Vector2(0, 0);
                 if (SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode)
                 {
+
                     SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
                     sure(mLuiHui);
                     
@@ -386,6 +391,7 @@ public class LuiHuiTips : UiControlBase
             else if (mType == TYPPE_LUIHUI_NEED)
             {
                 Time.timeScale = 1;
+                GameObject.Find("lunhui_tips_back").transform.localScale = new Vector2(0, 0);
                 toremoveUi();
                 if (SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode)
                 {
