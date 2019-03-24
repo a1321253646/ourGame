@@ -4,203 +4,203 @@
     "frequency": 1
   },
   {
-    "value": 1200,
+    "value": 10000,
     "frequency": 1.1
   },
   {
-    "value": 1440,
+    "value": 100000,
     "frequency": 1.2
   },
   {
-    "value": 1728,
+    "value": 1000000,
     "frequency": 1.3
   },
   {
-    "value": 2073,
+    "value": 10000000,
     "frequency": 1.4
   },
   {
-    "value": 2487,
+    "value": 100000000,
     "frequency": 1.5
   },
   {
-    "value": 2984,
+    "value": 1000000000,
     "frequency": 1.6
   },
   {
-    "value": 3580,
+    "value": 10000000000.0,
     "frequency": 1.7
   },
   {
-    "value": 4296,
+    "value": 100000000000.0,
     "frequency": 1.8
   },
   {
-    "value": 5155,
+    "value": 1000000000000.0,
     "frequency": 1.9
   },
   {
-    "value": 6186,
+    "value": 10000000000000.0,
     "frequency": 2
   },
   {
-    "value": 9279,
+    "value": 100000000000000.0,
     "frequency": 2.1
   },
   {
-    "value": 13918,
+    "value": 1E+15,
     "frequency": 2.2
   },
   {
-    "value": 20877,
+    "value": 1E+16,
     "frequency": 2.3
   },
   {
-    "value": 31315,
+    "value": 1E+17,
     "frequency": 2.4
   },
   {
-    "value": 46972,
+    "value": 1E+18,
     "frequency": 2.5
   },
   {
-    "value": 70458,
+    "value": 1E+19,
     "frequency": 2.6
   },
   {
-    "value": 105687,
+    "value": 1E+20,
     "frequency": 2.7
   },
   {
-    "value": 158530,
+    "value": 1E+21,
     "frequency": 2.8
   },
   {
-    "value": 237795,
+    "value": 1E+22,
     "frequency": 2.9
   },
   {
-    "value": 356692,
+    "value": 1E+23,
     "frequency": 3
   },
   {
-    "value": 713384,
+    "value": 1E+24,
     "frequency": 3.1
   },
   {
-    "value": 1426768,
+    "value": 9.9999999999999988E+24,
     "frequency": 3.2
   },
   {
-    "value": 2853536,
+    "value": 9.9999999999999988E+25,
     "frequency": 3.3
   },
   {
-    "value": 5707072,
+    "value": 9.9999999999999988E+26,
     "frequency": 3.4
   },
   {
-    "value": 11414144,
+    "value": 1E+28,
     "frequency": 3.5
   },
   {
-    "value": 22828288,
+    "value": 1E+29,
     "frequency": 3.6
   },
   {
-    "value": 45656576,
+    "value": 9.9999999999999988E+29,
     "frequency": 3.7
   },
   {
-    "value": 91313152,
+    "value": 9.9999999999999985E+30,
     "frequency": 3.8
   },
   {
-    "value": 182626304,
+    "value": 9.9999999999999987E+31,
     "frequency": 3.9
   },
   {
-    "value": 365252608,
+    "value": 1E+33,
     "frequency": 4
   },
   {
-    "value": 913131520,
+    "value": 1E+34,
     "frequency": 4.1
   },
   {
-    "value": 2282828800.0,
+    "value": 1E+35,
     "frequency": 4.2
   },
   {
-    "value": 5707072000.0,
+    "value": 9.9999999999999989E+35,
     "frequency": 4.3
   },
   {
-    "value": 14267680000.0,
+    "value": 9.9999999999999984E+36,
     "frequency": 4.4
   },
   {
-    "value": 35669200000.0,
+    "value": 9.9999999999999979E+37,
     "frequency": 4.5
   },
   {
-    "value": 89173000000.0,
+    "value": 9.9999999999999979E+38,
     "frequency": 4.6
   },
   {
-    "value": 222932500000.0,
+    "value": 9.9999999999999979E+39,
     "frequency": 4.7
   },
   {
-    "value": 557331250000.0,
+    "value": 9.9999999999999981E+40,
     "frequency": 4.8
   },
   {
-    "value": 1393328125000.0,
+    "value": 9.9999999999999989E+41,
     "frequency": 4.9
   },
   {
-    "value": 3483320312500.0,
+    "value": 9.9999999999999989E+42,
     "frequency": 5
   },
   {
-    "value": 10449960937500.0,
+    "value": 9.9999999999999989E+43,
     "frequency": 5.1
   },
   {
-    "value": 31349882812500.0,
+    "value": 1E+45,
     "frequency": 5.2
   },
   {
-    "value": 94049648437500.0,
+    "value": 1E+46,
     "frequency": 5.3
   },
   {
-    "value": 282148945312500.0,
+    "value": 1E+47,
     "frequency": 5.4
   },
   {
-    "value": 846446835937500.0,
+    "value": 1E+48,
     "frequency": 5.5
   },
   {
-    "value": 2.5393405078125E+15,
+    "value": 1.0000000000000001E+49,
     "frequency": 5.6
   },
   {
-    "value": 7.6180215234375E+15,
+    "value": 1E+50,
     "frequency": 5.7
   },
   {
-    "value": 2.28540645703125E+16,
+    "value": 1E+51,
     "frequency": 5.8
   },
   {
-    "value": 6.85621937109375E+16,
+    "value": 1E+52,
     "frequency": 5.9
   },
   {
-    "value": 2.0568658113281251E+17,
+    "value": 1E+53,
     "frequency": 6
   }
 ]
