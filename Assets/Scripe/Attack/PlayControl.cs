@@ -185,7 +185,7 @@ public class PlayControl : Attacker
                     SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
                 }
 
-                if (old2 > JsonUtils.getIntance().getConfigValueForId(100032) &&&& SQLHelper.getIntance().mVersionCode >= GameManager.mVersionCode)
+                if (old2 > JsonUtils.getIntance().getConfigValueForId(100032) && SQLHelper.getIntance().mVersionCode >= GameManager.mVersionCode)
                 {
                     BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "", "" + outGet.toStringWithUnit());
                 }
