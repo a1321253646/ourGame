@@ -36,6 +36,7 @@ public class SQLHelper
     public long isCloseYueqiang = -1;
     public long isCloseChuangye = -1;
     public long isHadLunhui = -1;
+    public long mTargetSpeed = BaseDateHelper.encodeLong(-1);
     public long isCanLunhui = BaseDateHelper.encodeLong(-1);
 
     public BigNumber mOutLineGet = null;
@@ -76,6 +77,7 @@ public class SQLHelper
     public static long GAME_ID_SETTING_CLOSED_YUEQIANG = 34;
     public static long GAME_ID_HAD_LUNHUI = 35;
     public static long GAME_ID_CAN_LUNHUI = 36;
+    public static long GAME_ID_TARGET_SPEED = 37;
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -146,6 +148,7 @@ public class SQLHelper
         isShowPlayerPoint = -1;
         isShowPetTablePoint = -1;
         isFristStartGame = -1;
+        mTargetSpeed = BaseDateHelper.encodeLong(-1);
         mPlayVocation.Clear();
         mCurrentVocation = -1;
         isCloseYueqiang = -1;
@@ -274,24 +277,24 @@ public class SQLHelper
                     }
                     else if (date.id == GAME_ID_MOJING)
                     {
-//                        Debug.Log("读取数据库 mMojing" + date.extan);
+                        //                        Debug.Log("读取数据库 mMojing" + date.extan);
                         mMojing = BigNumber.getBigNumForString(date.extan);
 
                     }
                     else if (date.id == GAME_ID_TIME)
                     {
                         mOutTime = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                        //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_PLAYER_MAX_LEVEL)
                     {
                         mMaxLevel = BaseDateHelper.encodeLong(long.Parse(date.extan));
-//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                        //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_IS_UPDATE)
                     {
                         isUpdate = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 是否已更新" + mOutTime);
+                        //                        Debug.Log("读取数据库 是否已更新" + mOutTime);
                     }
                     /*   else if (date.id == GAME_ID_GUIDE)
                        {
@@ -302,62 +305,62 @@ public class SQLHelper
                     else if (date.id == GAME_ID_POINT_PLAYER)
                     {
                         isShowPlayerPoint = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                        //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_POINT_BACKPACK)
                     {
                         isShowBackpackPoint = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                        //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_POINT_LUNHUI)
                     {
                         isShowLuihuiPoint = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                        //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_POINT_CARD)
                     {
                         isShowCardPoint = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                        //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_FRIST_START)
                     {
                         isFristStartGame = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                        //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_NO_LUNHUI)
                     {
                         isLuiHui = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 是否轮回 " + isLuiHui);
+                        //                        Debug.Log("读取数据库 是否轮回 " + isLuiHui);
                     }
                     else if (date.id == GAME_ID_IS_VOICE)
                     {
                         isVoice = long.Parse(date.extan);
- //                       Debug.Log("读取数据库 是否开启音量 " + isVoice);
+                        //                       Debug.Log("读取数据库 是否开启音量 " + isVoice);
                     }
                     else if (date.id == GAME_ID_LUNHUI_DEAL)
                     {
                         isLuiHuiDeal = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 轮回后死亡 " + isLuiHuiDeal);
+                        //                        Debug.Log("读取数据库 轮回后死亡 " + isLuiHuiDeal);
                     }
                     else if (date.id == GAME_ID_GOOD_MAXID)
                     {
                         mMaxGoodId = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 最大物品id " + mMaxGoodId);
+                        //                        Debug.Log("读取数据库 最大物品id " + mMaxGoodId);
                     }
                     else if (date.id == GAME_ID_POINT_PETTABLE)
                     {
                         isShowPetTablePoint = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 是否显示宠物小红点 " + isShowPetTablePoint);
+                        //                        Debug.Log("读取数据库 是否显示宠物小红点 " + isShowPetTablePoint);
                     }
                     else if (date.id == GAME_ID_MAX_TIME)
                     {
                         mMaxOutTime = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 最大离线时间 " + mMaxOutTime);
+                        //                        Debug.Log("读取数据库 最大离线时间 " + mMaxOutTime);
                     }
                     else if (date.id == GAME_ID_PLAYER_NAME)
                     {
                         mPlayName = date.extan;
-//                        Debug.Log("读取数据库 用户名称 " + mPlayName);
+                        //                        Debug.Log("读取数据库 用户名称 " + mPlayName);
                     }
                     else if (date.id == GAME_ID_PLAYER_VOCATION_1)
                     {
@@ -386,14 +389,15 @@ public class SQLHelper
                     else if (date.id == GAME_ID_OUTLINE_VALUE)
                     {
                         mOutLineGet = BigNumber.getBigNumForString(date.extan);
-//                        Debug.Log("读取数据库 离线获取每分钟收益 " + mOutLineGet.toStringWithUnit());
+                        //                        Debug.Log("读取数据库 离线获取每分钟收益 " + mOutLineGet.toStringWithUnit());
                     }
                     else if (date.id == GAME_ID_VERSION_CODE)
                     {
                         mVersionCode = long.Parse(date.extan);
-//                        Debug.Log("读取数据库 版本号 " + mVersionCode);
+                        //                        Debug.Log("读取数据库 版本号 " + mVersionCode);
                     }
-                    else if (date.id == GAME_ID_LEVEL_CARD) {
+                    else if (date.id == GAME_ID_LEVEL_CARD)
+                    {
                         string[] strs = date.extan.Split(',');
                         mCardLevel = long.Parse(strs[0]);
                         mCardListId = long.Parse(strs[1]);
@@ -404,15 +408,18 @@ public class SQLHelper
                     }
                     else if (date.id == GAME_ID_SETTING_CLOSED_YUEQIANG)
                     {
-                        isCloseYueqiang = long.Parse(date.extan) ;
+                        isCloseYueqiang = long.Parse(date.extan);
                     }
                     else if (date.id == GAME_ID_HAD_LUNHUI)
                     {
-                        isHadLunhui = long.Parse(date.extan) ;
+                        isHadLunhui = long.Parse(date.extan);
                     }
                     else if (date.id == GAME_ID_CAN_LUNHUI)
                     {
                         isCanLunhui = BaseDateHelper.encodeLong(long.Parse(date.extan));
+                    }
+                    else if (date.id == GAME_ID_TARGET_SPEED) {
+                        mTargetSpeed = BaseDateHelper.encodeLong(long.Parse(date.extan));
                     }
                 }
             }
@@ -728,6 +735,21 @@ public class SQLHelper
         }
         isUpdate = 1;
     }
+    public void updateTarget(long value)
+    {
+        if (mTargetSpeed == BaseDateHelper.encodeLong(-1))
+        {
+            addGame(GAME_ID_TARGET_SPEED, 1);
+
+        }
+        else
+        {
+            updateGame(GAME_ID_TARGET_SPEED, BaseDateHelper.decodeLong(value));
+        }
+        mTargetSpeed = value;
+    }
+
+
     public void addHadLunhui()
     {
         if (isHadLunhui == -1)

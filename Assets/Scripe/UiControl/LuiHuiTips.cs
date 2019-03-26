@@ -189,8 +189,11 @@ public class LuiHuiTips : UiControlBase
         UiControlManager.getIntance().remove(UiControlManager.TYPE_SAMSARA);
 
     }
-
     private void sure(BigNumber tmp) {
+        sure(tmp, true);
+    }
+
+    private void sure(BigNumber tmp,bool isUpdataLuihunLevel) {
         //Time.timeScale = 1;
         GameManager.getIntance().isLuihuiIng = true;
         GameManager.getIntance().isEnd = true;
@@ -200,12 +203,25 @@ public class LuiHuiTips : UiControlBase
         
         Debug.Log("============================轮回点获得= " + tmp.toString());
         GameManager.getIntance().mReincarnation = BigNumber.add(GameManager.getIntance().mReincarnation, tmp);
+
         SQLHelper.getIntance().updateLunhuiValue(GameManager.getIntance().mReincarnation);
         GameManager.getIntance().isAddGoodForTest = false;
    //     UiControlManager.getIntance().removeAll();
 
         Level level = JsonUtils.getIntance().getLevelData();
-        SQLHelper.getIntance().updateIsLunhuiValue((long)level.levelspeedup);
+        float speedLevel = level.levelspeedup;
+        Debug.Log("===========1================= BaseDateHelper.decodeLong(SQLHelper.getIntance().mTargetSpeed)= " + BaseDateHelper.decodeLong(SQLHelper.getIntance().mTargetSpeed));
+        if (isUpdataLuihunLevel) {
+            SQLHelper.getIntance().updateTarget(BaseDateHelper.encodeLong((long)speedLevel));
+        }
+        Debug.Log("===========2================= BaseDateHelper.decodeLong(SQLHelper.getIntance().mTargetSpeed)= " + BaseDateHelper.decodeLong(SQLHelper.getIntance().mTargetSpeed));
+        if (SQLHelper.getIntance().mTargetSpeed != BaseDateHelper.encodeLong(-1)) {
+            speedLevel = BaseDateHelper.decodeLong(SQLHelper.getIntance().mTargetSpeed);
+        }
+
+        SQLHelper.getIntance().updateIsLunhuiValue((long)speedLevel);
+
+       
         long oldLevel =BaseDateHelper.decodeLong( GameManager.getIntance().mCurrentLevel);
         InventoryHalper.getIntance().dealClear();
 
@@ -296,7 +312,7 @@ public class LuiHuiTips : UiControlBase
             else if (mType == TYPPE_QIANGZHI_LUNHUI)
             {
                 UiControlManager.getIntance().remove(UiControlManager.TYPE_SAMSARA);
-                sure(new BigNumber());
+                sure(new BigNumber(),false);
 
             }
             if (isShowSelf)
@@ -342,7 +358,7 @@ public class LuiHuiTips : UiControlBase
                 {
 
                     SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
-                    sure(mLuiHui);
+                    sure(mLuiHui,false);
                     
                    
                 }
@@ -395,7 +411,7 @@ public class LuiHuiTips : UiControlBase
                 toremoveUi();
                 if (SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode)
                 {
-                    sure(mLuiHui);
+                    sure(mLuiHui, false);
                     SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
                  
                 }             

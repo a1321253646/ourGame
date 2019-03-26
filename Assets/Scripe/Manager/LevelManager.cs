@@ -58,6 +58,10 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 1;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
+
+        GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
+        GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
+
         creaPlay(yBase);
         //  creatEnemyFactory(cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
@@ -117,6 +121,10 @@ public class LevelManager : MonoBehaviour {
         {
             Time.timeScale = 1;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
+        }
+        if (GameManager.getIntance().mTestSpeed != -1)
+        {
+            Time.timeScale = GameManager.getIntance().mTestSpeed;
         }
         SkillManage.getIntance().reset();
 

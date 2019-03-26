@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 public class UiManager 
 {	
-	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv,mBossHpTv;
+	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv,mBossHpTv,mSpeedTestSet;
 	Slider mHpSl,mStartBossGasSl,mBossHpSl;
-	Button mStartBossBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton,mRankingButton;
+	Button mStartBossBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton,mRankingButton,mShop,mSpeedTestBt;
     public Button mLvUpBt;
     Image autoBack;
     Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint/*,mVoiceImage*/;
@@ -53,15 +53,42 @@ public class UiManager
         mCardUiPoint = GameObject.Find ("skilcard_ui_point").GetComponent<Image> ();
         mSettingButton = GameObject.Find("setting_button").GetComponent<Button>();
         mRankingButton = GameObject.Find("ranking_list_button").GetComponent<Button>();
+        mShop = GameObject.Find("shop_bt").GetComponent<Button>();
+
+        mSpeedTestBt = GameObject.Find("speed_setting").GetComponent<Button>();
+        mSpeedTestSet = GameObject.Find("speed_setting_tx").GetComponent<Text>();
+
+        mSpeedTestBt.onClick.AddListener(() =>
+        {
+            if (GameManager.getIntance().mTestSpeed == -1)
+            {
+                GameManager.getIntance().mTestSpeed = 2;
+            }
+            else
+            {
+                GameManager.getIntance().mTestSpeed++;
+                if (GameManager.getIntance().mTestSpeed > 10)
+                {
+                    GameManager.getIntance().mTestSpeed = 1;
+                }
+            }
+            mSpeedTestSet.text = "X" + GameManager.getIntance().mTestSpeed;
+            Time.timeScale = GameManager.getIntance().mTestSpeed;
+
+        });
 
         mBossUiRoot = GameObject.Find("boss_info");
         mGasUiRoot = GameObject.Find("moqi_root");
         mBossHpTv = GameObject.Find("boss_hp_show").GetComponent<Text>();
+        
         mBossHpSl = GameObject.Find("boss_blood").GetComponent<Slider>();
 
         mGasFristX = mGasUiRoot.GetComponent<RectTransform>().position.x;
         mBossFristX = mBossUiRoot.GetComponent<RectTransform>().position.x;
         mWidth = mBossUiRoot.GetComponent<RectTransform>().rect.x;
+
+
+
 
         float x = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.x;
         mxBili = Screen.width / x;
@@ -155,6 +182,9 @@ public class UiManager
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_OPEN_CARD);
             UiControlManager.getIntance().show(UiControlManager.TYPE_CARD);
             setCardPointShow(2);
+        });
+        mShop.onClick.AddListener(() => {
+            UiControlManager.getIntance().show(UiControlManager.TYPE_SHOP);
         });
 
         mAutoBoss.onClick.AddListener(() =>

@@ -950,7 +950,9 @@ public class JsonUtils
         if (mEnemys == null || mEnemys.Count == 0) {
             mEnemys = new Dictionary<long, Enemy>();
             List<Enemy> enemydata = readEnemyData();
+           
             foreach (Enemy ey in enemydata) {
+                //Debug.Log("enemydata file = " + enemyFile + " ey.id=" + ey.id);
                 mEnemys.Add(ey.id, ey);
             }
         }

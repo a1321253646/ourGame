@@ -124,7 +124,7 @@ public class PlayControl : Attacker
         {
 
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().
-                showUi("本次更新新卡牌以及转职系统，为了您的游戏正常进行，将强制轮回，本次轮回您将获得双倍轮回值共%D点。给您带来不便，我们表示抱歉。");
+                showUi(JsonUtils.getIntance().getStringById(100038));
             UiControlManager.getIntance().show(UiControlManager.TYPE_LUIHUI);
             Time.timeScale = 0;
             return;
@@ -161,6 +161,7 @@ public class PlayControl : Attacker
         float yBase = mMapConfig.y_base;
         yBase = cardTop + mMapConfig.y_base;
         transform.position = new Vector2(transform.position.x,yBase- resourceData.idel_y) ;
+        GameObject.Find("hero").GetComponent<HeroRoleControl>().upDateUi();
     }
 
 

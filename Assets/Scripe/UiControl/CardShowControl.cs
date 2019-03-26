@@ -156,7 +156,7 @@ public class CardShowControl : UiControlBase
     private void addUserUi(PlayerBackpackBean card)
     {
         mUserUiCount += 1;       
-        for (int i = 0; i < JsonUtils.getIntance().getConfigValueForId(100016); i++) {
+        for (int i = 0; i < getCardCount(); i++) {
             CardUiControl ui = mUserListGb[i].GetComponent<CardUiControl>();
             if (ui.mCardId == -1) {
                 ui.init(card.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);

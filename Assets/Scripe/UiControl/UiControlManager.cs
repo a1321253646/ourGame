@@ -16,6 +16,8 @@ public class UiControlManager
     public static long TYPE_PET = 10;
     public static long TYPE_HERO = 11;
     public static long TYPE_AD = 12;
+    public static long TYPE_DEC_TIP= 13;
+    public static long TYPE_SHOP = 14;
 
     public static long SHOW_TYPE_TIP = 1;
     public static long SHOW_TYPE_UI = 2;
@@ -109,6 +111,9 @@ public class UiControlManager
         addAllUi(iver, 1, TYPE_LUIHUI);
         iver = GameObject.Find("message_tip").GetComponentInChildren<OutLineGetMessage>();
         addAllUi(iver, 1, TYPE_OUTGET);
+        iver = GameObject.Find("game_dec_tip").GetComponentInChildren<GameDecTip>();
+        addAllUi(iver, 1, TYPE_DEC_TIP);
+
         iver = GameObject.Find("ranking_list").GetComponentInChildren<RankingListControl>();
         addAllUi(iver, 2, TYPE_RANKING);
         iver = GameObject.Find("hero").GetComponentInChildren<HeroRoleControl>();
@@ -125,6 +130,9 @@ public class UiControlManager
         addAllUi(iver, 2, TYPE_VOCATION);
         iver = GameObject.Find("advert").GetComponentInChildren<AdUiControl>();
         addAllUi(iver, 2, TYPE_AD);
+        iver = GameObject.Find("shop_root").GetComponentInChildren<ShopViewControl>();
+        addAllUi(iver, 2, TYPE_SHOP);
+
 
     }
     private void addAllUi(UiControlBase control, long type,long controlType) {

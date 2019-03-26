@@ -58,7 +58,7 @@ public class InventoryHalper
             if (b.sqlGoodId == sqlGoodId)
             {
                 b.goodType = SQLDate.GOOD_TYPE_CARD;
-                mCard.Add(b);
+                mCard.Remove(b);
                 SQLHelper.getIntance().changeGoodTyppe(b);
             }
         }

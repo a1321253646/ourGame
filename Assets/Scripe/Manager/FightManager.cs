@@ -316,10 +316,10 @@ public class FightManager{
                 tager.BeAttack (hurtBlood, attacker);
                 
                 
-                if (tager.getStatus() != ActionFrameBean.ACTION_DIE)
-                {
+              //  if (tager.getStatus() != ActionFrameBean.ACTION_DIE)
+              //  {
                     attacker.mSkillManager.mEventAttackManager.endHurt(hurtBlood, tager);
-                }
+             //   }
 
 
                 if (tager.getStatus() == ActionFrameBean.ACTION_DIE) {

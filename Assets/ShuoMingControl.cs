@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class ShuoMingControl : MonoBehaviour {
 
-    public string String_Id;
-
+    public long String_Id;
 	// Use this for initialization
 	void Start () {
-   //     GetComponent<Button>().onClick.AddListener(() =>
-   //     {
-   //         
-   //     });
+        GetComponent<Button>().onClick.AddListener(() =>
+        {
+            GameObject.Find("game_dec_tip").GetComponentInChildren<GameDecTip>().setData(String_Id);
+            UiControlManager.getIntance().show(UiControlManager.TYPE_DEC_TIP);
+        });
 	}
 }

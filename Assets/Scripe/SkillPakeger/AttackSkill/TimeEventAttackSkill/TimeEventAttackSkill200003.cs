@@ -31,6 +31,7 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
     float count1 = 0;
     public override void endHurt( HurtStatus hurt, Attacker attacker)
     {
+        Debug.Log(" TimeEventAttackSkill200003 hurt = "+ hurt.blood);
         if (count1 == 0)
         {
             count1 = mSkillJson.getSpecialParameterValue()[1] ;
@@ -58,7 +59,7 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
         }
 
         mTime += Time.deltaTime;
-        Debug.Log("==================================TimeEventAttackSkill200003 value=" + value + " mTime = " + mTime);
+//        Debug.Log("==================================TimeEventAttackSkill200003 value=" + value + " mTime = " + mTime);
         //}
         if (mTime > value)
         {

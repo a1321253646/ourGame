@@ -197,7 +197,30 @@ public class BackpackManager
         else if (type == TipControl.USE_CARD_TYPE)
         {
             int userCardCount = InventoryHalper.getIntance().getUsercard().Count;
+
             float maxCount = JsonUtils.getIntance().getConfigValueForId(100016);
+            long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(7);
+            long value = 0;
+
+            if (luihuiLevel != BaseDateHelper.encodeLong(0))
+            {
+                List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(7, BaseDateHelper.decodeLong(luihuiLevel));
+                foreach (SamsaraValueBean beanCard in list)
+                {
+                    if (beanCard.type == 500005)
+                    {
+                        value = beanCard.value;
+                        break;
+                    }
+                }
+                if (value != 0)
+                {
+
+                    maxCount += (int)value;
+                }
+
+            }
+            
             Debug.Log("userCardCount== " + userCardCount + " maxCount==" + maxCount);
 
             if (userCardCount >= maxCount)
