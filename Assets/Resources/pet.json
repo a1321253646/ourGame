@@ -54,24 +54,6 @@
     "talkText": "啾啾啾啾啾啾~"
   },
   {
-    "id": 4000005,
-    "name": "木木",
-    "resouce": 50005,
-    "noactivateIcon": "pet_head_05_0",
-    "activateIcon": "pet_head_05_1",
-    "moactivateImage": "pet_005_no",
-    "des": "忘记在深渊里呆了多久，生命力顽强的家伙，头上的小花据说是为了纪念他叫花花的好朋友。",
-    "affixId": "101,102,400003,400004",
-    "value": "60527500,3026375000,3000,3000",
-    "skillId": 600010,
-    "skil_name": "绷带治疗",
-    "skillActivateIcon": "pet_skill_05_1",
-    "skillNoactivateIcon": "pet_skill_05_0",
-    "activateLevel": 500,
-    "activateText": "谢谢你，我都在这里呆到长毛，不是，长草了。",
-    "talkText": "我想去晒晒太阳"
-  },
-  {
     "id": 4000006,
     "name": "南瓜魔术师",
     "resouce": 50006,
@@ -106,6 +88,24 @@
     "activateLevel": 400,
     "activateText": "吱吱吱吱吱吱~",
     "talkText": "吱吱吱吱吱吱~"
+  },
+  {
+    "id": 4000005,
+    "name": "木木",
+    "resouce": 50005,
+    "noactivateIcon": "pet_head_05_0",
+    "activateIcon": "pet_head_05_1",
+    "moactivateImage": "pet_005_no",
+    "des": "忘记在深渊里呆了多久，生命力顽强的家伙，头上的小花据说是为了纪念他叫花花的好朋友。",
+    "affixId": "101,102,400003,400004",
+    "value": "60527500,3026375000,3000,3000",
+    "skillId": 600010,
+    "skil_name": "绷带治疗",
+    "skillActivateIcon": "pet_skill_05_1",
+    "skillNoactivateIcon": "pet_skill_05_0",
+    "activateLevel": 500,
+    "activateText": "谢谢你，我都在这里呆到长毛，不是，长草了。",
+    "talkText": "我想去晒晒太阳"
   },
   {
     "id": 4000007,

@@ -100,6 +100,7 @@ public class GameBeginControl : MonoBehaviour {
             GameManager.getIntance().mInitStatus = 3;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
 #if UNITY_ANDROID || UNITY_IOS
+
             Thread th1 = new Thread(() =>
             {
                 try
@@ -156,7 +157,7 @@ public class GameBeginControl : MonoBehaviour {
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
             Debug.Log(" SQLManager.getIntance().isUpdateed()  = " + SQLManager.getIntance().isUpdateed());
             Debug.Log(" Application.internetReachability == NetworkReachability.NotReachable  = " + (Application.internetReachability == NetworkReachability.NotReachable));
-            if (!SQLManager.getIntance().isUpdateed() || Application.internetReachability == NetworkReachability.NotReachable) {
+            if (!SQLManager.getIntance().isUpdateed() || Application.internetReachability == NetworkReachability.NotReachable || GameManager.isTestVersion) {
                 GameManager.getIntance().mInitStatus = 8;
                 Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
                 return;

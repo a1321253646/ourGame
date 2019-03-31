@@ -16,6 +16,10 @@ public class NetServer
     private static string URL_ROOT =  "http://120.79.249.55:8889";
 
     public void updateNet(List<SqlNetDate> list) {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
         Debug.Log("NetServer  updateNet");
         isUpdate = true;
         mList = list;
@@ -106,6 +110,10 @@ public class NetServer
     }
     public void getLocl()
     {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
         JObject json = new JObject();
         json.Add("user", mDeviceID);
         //json.Add("user", "7a3cff28cdeddeb1220b926073d818d8");
@@ -160,12 +168,20 @@ public class NetServer
     }
     public void getRanking()
     {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
         Debug.Log("NetServer  getRanking");
         Thread th1 = new Thread(getRankingList);
         th1.Start();
     }
 
     public void getUpdateInfoRun() {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
         GameManager.getIntance().isHaveNoteUpdate = true;
         Debug.Log("NetServer  getRanking");
         Thread th1 = new Thread(getUpdateInfo);
@@ -277,6 +293,10 @@ public class NetServer
     }
 
     public bool isHaveLocal() {
+        if (GameManager.isTestVersion)
+        {
+            return false;
+        }
         if (mLocal != null && !mLocal.Equals("error") && mLocal.Length > 0) {
             try
             {

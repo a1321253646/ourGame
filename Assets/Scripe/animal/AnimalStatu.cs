@@ -144,7 +144,8 @@ public class AnimalStatu
             mSpriteRender.sprite =
                 spriteList[index];
         }
-        else {
+        else if(mImageRender!=null)
+        {
             mImageRender.sprite = spriteList[index];
             if (mIsNativeSize)
             {

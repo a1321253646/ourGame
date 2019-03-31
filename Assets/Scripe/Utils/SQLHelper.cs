@@ -165,7 +165,7 @@ public class SQLHelper
         {
             foreach (SQLDate date in mList)
             {
-//                Debug.Log("读取数据库 " + date.toString());
+                Debug.Log("读取数据库 " + date.toString());
                 if (date.type == TYPE_LUNHUI)
                 {
                     long tmp = long.Parse(date.extan);

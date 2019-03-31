@@ -235,6 +235,7 @@ public class UiManager
         mStartBossGasSl.value = 0;
 
         mStartBossBt.interactable = false;
+        showGasUi();
     }
 
     public void showVocation(bool isAddSql) {

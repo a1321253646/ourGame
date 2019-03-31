@@ -27,6 +27,9 @@ public class AdManager : MonoBehaviour
     }
 
     public void initAd() {
+        if (GameManager.isTestVersion) {
+            return;
+        }
             if (!AdIntance.isInit) {
                 AdIntance.isInit = true;
                 TGSDK.Initialize(mUserId);
@@ -92,7 +95,10 @@ public class AdManager : MonoBehaviour
     }
 
     public void playAd() {
-
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
         if (TGSDK.CouldShowAd(mAdId))
               {
                    TGSDK.ShowAd(mAdId);
@@ -101,6 +107,10 @@ public class AdManager : MonoBehaviour
     }
 
     public bool isReadyToShow() {
+        if (GameManager.isTestVersion)
+        {
+            return false;
+        }
         return TGSDK.CouldShowAd(mAdId);
     }
 

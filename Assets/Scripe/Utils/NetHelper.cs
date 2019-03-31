@@ -5,7 +5,12 @@ public class NetHelper
 {
 
     public void updateToNet() {
-#if UNITY_ANDROID ||UNITY_IOS
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
+#if UNITY_ANDROID || UNITY_IOS
+
         SqlNetDate date = new SqlNetDate();
         date.action = 5;
         SQLNetManager.getIntance().addList(date);
@@ -15,6 +20,10 @@ public class NetHelper
 
     public void changeInto(SQLDate data)
     {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
 #if UNITY_ANDROID || UNITY_IOS
         SqlNetDate date = new SqlNetDate();
         date.action = 1;
@@ -26,6 +35,10 @@ public class NetHelper
 
     public void delectInfo(SQLDate data)
     {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
 #if UNITY_ANDROID || UNITY_IOS
         SqlNetDate date = new SqlNetDate();
         date.action = 2;
@@ -37,6 +50,10 @@ public class NetHelper
 
     public void cleanLuihui()
     {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
 #if UNITY_ANDROID || UNITY_IOS
         SqlNetDate date = new SqlNetDate();
         date.action = 3;
@@ -46,6 +63,10 @@ public class NetHelper
     }
     public void cleanAll()
     {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
 #if UNITY_ANDROID || UNITY_IOS
         SqlNetDate date = new SqlNetDate();
         date.action = 4;
@@ -55,6 +76,10 @@ public class NetHelper
     }
     public void cleanAllNet()
     {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
 #if UNITY_ANDROID || UNITY_IOS
         SqlNetDate date = new SqlNetDate();
         date.action = 6;
@@ -64,6 +89,10 @@ public class NetHelper
     }
     public void cleanAllLocal()
     {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
 #if UNITY_ANDROID || UNITY_IOS
         SqlNetDate date = new SqlNetDate();
         date.action = 7;

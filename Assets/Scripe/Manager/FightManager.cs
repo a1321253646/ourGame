@@ -216,60 +216,76 @@ public class FightManager{
          double hurt = hurt2 * crtBili + hurt1*(1- crtBili);
         hurt = hurt * hero.mSkillManager.getHurtPre();
         //double hurt = hurt1 * hero.mSkillManager.getHurtPre();
-        int a = (int)(enemy.monster_hp / hurt);
-        if (a == 0)
-        {
-            a = 1;
+
+        bool willFanshagn = false;
+        Dictionary<long, long>  vocations = SQLHelper.getIntance().mPlayVocation;
+        foreach (long key in vocations.Keys) {
+            if (vocations[key] == 32001) {
+                //  willFanshagn = true;
+                break;
+            }
         }
-        else if (a * hurt < enemy.monster_hp) {
-            a = a + 1;
-        }
-       //   str += "\n=================attckerOutLine  英雄攻击力=" + hero.mAttribute.aggressivity;
-        // Debug.Log("=================attckerOutLine  英雄攻击力=" + hero.mAttribute.aggressivity);
-        // str += "\n=================attckerOutLine  多少刀杀死=" + a;
-        // Debug.Log("=================attckerOutLine  多少刀杀死=" + a);
-        time = time / 1000;
-         str += "\n=================attckerOutLine  时间=" + time;
-        //  Debug.Log("=================attckerOutLine  时间=" + time);
-        // float speed = JsonUtils.getIntance().getFrequencyByValue(hero.mAttribute.attackSpeed);
         float speed = JsonUtils.getIntance().getFrequencyByValue(hero.mAttribute.attackSpeed);
-         // str += "\n================attckerOutLine  每秒刀=" + speed;
-        //   Debug.Log("=================attckerOutLine  每秒刀=" + speed);
+         str += "\n================attckerOutLine  英雄每秒刀=" + speed;
+        int a;
+        if (!willFanshagn)
+        {
+            a = (int)(enemy.monster_hp / hurt);
+            if (a == 0)
+            {
+                a = 1;
+            }
+            else if (a * hurt < enemy.monster_hp)
+            {
+                a = a + 1;
+            }
+
+        }
+        else {
+            a = 0;
+            float eachTime = 1f / speed;
+            float speedMoster = JsonUtils.getIntance().getFrequencyByValue(enemy.attack_speed);
+            float eachTimeMoster = 1f / speedMoster;
+            double hpMoster = enemy.monster_hp;
+            List<float> par =  JsonUtils.getIntance().getSkillInfoById(700002).getSpecialParameterValue();
+            float fightTime = 0;
+            while (hpMoster > 0) {
+                a++;
+                hpMoster = hpMoster - hurt;
+                fightTime = fightTime + eachTime;
+                if (fightTime > eachTimeMoster) {
+                    hpMoster = hpMoster - hero.mAttribute.defense * (par[1] / 100f) * (par[0] / 100f);
+                }
+            }
+        }
+           str += "\n=================attckerOutLine  英雄攻击力=" + hero.mAttribute.aggressivity;
+         str += "\n=================attckerOutLine  多少刀杀死=" + a;
+        time = time / 1000;
+        str += "\n=================attckerOutLine  时间=" + time;
+
         time = (long)(speed * time);
-        //   str += "\n================att;ckerOutLine 总刀数=" + time;
-        //  Debug.Log("=================attckerOutLine 总刀数=" + time);
-        // str += "\n=================attckerOutLine  a=" + a;
-        //  Debug.Log("=================attckerOutLine  a=" + a);
-        long die =(time / a);
-        // str += "\n=================attckerOutLine  总杀死=" + die;
-        // str += "\n=================attckerOutLine  每个=" + enemy.getDieCrystal().toString();
-        //  Debug.Log("=================attckerOutLine  总杀死=" + die);
-        //  Debug.Log("=================attckerOutLine  每个=" + enemy.getDieCrystal().toString());
-        BigNumber outlineGet =  BigNumber.multiply(enemy.getDieCrystal(), die);
-        //  str += "\n================attckerOutLine  杀怪总魂晶=" + outlineGet.toString();
-        //  Debug.Log("=================attckerOutLine  杀怪总魂晶=" + outlineGet.toString());
-         outlineGet = BigNumber.multiply(outlineGet, outGet);
-        // str += "\n=================attckerOutLine  轮回倍增=" + outGet;
-        // str += "\n================attckerOutLine  计算轮回后=" + outlineGet.toString();
-          Debug.Log("=================attckerOutLine  轮回倍增=" + outGet);
-        //  Debug.Log("=================attckerOutLine  计算轮回后=" + outlineGet.toString());
+           str += "\n================att;ckerOutLine 总刀数=" + time;
+         str += "\n=================attckerOutLine  a=" + a;
+        long die = (time / a);
+         str += "\n=================attckerOutLine  总杀死=" + die;
+         str += "\n=================attckerOutLine  每个=" + enemy.getDieCrystal().toString();
+        BigNumber outlineGet = BigNumber.multiply(enemy.getDieCrystal(), die);
+          str += "\n================attckerOutLine  杀怪总魂晶=" + outlineGet.toString();
+        outlineGet = BigNumber.multiply(outlineGet, outGet);
+         str += "\n=================attckerOutLine  轮回倍增=" + outGet;
+         str += "\n================attckerOutLine  计算轮回后=" + outlineGet.toString();
         outlineGet = BigNumber.multiply(outlineGet, JsonUtils.getIntance().getConfigValueForId(100048));
-        if(Time.timeScale > 1) {
+        if (Time.timeScale > 1)
+        {
             outlineGet = BigNumber.multiply(outlineGet, Time.timeScale);
         }
-        
-        // str += "\n================attckerOutLine  离线衰减=" + JsonUtils.getIntance().getConfigValueForId(100048);
-        // str += "\n================attckerOutLine  计算衰减后=" + outlineGet.toString();
-        //  Debug.Log("=================attckerOutLine  离线衰减=" + JsonUtils.getIntance().getConfigValueForId(100048));
-        //  Debug.Log("=================attckerOutLine  计算衰减后=" + outlineGet.toString());
-        //  if (outlineGet == null || outlineGet.toStringWithUnit().Equals("0K") || outlineGet.toStringWithUnit().Equals("0k") ) {
-        // Text text = GameObject.Find("uid_test").GetComponent<Text>();
-         //text.text = str;
-        //   GameObject ob = GameObject.Find("game_error_messge");
-        //  ob.transform.localPosition = new Vector2(0, 0);
-        //  ob.transform.SetSiblingIndex(GameManager.getIntance().getUiLevel());
-        //  }
+         str += "\n================attckerOutLine  离线衰减=" + JsonUtils.getIntance().getConfigValueForId(100048);
+         str += "\n================attckerOutLine  计算衰减后=" + outlineGet.toString();
+      //   Text text = GameObject.Find("uid_test").GetComponent<Text>();
+      //  text.text = str;
         return outlineGet;
+
+
     }
 
     public void AttackerFanji(Attacker attacker, HurtStatus hurtBlood) {

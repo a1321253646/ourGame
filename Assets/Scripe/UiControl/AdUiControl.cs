@@ -69,7 +69,7 @@ public class AdUiControl : UiControlBase
         mSelect.onClick.AddListener(() => {
             GameObject.Find("Manager").GetComponent<AdManager>().playAd();
            // toremoveUi();
-        });
+        });       
     }
 
     public override void show()
