@@ -15,13 +15,12 @@ public class BackgroundManager{
 
 	public void init(GameObject type,string path,float cardTop){
         isRun = true;
-
+        moveSpeed = JsonUtils.getIntance().getConfigValueForId(100057);
         BgType = type;
 		mPath = path;
         mCardTop = cardTop;
 
         creatBackgroup ();
-
 		setBackground (mPath);
 	}
 	public void stop(){
