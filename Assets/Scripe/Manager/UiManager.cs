@@ -60,7 +60,7 @@ public class UiManager
 
         mSpeedTestBt.onClick.AddListener(() =>
         {
-            if (GameManager.getIntance().mTestSpeed == -1)
+         /*   if (GameManager.getIntance().mTestSpeed == -1)
             {
                 GameManager.getIntance().mTestSpeed = 2;
             }
@@ -73,7 +73,7 @@ public class UiManager
                 }
             }
             mSpeedTestSet.text = "X" + GameManager.getIntance().mTestSpeed;
-            Time.timeScale = GameManager.getIntance().mTestSpeed;
+            Time.timeScale = GameManager.getIntance().mTestSpeed;*/
 
         });
 

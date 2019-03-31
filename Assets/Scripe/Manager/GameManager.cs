@@ -72,7 +72,7 @@ public class GameManager
 
     public string mGameErrorString = "";
 
-    public long mTestSpeed = -1;
+   // public long mTestSpeed = -1;
 
     public static bool isTestVersion = true; 
 

@@ -149,7 +149,14 @@ public class FightManager{
                 }
                 SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
             }
-            if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) == JsonUtils.getIntance().getConfigValueForId(100017)) {
+
+            float mix = BaseDateHelper.decodeLong(SQLHelper.getIntance().isCanLunhui);
+            if (mix == -1)
+            {
+                mix = 1 + JsonUtils.getIntance().getConfigValueForId(100017);
+            }
+            if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) >= (long)mix)
+            {
                 GameManager.getIntance().uiManager.setLunhuiPointShow(1);
             }
             LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
