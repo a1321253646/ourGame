@@ -733,7 +733,9 @@ public class PlayControl : Attacker
 	}
     public override double allHurt(HurtStatus status, Attacker hurter)
     {
- 
+        if (GameManager.getIntance().isLunhuiWudiIng) {
+            return status.blood;
+        }
         mSkillManager.mEventAttackManager.allHurt(hurter, status);
         mBloodVolume = mBloodVolume - status.blood;
         GameManager.getIntance().setBlood(mBloodVolume, mAttribute.maxBloodVolume);

@@ -12,6 +12,7 @@ public class EnemyState{
 	private ResourceBean mResourceData;
 	Slider mHpSl;
 	Vector3 bloodOffet;
+    private bool isEnd = false;
 	public EnemyState ( EnemyBase enemy){
 		mEnemy = enemy;
 		mResourceData = mEnemy.resourceData;
@@ -41,9 +42,13 @@ public class EnemyState{
 	}
     public void delectBlood() {
         GameObject.Destroy(HP_imageGameObjectClone);
+        isEnd = true;
     }
 	public void hurt(HurtStatus status)
     {
+        if (isEnd) {
+            return;
+        }
         if (mEnemy.mAttackType == Attacker.ATTACK_TYPE_ENEMY)
         {
             mHpSl.value = (float)(mEnemy.mBloodVolume / bili);
@@ -54,7 +59,8 @@ public class EnemyState{
         }
 		if (mEnemy.mBloodVolume <= 0 && mEnemy.mAttackType == Attacker.ATTACK_TYPE_ENEMY) {
 			GameObject.Destroy (HP_imageGameObjectClone);
-			HP_imageGameObjectClone = null;
+            isEnd = true;
+            HP_imageGameObjectClone = null;
 
 		}
 		GameObject obj = Resources.Load<GameObject> ("prefab/hurt") ;

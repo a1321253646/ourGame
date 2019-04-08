@@ -10,6 +10,7 @@ public class BossCardManager : CardManagerBase
     BossCardControl mBossCardControl;
     List<long> mCardListTmp = new List<long>();
     public void show() {
+        reset();
         mHero = GameObject.Find("Manager").GetComponent<LevelManager>().mPlayerControl;
         mBossCardControl = GameObject.Find("boss_card").GetComponent<BossCardControl>();
        
@@ -25,7 +26,7 @@ public class BossCardManager : CardManagerBase
             return;
         }
         GameManager.getIntance().getUiManager().showGasUi();
-        reset();
+        
         cardIndex = 0;
         isShow = false;
     }

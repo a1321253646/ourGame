@@ -137,9 +137,9 @@ public class LevelManager : MonoBehaviour {
                 a.showVocation(false);
             }
         }
-
+        isWudingTime = 0;
     }
-
+    private float isWudingTime = 0;
     void Start () {
         //init();
     }
@@ -197,6 +197,12 @@ public class LevelManager : MonoBehaviour {
             Debug.Log("============ 大年30修bug  ====================mTime > 60000  ");
             mTime = mTime - 60;
             SQLHelper.getIntance().updateOutTime();
+        }
+        if (GameManager.getIntance().isLunhuiWudiIng) {
+            isWudingTime += Time.deltaTime;
+            if (isWudingTime >= JsonUtils.getIntance().getConfigValueForId(100058)) {
+                GameManager.getIntance().isLunhuiWudiIng = false;
+            }
         }
         mLocalManager.upData ();
 		if (!starBoss && GameManager.getIntance ().mStartBoss) {

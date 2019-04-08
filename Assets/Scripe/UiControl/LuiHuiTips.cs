@@ -197,6 +197,7 @@ public class LuiHuiTips : UiControlBase
         //Time.timeScale = 1;
         GameManager.getIntance().isLuihuiIng = true;
         GameManager.getIntance().isEnd = true;
+        GameManager.getIntance().isLunhuiWudiIng = true;
         GameManager.getIntance().uiManager.setLunhuiPointShow(1);
         
 
@@ -273,6 +274,7 @@ public class LuiHuiTips : UiControlBase
         if (newLevel >= oldLevel) {
             newLevel = oldLevel;
         }
+        GameManager.getIntance().isOpenStop = true;
         Debug.Log("newLevel = " + newLevel);
         SQLHelper.getIntance().UpdateCanLunhui(BaseDateHelper.encodeLong(newLevel + (long)JsonUtils.getIntance().getConfigValueForId(100017)));
         SQLHelper.getIntance().updateGameLevel(BaseDateHelper.encodeLong(newLevel));

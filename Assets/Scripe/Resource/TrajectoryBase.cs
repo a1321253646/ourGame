@@ -11,6 +11,8 @@ public class TrajectoryBase : MonoBehaviour
 	Attacker mAttacker;
     public SpriteRenderer mSpriteRender;
     AnimalControlBase mAnimalControl;
+    private bool isWork = false;
+
 
     // Use this for initialization
     public void setId(long id)
@@ -27,7 +29,9 @@ public class TrajectoryBase : MonoBehaviour
 		mFightResource = fight;
         speed = JsonUtils.getIntance().getConfigValueForId(100001);
 		isRUn = true;
-	}
+        isWork = true;
+
+    }
 
 	// Update is called once per frame
 	void Update ()
@@ -39,6 +43,7 @@ public class TrajectoryBase : MonoBehaviour
         if (GameManager.getIntance().isEnd)
         {
             isRUn = false;
+            isWork = false;
             Destroy(gameObject);
             return;
         }
@@ -53,6 +58,10 @@ public class TrajectoryBase : MonoBehaviour
 
     }
 	private void isReach(){
+        if (!isWork) {
+            return;
+        
+        }
         //  Debug.Log("traject update isReach");
         if (mAttacker.mAttackerTargets.Count > 0 && transform.position.x + mFightResource.mTrajectResource.getHurtOffset().x <=
             mAttacker.mAttackerTargets[0].transform.position.x+ mAttacker.mAttackerTargets[0].resourceData.getHurtOffset().x) {

@@ -84,7 +84,9 @@ public class EnemyBase : Attacker {
 
     private float xy = 0;
 	public void run(){
-		
+
+
+
 		mLocalBean.mCurrentX = transform.position.x;
 		mLocalBean.mCurrentY = transform.position.y;
         float speedX = 0;
@@ -101,15 +103,20 @@ public class EnemyBase : Attacker {
                mState.Update ();
             return;
 		}
-		float x = 0;
+        if (isFighted)
+        {
+            return;
+        }
+        float x = 0;
 		float y = 0;
 
-        if (mLocalBean.mTargetX != -9999)
+        if (mLocalBean.mTargetX != -9999 )
         {
-            mTarger.x = -9999;
-            mTarger.y = -9999;
-            if (mLocalBean.mCurrentX < mLocalBean.mTargetX)
+
+            if (mLocalBean.mCurrentX <= mLocalBean.mTargetX)
             {
+                mTarger.x = -9999;
+                mTarger.y = -9999;
                 y = mLocalBean.mTargetY - mLocalBean.mCurrentY;
                 transform.Translate(Vector2.up * y);
                 mSkillManager.mEventAttackManager.upDateLocal(0, y);
@@ -117,25 +124,25 @@ public class EnemyBase : Attacker {
                 mLocalBean.mTargetX = -9999;
                 mLocalBean.mTargetY = -9999;
                 Fight();
-                isFighted = false;
+                isFighted = true;
             }
         }
-        else if ((mTarger.x != -9999)) {
-            if (mLocalBean.mCurrentX < mTarger.x)
+        else if ((mTarger.x != -9999) ) {
+            if (mLocalBean.mCurrentX <= mTarger.x)
             {
                 y = mTarger.y - mLocalBean.mCurrentY;
                 transform.Translate(Vector2.up * y);
                 mSkillManager.mEventAttackManager.upDateLocal(0, y);
                 xy = 0;
-                mTarger.x = -9999;
-                mTarger.y = -9999;
+         //       mTarger.x = -9999;
+          //      mTarger.y = -9999;
             //    Fight();
-                isFighted = false;
+            //    isFighted = true;
             }
         }
 
+        x = (mRunSpeed + speedX) * Time.deltaTime;
 
-        
         if (mLocalBean.mTargetX != -9999 && mLocalBean.mTargetY != -9999)
         {
             if (mLocalBean.mCurrentX - mLocalBean.mTargetX == 0)
@@ -144,6 +151,9 @@ public class EnemyBase : Attacker {
             }
             else {
                 xy = (mLocalBean.mCurrentY - mLocalBean.mTargetY) / (mLocalBean.mCurrentX - mLocalBean.mTargetX);
+            }
+            if (x + mLocalBean.mTargetX > mLocalBean.mCurrentX) {
+                x = mLocalBean.mCurrentX - mLocalBean.mTargetX;
             }
                          
         }
@@ -156,11 +166,13 @@ public class EnemyBase : Attacker {
             else {
                 xy = (mLocalBean.mCurrentY - mTarger.y) / (mLocalBean.mCurrentX - mTarger.x);
             }
-            
+            if (x + mLocalBean.mTargetX > mLocalBean.mCurrentX)
+            {
+                x = mLocalBean.mCurrentX - mLocalBean.mTargetX;
+            }
+
         }
 
-
-		x = (mRunSpeed+ speedX) * Time.deltaTime;
 		if (xy != 0) {
 			y = x * xy ;
 		}
@@ -224,8 +236,11 @@ public class EnemyBase : Attacker {
     {
 
         mSkillManager.mEventAttackManager.allHurt(hurt, status);
-        mBloodVolume = mBloodVolume - status.blood;
-
+   //     if (mAttackType != Attacker.ATTACK_TYPE_BOSS) {
+            mBloodVolume = mBloodVolume - status.blood;
+   //     }
+       
+        
         if (mBloodVolume <= 0)
         {
             mSkillManager.mEventAttackManager.befroeDie();

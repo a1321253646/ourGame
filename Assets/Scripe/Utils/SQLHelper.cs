@@ -623,6 +623,7 @@ public class SQLHelper
         isShowCardPoint = -1;
         isShowBackpackPoint = -1;
         isShowPlayerPoint = -1;
+        mCardLevel = -1;
         isLuiHuiDeal = -1;
         mMojing = new BigNumber();
         SQLManager.getIntance().deleteLuiHui();

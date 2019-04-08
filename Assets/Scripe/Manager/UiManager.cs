@@ -58,9 +58,9 @@ public class UiManager
         mSpeedTestBt = GameObject.Find("speed_setting").GetComponent<Button>();
         mSpeedTestSet = GameObject.Find("speed_setting_tx").GetComponent<Text>();
 
-        mSpeedTestBt.onClick.AddListener(() =>
+      /*  mSpeedTestBt.onClick.AddListener(() =>
         {
-         /*   if (GameManager.getIntance().mTestSpeed == -1)
+            if (GameManager.getIntance().mTestSpeed == -1)
             {
                 GameManager.getIntance().mTestSpeed = 2;
             }
@@ -73,9 +73,9 @@ public class UiManager
                 }
             }
             mSpeedTestSet.text = "X" + GameManager.getIntance().mTestSpeed;
-            Time.timeScale = GameManager.getIntance().mTestSpeed;*/
+            Time.timeScale = GameManager.getIntance().mTestSpeed;
 
-        });
+        });*/
 
         mBossUiRoot = GameObject.Find("boss_info");
         mGasUiRoot = GameObject.Find("moqi_root");

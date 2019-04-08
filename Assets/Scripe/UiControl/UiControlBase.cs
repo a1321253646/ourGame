@@ -29,7 +29,7 @@ public abstract class UiControlBase : MonoBehaviour
         UiControlManager.getIntance().remove(mControlType);
     }
 
-    public void remove() {
+    public virtual void remove() {
         isShow = false;
         transform.localPosition = mFri;
     }

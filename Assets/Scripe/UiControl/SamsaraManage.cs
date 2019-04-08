@@ -41,13 +41,19 @@ public class SamsaraManage : UiControlBase
         mLunhuiTx = GameObject.Find("lunhui_show_tip_tx2").GetComponent<Text>();
     }
     bool isFristShow = true;
+    float mTimeScale = 1;
     public override void show()
     {
         if (isFristShow) {
             isFristShow = false;
             mListControl.init();
         }
-       
+        if (GameManager.getIntance().isOpenStop) {
+            mTimeScale = Time.timeScale;
+            Time.timeScale = 0;
+        }
+
+
         gameObject.transform.localPosition = new Vector2(0, 0);
         float mix = BaseDateHelper.decodeLong(SQLHelper.getIntance().isCanLunhui);
         if (mix == -1)
@@ -76,7 +82,16 @@ public class SamsaraManage : UiControlBase
             mQiangzhiLunhui.transform.localScale = new Vector2(0, 0);
         }
     }
-
+    public override void remove()
+    {
+        isShow = false;
+        transform.localPosition = mFri;
+        if (GameManager.getIntance().isOpenStop)
+        {
+            GameManager.getIntance().isOpenStop = false;
+            Time.timeScale = mTimeScale;
+        }
+    }
     public void updateLunhuiValue() {
         mLunhuiValue.text = GameManager.getIntance().mReincarnation.toStringWithUnit();
     }

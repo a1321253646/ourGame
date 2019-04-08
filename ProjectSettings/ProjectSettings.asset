@@ -12,7 +12,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: "\u4E50\u68A6"
-  productName: "\u9003\u51FA\u6DF1\u6E0Atest"
+  productName: "\u9003\u51FA\u6DF1\u6E0A"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -126,7 +126,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.37.1
+  bundleVersion: 0.38
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -158,14 +158,14 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.jackzheng.ourGame.test
+    Android: com.jackzheng.ourGame
     Standalone: "unity.DefaultCompany.\u9003\u51FA\u6DF1\u6E0A"
     Tizen: 
     iOS: com.Company.ProductName
     tvOS: 
   buildNumber:
     iOS: 
-  AndroidBundleVersionCode: 37
+  AndroidBundleVersionCode: 38
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 22
   AndroidPreferredInstallLocation: 1
