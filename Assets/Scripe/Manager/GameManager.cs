@@ -55,7 +55,7 @@ public class GameManager
     public static bool isTest = false;
 
 
-    public static long mVersionCode =200;
+    public static long mVersionCode =3900;
     public static long mAPKVersionCode = 39;
     public  long mNewAPKVersionCode = -1;
     public  long mIsMust = -1;//1为必须，0为提醒
@@ -75,7 +75,7 @@ public class GameManager
     // public long mTestSpeed = -1;
     public bool isOpenStop = false;
     public bool isLunhuiWudiIng = false;
-    public static bool isTestVersion = true; 
+    public static bool isTestVersion = false; 
 
     public float getOnlineGet() {
         return mLunhuiOnlineGet.getValue() * mCardOnlineGet.getValue();

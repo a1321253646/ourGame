@@ -182,7 +182,7 @@
   {
     "id": 100037,
     "dec": "强制轮回提示",
-    "str": "<color=#FF0000FF>注意！注意！注意！</color>\\n<color=#FF0000FF>轮回后打不过小怪，再次轮回到更低关卡！</color>\\n<color=#FF0000FF>强制轮回不会获得轮回点！！！！</color>\\n<color=#FF0000FF>强制轮回不会获得轮回点！！！！</color>"
+    "str": "<color=#FF0000FF>注意！注意！注意！</color>\\n<color=#FF0000FF>轮回后打不过小怪，关闭跳关技能。再次轮回到更低关卡！</color>\\n<color=#FF0000FF>强制轮回不会获得轮回点！！！！</color>\\n<color=#FF0000FF>强制轮回不会获得轮回点！！！！</color>"
   },
   {
     "id": 100038,

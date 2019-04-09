@@ -62,6 +62,10 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(3000027, count);
             BackpackManager.getIntance().addGoods(3000028, count);
 
+            BackpackManager.getIntance().addGoods(4000001, count);
+            BackpackManager.getIntance().addGoods(4000002, count);
+            BackpackManager.getIntance().addGoods(4000003, count);
+
         }
         getOutLine();
         if (AdIntance.getIntance().getType() != -1)

@@ -18,7 +18,7 @@ public class LevelManager : MonoBehaviour {
     public GuideManager mGuideManager;
     private bool isInit = false;
     float cardTop = 0;
-    float yBase = 0;
+    public float yBase = 0;
     MapConfigBean mMapConfig = null;
     public void init()
     {
