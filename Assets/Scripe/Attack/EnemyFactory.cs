@@ -95,8 +95,11 @@ public class EnemyFactory : MonoBehaviour {
 //		Debug.Log ("creatEnemy id ="+data.id);
 		ResourceBean bean = JsonUtils.getIntance ().getEnemyResourceData (data.resource);
 		string res = bean.name;
-		GameObject newobj =  GameObject.Instantiate (
-            game, new Vector3 (transform.position.x, getYRamdom()- bean.idel_y,mZPoint),Quaternion.Euler(0.0f,0f,0.0f));
+        GameObject newobj = null;
+
+            newobj = GameObject.Instantiate(
+                game, new Vector3(transform.position.x, getYRamdom(isBoss) - bean.idel_y, mZPoint), Quaternion.Euler(0.0f, 0f, 0.0f));
+        
         mZPoint -= 0.1f;
         EnemyBase enmey = newobj.GetComponent<EnemyBase> ();
 		
@@ -127,8 +130,17 @@ public class EnemyFactory : MonoBehaviour {
         }
         GameManager.getIntance().mAliveEnemy++;
     }
-    private float getYRamdom() {
-        float y = Random.Range(mMapConfig.y_min+ mBottom, mMapConfig.y_max+ mBottom);
+    private float getYRamdom(bool isBoss) {
+
+        float y = 0;
+        if (isBoss)
+        {
+            y = mLevelMnager.yBase;
+        }
+        else {
+            y = Random.Range(mMapConfig.y_min + mBottom, mMapConfig.y_max + mBottom);
+        }
+        
 //        Debug.Log("==================getYRamdom  y = " + y+ " mBottom="+ mBottom);
 
         return y;
