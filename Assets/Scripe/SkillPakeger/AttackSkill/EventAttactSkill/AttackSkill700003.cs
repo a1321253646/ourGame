@@ -5,7 +5,7 @@ public class AttackSkill700003 : EventAttackSkill
 {
     float count1 = -1;
     float count2 = -1;
-    public override void beforeHurt(HurtStatus hurt,Attacker attacker)
+    public override float afterPinga()
     {
         if (count1 == -1)
         {
@@ -15,16 +15,17 @@ public class AttackSkill700003 : EventAttackSkill
         bool isCrt = randomResult(100, (int)count1, false);
         if (isCrt)
         {
-            hurt.blood = hurt.blood * count2;
+            return count2;
         }
+        return 1;
     }
     public override void endSkill()
     {
-        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_BEFORE_HURT, this);
+        mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_PING_A, this);
     }
 
     public override void startSkill()
     {
-        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_BEFORE_HURT, this);
+        mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_PING_A, this);
     }
 }

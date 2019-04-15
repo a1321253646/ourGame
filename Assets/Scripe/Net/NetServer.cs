@@ -108,11 +108,11 @@ public class NetServer
     {
         return mIntance;
     }
-    public void getLocl()
+    public bool getLocl()
     {
         if (GameManager.isTestVersion)
         {
-            return;
+            return true;
         }
         JObject json = new JObject();
         json.Add("user", mDeviceID);
@@ -159,11 +159,13 @@ public class NetServer
             else {
                 mLocal = null;
             }
+            return true;
         }
         else
         {
             Debug.Log("Http错误代码:" + www.error);
             mLocal = null;
+            return false;
         }
     }
     public void getRanking()

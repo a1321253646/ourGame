@@ -28,7 +28,9 @@ public class NetHelper
         SqlNetDate date = new SqlNetDate();
         date.action = 1;
         date.date = data;
+        Debug.Log("changeInto addList before" );
         SQLNetManager.getIntance().addList(date);
+        Debug.Log("changeInto addList end");
 #endif
 
     }

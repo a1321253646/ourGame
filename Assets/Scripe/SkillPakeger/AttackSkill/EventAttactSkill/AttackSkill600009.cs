@@ -15,10 +15,16 @@ public class AttackSkill600009 : EventAttackSkill
             count1 = (float)(mSkillJson.getSpecialParameterValue()[0]/100);
             count3 = (float)(mSkillJson.getSpecialParameterValue()[1]) / 100;
         }
+        if (count2 == count3)
+        {
+            return;
+        }
         count2 += count1;
         if (count2 > count3)
-        {
+        {    
             count2 = count3;
+            mManager.carHurtPre.AddFloat(60009, 1 + count2);
+            mManager.getAttacker().getAttribute(true);
             return;
         }
         

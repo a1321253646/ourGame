@@ -229,7 +229,7 @@ public class CardShowControl : UiControlBase
                 CardUiControl ui = good.GetComponent<CardUiControl>();
 
                 good.AddComponent<ItemOnDrag>();
-                good.GetComponent<ItemOnDrag>().init(mUserScroll);
+                good.GetComponent<ItemOnDrag>().init(mBackScroll);
 
                 good.transform.parent = mBackListGl.transform;
                 good.transform.localScale = Vector2.one; ;

@@ -11,13 +11,22 @@ public class AttackSkill600008 : EventAttackSkill
     int count3 = 0;
     public override void killEnemy()
     {
-        if(count1 == 0) { 
+
+        if (count1 == 0) { 
             count1 = (int)(mSkillJson.getSpecialParameterValue()[0] * 100);
             count3 = (int)(mSkillJson.getSpecialParameterValue()[1]) * 100;
         }
+        if (count2 == count3)
+        {
+            return;
+        }
         count2 += count1;
+
+
         if (count2 > count3)
         {
+            mManager.getAttacker().mSkillAttribute.crt +=(count3 - (count2- count1)) ;
+            mManager.getAttacker().getAttribute(true);
             count2 = count3;
             return;
         }

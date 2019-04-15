@@ -15,10 +15,20 @@ public class AttackSkill600005 : EventAttackSkill
             count1 = (int)(mSkillJson.getSpecialParameterValue()[0])*100;
             count3 = (int)(mSkillJson.getSpecialParameterValue()[1])*100;
         }
+        if (count2 == count3)
+        {
+            return;
+        }
         count2 += count1;
-        if (count2 > count3) {
-            mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.defense, (long)(count3 - count2));
+        if (count2 > count3)
+        {
+            mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.defense, (long)(count3 - (count2 - count1)));
             count2 = count3;
+            return;
+        }
+        else if(count2 == count3)
+        {
+            mManager.getAttacker().mAllAttributePre.add(mSkillIndex, AttributePre.defense, (long)(count1));
             return;
         }
 

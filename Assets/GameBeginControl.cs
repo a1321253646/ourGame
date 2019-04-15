@@ -34,8 +34,25 @@ public class GameBeginControl : MonoBehaviour {
 
     private int isUpdate = 0;
     private bool isUpdateEnd = false;
+    private bool isGetlocalBegin = false;
+    private bool isGetlocaled= false;
+    private float mGetLcalTime = 0;
+
     Text mLoadingDec;
     void Update () {
+        Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+        if (mGetLcalTime > 0) {
+            Debug.Log("mGetLcalTime  = " + mGetLcalTime+" isGetlocalBegin="+ isGetlocalBegin+ " isGetlocaled="+ isGetlocaled);
+        }
+         
+        if (isGetlocalBegin && !isGetlocaled) {
+            mGetLcalTime += Time.deltaTime;
+            if (mGetLcalTime >= 10) {
+                isGetlocaled = true;
+                GameManager.getIntance().mInitStatus = 8;
+            }
+            return;
+        }
         Debug.Log(" GameManager.getIntance().mInitStatus = "+ GameManager.getIntance().mInitStatus);
         if (mLoadingDec == null)
         {
@@ -163,9 +180,31 @@ public class GameBeginControl : MonoBehaviour {
                 return;
             }
 
-            isUpdateEnd = true;
+            
 
-            NetServer.getIntance().getLocl();
+            if (!isGetlocalBegin && !isGetlocaled) {
+                isGetlocalBegin = true;
+                Thread th1 = new Thread(() =>
+                {
+                    if (!NetServer.getIntance().getLocl())
+                    {
+                        GameManager.getIntance().mInitStatus = 8;
+                        isGetlocaled = true;
+                        Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+                    }
+                    else {
+                        GameManager.getIntance().mInitStatus = 6;
+                         isGetlocaled = true;
+                        Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+                    }
+                    
+                   
+                    
+                });
+                th1.Start();
+                return;
+            }
+            isUpdateEnd = true;
             bool isHaveNet = NetServer.getIntance().isHaveLocal();
             Debug.Log("NetServer.getIntance().getLocal() isUpdate ="+ isUpdate);
             if (isHaveNet)

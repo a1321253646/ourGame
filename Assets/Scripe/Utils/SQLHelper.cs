@@ -13,6 +13,7 @@ public class SQLHelper
     public long isLuiHuiDeal = -1;
     public BigNumber mLunhuiValue = new BigNumber();
     public BigNumber mMojing = new BigNumber();
+    public BigNumber mOutLineEachjing = new BigNumber();
     public long mOutTime = -1;
     public long mMaxOutTime = -1;
     public long mMaxLevel = BaseDateHelper.encodeLong(-1);
@@ -78,6 +79,7 @@ public class SQLHelper
     public static long GAME_ID_HAD_LUNHUI = 35;
     public static long GAME_ID_CAN_LUNHUI = 36;
     public static long GAME_ID_TARGET_SPEED = 37;
+    public static long GAME_ID_OUTLINE_MAX = 38;
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -137,6 +139,7 @@ public class SQLHelper
         isLuiHuiDeal = -1;
         mLunhuiValue = new BigNumber();
         mMojing = new BigNumber();
+        mOutLineEachjing =new BigNumber();
         mOutTime = -1;
 
         mOutLineGet = null;
@@ -279,6 +282,12 @@ public class SQLHelper
                     {
                         //                        Debug.Log("读取数据库 mMojing" + date.extan);
                         mMojing = BigNumber.getBigNumForString(date.extan);
+
+                    }
+                    else if (date.id == GAME_ID_OUTLINE_MAX)
+                    {
+                        //                        Debug.Log("读取数据库 mMojing" + date.extan);
+                        mOutLineEachjing = BigNumber.getBigNumForString(date.extan);
 
                     }
                     else if (date.id == GAME_ID_TIME)
@@ -626,6 +635,7 @@ public class SQLHelper
         mCardLevel = -1;
         isLuiHuiDeal = -1;
         mMojing = new BigNumber();
+        mOutLineEachjing = new BigNumber();
         SQLManager.getIntance().deleteLuiHui();
         updateGameLevel(BaseDateHelper.encodeLong(1));
         updateHeroLevel(BaseDateHelper.encodeLong(1));
@@ -1166,6 +1176,19 @@ public class SQLHelper
             updateGame(GAME_ID_MOJING, value.toString());
         }
         mMojing = value;
+    }
+    public void updateOutLineMojing(BigNumber value)
+    {
+        if (mMojing.isEmpty())
+        {
+            addGame(GAME_ID_OUTLINE_MAX, value.toString());
+         
+        }
+        else
+        {
+            updateGame(GAME_ID_OUTLINE_MAX, value.toString());
+        }
+        mOutLineEachjing = value;
     }
 
 

@@ -209,7 +209,27 @@ public class FightManager{
             my.mAttackerTargets.Add (beAttacker);
         }*/
     public BigNumber attckerOutLine(Attacker hero, long time, float outGet) {
-         string str = "";
+        bool willFanshagn = false;
+        bool bloodAddAttack = false;
+        bool iszmyj = false;
+        Dictionary<long, long> vocations = SQLHelper.getIntance().mPlayVocation;
+        foreach (long key in vocations.Keys)
+        {
+            if (vocations[key] == 32001)
+            {
+                willFanshagn = true;
+            }
+            else if (vocations[key] == 33003)
+            {
+                bloodAddAttack = true;
+            }
+            else if (vocations[key] == 42001)
+            {
+                iszmyj = true;
+            }
+        }
+
+        string str = "";
         Level l = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
         long firstId = JsonUtils.getIntance().getLevelFirstEnemey(l);
          //  str += "\n=================attckerOutLine  firstId=" + firstId;
@@ -217,24 +237,28 @@ public class FightManager{
         // JsonUtils.getIntance().getWellenEnemy();
         Enemy enemy = JsonUtils.getIntance().getEnemyById(firstId);
         double hurt1 = hero.mAttribute.aggressivity * hero.mAttribute.aggressivity / (hero.mAttribute.aggressivity + enemy.monster_defense);
+        if (iszmyj)  {
+            List<float> par = JsonUtils.getIntance().getSkillInfoById(700003).getSpecialParameterValue();
+            hurt1 = hurt1*(1- (par[0] / 100)) +  hurt1 * (par[0] / 100)  * (par[1] -1);
+        }
          double hurt2 = hurt1 * 2 + hero.mAttribute.crtHurt + hero.mAttribute.readHurt;
          hurt1 = hurt1 + hero.mAttribute.readHurt;
          double crtBili = hero.mAttribute.crt / 10000;
          double hurt = hurt2 * crtBili + hurt1*(1- crtBili);
+        if (bloodAddAttack)
+        {
+            List<float> par = JsonUtils.getIntance().getSkillInfoById(700009).getSpecialParameterValue();
+            hurt = hurt* (1 - (par[0] / 100)) + hero.mAttribute.maxBloodVolume  * (par[0] / 100) * (par[1] / 100);
+        }
         hurt = hurt * hero.mSkillManager.getHurtPre();
         //double hurt = hurt1 * hero.mSkillManager.getHurtPre();
 
-        bool willFanshagn = false;
-        Dictionary<long, long>  vocations = SQLHelper.getIntance().mPlayVocation;
-        foreach (long key in vocations.Keys) {
-            if (vocations[key] == 32001) {
-                //  willFanshagn = true;
-                break;
-            }
-        }
+
         float speed = JsonUtils.getIntance().getFrequencyByValue(hero.mAttribute.attackSpeed);
          str += "\n================attckerOutLine  英雄每秒刀=" + speed;
         int a;
+
+
         if (!willFanshagn)
         {
             a = (int)(enemy.monster_hp / hurt);
@@ -265,19 +289,24 @@ public class FightManager{
                 }
             }
         }
-           str += "\n=================attckerOutLine  英雄攻击力=" + hero.mAttribute.aggressivity;
-         str += "\n=================attckerOutLine  多少刀杀死=" + a;
+
+        str += "\n=================attckerOutLine  英雄攻击力=" + hero.mAttribute.aggressivity;
+        str += "\n=================attckerOutLine  多少刀杀死=" + a;
         time = time / 1000;
         str += "\n=================attckerOutLine  时间=" + time;
+
+
 
         time = (long)(speed * time);
            str += "\n================att;ckerOutLine 总刀数=" + time;
          str += "\n=================attckerOutLine  a=" + a;
-        long die = (time / a);
+         long die = (time / a);
          str += "\n=================attckerOutLine  总杀死=" + die;
          str += "\n=================attckerOutLine  每个=" + enemy.getDieCrystal().toString();
         BigNumber outlineGet = BigNumber.multiply(enemy.getDieCrystal(), die);
-          str += "\n================attckerOutLine  杀怪总魂晶=" + outlineGet.toString();
+        str += "\n================attckerOutLine  杀怪总魂晶=" + outlineGet.toString();
+
+
         outlineGet = BigNumber.multiply(outlineGet, outGet);
          str += "\n=================attckerOutLine  轮回倍增=" + outGet;
          str += "\n================attckerOutLine  计算轮回后=" + outlineGet.toString();
@@ -288,9 +317,9 @@ public class FightManager{
         }
          str += "\n================attckerOutLine  离线衰减=" + JsonUtils.getIntance().getConfigValueForId(100048);
          str += "\n================attckerOutLine  计算衰减后=" + outlineGet.toString();
-      //   Text text = GameObject.Find("uid_test").GetComponent<Text>();
-      //  text.text = str;
-        return outlineGet;
+     //    Text text = GameObject.Find("uid_test").GetComponent<Text>();
+     //   text.text = str;
+       return outlineGet;
 
 
     }
@@ -395,7 +424,8 @@ public class FightManager{
         else {
             hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);
         }
-        
+        float value = attacker.mSkillManager.mEventAttackManager.afterPinga();
+        hurt = hurt * value;
         bool crt = isCrt(attacker);
         long type = HurtStatus.TYPE_DEFAULT;
         if (crt)

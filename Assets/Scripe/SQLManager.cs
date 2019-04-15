@@ -455,10 +455,22 @@ public class SQLManager
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100032);
             List<SQLDate> list = readAllTable();
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100033);
-            foreach (SQLDate date in list)
+            if (list == null)
             {
-                mNetHelper.changeInto(date);
+                GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100034);
+                return;
             }
+            try
+            {
+                foreach (SQLDate date in list)
+                {
+                    mNetHelper.changeInto(date);
+                }
+            }
+            catch (Exception e){
+                Debug.Log("Exception = " + e);
+            }
+
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100034);
         }
         else {

@@ -102,7 +102,7 @@
     "attributeName": "assassin",
     "resource": 12002,
     "attack_range": 0.86,
-    "tip_dec": "在战斗中，有一定几率打出10倍伤害，终结敌人。"
+    "tip_dec": "在战斗中，有一定几率打出15倍伤害，终结敌人。"
   },
   {
     "id": 23001,

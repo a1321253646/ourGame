@@ -91,5 +91,9 @@ public abstract class EventAttackSkill : AttackerSkillBase
     {
 
     }
+    public virtual float afterPinga()
+    {
+        return 1;
+    }
 
 }

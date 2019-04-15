@@ -56,7 +56,7 @@ public class GameManager
 
 
     public static long mVersionCode =3900;
-    public static long mAPKVersionCode = 39;
+    public static long mAPKVersionCode = 43;
     public  long mNewAPKVersionCode = -1;
     public  long mIsMust = -1;//1为必须，0为提醒
     public string mUpdateStr = null;

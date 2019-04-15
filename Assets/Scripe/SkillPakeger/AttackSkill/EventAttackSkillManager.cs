@@ -24,6 +24,7 @@ public class EventAttackSkillManager
     public static int EVENT_SKILL_BOSS_DEBUFF = 18;
     public static int EVENT_SKILL_LITTER_DEBUFF = 19;
     public static int EVENT_SKILL_BEFOOR_DIE = 20;
+    public static int EVENT_SKILL_PING_A = 21;
 
     Dictionary<long, EventAttackSkillManagerSingle> mManagerList = new Dictionary<long, EventAttackSkillManagerSingle>();
     public List<TimeAttackSkillBase> mTimeList = new List<TimeAttackSkillBase>();
@@ -157,6 +158,24 @@ public class EventAttackSkillManager
             }
         }
         return ;
+    }
+    public virtual float afterPinga()//造成伤害前
+    {
+        EventAttackSkillManagerSingle singel = getSignle(EVENT_SKILL_PING_A);
+        float value = 1;
+        if (singel == null || singel.mList.Count == 0)
+        {
+            return value;
+        }
+        else
+        {
+            for (int i = 0; i < singel.mList.Count; i++)
+            {
+                EventAttackSkill skill = singel.mList[i];
+                value = value * skill.afterPinga();
+            }
+        }
+        return value;
     }
     public virtual void endHurt(HurtStatus hurt, Attacker attacker)//造成伤害后
     {
