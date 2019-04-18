@@ -1,0 +1,2 @@
+Product ID,Published State,Purchase Type,Auto Translate,Locale; Title; Description,Auto Fill Prices,Price,Pricing Template ID
+test_start_game,published,managed_by_android,false,en_US;测试开始游戏;用于测试支付的方式,true,1000000,
