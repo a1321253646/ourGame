@@ -63,8 +63,32 @@ public class FightManager{
 		}
 	}
 	public void unRegisterAttacker(Attacker attcker){
+        if (attcker.id == -1 || mAliveActtackers.Count < 1)
+        {
+            Debug.Log("unRegisterAttacker:this attcker is not register");
+            return;
+        }
+        foreach (Attacker tmp in mAliveActtackers.Values)
+        {
+            if (tmp.mAttackerTargets != null && tmp.mAttackerTargets.Count > 0)
+            {
+                int index = tmp.mAttackerTargets.IndexOf(attcker);
+                if (index >= 0)
+                {
+                    tmp.mAttackerTargets.RemoveAt(index);
+                }
+            }
+        }
+        mAliveActtackers.Remove(attcker.id);
 
-        if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
+        if (attcker is EnemyBase)
+        {
+            mLocalManager.EnemyDeal(attcker);
+
+        }
+
+
+        if (attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
             GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
             GameManager.getIntance ().mHeroIsAlive = false;
             GameManager.getIntance().isEnd = true;
@@ -100,31 +124,8 @@ public class FightManager{
 
             //return;
         }
-        if (attcker.id == -1 || mAliveActtackers.Count < 1)
-        {
-            Debug.Log("unRegisterAttacker:this attcker is not register");
-            return;
-        }
-
-        foreach (Attacker tmp in mAliveActtackers.Values)
-        {
-            if (tmp.mAttackerTargets != null && tmp.mAttackerTargets.Count > 0)
-            {
-                int index = tmp.mAttackerTargets.IndexOf(attcker);
-                if (index >= 0)
-                {
-                    tmp.mAttackerTargets.RemoveAt(index);
-                }
-            }
-        }
-        mAliveActtackers.Remove(attcker.id);
-        if (attcker is EnemyBase) {
 
 
-            GameManager.getIntance ().enemyDeal (attcker);
-            mLocalManager.EnemyDeal(attcker);
-
-        }
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
         {
 
@@ -174,6 +175,11 @@ public class FightManager{
             GameManager.getIntance().mHeroIsAlive = true;
 
             // return;
+        }
+        if (attcker is EnemyBase)
+        {
+            GameManager.getIntance().enemyDeal(attcker);
+
         }
 
     }

@@ -450,6 +450,21 @@ public class InventoryHalper
         Debug.Log("mList size = " + mList.Count);
     }
     public void deleteIventory(PlayerBackpackBean bean, int count) {
+        PlayerBackpackBean target = null;
+        foreach (PlayerBackpackBean tmp in mList) {
+            if (bean.sqlGoodId == tmp.sqlGoodId) {
+                target = tmp;
+                break;
+            }
+        }
+        if (target != null)
+        {
+            bean = target;
+        }
+        else {
+            return;
+        }
+
         if (bean.count == count)
         {
             mList.Remove(bean);

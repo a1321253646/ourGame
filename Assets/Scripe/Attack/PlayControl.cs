@@ -231,6 +231,9 @@ public class PlayControl : Attacker
     }
 
     void fightEcent(int status) {
+        if (mAttackerTargets == null || mAttackerTargets.Count < 1) {
+            setStatus(Attacker.PLAY_STATUS_RUN);
+        }
         if (status == ActionFrameBean.ACTION_ATTACK) {
             mCardManager.playerAction();
             mFightManager.attackerAction(id);

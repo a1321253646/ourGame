@@ -16,7 +16,7 @@ public class AttackSkill700009 : EventAttackSkill
         if (isCrt)
         {
             hurt.blood =mManager.getAttacker().mAttribute.maxBloodVolume * count2;
-            attacker.BeAttack(hurt, mFight);
+            attacker.allHurt(hurt, mFight);
           
         }
     }

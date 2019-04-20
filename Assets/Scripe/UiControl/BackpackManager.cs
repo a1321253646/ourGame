@@ -274,6 +274,7 @@ public class BackpackManager
             BigNumber first = BigNumber.add(levelCost, key.value);
             levelCost = BigNumber.add(BigNumber.multiply(key.value, dle), levelCost);
             BigNumber tmp = BigNumber.multiply(BigNumber.add(first, levelCost), dle / 2);
+            BigNumber tmp2 = BigNumber.multiply(tmp,JsonUtils.getIntance().getConfigValueForId(100059));
             Debug.Log("first ==" + first.toString()+ " levelCost = "+ levelCost.toString()+ " dle = "+ dle+ " tmp="+ tmp.toString());
             result = BigNumber.add(result, tmp);
             Debug.Log(" result = " + result.toString());
