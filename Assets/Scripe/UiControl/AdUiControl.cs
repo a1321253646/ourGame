@@ -47,9 +47,15 @@ public class AdUiControl : UiControlBase
         }
         else
         {
-            LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
-            long time = (long)JsonUtils.getIntance().getConfigValueForId(100049);
-            value = level.mFightManager.attckerOutLine(level.mPlayerControl, time * 60 * 1000, GameManager.getIntance().getOutlineGet()).toString();
+            // long level = BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel);
+            //if (level == -1)
+            //{
+            long level = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel);
+            //}
+            value = JsonUtils.getIntance().getLevelData(level).hunjing;
+            BigNumber bigValue = BigNumber.getBigNumForString(value);
+            bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getOnlineGet());
+            value = bigValue.toString();
         }
 
         return value;
