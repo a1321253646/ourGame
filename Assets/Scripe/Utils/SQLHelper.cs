@@ -28,6 +28,7 @@ public class SQLHelper
     public long mMaxGoodId = -1;
     public long isUpdate = -1;
     public string mPlayName =null;
+    public string mToken ="";
     
     public long mVersionCode=-1;
 
@@ -80,6 +81,7 @@ public class SQLHelper
     public static long GAME_ID_CAN_LUNHUI = 36;
     public static long GAME_ID_TARGET_SPEED = 37;
     public static long GAME_ID_OUTLINE_MAX = 38;
+    public static long GAME_ID_TOKEN = 39;
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -161,6 +163,7 @@ public class SQLHelper
         mMaxGoodId = -1;
         isUpdate = -1;
         mPlayName = null;
+        mToken = "";
         int goodListIndex = 0;
         long maxGoodIdTmp = -1;
 
@@ -427,8 +430,12 @@ public class SQLHelper
                     {
                         isCanLunhui = BaseDateHelper.encodeLong(long.Parse(date.extan));
                     }
-                    else if (date.id == GAME_ID_TARGET_SPEED) {
+                    else if (date.id == GAME_ID_TARGET_SPEED)
+                    {
                         mTargetSpeed = BaseDateHelper.encodeLong(long.Parse(date.extan));
+                    }
+                    else if (date.id == GAME_ID_TOKEN) {
+                        mToken = date.extan;
                     }
                 }
             }
@@ -811,6 +818,20 @@ public class SQLHelper
             updateGame(GAME_ID_PLAYER_NAME, newName);
         }
         mPlayName = newName;
+    }
+    public void updateToken(string token)
+    {
+        Debug.Log("sqlhelper  updateName newName = " + token);
+        if (string.IsNullOrEmpty(mToken))
+        {
+            addGame(GAME_ID_TOKEN, token);
+
+        }
+        else
+        {
+            updateGame(GAME_ID_TOKEN, token);
+        }
+        mToken = token;
     }
 
     public void updateOutLineGet(BigNumber value) {
@@ -1200,7 +1221,10 @@ public class SQLHelper
         date.type = TYPE_GAME;
         date.id = id;
         date.getClean();
-        SQLManager.getIntance().UpdateInto(date);
+        if (id != GAME_ID_TOKEN)
+        {
+            SQLManager.getIntance().UpdateInto(date);
+        }     
 
     }
     private void addGame(long id, string value)
@@ -1211,7 +1235,10 @@ public class SQLHelper
         date.type = TYPE_GAME;
         date.id = id;
         date.getClean();
-        SQLManager.getIntance().InsertDataToSQL(date);
+        if (id != GAME_ID_TOKEN) {
+            SQLManager.getIntance().InsertDataToSQL(date);
+        }
+       
 
     }
 
