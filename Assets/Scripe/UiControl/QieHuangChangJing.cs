@@ -182,7 +182,7 @@ public class QieHuangChangJing : MonoBehaviour {
 
     public void startLevelSecond() {
         // 重读数据库
-        SQLHelper.getIntance().init();
+     //   SQLHelper.getIntance().init();
         InventoryHalper.getIntance().init();
         GameObject.Find("Manager").GetComponent<LevelManager>().reset();
 

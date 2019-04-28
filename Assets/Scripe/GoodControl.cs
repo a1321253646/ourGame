@@ -112,7 +112,7 @@ public class GoodControl : MonoBehaviour {
     string img = null;
     private long updateUi(long id, long count)
     {
-        Debug.Log("id == " + id);
+//        Debug.Log("id == " + id);
         initUi();
         this.id = id;
         if (mImage != null && id != -1)

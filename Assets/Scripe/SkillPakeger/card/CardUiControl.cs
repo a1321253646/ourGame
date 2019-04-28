@@ -37,6 +37,7 @@ public class CardUiControl : MonoBehaviour {
         }
         
         firer = hero;
+        Debug.Log("cardId = " + cardId);
         CardJsonBean card1 = JsonUtils.getIntance().getCardInfoById(cardId);
         mCard = card1;
          mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);

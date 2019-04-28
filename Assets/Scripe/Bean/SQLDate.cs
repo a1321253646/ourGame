@@ -38,6 +38,7 @@ public class SQLDate
                id == SQLHelper.GAME_ID_VERSION_CODE ||
                id == SQLHelper.GAME_ID_MAX_TIME ||
                id == SQLHelper.GAME_ID_PLAYER_MAX_LEVEL ||
+               id == SQLHelper.GAME_ID_GOOD_MAXID ||
                id == SQLHelper.GAME_ID_SETTING_CLOSED_YUEQIANG ||
                id == SQLHelper.GAME_ID_SETTING_CLOSED_CHUANGYE ||
                id == SQLHelper.GAME_ID_CAN_LUNHUI ||
@@ -57,6 +58,6 @@ public class SQLDate
     }
 
     public string toString() {
-        return "type = " + type + " id =" + id + " extan=" + extan;
+        return "type = " + type + " id =" + id + " extan=" + extan+" sqlid="+ goodId+ " sqltype= "+ goodType;
     }
 }

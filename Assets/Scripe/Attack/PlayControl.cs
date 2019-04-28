@@ -170,7 +170,13 @@ public class PlayControl : Attacker
 
 
     private void getOutLine() {
-        Debug.Log("============ 大年30修bug  ====================getOutLine（）GameManager.getIntance().isHaveOutGet=" + GameManager.getIntance().isHaveOutGet);
+
+        if (SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode) {
+            return;
+        }
+
+
+            Debug.Log("============ 大年30修bug  ====================getOutLine（）GameManager.getIntance().isHaveOutGet=" + GameManager.getIntance().isHaveOutGet);
         if (GameManager.getIntance().isHaveOutGet)
         {
             GameManager.getIntance().isHaveOutGet = false;
@@ -233,6 +239,7 @@ public class PlayControl : Attacker
     void fightEcent(int status) {
         if (mAttackerTargets == null || mAttackerTargets.Count < 1) {
             setStatus(Attacker.PLAY_STATUS_RUN);
+            mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
         }
         if (status == ActionFrameBean.ACTION_ATTACK) {
             mCardManager.playerAction();
@@ -699,6 +706,9 @@ public class PlayControl : Attacker
                 Run();
                 mBackManager.move();
             }
+        }
+        if (getStatus() == Attacker.PLAY_STATUS_RUN && !mBackManager.isRun && !isStart) {
+            mBackManager.move();
         }
 //        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
         mSkillManager.upDate();

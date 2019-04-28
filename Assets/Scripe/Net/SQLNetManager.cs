@@ -38,6 +38,7 @@ public class SQLNetManager
 
         lock (mLock1)
         {
+            Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>updateNet SQLNetManager addList" + command.action + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             mWaitList.Add(command);
         }
     }
@@ -236,6 +237,7 @@ public class SQLNetManager
             }
             return;
         }
+        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> updateNet NetServer.getIntance().isUpdate" + NetServer.getIntance().isUpdate + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         if (NetServer.getIntance().isUpdate) {
             return;
         }

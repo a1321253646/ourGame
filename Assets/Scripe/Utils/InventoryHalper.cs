@@ -265,18 +265,19 @@ public class InventoryHalper
     public void clearDropDeviceUseCount(long id) {
         mDropDeviceUsed[id] = 0;
         Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
-        SQLHelper.getIntance().updateDropValue(id, 0);
+        SQLHelper.getIntance().updateDrop(id, mDropDeviceUsed[id]);
     }
     private void addDropDeviceUseCount(long id) {
         if (mDropDeviceUsed.ContainsKey(id))
         {
              mDropDeviceUsed[id] += 1;
+            SQLHelper.getIntance().updateDrop(id, mDropDeviceUsed[id]);
         }
         else {
             mDropDeviceUsed.Add(id,  1);
+            SQLHelper.getIntance().addDrop(id, mDropDeviceUsed[id]);
         }
         Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
-        SQLHelper.getIntance().updateDropValue(id, mDropDeviceUsed[id]);
 
         
     }

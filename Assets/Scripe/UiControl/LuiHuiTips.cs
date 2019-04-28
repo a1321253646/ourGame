@@ -229,7 +229,7 @@ public class LuiHuiTips : UiControlBase
 
         // GameManager.getIntance().mCurrentCrystal = new BigNumber();
         //SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
-        long newLevel = 1;
+        long newLevel = 0;
         long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(13);
         long value = 0;
  
@@ -272,15 +272,31 @@ public class LuiHuiTips : UiControlBase
             }
         }
 
-        if (newLevel >= oldLevel) {
+        if (oldLevel <= 0)
+        {
+            newLevel = -9 + newLevel;
+        }
+        else if (newLevel >= oldLevel)
+        {
             newLevel = oldLevel;
         }
+
+
         GameManager.getIntance().isOpenStop = true;
         Debug.Log("newLevel = " + newLevel);
         SQLHelper.getIntance().UpdateCanLunhui(BaseDateHelper.encodeLong(newLevel + (long)JsonUtils.getIntance().getConfigValueForId(100017)));
+
+        SQLHelper.getIntance().mGameLevel = BaseDateHelper.encodeLong(-9999L);
         SQLHelper.getIntance().updateGameLevel(BaseDateHelper.encodeLong(newLevel));
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
         SQLHelper.getIntance().addHadLunhui();
+
+
+        ActiveListControl a = GameObject.Find("active_button_list").GetComponent<ActiveListControl>();
+        a.removeVocation(false);
+        SQLHelper.getIntance().getActiveList().Clear();
+        SQLHelper.getIntance().mCurrentVocation = -1;
+        SQLHelper.getIntance().mPlayVocation.Clear();
     }
 
     // Update is called once per frame

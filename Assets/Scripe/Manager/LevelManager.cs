@@ -59,8 +59,8 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
 
-        GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
-        GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
+    //    GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
+    //    GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
 
         creaPlay(yBase);
         //  creatEnemyFactory(cardTop);
@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour {
     public void reset()
     {
         ActiveListControl a = GameObject.Find("active_button_list").GetComponent<ActiveListControl>();
-        a.removeVocation(false);
+      //  a.removeVocation(false);
         GameManager.getIntance().reStart();
         starBoss = false;
         if (mFightManager.mEnemyFactory != null)
@@ -122,10 +122,10 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 1;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
-        if (GameManager.getIntance().mTestSpeed != -1)
-        {
-            Time.timeScale = GameManager.getIntance().mTestSpeed;
-        }
+    //    if (GameManager.getIntance().mTestSpeed != -1)
+    //    {
+    //        Time.timeScale = GameManager.getIntance().mTestSpeed;
+    //    }
         SkillManage.getIntance().reset();
 
         List<ActiveButtonBean> list = SQLHelper.getIntance().getActiveList();

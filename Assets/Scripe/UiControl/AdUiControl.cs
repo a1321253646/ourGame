@@ -42,7 +42,7 @@ public class AdUiControl : UiControlBase
             }
             value = JsonUtils.getIntance().getLevelData(level).lunhui;
             BigNumber bigValue = BigNumber.getBigNumForString(value);
-            bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
+           // bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
             value = bigValue.toString();
         }
         else

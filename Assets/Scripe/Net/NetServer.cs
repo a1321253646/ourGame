@@ -13,7 +13,8 @@ public class NetServer
 
     public static string mDeviceID = "";
 
-    private static string URL_ROOT =  "http://120.79.249.55:8889";
+   private static string URL_ROOT =  "http://120.79.249.55:8889";
+    //private static string URL_ROOT = "http://120.79.249.55:8809";
 
     public void updateNet(List<SqlNetDate> list) {
         if (GameManager.isTestVersion)
@@ -32,7 +33,7 @@ public class NetServer
         json.Add("user", mDeviceID);
         if (mList != null && mList.Count > 0) {
             JArray array = new JArray();
-            for (int i = 0; i< mList.Count;i++) {
+            for (int i = 0; i< mList.Count;) {
                 SqlNetDate date = mList[i];
                 if (date.date.type == SQLHelper.TYPE_GAME && date.date.id == SQLHelper.GAME_ID_IS_NET) {
                     mList.Remove(date);
@@ -46,7 +47,9 @@ public class NetServer
                 jb.Add("goodtype", date.date.goodType);
                 jb.Add("isclean", date.date.isClean);
                 jb.Add("extra", date.date.extan);
+                Debug.Log("NetServer  updateNet jb = " + jb.ToString());
                 array.Add(jb);
+                i++;
             }
             if (array.Count > 0) {
                 json.Add("date",array);

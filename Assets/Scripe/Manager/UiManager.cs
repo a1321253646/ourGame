@@ -28,6 +28,8 @@ public class UiManager
 
     bool isAuto = false;
 
+    //private long mHeroLevel = -1;
+
 	public void init(){
         
         mHeroLvTv = GameObject.Find ("lv_labe").GetComponent<Text> ();
@@ -58,7 +60,7 @@ public class UiManager
         mSpeedTestBt = GameObject.Find("speed_setting").GetComponent<Button>();
         mSpeedTestSet = GameObject.Find("speed_setting_tx").GetComponent<Text>();
 
-        mSpeedTestBt.onClick.AddListener(() =>
+      /*  mSpeedTestBt.onClick.AddListener(() =>
         {
             if (GameManager.getIntance().mTestSpeed == -1)
             {
@@ -75,7 +77,7 @@ public class UiManager
             mSpeedTestSet.text = "X" + GameManager.getIntance().mTestSpeed;
             Time.timeScale = GameManager.getIntance().mTestSpeed;
 
-        });
+        });*/
 
         mBossUiRoot = GameObject.Find("boss_info");
         mGasUiRoot = GameObject.Find("moqi_root");
@@ -230,7 +232,7 @@ public class UiManager
             GameManager.getIntance().startBossGas;
 
         refreshData();
-
+  //      mHeroLevel = -1;
         mStartBossGasSl.maxValue = GameManager.getIntance().startBossGas;
         mStartBossGasSl.value = 0;
 
@@ -322,7 +324,15 @@ public class UiManager
     }
 
     public void refreshData(){
-		mHeroLvTv.text = "" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv);
+        long level = BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv);
+        mHeroLvTv.text = "" + level;
+       /* if (level < mHeroLevel) {
+            mGameLevelTv.text = mHeroLevel+"回"+level;
+            Time.timeScale = 0;
+            return;
+        }
+       
+        mHeroLevel = BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv);*/
         mLvUpCrystalTv.text =  GameManager.getIntance ().upLevelCrystal.toStringWithUnit();
 		mCurrentCrystalTv.text =   GameManager.getIntance ().mCurrentCrystal.toStringWithUnit();
         Hero l = JsonUtils.getIntance().getHeroData(BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + 1);

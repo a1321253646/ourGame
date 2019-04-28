@@ -14,8 +14,11 @@ public class HeroState : MonoBehaviour
 	public void hurt(HurtStatus status)
     {
 		GameObject obj = Resources.Load<GameObject> ("prefab/hurt") ;
-		EnemySceenPosition = Camera.main.WorldToScreenPoint (mHero.transform.position);
-		GameObject text = GameObject.Instantiate(obj,
+	//	EnemySceenPosition = Camera.main.WorldToScreenPoint (mHero.transform.position);
+        EnemySceenPosition =
+             Camera.main.WorldToScreenPoint(
+                new Vector2(mHero.transform.position.x +mHero.resourceData.getFightOffset().x, mHero.transform.position.y));
+        GameObject text = GameObject.Instantiate(obj,
 			new Vector2 (EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
         
         text.transform.SetParent(HP_Parent);
@@ -41,7 +44,10 @@ public class HeroState : MonoBehaviour
             tv.color = Color.yellow;
         }
         tv.fontSize = 20;
-        EnemySceenPosition = Camera.main.WorldToScreenPoint(mHero.transform.position)+new Vector3(0,0,0);  
+        EnemySceenPosition =
+            Camera.main.WorldToScreenPoint(
+             new Vector2(mHero.transform.position.x + mHero.resourceData.getFightOffset().x, mHero.transform.position.y+ mHero.resourceData.getFightOffset().y));
+       // EnemySceenPosition = Camera.main.WorldToScreenPoint(mHero.transform.position)+new Vector3(0,0,0);  
 		text.transform.position = EnemySceenPosition;  
 		UiManager.FlyTo (tv, UiManager.FLY_LEFT);
 	}
@@ -50,9 +56,11 @@ public class HeroState : MonoBehaviour
             return;
         }
         GameObject obj = Resources.Load<GameObject>("prefab/hurt");
-        EnemySceenPosition = Camera.main.WorldToScreenPoint(mHero.transform.position);
+        EnemySceenPosition =
+         Camera.main.WorldToScreenPoint(
+            new Vector2(mHero.transform.position.x + mHero.resourceData.getFightOffset().x, mHero.transform.position.y + mHero.resourceData.getFightOffset().y));
         GameObject text = GameObject.Instantiate(obj,
-            new Vector2(EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
+            new Vector3(EnemySceenPosition.x, EnemySceenPosition.y,-1), Quaternion.identity);
         
         text.transform.SetParent(HP_Parent);
         text.transform.localScale = new Vector3(1, 1, 1);
@@ -60,7 +68,9 @@ public class HeroState : MonoBehaviour
         tv.text = "+"+ StringUtils.doubleToStringShow(blood);
         tv.color = Color.green;
         tv.fontSize = 20;
-        EnemySceenPosition = Camera.main.WorldToScreenPoint(mHero.transform.position) + new Vector3(0, 0, 0);
+        EnemySceenPosition =
+            Camera.main.WorldToScreenPoint(
+                new Vector2(mHero.transform.position.x + mHero.resourceData.getFightOffset().x, mHero.transform.position.y + mHero.resourceData.getFightOffset().y));
         text.transform.position = EnemySceenPosition;
         UiManager.FlyTo(tv, UiManager.FLY_LEFT);
     }

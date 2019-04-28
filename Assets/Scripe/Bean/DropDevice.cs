@@ -13,7 +13,7 @@ public class DropDevice
     public List<FellObjectBean> fell() {
         long group;
         long count = InventoryHalper.getIntance().getUseCountByDropDeviceId(id);
-//        Debug.Log("fell id= " + id + " count = " + count + " min= " + min + " max=" + max + " groupId= " + groupId + " upGroupID=" + upGroupID);
+      //  Debug.Log("fell id= " + id + " count = " + count + " min= " + min + " max=" + max + " groupId= " + groupId + " upGroupID=" + upGroupID);
         if (upGroupID != 0)
         {
             if (count > getRange(min, max))
@@ -30,7 +30,7 @@ public class DropDevice
             group = groupId;
         }
 
-//        Debug.Log("group id =" + group);
+      //  Debug.Log("group id =" + group);
        
         DropDeviceDetail detail =   JsonUtils.getIntance().getDropDeviceDetailById(group);
         if (detail != null) {
@@ -43,7 +43,7 @@ public class DropDevice
     private long getRange(long min, long max)
     {
         int range = Random.Range((int)min, (int)max);
-        Debug.Log("range =" + range);
+        //Debug.Log("range =" + range);
         return range;
     }
 }

@@ -26,7 +26,6 @@ public class FightManager{
         }
         mAliveActtackers.Clear();
 
-
     }
 
     public bool isEmptyEnemy(){
@@ -128,7 +127,7 @@ public class FightManager{
 
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
         {
-
+            GameManager.getIntance().addPet();
             GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
             if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) == 0)
             {

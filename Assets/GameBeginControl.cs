@@ -142,6 +142,7 @@ public class GameBeginControl : MonoBehaviour {
                         GameManager.getIntance().mInitStatus = 6;
                         Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
                     }
+                   
                 }
                 catch (System.Exception e)
                 {

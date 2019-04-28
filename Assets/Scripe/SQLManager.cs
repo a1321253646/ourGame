@@ -536,7 +536,11 @@ public class SQLManager
     public void deleteGuide(long id) {
         string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + SQLHelper.TYPE_GUIDE + " AND ID=" + id;
         // ExecuteSQLCommand(commandString);
-        addList(commandString);
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 3;
+        bean.date = null;
+        bean.command = commandString;
+        addList(bean);
     }
 
     /// <summary>
@@ -560,12 +564,17 @@ public class SQLManager
         commandString += "," + data.goodId;
         commandString += "," + data.goodType;
         commandString += "," + data.isClean + ")";
+        
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 1;
+        bean.date = data;
+        bean.command = commandString;
         if (isNow)
         {
             ExecuteSQLCommand(commandString);            
         }
         else {
-            addList(commandString);
+            addList(bean);
         }
         if (isUpToNet) {
             mNetHelper.changeInto(data);
@@ -576,8 +585,24 @@ public class SQLManager
     {
         string commPath = "UPDATE " + tabName + " SET GOODTYPE=" + date.goodType;
         commPath += " WHERE GOODID=" + date.goodId;
-        addList(commPath);
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 4;
+        bean.date = date;
+        bean.command = commPath;
+        addList(bean);
      //   ExecuteSQLCommand(commPath);
+        mNetHelper.changeInto(date);
+    }
+    public void changeGoodSql(SQLDate date,long old)
+    {
+        string commPath = "UPDATE " + tabName + " SET GOODID=" + date.goodId;
+        commPath += " WHERE GOODID=" + old + " AND TYPE="+date.type+ " AND ID="+ date.id;
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 4;
+        bean.date = date;
+        bean.command = commPath;
+        addList(bean);
+        //   ExecuteSQLCommand(commPath);
         mNetHelper.changeInto(date);
     }
     public void updateIdAndType(SQLDate date)
@@ -585,7 +610,11 @@ public class SQLManager
         string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan + "'";
         commPath = commPath+ " WHERE TYPE=" + date.type + " AND ID=" + date.id;
         // ExecuteSQLCommand(commandString);
-        addList(commPath);
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 2;
+        bean.date = date;
+        bean.command = commPath;
+        addList(bean);
         //   ExecuteSQLCommand(commandString);
         mNetHelper.changeInto(date);
     }
@@ -593,8 +622,13 @@ public class SQLManager
     public void deleteIdAndType(SQLDate date)
     {
         string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + date.type+ " AND ID="+date.id;
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 3;
+        bean.date = date;
+        bean.command = commandString;
         // ExecuteSQLCommand(commandString);
-        addList(commandString);
+        removeListByTypeAndId(date.id, date.type);
+        addList(bean);
         //   ExecuteSQLCommand(commandString);
         mNetHelper.delectInfo(date);
     }
@@ -603,15 +637,24 @@ public class SQLManager
     {
         string commandString = "DELETE FROM " + tabName + " WHERE GOODID =" + date.goodId;
         // ExecuteSQLCommand(commandString);
-          addList(commandString);
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 3;
+        bean.date = date;
+        bean.command = commandString;
+        removeListByGoodId(date.goodId);
+        addList(bean);
      //   ExecuteSQLCommand(commandString);
         mNetHelper.delectInfo(date);
     }
     public void deleteLuiHui()
     {
-        string commandString = "DELETE FROM " + tabName + " WHERE ISCLENAN =1" ;   
+        string commandString = "DELETE FROM " + tabName + " WHERE ISCLENAN =1" ;
         // ExecuteSQLCommand(commandString);
-        addList(commandString);
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 3;
+        bean.date = null;
+        bean.command = commandString;
+        addList(bean);
      //   ExecuteSQLCommand(commandString);
         mNetHelper.cleanLuihui();
     }
@@ -629,7 +672,11 @@ public class SQLManager
         string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan+"'";
         commPath += " WHERE GOODID=" +date.goodId;
         // ExecuteSQLCommand(commPath);
-        addList(commPath);
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 2;
+        bean.date = date;
+        bean.command = commPath;
+        addList(bean);
      //   ExecuteSQLCommand(commPath);
         Debug.Log("更新数据成功!");
         mNetHelper.changeInto(date);
@@ -649,12 +696,16 @@ public class SQLManager
         string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan+"'";
         commPath += " WHERE Type=" + date.type + " AND ID=" + date.id;
         // ExecuteSQLCommand(commPath);
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 2;
+        bean.date = date;
+        bean.command = commPath;
         if (isNow)
         {
             ExecuteSQLCommand(commPath);
         }
         else {
-             addList(commPath);
+             addList(bean);
             
         }
         
@@ -696,24 +747,101 @@ public class SQLManager
         Debug.Log("saveLocal end");
     }
 
+    public  class SqlWaitListAddBean {
+        public int action = -1; //1 为添加 2为更新 3为删除 4 修改物品状态
+        public string command;
+        public SQLDate date;
+    }
 
-    private List<string> mWaitList = new List<string>();
+    private List<SqlWaitListAddBean> mWaitList = new List<SqlWaitListAddBean>();
+    private void removeListByGoodId(long goodId)
+    {
+        lock (mLock)
+        {
+            for (int i = 0; i < mWaitList.Count;)
+            {
+                if (mWaitList[i].date != null && mWaitList[i].date.type == SQLHelper.TYPE_GOOD && mWaitList[i].date.goodId == goodId )
+                {
+                    mWaitList.RemoveAt(i);
+                    continue;
+                }
+                i++;
+            }
+        }
+    }
 
-    private void addList(string command) {
+    private void removeListByTypeAndId(long type ,long id)
+    {
+        lock (mLock)
+        {
+            for (int i = 0; i < mWaitList.Count;)
+            {
+                if (mWaitList[i].date != null && mWaitList[i].date.id == id && mWaitList[i].date.type == type)
+                {
+                    mWaitList.RemoveAt(i);
+                    continue;
+                }
+                i++;
+            }
+        }
+    }
+
+
+    private void addList(SqlWaitListAddBean command) {
 
         lock (mLock) {
-//            Debug.Log("addList command="+ command);
+            //            Debug.Log("addList command="+ command);
+            if (command.date != null) {
+                for (int i = 0; i < mWaitList.Count; )
+                {
+                    if (mWaitList[i].date != null && mWaitList[i].date.id == command.date.id && mWaitList[i].date.type == command.date.type) {
+                        if (command.date.type == 2)
+                        {
+
+                            if (command.date.goodId == mWaitList[i].date.goodId && command.date.id == mWaitList[i].date.id)
+                            {
+                                if (command.action == 3)
+                                {
+                                    mWaitList.RemoveAt(i);
+                                    continue;
+                                }
+                                else if(command.action == mWaitList[i].action)
+                                {
+                                    mWaitList.RemoveAt(i);
+                                    continue;
+                                }                               
+                               
+                            }
+                        }
+                        else {
+                            if (command.action == 3)
+                            {
+                                mWaitList.RemoveAt(i);
+                                continue;
+                            }
+                            else if (command.action == mWaitList[i].action)
+                            {
+                                mWaitList.RemoveAt(i);
+                                continue;
+                            }
+
+                        //    mWaitList.RemoveAt(i);
+                        }
+                    }
+                    i++;
+                }
+            }
             mWaitList.Add(command);
         }
     }
-    private void removeList(string command) {
+    private void removeList(SqlWaitListAddBean command) {
         lock (mLock)
         {
             mWaitList.Remove(command);
         }
     }
 
-    private string getList(int index) {
+    private SqlWaitListAddBean getList(int index) {
         lock (mLock)
         {
             return mWaitList[index];
@@ -742,11 +870,12 @@ public class SQLManager
                 Thread.Sleep(1000);
             }
             else {
-                string command = getList(0);
+                SqlWaitListAddBean bean = getList(0);
+                string command = bean.command;
                 //              Debug.Log("threadRun command = " + command);
                 ExecuteSQLCommand(command);
                 //   Debug.Log("threadRun command success " );
-                removeList(command);
+                removeList(bean);
             }
         }
     }
@@ -783,8 +912,8 @@ public class SQLManager
                 date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
                 date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
                 date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
-//                Debug.Log("readAllTable date.type  = " + date.type + " id = " + date.id + " extan = " + date.extan + " date.goodId" + date.goodId + " date.goodType=" + date.goodType + " date.isClean= " + date.isClean);
-                //            Debug.Log("readAllTable date.type  = " + date.id);
+                Debug.Log("readAllTable date.type  = " + date.type + " id = " + date.id + " extan = " + date.extan + " date.goodId" + date.goodId + " date.goodType=" + date.goodType + " date.isClean= " + date.isClean);
+                            Debug.Log("readAllTable date.type  = " + date.id);
                 list.Add(date);
             }
 //            cnn.Close();

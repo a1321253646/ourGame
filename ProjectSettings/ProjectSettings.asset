@@ -126,7 +126,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.43
+  bundleVersion: 0.50
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -165,7 +165,7 @@ PlayerSettings:
     tvOS: 
   buildNumber:
     iOS: 
-  AndroidBundleVersionCode: 43
+  AndroidBundleVersionCode: 50
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 22
   AndroidPreferredInstallLocation: 1
@@ -692,9 +692,9 @@ PlayerSettings:
   cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: 5c0506f6-5c05-4a3e-a138-c09f3c1fc75f
+  projectName: "\u9003\u51FA\u6DF1\u6E0A"
+  organizationId: zsbin
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
