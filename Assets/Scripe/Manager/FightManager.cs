@@ -129,6 +129,7 @@ public class FightManager{
         {
             GameManager.getIntance().addPet();
             GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BossCardManager>().disShow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) == 0)
             {
                 GameManager.getIntance().mCurrentLevel = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100019) + 1) ;
@@ -149,19 +150,22 @@ public class FightManager{
                 }
                 SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
             }
-
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>updateGameLevel<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             float mix = BaseDateHelper.decodeLong(SQLHelper.getIntance().isCanLunhui);
             if (mix == -1)
             {
                 mix = 1 + JsonUtils.getIntance().getConfigValueForId(100017);
             }
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>isCanLunhui<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) >= (long)mix)
             {
                 GameManager.getIntance().uiManager.setLunhuiPointShow(1);
             }
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setLunhuiPointShow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
             GameManager.getIntance().isEnd = true;
             GameObject.Find("Manager").GetComponent<LevelManager>().getBackManager().stop();
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>getBackManager().stop()<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             foreach (Attacker a in mAliveActtackers.Values)
             {
                 if (a is PlayControl)
@@ -170,7 +174,9 @@ public class FightManager{
                 }
                 ((EnemyBase)a).endDie();
             }
+           // Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>((EnemyBase)a).endDie();<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             level.mPlayerControl.win();
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>win<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             GameManager.getIntance().mHeroIsAlive = true;
 
             // return;

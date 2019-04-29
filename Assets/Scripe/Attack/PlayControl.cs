@@ -739,6 +739,7 @@ public class PlayControl : Attacker
 
     void winrun(){
         //      Debug.Log(" run ");
+  //      Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>run<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         if (isWinEnd || isStart) {
             transform.Translate(Vector2.right * (JsonUtils.getIntance().getConfigValueForId(100057) * Time.deltaTime));
         }

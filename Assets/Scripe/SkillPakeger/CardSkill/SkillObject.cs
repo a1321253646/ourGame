@@ -53,6 +53,9 @@ public abstract class SkillObject : MonoBehaviour
 
     public void updateLocal(float x) {
         if (GameManager.getIntance().isEnd) {
+            return;
+        }
+        if (GameManager.getIntance().isEnd) {
             mSkillStatus = SKILL_STATUS_END;
             Destroy(gameObject);
         }
