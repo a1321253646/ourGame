@@ -101,12 +101,19 @@ public abstract class Attacker : MonoBehaviour
 
     public void setStatus(int status) {
         //Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setStatus"+ status + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-        if (GameManager.getIntance().isEnd && status == ActionFrameBean.ACTION_ATTACK) {
-            return;
-        }
-
-        if (isStop && status != ActionFrameBean.ACTION_DIE) {
-            return;
+        //    if (GameManager.getIntance().isEnd && status == ActionFrameBean.ACTION_ATTACK) {
+        //        return;
+        //    }
+        if (isStop)
+        {
+            if (status == ActionFrameBean.ACTION_WIN)
+            {
+                isStop = false;
+            }
+            else if(isStop && status != ActionFrameBean.ACTION_DIE)
+            {
+                return;
+            }
         }
         this.status = status;       
         changeAnim();

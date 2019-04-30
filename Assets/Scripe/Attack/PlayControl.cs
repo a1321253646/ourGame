@@ -665,6 +665,28 @@ public class PlayControl : Attacker
         mTime += Time.deltaTime;
 
         //        Debug.Log(" isWin  ="+ isWin);
+
+        if (GameManager.getIntance().isEnd) {
+            if (isWin) {
+                if (!isWinEnd)
+                {
+                    if (getStatus() != PLAY_STATUS_WIN)
+                    {
+                        setStatus(PLAY_STATUS_WIN);
+                        return;
+                    }
+                }
+                else {
+                    if (getStatus() != PLAY_STATUS_RUN)
+                    {
+                        setStatus(PLAY_STATUS_RUN);
+                        return;
+                    }
+                }
+            }
+        }
+
+
         if (isWin)
         {
             if (GameManager.getIntance().isGuide) {
