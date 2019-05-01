@@ -241,7 +241,7 @@ public class LevelManager : MonoBehaviour {
 
         if (GameManager.getIntance().isError) {
             Time.timeScale = 0;
-            NetServer.getIntance().getLocl();
+            NetServer.getIntance().getLocl(SQLHelper.getIntance().mToken, false);
             SQLManager.getIntance().saveLocal(NetServer.getIntance().getLocal());
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("检测到您本地时间出现异常，已还原回服务器最新记录，请将时间修改为当前时间重新开始游戏", LuiHuiTips.TYPPE_ERROR_DATE);
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();

@@ -65,7 +65,7 @@ public class SQLManager
         th1.Start();
         return 0;
     }
-    public static string SQL_NAME_NET_BACK = "_net";
+    public static string SQL_NAME_NET_BACK = "_net2";
     public string getSqlTableName() {
         return tabName + SQL_NAME_NET_BACK;
     }
