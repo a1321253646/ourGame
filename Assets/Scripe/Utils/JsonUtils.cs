@@ -689,6 +689,21 @@ public class JsonUtils
         
 
     }
+
+
+    public BigNumber readMaxLevelLunhuiAdValue(long index , long level) {
+        Debug.Log("level= " + level+ " index="+ index);
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile("level"+index));
+        List<Level> levelTmp = arrdata.ToObject<List<Level>>();
+        foreach (Level l in levelTmp) {
+            if (l.id == level) {
+                return l.getAdLunhui();
+            }
+        }
+
+        return new BigNumber();
+    }
+
 	private void readLevelData(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (levelFile));
 		levelData = arrdata.ToObject<List<Level>> ();

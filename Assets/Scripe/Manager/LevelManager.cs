@@ -122,22 +122,30 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 1;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
-    //    if (GameManager.getIntance().mTestSpeed != -1)
-    //    {
-    //        Time.timeScale = GameManager.getIntance().mTestSpeed;
-    //    }
+        //    if (GameManager.getIntance().mTestSpeed != -1)
+        //    {
+        //        Time.timeScale = GameManager.getIntance().mTestSpeed;
+        //    }
+        Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
+        " level==" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "SQLHelper.getIntance().mVocationCount = " + SQLHelper.getIntance().mVocationCount +
+        "  level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount=" +
+        (BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount));
         SkillManage.getIntance().reset();
-
-        List<ActiveButtonBean> list = SQLHelper.getIntance().getActiveList();
-
-        for (int i = 0; i < list.Count; i++)
+        if (BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount)
         {
-            if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION)
-            {
-                a.showVocation(false);
-            }
+            a.showVocation(false);
         }
+        /*  List<ActiveButtonBean> list = SQLHelper.getIntance().getActiveList();
+
+          for (int i = 0; i < list.Count; i++)
+          {
+              if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION)
+              {
+                  a.showVocation(false);
+              }
+          }*/
         isWudingTime = 0;
+        GameObject.Find("advert").GetComponent<AdUiControl>().update();
     }
     private float isWudingTime = 0;
     void Start () {

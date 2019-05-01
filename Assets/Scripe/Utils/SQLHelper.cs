@@ -12,6 +12,7 @@ public class SQLHelper
     public long isLuiHui = -1;
     public long isLuiHuiDeal = -1;
     public BigNumber mLunhuiValue = new BigNumber();
+    public BigNumber mLunhuiAdValue = new BigNumber();
     public BigNumber mMojing = new BigNumber();
     public BigNumber mOutLineEachjing = new BigNumber();
     public long mOutTime = -1;
@@ -37,6 +38,7 @@ public class SQLHelper
     public long isCloseYueqiang = -1;
     public long isCloseChuangye = -1;
     public long isHadLunhui = -1;
+    public long mVocationCount = 0;
     public long mTargetSpeed = BaseDateHelper.encodeLong(-1);
     public long isCanLunhui = BaseDateHelper.encodeLong(-1);
 
@@ -80,6 +82,8 @@ public class SQLHelper
     public static long GAME_ID_CAN_LUNHUI = 36;
     public static long GAME_ID_TARGET_SPEED = 37;
     public static long GAME_ID_OUTLINE_MAX = 38;
+    public static long GAME_ID_VOCATION_COUNT_MAX = 39;
+    public static long GAME_ID_AD_LUNHUI_MAX = 40;
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -141,7 +145,7 @@ public class SQLHelper
         mMojing = new BigNumber();
         mOutLineEachjing =new BigNumber();
         mOutTime = -1;
-
+      //  mVocationCount = 0;
         mOutLineGet = null;
         isCanLunhui = BaseDateHelper.encodeLong(-1);
 
@@ -426,8 +430,16 @@ public class SQLHelper
                     {
                         isCanLunhui = BaseDateHelper.encodeLong(long.Parse(date.extan));
                     }
-                    else if (date.id == GAME_ID_TARGET_SPEED) {
+                    else if (date.id == GAME_ID_TARGET_SPEED)
+                    {
                         mTargetSpeed = BaseDateHelper.encodeLong(long.Parse(date.extan));
+                    }
+                    else if (date.id == GAME_ID_VOCATION_COUNT_MAX)
+                    {
+                        mVocationCount = long.Parse(date.extan);
+                    }
+                    else if (date.id == GAME_ID_AD_LUNHUI_MAX) {
+                        mLunhuiAdValue = BigNumber.getBigNumForString(date.extan);
                     }
                 }
             }
@@ -787,6 +799,8 @@ public class SQLHelper
         if (mMaxLevel == BaseDateHelper.encodeLong(-1) ||
              BaseDateHelper.decodeLong(mGameLevel) > BaseDateHelper.decodeLong(mMaxLevel)) {
             updateMaxLevel(mGameLevel);
+            BigNumber adValue = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(mMaxLevel)).getAdLunhui();
+            updateAdLunhuiValue(adValue);
         }
     }
     public void updateVersionCode(long version)
@@ -802,6 +816,34 @@ public class SQLHelper
         }
         mVersionCode = version;
     }
+    public void updateAdLunhuiValue(BigNumber value)
+    {
+
+        if (mLunhuiAdValue.isEmpty())
+        {
+            addGame(GAME_ID_AD_LUNHUI_MAX, value.toString());
+
+        }
+        else
+        {
+            updateGame(GAME_ID_VERSION_CODE, value.toString());
+        }
+        mLunhuiAdValue = value;
+    }
+    public void updateVocationCount(long count)
+    {
+        if (mVocationCount == 0)
+        {
+            addGame(GAME_ID_VOCATION_COUNT_MAX, count);
+
+        }
+        else
+        {
+            updateGame(GAME_ID_VOCATION_COUNT_MAX, count);
+        }
+        mVocationCount = count;
+    }
+
 
     public void updateIsUpdate()
     {

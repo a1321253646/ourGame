@@ -13,23 +13,28 @@ public class AdUiControl : UiControlBase
     BigNumber mCount  = null ;
     public void setDate(long type) {
         mAdType = type;
+        setShowContext();
+        toShowUi();
+    }
+
+    private void setShowContext()
+    {
         mCount = BigNumber.getBigNumForString(getAdValue());
         string str = "观看影片，即可免费获得S1S2";
-        str=str.Replace("S1", mCount.toStringWithUnit());
+        str = str.Replace("S1", mCount.toStringWithUnit());
         if (mAdType == ActiveButtonControl.TYPE_AD_LUNHUI)
         {
-            str =str.Replace("S2", "轮回点");
+            str = str.Replace("S2", "轮回点");
             mImg.sprite = Resources.Load("UI_yellow/guanggao/04", typeof(Sprite)) as Sprite;
         }
         else
         {
-            str=str.Replace("S2", "魂晶");
+            str = str.Replace("S2", "魂晶");
             mImg.sprite = Resources.Load("UI_yellow/guanggao/03", typeof(Sprite)) as Sprite;
-            
+
         }
         mDec.text = str;
 
-        toShowUi();
     }
 
     private string getAdValue() {
@@ -40,8 +45,14 @@ public class AdUiControl : UiControlBase
             if (level == -1) {
                 level = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel);
             }
-            value = JsonUtils.getIntance().getLevelData(level).lunhui;
-            BigNumber bigValue = BigNumber.getBigNumForString(value);
+            BigNumber bigValue = null;
+            if (!SQLHelper.getIntance().mLunhuiAdValue.isEmpty())
+            {
+                bigValue = SQLHelper.getIntance().mLunhuiAdValue;
+            }
+            else {
+                bigValue = JsonUtils.getIntance().getLevelData(level).getAdLunhui();
+            }
            // bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
             value = bigValue.toString();
         }
@@ -102,5 +113,13 @@ public class AdUiControl : UiControlBase
             GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeAd();
       //  }
         toremoveUi();
+    }
+
+    public void update() {
+        if (!isShow) {
+            return;
+        }
+        getAdValue();
+        setShowContext();
     }
 }

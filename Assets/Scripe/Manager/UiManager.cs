@@ -201,25 +201,33 @@ public class UiManager
         isAuto = GameManager.getIntance().gettIsAutoBoss();
         clickAuto();
         initPoint();
+             Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
+            " level==" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "SQLHelper.getIntance().mVocationCount = "+ SQLHelper.getIntance().mVocationCount+ 
+            "  level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount="+
+            (BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount));
 
         mActiveListControl = GameObject.Find("active_button_list").GetComponent<ActiveListControl>();
-        List<ActiveButtonBean> list = SQLHelper.getIntance().getActiveList();
-
-        for (int i = 0; i < list.Count; i++) {
-            if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION) {
-                mActiveListControl.showVocation(false);
-            }
-/*            else if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_AD)
-            {
-                if (!GameObject.Find("Manager").GetComponent<AdManager>().isReadyToShow())
-                {
-                    return;
-                }
-                mActiveListControl.showAd(list[i].adType, list[i].count, false);
-            }*/
+        if (BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount)
+        {
+            mActiveListControl.showVocation(false);
         }
-        
-        
+        /*        List<ActiveButtonBean> list = SQLHelper.getIntance().getActiveList();
+
+                for (int i = 0; i < list.Count; i++) {
+                    if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION) {
+                        mActiveListControl.showVocation(false);
+                    }
+                    else if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_AD)
+                    {
+                        if (!GameObject.Find("Manager").GetComponent<AdManager>().isReadyToShow())
+                        {
+                            return;
+                        }
+                        mActiveListControl.showAd(list[i].adType, list[i].count, false);
+                    }
+                }*/
+
+
     }
 
     public void reset() {
@@ -242,8 +250,11 @@ public class UiManager
 
     public void showVocation(bool isAddSql) {
         long level = BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv); 
-        //Debug.Log("=================================level ==  " + level + " 100044==" + (level % (long)JsonUtils.getIntance().getConfigValueForId(100044) == 0));
-        if (level % (long)JsonUtils.getIntance().getConfigValueForId(100044) == 0) {
+        Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
+            " level==" + level + "SQLHelper.getIntance().mVocationCount = "+ SQLHelper.getIntance().mVocationCount+ 
+            "  level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount="+
+            (level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount));
+        if (level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount) {
             
             mActiveListControl.showVocation(isAddSql);
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW_VOCATION, 5);

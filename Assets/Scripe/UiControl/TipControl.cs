@@ -65,6 +65,12 @@ public class TipControl : UiControlBase
         });
     }
 
+    public void saleRemove(long sqlId) {
+        if (mBean != null && mBean.sqlGoodId == sqlId) {
+            toremoveUi();
+        }       
+    }
+
     private void sale() {
         GameManager.getIntance().showDIaoLuo(mClickList1Click1.transform.position, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", 0,-1,true);
         BackpackManager.getIntance().use(mBean, count, SALE_TYPE);

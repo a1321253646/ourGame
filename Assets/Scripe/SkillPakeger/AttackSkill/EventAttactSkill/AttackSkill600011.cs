@@ -11,7 +11,7 @@ public class AttackSkill600011 : EventAttackSkill
             count = (int)(mSkillJson.getSpecialParameterValue()[0] * 100);
         }
 
-        bool isCrt = randomResult(10000, count, true);
+        bool isCrt = randomResult(10000, count, false);
         
         if (isCrt)
         {

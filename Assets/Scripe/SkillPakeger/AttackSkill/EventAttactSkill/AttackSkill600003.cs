@@ -15,7 +15,7 @@ public class AttackSkill600003 : EventAttackSkill
             count2 = mSkillJson.getSpecialParameterValue()[1] ;
         }
    
-        bool isSuccess = randomResult(100, count1, true);
+        bool isSuccess = randomResult(100, count1, false);
         if (isSuccess) {
             big = BigNumber.multiply(big, count2);
         }

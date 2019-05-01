@@ -282,8 +282,8 @@ public class IvertoryControl : UiControlBase
                 if (isSale)
                 {
                     count++;
-
                     BackpackManager.getIntance().use(bean, 1, TipControl.SALE_ALL_TYPE);
+                    GameObject.Find("tip").GetComponent<TipControl>().saleRemove(bean.sqlGoodId);
                 }
                 else
                 {

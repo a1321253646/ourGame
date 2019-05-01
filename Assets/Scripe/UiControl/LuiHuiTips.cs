@@ -77,6 +77,8 @@ public class LuiHuiTips : UiControlBase
         Level level2 = JsonUtils.getIntance().getLevelData();
 
 
+
+
         mLuiHui = BigNumber.multiply(level2.getReincarnation(), GameManager.getIntance().getLunhuiGet());
         mLuiHui = BigNumber.multiply(mLuiHui, 2);
         Debug.Log("============================轮回点获得 GameManager.getIntance().getLunhuiGet()= " + GameManager.getIntance().getLunhuiGet());
@@ -274,17 +276,21 @@ public class LuiHuiTips : UiControlBase
 
         if (oldLevel <= 0)
         {
-            newLevel = -9 + newLevel;
+            newLevel = -9 ;
         }
         else if (newLevel >= oldLevel)
         {
             newLevel = oldLevel;
         }
-
-
+        if(newLevel == 0) {
+            newLevel = 1;
+        }
+       
         GameManager.getIntance().isOpenStop = true;
         Debug.Log("newLevel = " + newLevel);
-        SQLHelper.getIntance().UpdateCanLunhui(BaseDateHelper.encodeLong(newLevel + (long)JsonUtils.getIntance().getConfigValueForId(100017)));
+        if (SQLHelper.getIntance().isCanLunhui != BaseDateHelper.encodeLong(-1) && BaseDateHelper.decodeLong(SQLHelper.getIntance().isCanLunhui) <= oldLevel ) {
+            SQLHelper.getIntance().UpdateCanLunhui(BaseDateHelper.encodeLong(oldLevel + (long)JsonUtils.getIntance().getConfigValueForId(100017)));
+        }
 
         SQLHelper.getIntance().mGameLevel = BaseDateHelper.encodeLong(-9999L);
         SQLHelper.getIntance().updateGameLevel(BaseDateHelper.encodeLong(newLevel));
@@ -297,6 +303,7 @@ public class LuiHuiTips : UiControlBase
         SQLHelper.getIntance().getActiveList().Clear();
         SQLHelper.getIntance().mCurrentVocation = -1;
         SQLHelper.getIntance().mPlayVocation.Clear();
+        SQLHelper.getIntance().mVocationCount = 0;
     }
 
     // Update is called once per frame
@@ -334,6 +341,7 @@ public class LuiHuiTips : UiControlBase
                 sure(new BigNumber(),false);
 
             }
+
             if (isShowSelf)
             {
                 transform.localPosition = mFri;
@@ -342,6 +350,7 @@ public class LuiHuiTips : UiControlBase
             {
                 toremoveUi();
             }
+
         });
         mRight.onClick.AddListener(() =>
         {
@@ -461,14 +470,25 @@ public class LuiHuiTips : UiControlBase
 #endif
     }
     private void vocation() {
-
-        
-
         SQLHelper.getIntance().updateVocation(mVocationBean.id, mVocationBean.skill != -1);
         JsonUtils.getIntance().reReadHero();
         GameObject.Find("Manager").GetComponent<LevelManager>().heroVocation();
-        GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeVocation();
+        
         UiControlManager.getIntance().remove(UiControlManager.TYPE_VOCATION);
+        SQLHelper.getIntance().updateVocationCount(SQLHelper.getIntance().mVocationCount+1);
+
+        Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
+            " level==" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "SQLHelper.getIntance().mVocationCount = " + SQLHelper.getIntance().mVocationCount +
+            "   BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) /(long) JsonUtils.getIntance().getConfigValueForId(100044) <= SQLHelper.getIntance().mVocationCount=" +
+            (BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) <= SQLHelper.getIntance().mVocationCount) +
+            "mType = "+mType);
+
+        if (mType == TYPPE_VOCATION && BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) /(long) JsonUtils.getIntance().getConfigValueForId(100044) <= SQLHelper.getIntance().mVocationCount)
+        {
+            GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeVocation();
+        }
+        
+
     }
 
     public override void show()

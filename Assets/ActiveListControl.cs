@@ -25,7 +25,7 @@ public class ActiveListControl : MonoBehaviour {
                 
     }
     public void showVocation(bool isAddSql) {
-     //   Debug.Log("=================================showVocation");
+        Debug.Log("=================================showVocation");
         int i = 0;
         while (i < mButtonList.Length && !mButtonList[i].init(ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION, 0, isAddSql)) {
             i++;
