@@ -281,8 +281,9 @@ public class GameBeginControl : MonoBehaviour {
 
                         if (gameindex < maxIndex)
                         {
+                            Debug.Log("getAdValue maxIndex = " + maxIndex+ " maxLevel="+ maxLevel);
                             BigNumber adLunhui = JsonUtils.getIntance().readMaxLevelLunhuiAdValue(maxIndex, maxLevel);
-                            Debug.Log("adLunhui= " + adLunhui.toString());
+                            Debug.Log("getAdValue adLunhui = " + adLunhui.toString());
                             if (!adLunhui.isEmpty())
                             {
                                 SQLHelper.getIntance().updateAdLunhuiValue(adLunhui);

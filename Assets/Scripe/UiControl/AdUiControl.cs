@@ -45,6 +45,7 @@ public class AdUiControl : UiControlBase
             if (level == -1) {
                 level = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel);
             }
+            Debug.Log("getAdValue level = " + level);
             BigNumber bigValue = null;
             if (!SQLHelper.getIntance().mLunhuiAdValue.isEmpty())
             {
@@ -53,7 +54,11 @@ public class AdUiControl : UiControlBase
             else {
                 bigValue = JsonUtils.getIntance().getLevelData(level).getAdLunhui();
             }
-           // bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
+            Debug.Log("getAdValue bigValue = " + bigValue.toString());
+            Debug.Log("getAdValue GameManager.getIntance().getLunhuiGet() = " + GameManager.getIntance().getLunhuiGet());
+
+            bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
+            Debug.Log("getAdValue end bigValue = " + bigValue.toString());
             value = bigValue.toString();
         }
         else
