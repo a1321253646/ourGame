@@ -805,9 +805,16 @@ public class SQLHelper
         if (mMaxLevel == BaseDateHelper.encodeLong(-1) ||
              BaseDateHelper.decodeLong(mGameLevel) > BaseDateHelper.decodeLong(mMaxLevel)) {
             updateMaxLevel(mGameLevel);
-            BigNumber adValue = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(mMaxLevel)).getAdLunhui();
+        }
+        BigNumber adValue = JsonUtils.getIntance().getLevelData(BaseDateHelper.decodeLong(mMaxLevel)).getAdLunhui();
+        if (mLunhuiAdValue.isEmpty()) {
             updateAdLunhuiValue(adValue);
         }
+        else  if(mLunhuiAdValue.ieEquit(adValue) == -1) {
+            updateAdLunhuiValue(adValue);
+        }
+       
+
     }
     public void updateVersionCode(long version)
     {
@@ -832,7 +839,7 @@ public class SQLHelper
         }
         else
         {
-            updateGame(GAME_ID_VERSION_CODE, value.toString());
+            updateGame(GAME_ID_AD_LUNHUI_MAX, value.toString());
         }
         mLunhuiAdValue = value;
     }
