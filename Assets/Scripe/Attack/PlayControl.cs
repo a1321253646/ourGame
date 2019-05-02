@@ -222,6 +222,7 @@ public class PlayControl : Attacker
         mFightManager.dieOrWin(false, false);
     }
     void winEnd(int status) {
+        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>winEnd<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         isWinEnd = true;
         setStatus(Attacker.PLAY_STATUS_RUN);
         Run();
@@ -741,6 +742,7 @@ public class PlayControl : Attacker
     private bool isWinEnd = false;
     public void win()
     {
+        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>win<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         isWin = true;
         mBackManager.stop();
         setStatus(Attacker.PLAY_STATUS_WIN);

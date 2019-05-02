@@ -46,14 +46,7 @@ public class AdUiControl : UiControlBase
                 level = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel);
             }
             Debug.Log("getAdValue level = " + level);
-            BigNumber bigValue = null;
-            if (!SQLHelper.getIntance().mLunhuiAdValue.isEmpty())
-            {
-                bigValue = SQLHelper.getIntance().mLunhuiAdValue;
-            }
-            else {
-                bigValue = JsonUtils.getIntance().getLevelData(level).getAdLunhui();
-            }
+            BigNumber bigValue = getLunhuiAd();
             Debug.Log("getAdValue bigValue = " + bigValue.toString());
             Debug.Log("getAdValue GameManager.getIntance().getLunhuiGet() = " + GameManager.getIntance().getLunhuiGet());
 
@@ -76,6 +69,54 @@ public class AdUiControl : UiControlBase
 
         return value;
     }
+
+    private BigNumber getLunhuiAd() {
+        BigNumber adLunhui = null;
+        Debug.Log("SQLHelper.getIntance().mMaxLevel= " + BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel));
+        long current = BaseDateHelper.decodeLong(SQLHelper.getIntance().mGameLevel);
+        if (SQLHelper.getIntance().mMaxLevel != BaseDateHelper.encodeLong(-1))
+        {
+            long maxLevel = BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel);
+           
+            long maxIndex = 0;
+            long gameindex = 0;
+            if (maxLevel < 0)
+            {
+                maxIndex = 1;
+            }
+            else
+            {
+                maxIndex = (maxLevel - 1) / 1000 + 1;
+            }
+
+            if (current < 0)
+            {
+                gameindex = 1;
+            }
+            else
+            {
+                gameindex = (current - 1) / 1000 + 1;
+            }
+
+            if (gameindex < maxIndex)
+            {
+                Debug.Log("getAdValue maxIndex = " + maxIndex + " maxLevel=" + maxLevel);
+                adLunhui = JsonUtils.getIntance().readMaxLevelLunhuiAdValue(maxIndex, maxLevel);
+
+            }
+            else
+            {
+                adLunhui = JsonUtils.getIntance().getLevelData(maxLevel).getAdLunhui();
+            }
+
+        }
+        else {
+            adLunhui = JsonUtils.getIntance().getLevelData(current).getAdLunhui();
+        }
+        
+        return adLunhui;
+    }
+
 
     public override void init()
     {
