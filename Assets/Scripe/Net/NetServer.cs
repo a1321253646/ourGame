@@ -16,8 +16,8 @@ public class NetServer
 
     public static string mDeviceID = "";
 
-   private static string URL_ROOT =  "http://120.79.249.55:8889";
-    //private static string URL_ROOT = "http://120.79.249.55:8809";
+   //private static string URL_ROOT =  "http://120.79.249.55:8889";
+    private static string URL_ROOT = "http://120.79.249.55:8809";
 
     public void updateNet(List<SqlNetDate> list) {
         if (GameManager.isTestVersion)
