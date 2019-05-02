@@ -252,56 +252,6 @@ public class GameBeginControl : MonoBehaviour {
                 Debug.Log("SQLHelper.getIntance().init();");
                 SQLHelper.getIntance().init();
 
-                try
-                {
-                    Debug.Log("SQLHelper.getIntance().mMaxLevel= " + BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel));
-                    if (SQLHelper.getIntance().mMaxLevel != BaseDateHelper.encodeLong(-1) && SQLHelper.getIntance().mLunhuiAdValue.isEmpty())
-                    {
-                        long maxLevel = BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel);
-                        long current = BaseDateHelper.decodeLong(SQLHelper.getIntance().mGameLevel);
-                        long maxIndex = 0;
-                        long gameindex = 0;
-                        if (maxLevel < 0)
-                        {
-                            maxIndex = 1;
-                        }
-                        else
-                        {
-                            maxIndex = (maxLevel - 1) / 1000 + 1;
-                        }
-
-                        if (current < 0)
-                        {
-                            gameindex = 1;
-                        }
-                        else
-                        {
-                            gameindex = (current - 1) / 1000 + 1;
-                        }
-
-                        if (gameindex < maxIndex)
-                        {
-                            Debug.Log("getAdValue maxIndex = " + maxIndex+ " maxLevel="+ maxLevel);
-                            BigNumber adLunhui = JsonUtils.getIntance().readMaxLevelLunhuiAdValue(maxIndex, maxLevel);
-                            Debug.Log("getAdValue adLunhui = " + adLunhui.toString());
-                            if (!adLunhui.isEmpty())
-                            {
-                                SQLHelper.getIntance().updateAdLunhuiValue(adLunhui);
-                            }
-
-                        }
-
-                    }
-                    Debug.Log("SQLHelper.getIntance().init(); end");
-                    GameManager.getIntance().mInitStatus = 10;
-                    Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-                }
-                catch (System.Exception e)
-                {
-                    Debug.Log("处理存档出错");
-                    Debug.Log(e.Message);
-
-                }
                 int count = 0;
                 if (SQLHelper.getIntance().mVocationCount == 0) {
                     for (int i = 0; ; i++)
@@ -321,8 +271,10 @@ public class GameBeginControl : MonoBehaviour {
                     }
                 }
 
+                Debug.Log("SQLHelper.getIntance().init(); end");
+                GameManager.getIntance().mInitStatus = 10;
+                Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
 
-                
             });
             th1.Start();
 #endif
