@@ -34,7 +34,7 @@ public class NetServer
     private void threadRun() {
         JObject json = new JObject();
         json.Add("user", mDeviceID);
-        if (string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
+        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
         }
@@ -127,7 +127,7 @@ public class NetServer
         }
         JObject json = new JObject();
         json.Add("user", mDeviceID);
-        if (string.IsNullOrEmpty(token))
+        if (!string.IsNullOrEmpty(token))
         {
             json.Add("token", token);
         }
@@ -213,7 +213,7 @@ public class NetServer
     private void getUpdateInfo() {
         JObject json = new JObject();
         json.Add("user", mDeviceID);
-        if (string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
+        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
         }
@@ -265,7 +265,7 @@ public class NetServer
     {
         JObject json = new JObject();
         json.Add("user", mDeviceID);
-        if (string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
+        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
         }
@@ -344,6 +344,8 @@ public class NetServer
     }
 
     private void dealRepond(long time,int statue,string token,bool isChangeToken) {
+        Debug.Log("dealRepond token= " + token + " SQLHelper.getIntance().mToken=" + SQLHelper.getIntance().mToken + " isChangeToken="+ isChangeToken);
+
         if (statue == ERROR_DOED_TOKEN_FAULT)
         {
             //登陆失效的处理
