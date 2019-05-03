@@ -924,6 +924,7 @@ public class SQLHelper
             updateGame(GAME_ID_TOKEN, token);
         }
         mToken = token;
+        GameObject.Find("setting_ui").GetComponent<SettingUiControl>().setTokenId();
     }
 
     public void updateOutLineGet(BigNumber value) {
@@ -1320,10 +1321,10 @@ public class SQLHelper
         date.type = TYPE_GAME;
         date.id = id;
         date.getClean();
-        if (id != GAME_ID_TOKEN)
-        {
+     //   if (id != GAME_ID_TOKEN)
+     //   {
             SQLManager.getIntance().UpdateInto(date);
-        }     
+     //   }     
 
     }
     private void addGame(long id, string value)
@@ -1334,9 +1335,9 @@ public class SQLHelper
         date.type = TYPE_GAME;
         date.id = id;
         date.getClean();
-        if (id != GAME_ID_TOKEN) {
+     //   if (id != GAME_ID_TOKEN) {
             SQLManager.getIntance().InsertDataToSQL(date);
-        }
+    //    }
        
 
     }

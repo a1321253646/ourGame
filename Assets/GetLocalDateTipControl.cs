@@ -9,9 +9,9 @@ public class GetLocalDateTipControl : MonoBehaviour {
     Button mClose, mSure;
 
 	void Start () {
-        mInputName = GameObject.Find("change_name_input").GetComponent<Text>();
-        mClose = GameObject.Find("change_name_close").GetComponent<Button>();
-        mSure = GameObject.Find("change_name_tip_sure").GetComponent<Button>();
+        mInputName = GameObject.Find("get_local_date_text").GetComponent<Text>();
+        mClose = GameObject.Find("get_local_date_close").GetComponent<Button>();
+        mSure = GameObject.Find("get_local_date_sure").GetComponent<Button>();
 
         mClose.onClick.AddListener(() =>
         {

@@ -9,7 +9,7 @@ public class SettingUiControl : UiControlBase
     // Use this for initialization
     Button mClose ,mVoiceClose, mVoicemOpen;
     Text mLocalIdText;
-
+    
     public override void init()
     {
         mControlType = UiControlManager.TYPE_SETTING;
@@ -37,6 +37,8 @@ public class SettingUiControl : UiControlBase
             mVoicemOpen.gameObject.transform.localScale = new Vector2(0, 0);
         });
         updateLocalDateId();
+        setTokenId();
+        isInit = true;
     }
 
     public void updateLocalDateId() {
@@ -63,5 +65,13 @@ public class SettingUiControl : UiControlBase
             mVoiceClose.gameObject.transform.localScale = new Vector2(0, 0);
             mVoicemOpen.gameObject.transform.localScale = new Vector2(1, 1);
         }
+    }
+
+    public void setTokenId() {
+        if (mLocalIdText == null) {
+            mLocalIdText = GameObject.Find("local_id").GetComponent<Text>();
+        }
+        Debug.Log("setTokenId mToken = " + SQLHelper.getIntance().mToken);
+        mLocalIdText.text = "编码:"+SQLHelper.getIntance().mToken;
     }
 }

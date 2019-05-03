@@ -742,7 +742,7 @@ public class SQLManager
         }
         foreach (SQLDate date in list) {
             Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
-            InsertDataToSQL(date, true,false);
+            InsertDataToSQL(date, true,NetServer.getIntance().isNew);
         }
         Debug.Log("saveLocal end");
     }

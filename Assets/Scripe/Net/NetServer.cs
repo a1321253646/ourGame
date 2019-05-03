@@ -11,6 +11,7 @@ public class NetServer
     public static int ERROR_DOED_GET_LOCAL_FAULT = -1002;
 
     public bool isUpdate = false;
+    public bool isNew = false;
     List<SqlNetDate> mList = null;
     public long mTime = -1;
 
@@ -127,9 +128,9 @@ public class NetServer
         }
         JObject json = new JObject();
         json.Add("user", mDeviceID);
-        if (!string.IsNullOrEmpty(token))
+        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
-            json.Add("token", token);
+            json.Add("token", SQLHelper.getIntance().mToken);
         }
         //json.Add("user", "7a3cff28cdeddeb1220b926073d818d8");
         mLocal = null;
@@ -141,7 +142,11 @@ public class NetServer
         jb.Add("goodId", -1);
         jb.Add("goodtype", -1);
         jb.Add("isclean", -1);
-        jb.Add("extra", token);
+        if (!string.IsNullOrEmpty(token))
+        {
+            jb.Add("extra", token);
+        }
+        
         array.Add(jb);
         json.Add("date", array);
         Dictionary<string, string> dir = new Dictionary<string, string>();
@@ -165,6 +170,7 @@ public class NetServer
                 long getTime = jb2.Value<long>("time");
                 GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
                 string token2 = jb2.Value<string>("token");
+                isNew = jb2.Value<bool>("isnew");
                 dealRepond(getTime, status,token2,true);
                 if (status == 0)
                 {
@@ -356,6 +362,7 @@ public class NetServer
             return;
         }
         if (isChangeToken && !string.IsNullOrEmpty(token)) {
+            
             SQLHelper.getIntance().updateToken(token);
         }
         else if (!string.IsNullOrEmpty(token) && string.IsNullOrEmpty(SQLHelper.getIntance().mToken)) {
