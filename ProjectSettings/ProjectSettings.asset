@@ -126,7 +126,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.51
+  bundleVersion: 0.52
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -165,7 +165,7 @@ PlayerSettings:
     tvOS: 
   buildNumber:
     iOS: 
-  AndroidBundleVersionCode: 51
+  AndroidBundleVersionCode: 52
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 22
   AndroidPreferredInstallLocation: 1
