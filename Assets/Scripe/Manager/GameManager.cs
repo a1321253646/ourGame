@@ -55,8 +55,8 @@ public class GameManager
     public static bool isTest = false;
 
 
-    public static long mVersionCode =4900;
-    public static long mAPKVersionCode = 52;
+    public static long mVersionCode =5300;
+    public static long mAPKVersionCode = 53;
     public  long mNewAPKVersionCode = -1;
     public  long mIsMust = -1;//1为必须，0为提醒
     public string mUpdateStr = null;
@@ -72,7 +72,7 @@ public class GameManager
 
     public string mGameErrorString = "";
 
-    public long mTestSpeed = -1;
+   // public long mTestSpeed = -1;
     public bool isOpenStop = false;
     public bool isLunhuiWudiIng = false;
     public static bool isTestVersion = false; 
@@ -209,14 +209,17 @@ public class GameManager
 
     public void updateBossGase(bool isUpdateUi) {
         Level level = JsonUtils.getIntance().getLevelData();
+        Debug.Log("level =" + level);
         startBossGas = level.boss_gas;
+        Debug.Log("startBossGas =" + startBossGas);
         long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(12);
         long value = 0;
-
+        Debug.Log("luihuiLevel ="+ luihuiLevel);
         if (luihuiLevel != BaseDateHelper.encodeLong(0))
         {
            
             List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(12, BaseDateHelper.decodeLong(luihuiLevel));
+            Debug.Log("BaseDateHelper.decodeLong(luihuiLevel) =" + BaseDateHelper.decodeLong(luihuiLevel));
             foreach (SamsaraValueBean bean in list)
             {
                 if (bean.type == 500010)
@@ -225,16 +228,21 @@ public class GameManager
                     break;
                 }
             }
+            Debug.Log("bean.type == 500010");
             if (value != 0)
             {
                 startBossGas = startBossGas - value;
                 if (startBossGas < 0) {
                     startBossGas = 0;
                 }
+                Debug.Log("startBossGas < 0");
             }
+           
         }
         if (isUpdateUi) {
+            Debug.Log("isUpdateUi");
             uiManager.addGas();
+            Debug.Log("uiManager.addGas();");
         }
 
     }

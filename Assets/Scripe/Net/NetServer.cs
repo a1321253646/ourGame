@@ -120,14 +120,21 @@ public class NetServer
     {
         return mIntance;
     }
-    public bool getLocl(string token,bool isReplace)
+    public bool getLocl(string token,bool isReplace,bool skipMac)
     {
         if (GameManager.isTestVersion)
         {
             return true;
         }
         JObject json = new JObject();
-        json.Add("user", mDeviceID);
+        if (skipMac)
+        {
+            json.Add("user", "skip_" + mDeviceID);
+        }
+        else {
+            json.Add("user", mDeviceID);
+        }
+        
         if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
@@ -178,7 +185,7 @@ public class NetServer
                     mLocal = www.text;
                     if (isReplace && isHaveLocal()) {
                         SQLManager.getIntance().saveLocal(NetServer.getIntance().getLocal());
-                        GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
+                        GameObject.Find("reload").GetComponent<ReloadControl>().reload(false);
                     }
                 }
             }
@@ -354,11 +361,13 @@ public class NetServer
 
         if (statue == ERROR_DOED_TOKEN_FAULT)
         {
-            //登陆失效的处理
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("该数据编码已经在别的机器登陆", LuiHuiTips.TYPPE_ERROR_TOKEN);
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
             return;
         }
         else if(statue == ERROR_DOED_GET_LOCAL_FAULT) {
-            //拉取存档失败
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("输入编码不存在", LuiHuiTips.TYPPE_EMPTY_TOKEN);
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
             return;
         }
         if (isChangeToken && !string.IsNullOrEmpty(token)) {

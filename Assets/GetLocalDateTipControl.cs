@@ -38,7 +38,7 @@ public class GetLocalDateTipControl : MonoBehaviour {
         string newId = mInputName.text;
         Debug.Log("getLocalDate newName = " + newId);
 
-        NetServer.getIntance().getLocl(newId, true);
+        NetServer.getIntance().getLocl(newId, true,false);
     }
 
     private void endEdit() {

@@ -187,7 +187,7 @@ public class GameBeginControl : MonoBehaviour {
                 isGetlocalBegin = true;
                 Thread th1 = new Thread(() =>
                 {
-                    if (!NetServer.getIntance().getLocl(null,false))
+                    if (!NetServer.getIntance().getLocl(null,false,false))
                     {
                         GameManager.getIntance().mInitStatus = 8;
                         isGetlocaled = true;

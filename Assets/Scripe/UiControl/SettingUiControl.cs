@@ -65,6 +65,7 @@ public class SettingUiControl : UiControlBase
             mVoiceClose.gameObject.transform.localScale = new Vector2(0, 0);
             mVoicemOpen.gameObject.transform.localScale = new Vector2(1, 1);
         }
+        setTokenId();
     }
 
     public void setTokenId() {

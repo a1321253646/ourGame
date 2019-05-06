@@ -859,7 +859,11 @@ public class JsonUtils
 		return getLevelData (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
 	}
 	public  Level getLevelData(long id){
-		foreach (Level level in levelData) {
+
+        Debug.Log("getLevelData  id =" + id);
+
+        foreach (Level level in levelData) {
+            Debug.Log("level  id =" + level.id);
             if (level.id == id) {               
 				return level;
 			}

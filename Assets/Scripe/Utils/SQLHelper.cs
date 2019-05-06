@@ -79,11 +79,13 @@ public class SQLHelper
     public static long GAME_ID_SETTING_CLOSED_CHUANGYE = 33;
     public static long GAME_ID_SETTING_CLOSED_YUEQIANG = 34;
     public static long GAME_ID_HAD_LUNHUI = 35;
-    public static long GAME_ID_CAN_LUNHUI = 36;
+
     public static long GAME_ID_TARGET_SPEED = 37;
     public static long GAME_ID_OUTLINE_MAX = 38;
     public static long GAME_ID_VOCATION_COUNT_MAX = 39;
     public static long GAME_ID_TOKEN = 41;
+    public static long GAME_ID_CAN_LUNHUI = 42;
+
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -531,6 +533,7 @@ public class SQLHelper
             }
             Debug.Log("读取数据库 物品数量" + mALLGood.Count);
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100031);
+            JsonUtils.getIntance().reReadAboutLevelFile(BaseDateHelper.decodeLong(mGameLevel));
         }
     }
 

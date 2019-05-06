@@ -59,8 +59,8 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
 
-        GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
-        GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
+     //   GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
+     //   GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
 
         creaPlay(yBase);
         //  creatEnemyFactory(cardTop);
@@ -122,10 +122,10 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 1;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
-            if (GameManager.getIntance().mTestSpeed != -1)
-            {
-                Time.timeScale = GameManager.getIntance().mTestSpeed;
-            }
+    //        if (GameManager.getIntance().mTestSpeed != -1)
+    //        {
+    //            Time.timeScale = GameManager.getIntance().mTestSpeed;
+    //        }
         Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
         " level==" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "SQLHelper.getIntance().mVocationCount = " + SQLHelper.getIntance().mVocationCount +
         "  level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount=" +
@@ -241,7 +241,7 @@ public class LevelManager : MonoBehaviour {
 
         if (GameManager.getIntance().isError) {
             Time.timeScale = 0;
-            NetServer.getIntance().getLocl(SQLHelper.getIntance().mToken, false);
+            NetServer.getIntance().getLocl(SQLHelper.getIntance().mToken, false,false);
             SQLManager.getIntance().saveLocal(NetServer.getIntance().getLocal());
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("检测到您本地时间出现异常，已还原回服务器最新记录，请将时间修改为当前时间重新开始游戏", LuiHuiTips.TYPPE_ERROR_DATE);
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();

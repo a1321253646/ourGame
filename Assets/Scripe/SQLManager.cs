@@ -216,11 +216,13 @@ public class SQLManager
                 SqliteCommand command = mConnet.CreateCommand();
                 command.CommandText = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_LEVEL + " AND TYPE=" + SQLHelper.TYPE_GAME;
                 this.reader = command.ExecuteReader();
+                long vocation = -1;
                 while (this.reader.Read())
                 {
-                    long vocation = long.Parse(reader.GetString(reader.GetOrdinal("EXTAN")));
-                    return vocation;
+                    vocation = long.Parse(reader.GetString(reader.GetOrdinal("EXTAN")));
+                    
                 }
+                return vocation;
             }
         }
         return -1;
@@ -913,7 +915,7 @@ public class SQLManager
                 date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
                 date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
                 Debug.Log("readAllTable date.type  = " + date.type + " id = " + date.id + " extan = " + date.extan + " date.goodId" + date.goodId + " date.goodType=" + date.goodType + " date.isClean= " + date.isClean);
-                            Debug.Log("readAllTable date.type  = " + date.id);
+                Debug.Log("readAllTable date.type  = " + date.id);
                 list.Add(date);
             }
 //            cnn.Close();
@@ -932,7 +934,9 @@ public class SQLManager
 
     internal void deleteAll()
     {
-        
+        string comm = "DELETE FROM " + tabName;
+        mNetHelper.cleanAllLocal();
+        ExecuteSQLCommand(comm);
     }
 
     public List<SQLDate> readAllTableOld()
