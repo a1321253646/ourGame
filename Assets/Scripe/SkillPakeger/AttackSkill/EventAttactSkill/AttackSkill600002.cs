@@ -16,8 +16,10 @@ public class AttackSkill600002 : EventAttackSkill
         }
 
         bool isSuccess = randomResult(10000, count1, false);
-
-        mFight.AddBlood(count2 * hurt.blood);
+        if (isSuccess) {
+            mFight.AddBlood(count2 * hurt.blood);
+        }
+        
     }
 
 
