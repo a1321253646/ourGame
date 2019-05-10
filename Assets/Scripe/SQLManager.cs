@@ -473,6 +473,20 @@ public class SQLManager
     {
 
         ExecuteSQLCommand(commandStr);
+        string commandString = "INSERT INTO " + tabName + " VALUES (";
+        SQLDate data = new SQLDate();
+        data.type = SQLHelper.TYPE_ENCODE_VERSION;
+        data.id = 1;
+        data.isClean = 2;
+        commandString += data.type;
+        commandString += "," + data.id;
+        commandString += "," + "'" + data.extan + "'";
+        commandString += "," + data.goodId;
+        commandString += "," + data.goodType;
+        commandString += "," + data.isClean;
+        commandString += "," + data.isNet;
+        commandString += "," + data.isDelete + ")";
+        ExecuteSQLCommand(commandString);
     }
     /// <summary>
     /// 关闭数据库连接,注意这一步非常重要，最好每次测试结束的时候都调用关闭数据库连接

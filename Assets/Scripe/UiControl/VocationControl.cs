@@ -37,6 +37,11 @@ public class VocationControl : UiControlBase
             toremoveUi();
         });
         mNoSelect.onClick.AddListener(() => {
+            SQLHelper.getIntance().updateVocationCount(SQLHelper.getIntance().mVocationCount + 1);
+            if ( BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) <= SQLHelper.getIntance().mVocationCount)
+            {
+                GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeVocation();
+            }
             GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_CLICK_VOCATION);
             toremoveUi();
         });

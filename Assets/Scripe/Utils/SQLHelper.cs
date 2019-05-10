@@ -549,12 +549,13 @@ public class SQLHelper
             {
                 updateGame(GAME_ID_GOOD_MAXID, mMaxGoodId);
             }
+#if UNITY_ANDROID || UNITY_IOS
             if (string.IsNullOrEmpty(mPlayName)) {
                 string name = NetServer.mDeviceID;
                 name = "用户" + name.Substring(0, 4);
                 updateName(name);
             }
-
+#endif
             Debug.Log("读取数据库 物品数量" + mALLGood.Count);
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100031);
             JsonUtils.getIntance().reReadAboutLevelFile(BaseDateHelper.decodeLong(mGameLevel));
@@ -1017,9 +1018,11 @@ public class SQLHelper
         }
         mOutTime = value;
     //    Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>isUpdate =" + isUpdate + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-        if (isUpdate != -1) {
+#if UNITY_ANDROID || UNITY_IOS
+        if (isUpdate != -1) {        
             SQLManager.getIntance().updateToNet();
-        }        
+        }    
+#endif
     }
     private void updateMaxOutTime(long time)
     {

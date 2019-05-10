@@ -74,7 +74,7 @@ public class GameManager
 
     public string mGameErrorString = "";
 
-   // public long mTestSpeed = -1;
+    public long mTestSpeed = -1;
     public bool isOpenStop = false;
     public bool isLunhuiWudiIng = false;
     public static bool isTestVersion = false; 
@@ -162,7 +162,7 @@ public class GameManager
             }
 
             if (JsonUtils.getIntance().getConfigValueForId(100056) == 1) {
-                mCurrentCrystal = BigNumber.getBigNumForString("24E+22");
+                mCurrentCrystal = BigNumber.getBigNumForString("24E+100");
             }
            
 
