@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NetHelper
+public class NetHelper1
 {
-
+    /*
     public void updateToNet() {
         if (GameManager.isTestVersion)
         {
@@ -101,5 +101,5 @@ public class NetHelper
         SQLNetManager.getIntance().addList(date);
 #endif
 
-    }
+    }*/
 }

@@ -35,6 +35,7 @@ public class NetServer
     private void threadRun() {
         JObject json = new JObject();
         json.Add("user", mDeviceID);
+        json.Add("version", 1);
         if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
@@ -87,7 +88,7 @@ public class NetServer
                 string token = jb.Value<string>("token");
                 dealRepond(getTime, status, token,false);
                 if (status == 0) {
-                    SQLNetManager.getIntance().updateDate(true);
+                    SQLManager.getIntance().updateToNetEnd(true);
                 }               
                 mList = null;             
             }
@@ -96,7 +97,7 @@ public class NetServer
         else
         {
             isUpdate = false;
-            SQLNetManager.getIntance().updateDate(false);
+            SQLManager.getIntance().updateToNetEnd(false);
             mList = null;
             Debug.Log("Http错误代码:" + www.error);
         }
@@ -126,6 +127,8 @@ public class NetServer
         {
             return true;
         }
+
+
         JObject json = new JObject();
         if (skipMac)
         {
@@ -134,7 +137,7 @@ public class NetServer
         else {
             json.Add("user", mDeviceID);
         }
-        
+        json.Add("version", 1);
         if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
@@ -226,6 +229,7 @@ public class NetServer
     private void getUpdateInfo() {
         JObject json = new JObject();
         json.Add("user", mDeviceID);
+        json.Add("version", 1);
         if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
@@ -278,6 +282,7 @@ public class NetServer
     {
         JObject json = new JObject();
         json.Add("user", mDeviceID);
+        json.Add("version", 1);
         if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
@@ -388,6 +393,10 @@ public class NetServer
 
         }
     }
+    public void clearAllNetLocal() {
+
+    }
+
 
     public string getLocal()
     {

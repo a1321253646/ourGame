@@ -17,6 +17,7 @@ public class SQLHelper
     public long mOutTime = -1;
     public long mMaxOutTime = -1;
     public long mMaxLevel = BaseDateHelper.encodeLong(-1);
+    public long mNetLevel = BaseDateHelper.encodeLong(-1);
 
     public long isShowCardPoint = -1;
     public long isShowBackpackPoint = -1;
@@ -31,6 +32,7 @@ public class SQLHelper
     public string mToken ="";
     
     public long mVersionCode=-1;
+    public bool isCleanNet=false;
 
     public long mCardLevel = -1;
     public long mCardListId = -1;
@@ -79,13 +81,14 @@ public class SQLHelper
     public static long GAME_ID_SETTING_CLOSED_CHUANGYE = 33;
     public static long GAME_ID_SETTING_CLOSED_YUEQIANG = 34;
     public static long GAME_ID_HAD_LUNHUI = 35;
+    public static long GAME_ID_NET_LEVEL = 36;
 
     public static long GAME_ID_TARGET_SPEED = 37;
     public static long GAME_ID_OUTLINE_MAX = 38;
     public static long GAME_ID_VOCATION_COUNT_MAX = 39;
-    public static long GAME_ID_TOKEN = 41;
+    
     public static long GAME_ID_CAN_LUNHUI = 42;
-
+    public static long GAME_ID_TOKEN = 43;
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -99,6 +102,8 @@ public class SQLHelper
     public static long TYPE_DROP = 7;
     public static long TYPE_GUIDE = 8;
     public static long TYPE_ACTIVITY_BUTTON = 9;
+    public static long TYPE_ENCODE_VERSION = 10;
+    public static long TYPE_CLEAN_NET = 11;
     public long mCurrentVocation = -1;
     public Dictionary<long, long>  mPlayVocation = new Dictionary<long, long>();
 
@@ -111,7 +116,7 @@ public class SQLHelper
     List<PlayerBackpackBean> mPet = new List<PlayerBackpackBean>();
     Dictionary<long,long> mLunhuui = new Dictionary<long, long>();
     Dictionary<long,long> mDropDeviceCount = new Dictionary<long, long>();
-    NetHelper mNetHelp = new NetHelper();
+ //   NetHelper mNetHelp = new NetHelper();
 
     
 
@@ -142,6 +147,7 @@ public class SQLHelper
         isAutoBoss = -1;
         isLuiHui = -1;
         mMaxLevel = BaseDateHelper.encodeLong(-1);
+        mNetLevel = BaseDateHelper.encodeLong(-1);
         isLuiHuiDeal = -1;
         mLunhuiValue = new BigNumber();
         mMojing = new BigNumber();
@@ -177,6 +183,9 @@ public class SQLHelper
         {
             foreach (SQLDate date in mList)
             {
+                if (date.isDelete == 2) {
+                    continue;
+                }
                 Debug.Log("读取数据库 " + date.toString());
                 if (date.type == TYPE_LUNHUI)
                 {
@@ -251,6 +260,10 @@ public class SQLHelper
                 {
                     mBook.Add(date.id);
                 }
+                else if (date.type == TYPE_CLEAN_NET)
+                {
+                    isCleanNet = true;
+                }
                 else if (date.type == TYPE_GUIDE)
                 {
                   //  long id = long.Parse(date.extan);
@@ -304,6 +317,11 @@ public class SQLHelper
                     else if (date.id == GAME_ID_PLAYER_MAX_LEVEL)
                     {
                         mMaxLevel = BaseDateHelper.encodeLong(long.Parse(date.extan));
+                        //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                    }
+                    else if (date.id == GAME_ID_NET_LEVEL)
+                    {
+                        mNetLevel = BaseDateHelper.encodeLong(long.Parse(date.extan));
                         //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_IS_UPDATE)
@@ -531,6 +549,12 @@ public class SQLHelper
             {
                 updateGame(GAME_ID_GOOD_MAXID, mMaxGoodId);
             }
+            if (string.IsNullOrEmpty(mPlayName)) {
+                string name = NetServer.mDeviceID;
+                name = "用户" + name.Substring(0, 4);
+                updateName(name);
+            }
+
             Debug.Log("读取数据库 物品数量" + mALLGood.Count);
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100031);
             JsonUtils.getIntance().reReadAboutLevelFile(BaseDateHelper.decodeLong(mGameLevel));
@@ -581,6 +605,18 @@ public class SQLHelper
     public static SQLHelper getIntance()
     {
         return mIntance;
+    }
+
+    public void updateIsCleanNet() {
+        if (!isCleanNet) {
+            SQLDate date = new SQLDate();
+            date.type = TYPE_CLEAN_NET;
+            date.isDelete = 2;
+            date.isClean = SQLDate.CLEAR_NO;
+            //   if (id != GAME_ID_TOKEN) {
+            SQLManager.getIntance().InsertDataToSQL(date);
+        }
+
     }
 
     public long getCurrentGoodId() {
@@ -804,6 +840,11 @@ public class SQLHelper
              BaseDateHelper.decodeLong(mGameLevel) > BaseDateHelper.decodeLong(mMaxLevel)) {
             updateMaxLevel(mGameLevel);
         }
+        if (mNetLevel == BaseDateHelper.encodeLong(-1) ||
+            BaseDateHelper.decodeLong(mGameLevel) > BaseDateHelper.decodeLong(mNetLevel))
+        {
+            updateNetLevel(mGameLevel);
+        }
     }
     public void updateVersionCode(long version)
     {
@@ -816,6 +857,7 @@ public class SQLHelper
         {
             updateGame(GAME_ID_VERSION_CODE, version);
         }
+        updateNetLevel(BaseDateHelper.encodeLong(-10));
         mVersionCode = version;
     }
     public void updateVocationCount(long count)
@@ -897,6 +939,19 @@ public class SQLHelper
             updateGame(GAME_ID_PLAYER_MAX_LEVEL, BaseDateHelper.decodeLong(level));
         }
         mMaxLevel = level;
+    }
+    private void updateNetLevel(long level)
+    {
+        if (mNetLevel == BaseDateHelper.encodeLong(-1))
+        {
+            addGame(GAME_ID_NET_LEVEL, BaseDateHelper.decodeLong(level));
+
+        }
+        else
+        {
+            updateGame(GAME_ID_NET_LEVEL, BaseDateHelper.decodeLong(level));
+        }
+        mNetLevel = level;
     }
 
 

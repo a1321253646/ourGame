@@ -93,6 +93,7 @@ public class GameBeginControl : MonoBehaviour {
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
 #if UNITY_ANDROID || UNITY_IOS
             SQLManager.getIntance().initPathRoot();
+            SQLManager.getIntance().alterTableByVersion();
             Thread th1 = new Thread(() =>
             {
                 JsonUtils.getIntance().initBefore();
@@ -103,6 +104,7 @@ public class GameBeginControl : MonoBehaviour {
 #endif
 #if UNITY_STANDALONE
             SQLManager.getIntance().init(sqlName, tabName);
+            SQLManager.getIntance().alterTableByVersion();
             //  GameManager.getIntance().mInitStatus = 8;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
             JsonUtils.getIntance().initBefore();
@@ -133,7 +135,6 @@ public class GameBeginControl : MonoBehaviour {
                     }
                     else if (isUpdate == 2)
                     {
-                        SQLManager.getIntance().copyToNet();
                         GameManager.getIntance().mInitStatus = 6;
                         Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
                     }

@@ -57,7 +57,9 @@ public class GameManager
 
     public static long mVersionCode =5300;
     public static long mAPKVersionCode = 53;
+    public static long mSqlVersion = 1;
     public  long mNewAPKVersionCode = -1;
+    public  long mCurrentSqlVersion = 0;
     public  long mIsMust = -1;//1为必须，0为提醒
     public string mUpdateStr = null;
     public bool isHaveNoteUpdate = false;

@@ -25,7 +25,7 @@ public class SQLManager
     SqliteConnection mConnet = null;
     private static int IDCount;
     Thread th1 = null;
-    NetHelper mNetHelper = new NetHelper();
+   // NetHelper mNetHelper = new NetHelper();
 
     private SQLManager() {
 
@@ -152,7 +152,9 @@ public class SQLManager
             "EXTAN         TEXT ," +
             "GOODID        INT ," +
             "GOODTYPE      INT ," +
-            "ISCLENAN      INT )",
+            "ISCLENAN      INT ," +
+            "ISNET      INT ," +
+            "ISDELETE      INT )",
                 null,
                 null
             );
@@ -171,6 +173,9 @@ public class SQLManager
         mPathRoot = Application.persistentDataPath;
     }
 
+
+
+
     public long getPlayVocation() {
         if (File.Exists(getSqlFilePath())) {
             List<SQLDate> list = new List<SQLDate>();
@@ -186,7 +191,7 @@ public class SQLManager
                 Debug.Log("readAllTable");
 
                 SqliteCommand command = mConnet.CreateCommand();
-                command.CommandText = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_PLAYER_VOCATION + " AND TYPE=" + SQLHelper.TYPE_GAME;
+                command.CommandText = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_PLAYER_VOCATION + " AND TYPE=" + SQLHelper.TYPE_GAME+" AND ISDELETE=1";
                 this.reader = command.ExecuteReader();
                 while (this.reader.Read())
                 {
@@ -214,7 +219,7 @@ public class SQLManager
 //                Debug.Log("readAllTable");
 
                 SqliteCommand command = mConnet.CreateCommand();
-                command.CommandText = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_LEVEL + " AND TYPE=" + SQLHelper.TYPE_GAME;
+                command.CommandText = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_LEVEL + " AND TYPE=" + SQLHelper.TYPE_GAME + " AND ISDELETE=1";
                 this.reader = command.ExecuteReader();
                 long vocation = -1;
                 while (this.reader.Read())
@@ -308,78 +313,6 @@ public class SQLManager
                             InsertDataToSQL(date, true);
                         }
                     }
-/*                    SQLDate count = new SQLDate();
-                    count.type = SQLHelper.TYPE_GAME;
-                    count.id = SQLHelper.GAME_ID_LEVEL;
-                    count.isClean = SQLDate.CLEAR;
-                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    count.extan = "1";
-                    InsertDataToSQL(count, true);
-
-                    count = new SQLDate();
-                    count.type = SQLHelper.TYPE_GUIDE;
-                    count.id = 1;
-                    count.isClean = SQLDate.CLEAR_NO;
-                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    count.extan = "-1";
-                    InsertDataToSQL(count, true);
-
-                    count = new SQLDate();
-                    count.type = SQLHelper.TYPE_GUIDE;
-                    count.id = 2;
-                    count.isClean = SQLDate.CLEAR_NO;
-                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    count.extan = "-1";
-                    InsertDataToSQL(count, true);
-
-                    count = new SQLDate();
-                    count.type = SQLHelper.TYPE_GUIDE;
-                    count.id = 3;
-                    count.isClean = SQLDate.CLEAR_NO;
-                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    count.extan = "-1";
-                    InsertDataToSQL(count, true);
-
-                    count = new SQLDate();
-                    count.type = SQLHelper.TYPE_GUIDE;
-                    count.id = 4;
-                    count.isClean = SQLDate.CLEAR_NO;
-                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    count.extan = "-1";
-                    InsertDataToSQL(count, true);
-
-                    count = new SQLDate();
-                    count.type = SQLHelper.TYPE_GUIDE;
-                    count.id = 5;
-                    count.isClean = SQLDate.CLEAR_NO;
-                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    count.extan = "-1";
-                    InsertDataToSQL(count, true);
-
-                    count = new SQLDate();
-                    count.type = SQLHelper.TYPE_GAME;
-                    count.id = SQLHelper.GAME_ID_POINT_LUNHUI;
-                    count.isClean = SQLDate.CLEAR;
-                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    count.extan = "1";
-                    InsertDataToSQL(count, true);
-
-                    count = new SQLDate();
-                    count.type = SQLHelper.TYPE_GAME;
-                    count.id = SQLHelper.GAME_ID_FRIST_START;
-                    count.isClean = SQLDate.CLEAR_NO;
-                    count.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                    count.goodId = SQLDate.DEFAULT_GOOD_ID;
-                    count.extan = "1";
-                    InsertDataToSQL(count, true);*/
-
                     return 1;
                 }
                 else {
@@ -401,9 +334,69 @@ public class SQLManager
         return 2;
     }
 
+    public void alterTableByVersion()
+    {
+        if (File.Exists(getSqlFilePath()))
+        {
+            List<SQLDate> list = new List<SQLDate>();
+            if (mConnet == null)
+            {
+                mConnet = new SqliteConnection(getSqlPath());
+                mConnet.Open();
+            }
+
+            //        using (SqliteConnection cnn =)
+            using (reader)
+            {
+                Debug.Log("readAllTable");
+                SqliteCommand command = mConnet.CreateCommand();
+                command.CommandText = "select * from  " + tabName + " WHERE   TYPE=" + SQLHelper.TYPE_ENCODE_VERSION ;
+                this.reader = command.ExecuteReader();
+                while (this.reader.Read())
+                {
+                    GameManager.getIntance().mCurrentSqlVersion = reader.GetInt64(reader.GetOrdinal("ID"));
+                    break;
+                }
+                if (GameManager.getIntance().mCurrentSqlVersion < 1) {
+                    GameManager.getIntance().mCurrentSqlVersion = 1;
+
+                    SqliteCommand command1 = mConnet.CreateCommand();
+                    command1.CommandText = "alter table " + tabName + " add ISNET int default 1 ";
+                    reader = command1.ExecuteReader();
+                    reader.Close();
+
+                    SqliteCommand command2 = mConnet.CreateCommand();
+                    command2.CommandText = "alter table " + tabName + " add ISDELETE int default 1";
+                    reader = command2.ExecuteReader();
+                    reader.Close();
+
+                    SqliteCommand command3 = mConnet.CreateCommand();
+                    string commandString = "INSERT INTO " + tabName + " VALUES (";
+                    SQLDate data = new SQLDate();
+                    data.type = SQLHelper.TYPE_ENCODE_VERSION;
+                    data.id = 1;
+                    data.isClean = 2;
+                    commandString += data.type;
+                    commandString += "," + data.id;
+                    commandString += "," + "'" + data.extan + "'";
+                    commandString += "," + data.goodId;
+                    commandString += "," + data.goodType;
+                    commandString += "," + data.isClean;
+                    commandString += "," + data.isNet;
+                    commandString += "," + data.isDelete + ")";
+                    command3.CommandText = commandString;
+                    reader = command3.ExecuteReader();
+                    reader.Close();
+
+                }
+
+            }
+        }
+    }
+
     public bool isUpdateed() {
         bool back = true;
-        string comm = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_IS_UPDATE + " AND TYPE=" + SQLHelper.TYPE_GAME;
+        string comm = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_IS_UPDATE + " AND TYPE=" + SQLHelper.TYPE_GAME + " AND ISDELETE=1";
         if (mConnet == null)
         {
             mConnet = new SqliteConnection(getSqlPath());
@@ -441,50 +434,14 @@ public class SQLManager
             "EXTAN         TEXT ,"+
             "GOODID        INT ," +
             "GOODTYPE      INT ," +
-            "ISCLENAN      INT )",
+            "ISCLENAN      INT ," +
+            "ISNET      INT ," +
+            "ISDELETE      INT )",
             null,
             null
         );
     }
 
-    
-
-    public void copyToNet() {
-        if (!File.Exists(getSqlNetFilePath()))
-        {
-            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100036);
-            Debug.Log("!File.Exists = " + getSqlNetFilePath());
-            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100032);
-            List<SQLDate> list = readAllTable();
-            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100033);
-            if (list == null)
-            {
-                GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100034);
-                return;
-            }
-            try
-            {
-                foreach (SQLDate date in list)
-                {
-                    mNetHelper.changeInto(date);
-                }
-            }
-            catch (Exception e){
-                Debug.Log("Exception = " + e);
-            }
-
-            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100034);
-        }
-        else {
-            GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100035);
-            Debug.Log("File.Exists = " + getSqlNetFilePath());
-        }
-    }
-
-
-    public void clearAllNet() {
-        mNetHelper.cleanAllNet();
-    }
 
     /// <summary>
     ///执行SQL命令,并返回一个SqliteDataReader对象
@@ -496,17 +453,14 @@ public class SQLManager
             mConnet.Open();
         }
         using (reader) {
-//            Debug.Log("ExecuteSQLCommand queryString="+ queryString);
+            Debug.Log("ExecuteSQLCommand queryString="+ queryString);
             
             SqliteCommand command = mConnet.CreateCommand();
             command.CommandText = queryString;
             reader = command.ExecuteReader();
-            reader.Close();
- //           cnn.Close();            
+            reader.Close();           
         }
-//        SqliteConnection.ClearAllPools();
-//        GC.Collect();
-//        GC.WaitForPendingFinalizers();
+
     }
 
     /// <summary>
@@ -536,7 +490,14 @@ public class SQLManager
     }
 
     public void deleteGuide(long id) {
-        string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + SQLHelper.TYPE_GUIDE + " AND ID=" + id;
+#if UNITY_ANDROID || UNITY_IOS
+        string commandString = "UPDATE  " + tabName + " SET ISDELETE=2,  ISNET=1 WHERE TYPE=" + SQLHelper.TYPE_GUIDE + " AND ID=" + id + " AND ISDELETE=1";
+#endif
+#if UNITY_STANDALONE
+        string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + SQLHelper.TYPE_GUIDE + " AND ID=" + id + " AND ISDELETE=1";
+#endif
+
+
         // ExecuteSQLCommand(commandString);
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
@@ -549,6 +510,12 @@ public class SQLManager
     /// 向数据库中添加数据文件
     /// </summary>
     /// 
+
+    public void clearAllDelete() {
+        string commandString2 = "DELETE FROM " + tabName + " WHERE ISDELETE=2";
+        ExecuteSQLCommand(commandString2);
+    }
+
     public void InsertDataToSQL(SQLDate date) {
         InsertDataToSQL(date, false,true);
     }
@@ -558,6 +525,9 @@ public class SQLManager
 
     public void InsertDataToSQL(SQLDate data, bool isNow,bool isUpToNet)
     {
+        if (!isUpToNet) {
+            data.isNet = 2;
+        }
         string commandString = "INSERT INTO " + tabName + " VALUES (";
 
         commandString +=   data.type;
@@ -565,8 +535,10 @@ public class SQLManager
         commandString += "," + "'" + data.extan + "'";
         commandString += "," + data.goodId;
         commandString += "," + data.goodType;
-        commandString += "," + data.isClean + ")";
-        
+        commandString += "," + data.isClean;
+        commandString += "," + data.isNet;
+        commandString += "," + data.isDelete + ")";
+
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 1;
         bean.date = data;
@@ -577,40 +549,37 @@ public class SQLManager
         }
         else {
             addList(bean);
-        }
-        if (isUpToNet) {
-            mNetHelper.changeInto(data);
-        }       
+        }      
         //     
     }
     public void changeGoodType(SQLDate date)
     {
-        string commPath = "UPDATE " + tabName + " SET GOODTYPE=" + date.goodType;
-        commPath += " WHERE GOODID=" + date.goodId;
+        string commPath = "UPDATE " + tabName + " SET ISNET=1, GOODTYPE=" + date.goodType ;
+        commPath += " WHERE GOODID=" + date.goodId + " AND ISDELETE=1";
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 4;
         bean.date = date;
         bean.command = commPath;
         addList(bean);
      //   ExecuteSQLCommand(commPath);
-        mNetHelper.changeInto(date);
+     //   mNetHelper.changeInto(date);
     }
     public void changeGoodSql(SQLDate date,long old)
     {
-        string commPath = "UPDATE " + tabName + " SET GOODID=" + date.goodId;
-        commPath += " WHERE GOODID=" + old + " AND TYPE="+date.type+ " AND ID="+ date.id;
+        string commPath = "UPDATE " + tabName + " SET ISNET=1, GOODID=" + date.goodId;
+        commPath += " WHERE GOODID=" + old + " AND TYPE="+date.type+ " AND ID="+ date.id + " AND ISDELETE=1";
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 4;
         bean.date = date;
         bean.command = commPath;
         addList(bean);
         //   ExecuteSQLCommand(commPath);
-        mNetHelper.changeInto(date);
+      //  mNetHelper.changeInto(date);
     }
     public void updateIdAndType(SQLDate date)
     {
-        string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan + "'";
-        commPath = commPath+ " WHERE TYPE=" + date.type + " AND ID=" + date.id;
+        string commPath = "UPDATE " + tabName + " SET ISNET=1, EXTAN='" + date.extan + "'";
+        commPath = commPath+ " WHERE TYPE=" + date.type + " AND ID=" + date.id + " AND ISDELETE=1";
         // ExecuteSQLCommand(commandString);
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 2;
@@ -618,12 +587,17 @@ public class SQLManager
         bean.command = commPath;
         addList(bean);
         //   ExecuteSQLCommand(commandString);
-        mNetHelper.changeInto(date);
+       // mNetHelper.changeInto(date);
     }
 
     public void deleteIdAndType(SQLDate date)
     {
-        string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + date.type+ " AND ID="+date.id;
+#if UNITY_ANDROID || UNITY_IOS
+        string commandString = "UPDATE  " + tabName + " SET ISNET=1, ISDELETE=2 WHERE TYPE=" +  date.type + " AND ID=" +  date.id + " AND ISDELETE=1";
+#endif
+#if UNITY_STANDALONE
+        string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + date.type + " AND ID=" + date.id + " AND ISDELETE=1";
+#endif
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
         bean.date = date;
@@ -632,12 +606,17 @@ public class SQLManager
         removeListByTypeAndId(date.id, date.type);
         addList(bean);
         //   ExecuteSQLCommand(commandString);
-        mNetHelper.delectInfo(date);
+     //   mNetHelper.delectInfo(date);
     }
 
     public void deleteGood(SQLDate date)
     {
-        string commandString = "DELETE FROM " + tabName + " WHERE GOODID =" + date.goodId;
+#if UNITY_ANDROID || UNITY_IOS
+        string commandString = "UPDATE  " + tabName + " SET ISNET=1, ISDELETE=2 WHERE GOODID=" +  date.goodId + " AND ISDELETE=1";
+#endif
+#if UNITY_STANDALONE
+        string commandString = "DELETE FROM " + tabName + " WHERE GOODID =" + date.goodId + " AND ISDELETE=1";
+#endif
         // ExecuteSQLCommand(commandString);
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
@@ -646,11 +625,18 @@ public class SQLManager
         removeListByGoodId(date.goodId);
         addList(bean);
      //   ExecuteSQLCommand(commandString);
-        mNetHelper.delectInfo(date);
+     //   mNetHelper.delectInfo(date);
     }
     public void deleteLuiHui()
     {
-        string commandString = "DELETE FROM " + tabName + " WHERE ISCLENAN =1" ;
+#if UNITY_ANDROID || UNITY_IOS
+        string commandString = "UPDATE  " + tabName + " SET ISNET=1, ISDELETE=2 WHERE ISCLENAN =1"+ " AND ISDELETE=1";
+#endif
+#if UNITY_STANDALONE
+        string commandString = "DELETE FROM " + tabName + " WHERE ISCLENAN =1" + " AND ISDELETE=1";
+#endif
+
+
         // ExecuteSQLCommand(commandString);
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
@@ -658,7 +644,7 @@ public class SQLManager
         bean.command = commandString;
         addList(bean);
      //   ExecuteSQLCommand(commandString);
-        mNetHelper.cleanLuihui();
+      //  mNetHelper.cleanLuihui();
     }
     /// <summary>
     /// 更新表中数据
@@ -671,8 +657,8 @@ public class SQLManager
 
     public bool UpdateZhuangbeiInto(SQLDate date)
     {
-        string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan+"'";
-        commPath += " WHERE GOODID=" +date.goodId;
+        string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan+ "', ISNET=1";
+        commPath += " WHERE GOODID=" +date.goodId + " AND ISDELETE=1";
         // ExecuteSQLCommand(commPath);
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 2;
@@ -681,13 +667,110 @@ public class SQLManager
         addList(bean);
      //   ExecuteSQLCommand(commPath);
         Debug.Log("更新数据成功!");
-        mNetHelper.changeInto(date);
+      //  mNetHelper.changeInto(date);
         return true;
+    }
+    private bool isUpdateIng = false;
+    List<SqlNetDate> mUpdateList = null;
+    public void updateToNetEnd(bool isSuccess) {
+        isUpdateIng = false;
+        if(mUpdateList == null) {
+            return;    
+        }
+        foreach (SqlNetDate date in mUpdateList) {
+            string commandString = "UPDATE  " + tabName + " SET  ISNET=2" +
+                " WHERE TYPE=" + date.date.type +
+                " AND ID=" + date.date.id +
+                " AND EXTAN="+"'"+date.date.extan+"'"+
+                " AND GOODID=" + date.date.goodId +
+                " AND GOODTYPE=" + date.date.goodType +
+                " AND ISCLENAN=" + date.date.isClean +
+                " AND ISNET=" + date.date.isNet +
+                " AND ISDELETE=" + date.date.isDelete  ;
+             ExecuteSQLCommand(commandString);
+        }
+        if (SQLHelper.getIntance().isCleanNet) {
+            string commandString1 = "DELETE FROM " + tabName + " WHERE TYPE="+SQLHelper.TYPE_CLEAN_NET;
+            ExecuteSQLCommand(commandString1);
+            SQLHelper.getIntance().isCleanNet = false;
+        }
+
+        string commandString2 = "DELETE FROM " + tabName + " WHERE ISNET=2 AND ISDELETE=2";
+        ExecuteSQLCommand(commandString2);
     }
 
     public void updateToNet() {
         Debug.Log("更新后台数据!");
-        mNetHelper.updateToNet();
+        Thread th1 = new Thread(() =>
+        {
+            isUpdateIng = true;
+            try
+            {
+                mUpdateList = new List<SqlNetDate>();
+                string comm = "select * from  " + tabName + " WHERE  ISNET=1";
+                if (mConnet == null)
+                {
+                    mConnet = new SqliteConnection(getSqlPath());
+                    mConnet.Open();
+                }
+                using (reader)
+                {
+                    if (SQLHelper.getIntance().isCleanNet) {
+                        clearAllDelete();
+                        SQLDate date = new SQLDate();
+                        SqlNetDate bean = new SqlNetDate();
+                        bean.date = date;
+                        bean.action = 4;
+                        mUpdateList.Add(bean);
+                    }
+
+                    Debug.Log("ExecuteSQLCommand queryString=" + comm);
+
+                    SqliteCommand command = mConnet.CreateCommand();
+                    command.CommandText = comm;
+                    reader = command.ExecuteReader();
+                    while (this.reader.Read())
+                    {
+                        SQLDate date = new SQLDate();
+                        SqlNetDate bean = new SqlNetDate();
+                        bean.date = date;
+
+
+                        date.type = reader.GetInt64(reader.GetOrdinal("TYPE"));
+                        date.id = reader.GetInt64(reader.GetOrdinal("ID"));
+                        date.extan = reader.GetString(reader.GetOrdinal("EXTAN"));
+                        date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
+                        date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
+                        date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
+                        if (GameManager.getIntance().mCurrentSqlVersion == 1)
+                        {
+                            date.isDelete = reader.GetInt64(reader.GetOrdinal("ISDELETE"));
+                            date.isNet = reader.GetInt64(reader.GetOrdinal("ISNET"));
+                        }
+                        if (date.isDelete == 2)
+                        {
+                            bean.action = 2;
+                        }
+                        else {
+                            bean.action = 1;
+                        }
+                        mUpdateList.Add(bean);
+                    }
+                    reader.Close();
+                    //           cnn.Close();            
+                }
+                NetServer.getIntance().updateNet(mUpdateList);
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log("处理存档出错");
+                Debug.Log(e.Message);
+
+            }
+
+        });
+        th1.Start();
+
     }
     public bool UpdateInto(SQLDate date) {
         return UpdateInto(date, false);
@@ -695,8 +778,8 @@ public class SQLManager
 
     public bool UpdateInto(SQLDate date,bool isNow)
     {
-        string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan+"'";
-        commPath += " WHERE Type=" + date.type + " AND ID=" + date.id;
+        string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan+"', ISNET=1";
+        commPath += " WHERE Type=" + date.type + " AND ID=" + date.id + " AND ISDELETE=1";
         // ExecuteSQLCommand(commPath);
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 2;
@@ -712,11 +795,23 @@ public class SQLManager
         }
         
 //        Debug.Log("更新数据成功!");
-        mNetHelper.changeInto(date);
+      //  mNetHelper.changeInto(date);
         return true;
     }
 
 
+    public void deleteNetData() {
+        List < SqlNetDate > list = new List<SqlNetDate>();
+        SQLDate date = new SQLDate();
+        SqlNetDate bean = new SqlNetDate();
+        bean.date = date;
+        bean.action = 4;
+        date.type = -1;
+        date.id = -1;
+        date.extan = "0";
+        date.goodId = -1;
+        date.goodType = -1;
+    }
 
 
 
@@ -734,18 +829,29 @@ public class SQLManager
             }
         }
         string comm = "DELETE FROM " + tabName;
-        mNetHelper.cleanAllLocal();
+    //    mNetHelper.cleanAllLocal();
 
         ExecuteSQLCommand(comm);
+
+
         ;
         //      SQLNetManager.getIntance().cleanAllLocal();
         if (list == null || list.Count == 0) {
             return;
         }
         foreach (SQLDate date in list) {
+            date.isNet = 2;
+            if (date.type == SQLHelper.TYPE_ENCODE_VERSION) {
+                continue;
+            }
             Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
             InsertDataToSQL(date, true,NetServer.getIntance().isNew);
         }
+        SQLDate data = new SQLDate();
+        data.type = SQLHelper.TYPE_ENCODE_VERSION;
+        data.id = 1;
+        data.isClean = 2;
+        InsertDataToSQL(data, true, NetServer.getIntance().isNew);
         Debug.Log("saveLocal end");
     }
 
@@ -914,6 +1020,10 @@ public class SQLManager
                 date.goodId = reader.GetInt64(reader.GetOrdinal("GOODID"));
                 date.goodType = reader.GetInt64(reader.GetOrdinal("GOODTYPE"));
                 date.isClean = reader.GetInt64(reader.GetOrdinal("ISCLENAN"));
+                if (GameManager.getIntance().mCurrentSqlVersion == 1) {
+                    date.isDelete = reader.GetInt64(reader.GetOrdinal("ISDELETE"));
+                    date.isNet = reader.GetInt64(reader.GetOrdinal("ISNET"));
+                }
                 Debug.Log("readAllTable date.type  = " + date.type + " id = " + date.id + " extan = " + date.extan + " date.goodId" + date.goodId + " date.goodType=" + date.goodType + " date.isClean= " + date.isClean);
                 Debug.Log("readAllTable date.type  = " + date.id);
                 list.Add(date);
@@ -935,8 +1045,14 @@ public class SQLManager
     internal void deleteAll()
     {
         string comm = "DELETE FROM " + tabName;
-        mNetHelper.cleanAllLocal();
+     //   mNetHelper.cleanAllLocal();
         ExecuteSQLCommand(comm);
+        SQLDate data = new SQLDate();
+        data.type = SQLHelper.TYPE_ENCODE_VERSION;
+        data.id = 1;
+        data.isClean = 2;
+        InsertDataToSQL(data, true, NetServer.getIntance().isNew);
+        Debug.Log("saveLocal end");
     }
 
     public List<SQLDate> readAllTableOld()

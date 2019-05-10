@@ -38,6 +38,17 @@ public class GetLocalDateTipControl : MonoBehaviour {
         string newId = mInputName.text;
         Debug.Log("getLocalDate newName = " + newId);
 
+        if (string.IsNullOrEmpty(newId)) {
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("未检测到输入有效编码", LuiHuiTips.TYPPE_EMPTY_TOKEN);
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+            return;
+        }
+        if (newId.Equals(SQLHelper.getIntance().mToken)) {
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("该编码存档已同步到本机", LuiHuiTips.TYPPE_EMPTY_TOKEN);
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+            return;
+        }
+
         NetServer.getIntance().getLocl(newId, true,false);
     }
 

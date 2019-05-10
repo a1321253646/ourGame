@@ -48,7 +48,7 @@ public class LuiHuiTips : UiControlBase
         {
             Thread th1 = new Thread(() =>
             {
-                SQLManager.getIntance().clearAllNet();
+                SQLHelper.getIntance().updateIsCleanNet();
                 GameManager.getIntance().mInitStatus = 8;
             });
             th1.Start();

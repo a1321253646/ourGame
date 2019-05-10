@@ -5,7 +5,7 @@ using System.IO;
 using System.Threading;
 using Mono.Data.Sqlite;
 using UnityEngine;
-public class SQLNetManager 
+public class SQLNetManager1 
 {
     /// <summary>
     /// 数据库连接对象
@@ -418,11 +418,11 @@ public class SQLNetManager
         }
     }
     
-    private SQLNetManager() {
+    private SQLNetManager1() {
         init();
     }
-    private static SQLNetManager mIntance = new SQLNetManager();
-    public static SQLNetManager getIntance()
+    private static SQLNetManager1 mIntance = new SQLNetManager1();
+    public static SQLNetManager1 getIntance()
     {
         return mIntance;
     }
