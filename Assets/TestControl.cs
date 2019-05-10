@@ -17,6 +17,7 @@ public class TestControl : MonoBehaviour {
     Button mButton;
     // Use this for initialization
     void Start () {
+        SQLManager.getIntance().alterTableByVersion();
         JsonUtils.getIntance().initBefore();
         JsonUtils.getIntance().init();
         mSpriteRender = gameObject.GetComponent<SpriteRenderer>();

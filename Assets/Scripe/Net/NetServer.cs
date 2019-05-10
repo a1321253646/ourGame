@@ -7,14 +7,18 @@ using System;
 
 public class NetServer 
 {
+    public static int ERROR_DOED_TOKEN_FAULT = -1001;
+    public static int ERROR_DOED_GET_LOCAL_FAULT = -1002;
+
     public bool isUpdate = false;
+    public bool isNew = false;
     List<SqlNetDate> mList = null;
     public long mTime = -1;
 
     public static string mDeviceID = "";
 
-   private static string URL_ROOT =  "http://120.79.249.55:8889";
-    //private static string URL_ROOT = "http://120.79.249.55:8809";
+   //private static string URL_ROOT =  "http://120.79.249.55:8889";
+    private static string URL_ROOT = "http://120.79.249.55:8809";
 
     public void updateNet(List<SqlNetDate> list) {
         if (GameManager.isTestVersion)
@@ -31,6 +35,11 @@ public class NetServer
     private void threadRun() {
         JObject json = new JObject();
         json.Add("user", mDeviceID);
+        json.Add("version", 1);
+        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
+        {
+            json.Add("token", SQLHelper.getIntance().mToken);
+        }
         if (mList != null && mList.Count > 0) {
             JArray array = new JArray();
             for (int i = 0; i< mList.Count;) {
@@ -76,9 +85,10 @@ public class NetServer
                 int status = jb.Value<int>("status");
                 long getTime = jb.Value<long>("time");
                 GameManager.getIntance().mNewAPKVersionCode = jb.Value<long>("version");
-                setGetTime(getTime);
+                string token = jb.Value<string>("token");
+                dealRepond(getTime, status, token,false);
                 if (status == 0) {
-                    SQLNetManager.getIntance().updateDate(true);
+                    SQLManager.getIntance().updateToNetEnd(true);
                 }               
                 mList = null;             
             }
@@ -87,7 +97,7 @@ public class NetServer
         else
         {
             isUpdate = false;
-            SQLNetManager.getIntance().updateDate(false);
+            SQLManager.getIntance().updateToNetEnd(false);
             mList = null;
             Debug.Log("Http错误代码:" + www.error);
         }
@@ -111,15 +121,29 @@ public class NetServer
     {
         return mIntance;
     }
-    public bool getLocl()
+    public bool getLocl(string token,bool isReplace,bool skipMac)
     {
         if (GameManager.isTestVersion)
         {
             return true;
         }
+
+
         JObject json = new JObject();
-        json.Add("user", mDeviceID);
+        if (skipMac)
+        {
+            json.Add("user", "skip_" + mDeviceID);
+        }
+        else {
+            json.Add("user", mDeviceID);
+        }
+        json.Add("version", 1);
+        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
+        {
+            json.Add("token", SQLHelper.getIntance().mToken);
+        }
         //json.Add("user", "7a3cff28cdeddeb1220b926073d818d8");
+        mLocal = null;
         JArray array = new JArray();
         JObject jb = new JObject();
         jb.Add("action", 5);
@@ -128,7 +152,11 @@ public class NetServer
         jb.Add("goodId", -1);
         jb.Add("goodtype", -1);
         jb.Add("isclean", -1);
-        jb.Add("extra", "-1");
+        if (!string.IsNullOrEmpty(token))
+        {
+            jb.Add("extra", token);
+        }
+        
         array.Add(jb);
         json.Add("date", array);
         Dictionary<string, string> dir = new Dictionary<string, string>();
@@ -151,13 +179,18 @@ public class NetServer
                 int status = jb2.Value<int>("status");
                 long getTime = jb2.Value<long>("time");
                 GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
-                setGetTime(getTime);
+                string token2 = jb2.Value<string>("token");
+                isNew = jb2.Value<bool>("isnew");
+                dealRepond(getTime, status,token2,true);
                 if (status == 0)
                 {
                     Debug.Log("Upload complete! www.text leng = " + www.text.Length);
                     mLocal = www.text;
+                    if (isReplace && isHaveLocal()) {
+                        SQLManager.getIntance().saveLocal(NetServer.getIntance().getLocal());
+                        GameObject.Find("reload").GetComponent<ReloadControl>().reload(false);
+                    }
                 }
-
             }
             else {
                 mLocal = null;
@@ -196,6 +229,11 @@ public class NetServer
     private void getUpdateInfo() {
         JObject json = new JObject();
         json.Add("user", mDeviceID);
+        json.Add("version", 1);
+        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
+        {
+            json.Add("token", SQLHelper.getIntance().mToken);
+        }
         JArray array = new JArray();
         JObject jb = new JObject();
         jb.Add("action", 7);
@@ -244,6 +282,11 @@ public class NetServer
     {
         JObject json = new JObject();
         json.Add("user", mDeviceID);
+        json.Add("version", 1);
+        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
+        {
+            json.Add("token", SQLHelper.getIntance().mToken);
+        }
         JArray array = new JArray();
         JObject jb = new JObject();
         jb.Add("action", 6);
@@ -274,8 +317,9 @@ public class NetServer
                 JObject jb2 = JObject.Parse(www.text);
                 int status = jb2.Value<int>("status");
                 long getTime = jb2.Value<long>("time");
+                string token = jb2.Value<string>("token");
                 GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
-                setGetTime(getTime);
+                dealRepond(getTime, status, token,false);
                 if (status == 0)
                 {
                     var arrdata = jb2.Value<JArray>("date");
@@ -285,15 +329,10 @@ public class NetServer
                 }
 
             }
-            else
-            {
-                mLocal = null;
-            }
         }
         else
         {
             Debug.Log("Http错误代码:" + www.error);
-            mLocal = null;
         }
     }
 
@@ -322,7 +361,27 @@ public class NetServer
         return false;
     }
 
-    private void setGetTime(long time) {
+    private void dealRepond(long time,int statue,string token,bool isChangeToken) {
+        Debug.Log("dealRepond token= " + token + " SQLHelper.getIntance().mToken=" + SQLHelper.getIntance().mToken + " isChangeToken="+ isChangeToken);
+
+        if (statue == ERROR_DOED_TOKEN_FAULT)
+        {
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("该数据编码已经在别的机器登陆", LuiHuiTips.TYPPE_ERROR_TOKEN);
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+            return;
+        }
+        else if(statue == ERROR_DOED_GET_LOCAL_FAULT) {
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("输入编码不存在", LuiHuiTips.TYPPE_EMPTY_TOKEN);
+            GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+            return;
+        }
+        if (isChangeToken && !string.IsNullOrEmpty(token)) {
+            
+            SQLHelper.getIntance().updateToken(token);
+        }
+        else if (!string.IsNullOrEmpty(token) && string.IsNullOrEmpty(SQLHelper.getIntance().mToken)) {
+            SQLHelper.getIntance().updateToken(token);
+        }
         if (time > mTime) {
             mTime = time;
             if (SQLHelper.getIntance().mMaxOutTime != -1) {
@@ -334,6 +393,10 @@ public class NetServer
 
         }
     }
+    public void clearAllNetLocal() {
+
+    }
+
 
     public string getLocal()
     {

@@ -453,7 +453,9 @@ public class InventoryHalper
     public void deleteIventory(PlayerBackpackBean bean, int count) {
         PlayerBackpackBean target = null;
         foreach (PlayerBackpackBean tmp in mList) {
+            Debug.Log("deleteIventory (bean.sqlGoodId= " + bean.sqlGoodId+ "  tmp.sqlGoodId=" + tmp.sqlGoodId);
             if (bean.sqlGoodId == tmp.sqlGoodId) {
+                Debug.Log("tmp.goodId= " + tmp.goodId );
                 target = tmp;
                 break;
             }
@@ -465,8 +467,8 @@ public class InventoryHalper
         else {
             return;
         }
-
-        if (bean.count == count)
+        Debug.Log("bean.coun= " + bean.count+ " count=" + count);
+        if (bean.count <= count)
         {
             mList.Remove(bean);
             SQLHelper.getIntance().deleteGood(bean);
@@ -478,7 +480,7 @@ public class InventoryHalper
         }
         for (int i = 0; i < mUser.Count; i++) {
             PlayerBackpackBean bean2 = mUser[i];
-            if (bean2 == bean)
+            if (bean2.sqlGoodId == bean.sqlGoodId)
             {
                 mUser.Remove(bean2);
                 break;

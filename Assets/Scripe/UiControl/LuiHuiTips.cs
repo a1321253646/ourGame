@@ -19,6 +19,8 @@ public class LuiHuiTips : UiControlBase
     public static int TYPPE_LUIHUI_NEED = 8;
     public static int TYPPE_UPDATE = 9;
     public static int TYPPE_QIANGZHI_LUNHUI = 10;
+    public static int TYPPE_EMPTY_TOKEN = 11;
+    public static int TYPPE_ERROR_TOKEN = 12;
 
     Text mDes;
     Text mButtonDec,mLeftDec,mRightDec;
@@ -46,7 +48,7 @@ public class LuiHuiTips : UiControlBase
         {
             Thread th1 = new Thread(() =>
             {
-                SQLManager.getIntance().clearAllNet();
+                SQLHelper.getIntance().updateIsCleanNet();
                 GameManager.getIntance().mInitStatus = 8;
             });
             th1.Start();
@@ -113,7 +115,7 @@ public class LuiHuiTips : UiControlBase
     public void showUi(string str,int type) {
         mType = type;
         mDes.text = str;
-        if (type == TYPPE_RETURN_START || type == TYPPE_ERROR_DATE) 
+        if (type == TYPPE_RETURN_START || type == TYPPE_ERROR_DATE|| type == TYPPE_EMPTY_TOKEN) 
         {
             mSure.transform.localScale = new Vector2(1, 1);
             buttonList.transform.localScale = new Vector2(0, 0);
@@ -145,6 +147,17 @@ public class LuiHuiTips : UiControlBase
                 Time.timeScale = 0;
             }
 
+        }
+        else if (type == TYPPE_ERROR_TOKEN)
+        {
+
+            mSure.transform.localScale = new Vector2(0, 0);
+            buttonList.transform.localScale = new Vector2(1, 1);
+            mLeftDec.text = "重新登陆";
+            mRightDec.text = "创建新号";
+            mTimeScale = Time.timeScale;
+            Time.timeScale = 0;
+            
         }
         mDes.alignment = TextAnchor.UpperLeft;
     }
@@ -288,9 +301,10 @@ public class LuiHuiTips : UiControlBase
        
         GameManager.getIntance().isOpenStop = true;
         Debug.Log("newLevel = " + newLevel);
-        if (SQLHelper.getIntance().isCanLunhui != BaseDateHelper.encodeLong(-1) && BaseDateHelper.decodeLong(SQLHelper.getIntance().isCanLunhui) <= oldLevel ) {
-            SQLHelper.getIntance().UpdateCanLunhui(BaseDateHelper.encodeLong(oldLevel + (long)JsonUtils.getIntance().getConfigValueForId(100017)));
-        }
+       // if (SQLHelper.getIntance().isCanLunhui != BaseDateHelper.encodeLong(-1) || BaseDateHelper.decodeLong(SQLHelper.getIntance().isCanLunhui) <= newLevel)
+       // {
+            SQLHelper.getIntance().UpdateCanLunhui(BaseDateHelper.encodeLong(newLevel + (long)JsonUtils.getIntance().getConfigValueForId(100017)));
+       // }
 
         SQLHelper.getIntance().mGameLevel = BaseDateHelper.encodeLong(-9999L);
         SQLHelper.getIntance().updateGameLevel(BaseDateHelper.encodeLong(newLevel));
@@ -304,6 +318,7 @@ public class LuiHuiTips : UiControlBase
         SQLHelper.getIntance().mCurrentVocation = -1;
         SQLHelper.getIntance().mPlayVocation.Clear();
         SQLHelper.getIntance().mVocationCount = 0;
+        JsonUtils.getIntance().reReadAboutLevelFile(BaseDateHelper.decodeLong(SQLHelper.getIntance().mGameLevel));
     }
 
     // Update is called once per frame
@@ -332,14 +347,21 @@ public class LuiHuiTips : UiControlBase
             {
                 vocation();
             }
-            else if (mType == TYPPE_UPDATE) {
+            else if (mType == TYPPE_UPDATE)
+            {
                 Time.timeScale = mTimeScale;
             }
             else if (mType == TYPPE_QIANGZHI_LUNHUI)
             {
                 UiControlManager.getIntance().remove(UiControlManager.TYPE_SAMSARA);
-                sure(new BigNumber(),false);
+                sure(new BigNumber(), false);
 
+            }
+            else if (mType == TYPPE_ERROR_TOKEN)
+            {
+                NetServer.getIntance().getLocl(SQLHelper.getIntance().mToken,true,true);
+
+                Time.timeScale = mTimeScale;
             }
 
             if (isShowSelf)
@@ -363,6 +385,14 @@ public class LuiHuiTips : UiControlBase
                 showUpdate();
                 Time.timeScale = mTimeScale;
             }
+            else if (mType == TYPPE_ERROR_TOKEN)
+            {
+                SQLHelper.getIntance().mToken = "";
+                GameObject.Find("reload").GetComponent<ReloadControl>().reload(true);
+                Time.timeScale = mTimeScale;
+            }
+
+
             if (isShowSelf)
             {
                 transform.localPosition = mFri;
@@ -391,9 +421,16 @@ public class LuiHuiTips : UiControlBase
                    
                 }
             }
-            else if (mType == TYPPE_TIP)
+            else if (mType == TYPPE_TIP|| mType == TYPPE_EMPTY_TOKEN)
             {
-                toremoveUi();
+                if (isShowSelf)
+                {
+                    transform.localPosition = mFri;
+                }
+                else
+                {
+                    toremoveUi();
+                }
             }
             else if (mType == TYPPE_RETURN_START)
             {

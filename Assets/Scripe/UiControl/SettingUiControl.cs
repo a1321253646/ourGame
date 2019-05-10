@@ -8,11 +8,13 @@ public class SettingUiControl : UiControlBase
 
     // Use this for initialization
     Button mClose ,mVoiceClose, mVoicemOpen;
-
+    Text mLocalIdText;
+    
     public override void init()
     {
         mControlType = UiControlManager.TYPE_SETTING;
         mClose = GameObject.Find("setting_close").GetComponent<Button>();
+        mLocalIdText = GameObject.Find("local_id").GetComponent<Text>();
         mClose.onClick.AddListener(() =>
         {
             toremoveUi();
@@ -34,6 +36,19 @@ public class SettingUiControl : UiControlBase
             mVoiceClose.gameObject.transform.localScale = new Vector2(1, 1);
             mVoicemOpen.gameObject.transform.localScale = new Vector2(0, 0);
         });
+        updateLocalDateId();
+        setTokenId();
+        isInit = true;
+    }
+
+    public void updateLocalDateId() {
+        if (string.IsNullOrEmpty(SQLHelper.getIntance().mToken)) {
+            mLocalIdText.text = SQLHelper.getIntance().mToken;
+        }
+        else {
+            mLocalIdText.text ="等待获取";
+        }
+       
     }
 
     public override void show()
@@ -50,5 +65,14 @@ public class SettingUiControl : UiControlBase
             mVoiceClose.gameObject.transform.localScale = new Vector2(0, 0);
             mVoicemOpen.gameObject.transform.localScale = new Vector2(1, 1);
         }
+        setTokenId();
+    }
+
+    public void setTokenId() {
+        if (mLocalIdText == null) {
+            mLocalIdText = GameObject.Find("local_id").GetComponent<Text>();
+        }
+        Debug.Log("setTokenId mToken = " + SQLHelper.getIntance().mToken);
+        mLocalIdText.text = "编码:"+SQLHelper.getIntance().mToken;
     }
 }
