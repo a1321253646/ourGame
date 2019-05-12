@@ -12,7 +12,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: "\u4E50\u68A6"
-  productName: "\u9003\u51FA\u6DF1\u6E0A"
+  productName: "\u5361\u724C\u52C7\u58EB\u7684\u4E16\u754C"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -126,7 +126,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.54
+  bundleVersion: 1.0.0.8
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -158,14 +158,14 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.jackzheng.ourGame
+    Android: com.mili.kpysdsj.jinli
     Standalone: "unity.DefaultCompany.\u9003\u51FA\u6DF1\u6E0A"
     Tizen: 
     iOS: com.Company.ProductName
     tvOS: 
   buildNumber:
     iOS: 
-  AndroidBundleVersionCode: 54
+  AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
   AndroidTargetSdkVersion: 22
   AndroidPreferredInstallLocation: 1
@@ -266,34 +266,34 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 989fbdb9f90f7e24e8ccdd0de34b7463, type: 3}
-      m_Width: 151991724
-      m_Height: 151991724
+      m_Icon: {fileID: 2800000, guid: d6956b772a713df41afc1fdd581e66af, type: 3}
+      m_Width: 192
+      m_Height: 192
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
-      m_Width: 151991724
-      m_Height: 151991724
+      m_Icon: {fileID: 2800000, guid: d6956b772a713df41afc1fdd581e66af, type: 3}
+      m_Width: 144
+      m_Height: 144
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
-      m_Width: 151991724
-      m_Height: 151991724
+      m_Icon: {fileID: 2800000, guid: d6956b772a713df41afc1fdd581e66af, type: 3}
+      m_Width: 96
+      m_Height: 96
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
-      m_Width: 151991724
-      m_Height: 151991724
+      m_Icon: {fileID: 2800000, guid: d6956b772a713df41afc1fdd581e66af, type: 3}
+      m_Width: 72
+      m_Height: 72
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
-      m_Width: 151991724
-      m_Height: 151991724
+      m_Icon: {fileID: 2800000, guid: d6956b772a713df41afc1fdd581e66af, type: 3}
+      m_Width: 48
+      m_Height: 48
       m_Kind: 0
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
-      m_Width: 151991724
-      m_Height: 151991724
+      m_Icon: {fileID: 2800000, guid: d6956b772a713df41afc1fdd581e66af, type: 3}
+      m_Width: 36
+      m_Height: 36
       m_Kind: 0
   - m_BuildTarget: 
     m_Icons:
@@ -605,7 +605,8 @@ PlayerSettings:
   webGLUseEmbeddedResources: 0
   webGLUseWasm: 0
   webGLCompressionFormat: 1
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    7: 5cd62fe73fc195f268000303
   platformArchitecture: {}
   scriptingBackend: {}
   incrementalIl2cppBuild: {}
