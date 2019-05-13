@@ -282,6 +282,9 @@ public class LuiHuiTips : UiControlBase
             }
             if (value != 0)
             {
+                if(newLevel == 0) {
+                    newLevel = 1;    
+                }
                 newLevel = newLevel+((long)value);
 
             }

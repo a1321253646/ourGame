@@ -20,6 +20,8 @@ public abstract class CardManagerBase : MonoBehaviour {
     public GameObject mCardLocalUp, mCardLocalTop;
     public GameObject indicator;
 
+    private bool isGiveupIng = false;
+
  //   public abstract void addCardUpdate(CardJsonBean card);
  //   public abstract void giveUpCardDeal(int index);
   //  public abstract void userCardDeal(int index);
@@ -59,7 +61,7 @@ public abstract class CardManagerBase : MonoBehaviour {
         mCardIdList.Clear();      
         nengLiangDian = 0;
         isFristCreat = false;
-
+        isGiveupIng = false;
         foreach (CardControl card in mList)
         {
             Destroy(card.gameObject);
@@ -95,14 +97,17 @@ public abstract class CardManagerBase : MonoBehaviour {
             mOutSendCardTime += Time.deltaTime;
             if (mOutSendCardTime >= OUT_CREADT_CARD_TIME && mCardIdList.Count < mMaxCardCount)
             {
-                mOutSendCardTime -= OUT_CREADT_CARD_TIME;
-                mCount--;
-                long random = getCreatCard();
-                if (random != 0)
-                {
-                    addCard(random);
-                }
 
+                if (!isGiveupIng)
+                {
+                    mOutSendCardTime -= OUT_CREADT_CARD_TIME;
+                    mCount--;
+                    long random = getCreatCard();
+                    if (random != 0)
+                    {
+                        addCard(random);
+                    }
+                }
             }
             //return;
         }
@@ -120,12 +125,16 @@ public abstract class CardManagerBase : MonoBehaviour {
         }
         if (mTime >= CREADT_CARD_TIME+ FRIST_CARD_TIME && mCardIdList.Count < mMaxCardCount)
         {
-            mTime -= CREADT_CARD_TIME;
-            long random = getCreatCard();
-            if (random != 0)
+            if (!isGiveupIng)
             {
-                addCard(random);
+                mTime -= CREADT_CARD_TIME;
+                long random = getCreatCard();
+                if (random != 0)
+                {
+                    addCard(random);
+                }
             }
+
         }
         updateEnd();
     }
@@ -255,8 +264,10 @@ public abstract class CardManagerBase : MonoBehaviour {
     }
     public long giveupCard(int type)
     {
+        isGiveupIng = true;
         if (mCardIdList.Count == 0)
         {
+            isGiveupIng = false;
             return 1;
         }
         long count = 0;
@@ -268,6 +279,7 @@ public abstract class CardManagerBase : MonoBehaviour {
                 giveUpCardDeal(0);
                 mCardIdList.RemoveAt(0);
             }
+            isGiveupIng = false;
             return count;
         }
         else if (type == GIVEUP_CARD_MAX)
@@ -290,6 +302,7 @@ public abstract class CardManagerBase : MonoBehaviour {
             count = max.cost;
             mCardIdList.RemoveAt(index);
             giveUpCardDeal(index);
+            isGiveupIng = false;
             return count;
         }
         else if (type == GIVEUP_CARD_MIX)
@@ -313,11 +326,13 @@ public abstract class CardManagerBase : MonoBehaviour {
             count = max.cost;
             mCardIdList.RemoveAt(index);
             giveUpCardDeal(index);
+            isGiveupIng = false;
             return count;
         }
         else if (type == GIVEUP_CARD_RANGE)
         {
             if(mCardIdList.Count == 0) {
+                isGiveupIng = false;
                 return 1;    
             }
             int leng = mCardIdList.Count;
@@ -325,8 +340,10 @@ public abstract class CardManagerBase : MonoBehaviour {
             count = mCardIdList[range].cost;
             mCardIdList.RemoveAt(range);
             giveUpCardDeal(range);
+            isGiveupIng = false;
             return count;
         }
+        isGiveupIng = false;
         return -1;
     }
 
