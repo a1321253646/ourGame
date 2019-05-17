@@ -27,7 +27,7 @@ android {
 	compileSdkVersion **APIVERSION**
 	buildToolsVersion "28.0.3"
 	defaultConfig {
-		targetSdkVersion **TARGETSDKVERSION**
+		targetSdkVersion 26
 		applicationId '**APPLICATIONID**'
 	}
 

@@ -48,16 +48,40 @@ public class SamSaraListControl : MonoBehaviour {
             SamsaraJsonBean bean = list[key];
             GameObject ob = GameObject.Instantiate(mItemObject,
                  new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-            float witch = ob.GetComponent<RectTransform>().rect.width;          
-            ob.transform.parent = gameObject.transform;
-            ob.transform.localScale = new Vector3(1, 1, 1);
-            ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             SamsaraItemControl item = ob.GetComponent<SamsaraItemControl>();
-            item.init(bean.id,this);
-            mItems.Add(item);
+            bool isAdd = item.init(bean.id, this);
+            if (isAdd)
+            {
+                float witch = ob.GetComponent<RectTransform>().rect.width;
+                ob.transform.parent = gameObject.transform;
+                ob.transform.localScale = new Vector3(1, 1, 1);
+                ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                mItems.Add(item);
+            }
+            else {
+                Destroy(ob);
+            }
+
         }
         SetGridHeight();
     }
+    public void addLastItem() {
+        long level = InventoryHalper.getIntance().getSamsaraLevelById(13);
+        Dictionary<long, SamsaraJsonBean> list = JsonUtils.getIntance().getSamsaraInfo();
+        if (level == BaseDateHelper.encodeLong(0)) {
+            SamsaraJsonBean bean = list[13];
+            GameObject ob = GameObject.Instantiate(mItemObject,
+                 new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            SamsaraItemControl item = ob.GetComponent<SamsaraItemControl>();
+            item.init(bean.id, this);
+            float witch = ob.GetComponent<RectTransform>().rect.width;
+            ob.transform.parent = gameObject.transform;
+            ob.transform.localScale = new Vector3(1, 1, 1);
+            ob.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            mItems.Add(item);
+        }
+    }
+
     public void isEnableLavelUp() {      
         foreach (SamsaraItemControl control in mItems)
         {

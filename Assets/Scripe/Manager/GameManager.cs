@@ -129,7 +129,6 @@ public class GameManager
         long old = 0;
         if (!isInit)
         {
-            
             isInit = true;
             mCurrentLevel = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100010)) ;
             if (mCurrentLevel == BaseDateHelper.encodeLong(-1)) {

@@ -6,7 +6,8 @@ public class LevelUpLongPress : MonoBehaviour
     private bool IsStart = false;
     private float mLongPressTIme = -1;
     private float mTime = 0;
-
+    private int mEachTime = 1;
+    private int mHappendTime = 0;
     void Update()
     {
         if (GameManager.getIntance().uiManager == null || GameManager.getIntance().uiManager.mLvUpBt == null) {
@@ -19,12 +20,22 @@ public class LevelUpLongPress : MonoBehaviour
             if (mTime >= mLongPressTIme && GameManager.getIntance().uiManager.mLvUpBt.interactable)
             {
                 mTime -= mLongPressTIme;
+                mHappendTime++;
+                if (mHappendTime > 10)
+                {
+                    mHappendTime = 0;
+                    mEachTime++;
+                }
                 Debug.Log("长按触发");
                 
              //   if (GameManager.getIntance().isEnd || !GameManager.getIntance().mHeroIsAlive)
              //   {
-                    GameManager.getIntance().heroUp();
-                    saveDate();
+                for(int i = 0; i < mEachTime; i++) {
+                    if (GameManager.getIntance().uiManager.mLvUpBt.interactable) {
+                        GameManager.getIntance().heroUp();
+                    }
+                }
+                saveDate();
              //   }
             }
         }
@@ -54,6 +65,8 @@ public class LevelUpLongPress : MonoBehaviour
             {
                 saveDate();
             }
+            mHappendTime = 0;
+            mEachTime = 1;
         }
     }
     private void saveDate() {
