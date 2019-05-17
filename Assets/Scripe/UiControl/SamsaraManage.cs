@@ -42,6 +42,10 @@ public class SamsaraManage : UiControlBase
     }
     bool isFristShow = true;
     float mTimeScale = 1;
+    public void addLastItem() {
+        mListControl.addLastItem();
+    }
+
     public override void show()
     {
         if (isFristShow) {

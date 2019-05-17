@@ -17,7 +17,7 @@ public class SamsaraItemControl : MonoBehaviour {
     private bool isClose = false;
 
 
-    public void init(long id, SamSaraListControl control) {
+    public bool init(long id, SamSaraListControl control) {
         mId = id;
         mListControl = control;
         mJsonBean =  JsonUtils.getIntance().getSamsaraInfoById(mId);
@@ -81,7 +81,7 @@ public class SamsaraItemControl : MonoBehaviour {
                 SQLHelper.getIntance().updateIsCloseChuangyue(isClose);
             }
         });
-        upDate();
+        return upDate();
     }
 
     private void levelUp()
@@ -92,7 +92,7 @@ public class SamsaraItemControl : MonoBehaviour {
         mListControl.upDate(mId);
     }
 
-    public void upDate()
+    public bool upDate()
     {
         mLevel = InventoryHalper.getIntance().getSamsaraLevelById(mId);
 //        Debug.Log("---------------------------------InventoryHalper.getIntance().getSamsaraLevelById(mId) = " + InventoryHalper.getIntance().getSamsaraLevelById(mId));
@@ -138,6 +138,10 @@ public class SamsaraItemControl : MonoBehaviour {
             GameObject.Find("Card2").GetComponent<CardShowControl>().upDataCardCount();
         }
         isEnableLevelUp();
+        if(mId == 13 && mLevel == BaseDateHelper.encodeLong(0) && BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)  < 1000) {
+            return false;
+        }
+        return true;
     }
 
     public void isEnableLevelUp() {

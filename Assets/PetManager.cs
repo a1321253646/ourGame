@@ -72,9 +72,9 @@ public class PetManager : MonoBehaviour {
         List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
         foreach (PlayerBackpackBean b in list)
         {
+            petReset(b.goodId);
             if (b.goodType == SQLDate.GOOD_TYPE_USER_PET)
-            {
-                petReset(b.goodId);
+            {                
                 petFight(b.goodId);
             }
             PetJsonBean bean = JsonUtils.getIntance().getPetInfoById(b.goodId);

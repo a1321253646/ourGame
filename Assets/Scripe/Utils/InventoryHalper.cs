@@ -286,9 +286,6 @@ public class InventoryHalper
         return mHaveBookId;
     }
 
-    public void updateZhuangbei(PlayerBackpackBean bean, long level) {
-        updateZhuangbei(bean, level, true);
-    }
     public void updateZhuangbei(PlayerBackpackBean bean, long level,bool isSave)
     {
         level = level + 1;
