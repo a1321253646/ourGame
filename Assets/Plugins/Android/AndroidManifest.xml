@@ -33,6 +33,7 @@
         </activity>
       <activity
         android:name="com.nearme.game.sdk.component.proxy.ProxyActivity"
+        android:theme="@style/Theme_Dialog_Custom"
         android:configChanges="keyboardHidden|orientation|screenSize"
         android:process=":gcsdk">
       </activity>
