@@ -61,12 +61,20 @@ public class GameCamera : MonoBehaviour
             
             if (isFristEsc && mEscTime < 2)
             {
+#if UNITY_ANDROID
+                AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+                AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+                string[] mObject = new string[1];
+                jo.Call<string>("exitGame", mObject);
+                return;
+#else
                 Application.Quit();
                 return;
+#endif
             }
             //else if (!isFristEsc)
             //{
-                isFristEsc = true;
+            isFristEsc = true;
                 mEscTime = 0;
             //}
         }
@@ -77,5 +85,10 @@ public class GameCamera : MonoBehaviour
                 mEscTime = 0;
             }
         }
+    }
+    void exitGame(string str)
+    {
+        Debug.Log("退出游戏 = " + str);
+        Application.Quit();
     }
 }
