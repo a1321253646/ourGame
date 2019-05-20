@@ -27,5 +27,16 @@ public class AdIntance
         return mTime;
     }
 
+    public void getBannerPoint() {
+        Vector3[] corners = new Vector3[4];
+        GameObject.Find("AdBanner").GetComponent<RectTransform>().GetWorldCorners(corners);
+        foreach (var item in corners)
+        {
+            Debug.Log("=====================================================================================");
+            Debug.Log(Camera.main.WorldToScreenPoint(item));
+        }
+
+    }
+
     public static bool isInit = false;
 }
