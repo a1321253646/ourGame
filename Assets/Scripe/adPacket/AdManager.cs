@@ -23,7 +23,7 @@ public class AdManager : MonoBehaviour
             return true;
         }
         isAdInitReady = callJacaMethodReturnBoolean("isAdInit");
-        return false;
+        return isAdInitReady;
     }
 
     public bool isReadyShowBanner()
@@ -37,15 +37,18 @@ public class AdManager : MonoBehaviour
         {
             return false;
         }
-        return false;
+        isBannerReady = true;
+        return isBannerReady;
     }
 
     public void showBanner()
     {
+        Debug.Log("jackzheng showBanner");
         if (!isReadyShowBanner())
         {
             return;
         }
+        callJacaMethodReturnBoolean("startShowBanner");
     }
     public void stopBanner()
     {

@@ -78,4 +78,19 @@ public class GameCamera : MonoBehaviour
             }
         }
     }
+    private float mTimeScance = 1;
+    void startOrPause(string str)
+    {
+        Debug.Log("jackzheng:"+ "startOrPause=" + str+ " mTimeScance="+ mTimeScance);
+
+        if (str.Equals("start"))
+        {
+            Time.timeScale = mTimeScance;
+        }
+        else if (str.Equals("pause"))
+        {
+            mTimeScance = Time.timeScale;
+            Time.timeScale = 0;
+        }
+    }
 }

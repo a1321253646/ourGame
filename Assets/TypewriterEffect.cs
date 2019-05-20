@@ -57,6 +57,7 @@ public class TypewriterEffect : MonoBehaviour {
             SQLHelper.getIntance().updateFristStart(2);
             showText = null;
             GameObject.Find("Manager").GetComponent<LevelManager>().init();
+            GameObject.Find("Manager").GetComponent<AdManager>().showBanner();
             return;
         }
         mTime += Time.deltaTime;

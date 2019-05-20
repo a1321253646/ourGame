@@ -84,6 +84,7 @@ public class GameBeginControl : MonoBehaviour {
                 GameManager.getIntance().playBgm(source, "Sounds/关卡背景音");
                 Destroy(gameObject);
                 GameObject.Find("Manager").GetComponent<LevelManager>().init();
+                GameObject.Find("Manager").GetComponent<AdManager>().showBanner();
             }
         }
         else if (GameManager.getIntance().mInitStatus == 0)
