@@ -34,6 +34,7 @@ public class AdIntance
         float a = corners[3].x - corners[0].x;
         float b = corners[3].y;
         string value = a+","+b;
+        Debug.Log("getBannerPoint value=" + value);
         return value;
     }
 
