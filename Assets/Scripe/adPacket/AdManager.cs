@@ -48,7 +48,7 @@ public class AdManager : MonoBehaviour
         {
             return;
         }
-        callJacaMethodReturnBoolean("startShowBanner");
+        boolJavaMethodRequitStringRetunBoolean("startShowBanner",AdIntance.getIntance().getBannerPoint());
     }
     public void stopBanner()
     {
@@ -65,7 +65,8 @@ public class AdManager : MonoBehaviour
         {
             return false;
         }
-        return false;
+        isFlashAdReady = true;
+        return isFlashAdReady;
     }
 
     public void showFlashAd()
@@ -74,6 +75,7 @@ public class AdManager : MonoBehaviour
         {
             return;
         }
+        callJacaMethodReturnBoolean("playSplashAd");
     }
     public void stopFlashAd()
     {
@@ -122,6 +124,14 @@ public class AdManager : MonoBehaviour
     internal void playAd()
     {
         showInersAd();
+    }
+
+    private bool boolJavaMethodRequitStringRetunBoolean(string name, string param) {
+        AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+        string[] mObject = new string[1];
+        mObject[0] = param;
+        return jo.Call<bool>(name, mObject);
     }
 
     private bool callJacaMethodReturnBoolean(string neme)

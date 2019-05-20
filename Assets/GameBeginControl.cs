@@ -71,7 +71,6 @@ public class GameBeginControl : MonoBehaviour {
             mLoadingDec.text = GameManager.getIntance().mInitDec;
             GameManager.getIntance().mInitStatus = 11;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-            AdIntance.getIntance().getBannerPoint();
             if (SQLHelper.getIntance().isFristStartGame == -1)
             {
                 SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
