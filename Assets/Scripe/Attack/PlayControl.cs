@@ -79,8 +79,9 @@ public class PlayControl : Attacker
     private bool isFristStart = true;
 
     public void resetHero() {
+        GameObject.Find("Manager").GetComponent<AdManager>().showBanner();
         isBeAttacker = false;
-        if(mSkillManager != null) {
+        if (mSkillManager != null) {
             mSkillManager.removeAllSkill();
             mSkillManager.cardCardHurtPre.clear();
             mSkillManager.carHurtPre.clear();
