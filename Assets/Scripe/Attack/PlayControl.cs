@@ -81,7 +81,7 @@ public class PlayControl : Attacker
     public void resetHero() {
         GameObject.Find("Manager").GetComponent<AdManager>().showBanner();
         isBeAttacker = false;
-        if(mSkillManager != null) {
+        if (mSkillManager != null) {
             mSkillManager.removeAllSkill();
             mSkillManager.cardCardHurtPre.clear();
             mSkillManager.carHurtPre.clear();
