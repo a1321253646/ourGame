@@ -13,6 +13,9 @@
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 <uses-permission android:name="android.permission.GET_TASKS" />
 <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
     <application
@@ -29,5 +32,39 @@
             </intent-filter>
             <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
         </activity>
+      <!-- targetSDKVersion >= 24时才需要添加这个provider。provider的authorities属性的值为${applicationId}.fileprovider，请开发者根据自己的${applicationId}来设置这个值 -->
+      <!--目前 targetSDKVersion统一为23，所以不需要provider配置-->
+      <provider
+          android:name="android.support.v4.content.FileProvider"
+          android:authorities="${applicationId}.fileprovider"
+          android:exported="false"
+          android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/adp_file_path" />
+      </provider>
+      <!-- targetSDKVersion >= 24时才需要添加这个provider。provider的authorities属性的值为${applicationId}.fileprovider，请开发者根据自己的${applicationId}来设置这个值 -->
+      <provider
+          android:name="com.mintegral.msdk.MintegralFileProvider"
+          android:authorities="${applicationId}.provider"
+          android:exported="false"
+          android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/adp_file_path"/>
+      </provider>
+      <activity
+          tools:replace="android:configChanges"
+          android:name="cn.sirius.nga.activity.AdActivity"
+          android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar"
+          android:windowSoftInputMode="adjustResize">
+          <intent-filter>
+            <action android:name="cn.uc.gamesdk.sdkweb" />
+            <category android:name="android.intent.category.DEFAULT" />
+          </intent-filter>
+      </activity>
+     
     </application>
+
 </manifest>
