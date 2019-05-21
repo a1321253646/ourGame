@@ -32,7 +32,7 @@ public class AdIntance
         GameObject.Find("AdBanner").GetComponent<RectTransform>().GetWorldCorners(corners);
         
         float a = corners[3].x - corners[0].x;
-        float b = corners[3].y;
+        float b = corners[0].y;
         string value = a+","+b;
         Debug.Log("getBannerPoint value=" + value);
         return value;
