@@ -127,6 +127,7 @@ public class AdManager : MonoBehaviour
     }
 
     private bool boolJavaMethodRequitStringRetunBoolean(string name, string param) {
+
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
         string[] mObject = new string[1];

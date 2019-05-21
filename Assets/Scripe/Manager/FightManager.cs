@@ -88,7 +88,8 @@ public class FightManager{
 
 
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
-            GameObject.Find("Manager").GetComponent<AdManager>().playAd();
+
+            GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
             GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
             GameManager.getIntance ().mHeroIsAlive = false;
             GameManager.getIntance().isEnd = true;
@@ -128,7 +129,8 @@ public class FightManager{
 
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
         {
-            GameObject.Find("Manager").GetComponent<AdManager>().playAd();
+
+            GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
             GameManager.getIntance().addPet();
             GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
           //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BossCardManager>().disShow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
