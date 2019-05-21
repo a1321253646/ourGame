@@ -159,6 +159,7 @@ public class UiManager
         mRankingButton.onClick.AddListener(() =>
         {
             UiControlManager.getIntance().show(UiControlManager.TYPE_RANKING);
+            GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
         });
 
 
