@@ -247,7 +247,7 @@ PlayerSettings:
   clonedFromGUID: 00000000000000000000000000000000
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 0
-  androidSplashScreen: {fileID: 0}
+  androidSplashScreen: {fileID: 2800000, guid: 619567bdfbd71024a98192b1e0ff74a9, type: 3}
   AndroidKeystoreName: E:/unityProject/ourGame/ourGame/user.keystore
   AndroidKeyaliasName: realse
   AndroidTVCompatibility: 1
