@@ -45,6 +45,7 @@ public class LevelUpLongPress : MonoBehaviour
         IsStart = bStart;
         if (IsStart)
         {
+
             if (mLongPressTIme == -1)
             {
                 mLongPressTIme = JsonUtils.getIntance().getConfigValueForId(100041);
@@ -61,6 +62,7 @@ public class LevelUpLongPress : MonoBehaviour
         }
         else
         {
+            GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
             if (!GameManager.getIntance().isEnd && GameManager.getIntance().mHeroIsAlive)
             {
                 saveDate();
@@ -71,7 +73,7 @@ public class LevelUpLongPress : MonoBehaviour
     }
     private void saveDate() {
         //        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>英雄入库等级=" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-        GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
+        
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
     }
