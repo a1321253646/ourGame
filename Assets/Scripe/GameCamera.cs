@@ -102,4 +102,9 @@ public class GameCamera : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+    void exitGame(string str)
+    {
+        Debug.Log("退出游戏 = " + str);
+        Application.Quit();
+    }
 }

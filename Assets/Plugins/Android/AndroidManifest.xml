@@ -44,72 +44,45 @@
             android:resource="@xml/adp_file_path" />
       </provider>
 
-      <activity
-          tools:replace="android:configChanges"
-          android:name="cn.sirius.nga.activity.AdActivity"
-          android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-          android:theme="@android:style/Theme.Translucent.NoTitleBar"
-          android:windowSoftInputMode="adjustResize">
-          <intent-filter>
-            <action android:name="cn.uc.gamesdk.sdkweb" />
-            <category android:name="android.intent.category.DEFAULT" />
-          </intent-filter>
-      </activity>
 
       <activity
           android:name="cn.uc.paysdk.SDKActivity"
           android:configChanges="keyboardHidden|orientation|screenSize"
-          android:theme="@android:style/Them e.Translucent.NoTitleBar"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar"
           android:windowSoftInputMode="adjustPan|stateAlwaysHidden|adjustResize" >
       </activity>
       
       <service android:name="cn.uc.paysdk.service.SDKService" />
       
       <activity
-          android:name="cn.gundam .sdk.shell.activity.ProxyActivity"
+          android:name="cn.gundam.sdk.shell.activity.ProxyActivity"
           android:configChanges="keyboardHidden|orientation|screenSize"
-          android:label="@string/app_nam e"
-          android:theme="@android:style/Them e.Translucent.NoTitleBar"
+          android:label="@string/app_name"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar"
           android:windowSoftInputMode="adjustResize" >
         <intent-filter>
-            <action android:name="cn.uc.gam esdk.sdkweb" />
+            <action android:name="cn.uc.gamesdk.sdkweb" />
             <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
       </activity>
-      
-      <activity
-         android:name="cn.uc.gam esdk.activity.PullupActivity"
-         android:theme="@android:style/Them e.Translucent"
-         android:taskAffinity="com.mili.kpysdsj.uc.diff"
-         android:excludeFromRecents="true"
-         android:label="PullupActivity"
-         android:launchMode="singleTop"
-         android:exported="true"
-         tools:node="replace">
-          <intent-filter>
-            <action android:name="android.intent.action.VIEW"/>
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BRO WSABLE"/>
-            <data android:scheme="ng1112585" />
-          </intent-filter>
-      </activity>
+
       <!-- alipay sdk begin -->
       <activity
-          android:name="com .alipay.sdk.app.H5PayActivity"
+          android:name="com.alipay.sdk.app.H5PayActivity"
           android:configChanges="orientation|keyboardHidden|navigation|screenSize"
           android:exported="false"
           android:screenOrientation="behind" >
       </activity>
       
       <activity
-          android:name="com .alipay.sdk.auth.AuthActivity"
+          android:name="com.alipay.sdk.auth.AuthActivity"
           android:configChanges="orientation|keyboardHidden|navigation|screenSize"
           android:exported="false"
           android:screenOrientation="behind" >
       </activity>
       
       <activity
-        android:name="com .alipay.sdk.app.H5AuthActivity"
+        android:name="com.alipay.sdk.app.H5AuthActivity"
         android:configChanges="orientation|keyboardHidden|navigation|screenSize"
         android:exported="false"
         android:screenOrientation="behind" >
@@ -117,7 +90,7 @@
       <!-- alipay sdk end -->
       <!-- sdk service 1.1.3新增 -->
       <service
-        android:name="cn.gundam .sdk.shell.service.ProxyService"
+        android:name="cn.gundam.sdk.shell.service.ProxyService"
         android:process=":bgservice"
         android:exported="true"/>
       </application>
