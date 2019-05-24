@@ -53,6 +53,9 @@
       <meta-data android:name="app_key" android:value="d8847665735b41b081b9da20a3b8cedf" />
       <!-- appKey -->
       <!--SDK 􁗵􄘹􃓴􀔦􄝽􃖞􁔰􀿻-->
+      <activity android:name="com.jackzheng.ourgame.demonadshowlib.SplashActivity"
+                android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
+                android:screenOrientation="portrait"/>
       <activity android:name="com.oppo.mobad.activity.AdActivity" />
       <service android:name="com.oppo.mobad.service.AdService" />
 
