@@ -44,7 +44,18 @@
             android:resource="@xml/adp_file_path" />
       </provider>
 
-
+      <activity
+          tools:replace="android:configChanges"
+          android:name="cn.sirius.nga.activity.AdActivity"
+          android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar"
+          android:windowSoftInputMode="adjustResize">
+        <intent-filter>
+          <action android:name="cn.uc.gamesdk.sdkweb" />
+          <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+      </activity>
+      
       <activity
           android:name="cn.uc.paysdk.SDKActivity"
           android:configChanges="keyboardHidden|orientation|screenSize"
