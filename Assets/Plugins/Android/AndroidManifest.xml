@@ -53,7 +53,7 @@
       <meta-data android:name="app_key" android:value="d8847665735b41b081b9da20a3b8cedf" />
       <!-- appKey -->
       <!--SDK 􁗵􄘹􃓴􀔦􄝽􃖞􁔰􀿻-->
-      <activity android:name="com.jackzheng.ourgame.demonadshowlib.SplashActivity"
+      <activity android:name="com.jackzheng.ourgame.demonadshowlib.LandSplashActivity"
                 android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
                 android:screenOrientation="landscape"/>
       <activity android:name="com.oppo.mobad.activity.AdActivity" />
