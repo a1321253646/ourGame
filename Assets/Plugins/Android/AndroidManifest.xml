@@ -55,7 +55,7 @@
       <!--SDK 􁗵􄘹􃓴􀔦􄝽􃖞􁔰􀿻-->
       <activity android:name="com.jackzheng.ourgame.demonadshowlib.SplashActivity"
                 android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="landscape"/>
       <activity android:name="com.oppo.mobad.activity.AdActivity" />
       <service android:name="com.oppo.mobad.service.AdService" />
 
