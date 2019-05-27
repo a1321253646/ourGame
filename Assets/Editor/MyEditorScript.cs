@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using System.IO;
 
 public class MyEditorScript : Editor
 {
@@ -99,5 +100,26 @@ public class MyEditorScript : Editor
         }
 
         AssetDatabase.Refresh();
+    }
+    public static string loadFile(string path, string fileName)
+    {
+        StreamReader sr = null;
+        //        Debug.Log("file = " + path + "//" + fileName);
+        try
+        {
+            sr = File.OpenText(path + "//" + fileName);
+            Debug.Log("配置加载完成");
+        }
+        catch
+        {
+            Debug.Log("配置加载失败");
+            return null;
+        }
+        string line;
+        string str = sr.ReadToEnd();
+        //        Debug.Log(fileName + ":\n" + str);
+        sr.Close();
+        sr.Dispose();
+        return str;
     }
 }

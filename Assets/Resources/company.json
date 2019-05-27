@@ -2,8 +2,8 @@
   {
     "productName": "卡牌勇士的世界",
     "bundleIdentifier": "com.mili.kpysdsj.nearme.gamecenter",
-    "bundleVersion": "1.0.0",
-    "bundleVersionCode": 1,
+    "bundleVersion": "1.0.1",
+    "bundleVersionCode": 2,
     "scriptingDefine": "5cd62f530cafb2cc4c0007df",
     "apkName": "OPPO",
     "defaultIcon": "icon\\512",
