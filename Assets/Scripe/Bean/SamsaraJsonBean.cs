@@ -52,7 +52,7 @@ public class SamsaraJsonBean
             }
             SamsaraValueBean bean = new SamsaraValueBean();
             bean.type = int.Parse(types[i]);
-            bean.value = int.Parse(values[i]);
+            bean.value = double.Parse(values[i]);
             back.Add(bean);
         }
         if (back.Count == 0) {

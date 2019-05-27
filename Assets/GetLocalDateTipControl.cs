@@ -47,6 +47,9 @@ public class GetLocalDateTipControl : MonoBehaviour {
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("该编码存档已同步到本机", LuiHuiTips.TYPPE_EMPTY_TOKEN);
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
             return;
+        } else if (newId.Equals("clear")) {
+            NetServer.getIntance().clearAllLocal();
+            return;
         }
 
         NetServer.getIntance().getLocl(newId, true,false);

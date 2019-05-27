@@ -212,7 +212,7 @@ public class BackpackManager
                 {
                     if (beanCard.type == 500005)
                     {
-                        value = beanCard.value;
+                        value = (long)beanCard.value;
                         break;
                     }
                 }

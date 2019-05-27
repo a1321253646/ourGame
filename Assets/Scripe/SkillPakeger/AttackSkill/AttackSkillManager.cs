@@ -35,11 +35,11 @@ public class AttackSkillManager
     {
         return cardDownCardCost + lunhuiDownCardCost;
     }
-    public float getHurtPre()
+    public double getHurtPre()
     {
         return (carHurtPre.getValue() * lunhuiHurtPre.getValue());
     }
-    public float getCardHurtPre()
+    public double getCardHurtPre()
     {
         return (cardCardHurtPre.getValue() * lunhuiCardHurtPre.getValue());
     }
