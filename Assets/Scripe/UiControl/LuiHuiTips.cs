@@ -292,7 +292,7 @@ public class LuiHuiTips : UiControlBase
 
         if (oldLevel <= 0)
         {
-            newLevel = -9 ;
+            newLevel = -(long)JsonUtils.getIntance().getConfigValueForId(100019) + 1;
         }
         else if (newLevel >= oldLevel)
         {

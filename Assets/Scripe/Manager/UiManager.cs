@@ -257,7 +257,7 @@ public class UiManager
         if (level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount) {
             
             mActiveListControl.showVocation(isAddSql);
-            GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW_VOCATION, 5);
+           
         }
     }
 
