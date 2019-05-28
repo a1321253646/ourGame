@@ -38,9 +38,20 @@ public class ActiveButtonControl : MonoBehaviour {
         AdIntance.getIntance().setTime(mTime);
         AdIntance.getIntance().setType(-1);
     }
-
+    private float showVocationTime = 0;
+    private bool isNeedSendNote = false;
     private void Update()
     {
+        if (isNeedSendNote) {
+            showVocationTime += Time.deltaTime;
+            if (showVocationTime >= 1) {
+                GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW_VOCATION, 5);
+                isNeedSendNote = false;
+                showVocationTime = 0;
+            }
+        }
+
+
     //    Debug.Log("==================ActiveButtonControl Update  mTime=  " + mTime + " mShowTime=" + mShowTime);
         if (mTime == -1|| mBean.buttonType != ACTIVE_BUTTON_TYPE_AD) {
             return;
@@ -105,10 +116,13 @@ public class ActiveButtonControl : MonoBehaviour {
         {
             mImage.sprite = Resources.Load("UI_yellow/guanggao/02", typeof(Sprite)) as Sprite;
             AdIntance.getIntance().setType(mBean.adType);
+
         }
         else if (mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION)
-        {            
+        {
             mImage.sprite = Resources.Load("UI_yellow/zhuanzhi/06", typeof(Sprite)) as Sprite;
+            isNeedSendNote = true;
+            showVocationTime = 0;
         }       
         if (isAddSql)
         {

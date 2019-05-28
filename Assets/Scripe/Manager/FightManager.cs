@@ -150,6 +150,10 @@ public class FightManager{
                 }
                 SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
             }
+            if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) == 1000) {
+                GameObject.Find("lunhui").GetComponentInChildren<SamsaraManage>().addLastItem();
+            }
+
           //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>updateGameLevel<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             float mix = BaseDateHelper.decodeLong(SQLHelper.getIntance().isCanLunhui);
             if (mix == -1)

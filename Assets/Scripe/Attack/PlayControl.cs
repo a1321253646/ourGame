@@ -375,12 +375,12 @@ public class PlayControl : Attacker
         Dictionary<long, long>.KeyCollection keys= samsaras.Keys;
         foreach (long key in keys) {
             long level = BaseDateHelper.decodeLong(samsaras[key]) ;
-//            Debug.Log("level = " + level);
+//      
             if(level != 0) {
                long index = SkillIndexUtil.getIntance().getSamIndexBySamId(false, key);
-              // mAllAttributePre.delete(index);
-                
-               SamsaraJsonBean sam=  JsonUtils.getIntance().getSamsaraInfoById(key);
+                // mAllAttributePre.delete(index);
+                Debug.Log("key = " + key);
+                SamsaraJsonBean sam=  JsonUtils.getIntance().getSamsaraInfoById(key);
                List<SamsaraValueBean> beanValue = sam.levelList[level];
                 foreach (SamsaraValueBean date in beanValue) {
                     if (date.type > 500003 && mSkillManager.addLunhuiKill(date.type,this, index)) {
@@ -423,7 +423,7 @@ public class PlayControl : Attacker
                         mLunhuiAttribute.attackSpeed += date.value;
                     }
                     else if (date.type == 400001) {
-                        mSkillManager.lunhuiHurtPre.AddFloat(index,1 + (float)date.value / 10000);
+                        mSkillManager.lunhuiHurtPre.AddFloat(index,1 + date.value / 10000);
                     }
                     else if (date.type == 400002)
                     {
@@ -462,12 +462,12 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 400007)
                     {
-                        mSkillManager.lunhuiCardHurtPre.AddFloat(index, 1 + (float)date.value / 10000);
+                        mSkillManager.lunhuiCardHurtPre.AddFloat(index, 1 + date.value / 10000);
                     }
                     else if (date.type == 400008)
                     {
                         
-                        mSkillManager.lunhuiDownCardCost += date.value;
+                        mSkillManager.lunhuiDownCardCost +=(long) date.value;
                     }
                     else if (date.type == 400012)
                     {
@@ -475,16 +475,16 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 500001)
                     {
-                        GameManager.getIntance().mLunhuiOnlineGet.AddFloat(index,1 + ((float)date.value / 10000));
+                        GameManager.getIntance().mLunhuiOnlineGet.AddFloat(index,1 + (date.value / 10000));
    
                     }
                     else if (date.type == 500002)
                     {
-                        GameManager.getIntance().mLunhuiOutlineGet.AddFloat(index, 1 + ((float)date.value / 10000));
+                        GameManager.getIntance().mLunhuiOutlineGet.AddFloat(index, 1 + date.value / 10000);
                     }
                     else if (date.type == 500003)
                     {
-                        GameManager.getIntance().mLunhuiLunhuiGet.AddFloat(index, 1 + ((float)date.value / 10000));
+                        GameManager.getIntance().mLunhuiLunhuiGet.AddFloat(index, 1 + date.value / 10000);
                     }
                    
                 }  

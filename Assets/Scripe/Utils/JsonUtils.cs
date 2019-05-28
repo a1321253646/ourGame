@@ -541,7 +541,7 @@ public class JsonUtils
             dropDeviceDetail.addItem(json);
         }
     }
-    public float getFrequencyByValue(float value) {
+    public float getFrequencyByValue(double value) {
         if (value <= mSpeedValue[0].value)
         {
             return mSpeedValue[0].frequency;
@@ -863,7 +863,7 @@ public class JsonUtils
         Debug.Log("getLevelData  id =" + id);
 
         foreach (Level level in levelData) {
-            Debug.Log("level  id =" + level.id);
+//            Debug.Log("level  id =" + level.id);
             if (level.id == id) {               
 				return level;
 			}

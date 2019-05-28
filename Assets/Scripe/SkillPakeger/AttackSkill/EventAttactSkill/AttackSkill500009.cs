@@ -8,10 +8,11 @@ public class AttackSkill500009 : EventAttackSkill
 
     float count1 = 0;
     LocalManager mLocal = null;
+    private double mSkillValue = 1;
     public override void addValueEnd()
     {
 
-        mValue = mFight.getLunhuiValue(500009, 11, 0);
+        mSkillValue = mFight.getLunhuiValue(500009, 11, 0);
         addEachAlive(AttributePre.aggressivity);
     }
 
@@ -44,7 +45,7 @@ public class AttackSkill500009 : EventAttackSkill
     {
         // if (mValue == 0)
         // {
-        mValue = mFight.getLunhuiValue(500009, 11, 0);
+        mSkillValue = mFight.getLunhuiValue(500009, 11, 0);
         // }
         mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_BOSS_DEBUFF, this);
         addEachAlive(AttributePre.aggressivity);
@@ -58,7 +59,7 @@ public class AttackSkill500009 : EventAttackSkill
         {
             if (!list.mIsHero && list.mAttacker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
             {
-                list.mAttacker.mAllAttributePre.updateDebuff(mSkillIndex, type, (long)mValue); ;
+                list.mAttacker.mAllAttributePre.updateDebuff(mSkillIndex, type, mSkillValue); ;
                 list.mAttacker.getAttribute(true);
             }
             list = list.next;
