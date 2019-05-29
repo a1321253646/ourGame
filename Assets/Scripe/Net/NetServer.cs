@@ -326,9 +326,11 @@ public class NetServer
                 dealRepond(getTime, status, token, false);
                 if (status == 0)
                 {
+                    
                     SQLManager.getIntance().saveLocal("");
                     GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("已经为你清空全部数据，将退出游戏重新开始", LuiHuiTips.TYPPE_ERROR_DATE);
                     GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+                    Time.timeScale = 0;
                     return;
                 }
             }
@@ -390,6 +392,10 @@ public class NetServer
                 {
                     var arrdata = jb2.Value<JArray>("date");
                     Debug.Log(" Newtonsoft.Json.Linq.JArray.Parse(str);");
+                    if (GameManager.getIntance().mRankingList != null) {
+                        GameManager.getIntance().mRankingList.Clear();
+                    }
+                    
                     GameManager.getIntance().mRankingList = arrdata.ToObject<List<RankingListDateBean>>();
                     GameManager.getIntance().mRankingListUpdate = true;
                 }

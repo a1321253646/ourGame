@@ -355,8 +355,11 @@ public class SQLManager
                 while (this.reader.Read())
                 {
                     GameManager.getIntance().mCurrentSqlVersion = reader.GetInt64(reader.GetOrdinal("ID"));
+                    Debug.Log("GameManager.getIntance().mCurrentSqlVersion ==" + GameManager.getIntance().mCurrentSqlVersion);
+                    Debug.Log("this.reader.Read()");
                     break;
                 }
+                Debug.Log("end GameManager.getIntance().mCurrentSqlVersion =="+ GameManager.getIntance().mCurrentSqlVersion);
                 if (GameManager.getIntance().mCurrentSqlVersion < 1) {
                     GameManager.getIntance().mCurrentSqlVersion = 1;
 
@@ -847,6 +850,12 @@ public class SQLManager
 
         ExecuteSQLCommand(comm);
 
+        SQLDate data = new SQLDate();
+        data.type = SQLHelper.TYPE_ENCODE_VERSION;
+        data.id = 1;
+        data.isClean = 2;
+        InsertDataToSQL(data, false,true);
+        Debug.Log("saveLocal end");
 
         ;
         //      SQLNetManager.getIntance().cleanAllLocal();
@@ -861,7 +870,7 @@ public class SQLManager
             Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
             InsertDataToSQL(date, true,NetServer.getIntance().isNew);
         }
-        SQLDate data = new SQLDate();
+        data = new SQLDate();
         data.type = SQLHelper.TYPE_ENCODE_VERSION;
         data.id = 1;
         data.isClean = 2;
