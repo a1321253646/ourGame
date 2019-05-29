@@ -36,6 +36,7 @@ public class NetServer
         JObject json = new JObject();
         json.Add("user", mDeviceID);
         json.Add("version", 1);
+        json.Add("channel", GameManager.CHANNEL_CODE);
         if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
@@ -138,6 +139,7 @@ public class NetServer
             json.Add("user", mDeviceID);
         }
         json.Add("version", 1);
+        json.Add("channel", GameManager.CHANNEL_CODE);
         if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
@@ -230,6 +232,7 @@ public class NetServer
         JObject json = new JObject();
         json.Add("user", mDeviceID);
         json.Add("version", 1);
+        json.Add("channel", GameManager.CHANNEL_CODE);
         if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
@@ -276,6 +279,70 @@ public class NetServer
         }
     }
 
+    private float mClearTimeScale = 1;
+    public void clearAllLocal() {
+        mClearTimeScale = Time.timeScale;
+        Time.timeScale = 0;
+        JObject json = new JObject();
+        json.Add("user", mDeviceID);
+        json.Add("version", 1);
+        json.Add("channel", GameManager.CHANNEL_CODE);
+        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
+        {
+            json.Add("token", SQLHelper.getIntance().mToken);
+        }
+        JArray array = new JArray();
+        JObject jb = new JObject();
+        jb.Add("action", 4);
+        jb.Add("type", -1);
+        jb.Add("id", -1);
+        jb.Add("goodId", -1);
+        jb.Add("goodtype", -1);
+        jb.Add("isclean", -1);
+        jb.Add("extra", "-1");
+        array.Add(jb);
+        json.Add("date", array);
+        Dictionary<string, string> dir = new Dictionary<string, string>();
+        dir.Add("Content-Type", "application/json");
+        //   dir.Add("Connection", "close");
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
+
+        WWW www = new WWW(URL_ROOT + "/ourgame", pData, dir);
+        while (!www.isDone)
+        {
+            Thread.Sleep(100);
+        }
+        if (www.error == null)
+        {
+            Debug.Log("Upload complete! www.text =" + www.text);
+
+            if (www.text != null && www.text.Length > 0)
+            {
+                JObject jb2 = JObject.Parse(www.text);
+                int status = jb2.Value<int>("status");
+                long getTime = jb2.Value<long>("time");
+                string token = jb2.Value<string>("token");
+                GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
+                dealRepond(getTime, status, token, false);
+                if (status == 0)
+                {
+                    
+                    SQLManager.getIntance().saveLocal("");
+                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("已经为你清空全部数据，将退出游戏重新开始", LuiHuiTips.TYPPE_ERROR_DATE);
+                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+                    Time.timeScale = 0;
+                    return;
+                }
+            }
+            
+        }
+        else
+        {
+            Debug.Log("Http错误代码:" + www.error);
+        }
+        Time.timeScale = mClearTimeScale;
+
+    }
 
 
     private void getRankingList()
@@ -283,6 +350,7 @@ public class NetServer
         JObject json = new JObject();
         json.Add("user", mDeviceID);
         json.Add("version", 1);
+        json.Add("channel", GameManager.CHANNEL_CODE);
         if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
             json.Add("token", SQLHelper.getIntance().mToken);
@@ -324,6 +392,10 @@ public class NetServer
                 {
                     var arrdata = jb2.Value<JArray>("date");
                     Debug.Log(" Newtonsoft.Json.Linq.JArray.Parse(str);");
+                    if (GameManager.getIntance().mRankingList != null) {
+                        GameManager.getIntance().mRankingList.Clear();
+                    }
+                    
                     GameManager.getIntance().mRankingList = arrdata.ToObject<List<RankingListDateBean>>();
                     GameManager.getIntance().mRankingListUpdate = true;
                 }
@@ -393,10 +465,6 @@ public class NetServer
 
         }
     }
-    public void clearAllNetLocal() {
-
-    }
-
 
     public string getLocal()
     {

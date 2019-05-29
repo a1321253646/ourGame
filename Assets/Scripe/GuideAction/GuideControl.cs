@@ -190,8 +190,8 @@ public class GuideControl
             mCurrentIndex = 0;
             mCurrentAction = mActionList[0];
             long back = mCurrentAction.notificationDeal(eventID, eventValue);
-//            Debug.Log("notificationDeal back = " + back);
-            return mCurrentAction.notificationDeal(eventID, eventValue);
+            //            Debug.Log("notificationDeal back = " + back);
+            return back;
         }
     }
 }

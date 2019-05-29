@@ -5,5 +5,5 @@ using System.Collections.Generic;
 public class SamsaraValueBean : MonoBehaviour
 {
     public int type;
-    public int value;
+    public double value;
 }

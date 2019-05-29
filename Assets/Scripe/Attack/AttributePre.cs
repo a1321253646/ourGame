@@ -20,20 +20,20 @@ public class AttributePre
     }
     public Attacker mAttacker;
 
-    private Dictionary<long, Dictionary<long, long>> mAttributePre = new Dictionary<long, Dictionary<long, long>>();
+    private Dictionary<long, Dictionary<long, double>> mAttributePre = new Dictionary<long, Dictionary<long, double>>();
 
     Attribute mAll = new Attribute().setToPre();
 
     
 
-    public void add(long id,long type,long value) {
+    public void add(long id,long type,double value) {
 //        Debug.Log("===============add id = " + id+ " type = "+type+" value = "+value);
         if (mAttributePre.ContainsKey(id))
         {
-            Dictionary<long, long> dic = mAttributePre[id];
+            Dictionary<long, double> dic = mAttributePre[id];
             if (dic.ContainsKey(type))
             {
-                long old = dic[type];
+                double old = dic[type];
                 dic[type] = dic[type] + value;
                 dealAll(type, old, dic[type]);
             }
@@ -43,16 +43,16 @@ public class AttributePre
             }
         }
         else {
-            Dictionary<long, long> dic = new Dictionary<long, long>();
+            Dictionary<long, double> dic = new Dictionary<long, double>();
             dic.Add(type, value + 10000);
             mAttributePre.Add(id, dic);
             dealAll(type, 10000, 10000 + value);
         }
     }
-    public void updateDebuff(long id, long type, long value) {
+    public void updateDebuff(long id, long type, double value) {
         if (mAttributePre.ContainsKey(id))
         {
-            Dictionary<long, long> dic = mAttributePre[id];
+            Dictionary<long, double> dic = mAttributePre[id];
             if (dic.ContainsKey(type))
             {
                 dic.Remove(type);
@@ -65,22 +65,22 @@ public class AttributePre
         }
         else
         {
-            Dictionary<long, long> dic = new Dictionary<long, long>();
+            Dictionary<long, double> dic = new Dictionary<long, double>();
             dic.Add(type, 10000 - value);
             mAttributePre.Add(id, dic);
             dealAll(type, 10000, 10000 - value);
         }
     }
 
-    public void minus(long id, long type, long value)
+    public void minus(long id, long type, double value)
     {
         if (mAttributePre.ContainsKey(id))
         {
-            Dictionary<long, long> dic = mAttributePre[id];
+            Dictionary<long, double> dic = mAttributePre[id];
             if (dic.ContainsKey(type))
             {
-                
-                long old = dic[type];
+
+                double old = dic[type];
                 dic[type] = dic[type] - value;
                 dealAll(type, old, dic[type]);
             }
@@ -92,7 +92,7 @@ public class AttributePre
         }
         else
         {
-            Dictionary<long, long> dic = new Dictionary<long, long>();
+            Dictionary<long, double> dic = new Dictionary<long, double>();
             dic.Add(type,  10000 - value);
             mAttributePre.Add(id, dic);
             dealAll(type,10000, 10000 - value);
@@ -104,16 +104,16 @@ public class AttributePre
         if (!mAttributePre.ContainsKey(id)) {
             return;
         }
-        Dictionary<long, long> dic = mAttributePre[id];
+        Dictionary<long, double> dic = mAttributePre[id];
         foreach (long type in dic.Keys) {
-            deleteAll(type, ((float)dic[type])/10000f);
+            deleteAll(type, dic[type]/10000f);
 
         }
         mAttributePre.Remove(id);
         mAttacker.getAttribute(true);
     }
 
-    private void deleteAll(long type, float value) {
+    private void deleteAll(long type, double value) {
         Debug.Log(" type =="+type+ " value" + value);
         if (type == aggressivity)
         {
@@ -146,7 +146,7 @@ public class AttributePre
        
     }
 
-    private void dealAll(long type, long oldValue,long newValue) {
+    private void dealAll(long type, double oldValue, double newValue) {
 //        Debug.Log("===============type = " + type + " oldValue = " + oldValue + " newValue = " + newValue);
         if (type == aggressivity) {
             mAll.aggressivity = mAll.aggressivity / oldValue * newValue;

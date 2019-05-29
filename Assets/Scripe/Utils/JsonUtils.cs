@@ -541,7 +541,7 @@ public class JsonUtils
             dropDeviceDetail.addItem(json);
         }
     }
-    public float getFrequencyByValue(float value) {
+    public float getFrequencyByValue(double value) {
         if (value <= mSpeedValue[0].value)
         {
             return mSpeedValue[0].frequency;

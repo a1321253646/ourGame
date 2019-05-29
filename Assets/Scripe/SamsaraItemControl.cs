@@ -178,45 +178,45 @@ public class SamsaraItemControl : MonoBehaviour {
 
             if (bean.type == 100)
             {
-                text += "攻击: " + bean.value;
+                text += "攻击: " + StringUtils.doubleToStringShow(bean.value) ;
             }
             else if (bean.type == 101)
             {
-                text += "防御: " + bean.value;
+                text += "防御: " + StringUtils.doubleToStringShow(bean.value);
             }
             else if (bean.type == 102)
             {
-                text += "生命: " + bean.value;
+                text += "生命: " + StringUtils.doubleToStringShow(bean.value);
             }
             else if (bean.type == 110)
             {
-                text += "命中: " + bean.value;
+                text += "命中: " + StringUtils.doubleToStringShow(bean.value);
             }
             else if (bean.type == 111)
             {
-                text += "闪避: " + bean.value;
+                text += "闪避: " + StringUtils.doubleToStringShow(bean.value);
             }
             else if (bean.type == 112)
             {
-                text += "暴击: " + bean.value;
+                text += "暴击: " + StringUtils.doubleToStringShow(bean.value);
             }
             else if (bean.type == 113)
             {
-                text += "暴击伤害: " + bean.value;
+                text += "暴击伤害: " + StringUtils.doubleToStringShow(bean.value);
             }
             else if (bean.type == 114)
             {
-                text += "攻速: " + bean.value;
+                text += "攻速: " + StringUtils.doubleToStringShow(bean.value);
             }
             else if (bean.type > 400000)
             {
                 AffixJsonBean aj = JsonUtils.getIntance().getAffixInfoById(bean.type);
                 if (bean.type == 500005 || bean.type == 500010 || bean.type == 500011)
                 {
-                    text += (aj.dec + ":" + bean.value );
+                    text += (aj.dec + ":" + StringUtils.doubleToStringShow(bean.value));
                 }
                 else{
-                    text += (aj.dec + ":" + (bean.value / 100f) + "%");
+                    text += (aj.dec + ":" + StringUtils.doubleToStringShow(bean.value / 100f) + "%");
                 }
                 
 //                Debug.Log(text);

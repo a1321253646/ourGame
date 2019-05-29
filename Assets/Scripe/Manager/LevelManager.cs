@@ -60,7 +60,7 @@ public class LevelManager : MonoBehaviour {
         }
 
         GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
-       // GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
+        GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
 
         creaPlay(yBase);
         //  creatEnemyFactory(cardTop);
@@ -122,10 +122,10 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 1;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
-      /*      if (GameManager.getIntance().mTestSpeed != -1)
+            if (GameManager.getIntance().mTestSpeed != -1)
             {
                 Time.timeScale = GameManager.getIntance().mTestSpeed;
-            }*/
+            }
         Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
         " level==" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "SQLHelper.getIntance().mVocationCount = " + SQLHelper.getIntance().mVocationCount +
         "  level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount=" +

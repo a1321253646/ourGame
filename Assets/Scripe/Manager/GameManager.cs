@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class GameManager
 {
+    public static string CHANNEL_CODE ="base";
+
 	public long mCurrentLevel = BaseDateHelper.encodeLong( 1);
 	public long mHeroLv = BaseDateHelper.encodeLong(1);
 	public float mCurrentGas = 0;
@@ -74,21 +76,21 @@ public class GameManager
 
     public string mGameErrorString = "";
 
-  //  public long mTestSpeed = -1;
+    public long mTestSpeed = -1;
     public bool isOpenStop = false;
     public bool isLunhuiWudiIng = false;
     public static bool isTestVersion = false; 
 
     public float getOnlineGet() {
-        return mLunhuiOnlineGet.getValue() * mCardOnlineGet.getValue();
+        return (float)(mLunhuiOnlineGet.getValue() * mCardOnlineGet.getValue());
     }
     public float getOutlineGet()
     {
-        return mLunhuiOutlineGet.getValue() * mCardOutlineGet.getValue();
+        return (float)(mLunhuiOutlineGet.getValue() * mCardOutlineGet.getValue());
     }
     public float getLunhuiGet()
     {
-        return mLunhuiLunhuiGet.getValue() * mCardLunhuiGet.getValue();
+        return (float)(mLunhuiLunhuiGet.getValue() * mCardLunhuiGet.getValue());
     }
     private GameManager(){
     }
@@ -225,7 +227,7 @@ public class GameManager
             {
                 if (bean.type == 500010)
                 {
-                    value = bean.value;
+                    value = (long)bean.value;
                     break;
                 }
             }

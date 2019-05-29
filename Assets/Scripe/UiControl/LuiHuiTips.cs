@@ -255,13 +255,13 @@ public class LuiHuiTips : UiControlBase
             {
                 if (bean.type == 500004)
                 {
-                    value = bean.value;
+                    value = (long)bean.value;
                     break;
                 }
             }
             if (value != 0)
             {
-                float bili = value / 10000f;
+                double bili = value / 10000f;
 
                 newLevel = (long)(oldLevel * bili);
                 
@@ -276,7 +276,7 @@ public class LuiHuiTips : UiControlBase
             {
                 if (bean.type == 500011)
                 {
-                    value = bean.value;
+                    value = (long)bean.value;
                     break;
                 }
             }
@@ -292,7 +292,7 @@ public class LuiHuiTips : UiControlBase
 
         if (oldLevel <= 0)
         {
-            newLevel = -9 ;
+            newLevel = -(long)JsonUtils.getIntance().getConfigValueForId(100019) + 1;
         }
         else if (newLevel >= oldLevel)
         {
