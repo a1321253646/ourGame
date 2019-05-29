@@ -38,6 +38,9 @@ android {
 	aaptOptions {
 		noCompress '.unity3d', '.ress', '.resource', '.obb'**STREAMING_ASSETS**
 	}
+	dexOptions {
+		javaMaxHeapSize "4g"
+	}
 
 **SIGN**
 	buildTypes {
