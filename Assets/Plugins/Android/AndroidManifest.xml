@@ -29,5 +29,144 @@
             </intent-filter>
             <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
         </activity>
+
+      <!--开始添加Amigo Play SDK 需要的权限服务,开发者重点关注-->
+
+      <service android:name="com.gionee.game.offlinesdk.floatwindow.floatwindows.FloatWindowService"/>
+
+      <activity android:name="com.gionee.game.offlinesdk.business.SdkHoldingActivity"
+                android:configChanges="orientation|screenSize"
+                android:theme="@style/zzz_activity_dialog">
+      </activity>
+      <activity
+          android:name="com.gionee.game.offlinesdk.business.SdkWebViewHoldingActivity"
+          android:configChanges="keyboardHidden|orientation|screenSize"
+          android:screenOrientation="portrait"
+          android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+        <intent-filter>
+          <action android:name="amigoplay.intent.action.WEBVIEW"/>
+
+          <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+      </activity>
+
+      <provider
+          android:name="com.gionee.gsp.provider.FileProvider"
+          android:authorities="${applicationId}.fileprovider"
+          android:exported="false"
+          android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths" />
+      </provider>
+
+      <activity android:name="com.gionee.permission.AssistActivity"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar">
+      </activity>
+      <receiver android:name="com.gionee.gameservice.reveiver.PowerReceiver">
+        <intent-filter>
+          <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+        </intent-filter>
+        <intent-filter>
+          <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+        </intent-filter>
+      </receiver>
+      <!--GSP service ************************************************************-->
+      <activity
+          android:name="com.gionee.gsp.service.activity.AssistActivity"
+          android:configChanges="mcc|mnc|orientation|screenSize"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+      <!--GSP service end -->
+
+      <!-- account SDK ************************************************************-->
+      <activity
+          android:name="com.gionee.account.sdk.activity.AssistActivity"
+          android:configChanges="mcc|mnc|orientation|screenSize"
+          android:exported="true"
+          android:screenOrientation="unspecified"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        <meta-data
+            android:name="version"
+            android:value="6.0.0.c">
+        </meta-data>
+      </activity>
+      <activity
+          android:name="com.gionee.account.sdk.core.activity.SDKAccountChangeActivity"
+          android:configChanges="mcc|mnc|orientation|screenSize"
+          android:launchMode="singleTop"
+          android:screenOrientation="unspecified"
+          android:theme="@style/gn_account_Theme.AndroidDevelopers.white"
+          android:windowSoftInputMode="adjustPan">
+        <intent-filter>
+          <action android:name="android.intent.action.MAIN"/>
+
+          <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+
+      </activity>
+      <activity
+          android:name="com.gionee.account.sdk.core.activity.SDKAuthorizationActivity"
+          android:configChanges="mcc|mnc|screenSize"
+          android:launchMode="singleTop"
+          android:screenOrientation="unspecified"
+          android:theme="@style/gn_account_Theme.AndroidDevelopers.white"
+          android:windowSoftInputMode="adjustPan">
+        <intent-filter>
+          <action android:name="android.intent.action.MAIN"/>
+
+          <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+
+      </activity>
+      <activity
+          android:name="com.gionee.account.sdk.core.activity.SDKLoginActivity"
+          android:configChanges="mcc|mnc|orientation|screenSize"
+          android:launchMode="singleTop"
+          android:screenOrientation="unspecified"
+          android:theme="@style/gn_account_sdk_Theme.FloatActivity"
+          android:windowSoftInputMode="adjustPan">
+        <intent-filter>
+          <action android:name="android.intent.action.MAIN"/>
+
+          <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+
+      </activity>
+      <activity
+          android:name="com.gionee.account.sdk.core.activity.SDKLoginingActivity"
+          android:configChanges="mcc|mnc|orientation|screenSize"
+          android:launchMode="singleTop"
+          android:screenOrientation="unspecified"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar"
+          android:windowSoftInputMode="adjustPan">
+        <intent-filter>
+          <action android:name="android.intent.action.MAIN"/>
+
+          <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+
+      </activity>
+      <activity
+          android:name="com.gionee.account.sdk.core.activity.SDKDialogActivity"
+          android:configChanges="mcc|mnc|orientation|screenSize"
+          android:launchMode="singleInstance"
+          android:screenOrientation="unspecified"
+          android:theme="@style/gn_account_sdk_Theme.FloatActivity"
+          android:windowSoftInputMode="adjustPan">
+        <intent-filter>
+          <action android:name="android.intent.action.MAIN"/>
+
+          <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+      </activity>
+      <service android:name="com.gionee.account.sdk.core.AccountService">
+        <intent-filter>
+          <action android:name="com.gionee.account.aidl.GNAccountInterface"/>
+        </intent-filter>
+      </service>
+      <!--account sdk end -->
+      <!--结束Amigo Play SDK 需要的权限服务,开发者重点关注-->
+
+
     </application>
 </manifest>

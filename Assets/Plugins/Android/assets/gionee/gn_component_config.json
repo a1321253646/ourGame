@@ -1,0 +1,18 @@
+﻿[
+    {
+        "id":1,
+        "name":"AmigoPlay安全插件",
+        "packageName":"com.gionee.gsp",
+        "path":"gionee/Amigo_Play.apk",
+        "product":"com.gionee.gsp",
+        "currentVersion":"4.0.6.zy",
+        "minVersion":"3.1.8.b",
+        "rom":"4.0.0",
+        "model":"",
+        "platform":"",
+        "md5":"",
+        "test":false,
+		"gameSDKVersion":"4.0.9.zb",
+		"download_url":"https://wallet.gionee.com/wallet-pic/download/Amigo_GSP.apk"
+    }
+]
