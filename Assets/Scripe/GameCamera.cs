@@ -55,18 +55,27 @@ public class GameCamera : MonoBehaviour
     float mEscTime = 0;
     void Update()
     {
-   //     Debug.Log("new isFristEsc = " + isFristEsc+ "  mEscTime="+ mEscTime);
+        //     Debug.Log("new isFristEsc = " + isFristEsc+ "  mEscTime="+ mEscTime);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
-            if (isFristEsc && mEscTime < 2)
-            {
+#if UNITY_ANDROID
+            AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+            AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+            string[] mObject = new string[1];
+            jo.Call<string>("exitGame", mObject);
+            return;
+#else
                 Application.Quit();
                 return;
+#endif
+            /*
+            if (isFristEsc && mEscTime < 2)
+            {
+
             }
             //else if (!isFristEsc)
             //{
-                isFristEsc = true;
+            isFristEsc = true;
                 mEscTime = 0;
             //}
         }
@@ -75,7 +84,7 @@ public class GameCamera : MonoBehaviour
             if (mEscTime >= 2) {
                 isFristEsc = false;
                 mEscTime = 0;
-            }
+            }*/
         }
     }
 }
