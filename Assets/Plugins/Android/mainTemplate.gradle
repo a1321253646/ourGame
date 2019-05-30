@@ -29,6 +29,7 @@ android {
 	defaultConfig {
 		targetSdkVersion 26
 		applicationId '**APPLICATIONID**'
+		multiDexEnabled true
 	}
 
 	lintOptions {
