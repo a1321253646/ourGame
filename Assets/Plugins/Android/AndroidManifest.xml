@@ -39,9 +39,9 @@
         </activity>
 
       <activity
-        android:name="com.jackzheng.ourgame.demonadshowlib.SplashActivity"
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
-
+            android:name="com.jackzheng.ourgame.demonadshowlib.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
       
       <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 

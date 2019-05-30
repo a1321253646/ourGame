@@ -76,7 +76,7 @@ public class GameManager
 
     public string mGameErrorString = "";
 
-    public long mTestSpeed = -1;
+  //  public long mTestSpeed = -1;
     public bool isOpenStop = false;
     public bool isLunhuiWudiIng = false;
     public static bool isTestVersion = false; 

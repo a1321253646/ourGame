@@ -25,11 +25,11 @@ dependencies {
 
 android {
 	compileSdkVersion **APIVERSION**
-	buildToolsVersion "28.0.3"
+	buildToolsVersion '**BUILDTOOLS**'
+
 	defaultConfig {
 		targetSdkVersion 26
 		applicationId '**APPLICATIONID**'
-		multiDexEnabled true
 	}
 
 	lintOptions {
@@ -38,9 +38,6 @@ android {
 
 	aaptOptions {
 		noCompress '.unity3d', '.ress', '.resource', '.obb'**STREAMING_ASSETS**
-	}
-	dexOptions {
-		javaMaxHeapSize "4g"
 	}
 
 **SIGN**
