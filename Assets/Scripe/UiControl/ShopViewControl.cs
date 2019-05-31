@@ -17,7 +17,7 @@ public class ShopViewControl : UiControlBase
     private ShopSubviewBase mTehuiContro,mHunjinControl,mLunhuiControl,mZuanshiControl;
     public override void init()
     {
-        mControlType = UiControlManager.TYPE_SHOP;
+      /*  mControlType = UiControlManager.TYPE_SHOP;
         mTehuiShow = GameObject.Find("shop_tehui_show");
         mTehuiUnshow = GameObject.Find("shop_tehui_unshow").GetComponent<Button>();
         mZuanshiShow = GameObject.Find("shop_zuanshi_show");
@@ -55,12 +55,12 @@ public class ShopViewControl : UiControlBase
         mTehuiContro.init();
         mZuanshiControl.init();
         mHunjinControl.init();
-        mLunhuiControl.init();
+        mLunhuiControl.init();*/
 
     }
 
     private void showView(int type) {
-        closeAll();
+    /*    closeAll();
         if (type == SHOW_TEHUI)
         {
             mTehuiContro.transform.localScale = new Vector2(1, 1);
@@ -84,25 +84,25 @@ public class ShopViewControl : UiControlBase
             mLunhuiControl.transform.localScale = new Vector2(1, 1);
             mLunhuiShow.transform.localScale = new Vector2(1, 1);
 
-        }
+        }*/
     }
 
     private void closeAll() {
+        /*
+                mTehuiShow.transform.localScale = new Vector2(0,0);
+                mZuanshiShow.transform.localScale = new Vector2(0,0);
+                mHunjinShow.transform.localScale = new Vector2(0,0);
+                mLunhuiShow.transform.localScale = new Vector2(0,0);
 
-        mTehuiShow.transform.localScale = new Vector2(0,0);
-        mZuanshiShow.transform.localScale = new Vector2(0,0);
-        mHunjinShow.transform.localScale = new Vector2(0,0);
-        mLunhuiShow.transform.localScale = new Vector2(0,0);
 
-
-        mTehuiContro.transform.localScale = new Vector2(0,0);
-        mZuanshiControl.transform.localScale = new Vector2(0,0);
-        mHunjinControl.transform.localScale = new Vector2(0,0);
-        mLunhuiControl.transform.localScale = new Vector2(0,0);
+                mTehuiContro.transform.localScale = new Vector2(0,0);
+                mZuanshiControl.transform.localScale = new Vector2(0,0);
+                mHunjinControl.transform.localScale = new Vector2(0,0);
+                mLunhuiControl.transform.localScale = new Vector2(0,0);*/
     }
 
     public override void show()
     {
-        gameObject.transform.localPosition = new Vector2(0, 0);
+       // gameObject.transform.localPosition = new Vector2(0, 0);
     }
 }
