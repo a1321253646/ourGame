@@ -57,8 +57,8 @@ public class GameManager
     public static bool isTest = false;
 
 
-    public static long mVersionCode =5300;
-    public static long mAPKVersionCode = 53;
+    public static long mVersionCode =5500;
+    public static long mAPKVersionCode = 55;
     public static long mSqlVersion = 1;
     public  long mNewAPKVersionCode = -1;
     public  long mCurrentSqlVersion = 0;
@@ -76,7 +76,7 @@ public class GameManager
 
     public string mGameErrorString = "";
 
-    public long mTestSpeed = -1;
+    //public long mTestSpeed = -1;
     public bool isOpenStop = false;
     public bool isLunhuiWudiIng = false;
     public static bool isTestVersion = false; 
