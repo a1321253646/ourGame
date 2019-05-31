@@ -36,7 +36,7 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
         {
             count1 = mSkillJson.getSpecialParameterValue()[1] ;
         }
-        mFight.AddBlood(count1 * hurt.blood);
+        mFight.AddBlood(count1 * mFight.mAttribute.maxBloodVolume);
     }
 
     public override void startSkill()

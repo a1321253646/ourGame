@@ -118,13 +118,16 @@ public class BackpackManager
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_EQUITE_UP_CLICK, bean.goodId);
         InventoryHalper.getIntance().updateZhuangbei(bean, level,false);
         GameManager.getIntance().mCurrentCrystal = BigNumber.minus(GameManager.getIntance().mCurrentCrystal, cost);
+        updateZhuangbeiItem(false);
+    }
+    public void updateZhuangbeiEnd() {
         GameManager.getIntance().updataGasAndCrystal();
         SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
         mInvertoryControl.update(false);
-        mHeroControl.upDateUi(false);
-        updateZhuangbeiItem(false);
-        mLevel.mPlayerControl.initEquip(false,false);
+        mHeroControl.upDateUi(false);      
+        mLevel.mPlayerControl.initEquip(false, false);
     }
+
     public bool use(PlayerBackpackBean bean, long count, int type) {
         if (type == TipControl.USE_TYPE)
         {
@@ -209,7 +212,7 @@ public class BackpackManager
                 {
                     if (beanCard.type == 500005)
                     {
-                        value = beanCard.value;
+                        value = (long)beanCard.value;
                         break;
                     }
                 }
@@ -247,8 +250,10 @@ public class BackpackManager
         if(level == 0) {
             return result;
         }
+        float bili = JsonUtils.getIntance().getConfigValueForId(100059);
         BigNumber cost = acc.getCost();
         Debug.Log(" level1 = " + cost.toString());
+        cost = BigNumber.multiply(cost, bili);
         result = BigNumber.add(result, cost);
         Debug.Log(" result = " + result.toString());
         BigNumber levelCost = cost;
@@ -274,8 +279,11 @@ public class BackpackManager
             BigNumber first = BigNumber.add(levelCost, key.value);
             levelCost = BigNumber.add(BigNumber.multiply(key.value, dle), levelCost);
             BigNumber tmp = BigNumber.multiply(BigNumber.add(first, levelCost), dle / 2);
+            BigNumber tmp2 = BigNumber.multiply(tmp, bili);
             Debug.Log("first ==" + first.toString()+ " levelCost = "+ levelCost.toString()+ " dle = "+ dle+ " tmp="+ tmp.toString());
-            result = BigNumber.add(result, tmp);
+
+
+            result = BigNumber.add(result, tmp2);
             Debug.Log(" result = " + result.toString());
             if (key.key >= level)
             {

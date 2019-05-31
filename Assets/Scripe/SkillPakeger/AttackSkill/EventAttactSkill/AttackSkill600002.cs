@@ -4,16 +4,22 @@ using System.Collections.Generic;
 
 public class AttackSkill600002 : EventAttackSkill
 {
-    float count = 0;
-
+    float count2 = 0;
+    int count1 = 0;
     public override void endHurt(HurtStatus hurt, Attacker attacker)
     {
 
-        if (count == 0)
+        if (count1 == 0)
         {
-            count = mSkillJson.getSpecialParameterValue()[0] / 100;
+            count1 =(int) (mSkillJson.getSpecialParameterValue()[0] * 100);
+            count2 = mSkillJson.getSpecialParameterValue()[1] / 100;
         }
-        mFight.AddBlood(count * hurt.blood);
+
+        bool isSuccess = randomResult(10000, count1, false);
+        if (isSuccess) {
+            mFight.AddBlood(count2 * hurt.blood);
+        }
+        
     }
 
 

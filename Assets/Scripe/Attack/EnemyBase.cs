@@ -37,6 +37,10 @@ public class EnemyBase : Attacker {
     }
     void fightEcent(int status)
     {
+        if (mAttackerTargets == null || mAttackerTargets.Count < 1)
+        {
+            setStatus(Attacker.PLAY_STATUS_RUN);
+        }
         if (status == ActionFrameBean.ACTION_ATTACK)
         {
             if (mAttackType == Attacker.ATTACK_TYPE_BOSS)
@@ -234,7 +238,10 @@ public class EnemyBase : Attacker {
 
     public override double allHurt(HurtStatus status, Attacker hurt)
     {
-
+        if (mBloodVolume <= 0)
+        {
+            return 0;
+        }
         mSkillManager.mEventAttackManager.allHurt(hurt, status);
    //     if (mAttackType != Attacker.ATTACK_TYPE_BOSS) {
             mBloodVolume = mBloodVolume - status.blood;

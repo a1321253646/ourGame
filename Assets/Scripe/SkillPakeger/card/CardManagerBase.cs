@@ -59,7 +59,6 @@ public abstract class CardManagerBase : MonoBehaviour {
         mCardIdList.Clear();      
         nengLiangDian = 0;
         isFristCreat = false;
-
         foreach (CardControl card in mList)
         {
             Destroy(card.gameObject);
@@ -95,6 +94,7 @@ public abstract class CardManagerBase : MonoBehaviour {
             mOutSendCardTime += Time.deltaTime;
             if (mOutSendCardTime >= OUT_CREADT_CARD_TIME && mCardIdList.Count < mMaxCardCount)
             {
+
                 mOutSendCardTime -= OUT_CREADT_CARD_TIME;
                 mCount--;
                 long random = getCreatCard();
@@ -126,6 +126,7 @@ public abstract class CardManagerBase : MonoBehaviour {
             {
                 addCard(random);
             }
+
         }
         updateEnd();
     }
@@ -263,8 +264,7 @@ public abstract class CardManagerBase : MonoBehaviour {
         if (type == GIVEUP_CARD_ALL)
         {
             count = mCardIdList.Count;
-            while (mCardIdList.Count > 0)
-            {
+            for (int i = 0; i < count-1; i++) {
                 giveUpCardDeal(0);
                 mCardIdList.RemoveAt(0);
             }

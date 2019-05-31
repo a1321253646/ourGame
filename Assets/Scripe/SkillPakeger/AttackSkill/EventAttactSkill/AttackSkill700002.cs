@@ -18,7 +18,7 @@ public class AttackSkill700002 : EventAttackSkill
             return;
         }
 
-        bool isFangshang = randomResult(100, (int)count1, true);
+        bool isFangshang = randomResult(100, (int)count1, false);
         if (isFangshang) {
          //   Debug.Log("AttackSkill700002 endBeHurt hurt.blood * count2="+ hurt.blood * count2);
             HurtStatus fs = new HurtStatus(mFight.mAttribute.defense * count2, HurtStatus.TYPE_FANGSHANG);

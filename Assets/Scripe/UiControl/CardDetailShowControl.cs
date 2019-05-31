@@ -10,12 +10,14 @@ public class CardDetailShowControl : MonoBehaviour {
     public Text mCostCount, mSkillDec, mSkillName;
     CalculatorUtil calcuator;
     private Vector2 mfri;
+    private bool isInit = false;
     private void Start()
     {
         mfri = transform.position;
     }
 
     public void remove() {
+        isInit = false;
         transform.position = mfri;
     }
     public void init(long cardId, Attacker hero, float x,float y)
@@ -26,6 +28,7 @@ public class CardDetailShowControl : MonoBehaviour {
             
             return;
         }
+        isInit = true;
         CardJsonBean card1 = JsonUtils.getIntance().getCardInfoById(cardId);
         gameObject.transform.SetSiblingIndex(50000);
         mSkill = JsonUtils.getIntance().getSkillInfoById(card1.skill_id);
@@ -49,6 +52,12 @@ public class CardDetailShowControl : MonoBehaviour {
         calcuator = new CalculatorUtil(mSkill.calculator, mSkill.effects_parameter);
         update(hero);
         transform.position = new Vector2(x, y);
+    }
+    private void Update()
+    {
+        if (isInit && GameManager.getIntance().isEnd) {
+            remove();
+        }
     }
     private void update(Attacker hero)
     {

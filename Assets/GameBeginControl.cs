@@ -71,11 +71,13 @@ public class GameBeginControl : MonoBehaviour {
             mLoadingDec.text = GameManager.getIntance().mInitDec;
             GameManager.getIntance().mInitStatus = 11;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+            AdIntance.getIntance().getBannerPoint();
             if (SQLHelper.getIntance().isFristStartGame == -1)
             {
                 SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
                 Destroy(GameObject.Find("game_begin_loading"));
                 GetComponentInChildren<TypewriterEffect>().init(JsonUtils.getIntance().getStringById(100001));
+                
 
             }
             else
@@ -93,6 +95,7 @@ public class GameBeginControl : MonoBehaviour {
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
 #if UNITY_ANDROID || UNITY_IOS
             SQLManager.getIntance().initPathRoot();
+            SQLManager.getIntance().alterTableByVersion();
             Thread th1 = new Thread(() =>
             {
                 JsonUtils.getIntance().initBefore();
@@ -103,6 +106,7 @@ public class GameBeginControl : MonoBehaviour {
 #endif
 #if UNITY_STANDALONE
             SQLManager.getIntance().init(sqlName, tabName);
+            SQLManager.getIntance().alterTableByVersion();
             //  GameManager.getIntance().mInitStatus = 8;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
             JsonUtils.getIntance().initBefore();
@@ -133,7 +137,6 @@ public class GameBeginControl : MonoBehaviour {
                     }
                     else if (isUpdate == 2)
                     {
-                        SQLManager.getIntance().copyToNet();
                         GameManager.getIntance().mInitStatus = 6;
                         Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
                     }
@@ -142,6 +145,7 @@ public class GameBeginControl : MonoBehaviour {
                         GameManager.getIntance().mInitStatus = 6;
                         Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
                     }
+                   
                 }
                 catch (System.Exception e)
                 {
@@ -186,7 +190,7 @@ public class GameBeginControl : MonoBehaviour {
                 isGetlocalBegin = true;
                 Thread th1 = new Thread(() =>
                 {
-                    if (!NetServer.getIntance().getLocl())
+                    if (!NetServer.getIntance().getLocl(null,false,false))
                     {
                         GameManager.getIntance().mInitStatus = 8;
                         isGetlocaled = true;
@@ -250,16 +254,55 @@ public class GameBeginControl : MonoBehaviour {
                 }
                 Debug.Log("SQLHelper.getIntance().init();");
                 SQLHelper.getIntance().init();
+
+                int count = 0;
+                if (SQLHelper.getIntance().mVocationCount == 0) {
+                    for (int i = 0; ; i++)
+                    {
+                        if (SQLHelper.getIntance().mPlayVocation.ContainsKey(i))
+                        {
+                            count++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    if (count != 0)
+                    {
+                        SQLHelper.getIntance().updateVocationCount(count);
+                    }
+                }
+
                 Debug.Log("SQLHelper.getIntance().init(); end");
                 GameManager.getIntance().mInitStatus = 10;
                 Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
+
             });
             th1.Start();
 #endif
 
 #if UNITY_STANDALONE
             SQLHelper.getIntance().init();
-
+            int count = 0;
+            if (SQLHelper.getIntance().mVocationCount == 0)
+            {
+                for (int i = 0; ; i++)
+                {
+                    if (SQLHelper.getIntance().mPlayVocation.ContainsKey(i))
+                    {
+                        count++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                if (count != 0)
+                {
+                    SQLHelper.getIntance().updateVocationCount(count);
+                }
+            }
             GameManager.getIntance().mInitStatus = 10;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
 #endif

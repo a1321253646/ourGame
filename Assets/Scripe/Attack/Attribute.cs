@@ -3,13 +3,13 @@
     public double aggressivity = 0;
     public double defense = 0;
     public double maxBloodVolume = 0;
-    public float rate = 0;
-    public float evd = 0;
-    public float crt = 0;
-    public float hurt = 0;
+    public double rate = 0;
+    public double evd = 0;
+    public double crt = 0;
+    public double hurt = 0;
     public double crtHurt = 0;
     public double readHurt = 0;
-    public float attackSpeed = 0;
+    public double attackSpeed = 0;
 
     public Attribute add(Attribute adder) {
         aggressivity += adder.aggressivity;

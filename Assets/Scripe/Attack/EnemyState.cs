@@ -64,7 +64,9 @@ public class EnemyState{
 
 		}
 		GameObject obj = Resources.Load<GameObject> ("prefab/hurt") ;
-		EnemySceenPosition = Camera.main.WorldToScreenPoint (mEnemy.transform.position);
+		EnemySceenPosition =
+            Camera.main.WorldToScreenPoint (
+                new Vector2(mEnemy.transform.position.x+ mResourceData.getHurtOffset().x, mEnemy.transform.position.y));
 		GameObject text = GameObject.Instantiate(obj,
 			new Vector2 (EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
 		text.transform.SetParent(HP_Parent);

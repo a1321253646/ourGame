@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 public class MultipleAffixBean
 {
-    private float mValue = 1;
+    private double mValue = 1;
 
-    private Dictionary<long, float> mFloatValueList = new Dictionary<long, float>();
+    private Dictionary<long, double> mFloatValueList = new Dictionary<long, double>();
 
-    public void AddFloat(long id, float value) {
+    public void AddFloat(long id, double value) {
         if (mFloatValueList.ContainsKey(id))
         {
-            float old = mFloatValueList[id];
+            double old = mFloatValueList[id];
             mFloatValueList[id] = value;
             mValue = mValue / old * value;
         }
@@ -22,7 +22,7 @@ public class MultipleAffixBean
         }
     }
 
-    public void mimus(long id, float value) {
+    public void mimus(long id, double value) {
         if (mFloatValueList.ContainsKey(id))
         {
             mFloatValueList.Remove(id);
@@ -36,7 +36,7 @@ public class MultipleAffixBean
     public void deletById(long id) {
         if (mFloatValueList.ContainsKey(id))
         {
-            float value = mFloatValueList[id];
+            double value = mFloatValueList[id];
             mValue = mValue / value;
             mFloatValueList.Remove(id);
         }
@@ -45,7 +45,7 @@ public class MultipleAffixBean
         mValue = 1;
         mFloatValueList.Clear();
     }
-    public float getValue() {
+    public double getValue() {
         return mValue;
     }
 }

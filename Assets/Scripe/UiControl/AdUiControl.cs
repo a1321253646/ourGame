@@ -13,23 +13,28 @@ public class AdUiControl : UiControlBase
     BigNumber mCount  = null ;
     public void setDate(long type) {
         mAdType = type;
+        setShowContext();
+        toShowUi();
+    }
+
+    private void setShowContext()
+    {
         mCount = BigNumber.getBigNumForString(getAdValue());
         string str = "观看影片，即可免费获得S1S2";
-        str=str.Replace("S1", mCount.toStringWithUnit());
+        str = str.Replace("S1", mCount.toStringWithUnit());
         if (mAdType == ActiveButtonControl.TYPE_AD_LUNHUI)
         {
-            str =str.Replace("S2", "轮回点");
+            str = str.Replace("S2", "轮回点");
             mImg.sprite = Resources.Load("UI_yellow/guanggao/04", typeof(Sprite)) as Sprite;
         }
         else
         {
-            str=str.Replace("S2", "魂晶");
+            str = str.Replace("S2", "魂晶");
             mImg.sprite = Resources.Load("UI_yellow/guanggao/03", typeof(Sprite)) as Sprite;
-            
+
         }
         mDec.text = str;
 
-        toShowUi();
     }
 
     private string getAdValue() {
@@ -40,20 +45,78 @@ public class AdUiControl : UiControlBase
             if (level == -1) {
                 level = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel);
             }
-            value = JsonUtils.getIntance().getLevelData(level).lunhui;
-            BigNumber bigValue = BigNumber.getBigNumForString(value);
+            Debug.Log("getAdValue level = " + level);
+            BigNumber bigValue = getLunhuiAd();
+            Debug.Log("getAdValue bigValue = " + bigValue.toString());
+            Debug.Log("getAdValue GameManager.getIntance().getLunhuiGet() = " + GameManager.getIntance().getLunhuiGet());
+
             bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getLunhuiGet());
+            Debug.Log("getAdValue end bigValue = " + bigValue.toString());
             value = bigValue.toString();
         }
         else
         {
-            LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
-            long time = (long)JsonUtils.getIntance().getConfigValueForId(100049);
-            value = level.mFightManager.attckerOutLine(level.mPlayerControl, time * 60 * 1000, GameManager.getIntance().getOutlineGet()).toString();
+            // long level = BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel);
+            //if (level == -1)
+            //{
+            long level = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel);
+            //}
+            value = JsonUtils.getIntance().getLevelData(level).hunjing;
+            BigNumber bigValue = BigNumber.getBigNumForString(value);
+            bigValue = BigNumber.multiply(bigValue, GameManager.getIntance().getOnlineGet());
+            value = bigValue.toString();
         }
 
         return value;
     }
+
+    private BigNumber getLunhuiAd() {
+        BigNumber adLunhui = null;
+        Debug.Log("SQLHelper.getIntance().mMaxLevel= " + BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel));
+        long current = BaseDateHelper.decodeLong(SQLHelper.getIntance().mGameLevel);
+        if (SQLHelper.getIntance().mMaxLevel != BaseDateHelper.encodeLong(-1))
+        {
+            long maxLevel = BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel);
+           
+            long maxIndex = 0;
+            long gameindex = 0;
+            if (maxLevel < 0)
+            {
+                maxIndex = 1;
+            }
+            else
+            {
+                maxIndex = (maxLevel - 1) / 1000 + 1;
+            }
+
+            if (current < 0)
+            {
+                gameindex = 1;
+            }
+            else
+            {
+                gameindex = (current - 1) / 1000 + 1;
+            }
+
+            if (gameindex < maxIndex)
+            {
+                Debug.Log("getAdValue maxIndex = " + maxIndex + " maxLevel=" + maxLevel);
+                adLunhui = JsonUtils.getIntance().readMaxLevelLunhuiAdValue(maxIndex, maxLevel);
+
+            }
+            else
+            {
+                adLunhui = JsonUtils.getIntance().getLevelData(maxLevel).getAdLunhui();
+            }
+
+        }
+        else {
+            adLunhui = JsonUtils.getIntance().getLevelData(current).getAdLunhui();
+        }
+        
+        return adLunhui;
+    }
+
 
     public override void init()
     {
@@ -96,5 +159,13 @@ public class AdUiControl : UiControlBase
             GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeAd();
       //  }
         toremoveUi();
+    }
+
+    public void update() {
+        if (!isShow) {
+            return;
+        }
+        getAdValue();
+        setShowContext();
     }
 }

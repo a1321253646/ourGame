@@ -100,8 +100,20 @@ public abstract class Attacker : MonoBehaviour
     }
 
     public void setStatus(int status) {
-        if (isStop && status != ActionFrameBean.ACTION_DIE) {
-            return;
+//        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setStatus"+ status + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        //    if (GameManager.getIntance().isEnd && status == ActionFrameBean.ACTION_ATTACK) {
+        //        return;
+        //    }
+        if (isStop)
+        {
+            if (status == ActionFrameBean.ACTION_WIN)
+            {
+                isStop = false;
+            }
+            else if(isStop && status != ActionFrameBean.ACTION_DIE)
+            {
+                return;
+            }
         }
         this.status = status;       
         changeAnim();
@@ -231,11 +243,11 @@ public abstract class Attacker : MonoBehaviour
 
         getAttributeEnd();
     }
-    public float getLunhuiValue(long type, long id, float valueDefault)
+    public double getLunhuiValue(long type, long id, double valueDefault)
     {
-        float result = valueDefault;
+        double result = valueDefault;
         long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(id);
-        long value = 0;
+        double value = 0;
 
         if (luihuiLevel != BaseDateHelper.encodeLong(0))
         {

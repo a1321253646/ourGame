@@ -265,18 +265,19 @@ public class InventoryHalper
     public void clearDropDeviceUseCount(long id) {
         mDropDeviceUsed[id] = 0;
         Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
-        SQLHelper.getIntance().updateDropValue(id, 0);
+        SQLHelper.getIntance().updateDrop(id, mDropDeviceUsed[id]);
     }
     private void addDropDeviceUseCount(long id) {
         if (mDropDeviceUsed.ContainsKey(id))
         {
              mDropDeviceUsed[id] += 1;
+            SQLHelper.getIntance().updateDrop(id, mDropDeviceUsed[id]);
         }
         else {
             mDropDeviceUsed.Add(id,  1);
+            SQLHelper.getIntance().addDrop(id, mDropDeviceUsed[id]);
         }
         Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
-        SQLHelper.getIntance().updateDropValue(id, mDropDeviceUsed[id]);
 
         
     }
@@ -285,9 +286,6 @@ public class InventoryHalper
         return mHaveBookId;
     }
 
-    public void updateZhuangbei(PlayerBackpackBean bean, long level) {
-        updateZhuangbei(bean, level, true);
-    }
     public void updateZhuangbei(PlayerBackpackBean bean, long level,bool isSave)
     {
         level = level + 1;
@@ -450,7 +448,24 @@ public class InventoryHalper
         Debug.Log("mList size = " + mList.Count);
     }
     public void deleteIventory(PlayerBackpackBean bean, int count) {
-        if (bean.count == count)
+        PlayerBackpackBean target = null;
+        foreach (PlayerBackpackBean tmp in mList) {
+            Debug.Log("deleteIventory (bean.sqlGoodId= " + bean.sqlGoodId+ "  tmp.sqlGoodId=" + tmp.sqlGoodId);
+            if (bean.sqlGoodId == tmp.sqlGoodId) {
+                Debug.Log("tmp.goodId= " + tmp.goodId );
+                target = tmp;
+                break;
+            }
+        }
+        if (target != null)
+        {
+            bean = target;
+        }
+        else {
+            return;
+        }
+        Debug.Log("bean.coun= " + bean.count+ " count=" + count);
+        if (bean.count <= count)
         {
             mList.Remove(bean);
             SQLHelper.getIntance().deleteGood(bean);
@@ -462,7 +477,7 @@ public class InventoryHalper
         }
         for (int i = 0; i < mUser.Count; i++) {
             PlayerBackpackBean bean2 = mUser[i];
-            if (bean2 == bean)
+            if (bean2.sqlGoodId == bean.sqlGoodId)
             {
                 mUser.Remove(bean2);
                 break;

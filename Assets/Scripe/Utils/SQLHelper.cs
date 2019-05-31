@@ -17,6 +17,7 @@ public class SQLHelper
     public long mOutTime = -1;
     public long mMaxOutTime = -1;
     public long mMaxLevel = BaseDateHelper.encodeLong(-1);
+    public long mNetLevel = BaseDateHelper.encodeLong(-1);
 
     public long isShowCardPoint = -1;
     public long isShowBackpackPoint = -1;
@@ -28,8 +29,10 @@ public class SQLHelper
     public long mMaxGoodId = -1;
     public long isUpdate = -1;
     public string mPlayName =null;
+    public string mToken ="";
     
     public long mVersionCode=-1;
+    public bool isCleanNet=false;
 
     public long mCardLevel = -1;
     public long mCardListId = -1;
@@ -37,6 +40,7 @@ public class SQLHelper
     public long isCloseYueqiang = -1;
     public long isCloseChuangye = -1;
     public long isHadLunhui = -1;
+    public long mVocationCount = 0;
     public long mTargetSpeed = BaseDateHelper.encodeLong(-1);
     public long isCanLunhui = BaseDateHelper.encodeLong(-1);
 
@@ -77,9 +81,14 @@ public class SQLHelper
     public static long GAME_ID_SETTING_CLOSED_CHUANGYE = 33;
     public static long GAME_ID_SETTING_CLOSED_YUEQIANG = 34;
     public static long GAME_ID_HAD_LUNHUI = 35;
-    public static long GAME_ID_CAN_LUNHUI = 36;
+    public static long GAME_ID_NET_LEVEL = 36;
+
     public static long GAME_ID_TARGET_SPEED = 37;
     public static long GAME_ID_OUTLINE_MAX = 38;
+    public static long GAME_ID_VOCATION_COUNT_MAX = 39;
+    
+    public static long GAME_ID_CAN_LUNHUI = 42;
+    public static long GAME_ID_TOKEN = 43;
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -93,6 +102,8 @@ public class SQLHelper
     public static long TYPE_DROP = 7;
     public static long TYPE_GUIDE = 8;
     public static long TYPE_ACTIVITY_BUTTON = 9;
+    public static long TYPE_ENCODE_VERSION = 10;
+    public static long TYPE_CLEAN_NET = 11;
     public long mCurrentVocation = -1;
     public Dictionary<long, long>  mPlayVocation = new Dictionary<long, long>();
 
@@ -105,7 +116,7 @@ public class SQLHelper
     List<PlayerBackpackBean> mPet = new List<PlayerBackpackBean>();
     Dictionary<long,long> mLunhuui = new Dictionary<long, long>();
     Dictionary<long,long> mDropDeviceCount = new Dictionary<long, long>();
-    NetHelper mNetHelp = new NetHelper();
+ //   NetHelper mNetHelp = new NetHelper();
 
     
 
@@ -136,12 +147,13 @@ public class SQLHelper
         isAutoBoss = -1;
         isLuiHui = -1;
         mMaxLevel = BaseDateHelper.encodeLong(-1);
+        mNetLevel = BaseDateHelper.encodeLong(-1);
         isLuiHuiDeal = -1;
         mLunhuiValue = new BigNumber();
         mMojing = new BigNumber();
         mOutLineEachjing =new BigNumber();
         mOutTime = -1;
-
+      //  mVocationCount = 0;
         mOutLineGet = null;
         isCanLunhui = BaseDateHelper.encodeLong(-1);
 
@@ -158,16 +170,22 @@ public class SQLHelper
         isCloseChuangye = -1;
         isHadLunhui = -1;
         isVoice = -1;
-        mMaxGoodId = -1;
-        isUpdate = -1;
+     //   mMaxGoodId = -1;
+    //    isUpdate = -1;
         mPlayName = null;
+        mToken = "";
         int goodListIndex = 0;
         long maxGoodIdTmp = -1;
+
+        Dictionary<long, bool> goodIdMap = new Dictionary<long, bool>();
 
         if (mList != null && mList.Count > 0)
         {
             foreach (SQLDate date in mList)
             {
+                if (date.isDelete == 2) {
+                    continue;
+                }
                 Debug.Log("读取数据库 " + date.toString());
                 if (date.type == TYPE_LUNHUI)
                 {
@@ -208,9 +226,14 @@ public class SQLHelper
                     PlayerBackpackBean bean = getBeanFromStr(date.extan);
                     bean.goodId = date.id;
                     bean.sqlGoodId = date.goodId;
+                    
                     if (bean.sqlGoodId > maxGoodIdTmp)
                     {
                         maxGoodIdTmp = bean.sqlGoodId;
+                    }
+                    if(bean.count < 1) {
+                        deleteGood(bean);
+                        continue;
                     }
                     bean.goodType = date.goodType;
 //                    Debug.Log("读取数据库  id= " + bean.goodId + " count =" + bean.count);
@@ -231,19 +254,15 @@ public class SQLHelper
                     }
 
  //                   mALLGood.Add(bean);
-                    if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD)
-                    {
-                        mCard.Add(bean);
-                    }
-                    else if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI) {
-                        mUser.Add(bean);
-                    }else if (bean.goodType == SQLDate.GOOD_TYPE_USER_PET || bean.goodType == SQLDate.GOOD_TYPE_PET) {
-                        mPet.Add(bean);
-                    }
+
                 }
                 else if (date.type == TYPE_BOOK)
                 {
                     mBook.Add(date.id);
+                }
+                else if (date.type == TYPE_CLEAN_NET)
+                {
+                    isCleanNet = true;
                 }
                 else if (date.type == TYPE_GUIDE)
                 {
@@ -298,6 +317,11 @@ public class SQLHelper
                     else if (date.id == GAME_ID_PLAYER_MAX_LEVEL)
                     {
                         mMaxLevel = BaseDateHelper.encodeLong(long.Parse(date.extan));
+                        //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
+                    }
+                    else if (date.id == GAME_ID_NET_LEVEL)
+                    {
+                        mNetLevel = BaseDateHelper.encodeLong(long.Parse(date.extan));
                         //                        Debug.Log("读取数据库 上次离线时间" + mOutTime);
                     }
                     else if (date.id == GAME_ID_IS_UPDATE)
@@ -427,39 +451,114 @@ public class SQLHelper
                     {
                         isCanLunhui = BaseDateHelper.encodeLong(long.Parse(date.extan));
                     }
-                    else if (date.id == GAME_ID_TARGET_SPEED) {
+                    else if (date.id == GAME_ID_TARGET_SPEED)
+                    {
                         mTargetSpeed = BaseDateHelper.encodeLong(long.Parse(date.extan));
+                    }
+                    else if (date.id == GAME_ID_VOCATION_COUNT_MAX)
+                    {
+                        mVocationCount = long.Parse(date.extan);
+                    }
+                    else if (date.id == GAME_ID_TOKEN) {
+                        mToken = date.extan;
                     }
                 }
             }
+
+
+
             if ( maxGoodIdTmp > mMaxGoodId)
             {
-                mMaxGoodId = maxGoodIdTmp;
-           /*     if (mMaxGoodId == -1 && maxGoodIdTmp != -1)
-                {
-                    mMaxGoodId = maxGoodIdTmp;
-                    SQLDate date = new SQLDate();
-                    date.extan = "" + mMaxGoodId;
-                    date.type = TYPE_GAME;
-                    date.id = GAME_ID_GOOD_MAXID;
-                    date.getClean();
-                    SQLManager.getIntance().InsertDataToSQL(date, true);
-                }
-                else if (mMaxGoodId != -1 && maxGoodIdTmp > mMaxGoodId) {
-                    mMaxGoodId = maxGoodIdTmp;
-                    SQLDate date = new SQLDate();
-                    date.extan = "" + mMaxGoodId;
-                    date.type = TYPE_GAME;
-                    date.id = GAME_ID_GOOD_MAXID;
-                    date.getClean();
-                    SQLManager.getIntance().UpdateInto(date, true);
-                }*/
-                    
+                mMaxGoodId = maxGoodIdTmp;                    
                 Debug.Log("=======================maxGoodIdTmp > mMaxGoodId================================");
             }
-            
+            for (int i = 0; i < mALLGood.Count; ) {
+                PlayerBackpackBean bean = mALLGood[i];
+                if (bean.goodId >= 4000001 && bean.goodId <= 4000099 && bean.goodType != SQLDate.GOOD_TYPE_PET && bean.goodType != SQLDate.GOOD_TYPE_USER_PET)
+                {
+                    Debug.Log("读取数据库 错误宠物 " + bean.toString());
+                    deleteGood(bean);
+                        mALLGood.RemoveAt(i);
+                        continue;
+                }
+                else {
+                    if (goodIdMap.ContainsKey(bean.sqlGoodId))
+                    {
+                        Debug.Log("读取数据库 重复ID " + bean.toString());
+                        long oldId = bean.sqlGoodId;
+
+                        mMaxGoodId++;
+                        bean.sqlGoodId = mMaxGoodId;
+                        changeGoodSqlId(bean, oldId);
+                        goodIdMap.Add(bean.sqlGoodId, true);
+                    }
+                    else {
+                        goodIdMap.Add(bean.sqlGoodId, true);
+                    }
+                }
+                if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD)
+                {
+                    mCard.Add(bean);
+                }
+                else if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI)
+                {
+                    mUser.Add(bean);
+                }
+                else if (bean.goodType == SQLDate.GOOD_TYPE_USER_PET || bean.goodType == SQLDate.GOOD_TYPE_PET)
+                {
+                    mPet.Add(bean);
+                }
+                i++;
+            }
+            List<PetJsonBean>  petList = JsonUtils.getIntance().getPet();
+            Debug.Log("读取数据库 mMaxLevel" + BaseDateHelper.decodeLong(mMaxLevel));
+            foreach (PetJsonBean pet in petList) {
+                Debug.Log("读取数据库 id=" + pet.id+ " pet.activateLevel="+ pet.activateLevel);
+                if (pet.activateLevel < BaseDateHelper.decodeLong(mMaxLevel)) {
+                    bool isHave = false;
+                    for (int i = 0; i < mPet.Count; i++) {
+                        PlayerBackpackBean petBean = mPet[i];
+                        if (petBean.goodId == pet.id) {
+                            isHave = true;
+                            break;
+                        }
+                    }
+                    Debug.Log("读取数据库 isHave=" + isHave);
+                    if (!isHave) {
+                        PlayerBackpackBean newPet = new PlayerBackpackBean();
+                        newPet.goodId = pet.id;
+                        newPet.sortID = -1;
+                        newPet.count = 1;
+                        newPet.tabId = -1;
+                        newPet.isShowPoint = -1;
+                        mMaxGoodId++;
+                        newPet.sqlGoodId = mMaxGoodId;
+                        newPet.goodType  = SQLDate.GOOD_TYPE_PET;                     
+                        addGood(newPet);
+                        mALLGood.Add(newPet);
+                        mPet.Add(newPet);
+                    }
+                }
+            }
+            if (mMaxGoodId == -1)
+            {
+                mMaxGoodId = 1;
+                addGame(GAME_ID_GOOD_MAXID, mMaxGoodId);
+            }
+            else
+            {
+                updateGame(GAME_ID_GOOD_MAXID, mMaxGoodId);
+            }
+#if UNITY_ANDROID || UNITY_IOS
+            if (string.IsNullOrEmpty(mPlayName)) {
+                string name = NetServer.mDeviceID;
+                name = "用户" + name.Substring(0, 4);
+                updateName(name);
+            }
+#endif
             Debug.Log("读取数据库 物品数量" + mALLGood.Count);
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100031);
+            JsonUtils.getIntance().reReadAboutLevelFile(BaseDateHelper.decodeLong(mGameLevel));
         }
     }
 
@@ -507,6 +606,18 @@ public class SQLHelper
     public static SQLHelper getIntance()
     {
         return mIntance;
+    }
+
+    public void updateIsCleanNet() {
+        if (!isCleanNet) {
+            SQLDate date = new SQLDate();
+            date.type = TYPE_CLEAN_NET;
+            date.isDelete = 2;
+            date.isClean = SQLDate.CLEAR_NO;
+            //   if (id != GAME_ID_TOKEN) {
+            SQLManager.getIntance().InsertDataToSQL(date);
+        }
+
     }
 
     public long getCurrentGoodId() {
@@ -656,6 +767,18 @@ public class SQLHelper
         SQLManager.getIntance().changeGoodType(date);
 
     }
+    public void changeGoodSqlId(PlayerBackpackBean good,long old)
+    {
+        SQLDate date = new SQLDate();
+        date.type = TYPE_GOOD;
+        date.id = good.goodId;
+        date.goodId = good.sqlGoodId;
+        date.goodType = good.goodType;
+        date.extan = ""+ old;
+        date.getClean();
+        SQLManager.getIntance().changeGoodSql(date, old);
+
+    }
 
     public static string getGoodExtra(PlayerBackpackBean good) {
         string value = "count," + good.count + ";";
@@ -718,6 +841,11 @@ public class SQLHelper
              BaseDateHelper.decodeLong(mGameLevel) > BaseDateHelper.decodeLong(mMaxLevel)) {
             updateMaxLevel(mGameLevel);
         }
+        if (mNetLevel == BaseDateHelper.encodeLong(-1) ||
+            BaseDateHelper.decodeLong(mGameLevel) > BaseDateHelper.decodeLong(mNetLevel))
+        {
+            updateNetLevel(mGameLevel);
+        }
     }
     public void updateVersionCode(long version)
     {
@@ -730,11 +858,27 @@ public class SQLHelper
         {
             updateGame(GAME_ID_VERSION_CODE, version);
         }
+        updateNetLevel(BaseDateHelper.encodeLong(-10));
         mVersionCode = version;
     }
+    public void updateVocationCount(long count)
+    {
+        if (mVocationCount == 0)
+        {
+            addGame(GAME_ID_VOCATION_COUNT_MAX, count);
+
+        }
+        else
+        {
+            updateGame(GAME_ID_VOCATION_COUNT_MAX, count);
+        }
+        mVocationCount = count;
+    }
+
 
     public void updateIsUpdate()
     {
+   //     Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>updateIsUpdate<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         if (isUpdate == -1)
         {
             addGame(GAME_ID_IS_UPDATE, 1);
@@ -745,6 +889,7 @@ public class SQLHelper
             updateGame(GAME_ID_IS_UPDATE, 1);
         }
         isUpdate = 1;
+   //     Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>isUpdate="+ isUpdate + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     }
     public void updateTarget(long value)
     {
@@ -785,7 +930,7 @@ public class SQLHelper
     }
     private void updateMaxLevel(long level)
     {
-        if (mMaxLevel == -1)
+        if (mMaxLevel == BaseDateHelper.encodeLong(-1))
         {
             addGame(GAME_ID_PLAYER_MAX_LEVEL, BaseDateHelper.decodeLong(level));
 
@@ -795,6 +940,19 @@ public class SQLHelper
             updateGame(GAME_ID_PLAYER_MAX_LEVEL, BaseDateHelper.decodeLong(level));
         }
         mMaxLevel = level;
+    }
+    private void updateNetLevel(long level)
+    {
+        if (mNetLevel == BaseDateHelper.encodeLong(-1))
+        {
+            addGame(GAME_ID_NET_LEVEL, BaseDateHelper.decodeLong(level));
+
+        }
+        else
+        {
+            updateGame(GAME_ID_NET_LEVEL, BaseDateHelper.decodeLong(level));
+        }
+        mNetLevel = level;
     }
 
 
@@ -812,6 +970,21 @@ public class SQLHelper
         }
         mPlayName = newName;
     }
+    public void updateToken(string token)
+    {
+        Debug.Log("sqlhelper  updateName newName = " + token);
+        if (string.IsNullOrEmpty(mToken))
+        {
+            addGame(GAME_ID_TOKEN, token);
+
+        }
+        else
+        {
+            updateGame(GAME_ID_TOKEN, token);
+        }
+        mToken = token;
+        GameObject.Find("setting_ui").GetComponent<SettingUiControl>().setTokenId();
+    }
 
     public void updateOutLineGet(BigNumber value) {
         
@@ -827,6 +1000,7 @@ public class SQLHelper
 
     public void updateOutTime()
     {
+   //     Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>updateOutTime<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         long value = TimeUtils.GetTimeStamp(); 
         if (mOutTime == -1)
         {
@@ -843,9 +1017,12 @@ public class SQLHelper
             updateGame(GAME_ID_TIME, value);
         }
         mOutTime = value;
-        if (isUpdate != -1) {
+    //    Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>isUpdate =" + isUpdate + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+#if UNITY_ANDROID || UNITY_IOS
+        if (isUpdate != -1) {        
             SQLManager.getIntance().updateToNet();
-        }        
+        }    
+#endif
     }
     private void updateMaxOutTime(long time)
     {
@@ -910,9 +1087,14 @@ public class SQLHelper
     }
     private ActiveButtonBean stringToActiveButton(string value)
     {
+
         ActiveButtonBean button = new ActiveButtonBean();
         if (value != null && value.Length > 0)
         {
+            if (value.Contains(","))
+            {
+                value = value.Split(',')[0];
+            }
             button.adType = long.Parse(value);
         }
         return button;
@@ -1200,7 +1382,10 @@ public class SQLHelper
         date.type = TYPE_GAME;
         date.id = id;
         date.getClean();
-        SQLManager.getIntance().UpdateInto(date);
+     //   if (id != GAME_ID_TOKEN)
+     //   {
+            SQLManager.getIntance().UpdateInto(date);
+     //   }     
 
     }
     private void addGame(long id, string value)
@@ -1211,7 +1396,10 @@ public class SQLHelper
         date.type = TYPE_GAME;
         date.id = id;
         date.getClean();
-        SQLManager.getIntance().InsertDataToSQL(date);
+     //   if (id != GAME_ID_TOKEN) {
+            SQLManager.getIntance().InsertDataToSQL(date);
+    //    }
+       
 
     }
 
@@ -1242,23 +1430,8 @@ public class SQLHelper
         mCardListId = id;
     }
 
-    public void updateDropValue(long drop, long value)
-    {
-        if (!mDropDeviceCount.ContainsKey(drop))
-        {
-          //  mDropDeviceCount[drop] = value;
-            addDrop( drop, value);
-            
-        }
-        else
-        {
-            //mDropDeviceCount.Add(drop, value);
-            updateDrop( drop, value);
-        }
-    }
 
-
-    private void updateDrop(long id, long value) {
+    public void updateDrop(long id, long value) {
         string value1 = ""+ value;
         SQLDate date = new SQLDate();
         date.extan = "" + value;
@@ -1268,7 +1441,7 @@ public class SQLHelper
         SQLManager.getIntance().UpdateInto(date);
     }
 
-    private void addDrop(long id, long value)
+    public void addDrop(long id, long value)
     {
         SQLDate date = new SQLDate();
         date.extan = "" + value;

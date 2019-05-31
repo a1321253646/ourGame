@@ -48,12 +48,14 @@ public class DropDeviceDetail
                 continue;
             }
             
-            long count = getCount(fell.minCount, fell.minCount);
-            Debug.Log("DropDeviceDetail fell id" + fell.itemId+" count = "+count);
-            FellObjectBean ob = new FellObjectBean();
-            ob.id = fell.itemId;
-            ob.count = count;
-            list.Add(ob);
+            long count = getCount(fell.minCount, fell.maxcount);
+            if (count > 0) {
+                Debug.Log("DropDeviceDetail fell id" + fell.itemId + " count = " + count);
+                FellObjectBean ob = new FellObjectBean();
+                ob.id = fell.itemId;
+                ob.count = count;
+                list.Add(ob);
+            }
         }
         if (list.Count == 0)
         {

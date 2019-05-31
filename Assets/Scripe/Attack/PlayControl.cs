@@ -170,7 +170,13 @@ public class PlayControl : Attacker
 
 
     private void getOutLine() {
-        Debug.Log("============ 大年30修bug  ====================getOutLine（）GameManager.getIntance().isHaveOutGet=" + GameManager.getIntance().isHaveOutGet);
+
+        if (SQLHelper.getIntance().mVersionCode < GameManager.mVersionCode) {
+            return;
+        }
+
+
+            Debug.Log("============ 大年30修bug  ====================getOutLine（）GameManager.getIntance().isHaveOutGet=" + GameManager.getIntance().isHaveOutGet);
         if (GameManager.getIntance().isHaveOutGet)
         {
             GameManager.getIntance().isHaveOutGet = false;
@@ -216,6 +222,7 @@ public class PlayControl : Attacker
         mFightManager.dieOrWin(false, false);
     }
     void winEnd(int status) {
+        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>winEnd<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         isWinEnd = true;
         setStatus(Attacker.PLAY_STATUS_RUN);
         Run();
@@ -231,6 +238,10 @@ public class PlayControl : Attacker
     }
 
     void fightEcent(int status) {
+        if (mAttackerTargets == null || mAttackerTargets.Count < 1) {
+            setStatus(Attacker.PLAY_STATUS_RUN);
+            mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
+        }
         if (status == ActionFrameBean.ACTION_ATTACK) {
             mCardManager.playerAction();
             mFightManager.attackerAction(id);
@@ -364,12 +375,12 @@ public class PlayControl : Attacker
         Dictionary<long, long>.KeyCollection keys= samsaras.Keys;
         foreach (long key in keys) {
             long level = BaseDateHelper.decodeLong(samsaras[key]) ;
-//            Debug.Log("level = " + level);
+//      
             if(level != 0) {
                long index = SkillIndexUtil.getIntance().getSamIndexBySamId(false, key);
-              // mAllAttributePre.delete(index);
-                
-               SamsaraJsonBean sam=  JsonUtils.getIntance().getSamsaraInfoById(key);
+                // mAllAttributePre.delete(index);
+                Debug.Log("key = " + key);
+                SamsaraJsonBean sam=  JsonUtils.getIntance().getSamsaraInfoById(key);
                List<SamsaraValueBean> beanValue = sam.levelList[level];
                 foreach (SamsaraValueBean date in beanValue) {
                     if (date.type > 500003 && mSkillManager.addLunhuiKill(date.type,this, index)) {
@@ -412,7 +423,7 @@ public class PlayControl : Attacker
                         mLunhuiAttribute.attackSpeed += date.value;
                     }
                     else if (date.type == 400001) {
-                        mSkillManager.lunhuiHurtPre.AddFloat(index,1 + (float)date.value / 10000);
+                        mSkillManager.lunhuiHurtPre.AddFloat(index,1 + date.value / 10000);
                     }
                     else if (date.type == 400002)
                     {
@@ -451,12 +462,12 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 400007)
                     {
-                        mSkillManager.lunhuiCardHurtPre.AddFloat(index, 1 + (float)date.value / 10000);
+                        mSkillManager.lunhuiCardHurtPre.AddFloat(index, 1 + date.value / 10000);
                     }
                     else if (date.type == 400008)
                     {
                         
-                        mSkillManager.lunhuiDownCardCost += date.value;
+                        mSkillManager.lunhuiDownCardCost +=(long) date.value;
                     }
                     else if (date.type == 400012)
                     {
@@ -464,16 +475,16 @@ public class PlayControl : Attacker
                     }
                     else if (date.type == 500001)
                     {
-                        GameManager.getIntance().mLunhuiOnlineGet.AddFloat(index,1 + ((float)date.value / 10000));
+                        GameManager.getIntance().mLunhuiOnlineGet.AddFloat(index,1 + (date.value / 10000));
    
                     }
                     else if (date.type == 500002)
                     {
-                        GameManager.getIntance().mLunhuiOutlineGet.AddFloat(index, 1 + ((float)date.value / 10000));
+                        GameManager.getIntance().mLunhuiOutlineGet.AddFloat(index, 1 + date.value / 10000);
                     }
                     else if (date.type == 500003)
                     {
-                        GameManager.getIntance().mLunhuiLunhuiGet.AddFloat(index, 1 + ((float)date.value / 10000));
+                        GameManager.getIntance().mLunhuiLunhuiGet.AddFloat(index, 1 + date.value / 10000);
                     }
                    
                 }  
@@ -655,6 +666,28 @@ public class PlayControl : Attacker
         mTime += Time.deltaTime;
 
         //        Debug.Log(" isWin  ="+ isWin);
+
+        if (GameManager.getIntance().isEnd) {
+            if (isWin) {
+                if (!isWinEnd)
+                {
+                    if (getStatus() != PLAY_STATUS_WIN)
+                    {
+                        setStatus(PLAY_STATUS_WIN);
+                        return;
+                    }
+                }
+                else {
+                    if (getStatus() != PLAY_STATUS_RUN)
+                    {
+                        setStatus(PLAY_STATUS_RUN);
+                        return;
+                    }
+                }
+            }
+        }
+
+
         if (isWin)
         {
             if (GameManager.getIntance().isGuide) {
@@ -697,6 +730,9 @@ public class PlayControl : Attacker
                 mBackManager.move();
             }
         }
+        if (getStatus() == Attacker.PLAY_STATUS_RUN && !mBackManager.isRun && !isStart) {
+            mBackManager.move();
+        }
 //        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
         mSkillManager.upDate();
         mAnimalControl.update();
@@ -706,6 +742,7 @@ public class PlayControl : Attacker
     private bool isWinEnd = false;
     public void win()
     {
+        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>win<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         isWin = true;
         mBackManager.stop();
         setStatus(Attacker.PLAY_STATUS_WIN);
@@ -726,6 +763,7 @@ public class PlayControl : Attacker
 
     void winrun(){
         //      Debug.Log(" run ");
+  //      Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>run<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         if (isWinEnd || isStart) {
             transform.Translate(Vector2.right * (JsonUtils.getIntance().getConfigValueForId(100057) * Time.deltaTime));
         }

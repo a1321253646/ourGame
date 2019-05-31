@@ -26,7 +26,6 @@ public class FightManager{
         }
         mAliveActtackers.Clear();
 
-
     }
 
     public bool isEmptyEnemy(){
@@ -63,8 +62,32 @@ public class FightManager{
 		}
 	}
 	public void unRegisterAttacker(Attacker attcker){
+        if (attcker.id == -1 || mAliveActtackers.Count < 1)
+        {
+            Debug.Log("unRegisterAttacker:this attcker is not register");
+            return;
+        }
+        foreach (Attacker tmp in mAliveActtackers.Values)
+        {
+            if (tmp.mAttackerTargets != null && tmp.mAttackerTargets.Count > 0)
+            {
+                int index = tmp.mAttackerTargets.IndexOf(attcker);
+                if (index >= 0)
+                {
+                    tmp.mAttackerTargets.RemoveAt(index);
+                }
+            }
+        }
+        mAliveActtackers.Remove(attcker.id);
 
-        if(attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
+        if (attcker is EnemyBase)
+        {
+            mLocalManager.EnemyDeal(attcker);
+
+        }
+
+
+        if (attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
             GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
             GameManager.getIntance ().mHeroIsAlive = false;
             GameManager.getIntance().isEnd = true;
@@ -100,35 +123,13 @@ public class FightManager{
 
             //return;
         }
-        if (attcker.id == -1 || mAliveActtackers.Count < 1)
-        {
-            Debug.Log("unRegisterAttacker:this attcker is not register");
-            return;
-        }
-
-        foreach (Attacker tmp in mAliveActtackers.Values)
-        {
-            if (tmp.mAttackerTargets != null && tmp.mAttackerTargets.Count > 0)
-            {
-                int index = tmp.mAttackerTargets.IndexOf(attcker);
-                if (index >= 0)
-                {
-                    tmp.mAttackerTargets.RemoveAt(index);
-                }
-            }
-        }
-        mAliveActtackers.Remove(attcker.id);
-        if (attcker is EnemyBase) {
 
 
-            GameManager.getIntance ().enemyDeal (attcker);
-            mLocalManager.EnemyDeal(attcker);
-
-        }
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_BOSS)
         {
-
+            GameManager.getIntance().addPet();
             GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>BossCardManager>().disShow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) == 0)
             {
                 GameManager.getIntance().mCurrentLevel = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100019) + 1) ;
@@ -149,19 +150,26 @@ public class FightManager{
                 }
                 SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
             }
+            if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) == 1000) {
+                GameObject.Find("lunhui").GetComponentInChildren<SamsaraManage>().addLastItem();
+            }
 
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>updateGameLevel<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             float mix = BaseDateHelper.decodeLong(SQLHelper.getIntance().isCanLunhui);
             if (mix == -1)
             {
                 mix = 1 + JsonUtils.getIntance().getConfigValueForId(100017);
             }
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>isCanLunhui<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             if (BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) >= (long)mix)
             {
                 GameManager.getIntance().uiManager.setLunhuiPointShow(1);
             }
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setLunhuiPointShow<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             LevelManager level = GameObject.Find("Manager").GetComponent<LevelManager>();
             GameManager.getIntance().isEnd = true;
             GameObject.Find("Manager").GetComponent<LevelManager>().getBackManager().stop();
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>getBackManager().stop()<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             foreach (Attacker a in mAliveActtackers.Values)
             {
                 if (a is PlayControl)
@@ -170,10 +178,17 @@ public class FightManager{
                 }
                 ((EnemyBase)a).endDie();
             }
+           // Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>((EnemyBase)a).endDie();<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             level.mPlayerControl.win();
+          //  Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>win<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
             GameManager.getIntance().mHeroIsAlive = true;
 
             // return;
+        }
+        if (attcker is EnemyBase)
+        {
+            GameManager.getIntance().enemyDeal(attcker);
+
         }
 
     }

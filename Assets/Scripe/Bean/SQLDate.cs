@@ -22,6 +22,8 @@ public class SQLDate
     public long goodId = SQLDate.DEFAULT_GOOD_ID;
     public long goodType = SQLDate.GOOD_TYPE_NOGOOD;
     public long isClean = 1;// 1为清除，2为不清除
+    public long isNet = 1;// 1为清除，2为不清除
+    public long isDelete = 1;// 1为清除，2为不清除
     public void getClean() {
         isClean = SQLDate.CLEAR;
         if (type == SQLHelper.TYPE_GAME)
@@ -34,14 +36,17 @@ public class SQLDate
                id == SQLHelper.GAME_ID_FRIST_START ||
                id == SQLHelper.GAME_ID_IS_UPDATE ||
                id == SQLHelper.GAME_ID_IS_VOICE||
+               id == SQLHelper.GAME_ID_NET_LEVEL ||
                id == SQLHelper.GAME_ID_PLAYER_NAME ||
                id == SQLHelper.GAME_ID_VERSION_CODE ||
                id == SQLHelper.GAME_ID_MAX_TIME ||
                id == SQLHelper.GAME_ID_PLAYER_MAX_LEVEL ||
+               id == SQLHelper.GAME_ID_GOOD_MAXID ||
                id == SQLHelper.GAME_ID_SETTING_CLOSED_YUEQIANG ||
                id == SQLHelper.GAME_ID_SETTING_CLOSED_CHUANGYE ||
                id == SQLHelper.GAME_ID_CAN_LUNHUI ||
                id == SQLHelper.GAME_ID_TARGET_SPEED ||
+               id == SQLHelper.GAME_ID_TOKEN ||
                id == SQLHelper.GAME_ID_HAD_LUNHUI)
             {
                 isClean = SQLDate.CLEAR_NO;
@@ -57,6 +62,6 @@ public class SQLDate
     }
 
     public string toString() {
-        return "type = " + type + " id =" + id + " extan=" + extan;
+        return "type = " + type + " id =" + id + " extan=" + extan+" sqlid="+ goodId+ " sqltype= "+ goodType;
     }
 }

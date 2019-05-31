@@ -92,7 +92,7 @@ public class CardShowControl : UiControlBase
             {
                 if (bean.type == 500005)
                 {
-                    value = bean.value;
+                    value = (long)bean.value;
                     break;
                 }
             }

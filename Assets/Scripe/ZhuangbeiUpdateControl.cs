@@ -56,16 +56,32 @@ public class ZhuangbeiUpdateControl : MonoBehaviour {
                             break;
                         }
                         else {
-                            long level2 = getLevel(list2[i]);
-                            if (level1 >= level2)
+                            if (a2.stars > a1.stars)
+                            {
+                                continue;
+                            }
+                            else if (a2.stars < a1.stars)
                             {
                                 list2.Insert(i, b);
                                 isAdded = true;
                                 break;
                             }
-                            else {
-                                continue;
+                            else{
+
+                                long level2 = getLevel(list2[i]);
+                                if (level1 >= level2)
+                                {
+                                    list2.Insert(i, b);
+                                    isAdded = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    continue;
+                                }
                             }
+
+
                         }
                     }
                     if (!isAdded) {

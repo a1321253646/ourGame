@@ -40,14 +40,16 @@ public class Enemy
         List<FellObjectBean> list = new List<FellObjectBean>();
         List<FellObjectBean> tmp;
         fellList = getFellList();
-        foreach(long id  in fellList){
+        foreach(long id  in fellList){        
             if (id == 0) {
                 continue;
             }
+   //         Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>掉落器ID=" + id);
             tmp = JsonUtils.getIntance().getDropDevoiceByID(id).fell();
             if (tmp != null) {
                 list.AddRange(tmp);
             }
+    //        Debug.Log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<掉落器ID=" + id);
         }
         if (list.Count == 0)
         {

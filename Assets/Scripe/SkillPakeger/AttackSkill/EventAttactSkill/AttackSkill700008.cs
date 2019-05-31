@@ -14,7 +14,7 @@ public class AttackSkill700008 : EventAttackSkill
             count1 = (int)mSkillJson.getSpecialParameterValue()[0] ;
             count2 = mSkillJson.getSpecialParameterValue()[1] / 100;
         }
-        bool isAction = randomResult(100, count1, true);
+        bool isAction = randomResult(100, count1, false);
         if (isAction) {
             mManager.getAttacker().AddBlood(mManager.getAttacker().mAttribute.maxBloodVolume * count2);
         }

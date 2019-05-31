@@ -59,8 +59,8 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
 
-    //    GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
-    //    GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
+        GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
+        GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
 
         creaPlay(yBase);
         //  creatEnemyFactory(cardTop);
@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour {
     public void reset()
     {
         ActiveListControl a = GameObject.Find("active_button_list").GetComponent<ActiveListControl>();
-        a.removeVocation(false);
+      //  a.removeVocation(false);
         GameManager.getIntance().reStart();
         starBoss = false;
         if (mFightManager.mEnemyFactory != null)
@@ -122,22 +122,30 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 1;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
-      //  if (GameManager.getIntance().mTestSpeed != -1)
-      //  {
-      //      Time.timeScale = GameManager.getIntance().mTestSpeed;
-      //  }
-        SkillManage.getIntance().reset();
-
-        List<ActiveButtonBean> list = SQLHelper.getIntance().getActiveList();
-
-        for (int i = 0; i < list.Count; i++)
-        {
-            if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION)
+            if (GameManager.getIntance().mTestSpeed != -1)
             {
-                a.showVocation(false);
+                Time.timeScale = GameManager.getIntance().mTestSpeed;
             }
+        Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
+        " level==" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "SQLHelper.getIntance().mVocationCount = " + SQLHelper.getIntance().mVocationCount +
+        "  level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount=" +
+        (BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount));
+        SkillManage.getIntance().reset();
+        if (BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount)
+        {
+            a.showVocation(false);
         }
+        /*  List<ActiveButtonBean> list = SQLHelper.getIntance().getActiveList();
+
+          for (int i = 0; i < list.Count; i++)
+          {
+              if (list[i].buttonType == ActiveButtonControl.ACTIVE_BUTTON_TYPE_VOCATION)
+              {
+                  a.showVocation(false);
+              }
+          }*/
         isWudingTime = 0;
+        GameObject.Find("advert").GetComponent<AdUiControl>().update();
     }
     private float isWudingTime = 0;
     void Start () {
@@ -233,14 +241,14 @@ public class LevelManager : MonoBehaviour {
 
         if (GameManager.getIntance().isError) {
             Time.timeScale = 0;
-            NetServer.getIntance().getLocl();
+            NetServer.getIntance().getLocl(SQLHelper.getIntance().mToken, false,false);
             SQLManager.getIntance().saveLocal(NetServer.getIntance().getLocal());
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("检测到您本地时间出现异常，已还原回服务器最新记录，请将时间修改为当前时间重新开始游戏", LuiHuiTips.TYPPE_ERROR_DATE);
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
         }
-        if (!GameManager.getIntance().isHaveNoteUpdate && GameManager.mAPKVersionCode < GameManager.getIntance().mNewAPKVersionCode) {
+ /*       if (!GameManager.getIntance().isHaveNoteUpdate && GameManager.mAPKVersionCode < GameManager.getIntance().mNewAPKVersionCode) {
             NetServer.getIntance().getUpdateInfoRun();
-        }
+        }*/
         if (GameManager.getIntance().isHaveNoteUpdate && GameManager.getIntance().mUpdateStr != null) {
             string dec = GameManager.getIntance().mUpdateStr;
             GameManager.getIntance().mUpdateStr = null;

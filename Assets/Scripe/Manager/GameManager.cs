@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public class GameManager
 {
+    public static string CHANNEL_CODE ="base";
+
 	public long mCurrentLevel = BaseDateHelper.encodeLong( 1);
 	public long mHeroLv = BaseDateHelper.encodeLong(1);
 	public float mCurrentGas = 0;
@@ -55,9 +57,11 @@ public class GameManager
     public static bool isTest = false;
 
 
-    public static long mVersionCode =3900;
-    public static long mAPKVersionCode = 44;
+    public static long mVersionCode =5300;
+    public static long mAPKVersionCode = 53;
+    public static long mSqlVersion = 1;
     public  long mNewAPKVersionCode = -1;
+    public  long mCurrentSqlVersion = 0;
     public  long mIsMust = -1;//1为必须，0为提醒
     public string mUpdateStr = null;
     public bool isHaveNoteUpdate = false;
@@ -72,21 +76,21 @@ public class GameManager
 
     public string mGameErrorString = "";
 
-    // public long mTestSpeed = -1;
+    public long mTestSpeed = -1;
     public bool isOpenStop = false;
     public bool isLunhuiWudiIng = false;
     public static bool isTestVersion = false; 
 
     public float getOnlineGet() {
-        return mLunhuiOnlineGet.getValue() * mCardOnlineGet.getValue();
+        return (float)(mLunhuiOnlineGet.getValue() * mCardOnlineGet.getValue());
     }
     public float getOutlineGet()
     {
-        return mLunhuiOutlineGet.getValue() * mCardOutlineGet.getValue();
+        return (float)(mLunhuiOutlineGet.getValue() * mCardOutlineGet.getValue());
     }
     public float getLunhuiGet()
     {
-        return mLunhuiLunhuiGet.getValue() * mCardLunhuiGet.getValue();
+        return (float)(mLunhuiLunhuiGet.getValue() * mCardLunhuiGet.getValue());
     }
     private GameManager(){
     }
@@ -104,7 +108,6 @@ public class GameManager
         mAliveEnemy = 0;
         getLevelData();
         init(null);
-        
         uiManager.reset();
     }
 
@@ -128,7 +131,6 @@ public class GameManager
         long old = 0;
         if (!isInit)
         {
-            
             isInit = true;
             mCurrentLevel = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100010)) ;
             if (mCurrentLevel == BaseDateHelper.encodeLong(-1)) {
@@ -161,7 +163,7 @@ public class GameManager
             }
 
             if (JsonUtils.getIntance().getConfigValueForId(100056) == 1) {
-                mCurrentCrystal = BigNumber.getBigNumForString("24E+22");
+                mCurrentCrystal = BigNumber.getBigNumForString("24E+100");
             }
            
 
@@ -210,32 +212,40 @@ public class GameManager
 
     public void updateBossGase(bool isUpdateUi) {
         Level level = JsonUtils.getIntance().getLevelData();
+        Debug.Log("level =" + level);
         startBossGas = level.boss_gas;
+        Debug.Log("startBossGas =" + startBossGas);
         long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(12);
         long value = 0;
-
+        Debug.Log("luihuiLevel ="+ luihuiLevel);
         if (luihuiLevel != BaseDateHelper.encodeLong(0))
         {
            
             List<SamsaraValueBean> list = JsonUtils.getIntance().getSamsaraVulueInfoByIdAndLevel(12, BaseDateHelper.decodeLong(luihuiLevel));
+            Debug.Log("BaseDateHelper.decodeLong(luihuiLevel) =" + BaseDateHelper.decodeLong(luihuiLevel));
             foreach (SamsaraValueBean bean in list)
             {
                 if (bean.type == 500010)
                 {
-                    value = bean.value;
+                    value = (long)bean.value;
                     break;
                 }
             }
+            Debug.Log("bean.type == 500010");
             if (value != 0)
             {
                 startBossGas = startBossGas - value;
                 if (startBossGas < 0) {
                     startBossGas = 0;
                 }
+                Debug.Log("startBossGas < 0");
             }
+           
         }
         if (isUpdateUi) {
+            Debug.Log("isUpdateUi");
             uiManager.addGas();
+            Debug.Log("uiManager.addGas();");
         }
 
     }
@@ -287,7 +297,7 @@ public class GameManager
 	public void heroUp(){
         GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_START_HERO_UP);
         mHeroLv  = BaseDateHelper.encodeLong(BaseDateHelper.decodeLong(mHeroLv) + 1);
-        
+//        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>英雄显示等级=" + BaseDateHelper.decodeLong(mHeroLv) + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         mCurrentCrystal =BigNumber.minus(mCurrentCrystal, upLevelCrystal) ;
        
         getLevelData ();
@@ -306,8 +316,7 @@ public class GameManager
 	public void startBoss(){
 		mStartBoss = true;
 	}
-
-	public void enemyDeal(Attacker enemy){
+    public void enemyDeal(Attacker enemy){
         if (isLuihuiIng) {
             return;
         }
@@ -340,7 +349,10 @@ public class GameManager
                 {
                     foreach (FellObjectBean bean in list)
                     {
-                        Debug.Log("怪物死亡掉落 " + bean.id);
+                        if (bean.count < 1) {
+                            continue;
+                        }
+                 //       Debug.Log("怪物死亡掉落 " + bean.id);
                         BackpackManager.getIntance().addGoods(bean.id, (int)bean.count);
                         string path = InventoryHalper.getIntance().getIcon(bean.id);
                         showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.GOOD_DIAOLUO_TYPE, path, 0, bean.id);
@@ -350,34 +362,7 @@ public class GameManager
             }
             if (enemy.mAttackType == Attacker.ATTACK_TYPE_BOSS)
             {
-                if (JsonUtils.getIntance().isHavePet())
-                {
-                    List<PetJsonBean> jsons = JsonUtils.getIntance().getPet();
-                    foreach (PetJsonBean j in jsons)
-                    {
-                        if (j.activateLevel == BaseDateHelper.decodeLong(mCurrentLevel))
-                        {
-                            List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
-                            bool isHave = false;
-                            foreach (PlayerBackpackBean p in list)
-                            {
-                                if (p.goodId == j.id)
-                                {
-                                    isHave = true;
-                                    break;
-                                }
-                            }
-                            if (!isHave)
-                            {
-                                InventoryHalper.getIntance().addInventory(j.id, 1);
-                                GameObject.Find("hero").GetComponent<HeroRoleControl>().showPetTable();
-                                GameObject.Find("Manager").GetComponent<PetManager>().addPet(j.id);
-                                uiManager.setRolePointShow(1);
-                            }
-                            break;
-                        }
-                    }
-                }
+
             }
             else {
                 playAd();
@@ -385,6 +370,38 @@ public class GameManager
         }
         showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", mCurrentGas);
     }
+
+    public void addPet() {
+        if (JsonUtils.getIntance().isHavePet())
+        {
+            List<PetJsonBean> jsons = JsonUtils.getIntance().getPet();
+            foreach (PetJsonBean j in jsons)
+            {
+                if (j.activateLevel == BaseDateHelper.decodeLong(mCurrentLevel))
+                {
+                    List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
+                    bool isHave = false;
+                    foreach (PlayerBackpackBean p in list)
+                    {
+                        if (p.goodId == j.id)
+                        {
+                            isHave = true;
+                            break;
+                        }
+                    }
+                    if (!isHave)
+                    {
+                        InventoryHalper.getIntance().addInventory(j.id, 1);
+                        GameObject.Find("hero").GetComponent<HeroRoleControl>().showPetTable();
+                        GameObject.Find("Manager").GetComponent<PetManager>().addPet(j.id);
+                        uiManager.setRolePointShow(1);
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
     public void updateGasAndCrystal() {
         SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
         if (uiManager != null) {
