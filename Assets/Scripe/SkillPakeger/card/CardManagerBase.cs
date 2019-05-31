@@ -264,7 +264,7 @@ public abstract class CardManagerBase : MonoBehaviour {
         if (type == GIVEUP_CARD_ALL)
         {
             count = mCardIdList.Count;
-            for (int i = 0; i < count-1; i++) {
+            for (int i = 0; i < count; i++) {
                 giveUpCardDeal(0);
                 mCardIdList.RemoveAt(0);
             }
