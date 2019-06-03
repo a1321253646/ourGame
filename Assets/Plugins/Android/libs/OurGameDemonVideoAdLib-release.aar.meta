@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c58a9ea9409c00e409871ad042683652
-timeCreated: 1544463632
+guid: 6f9bce253298db7438e05e855e649482
+timeCreated: 1559440996
 licenseType: Pro
 PluginImporter:
   externalObjects: {}
@@ -14,8 +14,7 @@ PluginImporter:
       Android: Android
     second:
       enabled: 1
-      settings:
-        CPU: ARMv7
+      settings: {}
   - first:
       Any: 
     second:
