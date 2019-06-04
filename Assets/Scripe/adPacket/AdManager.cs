@@ -118,8 +118,8 @@ public class AdManager : MonoBehaviour
 
     public bool isReadyToShow()
     {
-        return false;
-       // return isReadyShowInersAd();
+       // return false;
+        return isReadyShowInersAd();
     }
 
     internal void playAd()
