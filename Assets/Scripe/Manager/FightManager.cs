@@ -332,8 +332,8 @@ public class FightManager{
         }
          str += "\n================attckerOutLine  离线衰减=" + JsonUtils.getIntance().getConfigValueForId(100048);
          str += "\n================attckerOutLine  计算衰减后=" + outlineGet.toString();
-         Text text = GameObject.Find("uid_test").GetComponent<Text>();
-        text.text = str;
+         //Text text = GameObject.Find("uid_test").GetComponent<Text>();
+        //text.text = str;
        return outlineGet;
 
 
