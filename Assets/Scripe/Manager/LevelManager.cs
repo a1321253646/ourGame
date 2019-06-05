@@ -190,6 +190,10 @@ public class LevelManager : MonoBehaviour {
                 {
                     BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "", "" + outGet.toStringWithUnit());
                 }
+                else
+                {
+                    GameManager.getIntance().isHaveOutGet = true;
+                }
                 Debug.Log("============ 大年30修bug  ====================OnApplicationPause 返回屏幕 " );
 
                 SQLHelper.getIntance().updateOutTime();
