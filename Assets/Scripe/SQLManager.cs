@@ -352,6 +352,7 @@ public class SQLManager
                 SqliteCommand command = mConnet.CreateCommand();
                 command.CommandText = "select * from  " + tabName + " WHERE   TYPE=" + SQLHelper.TYPE_ENCODE_VERSION ;
                 this.reader = command.ExecuteReader();
+                bool addIsNet = true;
                 while (this.reader.Read())
                 {
                     GameManager.getIntance().mCurrentSqlVersion = reader.GetInt64(reader.GetOrdinal("ID"));
@@ -359,39 +360,48 @@ public class SQLManager
                     Debug.Log("this.reader.Read()");
                     break;
                 }
+                reader.Close();
                 Debug.Log("end GameManager.getIntance().mCurrentSqlVersion =="+ GameManager.getIntance().mCurrentSqlVersion);
-                if (GameManager.getIntance().mCurrentSqlVersion < 1) {
-                    GameManager.getIntance().mCurrentSqlVersion = 1;
+                try
+                {
+                    if (GameManager.getIntance().mCurrentSqlVersion < 1)
+                    {
+                        GameManager.getIntance().mCurrentSqlVersion = 1;
 
-                    SqliteCommand command1 = mConnet.CreateCommand();
-                    command1.CommandText = "alter table " + tabName + " add ISNET int default 1 ";
-                    reader = command1.ExecuteReader();
-                    reader.Close();
+                        SqliteCommand command1 = mConnet.CreateCommand();
+                        command1.CommandText = "alter table " + tabName + " add ISNET int default 1 ";
+                        reader = command1.ExecuteReader();
+                        reader.Close();
 
-                    SqliteCommand command2 = mConnet.CreateCommand();
-                    command2.CommandText = "alter table " + tabName + " add ISDELETE int default 1";
-                    reader = command2.ExecuteReader();
-                    reader.Close();
+                        SqliteCommand command2 = mConnet.CreateCommand();
+                        command2.CommandText = "alter table " + tabName + " add ISDELETE int default 1";
+                        reader = command2.ExecuteReader();
+                        reader.Close();
 
-                    SqliteCommand command3 = mConnet.CreateCommand();
-                    string commandString = "INSERT INTO " + tabName + " VALUES (";
-                    SQLDate data = new SQLDate();
-                    data.type = SQLHelper.TYPE_ENCODE_VERSION;
-                    data.id = 1;
-                    data.isClean = 2;
-                    commandString += data.type;
-                    commandString += "," + data.id;
-                    commandString += "," + "'" + data.extan + "'";
-                    commandString += "," + data.goodId;
-                    commandString += "," + data.goodType;
-                    commandString += "," + data.isClean;
-                    commandString += "," + data.isNet;
-                    commandString += "," + data.isDelete + ")";
-                    command3.CommandText = commandString;
-                    reader = command3.ExecuteReader();
-                    reader.Close();
+                        SqliteCommand command3 = mConnet.CreateCommand();
+                        string commandString = "INSERT INTO " + tabName + " VALUES (";
+                        SQLDate data = new SQLDate();
+                        data.type = SQLHelper.TYPE_ENCODE_VERSION;
+                        data.id = 1;
+                        data.isClean = 2;
+                        commandString += data.type;
+                        commandString += "," + data.id;
+                        commandString += "," + "'" + data.extan + "'";
+                        commandString += "," + data.goodId;
+                        commandString += "," + data.goodType;
+                        commandString += "," + data.isClean;
+                        commandString += "," + data.isNet;
+                        commandString += "," + data.isDelete + ")";
+                        command3.CommandText = commandString;
+                        reader = command3.ExecuteReader();
+                        reader.Close();
 
+                    }
                 }
+                catch (Exception e) {
+                    Debug.Log(e.Message);
+                }
+
 
             }
         }
@@ -451,6 +461,9 @@ public class SQLManager
     /// <param name="queryString"></param>
     public void ExecuteSQLCommand(string queryString)
     {
+        if (GameManager.getIntance().isQuiteGame) {
+            return;
+        }
         if (mConnet == null) {
             mConnet = new SqliteConnection(getSqlPath());
             mConnet.Open();
@@ -542,6 +555,7 @@ public class SQLManager
 
     public void InsertDataToSQL(SQLDate data, bool isNow,bool isUpToNet)
     {
+
         if (!isUpToNet) {
             data.isNet = 2;
         }
@@ -718,6 +732,9 @@ public class SQLManager
 
     public void updateToNet() {
         Debug.Log("更新后台数据!");
+        if (GameManager.getIntance().isQuiteGame) {
+            return;
+        }
         Thread th1 = new Thread(() =>
         {
             isUpdateIng = true;

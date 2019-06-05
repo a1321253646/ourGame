@@ -115,7 +115,7 @@ public class LuiHuiTips : UiControlBase
     public void showUi(string str,int type) {
         mType = type;
         mDes.text = str;
-        if (type == TYPPE_RETURN_START || type == TYPPE_ERROR_DATE|| type == TYPPE_EMPTY_TOKEN) 
+        if (type == TYPPE_RETURN_START  || type == TYPPE_EMPTY_TOKEN)
         {
             mSure.transform.localScale = new Vector2(1, 1);
             buttonList.transform.localScale = new Vector2(0, 0);
@@ -138,7 +138,8 @@ public class LuiHuiTips : UiControlBase
                 mTimeScale = Time.timeScale;
                 Time.timeScale = 0;
             }
-            else {
+            else
+            {
                 mSure.transform.localScale = new Vector2(0, 0);
                 buttonList.transform.localScale = new Vector2(1, 1);
                 mLeftDec.text = "暂不升级";
@@ -157,8 +158,16 @@ public class LuiHuiTips : UiControlBase
             mRightDec.text = "创建新号";
             mTimeScale = Time.timeScale;
             Time.timeScale = 0;
-            
+
         }
+        else if ( type == TYPPE_ERROR_DATE) {
+            Time.timeScale = 0;
+            GameManager.getIntance().isQuiteGame = true;
+            mSure.transform.localScale = new Vector2(1, 1);
+            buttonList.transform.localScale = new Vector2(0, 0);
+            mButtonDec.text = "确定";
+        }
+    
         mDes.alignment = TextAnchor.UpperLeft;
     }
     VocationDecBean mVocationBean = null;
@@ -407,11 +416,13 @@ public class LuiHuiTips : UiControlBase
 
         mSure.onClick.AddListener(() =>
         {
-            if (mType == TYPPE_LUIHUI )
+            if (mType == TYPPE_LUIHUI)
             {
 
                 sure();
-            }else if (mType == TYPPE_LUIHUI_NEED) {
+            }
+            else if (mType == TYPPE_LUIHUI_NEED)
+            {
                 Time.timeScale = 1;
                 toremoveUi();
                 GameObject.Find("lunhui_tips_back").transform.localScale = new Vector2(0, 0);
@@ -419,12 +430,12 @@ public class LuiHuiTips : UiControlBase
                 {
 
                     SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
-                    sure(mLuiHui,false);
-                    
-                   
+                    sure(mLuiHui, false);
+
+
                 }
             }
-            else if (mType == TYPPE_TIP|| mType == TYPPE_EMPTY_TOKEN)
+            else if (mType == TYPPE_TIP || mType == TYPPE_EMPTY_TOKEN)
             {
                 if (isShowSelf)
                 {

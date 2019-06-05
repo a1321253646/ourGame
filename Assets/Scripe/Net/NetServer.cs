@@ -19,6 +19,7 @@ public class NetServer
 
    //private static string URL_ROOT =  "http://120.79.249.55:8889";
     private static string URL_ROOT = "http://120.79.249.55:8809";
+    //private static string URL_ROOT = "http://120.79.249.55:9008";
 
     public void updateNet(List<SqlNetDate> list) {
         if (GameManager.isTestVersion)
@@ -328,9 +329,7 @@ public class NetServer
                 {
                     
                     SQLManager.getIntance().saveLocal("");
-                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("已经为你清空全部数据，将退出游戏重新开始", LuiHuiTips.TYPPE_ERROR_DATE);
-                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
-                    Time.timeScale = 0;
+                    Application.Quit();
                     return;
                 }
             }
