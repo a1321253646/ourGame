@@ -200,6 +200,9 @@ public class PlayControl : Attacker
                 {
                     BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "", "" + outGet.toStringWithUnit());
                 }
+                else {
+                    GameManager.getIntance().isHaveOutGet = true;
+                }
             }
             Debug.Log("============ 大年30修bug  ==================== updateOutTime getOutLine");
 

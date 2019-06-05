@@ -35,12 +35,14 @@ public class OutLineGetMessage : UiControlBase {
             if (mType == TYPPE_OUT_LINE)
             {
                 toremoveUi();
+                GameManager.getIntance().isHaveOutGet = true;
             }
 
         });
         mClose.onClick.AddListener(() =>
         {
             toremoveUi();
+            GameManager.getIntance().isHaveOutGet = true;
         });
     }
 
