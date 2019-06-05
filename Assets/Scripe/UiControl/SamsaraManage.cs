@@ -77,7 +77,7 @@ public class SamsaraManage : UiControlBase
         }
         mLunhuiValue.text = GameManager.getIntance().mReincarnation.toStringWithUnit();
         mListControl.isEnableLavelUp();
-        if (SQLHelper.getIntance().isHadLunhui == 1 || GameManager.getIntance().mCurrentLevel > 0)
+        if (SQLHelper.getIntance().isHadLunhui == 1 || BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel) > 0)
         {
             mQiangzhiLunhui.transform.localScale = new Vector2(1, 1);
         }

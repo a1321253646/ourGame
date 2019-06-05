@@ -67,7 +67,7 @@ public class NetServer
             }
             
         };
-        Debug.Log("NetServer  updateNet json = "+ json.ToString());
+        Debug.Log(" url = " + json.ToString());
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
      //   dir.Add("Connection", "close");
@@ -80,7 +80,7 @@ public class NetServer
 
         if (www.error == null) 
         {
-            Debug.Log("Upload complete! "+ www.text);
+            Debug.Log("url www.text =" + www.text);
             if (www.text != null && www.text.Length > 0)
             {
                 JObject jb = JObject.Parse(www.text);
@@ -164,6 +164,7 @@ public class NetServer
         json.Add("date", array);
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
+        Debug.Log(" url = " + json.ToString());
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
@@ -174,8 +175,8 @@ public class NetServer
         }
         if (www.error == null )
         {
-            Debug.Log("Upload complete! www.text ="+ www.text);
-           
+            Debug.Log("url www.text =" + www.text);
+
             if (www.text != null && www.text.Length > 0 && !www.text.Equals("error"))
             {
                 JObject jb2 = JObject.Parse(www.text);
@@ -251,6 +252,7 @@ public class NetServer
         json.Add("date", array);
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
+        Debug.Log(" url = " + json.ToString());
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
@@ -261,7 +263,7 @@ public class NetServer
         }
         if (www.error == null)
         {
-            Debug.Log("Upload complete! www.text =" + www.text);
+            Debug.Log("url www.text =" + www.text);
 
             if (www.text != null && www.text.Length > 0)
             {
@@ -306,6 +308,7 @@ public class NetServer
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
         //   dir.Add("Connection", "close");
+        Debug.Log(" url = " + json.ToString());
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
         WWW www = new WWW(URL_ROOT + "/ourgame", pData, dir);
@@ -315,7 +318,7 @@ public class NetServer
         }
         if (www.error == null)
         {
-            Debug.Log("Upload complete! www.text =" + www.text);
+            Debug.Log("url www.text =" + www.text);
 
             if (www.text != null && www.text.Length > 0)
             {
@@ -367,6 +370,7 @@ public class NetServer
         json.Add("date", array);
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
+        Debug.Log(" url = " + json.ToString());
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
@@ -377,7 +381,7 @@ public class NetServer
         }
         if (www.error == null)
         {
-            Debug.Log("Upload complete! www.text =" + www.text);
+            Debug.Log("url www.text =" + www.text);
 
             if (www.text != null && www.text.Length > 0)
             {

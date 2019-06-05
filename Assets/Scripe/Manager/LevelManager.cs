@@ -169,10 +169,11 @@ public class LevelManager : MonoBehaviour {
             SQLHelper.getIntance().updateOutTime();
             mOld = TimeUtils.GetTimeStamp();
         }
-        else if(!GameManager.getIntance().isHaveOutGet)
+        else if(GameManager.getIntance().isHaveOutGet)
         {
             if (mOld != -1)
             {
+                GameManager.getIntance().isHaveOutGet = false;
                 long old = TimeUtils.GetTimeStamp() - mOld;
                 long outTime = TimeUtils.getTimeDistanceMin(mOld);
 
