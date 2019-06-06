@@ -93,4 +93,8 @@ public class GameCamera : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
+    void removeAdShow() {
+        GameObject.Find("advert").GetComponentInChildren<AdUiControl>().playIsFinish(true);
+    }
 }

@@ -61,7 +61,7 @@ public class LevelUpLongPress : MonoBehaviour
         }
         else
         {
-            GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
+      //      GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
             if (!GameManager.getIntance().isEnd && GameManager.getIntance().mHeroIsAlive)
             {
                 saveDate();
