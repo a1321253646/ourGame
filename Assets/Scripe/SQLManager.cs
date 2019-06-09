@@ -816,22 +816,6 @@ public class SQLManager
         return true;
     }
 
-
-    public void deleteNetData() {
-        List < SqlNetDate > list = new List<SqlNetDate>();
-        SQLDate date = new SQLDate();
-        SqlNetDate bean = new SqlNetDate();
-        bean.date = date;
-        bean.action = 4;
-        date.type = -1;
-        date.id = -1;
-        date.extan = "0";
-        date.goodId = -1;
-        date.goodType = -1;
-    }
-
-
-
     public void saveLocal(string str) {
         Debug.Log("saveLocal");
         List<SQLDate> list = null;
