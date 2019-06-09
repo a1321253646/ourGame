@@ -15,9 +15,6 @@ public class SQLManager
     public string sqlName;
     public string tabName;
 
-    private string sqlName_old = "local88";
-    private string tabName_old = "local88";
-
     private string sqlName_new = "local891";
     private string tabName_new = "local891";
 
@@ -65,46 +62,7 @@ public class SQLManager
         th1.Start();
         return 0;
     }
-    public static string SQL_NAME_NET_BACK = "_net2";
-    public string getSqlTableName() {
-        return tabName + SQL_NAME_NET_BACK;
-    }
-    public string getSqlSqlName()
-    {
-        return sqlName + SQL_NAME_NET_BACK;
-    }
 
-    public string getSqlNetFilePath()
-    {
-        string path = "";
-#if UNITY_ANDROID
-        path = mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
-#endif
-
-#if UNITY_IOS
-        path = mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
-#endif
-
-#if UNITY_STANDALONE
-        path = mPathRoot + "/Resources/" + this.sqlName;
-#endif
-        return path;
-    }
-
-    public string getSqlNetPath()
-    {
-        string path = "";
-#if UNITY_ANDROID
-        path = "URI=file:" + mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
-#endif
-#if UNITY_IOS 
-        path ="data source=" + mPathRoot + "/" + sqlName + SQL_NAME_NET_BACK;
-#endif
-#if UNITY_STANDALONE
-        path = "data source=" + mPathRoot + "/Resources/" + this.sqlName;
-#endif
-        return path;
-    }
 
     private string getSqlFilePath() {
         string path = "";
@@ -242,89 +200,9 @@ public class SQLManager
         {
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100026);
             creatLocl888Android();
-            sqlName = sqlName_old;
-            tabName = tabName_old;
-            if (File.Exists(getSqlFilePath()))
-            {
-                GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100027);
-                List<SQLDate> list = readAllTableOld();
-
-                sqlName = sqlName_new;
-                tabName = tabName_new;
-
-                List<SQLDate> newList = new List<SQLDate>();
-                int level = -100;
-                Debug.Log("readAllTableOld");
-                if (list != null && list.Count > 0)
-                {
-                    foreach (SQLDate date in list)
-                    {
-                        Debug.Log("type = " + date.type + " id= " + date.id + " extra= " + date.extan);
-
-                        if (date.type == SQLHelper.TYPE_LUNHUI)
-                        {
-                            date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                            date.goodId = SQLDate.DEFAULT_GOOD_ID;
-                            date.isClean = SQLDate.CLEAR_NO;
-                            newList.Add(date);
-                        }
-                        else if (date.type == SQLHelper.TYPE_GAME && date.id == SQLHelper.GAME_ID_LUNHUI)
-                        {
-                            date.goodType = SQLDate.GOOD_TYPE_NOGOOD;
-                            date.goodId = SQLDate.DEFAULT_GOOD_ID;
-                            date.getClean();
-
-                            newList.Add(date);
-                        }
-                        else if (date.type == SQLHelper.TYPE_GAME && date.id == SQLHelper.GAME_ID_LEVEL)
-                        {
-                            level = int.Parse(date.extan);
-                        }
-                    }
-                    if (level != -100 && list.Count > 0)
-                    {
-                        foreach (SQLDate date in newList)
-                        {
-                            if (date.type == SQLHelper.TYPE_GAME && date.id == SQLHelper.GAME_ID_LUNHUI)
-                            {
-                                if (level != -100)
-                                {
-                          //          Debug.Log(" =============== level = " + level);
-                                    BigNumber old = BigNumber.getBigNumForString(date.extan);
-                            //        Debug.Log("=============== old = " + old.toString());
-                                    if (level < 20)
-                                    {
-                                        
-                                        old = BigNumber.add(old, BigNumber.getBigNumForString("2000"));
-                                        date.extan = old.toString();
-                                    }
-                                    else
-                                    {
-                                        
-                                        Level leveldate = JsonUtils.getIntance().getLevelData(level);
-                                        BigNumber big = BigNumber.getBigNumForString(date.extan);
-                              //          Debug.Log("=============== add = " + leveldate.getReincarnation().toString());
-                                        big = BigNumber.add(big, leveldate.getReincarnation());
-                                        date.extan = big.toString();
-                                    }
-                                //    Debug.Log("new = " + date.extan);
-                                }
-                            }
-                            InsertDataToSQL(date, true);
-                        }
-                    }
-                    return 1;
-                }
-                else {
-                    return 3;
-                }
-            }
-            else
-            {
-                sqlName = sqlName_new;
-                tabName = tabName_new;
-                return 3;
-            }
+            sqlName = sqlName_new;
+            tabName = tabName_new;
+            return 3;
         }
         else {
             sqlName = sqlName_new;

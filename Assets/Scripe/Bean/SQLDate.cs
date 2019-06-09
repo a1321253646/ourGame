@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Newtonsoft.Json.Linq;
 
 public class SQLDate
 {
@@ -63,5 +64,16 @@ public class SQLDate
 
     public string toString() {
         return "type = " + type + " id =" + id + " extan=" + extan+" sqlid="+ goodId+ " sqltype= "+ goodType;
+    }
+    public JObject toJsonObject()
+    {
+        JObject jb = new JObject();
+        jb.Add("type", type);
+        jb.Add("id", id);
+        jb.Add("goodId", goodId);
+        jb.Add("goodtype",goodType);
+        jb.Add("isclean",isClean);
+        jb.Add("extra",extan);
+        return jb;
     }
 }
