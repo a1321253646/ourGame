@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 
 public class JsonUtils
 {
@@ -664,8 +665,17 @@ public class JsonUtils
 
     private void readVocation()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(vocationFile));
-        mVocationDate = arrdata.ToObject<List<VocationDecBean>>();
+        try {
+            var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(vocationFile));
+            mVocationDate = arrdata.ToObject<List<VocationDecBean>>();
+        }
+        catch(Exception e) {
+            Debug.Log("readVocation e StackTrace= " + e.StackTrace);
+            Debug.Log("readVocation e Message= " + e.Message);
+            Debug.Log("readVocation e Message= " + e.ToString());
+
+        }
+
 
     }
     private void readString()
