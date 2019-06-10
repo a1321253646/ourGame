@@ -2,8 +2,8 @@
   {
     "productName": "卡牌勇士的世界",
     "bundleIdentifier": "com.mili.kpysdsj.m4399",
-    "bundleVersion": "1.5.0",
-    "bundleVersionCode": 5,
+    "bundleVersion": "1.6.0",
+    "bundleVersionCode": 6,
     "scriptingDefine": "5cd62f884ca3570403000919",
     "apkName": 4399,
     "defaultIcon": "icon\\512",
