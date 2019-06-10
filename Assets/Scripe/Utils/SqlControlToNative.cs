@@ -9,6 +9,7 @@ public class SqlControlToNative
 
     public void createTable(string sqlName, string tableName)
     {
+        Debug.Log(" mysql createTable");
         string[] param = new string[2];
         param[0] = sqlName;
         param[1] = tableName;
@@ -17,16 +18,19 @@ public class SqlControlToNative
 
     public long getLevel()
     {
+        Debug.Log(" mysql getLevel");
         return callNativegetLong("getLevel", null);
     }
 
     public long getPlayVocation()
     {
+        Debug.Log(" mysql getPlayVocation");
         return callNativegetLong("getPlayVocation", null);
     }
 
     public void onUodateInfoByTypeAndId(SQLDate date)
     {
+        Debug.Log(" mysql onUodateInfoByTypeAndId");
         string str = sqldateToJsonStr(date);
         string[] param = new string[1];
         param[0] = str;
@@ -35,21 +39,25 @@ public class SqlControlToNative
 
     public void alterTableForIsNetAndIsDelete()
     {
+        Debug.Log(" mysql alterTableForIsNetAndIsDelete");
         callNativegetVoid("alterTableForIsNetAndIsDelete", null);
     }
 
     public bool isUpdate()
     {
+        Debug.Log(" mysql isUpdate");
         return callNativegetBool("isUpdate", null);
     }
 
     public void clearAllDelete()
     {
+        Debug.Log(" mysql clearAllDelete");
         callNativegetVoid("clearAllDelete", null);
     }
 
     public void deleteGuide(string id)
     {
+        Debug.Log(" mysql deleteGuide");
         string[] param = new string[1];
         param[0] = id;
         callNativegetVoid("deleteGuide", param);
@@ -57,6 +65,7 @@ public class SqlControlToNative
 
     public void inSertDate(SQLDate date)
     {
+        Debug.Log(" mysql inSertDate");
         string str = sqldateToJsonStr(date);
         string[] param = new string[1];
         param[0] = str;
@@ -65,6 +74,7 @@ public class SqlControlToNative
 
     public void changeGoodType(SQLDate date)
     {
+        Debug.Log(" mysql changeGoodType");
         string str = sqldateToJsonStr(date);
         string[] param = new string[1];
         param[0] = str;
@@ -73,6 +83,7 @@ public class SqlControlToNative
 
     public void changeGoodSql(SQLDate date, string oldstr)
     {
+        Debug.Log(" mysql changeGoodSql");
         string str = sqldateToJsonStr(date);
         string[] param = new string[2];
         param[0] = str;
@@ -82,6 +93,7 @@ public class SqlControlToNative
 
     public void updateIdAndType(SQLDate date)
     {
+        Debug.Log(" mysql updateIdAndType");
         string str = sqldateToJsonStr(date);
         string[] param = new string[1];
         param[0] = str;
@@ -89,6 +101,7 @@ public class SqlControlToNative
     }
     public void deleteIdAndType(SQLDate date)
     {
+        Debug.Log(" mysql deleteIdAndType");
         string str = sqldateToJsonStr(date);
         string[] param = new string[1];
         param[0] = str;
@@ -97,6 +110,7 @@ public class SqlControlToNative
 
     public void deleteGood(SQLDate date)
     {
+        Debug.Log(" mysql deleteGood");
         string str = sqldateToJsonStr(date);
         string[] param = new string[1];
         param[0] = str;
@@ -105,11 +119,13 @@ public class SqlControlToNative
     }
     public void deleteLuiHui()
     {
+        Debug.Log(" mysql deleteLuiHui");
         callNativegetVoid("deleteGood", null);
     }
 
     public void UpdateZhuangbeiInto(SQLDate date)
     {
+        Debug.Log(" mysql UpdateZhuangbeiInto");
         string str = sqldateToJsonStr(date);
         string[] param = new string[1];
         param[0] = str;
@@ -118,6 +134,7 @@ public class SqlControlToNative
 
     public void updateEndNet(List<SQLDate> date)
     {
+        Debug.Log(" mysql updateEndNet");
         string str = sqldateListToJsonStr(date);
         string[] param = new string[1];
         param[0] = str;
@@ -126,25 +143,30 @@ public class SqlControlToNative
 
     public void deleteCleanNet()
     {
+        Debug.Log(" mysql deleteCleanNet");
         callNativegetVoid("deleteCleanNet", null);
     }
 
     public void removeDeleteDate()
     {
+        Debug.Log(" mysql removeDeleteDate");
         callNativegetVoid("removeDeleteDate", null);
     }
 
     public List<SQLDate> getNetDate()
     {
+        Debug.Log(" mysql getNetDate");
         return  callNativegetSqldateList("getNetDate", null);
     }
 
     public List<SQLDate> getAll()
     {
+        Debug.Log(" mysql getAll");
         return callNativegetSqldateList("getAll", null);
     }
     public void saveLocal(List<SQLDate> date)
     {
+        Debug.Log(" mysql saveLocal");
         string str = sqldateListToJsonStr(date);
         string[] param = new string[1];
         param[0] = str;
@@ -154,6 +176,7 @@ public class SqlControlToNative
 
     public void delectAll(string tableName)
     {
+        Debug.Log(" mysql delectAll");
         string[] param = new string[1];
         param[0] = tableName;
         callNativegetVoid("delectAll", param);
@@ -162,6 +185,7 @@ public class SqlControlToNative
 
     private void callNativegetVoid(string methon, string[] mObject)
     {
+        Debug.Log(" mysql callNativegetVoid");
 
         if (mObject == null)
         {
@@ -174,6 +198,7 @@ public class SqlControlToNative
     }
     private long callNativegetLong(string methon, string[] mObject)
     {
+        Debug.Log(" mysql callNativegetLong");
 
         if (mObject == null)
         {
@@ -186,7 +211,7 @@ public class SqlControlToNative
     }
     private bool callNativegetBool(string methon, string[] mObject)
     {
-
+        Debug.Log(" mysql callNativegetBool");
         if (mObject == null)
         {
             return jo.Call<bool>(methon);

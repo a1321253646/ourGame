@@ -98,8 +98,11 @@ public class GameBeginControl : MonoBehaviour {
             SQLManager.getIntance().alterTableByVersion();
             Thread th1 = new Thread(() =>
             {
+                Debug.Log("mysql initBefore ");
                 JsonUtils.getIntance().initBefore();
+                Debug.Log("mysql init ");
                 JsonUtils.getIntance().init();
+                Debug.Log("mysql init end");
                 GameManager.getIntance().mInitStatus = 2;
             });
             th1.Start();

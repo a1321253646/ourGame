@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 
 public class JsonUtils
 {
@@ -94,9 +95,11 @@ public class JsonUtils
         vocationFile = "vocation";
 #endif
         readVocation();
-
+        Debug.Log(" mysql readVocation end");
         mVocation = SQLManager.getIntance().getPlayVocation();
+        Debug.Log(" mysql readVocation mVocation = "+ mVocation);
         long level = SQLManager.getIntance().getLevel();
+        Debug.Log(" mysql readVocation level = " + level);
         if (mVocation == -1) {
             mVocation = 1;
         }
@@ -664,8 +667,16 @@ public class JsonUtils
 
     private void readVocation()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(vocationFile));
-        mVocationDate = arrdata.ToObject<List<VocationDecBean>>();
+        try{
+            var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(vocationFile));
+            mVocationDate = arrdata.ToObject<List<VocationDecBean>>();
+        }
+        catch(Exception e) {
+            Debug.Log("mysql readVocation e StackTrace=" + e.StackTrace);
+            Debug.Log("mysql readVocation e Message=" + e.Message);
+
+        }
+
 
     }
     private void readString()
