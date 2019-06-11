@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using UnityEditor.Build.Reporting;
 
 public class MyEditorScript : Editor
 {
@@ -91,11 +92,11 @@ public class MyEditorScript : Editor
         // 打包出 APK 名
         string apkName = string.Format("{0}.apk", buildConfig.apkName);
         // 执行打包
-        string res = BuildPipeline.BuildPlayer(levels.ToArray(), apkName, buildTarget, BuildOptions.None);
+        BuildReport res = BuildPipeline.BuildPlayer(levels.ToArray(), apkName, buildTarget, BuildOptions.None);
 
-        if (res.Length > 0)
-        {
-            throw new Exception("BuildPlayer failure: " + res);
+        if (res!= null  )
+         {
+            Debug.Log("res.strippingInfo : " + res.strippingInfo);
         }
 
         AssetDatabase.Refresh();
