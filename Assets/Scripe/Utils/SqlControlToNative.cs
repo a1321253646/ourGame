@@ -264,7 +264,9 @@ public class SqlControlToNative : MonoBehaviour
     {
         Debug.Log(" mysql callNativegetVoid");
         AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        Debug.Log(" mysql AndroidJavaClass");
         AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+        Debug.Log(" mysql AndroidJavaObject");
         if (mObject == null)
         {
             jo.Call(methon);
