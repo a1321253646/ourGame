@@ -95,6 +95,7 @@ public class GameBeginControl : MonoBehaviour {
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
 #if UNITY_ANDROID || UNITY_IOS
             SQLManager.getIntance().initPathRoot();
+            SQLManager.getIntance().open();
             SQLManager.getIntance().alterTableByVersion();
             Thread th1 = new Thread(() =>
             {
