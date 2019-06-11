@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
-public class SqlControlToNative 
+public class SqlControlToNative : MonoBehaviour
 {
 
     public void createTable(string sqlName, string tableName)
@@ -301,12 +301,5 @@ public class SqlControlToNative
         {
             return jo.Call<bool>(methon, mObject);
         }
-    }
-    private static SqlControlToNative mIntance = new SqlControlToNative();
-    private SqlControlToNative() {
-    }
-
-    public static SqlControlToNative getIntance() {
-        return mIntance;
     }
 }
