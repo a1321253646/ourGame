@@ -68,18 +68,18 @@ public class PlayControl : Attacker
 
         }
         getOutLine();
-        if (AdIntance.getIntance().getType() != -1)
+/*        if (AdIntance.getIntance().getType() != -1)
         {
             long type = AdIntance.getIntance().getType();
 
             GameObject.Find("active_button_list").GetComponent<ActiveListControl>().showAd(type, true);
-        }
+        }*/
     }
 
     private bool isFristStart = true;
 
     public void resetHero() {
-        GameObject.Find("Manager").GetComponent<AdManager>().showBanner();
+ //       GameObject.Find("Manager").GetComponent<AdManager>().showBanner();
         isBeAttacker = false;
         if (mSkillManager != null) {
             mSkillManager.removeAllSkill();
@@ -713,7 +713,7 @@ public class PlayControl : Attacker
                 mFightManager.registerAttacker(this);
                 mLevelManager.creatEnemyFactory(transform.position.x, transform.position.y+resourceData.idel_y);
                 getOutLine();
-                GameObject.Find("Manager").GetComponent<AdManager>().initAd();
+ //               GameObject.Find("Manager").GetComponent<AdManager>().initAd();
             }
         }
         else if (getStatus() != mFightManager.mHeroStatus && getStatus() != Attacker.PLAY_STATUS_STANDY)

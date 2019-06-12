@@ -71,7 +71,7 @@ public class GameBeginControl : MonoBehaviour {
             mLoadingDec.text = GameManager.getIntance().mInitDec;
             GameManager.getIntance().mInitStatus = 11;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-            AdIntance.getIntance().getBannerPoint();
+//            AdIntance.getIntance().getBannerPoint();
             if (SQLHelper.getIntance().isFristStartGame == -1)
             {
                 SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
@@ -90,6 +90,9 @@ public class GameBeginControl : MonoBehaviour {
         }
         else if (GameManager.getIntance().mInitStatus == 0)
         {
+ //           GameObject.Find("Manager").GetComponent<SqlControlToNative>().createTable("123", "234");
+ //           GameObject.Find("Manager").GetComponent<AdManager>().playAd();
+            
             GameManager.getIntance().mInitDec = "开始配置文件初始化";
             GameManager.getIntance().mInitStatus = 1;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);

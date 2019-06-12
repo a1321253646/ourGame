@@ -130,7 +130,7 @@ public class AdUiControl : UiControlBase
             toremoveUi();
         });
         mSelect.onClick.AddListener(() => {
-            GameObject.Find("Manager").GetComponent<AdManager>().playAd();
+//            GameObject.Find("Manager").GetComponent<AdManager>().playAd();
            // toremoveUi();
         });       
     }

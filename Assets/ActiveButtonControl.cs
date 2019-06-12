@@ -35,8 +35,8 @@ public class ActiveButtonControl : MonoBehaviour {
     public void removeShowTime()
     {
         mTime = -1;
-        AdIntance.getIntance().setTime(mTime);
-        AdIntance.getIntance().setType(-1);
+/*        AdIntance.getIntance().setTime(mTime);
+        AdIntance.getIntance().setType(-1);*/
     }
     private float showVocationTime = 0;
     private bool isNeedSendNote = false;
@@ -64,7 +64,7 @@ public class ActiveButtonControl : MonoBehaviour {
         mTime += Time.deltaTime;
 
         
-        AdIntance.getIntance().setTime(mTime);
+//        AdIntance.getIntance().setTime(mTime);
 
         if (mTime > mShowTime) {
             GameObject.Find("active_button_list").GetComponent<ActiveListControl>().removeAd();
@@ -92,7 +92,7 @@ public class ActiveButtonControl : MonoBehaviour {
         if (mBean.buttonType != -1) {
             return false;
         }
-        float time = AdIntance.getIntance().getTime();
+//        float time = AdIntance.getIntance().getTime();
       //  if (time == -1 && mBean.buttonType == ACTIVE_BUTTON_TYPE_AD) {
       //      time = 0;
       //  }
@@ -115,7 +115,7 @@ public class ActiveButtonControl : MonoBehaviour {
         if (mBean.buttonType == ACTIVE_BUTTON_TYPE_AD)
         {
             mImage.sprite = Resources.Load("UI_yellow/guanggao/02", typeof(Sprite)) as Sprite;
-            AdIntance.getIntance().setType(mBean.adType);
+//            AdIntance.getIntance().setType(mBean.adType);
 
         }
         else if (mBean.buttonType == ACTIVE_BUTTON_TYPE_VOCATION)

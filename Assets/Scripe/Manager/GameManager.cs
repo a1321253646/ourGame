@@ -265,7 +265,7 @@ public class GameManager
 	}
 
     private void playAd() {
-        if (!GameObject.Find("Manager").GetComponent<AdManager>().isReadyToShow()) {
+/*        if (!GameObject.Find("Manager").GetComponent<AdManager>().isReadyToShow()) {
 
             return;
         }
@@ -284,7 +284,7 @@ public class GameManager
         if (type != -1) {
             Debug.Log("==========================playAd type= " + type + " value=" + value);
             GameObject.Find("active_button_list").GetComponent<ActiveListControl>().showAd(type,true);
-        }
+        }*/
 
     }
     public void setBossBlood(double blood, double max)
