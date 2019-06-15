@@ -98,7 +98,7 @@ public class EnemyFactory : MonoBehaviour {
         GameObject newobj = null;
 
             newobj = GameObject.Instantiate(
-                game, new Vector3(transform.position.x, getYRamdom(isBoss) - bean.idel_y, mZPoint), Quaternion.Euler(0.0f, 0f, 0.0f));
+                game, new Vector3(transform.position.x, getYRamdom(isBoss) - (float)bean.idel_y, mZPoint), Quaternion.Euler(0.0f, 0f, 0.0f));
         
         mZPoint -= 0.1f;
         EnemyBase enmey = newobj.GetComponent<EnemyBase> ();
@@ -138,7 +138,7 @@ public class EnemyFactory : MonoBehaviour {
             y = mLevelMnager.yBase;
         }
         else {
-            y = Random.Range(mMapConfig.y_min + mBottom, mMapConfig.y_max + mBottom);
+            y = Random.Range((float)mMapConfig.y_min + mBottom, (float)mMapConfig.y_max + mBottom);
         }
         
 //        Debug.Log("==================getYRamdom  y = " + y+ " mBottom="+ mBottom);

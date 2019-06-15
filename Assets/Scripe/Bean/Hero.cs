@@ -8,12 +8,12 @@ public class Hero
 	public double role_attack;
 	public double role_defense;
 	public string lvup_crystal;
-	public float attack_speed;
-    public float hit;
-    public float dod;
-    public float cri;
+	public double attack_speed;
+    public double hit;
+    public double dod;
+    public double cri;
     public double cri_dam;
-    public float speed_up;
+    public double speed_up;
     public double real_dam;
 
     public BigNumber mLvupCrystal;

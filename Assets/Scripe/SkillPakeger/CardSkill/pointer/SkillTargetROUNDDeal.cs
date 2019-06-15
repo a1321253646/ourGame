@@ -16,7 +16,7 @@ public class SkillTargetRoundDeal
             if (tmp.mAttacker.mCampType == campType)
             {
                 float x = tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x - local.x;
-                float y = tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y - local.y;
+                float y = tmp.mCurrentY + (float)tmp.mAttacker.resourceData.idel_y - local.y;
                 if (x * x + y * y <= r2)
                 {
                     result.Add(tmp.mAttacker);

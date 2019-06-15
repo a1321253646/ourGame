@@ -26,7 +26,7 @@ public class SkillTargetPointDeal
          
                 maxx = tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x + tmp.mAttacker.resourceData.getTargetBorder()[1];
                 minx = tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x - tmp.mAttacker.resourceData.getTargetBorder()[0];
-                miny = tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y ;
+                miny = tmp.mCurrentY + (float)tmp.mAttacker.resourceData.idel_y ;
                 maxy = miny+ tmp.mAttacker.resourceData.getTargetBorder()[2];
 //                Debug.Log("maxX=" + maxX+ " minX="+ minX+ " maxY=" + maxY + " minY=" + minY +
 //                    " maxx=" + maxx + " minx=" + minx + " miny=" + miny + " maxy=" + maxy);

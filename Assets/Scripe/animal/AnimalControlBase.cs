@@ -25,7 +25,7 @@ public class AnimalControlBase
     public AnimalControlBase(ResourceBean resource, SpriteRenderer spriteRender) {
         mResource = resource;
         mSpriteRender = spriteRender;
-        mSpriteRender.transform.localScale = new Vector3(resource.zoom, resource.zoom, 1);
+        mSpriteRender.transform.localScale = new Vector3((float)resource.zoom, (float)resource.zoom, 1);
         mDefuleEndCallbak = new AnimalStatu.animalEnd(animalEnd);
         init(); 
     }
@@ -55,10 +55,10 @@ public class AnimalControlBase
             AnimalStatu statu;
             if (mSpriteRender != null)
             {
-                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mSpriteRender, loop, mResource.animation_speed, mIsNativeSize);
+                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mSpriteRender, loop, (float)mResource.animation_speed, mIsNativeSize);
             }
             else {
-                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mImage, loop, mResource.animation_speed, mIsNativeSize);
+                 statu = new AnimalStatu(bean.status, bean.frame, mResource.name, mImage, loop, (float)mResource.animation_speed, mIsNativeSize);
             }
             
             statu.setEndCallBack(mDefuleEndCallbak);

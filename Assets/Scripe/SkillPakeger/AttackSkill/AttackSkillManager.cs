@@ -351,7 +351,7 @@ public class AttackSkillManager
             GameObject newobj = GameObject.Instantiate(
                 mSkillObject,
                 new Vector2(mAttack.transform.position.x + attackP.x + xDel - skillP.x,
-                    mAttack.transform.position.y + mAttack.resourceData.idel_y + yDel - skillP.y),
+                    mAttack.transform.position.y + (float)mAttack.resourceData.idel_y + yDel - skillP.y),
                     Quaternion.Euler(0.0f, 0f, 0.0f));
             Debug.Log("============================== creatSkillById=" + newobj);
             skill.initSkill(this, id, fighter, value, newobj, isGiveups, skillIndex);

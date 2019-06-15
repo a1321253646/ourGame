@@ -121,7 +121,7 @@ public class PetItemControl : MonoBehaviour {
         mAnimalControl = new AnimalControlBase(mRes, mSpriteRender);
         mAnimalControl.setStatus(ActionFrameBean.ACTION_STANDY);
         mAnimalControl.start();
-        gameObject.transform.position = new Vector3(date.x - mRes.getHurtOffset().x,date.y - mRes.idel_y,transform.position.z);
+        gameObject.transform.position = new Vector3(date.x - mRes.getHurtOffset().x,date.y - (float)mRes.idel_y,transform.position.z);
         getTarget();
     }
     private void getTarget() {

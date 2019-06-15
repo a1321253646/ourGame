@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class GameManager
 {
-    public static string CHANNEL_CODE ="base";
+    public static string CHANNEL_CODE ="google";
 
 	public long mCurrentLevel = BaseDateHelper.encodeLong( 1);
 	public long mHeroLv = BaseDateHelper.encodeLong(1);
@@ -76,10 +76,12 @@ public class GameManager
 
     public string mGameErrorString = "";
 
-  //  public long mTestSpeed = -1;
+    public long mTestSpeed = -1;
     public bool isOpenStop = false;
     public bool isLunhuiWudiIng = false;
     public static bool isTestVersion = false; 
+    public  bool isUpdateToNetEnd = false; 
+    public  bool isUpdateToNetIsSuccess = false; 
 
     public float getOnlineGet() {
         return (float)(mLunhuiOnlineGet.getValue() * mCardOnlineGet.getValue());
@@ -213,7 +215,7 @@ public class GameManager
     public void updateBossGase(bool isUpdateUi) {
         Level level = JsonUtils.getIntance().getLevelData();
         Debug.Log("level =" + level);
-        startBossGas = level.boss_gas;
+        startBossGas = (float)level.boss_gas;
         Debug.Log("startBossGas =" + startBossGas);
         long luihuiLevel = InventoryHalper.getIntance().getSamsaraLevelById(12);
         long value = 0;

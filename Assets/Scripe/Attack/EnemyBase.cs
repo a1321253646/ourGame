@@ -13,7 +13,7 @@ public class EnemyBase : Attacker {
     {
         mTarger = v;
         mTarger.x = mTarger.x + mAttackLeng;
-        mTarger.y = mTarger.y - resourceData.idel_y;
+        mTarger.y = mTarger.y - (float)resourceData.idel_y;
 //        Debug.Log("mTarger x = " + mTarger.x + "  mTarger y =" + mTarger.y);
     }
 
@@ -209,9 +209,9 @@ public class EnemyBase : Attacker {
         mBaseAttribute.readHurt = data.real_dam;
         getAttribute(false);
         mBloodVolume = mAttribute.maxBloodVolume;
-        mRunSpeed = data.monster_speed;
-        mAttackLeng = data.attack_range;
-        mDieGas = data.die_gas;
+        mRunSpeed = (float)data.monster_speed;
+        mAttackLeng = (float)data.attack_range;
+        mDieGas = (float)data.die_gas;
         mDieCrysta = data.getDieCrystal();
         
 		//toString ("enemy");

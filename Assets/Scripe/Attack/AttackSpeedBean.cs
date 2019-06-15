@@ -10,7 +10,7 @@ public class AttackSpeedBean
         float eachFors = JsonUtils.getIntance().getFrequencyByValue(speed);
         AttackSpeedBean bean = new AttackSpeedBean();
         float oneTime = 1 / eachFors;
-        float animalTime = resource.attack_all_framce / 12;
+        float animalTime = (float)resource.attack_all_framce / 12;
         if (oneTime >= animalTime)
         {
             bean.interval = oneTime - animalTime;

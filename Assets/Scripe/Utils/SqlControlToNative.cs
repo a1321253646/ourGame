@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+using LitJson;
 
 public class SqlControlToNative : MonoBehaviour
 {
@@ -118,7 +118,7 @@ public class SqlControlToNative : MonoBehaviour
     public void deleteLuiHui()
     {
         Debug.Log(" mysql deleteLuiHui");
-        callNativegetVoid("deleteGood", null);
+        callNativegetVoid("deleteLuiHui", null);
     }
 
     public void UpdateZhuangbeiInto(SQLDate date)
@@ -182,50 +182,24 @@ public class SqlControlToNative : MonoBehaviour
     private SQLDate jsonStringToSqldate(string str)
     {
 
-        var arrdata = JArray.Parse(str);
-        return arrdata.ToObject<SQLDate>();
+        return JsonMapper.ToObject<SQLDate>(str);
     }
 
     private List<SQLDate> jsonStringToSqldateList(string str)
     {
 
-        var arrdata = JArray.Parse(str);
-        return arrdata.ToObject<List<SQLDate>>();
+        return JsonMapper.ToObject<List<SQLDate>>(str);
     }
 
     private string sqldateToJsonStr(SQLDate date)
     {
-        JObject jb = new JObject();
-        jb.Add("type", date.type);
-        jb.Add("id", date.id);
-        jb.Add("goodId", date.goodId);
-        jb.Add("goodtype", date.goodType);
-        jb.Add("isclean", date.isClean);
-        jb.Add("extra", date.extan);
-        jb.Add("isDelete", date.isDelete);
-        jb.Add("isNet", date.isNet);
-        return jb.ToString();
+
+        return JsonMapper.ToJson(date);
     }
 
     private string sqldateListToJsonStr(List<SQLDate> list)
     {
-        JArray array = new JArray();
-
-        foreach (SQLDate date in list)
-        {
-            JObject jb = new JObject();
-            jb.Add("type", date.type);
-            jb.Add("id", date.id);
-            jb.Add("goodId", date.goodId);
-            jb.Add("goodtype", date.goodType);
-            jb.Add("isclean", date.isClean);
-            jb.Add("extra", date.extan);
-            jb.Add("isDelete", date.isDelete);
-            jb.Add("isNet", date.isNet);
-            array.Add(jb);
-        }
-
-        return array.ToString();
+        return JsonMapper.ToJson(list);;
     }
 
 

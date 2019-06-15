@@ -4,8 +4,8 @@ using System.Collections;
 public class MapConfigBean
 {
     public string resouce;
-    public float y_min;
-    public float y_max;
-    public float y_base;
+    public double y_min;
+    public double y_max;
+    public double y_base;
 
 }

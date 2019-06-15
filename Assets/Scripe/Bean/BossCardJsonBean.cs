@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class BossCardJsonBean : MonoBehaviour
 {
-    public long id;
+    public long ID;
     public string value;
     public long random;
-    public string name;
+    public string cardname;
     private List<long> cardList = null;
 
 

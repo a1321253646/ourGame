@@ -139,7 +139,7 @@ public class PetControl : UiControlBase
             mAnimalControl = new AnimalControlBase(res, mPetShowImg, true);
             mAnimalControl.setStatus(ActionFrameBean.ACTION_STANDY);
             mAnimalControl.start();
-            Vector3 v = PointUtils.getScreenSize(new Vector3(res.getHurtOffset().x * 2, res.idel_y * 2));
+            Vector3 v = PointUtils.getScreenSize(new Vector3(res.getHurtOffset().x * 2, (float)res.idel_y * 2));
             mPetShowImg.SetNativeSize();
             mPetShowImg.gameObject.transform.position = new Vector2(mPetShowCenter.transform.position.x - v.x, mPetShowCenter.transform.position.y - v.y);
             //  }

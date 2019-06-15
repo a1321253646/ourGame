@@ -226,7 +226,7 @@ public class LuiHuiTips : UiControlBase
    //     UiControlManager.getIntance().removeAll();
 
         Level level = JsonUtils.getIntance().getLevelData();
-        float speedLevel = level.levelspeedup;
+        float speedLevel = (float)level.levelspeedup;
         Debug.Log("===========1================= BaseDateHelper.decodeLong(SQLHelper.getIntance().mTargetSpeed)= " + BaseDateHelper.decodeLong(SQLHelper.getIntance().mTargetSpeed));
         if (isUpdataLuihunLevel) {
             SQLHelper.getIntance().updateTarget(BaseDateHelper.encodeLong((long)speedLevel));

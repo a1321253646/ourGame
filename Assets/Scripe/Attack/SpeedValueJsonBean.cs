@@ -1,5 +1,5 @@
 ﻿public class SpeedValueJsonBean
 {
-    public float value;
-    public float frequency;
+    public double value;
+    public double frequency;
 }

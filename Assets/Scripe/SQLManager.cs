@@ -333,7 +333,7 @@ public class SQLManager
     public bool isUpdateed()
     {
 #if UNITY_ANDROID
-        return GameObject.Find("Manager").GetComponent<SqlControlToNative>().isUpdate();
+        return !GameObject.Find("Manager").GetComponent<SqlControlToNative>().isUpdate();
 #endif
 #if UNITY_STANDALONE
         bool back = true;
@@ -461,19 +461,21 @@ public class SQLManager
     public void deleteGuide(long id)
     {
 #if UNITY_ANDROID
-        string commandString = "UPDATE  " + tabName + " SET ISDELETE=2,  ISNET=1 WHERE TYPE=" + SQLHelper.TYPE_GUIDE + " AND ID=" + id + " AND ISDELETE=1";
+        GameObject.Find("Manager").GetComponent<SqlControlToNative>().deleteGuide(id+"");
 #endif
 #if UNITY_STANDALONE
         string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + SQLHelper.TYPE_GUIDE + " AND ID=" + id + " AND ISDELETE=1";
-#endif
-
-
-        // ExecuteSQLCommand(commandString);
+                // ExecuteSQLCommand(commandString);
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
         bean.methonId = MethonName.deleteGuide;
         bean.command = commandString;
         addList(bean);
+#endif
+
+
+
+
     }
 
     /// <summary>
@@ -522,12 +524,12 @@ public class SQLManager
         bean.date = data;
         bean.methonId = MethonName.inSertDate;
         bean.command = commandString;
+#if UNITY_ANDROID
+        GameObject.Find("Manager").GetComponent<SqlControlToNative>().inSertDate(data);
+        return;
+#endif
         if (isNow)
         {
-#if UNITY_ANDROID
-            GameObject.Find("Manager").GetComponent<SqlControlToNative>().inSertDate(data);
-            return;
-#endif
             ExecuteSQLCommand(commandString);
         }
         else
@@ -538,6 +540,10 @@ public class SQLManager
     }
     public void changeGoodType(SQLDate date)
     {
+#if UNITY_ANDROID
+        GameObject.Find("Manager").GetComponent<SqlControlToNative>().changeGoodType(date);
+        return;
+#endif
         string commPath = "UPDATE " + tabName + " SET ISNET=1, GOODTYPE=" + date.goodType;
         commPath += " WHERE GOODID=" + date.goodId + " AND ISDELETE=1";
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
@@ -551,6 +557,10 @@ public class SQLManager
     }
     public void changeGoodSql(SQLDate date, long old)
     {
+#if UNITY_ANDROID
+        GameObject.Find("Manager").GetComponent<SqlControlToNative>().changeGoodSql(date,old+"");
+        return;
+#endif
         string commPath = "UPDATE " + tabName + " SET ISNET=1, GOODID=" + date.goodId;
         commPath += " WHERE GOODID=" + old + " AND TYPE=" + date.type + " AND ID=" + date.id + " AND ISDELETE=1";
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
@@ -565,6 +575,10 @@ public class SQLManager
     }
     public void updateIdAndType(SQLDate date)
     {
+#if UNITY_ANDROID
+        GameObject.Find("Manager").GetComponent<SqlControlToNative>().updateIdAndType(date);
+        return;
+#endif
         string commPath = "UPDATE " + tabName + " SET ISNET=1, EXTAN='" + date.extan + "'";
         commPath = commPath + " WHERE TYPE=" + date.type + " AND ID=" + date.id + " AND ISDELETE=1";
         // ExecuteSQLCommand(commandString);
@@ -581,12 +595,12 @@ public class SQLManager
     public void deleteIdAndType(SQLDate date)
     {
 #if UNITY_ANDROID || UNITY_IOS
-        string commandString = "UPDATE  " + tabName + " SET ISNET=1, ISDELETE=2 WHERE TYPE=" + date.type + " AND ID=" + date.id + " AND ISDELETE=1";
+        GameObject.Find("Manager").GetComponent<SqlControlToNative>().deleteIdAndType(date);
+        return;
 #endif
 #if UNITY_STANDALONE
         string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + date.type + " AND ID=" + date.id + " AND ISDELETE=1";
-#endif
-        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+                SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
         bean.date = date;
         bean.command = commandString;
@@ -594,6 +608,8 @@ public class SQLManager
         removeListByTypeAndId(date.id, date.type);
         bean.methonId = MethonName.deleteIdAndType;
         addList(bean);
+#endif
+
         //   ExecuteSQLCommand(commandString);
         //   mNetHelper.delectInfo(date);
     }
@@ -601,39 +617,42 @@ public class SQLManager
     public void deleteGood(SQLDate date)
     {
 #if UNITY_ANDROID || UNITY_IOS
-        string commandString = "UPDATE  " + tabName + " SET ISNET=1, ISDELETE=2 WHERE GOODID=" + date.goodId + " AND ISDELETE=1";
+
 #endif
 #if UNITY_STANDALONE
         string commandString = "DELETE FROM " + tabName + " WHERE GOODID =" + date.goodId + " AND ISDELETE=1";
-#endif
-        // ExecuteSQLCommand(commandString);
-        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+                SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
         bean.date = date;
         bean.command = commandString;
         removeListByGoodId(date.goodId);
         bean.methonId = MethonName.deleteGood;
         addList(bean);
+#endif
+        // ExecuteSQLCommand(commandString);
+
         //   ExecuteSQLCommand(commandString);
         //   mNetHelper.delectInfo(date);
     }
     public void deleteLuiHui()
     {
 #if UNITY_ANDROID || UNITY_IOS
-        string commandString = "UPDATE  " + tabName + " SET ISNET=1, ISDELETE=2 WHERE ISCLENAN =1" + " AND ISDELETE=1";
+        GameObject.Find("Manager").GetComponent<SqlControlToNative>().deleteLuiHui();
+        return;
 #endif
 #if UNITY_STANDALONE
         string commandString = "DELETE FROM " + tabName + " WHERE ISCLENAN =1" + " AND ISDELETE=1";
-#endif
-
-
-        // ExecuteSQLCommand(commandString);
-        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+                SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
         bean.date = null;
         bean.command = commandString;
         bean.methonId = MethonName.deleteLuiHui;
         addList(bean);
+#endif
+
+
+        // ExecuteSQLCommand(commandString);
+
         //   ExecuteSQLCommand(commandString);
         //  mNetHelper.cleanLuihui();
     }
@@ -648,6 +667,10 @@ public class SQLManager
 
     public bool UpdateZhuangbeiInto(SQLDate date)
     {
+#if UNITY_ANDROID || UNITY_IOS
+        GameObject.Find("Manager").GetComponent<SqlControlToNative>().UpdateZhuangbeiInto(date);
+        return true;
+#endif
         string commPath = "UPDATE " + tabName + " SET EXTAN='" + date.extan + "', ISNET=1";
         commPath += " WHERE GOODID=" + date.goodId + " AND ISDELETE=1";
         // ExecuteSQLCommand(commPath);
@@ -666,6 +689,7 @@ public class SQLManager
     List<SqlNetDate> mUpdateList = null;
     public void updateToNetEnd(bool isSuccess)
     {
+        GameManager.getIntance().isUpdateToNetEnd = false;
         isUpdateIng = false;
         if (mUpdateList == null)
         {
@@ -720,6 +744,7 @@ public class SQLManager
 
     public void updateToNet()
     {
+        List<SQLDate> list = GameObject.Find("Manager").GetComponent<SqlControlToNative>().getNetDate();
         Debug.Log("更新后台数据!");
         Thread th1 = new Thread(() =>
         {
@@ -728,7 +753,7 @@ public class SQLManager
             {
                 mUpdateList = new List<SqlNetDate>();
 #if UNITY_ANDROID || UNITY_IOS
-                List<SQLDate> list = GameObject.Find("Manager").GetComponent<SqlControlToNative>().getNetDate();
+                
                 foreach (SQLDate tmp in list)
                 {
                     SqlNetDate bean = new SqlNetDate();
@@ -826,15 +851,14 @@ public class SQLManager
         bean.date = date;
         bean.methonId = MethonName.updateIdAndType;
         bean.command = commPath;
+#if UNITY_ANDROID || UNITY_IOS
+        GameObject.Find("Manager").GetComponent<SqlControlToNative>().updateIdAndType(date);
+        return true;
+#endif
         if (isNow)
         {
-#if UNITY_ANDROID || UNITY_IOS
-            GameObject.Find("Manager").GetComponent<SqlControlToNative>().updateIdAndType(date);
-#else
+
             ExecuteSQLCommand(commPath);
-#endif
-
-
         }
         else
         {
@@ -851,7 +875,7 @@ public class SQLManager
     {
         Debug.Log("saveLocal");
         List<SQLDate> list = null;
-        if (str != null && str.Length > 0)
+      /*  if (str != null && str.Length > 0)
         {
             Newtonsoft.Json.Linq.JObject jb = Newtonsoft.Json.Linq.JObject.Parse(str);
             int status = jb.Value<int>("status");
@@ -862,7 +886,7 @@ public class SQLManager
                 list = arrdata.ToObject<List<SQLDate>>();
                 Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
             }
-        }
+        }*/
         SQLDate data = new SQLDate();
         data.type = SQLHelper.TYPE_ENCODE_VERSION;
         data.id = 1;
@@ -1195,7 +1219,7 @@ public class SQLManager
                     GameObject.Find("Manager").GetComponent<SqlControlToNative>().UpdateZhuangbeiInto(bean.date);
                 }
 #else
-            ExecuteSQLCommand(commPath);
+            ExecuteSQLCommand(bean.command);
 #endif
                 removeList(bean);
             }

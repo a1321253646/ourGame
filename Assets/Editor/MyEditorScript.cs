@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 using UnityEditor.Build.Reporting;
+using LitJson;
 
 public class MyEditorScript : Editor
 {
@@ -16,8 +17,8 @@ public class MyEditorScript : Editor
         // 最终将 BuildConfig 对象字典返回
         // Dictionary<object, BuildConfig> buildConfigDic = LoadXML.Instance.GetTableData<BuildConfig>("channel", textAsset.text);
 
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile());
-        List<BuildConfig> list = arrdata.ToObject<List<BuildConfig>>();
+        List<BuildConfig> list = JsonMapper.ToObject<List<BuildConfig>>(readFile());
+
 
         // 遍历字典
         foreach (BuildConfig kv in list)
@@ -39,7 +40,7 @@ public class MyEditorScript : Editor
         str = Resources.Load<TextAsset>("company").text;
 #endif
 #if UNITY_STANDALONE
-        str = loadFile(Application.dataPath + "/Resources", "company.json");
+    //    str = loadFile(Application.dataPath + "/Resources", "company.json");
 #endif
         //string str = loadFile(Application.dataPath + "/Resources", fileName);
         //string str = Resources.Load<TextAsset>(  fileName).text;

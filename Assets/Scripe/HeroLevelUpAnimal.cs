@@ -22,7 +22,7 @@ public class HeroLevelUpAnimal : MonoBehaviour
     private void init() {
         mObject = GameObject.Instantiate(
             mAnimal, new Vector2(mHero.transform.position.x + mHero.resourceData.getHurtOffset().x - mResource.getHurtOffset().x,
-            mHero.transform.position.y + mHero.resourceData.getHurtOffset().y+ mHero.resourceData.idel_y- mResource.getHurtOffset().y),
+            mHero.transform.position.y + mHero.resourceData.getHurtOffset().y+ (float)mHero.resourceData.idel_y- mResource.getHurtOffset().y),
             Quaternion.Euler(0.0f, 0f, 0.0f));
         mSpriteRender = mObject.GetComponent<SpriteRenderer>();
         mAnimalControl = new AnimalControlBase(mResource, mSpriteRender);
@@ -55,7 +55,7 @@ public class HeroLevelUpAnimal : MonoBehaviour
         }
         mAnimalControl.update();
         mObject.transform.position = new Vector2(mHero.transform.position.x + mHero.resourceData.getHurtOffset().x - mResource.getHurtOffset().x,
-            mHero.transform.position.y + mHero.resourceData.idel_y - mResource.getHurtOffset().y); 
+            mHero.transform.position.y + (float)mHero.resourceData.idel_y - mResource.getHurtOffset().y); 
 
     }    
 

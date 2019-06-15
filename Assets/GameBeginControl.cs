@@ -98,14 +98,15 @@ public class GameBeginControl : MonoBehaviour {
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
 #if UNITY_ANDROID || UNITY_IOS
             SQLManager.getIntance().initPathRoot();
+            SQLManager.getIntance().open();
             SQLManager.getIntance().alterTableByVersion();
-            Thread th1 = new Thread(() =>
-            {
+       //     Thread th1 = new Thread(() =>
+       //     {
                 JsonUtils.getIntance().initBefore();
                 JsonUtils.getIntance().init();
                 GameManager.getIntance().mInitStatus = 2;
-            });
-            th1.Start();
+        //    });
+        //    th1.Start();
 #endif
 #if UNITY_STANDALONE
             SQLManager.getIntance().init(sqlName, tabName);
@@ -125,8 +126,8 @@ public class GameBeginControl : MonoBehaviour {
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
 #if UNITY_ANDROID || UNITY_IOS
 
-            Thread th1 = new Thread(() =>
-            {
+       //     Thread th1 = new Thread(() =>
+       //     {
                 try
                 {
 
@@ -157,8 +158,8 @@ public class GameBeginControl : MonoBehaviour {
 
                 }
 
-            });
-            th1.Start();
+       //    });
+       //     th1.Start();
 #endif
 #if UNITY_STANDALONE
             GameManager.getIntance().mInitStatus = 8;
@@ -191,8 +192,8 @@ public class GameBeginControl : MonoBehaviour {
 
             if (!isGetlocalBegin && !isGetlocaled) {
                 isGetlocalBegin = true;
-                Thread th1 = new Thread(() =>
-                {
+         //       Thread th1 = new Thread(() =>
+         //       {
                     if (!NetServer.getIntance().getLocl(null,false,false))
                     {
                         GameManager.getIntance().mInitStatus = 8;
@@ -207,8 +208,8 @@ public class GameBeginControl : MonoBehaviour {
                     
                    
                     
-                });
-                th1.Start();
+           //     });
+           //     th1.Start();
                 return;
             }
             isUpdateEnd = true;
@@ -218,8 +219,8 @@ public class GameBeginControl : MonoBehaviour {
             {
                 if (isUpdate == 3)
                 {
-                    Thread th1 = new Thread(() =>
-                    {
+               //     Thread th1 = new Thread(() =>
+               //     {
                         Debug.Log("NetServer.getIntance().getLocal();");
                         string local = NetServer.getIntance().getLocal();
                         Debug.Log(" NetServer.getIntance().getLocal()");
@@ -227,8 +228,8 @@ public class GameBeginControl : MonoBehaviour {
                         Debug.Log(" SQLHelper.getIntance().saveLoacl(local);");
                         GameManager.getIntance().mInitStatus = 8;
                         Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
-                    });
-                    th1.Start();
+                //    });
+                //    th1.Start();
                 }
                 else if(isUpdate == 2 || isUpdate == 1) {
                     GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("检测到服务端有您的存档，需要进行同步吗", LuiHuiTips.TYPPE_UPDATE_LINE);
@@ -247,8 +248,8 @@ public class GameBeginControl : MonoBehaviour {
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100030);
 #if UNITY_ANDROID || UNITY_IOS
-            Thread th1 = new Thread(() =>
-            {
+  //          Thread th1 = new Thread(() =>
+  //          {
                 if (isUpdateEnd)
                 {
                     Debug.Log(" SQLHelper.getIntance().updateIsUpdate(); ");
@@ -281,8 +282,8 @@ public class GameBeginControl : MonoBehaviour {
                 GameManager.getIntance().mInitStatus = 10;
                 Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
 
-            });
-            th1.Start();
+    //        });
+    //        th1.Start();
 #endif
 
 #if UNITY_STANDALONE

@@ -236,7 +236,7 @@ public class SQLHelper
                         continue;
                     }
                     bean.goodType = date.goodType;
-//                    Debug.Log("读取数据库  id= " + bean.goodId + " count =" + bean.count);
+                    
                     if (mALLGood.Count == 0) {
                         mALLGood.Add(bean);
                     }
@@ -327,7 +327,7 @@ public class SQLHelper
                     else if (date.id == GAME_ID_IS_UPDATE)
                     {
                         isUpdate = long.Parse(date.extan);
-                        //                        Debug.Log("读取数据库 是否已更新" + mOutTime);
+                                                Debug.Log("读取数据库 是否已更新" + mOutTime);
                     }
                     /*   else if (date.id == GAME_ID_GUIDE)
                        {
@@ -431,9 +431,15 @@ public class SQLHelper
                     }
                     else if (date.id == GAME_ID_LEVEL_CARD)
                     {
+                        Debug.Log(" date.extan " + date.extan);
                         string[] strs = date.extan.Split(',');
-                        mCardLevel = long.Parse(strs[0]);
-                        mCardListId = long.Parse(strs[1]);
+                        if (strs.Length == 2) {
+                            mCardLevel = long.Parse(strs[0]);
+                            mCardListId = long.Parse(strs[1]);
+                            Debug.Log(" date.extan mCardLevel " + mCardLevel);
+                            Debug.Log(" date.extan mCardListId " + mCardListId);
+                        }
+
                     }
                     else if (date.id == GAME_ID_SETTING_CLOSED_CHUANGYE)
                     {
@@ -464,7 +470,7 @@ public class SQLHelper
                     }
                 }
             }
-
+            Debug.Log("=======================mysql 整理完成================================");
 
 
             if ( maxGoodIdTmp > mMaxGoodId)
@@ -472,6 +478,7 @@ public class SQLHelper
                 mMaxGoodId = maxGoodIdTmp;                    
                 Debug.Log("=======================maxGoodIdTmp > mMaxGoodId================================");
             }
+            Debug.Log("=======================mysql 最大物品id="+ mMaxGoodId + "================================");
             for (int i = 0; i < mALLGood.Count; ) {
                 PlayerBackpackBean bean = mALLGood[i];
                 if (bean.goodId >= 4000001 && bean.goodId <= 4000099 && bean.goodType != SQLDate.GOOD_TYPE_PET && bean.goodType != SQLDate.GOOD_TYPE_USER_PET)
@@ -496,20 +503,26 @@ public class SQLHelper
                         goodIdMap.Add(bean.sqlGoodId, true);
                     }
                 }
+
+                Debug.Log("物品  id= " + bean.goodId + " bean.goodType =" + bean.goodType);
                 if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD)
                 {
                     mCard.Add(bean);
+                    Debug.Log("读取数据库   添加到使用卡牌中 ");
                 }
                 else if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI)
                 {
                     mUser.Add(bean);
+                    Debug.Log("读取数据库   添加到使用装备中 ");
                 }
                 else if (bean.goodType == SQLDate.GOOD_TYPE_USER_PET || bean.goodType == SQLDate.GOOD_TYPE_PET)
                 {
                     mPet.Add(bean);
+                    Debug.Log("读取数据库   添加到使用宠物中 ");
                 }
                 i++;
             }
+            Debug.Log("=======================mysql 物品整理完成================================");
             List<PetJsonBean>  petList = JsonUtils.getIntance().getPet();
             Debug.Log("读取数据库 mMaxLevel" + BaseDateHelper.decodeLong(mMaxLevel));
             foreach (PetJsonBean pet in petList) {
@@ -540,6 +553,7 @@ public class SQLHelper
                     }
                 }
             }
+            Debug.Log("=======================mysql 补充缺少的宠物================================");
             if (mMaxGoodId == -1)
             {
                 mMaxGoodId = 1;
@@ -549,16 +563,19 @@ public class SQLHelper
             {
                 updateGame(GAME_ID_GOOD_MAXID, mMaxGoodId);
             }
+            Debug.Log("=======================mysql 保存最大id================================");
 #if UNITY_ANDROID || UNITY_IOS
             if (string.IsNullOrEmpty(mPlayName)) {
                 string name = NetServer.mDeviceID;
                 name = "用户" + name.Substring(0, 4);
                 updateName(name);
+                Debug.Log("=======================mysql 保存用户name================================");
             }
 #endif
             Debug.Log("读取数据库 物品数量" + mALLGood.Count);
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100031);
             JsonUtils.getIntance().reReadAboutLevelFile(BaseDateHelper.decodeLong(mGameLevel));
+            Debug.Log("=======================mysql 重读关卡数据================================");
         }
     }
 

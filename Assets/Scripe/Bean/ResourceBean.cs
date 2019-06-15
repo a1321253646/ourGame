@@ -6,18 +6,18 @@ public class ResourceBean
 {
 	public long id;
 	public string name;
-	public float zoom;
-	public float attack_framce;
-    public float attack_all_framce;
+	public double zoom;
+	public double attack_framce;
+    public double attack_all_framce;
     public string blood_offset;
-	public float blood_witch;
+	public double blood_witch;
 	public string hurt_offset;
 	public string fight_offset;
-	public float idel_y;
+	public double idel_y;
     public string target_border;
     public string action_list;
     public string action_frame;
-    public float animation_speed;
+    public double animation_speed;
     public Point BloodOffset,HurtOffset,FightOffset;
     private List<ActionFrameBean> mActionFrame;
     private List<float> mTargetBorder;

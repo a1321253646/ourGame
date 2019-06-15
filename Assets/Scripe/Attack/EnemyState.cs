@@ -25,7 +25,7 @@ public class EnemyState{
         if (enemy.mAttackType == Attacker.ATTACK_TYPE_ENEMY) {
             HP_imageGameObjectClone = GameObject.Instantiate(HP_imageGameobject,
                 new Vector2(EnemySceenPosition.x, EnemySceenPosition.y), Quaternion.identity);
-            HP_imageGameObjectClone.transform.localScale = new Vector3(mResourceData.blood_witch, 1f, 0);
+            HP_imageGameObjectClone.transform.localScale = new Vector3((float)mResourceData.blood_witch, 1f, 0);
             HP_imageGameObjectClone.transform.SetParent(HP_Parent);
             mHpSl = HP_imageGameObjectClone.GetComponent<Slider>();
             EnemySceenPosition = Camera.main.WorldToScreenPoint(mEnemy.transform.position) + new Vector3(0, 0, 0);

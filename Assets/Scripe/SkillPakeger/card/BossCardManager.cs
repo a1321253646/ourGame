@@ -16,7 +16,10 @@ public class BossCardManager : CardManagerBase
        
         Level level = JsonUtils.getIntance().getLevelData(
             BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
-        mBean = JsonUtils.getIntance().getBossCardListById(level.getCardListId());
+        Debug.Log(" BossCardManager level name=" + level.name);
+        long cardListId = level.getCardListId();
+        Debug.Log(" BossCardManager level cardListId=" + cardListId);
+        mBean = JsonUtils.getIntance().getBossCardListById(cardListId);
         mCardListTmp.AddRange(mBean.getCardList());
         isShow = true;
     }

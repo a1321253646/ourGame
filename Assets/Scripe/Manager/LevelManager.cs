@@ -32,8 +32,8 @@ public class LevelManager : MonoBehaviour {
         cardTop = tmp.y - tmp2.y;
         mMapConfig = JsonUtils.getIntance().getMapConfigByResource(
             JsonUtils.getIntance().getLevelData().map);
-        yBase = mMapConfig.y_base;
-        yBase = cardTop + mMapConfig.y_base;
+        yBase = (float)mMapConfig.y_base;
+        yBase = cardTop + (float)mMapConfig.y_base;
 
         mBackManager = new BackgroundManager();
         mFightManager = new FightManager();
@@ -59,8 +59,8 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
 
-    //    GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
-    //    GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
+        GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
+        GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
 
         creaPlay(yBase);
         //  creatEnemyFactory(cardTop);
@@ -122,10 +122,10 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 1;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
-      //      if (GameManager.getIntance().mTestSpeed != -1)
-      //      {
-      //          Time.timeScale = GameManager.getIntance().mTestSpeed;
-      //      }
+            if (GameManager.getIntance().mTestSpeed != -1)
+            {
+                Time.timeScale = GameManager.getIntance().mTestSpeed;
+            }
         Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
         " level==" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "SQLHelper.getIntance().mVocationCount = " + SQLHelper.getIntance().mVocationCount +
         "  level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount=" +
@@ -211,6 +211,10 @@ public class LevelManager : MonoBehaviour {
             if (isWudingTime >= JsonUtils.getIntance().getConfigValueForId(100058)) {
                 GameManager.getIntance().isLunhuiWudiIng = false;
             }
+        }
+
+        if (GameManager.getIntance().isUpdateToNetEnd) {
+            SQLManager.getIntance().updateToNetEnd(GameManager.getIntance().isUpdateToNetIsSuccess);
         }
         mLocalManager.upData ();
 		if (!starBoss && GameManager.getIntance ().mStartBoss) {
@@ -305,7 +309,7 @@ public class LevelManager : MonoBehaviour {
        
 
         GameObject newobj =  GameObject.Instantiate (Player, new Vector3 (-7, 
-            cardTop-bean.idel_y,-1),
+            cardTop- (float)bean.idel_y,-1),
 			Quaternion.Euler(0.0f,0.0f,0.0f));
 		newobj.transform.localScale.Set (JsonUtils.getIntance().getConfigValueForId(100005), JsonUtils.getIntance().getConfigValueForId(100005), 1);
         mPlayerControl = newobj.GetComponent<PlayControl>();

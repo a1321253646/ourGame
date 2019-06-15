@@ -8,13 +8,13 @@ public class Level
 	public string name;
 	public string wellen;
 	public long boss_DI;
-	public float boss_gas;
+	public double boss_gas;
 	public string map;
 	public string boss_bg;
 	public string abc;
-	public string reincarnation;
+	public string Reincarnation;
 	public string offlinereward;
-	public float levelspeedup;
+	public double levelspeedup;
 	public string lunhui;
 	public string hunjing;
     public string card;
@@ -28,11 +28,14 @@ public class Level
     public List<long> mBossCardList;
 
     public long getCardListId() {
+        Debug.Log(" getCardListId SQLHelper.getIntance().mCardLevel  =" + SQLHelper.getIntance().mCardLevel+ " BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel)="+ BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel));
         if (SQLHelper.getIntance().mCardLevel == -1 || SQLHelper.getIntance().mCardLevel != BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel))
         {
             List<long> list = getBossCardList();
             long id = Random.Range(0, list.Count);
+            Debug.Log(" BossCardManager level Random.Range=" + id+ " list.size="+ list.Count);
             id = list[(int)id];
+            Debug.Log(" BossCardManager new cardid =" + id );
             SQLHelper.getIntance().updateLevelCardId(BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel), id);
             return id;
         }
@@ -76,7 +79,7 @@ public class Level
     {
         if (mReincarnation == null)
         {
-            mReincarnation = BigNumber.getBigNumForString(reincarnation);
+            mReincarnation = BigNumber.getBigNumForString(Reincarnation);
         }
         return mReincarnation;
     }

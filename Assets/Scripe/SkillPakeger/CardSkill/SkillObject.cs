@@ -78,8 +78,8 @@ public abstract class SkillObject : MonoBehaviour
 
     private void getLocal() {
         mLocal = new SkillLocalBean();
-        mLocal.leng = mBean.leng * mResource.zoom;
-        mLocal.wight = mBean.wight * mResource.zoom;
+        mLocal.leng = (float)mBean.leng * (float)mResource.zoom;
+        mLocal.wight = (float)mBean.wight * (float)mResource.zoom;
         mLocal.type = mBean.shape_type;
     }
 

@@ -163,9 +163,9 @@ public class PlayControl : Attacker
         float cardTop = tmp.y - tmp2.y;
         MapConfigBean mMapConfig = JsonUtils.getIntance().getMapConfigByResource(
             JsonUtils.getIntance().getLevelData().map);
-        float yBase = mMapConfig.y_base;
-        yBase = cardTop + mMapConfig.y_base;
-        transform.position = new Vector2(transform.position.x,yBase- resourceData.idel_y) ;
+        float yBase = (float)mMapConfig.y_base;
+        yBase = cardTop + (float)mMapConfig.y_base;
+        transform.position = new Vector2(transform.position.x,yBase- (float)resourceData.idel_y) ;
         GameObject.Find("hero").GetComponent<HeroRoleControl>().upDateUi();
     }
 
@@ -631,7 +631,7 @@ public class PlayControl : Attacker
             vocationDealSkill();
             initAnimalEvent();
             VocationDecBean bean = JsonUtils.getIntance().getVocationById(mVoication);
-            mAttackLeng = bean.attack_range * resourceData.zoom;
+            mAttackLeng = (float)bean.attack_range * (float)resourceData.zoom;
             GameObject.Find("hero").GetComponent<HeroRoleControl>().vocation();
         }
         double mMaxTmp = mBaseAttribute.maxBloodVolume;
@@ -666,7 +666,7 @@ public class PlayControl : Attacker
 	void Update () {
         mTime += Time.deltaTime;
 
-        //        Debug.Log(" isWin  ="+ isWin);
+                Debug.Log(" GameManager.getIntance().isEnd  =" + GameManager.getIntance().isEnd);
 
         if (GameManager.getIntance().isEnd) {
             if (isWin) {
@@ -688,7 +688,9 @@ public class PlayControl : Attacker
             }
         }
 
-
+        Debug.Log(" isWin =" + isWin);
+        Debug.Log(" isStart =" + isStart);
+        Debug.Log(" getStatus =" + getStatus() + " mBackManager.isRun=" + mBackManager.isRun);
         if (isWin)
         {
             if (GameManager.getIntance().isGuide) {
@@ -711,7 +713,7 @@ public class PlayControl : Attacker
                 mBackManager.move();
                 mLocalBean = new LocalBean(transform.position.x, transform.position.y, mAttackLeng, true, this);
                 mFightManager.registerAttacker(this);
-                mLevelManager.creatEnemyFactory(transform.position.x, transform.position.y+resourceData.idel_y);
+                mLevelManager.creatEnemyFactory(transform.position.x, transform.position.y+ (float)resourceData.idel_y);
                 getOutLine();
  //               GameObject.Find("Manager").GetComponent<AdManager>().initAd();
             }
@@ -731,12 +733,16 @@ public class PlayControl : Attacker
                 mBackManager.move();
             }
         }
+        
         if (getStatus() == Attacker.PLAY_STATUS_RUN && !mBackManager.isRun && !isStart) {
             mBackManager.move();
         }
-//        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
+        //        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
+        Debug.Log(" mSkillManager  =" + mSkillManager);
         mSkillManager.upDate();
+        Debug.Log(" mAnimalControl  =" + mAnimalControl);
         mAnimalControl.update();
+        Debug.Log(" mLevelAnimalControl  =" + mAnimalControl);
         mLevelAnimalControl.updateAnimal();
     }
     private bool isWin = false;

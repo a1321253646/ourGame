@@ -19,8 +19,8 @@ public class SkillJsonBean : MonoBehaviour
     public long skill_resource;
     public long shape_type;
     public string shape_resource_id;
-    public float leng;
-    public float wight;
+    public double leng;
+    public double wight;
     public long point_type;
     public List<float> specialParameterValue;
     public List<float> effectsParameterValue;

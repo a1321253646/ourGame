@@ -3,10 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine.UI;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
+using LitJson;
 public class JsonUtils
 {
     //	private  string levelFile =  "config/level";
@@ -100,7 +97,7 @@ public class JsonUtils
         if (mVocation == -1) {
             mVocation = 1;
         }
-
+        Debug.Log("mVocation ==  " + level);
         heroFile = getVocationById(mVocation).attributeName;
         
         string levelBack = "";
@@ -244,14 +241,14 @@ public class JsonUtils
         readHeroData();
         GameManager.getIntance().mInitDec = getStringById(100011);
 
-        readGoodInfo();
-        GameManager.getIntance().mInitDec = getStringById(100013);
+       // readGoodInfo();
+       // GameManager.getIntance().mInitDec = getStringById(100013);
         readAffixInfo();
         GameManager.getIntance().mInitDec = getStringById(100014);
         readAttributeInfo();
         GameManager.getIntance().mInitDec = getStringById(100015);
-        readComposeInfo();
-        GameManager.getIntance().mInitDec = getStringById(100016);
+      //  readComposeInfo();
+      //  GameManager.getIntance().mInitDec = getStringById(100016);
 
         readSpeedValueInfo();
         GameManager.getIntance().mInitDec = getStringById(100019);
@@ -313,32 +310,27 @@ public class JsonUtils
     }
     private void readSkillInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(skillFile));
-        mSkillDate = arrdata.ToObject<List<SkillJsonBean>>();
+        mSkillDate = JsonMapper.ToObject<List<SkillJsonBean>>(readFile(skillFile)); 
     }
     private void readMapInfoInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(mapConfigFile));
-        mMapDate = arrdata.ToObject<List<MapConfigBean>>();
+        mMapDate = JsonMapper.ToObject<List<MapConfigBean>>(readFile(mapConfigFile)); 
     }
     private void readPetInfo() {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(petFile));
-        mPetDate = arrdata.ToObject<List<PetJsonBean>>();
+        mPetDate = JsonMapper.ToObject<List<PetJsonBean>>(readFile(petFile));
     }
 
     private void readBossCardInfo() {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(cardListFile));
-        mBossCardDate = arrdata.ToObject<List<BossCardJsonBean>>();
+        mBossCardDate = JsonMapper.ToObject<List<BossCardJsonBean>>(readFile(cardListFile)); 
     }
 
     private void readCardInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(cardFile));
-        mCardDate = arrdata.ToObject<List<CardJsonBean>>();
+
+        mCardDate = JsonMapper.ToObject<List<CardJsonBean>>(readFile(cardFile));
     }
     private void readSamsaraInfo() {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(samsaraFile));
-        List<SamsaraJsonBean> list = arrdata.ToObject<List<SamsaraJsonBean>>();
+        List<SamsaraJsonBean> list = JsonMapper.ToObject<List<SamsaraJsonBean>>(readFile(samsaraFile));
         foreach (SamsaraJsonBean bean in list) {
             SamsaraJsonBean samsaraId;
             List<SamsaraValueBean> tmpList;
@@ -406,7 +398,8 @@ public class JsonUtils
     public BossCardJsonBean getBossCardListById(long id) {
         foreach (BossCardJsonBean bean in mBossCardDate)
         {
-            if (bean.id == id)
+            Debug.Log("getBossCardListById id =" + id+ "  bean.id = "+ bean.ID);
+            if (bean.ID == id)
             {
                 return bean;
             }
@@ -476,9 +469,8 @@ public class JsonUtils
     }
     private void readAttributeInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(attributeFile));
-        List<AccouterJsonBean> list = arrdata.ToObject<List<AccouterJsonBean>>();
-        if(mAttribute == null) {
+        List<AccouterJsonBean> list = JsonMapper.ToObject<List<AccouterJsonBean>>(readFile(attributeFile));
+        if (mAttribute == null) {
             mAttribute = new Dictionary<long, AccouterJsonBean>();
         }
         foreach (AccouterJsonBean bean in list) {
@@ -487,24 +479,20 @@ public class JsonUtils
     }
     private void readAffixInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(affixFile));
-        mAffixDate = arrdata.ToObject<List<AffixJsonBean>>();
+        mAffixDate = JsonMapper.ToObject<List<AffixJsonBean>>(readFile(affixFile));
     }
 
     private void readComposeInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(composeFile)); 
-         mComposeData = arrdata.ToObject<List<ComposeJsonBen>>();
+        mComposeData = JsonMapper.ToObject<List<ComposeJsonBen>>(readFile(composeFile));
     }
     private void readdropDeviceInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(dropDeviceFile));
-        mDropDevoce = arrdata.ToObject<List<DropDevice>>();
+        mDropDevoce = JsonMapper.ToObject<List<DropDevice>>(readFile(dropDeviceFile));
     }
     private void readSpeedValueInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(speedValueFile));
-        mSpeedValue = arrdata.ToObject<List<SpeedValueJsonBean>>();
+        mSpeedValue = JsonMapper.ToObject<List<SpeedValueJsonBean>>(readFile(speedValueFile));
     }
     public DropDevice getDropDevoiceByID(long id) {
         foreach (DropDevice detail in mDropDevoce)
@@ -518,8 +506,7 @@ public class JsonUtils
     }
     private void readdropDeviceDetailInfo()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(dropDeviceDetailFile));
-        List < DropDeviceDetailJson > detailJson = arrdata.ToObject<List<DropDeviceDetailJson>>();
+        List<DropDeviceDetailJson> detailJson = JsonMapper.ToObject<List<DropDeviceDetailJson>>(readFile(dropDeviceDetailFile));
         DropDeviceDetail dropDeviceDetail;
         mDropDeviceDetailData = new List<DropDeviceDetail>();
         foreach (DropDeviceDetailJson json in detailJson) {
@@ -544,16 +531,16 @@ public class JsonUtils
     public float getFrequencyByValue(double value) {
         if (value <= mSpeedValue[0].value)
         {
-            return mSpeedValue[0].frequency;
+            return (float)mSpeedValue[0].frequency;
         }
         else if(value >= mSpeedValue[mSpeedValue.Count-1].value)
         {
-            return mSpeedValue[mSpeedValue.Count - 1].frequency;
+            return (float)mSpeedValue[mSpeedValue.Count - 1].frequency;
 
         }
         for (int i = 0; i < mSpeedValue.Count; i++) {
             if (value < mSpeedValue[i].value) {
-                return mSpeedValue[i - 1].frequency;
+                return (float)mSpeedValue[i - 1].frequency;
             }
         }
         return 1;
@@ -571,26 +558,25 @@ public class JsonUtils
         return mguideDate;
     }
     private void readGoodInfo() {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(goodsFile));
-        mGoods = arrdata.ToObject<List<GoodJsonBean>>();
+        mGoods = JsonMapper.ToObject<List<GoodJsonBean>>(readFile(goodsFile));
     }
 
 	private void readResource(){
-		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (resourceFile));
-		resourceData = arrdata.ToObject<List<ResourceBean>> ();
+
+        resourceData = JsonMapper.ToObject<List<ResourceBean>>(readFile(resourceFile));
         foreach (ResourceBean bean in resourceData) {
-            bean.getBloodOffset().x = bean.zoom * bean.getBloodOffset().x;
-            bean.getBloodOffset().y = bean.zoom * bean.getBloodOffset().y;
-            bean.getHurtOffset().x = bean.zoom * bean.getHurtOffset().x;
-            bean.getHurtOffset().y = bean.zoom * bean.getHurtOffset().y;
-            bean.getFightOffset().x = bean.zoom * bean.getFightOffset().x;
-            bean.getFightOffset().y = bean.zoom * bean.getFightOffset().y;
+            bean.getBloodOffset().x = (float)bean.zoom * bean.getBloodOffset().x;
+            bean.getBloodOffset().y = (float)bean.zoom * bean.getBloodOffset().y;
+            bean.getHurtOffset().x = (float)bean.zoom * bean.getHurtOffset().x;
+            bean.getHurtOffset().y = (float)bean.zoom * bean.getHurtOffset().y;
+            bean.getFightOffset().x = (float)bean.zoom * bean.getFightOffset().x;
+            bean.getFightOffset().y = (float)bean.zoom * bean.getFightOffset().y;
             bean.idel_y = bean.zoom * bean.idel_y;
             List<float> tar = bean.getTargetBorder();
             if (tar != null && tar.Count > 0) {
                 for (int i = 0; i < tar.Count; i++)
                 {
-                    tar[i] = tar[i] * bean.zoom;
+                    tar[i] = tar[i] * (float)bean.zoom;
                 }
             }
 
@@ -598,11 +584,10 @@ public class JsonUtils
 	}
     private void readConfig()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(configeFile));
-        List<ConfigNote> list = arrdata.ToObject<List<ConfigNote>>();
+        List<ConfigNote> list = JsonMapper.ToObject<List<ConfigNote>>(readFile(configeFile));
         foreach (ConfigNote n in list)
         {
-            mConfig.Add(n.id, n.value);
+            mConfig.Add(n.id, (float)n.value);
 
         }
 
@@ -664,24 +649,21 @@ public class JsonUtils
 
     private void readVocation()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(vocationFile));
-        mVocationDate = arrdata.ToObject<List<VocationDecBean>>();
+
+        mVocationDate = JsonMapper.ToObject<List<VocationDecBean>>(readFile(vocationFile));
 
     }
     private void readString()
     {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(stringFile));
-        mStringDate = arrdata.ToObject<List<StringJsonBean>>();
+        mStringDate = JsonMapper.ToObject<List<StringJsonBean>>(readFile(stringFile));
 
     }
     private void readGuideFile() {
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(guideFile));
-        mguideDate = arrdata.ToObject<List<GuideJsonBean>>();
+        mguideDate = JsonMapper.ToObject<List<GuideJsonBean>>(readFile(guideFile));
     }
 
     private void readHeroData(){
-		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (heroFile));
-        List<Hero> list  = arrdata.ToObject<List<Hero>> ();
+        List<Hero> list = JsonMapper.ToObject<List<Hero>>(readFile(heroFile));
         heroData.Clear();
         foreach (Hero h in list) {
             heroData.Add(h.role_lv, h);
@@ -693,8 +675,7 @@ public class JsonUtils
 
     public BigNumber readMaxLevelLunhuiAdValue(long index , long level) {
         Debug.Log("level= " + level+ " index="+ index);
-        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile("level"+index));
-        List<Level> levelTmp = arrdata.ToObject<List<Level>>();
+        List<Level> levelTmp = JsonMapper.ToObject<List<Level>>(readFile("level" + index));
         foreach (Level l in levelTmp) {
             if (l.id == level) {
                 return l.getAdLunhui();
@@ -705,25 +686,22 @@ public class JsonUtils
     }
 
 	private void readLevelData(){
-		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (levelFile));
-		levelData = arrdata.ToObject<List<Level>> ();
-/*		Debug.Log ("readLevelData:");
-		foreach (Level level in levelData) {
-			Debug.Log ("hero id="+level.id+
-				" level.boss_DI ="+level.boss_DI+
-				" level.boss_gas ="+level.boss_gas+
-				" level.name ="+level.name+
-				" level.wellen ="+level.wellen);
-		}*/
-	}
+        levelData = JsonMapper.ToObject<List<Level>>(readFile(levelFile));
+        /*		Debug.Log ("readLevelData:");
+                foreach (Level level in levelData) {
+                    Debug.Log ("hero id="+level.id+
+                        " level.boss_DI ="+level.boss_DI+
+                        " level.boss_gas ="+level.boss_gas+
+                        " level.name ="+level.name+
+                        " level.wellen ="+level.wellen);
+                }*/
+    }
 	private List<LevelEnemy> readLevelEnemyData(){
-		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (levelEnemyFile));
-		return arrdata.ToObject<List<LevelEnemy>> ();
+		return JsonMapper.ToObject<List<LevelEnemy>>(readFile(levelEnemyFile)); 
+
 	}
 	private List<Enemy> readEnemyData(){
-		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (enemyFile));
-
-        List<Enemy> list =  arrdata.ToObject<List<Enemy>> ();
+        List<Enemy> list = JsonMapper.ToObject<List<Enemy>>(readFile(enemyFile));
         foreach (Enemy e in list) {
             ResourceBean res = getEnemyResourceData(e.resource);
             e.attack_range = e.attack_range *(e.range_type == 1? res.zoom : 1) ;
@@ -908,7 +886,7 @@ public class JsonUtils
        // if (mCurrentLevelWellent == null || mCurrentLevelWellent.Count == 0) {          
             mCurrentLevelWellent = mLevelWellenDate[lv.id];
             bossId = lv.boss_DI;
-            bossGas = lv.boss_gas;
+            bossGas = (float)lv.boss_gas;
        // }
         long wellent = mCurrentLevelWellent[(int)mCurrentLevel];
         List<LevelEnemyWellen> back = mWellentList [wellent];

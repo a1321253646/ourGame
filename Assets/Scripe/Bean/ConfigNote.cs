@@ -2,5 +2,5 @@
 public class ConfigNote
 {
     public long id;
-    public float value;
+    public double value;
 }

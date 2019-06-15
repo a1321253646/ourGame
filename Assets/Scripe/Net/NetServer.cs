@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
-using Newtonsoft.Json.Linq;
 using System;
+using LitJson;
 
 public class NetServer 
 {
@@ -32,45 +32,71 @@ public class NetServer
         th1.Start();
     }
 
-    private void threadRun() {
-        JObject json = new JObject();
-        json.Add("user", mDeviceID);
-        json.Add("version", 1);
-        json.Add("channel", GameManager.CHANNEL_CODE);
+    private JsonData getJsonRootData(string user) {
+        JsonData json = new JsonData();
+        json["user"] = user;
+        json["version"] = 1;
+        json["channel"] = GameManager.CHANNEL_CODE;
         if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
         {
-            json.Add("token", SQLHelper.getIntance().mToken);
+            json["token"] = SQLHelper.getIntance().mToken;
+        }
+        return json;
+    }
+    private JsonData getJsonRootData()
+    {
+
+        return getJsonRootData(mDeviceID);
+    }
+
+    private JsonData getActionDate(SqlNetDate date) {
+        JsonData jb = new JsonData();
+        jb["action"] = date.action;
+        jb["type"] = date.date.type;
+        jb["id"] = date.date.id;
+        jb["goodId"] = date.date.goodId;
+        jb["goodtype"] = date.date.goodType;
+        jb["isclean"] = date.date.isClean;
+        jb["extra"] = date.date.extan;
+        return jb;
+    }
+
+
+    private void threadRun() {
+
+        JsonData json = getJsonRootData();
+
+        if (mList != null)
+        {
+            Debug.Log("NetServer  updateNet mList.Count = " + mList.Count);
+        }
+        else {
+            Debug.Log("NetServer  updateNet mList = " + mList);
         }
         if (mList != null && mList.Count > 0) {
-            JArray array = new JArray();
+            JsonData array = new JsonData();
             for (int i = 0; i< mList.Count;) {
                 SqlNetDate date = mList[i];
+                Debug.Log("NetServer  updateNet date.date.type = " + date.date.type);
+                Debug.Log("NetServer  updateNet  date.date.id = " + date.date.id);
                 if (date.date.type == SQLHelper.TYPE_GAME && date.date.id == SQLHelper.GAME_ID_IS_NET) {
                     mList.Remove(date);
                     continue;
                 }
-                JObject jb = new JObject();
-                jb.Add("action", date.action);
-                jb.Add("type", date.date.type);
-                jb.Add("id", date.date.id);
-                jb.Add("goodId", date.date.goodId);
-                jb.Add("goodtype", date.date.goodType);
-                jb.Add("isclean", date.date.isClean);
-                jb.Add("extra", date.date.extan);
-                Debug.Log("NetServer  updateNet jb = " + jb.ToString());
-                array.Add(jb);
+                array.Add(getActionDate(date));
                 i++;
             }
+            Debug.Log("NetServer  updateNet array.Count = " + array.Count);
             if (array.Count > 0) {
-                json.Add("date",array);
+                json["date"] = array;
             }
             
         };
-        Debug.Log("NetServer  updateNet json = "+ json.ToString());
+        Debug.Log("NetServer  updateNet json = "+ json.ToJson());
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
      //   dir.Add("Connection", "close");
-        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToJson().ToCharArray());
 
         WWW www = new WWW(URL_ROOT+"/ourgame", pData, dir);
         while (!www.isDone) {
@@ -82,14 +108,17 @@ public class NetServer
             Debug.Log("Upload complete! "+ www.text);
             if (www.text != null && www.text.Length > 0)
             {
-                JObject jb = JObject.Parse(www.text);
-                int status = jb.Value<int>("status");
-                long getTime = jb.Value<long>("time");
-                GameManager.getIntance().mNewAPKVersionCode = jb.Value<long>("version");
-                string token = jb.Value<string>("token");
+                JsonData jb = JsonMapper.ToObject(www.text);
+                int status = int.Parse(jb["status"].ToString());
+                long getTime = long.Parse(jb["time"].ToString());
+                GameManager.getIntance().mNewAPKVersionCode = long.Parse(jb["version"].ToString());
+                string token = jb["token"].ToString(); 
                 dealRepond(getTime, status, token,false);
                 if (status == 0) {
-                    SQLManager.getIntance().updateToNetEnd(true);
+                    GameManager.getIntance().isUpdateToNetEnd = true;
+                    GameManager.getIntance().isUpdateToNetIsSuccess = true;
+
+
                 }               
                 mList = null;             
             }
@@ -98,11 +127,11 @@ public class NetServer
         else
         {
             isUpdate = false;
-            SQLManager.getIntance().updateToNetEnd(false);
+            GameManager.getIntance().isUpdateToNetEnd = true;
+            GameManager.getIntance().isUpdateToNetIsSuccess = false;
             mList = null;
             Debug.Log("Http错误代码:" + www.error);
-        }
-
+        }        
     }
     public string mLocal;
 
@@ -124,47 +153,39 @@ public class NetServer
     }
     public bool getLocl(string token,bool isReplace,bool skipMac)
     {
+
         if (GameManager.isTestVersion)
         {
             return true;
         }
 
-
-        JObject json = new JObject();
+        string name = mDeviceID;
         if (skipMac)
         {
-            json.Add("user", "skip_" + mDeviceID);
+            name = "skip_" + mDeviceID;
         }
-        else {
-            json.Add("user", mDeviceID);
-        }
-        json.Add("version", 1);
-        json.Add("channel", GameManager.CHANNEL_CODE);
-        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
-        {
-            json.Add("token", SQLHelper.getIntance().mToken);
-        }
-        //json.Add("user", "7a3cff28cdeddeb1220b926073d818d8");
+        JsonData json = getJsonRootData(name);
         mLocal = null;
-        JArray array = new JArray();
-        JObject jb = new JObject();
-        jb.Add("action", 5);
-        jb.Add("type", -1);
-        jb.Add("id", -1);
-        jb.Add("goodId", -1);
-        jb.Add("goodtype", -1);
-        jb.Add("isclean", -1);
+        JsonData array = new JsonData();
+        JsonData jb = new JsonData();
+        jb["action"] = 5;
+        jb["type"] = -1;
+        jb["id"] = -1;
+        jb["goodId"] = -1;
+        jb["goodtype"] = -1;
+        jb["isclean"] = -1;
+        
         if (!string.IsNullOrEmpty(token))
         {
-            jb.Add("extra", token);
+            jb["extra"] = "-1";
         }
-        
         array.Add(jb);
-        json.Add("date", array);
+        json["date"] = array;
+        Debug.Log("NetServer  updateNet json = "+ json.ToJson());
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
         //   dir.Add("Connection", "close");
-        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToJson().ToCharArray());
 
         WWW www = new WWW(URL_ROOT+"/ourgame", pData, dir);
         while (!www.isDone)
@@ -177,12 +198,17 @@ public class NetServer
            
             if (www.text != null && www.text.Length > 0 && !www.text.Equals("error"))
             {
-                JObject jb2 = JObject.Parse(www.text);
-                int status = jb2.Value<int>("status");
-                long getTime = jb2.Value<long>("time");
-                GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
-                string token2 = jb2.Value<string>("token");
-                isNew = jb2.Value<bool>("isnew");
+                JsonData jb2 = JsonMapper.ToObject(www.text);
+                int status = int.Parse(jb2["status"].ToString());
+                Debug.Log("Upload complete! status =" + status);
+                long getTime = long.Parse(jb2["time"].ToString());
+                Debug.Log("Upload complete! getTime =" + getTime);
+                GameManager.getIntance().mNewAPKVersionCode = long.Parse(jb2["version"].ToString());
+                Debug.Log("Upload complete! mNewAPKVersionCode =" + GameManager.getIntance().mNewAPKVersionCode);
+                string token2 = jb2["token"].ToString();
+                Debug.Log("Upload complete! token =" + token2);
+                isNew = bool.Parse(jb2["isNew"].ToString());
+                Debug.Log("Upload complete! isNew =" + isNew);
                 dealRepond(getTime, status,token2,true);
                 if (status == 0)
                 {
@@ -229,29 +255,26 @@ public class NetServer
     }
 
     private void getUpdateInfo() {
-        JObject json = new JObject();
-        json.Add("user", mDeviceID);
-        json.Add("version", 1);
-        json.Add("channel", GameManager.CHANNEL_CODE);
-        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
-        {
-            json.Add("token", SQLHelper.getIntance().mToken);
-        }
-        JArray array = new JArray();
-        JObject jb = new JObject();
-        jb.Add("action", 7);
-        jb.Add("type", -1);
-        jb.Add("id", -1);
-        jb.Add("goodId", -1);
-        jb.Add("goodtype", -1);
-        jb.Add("isclean", -1);
-        jb.Add("extra", "-1");
+        JsonData json = getJsonRootData();
+
+        JsonData array = new JsonData();
+        JsonData jb = new JsonData();
+
+        jb["action"] = 7;
+        jb["type"] = -1;
+        jb["id"] = -1;
+        jb["goodId"] = -1;
+        jb["goodtype"] = -1;
+        jb["isclean"] = -1;
+        jb["extra"] = "-1";
+
         array.Add(jb);
-        json.Add("date", array);
+        json["date"] = array;
+        Debug.Log("NetServer  updateNet json = " + json.ToJson());
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
         //   dir.Add("Connection", "close");
-        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToJson().ToCharArray());
 
         WWW www = new WWW(URL_ROOT + "/ourgame", pData, dir);
         while (!www.isDone)
@@ -264,12 +287,14 @@ public class NetServer
 
             if (www.text != null && www.text.Length > 0)
             {
-                JObject jb2 = JObject.Parse(www.text);
-                int status = jb2.Value<int>("status");
-                long getTime = jb2.Value<long>("time");
-                GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
-                GameManager.getIntance().mIsMust = jb2.Value<long>("ismust");
-                GameManager.getIntance().mUpdateStr = jb2.Value<string>("date");
+                JsonData jb2 = JsonMapper.ToObject(www.text);
+                int status = int.Parse(jb2["status"].ToString());
+                long getTime = long.Parse(jb2["time"].ToString());
+                GameManager.getIntance().mNewAPKVersionCode = long.Parse(jb2["version"].ToString());
+                string token = jb2["token"].ToString();
+                dealRepond(getTime, status, token, false);
+                GameManager.getIntance().mIsMust = long.Parse(jb2["ismust"].ToString());
+                GameManager.getIntance().mUpdateStr = jb2["date"].ToString();
             }
         }
         else
@@ -283,29 +308,27 @@ public class NetServer
     public void clearAllLocal() {
         mClearTimeScale = Time.timeScale;
         Time.timeScale = 0;
-        JObject json = new JObject();
-        json.Add("user", mDeviceID);
-        json.Add("version", 1);
-        json.Add("channel", GameManager.CHANNEL_CODE);
-        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
-        {
-            json.Add("token", SQLHelper.getIntance().mToken);
-        }
-        JArray array = new JArray();
-        JObject jb = new JObject();
-        jb.Add("action", 4);
-        jb.Add("type", -1);
-        jb.Add("id", -1);
-        jb.Add("goodId", -1);
-        jb.Add("goodtype", -1);
-        jb.Add("isclean", -1);
-        jb.Add("extra", "-1");
+
+        JsonData json = getJsonRootData();
+
+        JsonData array = new JsonData();
+        JsonData jb = new JsonData();
+
+        jb["action"] = 4;
+        jb["type"] = -1;
+        jb["id"] = -1;
+        jb["goodId"] = -1;
+        jb["goodtype"] = -1;
+        jb["isclean"] = -1;
+        jb["extra"] = "-1";
+
         array.Add(jb);
-        json.Add("date", array);
+        json["date"] = array;
+        Debug.Log("NetServer  updateNet json = " + json.ToJson());
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
         //   dir.Add("Connection", "close");
-        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToJson().ToCharArray());
 
         WWW www = new WWW(URL_ROOT + "/ourgame", pData, dir);
         while (!www.isDone)
@@ -318,11 +341,12 @@ public class NetServer
 
             if (www.text != null && www.text.Length > 0)
             {
-                JObject jb2 = JObject.Parse(www.text);
-                int status = jb2.Value<int>("status");
-                long getTime = jb2.Value<long>("time");
-                string token = jb2.Value<string>("token");
-                GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
+                JsonData jb2 = JsonMapper.ToObject(www.text);
+                int status = int.Parse(jb2["status"].ToString());
+                long getTime = long.Parse(jb2["time"].ToString());
+                GameManager.getIntance().mNewAPKVersionCode = long.Parse(jb2["version"].ToString());
+                string token = jb2["token"].ToString();
+
                 dealRepond(getTime, status, token, false);
                 if (status == 0)
                 {
@@ -341,35 +365,33 @@ public class NetServer
             Debug.Log("Http错误代码:" + www.error);
         }
         Time.timeScale = mClearTimeScale;
-
+        
     }
 
 
     private void getRankingList()
     {
-        JObject json = new JObject();
-        json.Add("user", mDeviceID);
-        json.Add("version", 1);
-        json.Add("channel", GameManager.CHANNEL_CODE);
-        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mToken))
-        {
-            json.Add("token", SQLHelper.getIntance().mToken);
-        }
-        JArray array = new JArray();
-        JObject jb = new JObject();
-        jb.Add("action", 6);
-        jb.Add("type", -1);
-        jb.Add("id", -1);
-        jb.Add("goodId", -1);
-        jb.Add("goodtype", -1);
-        jb.Add("isclean", -1);
-        jb.Add("extra", "-1");
+        JsonData json = getJsonRootData();
+
+        JsonData array = new JsonData();
+        JsonData jb = new JsonData();
+
+        jb["action"] = 6;
+        jb["type"] = -1;
+        jb["id"] = -1;
+        jb["goodId"] = -1;
+        jb["goodtype"] = -1;
+        jb["isclean"] = -1;
+        jb["extra"] = "-1";
+
         array.Add(jb);
-        json.Add("date", array);
+        json["date"] = array;
+        Debug.Log("NetServer  updateNet json = " + json.ToJson());
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
         //   dir.Add("Connection", "close");
-        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
+       
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToJson().ToCharArray());
 
         WWW www = new WWW(URL_ROOT+"/ourgame", pData, dir);
         while (!www.isDone)
@@ -382,21 +404,23 @@ public class NetServer
 
             if (www.text != null && www.text.Length > 0)
             {
-                JObject jb2 = JObject.Parse(www.text);
-                int status = jb2.Value<int>("status");
-                long getTime = jb2.Value<long>("time");
-                string token = jb2.Value<string>("token");
-                GameManager.getIntance().mNewAPKVersionCode = jb2.Value<long>("version");
+
+                JsonData jb2 = JsonMapper.ToObject(www.text);
+                int status = int.Parse(jb2["status"].ToString());
+                long getTime = long.Parse(jb2["time"].ToString());
+                GameManager.getIntance().mNewAPKVersionCode = long.Parse(jb2["version"].ToString());
+                string token = jb2["token"].ToString();
+
                 dealRepond(getTime, status, token,false);
                 if (status == 0)
                 {
-                    var arrdata = jb2.Value<JArray>("date");
+                    string date = jb2["date"].ToJson();
                     Debug.Log(" Newtonsoft.Json.Linq.JArray.Parse(str);");
                     if (GameManager.getIntance().mRankingList != null) {
                         GameManager.getIntance().mRankingList.Clear();
                     }
-                    
-                    GameManager.getIntance().mRankingList = arrdata.ToObject<List<RankingListDateBean>>();
+
+                    GameManager.getIntance().mRankingList = JsonMapper.ToObject<List<RankingListDateBean>>(date);
                     GameManager.getIntance().mRankingListUpdate = true;
                 }
 
@@ -416,10 +440,11 @@ public class NetServer
         if (mLocal != null && !mLocal.Equals("error") && mLocal.Length > 0) {
             try
             {
-                JObject jb2 = JObject.Parse(mLocal);
-                var arrdata = jb2.Value<JArray>("date");
+                JsonData jb2 = JsonMapper.ToObject(mLocal);
+                string date = jb2["date"].ToJson();
+
                 Debug.Log(" Newtonsoft.Json.Linq.JArray.Parse(str);");
-                List<SQLDate> list = arrdata.ToObject<List<SQLDate>>();
+                List<SQLDate> list = JsonMapper.ToObject<List<SQLDate>>(date);
                 if (list != null && list.Count > 0) {
                     return true;
                 }
@@ -470,43 +495,4 @@ public class NetServer
     {
         return mLocal;
     }
-
-    /*    public void clearAllNet() {
-        JObject json = new JObject();
-        json.Add("user", SystemInfo.deviceUniqueIdentifier);
-        JArray array = new JArray();
-        JObject jb = new JObject();
-        jb.Add("action", 4);
-        jb.Add("type", -1);
-        jb.Add("id", -1);
-        jb.Add("goodId", -1);
-        jb.Add("goodtype", -1);
-        jb.Add("isclean", -1);
-        jb.Add("extra", "-1");
-        array.Add(jb);
-        json.Add("date", array);
-        Dictionary<string, string> dir = new Dictionary<string, string>();
-        dir.Add("Content-Type", "application/json");
-        //   dir.Add("Connection", "close");
-        byte[] pData = System.Text.Encoding.ASCII.GetBytes(json.ToString().ToCharArray());
-
-        WWW www = new WWW(URL_ROOT+"/ourgame", pData, dir);
-        while (!www.isDone)
-        {
-            Thread.Sleep(100);
-        }
-        if (www.error == null && www.text != null && www.text.Equals("ok"))
-        {
-            Debug.Log("Upload complete!");
-        }
-        else
-        {
-            Debug.Log("Http错误代码:" + www.error);
-            SqlNetDate date = new SqlNetDate();
-            date.action = 6;
-            SQLNetManager.getIntance().addList(date);
-        }
-    }*/
-
-
 }
