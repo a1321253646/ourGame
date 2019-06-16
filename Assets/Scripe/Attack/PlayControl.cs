@@ -27,7 +27,7 @@ public class PlayControl : Attacker
         int count = 1;
         GameObject.Find("Manager").GetComponent<PetManager>().init();
         resetHero();
-        
+        GameObject.Find("vip_show_view").GetComponent<VipViewControl>().updateVipAdd();
         mLevelAnimalControl = new HeroLevelUpAnimal(mLevelAnimal, JsonUtils.getIntance().getEnemyResourceData(40002), this);
         if (GameManager.isAdd)
         {
@@ -666,7 +666,7 @@ public class PlayControl : Attacker
 	void Update () {
         mTime += Time.deltaTime;
 
-                Debug.Log(" GameManager.getIntance().isEnd  =" + GameManager.getIntance().isEnd);
+//                Debug.Log(" GameManager.getIntance().isEnd  =" + GameManager.getIntance().isEnd);
 
         if (GameManager.getIntance().isEnd) {
             if (isWin) {
@@ -688,9 +688,9 @@ public class PlayControl : Attacker
             }
         }
 
-        Debug.Log(" isWin =" + isWin);
-        Debug.Log(" isStart =" + isStart);
-        Debug.Log(" getStatus =" + getStatus() + " mBackManager.isRun=" + mBackManager.isRun);
+      //  Debug.Log(" isWin =" + isWin);
+      //  Debug.Log(" isStart =" + isStart);
+      //  Debug.Log(" getStatus =" + getStatus() + " mBackManager.isRun=" + mBackManager.isRun);
         if (isWin)
         {
             if (GameManager.getIntance().isGuide) {
@@ -738,11 +738,11 @@ public class PlayControl : Attacker
             mBackManager.move();
         }
         //        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
-        Debug.Log(" mSkillManager  =" + mSkillManager);
+//        Debug.Log(" mSkillManager  =" + mSkillManager);
         mSkillManager.upDate();
-        Debug.Log(" mAnimalControl  =" + mAnimalControl);
+//        Debug.Log(" mAnimalControl  =" + mAnimalControl);
         mAnimalControl.update();
-        Debug.Log(" mLevelAnimalControl  =" + mAnimalControl);
+//        Debug.Log(" mLevelAnimalControl  =" + mAnimalControl);
         mLevelAnimalControl.updateAnimal();
     }
     private bool isWin = false;

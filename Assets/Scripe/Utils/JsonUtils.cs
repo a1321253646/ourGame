@@ -35,6 +35,7 @@ public class JsonUtils
     private string petFile = "pet.json";
     private string vocationFile = "vocation.json";
     private string cardListFile = "bosscard.json";
+    private string shopListFile = "shop.json";
 
 
     /*private string levelFile = "level";
@@ -76,6 +77,7 @@ public class JsonUtils
     List<AffixJsonBean> mAffixDate;
     List<MapConfigBean> mMapDate;
     List<GuideJsonBean> mguideDate;
+    List<ShopJsonBean> mShopList;
     List<StringJsonBean> mStringDate;
     List<PetJsonBean> mPetDate;
     List<BossCardJsonBean> mBossCardDate;
@@ -125,6 +127,7 @@ public class JsonUtils
         guideFile = "guide";
         petFile = "pet";
         cardListFile = "bosscard";
+        shopListFile = "shop";
 #endif
 #if UNITY_STANDALONE
         heroFile = heroFile + ".json";
@@ -231,6 +234,7 @@ public class JsonUtils
         readString();
         GameManager.getIntance().mInitDec = getStringById(100006);
         readGuideFile();
+        reaShopFile();
         GameManager.getIntance().mInitDec = getStringById(100007);
         readMapInfoInfo();
         GameManager.getIntance().mInitDec = getStringById(100008);
@@ -557,6 +561,13 @@ public class JsonUtils
     public List<GuideJsonBean> getGuideList() {
         return mguideDate;
     }
+    public List<ShopJsonBean> getShopList() {
+        if (mShopList == null) {
+            reaShopFile();
+        }
+        Debug.Log("mShopList= " + mShopList.Count);
+        return mShopList;
+    }
     private void readGoodInfo() {
         mGoods = JsonMapper.ToObject<List<GoodJsonBean>>(readFile(goodsFile));
     }
@@ -660,6 +671,10 @@ public class JsonUtils
     }
     private void readGuideFile() {
         mguideDate = JsonMapper.ToObject<List<GuideJsonBean>>(readFile(guideFile));
+    }
+    private void reaShopFile() {
+        mShopList = JsonMapper.ToObject<List<ShopJsonBean>>(readFile(shopListFile));
+        Debug.Log("mShopList= " + mShopList.Count);
     }
 
     private void readHeroData(){
@@ -838,7 +853,7 @@ public class JsonUtils
 	}
 	public  Level getLevelData(long id){
 
-        Debug.Log("getLevelData  id =" + id);
+//        Debug.Log("getLevelData  id =" + id);
 
         foreach (Level level in levelData) {
 //            Debug.Log("level  id =" + level.id);

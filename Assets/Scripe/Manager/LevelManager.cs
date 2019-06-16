@@ -102,7 +102,7 @@ public class LevelManager : MonoBehaviour {
         //GameObject.Find("Role").GetComponent<PlayControl>().resetHero();
 
         mPlayerControl.resetHero();
-
+        GameObject.Find("vip_show_view").GetComponent<VipViewControl>().updateVipAdd();
         mPlayerControl.mCardManager.reset();
         BackpackManager.getIntance().updateZhuangbeiItem(true);
         GameManager.getIntance().isEnd = false;
@@ -146,6 +146,7 @@ public class LevelManager : MonoBehaviour {
           }*/
         isWudingTime = 0;
         GameObject.Find("advert").GetComponent<AdUiControl>().update();
+        GameObject.Find("shop_root").GetComponentInChildren<ShopViewControl>().updateShow();
     }
     private float isWudingTime = 0;
     void Start () {

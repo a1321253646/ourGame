@@ -12,10 +12,7 @@
     "shape_resource_id": "shape_1",
     "leng": 4,
     "wight": 2,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100002,
@@ -30,10 +27,7 @@
     "shape_resource_id": "shape_2",
     "leng": 0.5,
     "wight": 0.5,
-    "point_type": 3,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 3
   },
   {
     "id": 100003,
@@ -48,10 +42,7 @@
     "shape_resource_id": "shape_1",
     "leng": 4.15,
     "wight": 3.5,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100004,
@@ -66,10 +57,7 @@
     "shape_resource_id": "shape_1",
     "leng": 2.5,
     "wight": 3,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100005,
@@ -84,10 +72,7 @@
     "shape_resource_id": "shape_1",
     "leng": 2,
     "wight": 0.8,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100006,
@@ -102,10 +87,7 @@
     "shape_resource_id": "shape_1",
     "leng": 1.6,
     "wight": 0.45,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100007,
@@ -120,10 +102,7 @@
     "shape_resource_id": "shape_1",
     "leng": 4.5,
     "wight": 2,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100008,
@@ -138,10 +117,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 3,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 3
   },
   {
     "id": 100009,
@@ -156,10 +132,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100010,
@@ -174,10 +147,7 @@
     "shape_resource_id": "shape_1",
     "leng": 2,
     "wight": 0.25,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100011,
@@ -192,10 +162,7 @@
     "shape_resource_id": "shape_1",
     "leng": 3.3,
     "wight": 2,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100012,
@@ -210,10 +177,7 @@
     "shape_resource_id": "shape_1",
     "leng": 0.52,
     "wight": 0.117,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100013,
@@ -228,10 +192,7 @@
     "shape_resource_id": "shape_1",
     "leng": 1.77,
     "wight": 0.5,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 200001,
@@ -246,10 +207,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 200002,
@@ -264,10 +222,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 1,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 1
   },
   {
     "id": 200003,
@@ -282,10 +237,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 3,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 3
   },
   {
     "id": 300001,
@@ -300,10 +252,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600001,
@@ -318,10 +267,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600002,
@@ -336,10 +282,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600003,
@@ -354,10 +297,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600004,
@@ -372,10 +312,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600005,
@@ -390,10 +327,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600006,
@@ -408,10 +342,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600007,
@@ -426,10 +357,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600008,
@@ -444,10 +372,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600009,
@@ -462,10 +387,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600010,
@@ -480,10 +402,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600011,
@@ -498,10 +417,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600012,
@@ -516,10 +432,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600013,
@@ -534,10 +447,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600014,
@@ -552,10 +462,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 600015,
@@ -570,10 +477,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100014,
@@ -588,10 +492,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100015,
@@ -606,10 +507,7 @@
     "shape_resource_id": "shape_1",
     "leng": 1.28,
     "wight": 0.4,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100016,
@@ -624,10 +522,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 3,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 3
   },
   {
     "id": 100017,
@@ -642,10 +537,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 2,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 2
   },
   {
     "id": 100018,
@@ -660,10 +552,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 2,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 2
   },
   {
     "id": 100019,
@@ -678,10 +567,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 2,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 2
   },
   {
     "id": 100020,
@@ -696,10 +582,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 3,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 3
   },
   {
     "id": 100021,
@@ -714,10 +597,7 @@
     "shape_resource_id": "shape_1",
     "leng": 4,
     "wight": 3,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100022,
@@ -732,10 +612,7 @@
     "shape_resource_id": "shape_1",
     "leng": 5,
     "wight": 1,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100023,
@@ -750,10 +627,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 3,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 3
   },
   {
     "id": 100024,
@@ -768,10 +642,7 @@
     "shape_resource_id": "shape_1",
     "leng": 2.6,
     "wight": 1,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100025,
@@ -786,10 +657,7 @@
     "shape_resource_id": "shape_1",
     "leng": 5,
     "wight": 2,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 100026,
@@ -804,10 +672,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 3,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 3
   },
   {
     "id": 100027,
@@ -822,10 +687,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 3,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 3
   },
   {
     "id": 700001,
@@ -840,10 +702,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700002,
@@ -858,10 +717,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700003,
@@ -876,10 +732,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700004,
@@ -894,10 +747,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700005,
@@ -912,10 +762,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700006,
@@ -930,10 +777,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700007,
@@ -948,10 +792,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700008,
@@ -966,10 +807,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700009,
@@ -984,10 +822,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700010,
@@ -1002,10 +837,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700011,
@@ -1020,10 +852,7 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   },
   {
     "id": 700012,
@@ -1038,9 +867,6 @@
     "shape_resource_id": "",
     "leng": 0,
     "wight": 0,
-    "point_type": 0,
-    "Column13": "",
-    "Column14": "",
-    "Column15": 0.0
+    "point_type": 0
   }
 ]

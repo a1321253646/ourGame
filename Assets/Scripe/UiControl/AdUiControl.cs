@@ -19,7 +19,7 @@ public class AdUiControl : UiControlBase
 
     private void setShowContext()
     {
-        mCount = BigNumber.getBigNumForString(getAdValue());
+        mCount = BigNumber.getBigNumForString(getAdValue(mAdType));
         string str = "观看影片，即可免费获得S1S2";
         str = str.Replace("S1", mCount.toStringWithUnit());
         if (mAdType == ActiveButtonControl.TYPE_AD_LUNHUI)
@@ -37,9 +37,9 @@ public class AdUiControl : UiControlBase
 
     }
 
-    private string getAdValue() {
+    public static string getAdValue(long type) {
         string value = null;
-        if (mAdType == ActiveButtonControl.TYPE_AD_LUNHUI)
+        if (type == ActiveButtonControl.TYPE_AD_LUNHUI)
         {
             long level = BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel);
             if (level == -1) {
@@ -70,7 +70,7 @@ public class AdUiControl : UiControlBase
         return value;
     }
 
-    private BigNumber getLunhuiAd() {
+    private static BigNumber getLunhuiAd() {
         BigNumber adLunhui = null;
         Debug.Log("SQLHelper.getIntance().mMaxLevel= " + BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel));
         long current = BaseDateHelper.decodeLong(SQLHelper.getIntance().mGameLevel);
@@ -165,7 +165,7 @@ public class AdUiControl : UiControlBase
         if (!isShow) {
             return;
         }
-        getAdValue();
+        getAdValue(mAdType);
         setShowContext();
     }
 }

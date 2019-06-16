@@ -3,12 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections.Generic;
+using System;
 
 public class UiManager 
 {	
-	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv,mBossHpTv,mSpeedTestSet;
+	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv,mBossHpTv,mSpeedTestSet,mZuanshiCount;
 	Slider mHpSl,mStartBossGasSl,mBossHpSl;
-	Button mStartBossBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton,mRankingButton,mShop,mSpeedTestBt;
+	Button mStartBossBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton,mRankingButton,mShop,mSpeedTestBt,mVip;
     public Button mLvUpBt;
     Image autoBack;
     Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint/*,mVoiceImage*/;
@@ -38,6 +39,7 @@ public class UiManager
 		mLvUpCrystalTv = GameObject.Find ("lvup_cost_labe").GetComponent<Text> ();
 		mHpTv = GameObject.Find ("hp_show").GetComponent<Text> ();
 		mGasTv = GameObject.Find ("moqi_show").GetComponent<Text> ();
+		mZuanshiCount = GameObject.Find ("zuanshi_count").GetComponent<Text> ();
 
 		mStartBossBt = GameObject.Find ("Button_boss").GetComponent<Button> ();
 		mLvUpBt = GameObject.Find ("Button_lvup").GetComponent<Button> ();
@@ -56,6 +58,7 @@ public class UiManager
         mSettingButton = GameObject.Find("setting_button").GetComponent<Button>();
         mRankingButton = GameObject.Find("ranking_list_button").GetComponent<Button>();
         mShop = GameObject.Find("shop_bt").GetComponent<Button>();
+        mVip = GameObject.Find("vip_bt").GetComponent<Button>();
 
         mSpeedTestBt = GameObject.Find("speed_setting").GetComponent<Button>();
         mSpeedTestSet = GameObject.Find("speed_setting_tx").GetComponent<Text>();
@@ -189,6 +192,9 @@ public class UiManager
         mShop.onClick.AddListener(() => {
             UiControlManager.getIntance().show(UiControlManager.TYPE_SHOP);
         });
+        mVip.onClick.AddListener(() => {
+            UiControlManager.getIntance().show(UiControlManager.TYPE_VIP);
+        });
 
         mAutoBoss.onClick.AddListener(() =>
         {
@@ -228,7 +234,7 @@ public class UiManager
                     }
                 }*/
 
-
+        updateZuanshi();
     }
 
     public void reset() {
@@ -360,6 +366,11 @@ public class UiManager
 			mLvUpBt.interactable = false;
         }
 	}
+
+    public void updateZuanshi()
+    {
+        mZuanshiCount.text = SQLHelper.getIntance().mZuanshi.toStringWithUnit();
+    }
 
     public void changeBossBlod(double current, double max) {
         double bili = 1;

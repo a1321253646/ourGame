@@ -403,7 +403,13 @@ public class GameManager
             }
         }
     }
-
+    public void updateZuanshi()
+    {
+        if (uiManager != null)
+        {
+            uiManager.updateZuanshi();
+        }
+    }
     public void updateGasAndCrystal() {
         SQLHelper.getIntance().updateHunJing(mCurrentCrystal);
         if (uiManager != null) {

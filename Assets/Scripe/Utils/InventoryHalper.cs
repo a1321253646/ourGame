@@ -277,7 +277,7 @@ public class InventoryHalper
             mDropDeviceUsed.Add(id,  1);
             SQLHelper.getIntance().addDrop(id, mDropDeviceUsed[id]);
         }
-        Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
+//        Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
 
         
     }

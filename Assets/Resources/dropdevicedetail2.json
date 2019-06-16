@@ -3159,24 +3159,6 @@
     "dropCount": 1
   },
   {
-    "id": 4000001,
-    "itemID": 3000013,
-    "name": "手雷",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 4000001,
-    "itemID": 3000014,
-    "name": "渴血",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
     "id": 4000002,
     "itemID": 3000015,
     "name": "有失有得",
@@ -3297,6 +3279,33 @@
     "id": 4000002,
     "itemID": 3000028,
     "name": "魔术·恢复",
+    "minCount": 1,
+    "maxCount": 1,
+    "weight": 10000,
+    "dropCount": 1
+  },
+  {
+    "id": 4000003,
+    "itemID": 3000013,
+    "name": "手雷",
+    "minCount": 1,
+    "maxCount": 1,
+    "weight": 10000,
+    "dropCount": 1
+  },
+  {
+    "id": 4000003,
+    "itemID": 3000014,
+    "name": "渴血",
+    "minCount": 1,
+    "maxCount": 1,
+    "weight": 10000,
+    "dropCount": 1
+  },
+  {
+    "id": 4000003,
+    "itemID": 3000024,
+    "name": "生命绽放",
     "minCount": 1,
     "maxCount": 1,
     "weight": 10000,
