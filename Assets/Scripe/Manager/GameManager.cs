@@ -494,6 +494,15 @@ public class GameManager
             SQLHelper.getIntance().updateIsVoice(isVoice ? 1 : 2);
         }
     }
+
+    public void updateZuanshi()
+    {
+        if (uiManager != null)
+        {
+            uiManager.updateZuanshi();
+        }
+    }
+
     public UiManager getUiManager() {
         return uiManager;
     }

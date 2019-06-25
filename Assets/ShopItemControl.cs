@@ -113,7 +113,7 @@ public class ShopItemControl : MonoBehaviour
 
         }
         if (mBean.costtype == 1) {
-            if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
+        /*    if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
             {
                 mBuy.interactable = false;
                 mPrice.text = "???";
@@ -132,7 +132,7 @@ public class ShopItemControl : MonoBehaviour
                     mBuy.interactable = false;
                     mPrice.text = "???";
                 }
-            }
+            }*/
         }
 
         long par = long.Parse(mBean.parameter);

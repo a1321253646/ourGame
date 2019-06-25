@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class UiManager 
 {	
-	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv,mBossHpTv,mSpeedTestSet;
+	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv,mBossHpTv,mSpeedTestSet, mZuanshiCount;
 	Slider mHpSl,mStartBossGasSl,mBossHpSl;
 	Button mStartBossBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton,mRankingButton,mShop,mSpeedTestBt;
     public Button mLvUpBt;
@@ -38,8 +38,9 @@ public class UiManager
 		mLvUpCrystalTv = GameObject.Find ("lvup_cost_labe").GetComponent<Text> ();
 		mHpTv = GameObject.Find ("hp_show").GetComponent<Text> ();
 		mGasTv = GameObject.Find ("moqi_show").GetComponent<Text> ();
+        mZuanshiCount = GameObject.Find("zuanshi_count").GetComponent<Text>();
 
-		mStartBossBt = GameObject.Find ("Button_boss").GetComponent<Button> ();
+        mStartBossBt = GameObject.Find ("Button_boss").GetComponent<Button> ();
 		mLvUpBt = GameObject.Find ("Button_lvup").GetComponent<Button> ();
 
         mRoleUiShow = GameObject.Find("role_ui").GetComponent<Button>();
@@ -572,6 +573,11 @@ public class UiManager
         isGasRuning = false;
         isBossRuning = true;
     }
+    public void updateZuanshi()
+    {
+        mZuanshiCount.text = SQLHelper.getIntance().mZuanshi.toStringWithUnit();
+    }
+
 
     public void upDate() {
         if (!isChangeUi) {

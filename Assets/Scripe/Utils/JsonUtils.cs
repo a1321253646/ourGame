@@ -38,7 +38,7 @@ public class JsonUtils
     private string petFile = "pet.json";
     private string vocationFile = "vocation.json";
     private string cardListFile = "bosscard.json";
-
+    private string shopListFile = "shop.json";
 
     /*private string levelFile = "level";
         private string heroFile = "hero";
@@ -79,6 +79,7 @@ public class JsonUtils
     List<AffixJsonBean> mAffixDate;
     List<MapConfigBean> mMapDate;
     List<GuideJsonBean> mguideDate;
+    List<ShopJsonBean> mShopList;
     List<StringJsonBean> mStringDate;
     List<PetJsonBean> mPetDate;
     List<BossCardJsonBean> mBossCardDate;
@@ -128,6 +129,7 @@ public class JsonUtils
         guideFile = "guide";
         petFile = "pet";
         cardListFile = "bosscard";
+        shopListFile = "shop";
 #endif
 #if UNITY_STANDALONE
         heroFile = heroFile + ".json";
@@ -234,6 +236,7 @@ public class JsonUtils
         readString();
         GameManager.getIntance().mInitDec = getStringById(100006);
         readGuideFile();
+        reaShopFile();
         GameManager.getIntance().mInitDec = getStringById(100007);
         readMapInfoInfo();
         GameManager.getIntance().mInitDec = getStringById(100008);
@@ -413,6 +416,8 @@ public class JsonUtils
         }
         return null;
     }
+
+
 
 
     public SamsaraJsonBean getSamsaraInfoById(long id) {
@@ -679,6 +684,12 @@ public class JsonUtils
         mguideDate = arrdata.ToObject<List<GuideJsonBean>>();
     }
 
+    private void reaShopFile()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(shopListFile));
+        mShopList =arrdata.ToObject<List<ShopJsonBean>>(); ;
+    }
+
     private void readHeroData(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (heroFile));
         List<Hero> list  = arrdata.ToObject<List<Hero>> ();
@@ -688,6 +699,27 @@ public class JsonUtils
         }
         
 
+    }
+    public ShopJsonBean getShopItemById(long id)
+    {
+        foreach (ShopJsonBean bean in mShopList)
+        {
+            if (bean.id == id)
+            {
+                return bean;
+            }
+        }
+        return null;
+    }
+
+    public List<ShopJsonBean> getShopList()
+    {
+        if (mShopList == null)
+        {
+            reaShopFile();
+        }
+        Debug.Log("mShopList= " + mShopList.Count);
+        return mShopList;
     }
 
 

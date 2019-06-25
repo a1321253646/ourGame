@@ -45,26 +45,26 @@ public class VipViewControl : UiControlBase
     {
         if (!SQLHelper.getIntance().isVipDate())
         {
-            if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
-            {
-                GameObject.Find("shop_vip_google_connet").transform.localScale = new Vector2(1, 1);
-                mSure.interactable = false ; 
-            }
-            else
-            {
+        //    if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
+        //    {
+        //        GameObject.Find("shop_vip_google_connet").transform.localScale = new Vector2(1, 1);
+        //        mSure.interactable = false ; 
+        //    }
+        //    else
+        //    {
                 GameObject.Find("shop_vip_google_connet").transform.localScale = new Vector2(0, 0);
                 ShopJsonBean item = JsonUtils.getIntance().getShopItemById(1001);
-                foreach (SkuJsonBean sku in GameManager.getIntance().mSkusList)
-                {
-                    if (item.sku.Equals(sku.sku))
-                    {
-                        mSureTx.text = sku.price;
-                        mSure.interactable = true;
-                        break;
-                    }
-                }
+        //        foreach (SkuJsonBean sku in GameManager.getIntance().mSkusList)
+        //        {
+        //            if (item.sku.Equals(sku.sku))
+        //            {
+        //                mSureTx.text = sku.price;
+        //                mSure.interactable = true;
+        //                break;
+        //            }
+        //        }
 
-            }
+         //   }
 
         }
         else if (SQLHelper.getIntance().isNoGetVip())
