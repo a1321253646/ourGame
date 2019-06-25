@@ -2,10 +2,13 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
-
+using System.Runtime.InteropServices;
 public class GameManager
 {
-    public static string CHANNEL_CODE ="google";
+    [DllImport("__Internal")]
+    public static extern string IOS_GetUUID();
+
+    public static string CHANNEL_CODE ="ios";
 
 	public long mCurrentLevel = BaseDateHelper.encodeLong( 1);
 	public long mHeroLv = BaseDateHelper.encodeLong(1);

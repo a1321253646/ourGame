@@ -142,7 +142,7 @@ public class NetServer
         mDeviceID = SystemInfo.deviceUniqueIdentifier;
 #endif
 #if UNITY_IOS
-
+        mDeviceID = GameManager.IOS_GetUUID();
 #endif
 
     }
