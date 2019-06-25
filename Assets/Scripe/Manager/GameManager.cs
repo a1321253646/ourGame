@@ -32,7 +32,7 @@ public class GameManager
 
     public List<RankingListDateBean> mRankingList = null;
     public bool mRankingListUpdate = false;
-
+    public List<SkuJsonBean> mSkusList = null;
     public Attacker mBoss;
 
     public int mInitStatus = -1;//0为开始初始化 1 为开始读取json文件 2为json文件读取完成 3为开始处理本地数据库 4 为本地数据库处理完成 5为开始同步网络数据库 
@@ -76,7 +76,7 @@ public class GameManager
 
     public string mGameErrorString = "";
 
-    public long mTestSpeed = -1;
+    //public long mTestSpeed = -1;
     public bool isOpenStop = false;
     public bool isLunhuiWudiIng = false;
     public static bool isTestVersion = false; 

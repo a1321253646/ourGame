@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 using UnityEngine.UI;
+using System.IO;
+
 public class GameBeginControl : MonoBehaviour {
 
     public string sqlName;
@@ -178,7 +180,7 @@ public class GameBeginControl : MonoBehaviour {
         }
         else if (GameManager.getIntance().mInitStatus == 6)//和网络同步数据
         {
-            GameManager.getIntance().mInitStatus = 7;
+                GameManager.getIntance().mInitStatus = 7;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
             Debug.Log(" SQLManager.getIntance().isUpdateed()  = " + SQLManager.getIntance().isUpdateed());
             Debug.Log(" Application.internetReachability == NetworkReachability.NotReachable  = " + (Application.internetReachability == NetworkReachability.NotReachable));
@@ -244,6 +246,9 @@ public class GameBeginControl : MonoBehaviour {
         }
         else if (GameManager.getIntance().mInitStatus == 8)
         {
+            if (GameObject.Find("Manager").GetComponent<SqlControlToNative>().mAction.Count > 0) {
+                return;
+            }
             GameManager.getIntance().mInitStatus = 9;
             Debug.Log(" GameManager.getIntance().mInitStatus = " + GameManager.getIntance().mInitStatus);
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100030);

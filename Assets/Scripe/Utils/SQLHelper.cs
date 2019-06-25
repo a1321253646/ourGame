@@ -1553,7 +1553,7 @@ public class SQLHelper
         {
             return 0;
         }
-        long value = getDayToLong();
+        long value = mVipDate;
         int day = (int)value % 100;
         value = value / 100;
         int mouth = (int)value % 100;

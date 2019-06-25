@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using LitJson;
+
 public class GameCamera : MonoBehaviour
 {
 
@@ -96,5 +99,32 @@ public class GameCamera : MonoBehaviour
 
     void removeAdShow() {
         GameObject.Find("advert").GetComponentInChildren<AdUiControl>().playIsFinish(true);
+    }
+
+    void onQueryPurchasesToUnity(string skus)
+    {
+        Debug.Log("jackzheng:" + "startOrPause=" + skus );
+        GameManager.getIntance().mSkusList = JsonMapper.ToObject<List<SkuJsonBean>>(skus);
+        GameObject.Find("shop_root").GetComponent<ShopViewControl>().getSkusUpdate();
+        GameObject.Find("vip_show_view").GetComponent<VipViewControl>().updateView();
+    }
+    void onBuySuccess(string sku)
+    {
+        Debug.Log("jackzheng:" + "startOrPause=" + sku);
+        List<ShopJsonBean>  list = JsonUtils.getIntance().getShopList();
+        foreach (ShopJsonBean bean in list) {
+            if (!string.IsNullOrEmpty(bean.sku) && bean.sku.Equals(sku)) {
+                if (bean.id != 100)
+                {
+                    GameObject.Find("shop_root").GetComponent<ShopViewControl>().buySuccess(bean);
+                    break;
+                }
+                else {
+                    GameObject.Find("vip_show_view").GetComponent<VipViewControl>().buyVipSuccess();
+                    break;
+                }
+
+            }
+        }
     }
 }

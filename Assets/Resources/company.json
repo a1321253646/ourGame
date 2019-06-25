@@ -1,12 +1,12 @@
 [
   {
-    "productName": "卡牌勇士的世界",
-    "bundleIdentifier": "com.lemeng.ourgame.gl",
+    "productName": "逃离深渊",
+    "bundleIdentifier": "com.jackzheng.ourGame.gl",
     "bundleVersion": "2.0.0",
     "bundleVersionCode": 200,
     "scriptingDefine": "5cd62f884ca3570403000919",
-    "apkName": "google",
-    "defaultIcon": "icon\\512",
+    "apkName": "google_test",
+    "defaultIcon": "ui_new\\icon_512",
     "id": 3,
     "keystorePath": "E:/unityProject/ourGame/ourGame/user.keystore",
     "keystorePass": "zsbin149",

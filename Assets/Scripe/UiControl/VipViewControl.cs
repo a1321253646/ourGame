@@ -45,11 +45,32 @@ public class VipViewControl : UiControlBase
     {
         if (!SQLHelper.getIntance().isVipDate())
         {
-            mSureTx.text = "￥"  + mBean.price;
+            if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
+            {
+                GameObject.Find("shop_vip_google_connet").transform.localScale = new Vector2(1, 1);
+                mSure.interactable = false ; 
+            }
+            else
+            {
+                GameObject.Find("shop_vip_google_connet").transform.localScale = new Vector2(0, 0);
+                ShopJsonBean item = JsonUtils.getIntance().getShopItemById(1001);
+                foreach (SkuJsonBean sku in GameManager.getIntance().mSkusList)
+                {
+                    if (item.sku.Equals(sku.sku))
+                    {
+                        mSureTx.text = sku.price;
+                        mSure.interactable = true;
+                        break;
+                    }
+                }
+
+            }
+
         }
         else if (SQLHelper.getIntance().isNoGetVip())
         {
             mSureTx.text = "领取";
+            mSure.interactable = true;
         }
         else
         {
@@ -104,22 +125,35 @@ public class VipViewControl : UiControlBase
     private void sure() {
         if (!SQLHelper.getIntance().isVipDate())
         {
-            SQLHelper.getIntance().updateVipDateValue(mGetDate);
-            BigNumber zuanshi2 = SQLHelper.getIntance().mZuanshi;
-            zuanshi2 = BigNumber.add(zuanshi2, mBuyGetCount);
-            SQLHelper.getIntance().updateZuanshiValue(zuanshi2);
-            GameManager.getIntance().updateZuanshi();
-
+             Debug.Log(" BillingControl buySku");
+             AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+             Debug.Log(" BillingControl AndroidJavaClass");
+             AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+             Debug.Log(" BillingControl AndroidJavaObject");
+             string[] param = new string[1];
+             param[0] = mBean.sku;
+             bool isBuyIng = jo.Call<bool>("buySku", param);
+            //buyVipSuccess();
         }
         else if (SQLHelper.getIntance().isNoGetVip())
         {
+
             SQLHelper.getIntance().updateVipGetValue();
             BigNumber zuanshi2 = SQLHelper.getIntance().mZuanshi;
             zuanshi2 = BigNumber.add(zuanshi2, mEachGetCount);
             SQLHelper.getIntance().updateZuanshiValue(zuanshi2);
             GameManager.getIntance().updateZuanshi();
+
         }
         updateView();
+    }
+
+    public void buyVipSuccess() {
+        SQLHelper.getIntance().updateVipDateValue(mGetDate);
+        BigNumber zuanshi2 = SQLHelper.getIntance().mZuanshi;
+        zuanshi2 = BigNumber.add(zuanshi2, mBuyGetCount);
+        SQLHelper.getIntance().updateZuanshiValue(zuanshi2);
+        GameManager.getIntance().updateZuanshi();
     }
 
 }

@@ -44,5 +44,10 @@ public abstract  class ShopSubviewBase : MonoBehaviour
 
     }
 
+    public virtual void getSku()
+    {
+
+    }
+
     public abstract int getTepy();
 }

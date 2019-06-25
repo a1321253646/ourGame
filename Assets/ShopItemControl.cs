@@ -84,7 +84,15 @@ public class ShopItemControl : MonoBehaviour
             {
                 if (mBean.costtype == 1)
                 {
-                    GameObject.Find("shop_root").GetComponent<ShopViewControl>().buySuccess(mBean);
+                    Debug.Log(" BillingControl buySku");
+                    AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+                    Debug.Log(" BillingControl AndroidJavaClass");
+                    AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+                    Debug.Log(" BillingControl AndroidJavaObject");
+                    string[] param = new string[1];
+                    param[0] = mBean.sku;
+                    bool isBuyIng = jo.Call<bool>("buySku", param);
+                    //GameObject.Find("shop_root").GetComponent<ShopViewControl>().buySuccess(mBean);
                 }
                 else {
                     Debug.Log("SQLHelper.getIntance().mZuanshi=" + SQLHelper.getIntance().mZuanshi.toString());
@@ -104,6 +112,29 @@ public class ShopItemControl : MonoBehaviour
             });
 
         }
+        if (mBean.costtype == 1) {
+            if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
+            {
+                mBuy.interactable = false;
+                mPrice.text = "???";
+            }
+            else {
+                bool isHave = false;
+                foreach (SkuJsonBean sku in GameManager.getIntance().mSkusList) {
+                    if (sku.sku.Equals(mBean.sku)) {
+                        mPrice.text = sku.price;
+                        mBuy.interactable = true;
+                        isHave = true;
+                        break;
+                    }
+                }
+                if (!isHave) {
+                    mBuy.interactable = false;
+                    mPrice.text = "???";
+                }
+            }
+        }
+
         long par = long.Parse(mBean.parameter);
         BigNumber add = null;
         if (bean.itemtype == ShopSubviewBase.SHOP_TYPE_LUNHUI)

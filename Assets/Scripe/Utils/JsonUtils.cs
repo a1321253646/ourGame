@@ -561,6 +561,15 @@ public class JsonUtils
     public List<GuideJsonBean> getGuideList() {
         return mguideDate;
     }
+    public ShopJsonBean getShopItemById( long id)
+    {
+        foreach (ShopJsonBean bean in mShopList) {
+            if (bean.id == id) {
+                return bean;
+            }
+        }
+        return null;
+    }
     public List<ShopJsonBean> getShopList() {
         if (mShopList == null) {
             reaShopFile();

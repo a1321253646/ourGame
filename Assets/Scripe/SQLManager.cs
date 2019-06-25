@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LitJson;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -76,7 +77,7 @@ public class SQLManager
     }
 
 
-    private string getSqlFilePath()
+    public string getSqlFilePath()
     {
         string path = "";
 #if UNITY_ANDROID
@@ -875,18 +876,31 @@ public class SQLManager
     {
         Debug.Log("saveLocal");
         List<SQLDate> list = null;
-      /*  if (str != null && str.Length > 0)
+        if (str != null && str.Length > 0)
         {
-            Newtonsoft.Json.Linq.JObject jb = Newtonsoft.Json.Linq.JObject.Parse(str);
-            int status = jb.Value<int>("status");
+            JsonData json =  JsonMapper.ToObject(str);
+
+            long status = long.Parse(json["status"].ToString());
             if (status == 0)
             {
-                var arrdata = jb.Value<Newtonsoft.Json.Linq.JArray>("date");
+                string date = json["date"].ToJson();
+                Debug.Log(" date = " + date);
+                JsonData json2 = JsonMapper.ToObject(date);
+                if (json2 != null && json2.Count > 0) {
+                    for (int i = 0; i < json2.Count; i++) {
+                        JsonData json3 = json2[i];
+                        Debug.Log(" json3 = " + json3.ToJson());
+                    }
+                }
+
+                
                 Debug.Log(" Newtonsoft.Json.Linq.JArray.Parse(str);");
-                list = arrdata.ToObject<List<SQLDate>>();
+
+                list =  JsonMapper.ToObject<List<SQLDate>>(date);
                 Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
+
             }
-        }*/
+        }
         SQLDate data = new SQLDate();
         data.type = SQLHelper.TYPE_ENCODE_VERSION;
         data.id = 1;
@@ -923,7 +937,7 @@ public class SQLManager
             }
             Debug.Log(" arrdata.ToObject<List<SQLDate>>();");
 #if UNITY_ANDROID
-            GameObject.Find("Manager").GetComponent<SqlControlToNative>().inSertDate(data);
+            GameObject.Find("Manager").GetComponent<SqlControlToNative>().inSertDate(date);
 #endif
 #if UNITY_STANDALONE
 

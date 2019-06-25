@@ -165,4 +165,12 @@ public class ShopViewControl : UiControlBase
             GameManager.getIntance().updateGasAndCrystal();
         }
     }
+
+    public void getSkusUpdate() {
+        if (mZuanshiControl != null)
+        {
+            mZuanshiControl.getSku();
+        }
+            
+    }
 }

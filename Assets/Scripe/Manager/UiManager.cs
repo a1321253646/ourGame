@@ -63,7 +63,7 @@ public class UiManager
         mSpeedTestBt = GameObject.Find("speed_setting").GetComponent<Button>();
         mSpeedTestSet = GameObject.Find("speed_setting_tx").GetComponent<Text>();
 
-        mSpeedTestBt.onClick.AddListener(() =>
+       /* mSpeedTestBt.onClick.AddListener(() =>
         {
             if (GameManager.getIntance().mTestSpeed == -1)
             {
@@ -80,7 +80,7 @@ public class UiManager
             mSpeedTestSet.text = "X" + GameManager.getIntance().mTestSpeed;
             Time.timeScale = GameManager.getIntance().mTestSpeed;
 
-        });
+        });*/
 
         mBossUiRoot = GameObject.Find("boss_info");
         mGasUiRoot = GameObject.Find("moqi_root");
@@ -584,6 +584,31 @@ public class UiManager
         isGasRuning = false;
         isBossRuning = true;
     }
+
+    public void showMoreIcon() {
+        bool isShow = false;
+        long level = BaseDateHelper.decodeLong(GameManager.getIntance().mCurrentLevel);
+        if (level == -JsonUtils.getIntance().getConfigValueForId(100019) + 1)
+        {
+            isShow = false;
+        }
+        else {
+            isShow = true;
+        }
+        Vector2 v2;
+        if (isShow)
+        {
+            v2 = new Vector2(1, 1);
+        }
+        else{
+            v2 = new Vector2(0, 0);
+        }
+        mRankingButton.transform.localScale = v2;
+        mShop.transform.localScale = v2;
+        mVip.transform.localScale = v2;
+        mRoleUiShow.transform.localScale = v2;
+    }
+
 
     public void upDate() {
         if (!isChangeUi) {
