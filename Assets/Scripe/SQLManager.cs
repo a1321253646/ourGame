@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Threading;
+using Mono.Data.Sqlite;
 #if UNITY_STANDALONE
 using Mono.Data.Sqlite;
 #endif
@@ -12,7 +13,7 @@ using Mono.Data.Sqlite;
 using UnityEngine;
 public class SQLManager
 {
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_IOS
      private SqliteDataReader reader;
 #endif
 
@@ -26,7 +27,7 @@ public class SQLManager
     private string tabName_new = "local891";
 
     object mLock = new object();
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE  || UNITY_IOS
       SqliteConnection mConnet = null;
 #endif
 
@@ -167,7 +168,7 @@ public class SQLManager
 #if UNITY_ANDROID
             return GameObject.Find("Manager").GetComponent<SqlControlToNative>().getPlayVocation();
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_IOS
             List<SQLDate> list = new List<SQLDate>();
             if (mConnet == null)
             {
@@ -202,7 +203,7 @@ public class SQLManager
 #if UNITY_ANDROID
             return GameObject.Find("Manager").GetComponent<SqlControlToNative>().getLevel();
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_IOS
             List<SQLDate> list = new List<SQLDate>();
             if (mConnet == null)
             {
@@ -268,7 +269,7 @@ public class SQLManager
             GameObject.Find("Manager").GetComponent<SqlControlToNative>().inSertDate(data1);
             return;
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_IOS
  List<SQLDate> list = new List<SQLDate>();
             if (mConnet == null)
             {
@@ -336,7 +337,7 @@ public class SQLManager
 #if UNITY_ANDROID
         return !GameObject.Find("Manager").GetComponent<SqlControlToNative>().isUpdate();
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_IOS
         bool back = true;
         string comm = "select * from  " + tabName + " WHERE  ID=" + SQLHelper.GAME_ID_IS_UPDATE + " AND TYPE=" + SQLHelper.TYPE_GAME + " AND ISDELETE=1";
         if (mConnet == null)
@@ -400,7 +401,7 @@ public class SQLManager
     /// <param name="queryString"></param>
     public void ExecuteSQLCommand(string queryString)
     {
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_IOS
         if (mConnet == null) {
             mConnet = new SqliteConnection(getSqlPath());
             mConnet.Open();
@@ -464,7 +465,7 @@ public class SQLManager
 #if UNITY_ANDROID
         GameObject.Find("Manager").GetComponent<SqlControlToNative>().deleteGuide(id+"");
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_IOS
         string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + SQLHelper.TYPE_GUIDE + " AND ID=" + id + " AND ISDELETE=1";
                 // ExecuteSQLCommand(commandString);
         SqlWaitListAddBean bean = new SqlWaitListAddBean();
@@ -595,11 +596,11 @@ public class SQLManager
 
     public void deleteIdAndType(SQLDate date)
     {
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID
         GameObject.Find("Manager").GetComponent<SqlControlToNative>().deleteIdAndType(date);
         return;
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_IOS
         string commandString = "DELETE FROM " + tabName + " WHERE TYPE=" + date.type + " AND ID=" + date.id + " AND ISDELETE=1";
                 SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
@@ -617,10 +618,10 @@ public class SQLManager
 
     public void deleteGood(SQLDate date)
     {
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID 
 
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE|| UNITY_IOS
         string commandString = "DELETE FROM " + tabName + " WHERE GOODID =" + date.goodId + " AND ISDELETE=1";
                 SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
@@ -637,11 +638,11 @@ public class SQLManager
     }
     public void deleteLuiHui()
     {
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID 
         GameObject.Find("Manager").GetComponent<SqlControlToNative>().deleteLuiHui();
         return;
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_IOS
         string commandString = "DELETE FROM " + tabName + " WHERE ISCLENAN =1" + " AND ISDELETE=1";
                 SqlWaitListAddBean bean = new SqlWaitListAddBean();
         bean.action = 3;
@@ -668,7 +669,7 @@ public class SQLManager
 
     public bool UpdateZhuangbeiInto(SQLDate date)
     {
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID 
         GameObject.Find("Manager").GetComponent<SqlControlToNative>().UpdateZhuangbeiInto(date);
         return true;
 #endif
@@ -698,7 +699,7 @@ public class SQLManager
         }
         if (isSuccess)
         {
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID 
             List<SQLDate> list = new List<SQLDate>();
 
             foreach (SqlNetDate date in mUpdateList)
@@ -724,7 +725,7 @@ public class SQLManager
         }
         if (SQLHelper.getIntance().isCleanNet)
         {
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID 
             GameObject.Find("Manager").GetComponent<SqlControlToNative>().deleteCleanNet();
             SQLHelper.getIntance().isCleanNet = false;
 #else
@@ -734,7 +735,7 @@ public class SQLManager
 #endif
 
         }
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID
         GameObject.Find("Manager").GetComponent<SqlControlToNative>().removeDeleteDate();
 #else
         string commandString2 = "DELETE FROM " + tabName + " WHERE ISNET=2 AND ISDELETE=2";
@@ -753,7 +754,7 @@ public class SQLManager
             try
             {
                 mUpdateList = new List<SqlNetDate>();
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID 
                 
                 foreach (SQLDate tmp in list)
                 {
@@ -770,7 +771,7 @@ public class SQLManager
                     mUpdateList.Add(bean);
                 }
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE|| UNITY_IOS
                 string comm = "select * from  " + tabName + " WHERE  ISNET=1";
                 if (mConnet == null)
                 {
@@ -852,7 +853,7 @@ public class SQLManager
         bean.date = date;
         bean.methonId = MethonName.updateIdAndType;
         bean.command = commPath;
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID 
         GameObject.Find("Manager").GetComponent<SqlControlToNative>().updateIdAndType(date);
         return true;
 #endif
@@ -911,7 +912,7 @@ public class SQLManager
         GameObject.Find("Manager").GetComponent<SqlControlToNative>().delectAll(tabName);
         GameObject.Find("Manager").GetComponent<SqlControlToNative>().inSertDate(data);
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE|| UNITY_IOS
          string comm = "DELETE FROM " + tabName;
     //    mNetHelper.cleanAllLocal();
 
@@ -939,7 +940,7 @@ public class SQLManager
 #if UNITY_ANDROID
             GameObject.Find("Manager").GetComponent<SqlControlToNative>().inSertDate(date);
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_IOS
 
              InsertDataToSQL(date, true,NetServer.getIntance().isNew);
 #endif
@@ -959,7 +960,7 @@ public class SQLManager
 #if UNITY_ANDROID
         return GameObject.Find("Manager").GetComponent<SqlControlToNative>().getAll();
 #endif
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE  || UNITY_IOS
         List<SQLDate> list = new List<SQLDate>();
         if (mConnet == null) {
             mConnet = new SqliteConnection(getSqlPath());
@@ -1195,7 +1196,7 @@ public class SQLManager
                 SqlWaitListAddBean bean = getList(0);
                 string command = bean.command;
                 //              Debug.Log("threadRun command = " + command);
-#if UNITY_ANDROID || UNITY_IOS
+#if UNITY_ANDROID 
                 if (bean.methonId == MethonName.deleteGuide)
                 {
                     GameObject.Find("Manager").GetComponent<SqlControlToNative>().deleteGuide(bean.date.id + "");
