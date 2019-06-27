@@ -11,7 +11,8 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
     {
         var module = StandardPurchasingModule.Instance();
         ConfigurationBuilder builder = ConfigurationBuilder.Instance(module);
-        builder.AddProduct("你设置的产品ID", ProductType.NonConsumable);
+        builder.AddProduct("com.Minesweeper.Init15", ProductType.NonConsumable);
+        builder.AddProduct("com.Minesweeper.Init25", ProductType.NonConsumable);
         UnityPurchasing.Initialize(this, builder);
     }
 
@@ -48,5 +49,10 @@ public class PurchaseManager : MonoBehaviour, IStoreListener
     /// </summary>
     public void OnPurchaseFailed(Product item, PurchaseFailureReason r)
     {
+    }
+
+    public void OnPurchaseClicked(string productId)
+    {
+        controller.InitiatePurchase(productId);
     }
 }
