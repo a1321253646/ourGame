@@ -1,16 +1,16 @@
 [
-  {
-    "productName": "卡牌勇士的世界",
-    "bundleIdentifier": "com.mili.kpysdsj.nearme.gamecenter",
-    "bundleVersion": "1.0.1",
-    "bundleVersionCode": 2,
-    "scriptingDefine": "5cd62f530cafb2cc4c0007df",
-    "apkName": "OPPO",
-    "defaultIcon": "icon\\512",
-    "id": 0,
-    "keystorePath": "E:/unityProject/ourGame/ourGame/user.keystore",
-    "keystorePass": "zsbin149",
-    "keyaliasName": "realse",
-    "keyaliasPass": "zsbin149"
-  }
+	{
+		"productName": "卡牌勇士的世界",
+		"bundleIdentifier": "com.mili.kpysdsj.vivo",
+		"bundleVersion": "1.3.0",
+		"bundleVersionCode": 3,
+		"scriptingDefine": "5cd62f633fc1957973000f46",
+		"apkName": "vivo",
+		"defaultIcon": "icon\\512",
+		"id": 1,
+		"keystorePath": "E:/unityProject/ourGame/ourGame/user.keystore",
+		"keystorePass": "zsbin149",
+		"keyaliasName": "realse",
+		"keyaliasPass": "zsbin149"
+	}
 ]

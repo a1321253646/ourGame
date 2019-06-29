@@ -20,6 +20,7 @@
 <uses-permission android:name="android.permission.WRITE_CALENDAR" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="vivo.game.permission.OPEN_JUMP_INTENTS" />
     <application
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
@@ -34,30 +35,25 @@
             </intent-filter>
             <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
         </activity>
-      <activity
-        android:name="com.nearme.game.sdk.component.proxy.ProxyActivity"
-        android:theme="@style/Theme_Dialog_Custom"
-        android:configChanges="keyboardHidden|orientation|screenSize"
-        android:process=":gcsdk">
-      </activity>
-      <service
-        android:name="com.nearme.game.sdk.component.proxy.ProxyApiService"
-        android:process=":gcsdk"
-        android:priority="1000">
-      </service>
+      <meta-data
+          android:name="vivo_union_sdk"
+          android:value="4.2.4.0" />
 
-      <meta-data android:name="debug_mode" android:value="true" />
-      <!-- 日志开关，发布时候设置为false -->
-      <meta-data android:name="is_offline_game" android:value="true" />
-      <!-- true:单机游戏   false:网游 -->
-      <meta-data android:name="app_key" android:value="d8847665735b41b081b9da20a3b8cedf" />
-      <!-- appKey -->
-      <!--SDK 􁗵􄘹􃓴􀔦􄝽􃖞􁔰􀿻-->
-      <activity android:name="com.jackzheng.ourgame.demonadshowlib.LandSplashActivity"
-                android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
-                android:screenOrientation="landscape"/>
-      <activity android:name="com.oppo.mobad.activity.AdActivity" />
-      <service android:name="com.oppo.mobad.service.AdService" />
+      <!-- vivo sdk componets start -->
+      <!--vivo sdk的Activity-->
+      <activity android:name="com.vivo.unionsdk.ui.UnionActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:theme="@android:style/Theme.Dialog">
+        <intent-filter>
+          <action android:name="android.intent.action.VIEW"/>
+          <category android:name="android.intent.category.DEFAULT"/>
+          <category android:name="android.intent.category.BROWSABLE"/>
+          <data
+            android:scheme="vivounion"
+            android:host="union.vivo.com"
+            android:path="/openjump"/>
+        </intent-filter>
+      </activity>
 
     </application>
 </manifest>
