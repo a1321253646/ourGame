@@ -12,9 +12,7 @@ using Mono.Data.Sqlite;
 using UnityEngine;
 public class SQLManager
 {
-#if UNITY_STANDALONE
      private SqliteDataReader reader;
-#endif
 
     /// <summary>
     /// 本地数据库名字
@@ -26,9 +24,7 @@ public class SQLManager
     private string tabName_new = "local891";
 
     object mLock = new object();
-#if UNITY_STANDALONE
       SqliteConnection mConnet = null;
-#endif
 
     private static int IDCount;
     Thread th1 = null;
@@ -146,16 +142,6 @@ public class SQLManager
         sqlName = sqlName_new;
         tabName = tabName_new;
         mPathRoot = Application.persistentDataPath;
-    }
-    public void open()
-    {
-#if UNITY_ANDROID
-        if (File.Exists(getSqlFilePath()))
-        {
-            Debug.Log(" mysql createTable");
-            GameObject.Find("Manager").GetComponent<SqlControlToNative>().createTable(getSqlFilePath(), tabName);
-        }
-#endif
     }
 
 
