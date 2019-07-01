@@ -75,6 +75,8 @@ public class LevelUpLongPress : MonoBehaviour
         
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
+        PayControl.getIntance().reFreshGameData(SQLHelper.getIntance().mToken, SQLHelper.getIntance().mPlayName, PayControl.REFRESH_TYPE_LEVEL, BaseDateHelper.decodeLong(SQLHelper.getIntance().mGameLevel) + "");
+
     }
 }
 

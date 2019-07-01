@@ -45,26 +45,31 @@ public class VipViewControl : UiControlBase
     {
         if (!SQLHelper.getIntance().isVipDate())
         {
-            if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
+            ShopJsonBean item = JsonUtils.getIntance().getShopItemById(1001);
+            mSureTx.text = "￥" + item.price;
+            mSure.interactable = true;
+
+          /*  if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
             {
                 GameObject.Find("shop_vip_google_connet").transform.localScale = new Vector2(1, 1);
                 mSure.interactable = false ; 
             }
             else
             {
-                GameObject.Find("shop_vip_google_connet").transform.localScale = new Vector2(0, 0);
+             //   GameObject.Find("shop_vip_google_connet").transform.localScale = new Vector2(0, 0);
                 ShopJsonBean item = JsonUtils.getIntance().getShopItemById(1001);
+                mSureTx.text = "￥"+item.price;
+                mSure.interactable = true;
                 foreach (SkuJsonBean sku in GameManager.getIntance().mSkusList)
                 {
                     if (item.sku.Equals(sku.sku))
                     {
-                        mSureTx.text = sku.price;
-                        mSure.interactable = true;
+
                         break;
                     }
                 }
 
-            }
+            }*/
 
         }
         else if (SQLHelper.getIntance().isNoGetVip())
@@ -125,14 +130,7 @@ public class VipViewControl : UiControlBase
     private void sure() {
         if (!SQLHelper.getIntance().isVipDate())
         {
-             Debug.Log(" BillingControl buySku");
-             AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-             Debug.Log(" BillingControl AndroidJavaClass");
-             AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
-             Debug.Log(" BillingControl AndroidJavaObject");
-             string[] param = new string[1];
-             param[0] = mBean.sku;
-             bool isBuyIng = jo.Call<bool>("buySku", param);
+            PayControl.getIntance().buy(SQLHelper.getIntance().mToken, SQLHelper.getIntance().mPlayName, mBean.sku, mBean.sku, mBean.price+"");
             //buyVipSuccess();
         }
         else if (SQLHelper.getIntance().isNoGetVip())

@@ -101,16 +101,19 @@ public class GameCamera : MonoBehaviour
         GameObject.Find("advert").GetComponentInChildren<AdUiControl>().playIsFinish(true);
     }
 
-    void onQueryPurchasesToUnity(string skus)
+    void onLoginSuccess(string skus)
     {
-        Debug.Log("jackzheng:" + "startOrPause=" + skus );
-        GameManager.getIntance().mSkusList = JsonMapper.ToObject<List<SkuJsonBean>>(skus);
-        GameObject.Find("shop_root").GetComponent<ShopViewControl>().getSkusUpdate();
-        GameObject.Find("vip_show_view").GetComponent<VipViewControl>().updateView();
+        if (!string.IsNullOrEmpty(SQLHelper.getIntance().mPlayName) && !string.IsNullOrEmpty(SQLHelper.getIntance().mToken)) {
+            PayControl.getIntance().reFreshGameData(SQLHelper.getIntance().mToken, SQLHelper.getIntance().mPlayName, PayControl.REFRESH_TYPE_LOGIN, BaseDateHelper.decodeLong(SQLHelper.getIntance().mGameLevel) + "");
+        }
     }
-    void onBuySuccess(string sku)
+    void onBuySuccess(string info)
     {
-        Debug.Log("jackzheng:" + "startOrPause=" + sku);
+        string[] s = info.Split('_');
+        string sku = s[s.Length - 1];
+        sku = info.Replace(sku, "");
+        Debug.Log("jackzheng:" + "onBuySuccess=" + sku);
+        
         List<ShopJsonBean>  list = JsonUtils.getIntance().getShopList();
         foreach (ShopJsonBean bean in list) {
             if (!string.IsNullOrEmpty(bean.sku) && bean.sku.Equals(sku)) {

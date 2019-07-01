@@ -84,15 +84,7 @@ public class ShopItemControl : MonoBehaviour
             {
                 if (mBean.costtype == 1)
                 {
-                    Debug.Log(" BillingControl buySku");
-                    AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-                    Debug.Log(" BillingControl AndroidJavaClass");
-                    AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
-                    Debug.Log(" BillingControl AndroidJavaObject");
-                    string[] param = new string[1];
-                    param[0] = mBean.sku;
-                    bool isBuyIng = jo.Call<bool>("buySku", param);
-                    //GameObject.Find("shop_root").GetComponent<ShopViewControl>().buySuccess(mBean);
+                    PayControl.getIntance().buy(SQLHelper.getIntance().mToken, SQLHelper.getIntance().mPlayName, mBean.sku, mBean.sku, mBean.price + "");
                 }
                 else {
                     Debug.Log("SQLHelper.getIntance().mZuanshi=" + SQLHelper.getIntance().mZuanshi.toString());
@@ -112,7 +104,7 @@ public class ShopItemControl : MonoBehaviour
             });
 
         }
-        if (mBean.costtype == 1) {
+        /*if (mBean.costtype == 1) {
             if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
             {
                 mBuy.interactable = false;
@@ -133,7 +125,7 @@ public class ShopItemControl : MonoBehaviour
                     mPrice.text = "???";
                 }
             }
-        }
+        }*/
 
         long par = long.Parse(mBean.parameter);
         BigNumber add = null;

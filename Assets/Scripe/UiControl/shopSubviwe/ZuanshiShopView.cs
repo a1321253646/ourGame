@@ -18,14 +18,14 @@ public class ZuanshiShopView :  ShopSubviewBase
         else {
             GameObject.Find("shop_zuanshi_buy_double_root").transform.localScale = new Vector2(0, 0);
         }
-        if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
+     /*   if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
         {
             GameObject.Find("shop_zuanshi_google_connet").transform.localScale = new Vector2(1, 1);
         }
         else
         {
             GameObject.Find("shop_zuanshi_google_connet").transform.localScale = new Vector2(0, 0);
-        }
+        }*/
     }
     public override void buyEnd(ShopJsonBean item)
     {

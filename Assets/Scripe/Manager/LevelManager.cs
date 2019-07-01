@@ -82,7 +82,7 @@ public class LevelManager : MonoBehaviour {
         // GameObject.Find("uid_test").GetComponent<Text>().text = SystemInfo.deviceUniqueIdentifier;
         //  SQLHelper.getIntance().updateOutTime();
         GameManager.getIntance().uiManager.showMoreIcon();
-
+        PayControl.getIntance().reFreshGameData(SQLHelper.getIntance().mToken, SQLHelper.getIntance().mPlayName, PayControl.REFRESH_TYPE_LOGIN, BaseDateHelper.decodeLong(SQLHelper.getIntance().mGameLevel) + "");
     }
 
     public void reset()

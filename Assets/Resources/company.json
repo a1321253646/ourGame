@@ -1,16 +1,16 @@
 [
-  {
-    "productName": "逃离深渊",
-    "bundleIdentifier": "com.jackzheng.ourGame.gl",
-    "bundleVersion": "2.0.0",
-    "bundleVersionCode": 200,
-    "scriptingDefine": "5cd62f884ca3570403000919",
-    "apkName": "google_test",
-    "defaultIcon": "ui_new\\icon_512",
-    "id": 3,
-    "keystorePath": "E:/unityProject/ourGame/ourGame/user.keystore",
-    "keystorePass": "zsbin149",
-    "keyaliasName": "realse",
-    "keyaliasPass": "zsbin149"
-  }
+	{
+		"productName": "無盡深淵",
+		"bundleIdentifier": "com.jackzheng.ourGame.hwbt",
+		"bundleVersion": "2.0.0",
+		"bundleVersionCode": 200,
+		"scriptingDefine": "5cd62f884ca3570403000919",
+		"apkName": "Btgame",
+		"defaultIcon": "ui_new\\icon_512",
+		"id": 3,
+		"keystorePath": "E:/unityProject/ourGame/ourGame/user.keystore",
+		"keystorePass": "zsbin149",
+		"keyaliasName": "realse",
+		"keyaliasPass": "zsbin149"
+	}
 ]
