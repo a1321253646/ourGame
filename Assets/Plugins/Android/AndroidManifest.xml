@@ -35,6 +35,17 @@
             </intent-filter>
             <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
         </activity>
+      <activity
+          android:name="com.jackzheng.ourgame.demonadshowlib.SplashActivity"
+          android:screenOrientation="portrait"
+          android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
+
+      </activity>
+      
+      <activity
+          android:name="com.baidu.mobads.AppActivity"
+          android:configChanges="keyboard|keyboardHidden|orientation"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar" />
       <meta-data
           android:name="vivo_union_sdk"
           android:value="4.2.4.0" />
@@ -54,6 +65,32 @@
             android:path="/openjump"/>
         </intent-filter>
       </activity>
+
+      <provider
+        android:name="com.baidu.mobads.openad.FileProvider"
+        android:authorities="com.mili.kpysdsj.vivo.bd.provider"
+        android:exported="false"
+        android:grantUriPermissions="true">
+          <meta-data
+          android:name="android.support.FILE_PROVIDER_PATHS"
+          android:resource="@xml/bd_file_paths" />
+      </provider>
+      <service
+        android:name="com.qq.e.comm.DownloadService"
+        android:exported="false" />
+
+      <activity
+        android:name="com.qq.e.ads.ADActivity"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+      <provider
+          android:name="android.support.v4.content.FileProvider"
+          android:authorities="com.mili.kpysdsj.vivo.fileprovider"
+          android:exported="false"
+          android:grantUriPermissions="true">
+            <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/gdt_file_path" />
+      </provider>
 
     </application>
 </manifest>

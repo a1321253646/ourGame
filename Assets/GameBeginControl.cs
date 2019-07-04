@@ -103,7 +103,7 @@ public class GameBeginControl : MonoBehaviour {
                 GameManager.getIntance().mInitStatus = 2;
             });
             th1.Start();
-            GameObject.Find("Manager").GetComponent<AdManager>().showFlashAd();
+      //      GameObject.Find("Manager").GetComponent<AdManager>().showFlashAd();
 #endif
 #if UNITY_STANDALONE
             SQLManager.getIntance().init(sqlName, tabName);

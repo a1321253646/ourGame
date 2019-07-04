@@ -125,6 +125,9 @@ public class GameManager
     public GuideManager getGuideManager() {
         return mLevelManage.mGuideManager;    
     }
+
+    public long equitUpEnemy = 0;
+    public long equitUpEquit = 0;
 	public long init(LevelManager levelmanage){
         long old = 0;
         if (!isInit)
@@ -190,6 +193,18 @@ public class GameManager
             isShowBackpackPoint = SQLHelper.getIntance().isShowBackpackPoint;
             isShowLuihuiPoint = SQLHelper.getIntance().isShowLuihuiPoint;
             isShowCardPoint = SQLHelper.getIntance().isShowCardPoint;
+
+            List<GuideJsonBean>  glist = JsonUtils.getIntance().getGuideList();
+            if(glist != null && glist.Count > 0) {
+                foreach (GuideJsonBean gj in glist) {
+                    if (gj.id == 4) {
+                        equitUpEnemy = gj.getQualificationList()[0].value;
+                        equitUpEquit = gj.getTarget().value;
+                    }
+                }
+
+            }
+
         }
         // mCurrentLevel = 1;
 
@@ -356,7 +371,39 @@ public class GameManager
                         showDIaoLuo((EnemyBase)enemy, DiaoluoDonghuaControl.GOOD_DIAOLUO_TYPE, path, 0, bean.id);
                     }
                 }
-                getGuideManager().eventNotification(GuideManager.EVENT_ENEMY_DEAL, tmp.mData.id);
+                if (equitUpEnemy != 0 && equitUpEnemy == tmp.mData.id) {
+                    List<PlayerBackpackBean>  users = SQLHelper.getIntance().getUserd();
+                    if (users != null && users.Count > 0) {
+                        foreach (PlayerBackpackBean ub in users) {
+                            if (ub.goodId == equitUpEquit) {
+                                foreach (PlayerAttributeBean b in ub.attributeList)
+                                {
+                                    if (b.type == 10001)
+                                    {
+                                        long level = (long)b.value;
+                                        if (level > 0)
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            getGuideManager().eventNotification(GuideManager.EVENT_ENEMY_DEAL, tmp.mData.id);
+                                        }
+
+                                    }
+                                    else {
+                                        getGuideManager().eventNotification(GuideManager.EVENT_ENEMY_DEAL, tmp.mData.id);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else {
+                    getGuideManager().eventNotification(GuideManager.EVENT_ENEMY_DEAL, tmp.mData.id);
+
+                }
+               
             }
             if (enemy.mAttackType == Attacker.ATTACK_TYPE_BOSS)
             {
