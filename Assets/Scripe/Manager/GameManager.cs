@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class GameManager
 {
-    public static string CHANNEL_CODE ="google";
+    public static string CHANNEL_CODE = "btgame";
 
 	public long mCurrentLevel = BaseDateHelper.encodeLong( 1);
 	public long mHeroLv = BaseDateHelper.encodeLong(1);

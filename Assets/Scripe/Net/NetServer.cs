@@ -9,6 +9,7 @@ public class NetServer
 {
     public static int ERROR_DOED_TOKEN_FAULT = -1001;
     public static int ERROR_DOED_GET_LOCAL_FAULT = -1002;
+    public static int ERROR_EXIT_FAULT = -8866;
 
     public bool isUpdate = false;
     public bool isNew = false;
@@ -242,6 +243,37 @@ public class NetServer
         Thread th1 = new Thread(getRankingList);
         th1.Start();
     }
+    private String mBill;
+    public void updateBill(String bill) {
+        mBill = bill;
+        Thread th1 = new Thread(billDeal);
+        th1.Start();
+
+    }
+
+    private void billDeal()
+    {
+        if (string.IsNullOrEmpty(mBill))
+        {
+            return;
+        }
+        JsonData json = new JsonData();
+        json["extendsInfo"] = mBill;
+        mBill = null;
+        Dictionary<string, string> dir = new Dictionary<string, string>();
+        dir.Add("Content-Type", "application/json");
+        byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToJson().ToCharArray());
+        WWW www = new WWW(URL_ROOT + "/phonebtgame", pData, dir);
+        while (!www.isDone)
+        {
+            Thread.Sleep(100);
+        }
+        if (www.error == null)
+        {
+            Debug.Log("Upload complete! www.text =" + www.text);
+        }
+    }
+
 
     public void getUpdateInfoRun() {
         if (GameManager.isTestVersion)
@@ -467,10 +499,14 @@ public class NetServer
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
             return;
         }
-        else if(statue == ERROR_DOED_GET_LOCAL_FAULT) {
+        else if (statue == ERROR_DOED_GET_LOCAL_FAULT)
+        {
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("输入编码不存在", LuiHuiTips.TYPPE_EMPTY_TOKEN);
             GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
             return;
+        }
+        else if (statue == ERROR_EXIT_FAULT) {
+            Application.Quit();
         }
         if (isChangeToken && !string.IsNullOrEmpty(token)) {
             

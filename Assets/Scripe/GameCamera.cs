@@ -50,7 +50,7 @@ public class GameCamera : MonoBehaviour
             Debug.Log("new orthographicSize = " + orthographicSize);
             this.GetComponent<Camera>().orthographicSize = orthographicSize;
         }
-
+        initBtGame();
     }
 
     // Update is called once per frame
@@ -111,7 +111,7 @@ public class GameCamera : MonoBehaviour
     {
         string[] s = info.Split('_');
         string sku = s[s.Length - 1];
-        sku = info.Replace(sku, "");
+        sku = info.Replace("_"+sku, "");
         Debug.Log("jackzheng:" + "onBuySuccess=" + sku);
         
         List<ShopJsonBean>  list = JsonUtils.getIntance().getShopList();
@@ -129,5 +129,17 @@ public class GameCamera : MonoBehaviour
 
             }
         }
+        NetServer.getIntance().updateBill(info);
+    }
+    public void initBtGame() {
+        string name =  PlayerPrefs.GetString("name","");
+        string token = PlayerPrefs.GetString("token","");
+        PayControl.getIntance().btgameInit(name, token);
+
+    }
+    public void saveNameAndToken(string info) {
+        string[] infos = info.Split('&'); 
+        PlayerPrefs.SetString("name", infos[0]);
+        PlayerPrefs.SetString("token", infos[1]);
     }
 }

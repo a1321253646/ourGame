@@ -18,6 +18,16 @@ public class PayControl
         mObject[4] = money;
         jo.Call<string>("pay", mObject);
     }
+    public void btgameInit(string name, string tolen)
+    {
+        AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+        AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity");
+        string[] mObject = new string[2];
+        mObject[0] = name;
+        mObject[1] = tolen;
+        jo.Call<string>("btgameInit", mObject);
+    }
+
     public void reFreshGameData(string userID, string userName,string type, string level)
     {
         if (REFRESH_TYPE_LOGIN.Equals(type)) {
