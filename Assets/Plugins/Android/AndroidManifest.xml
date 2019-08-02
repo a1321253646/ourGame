@@ -28,7 +28,8 @@
         android:hardwareAccelerated="true"
         android:name="com.jackzheng.ourgame.demonadshowlib.MainApplication">
 
-        <activity android:name="com.jackzheng.ourgame.demonadshowlib.MainActivity">
+        <activity android:name="com.jackzheng.ourgame.demonadshowlib.MainActivity"
+                  android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
