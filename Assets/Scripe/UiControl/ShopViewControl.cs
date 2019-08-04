@@ -61,7 +61,7 @@ public class ShopViewControl : UiControlBase
         });
 
     }
-    private int mType = SHOW_ZUANSHI;
+    private int mType = SHOW_HUNJIN;
     public void showView(int type) {
 
         closeAll();
