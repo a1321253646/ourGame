@@ -21,6 +21,7 @@ public class LuiHuiTips : UiControlBase
     public static int TYPPE_QIANGZHI_LUNHUI = 10;
     public static int TYPPE_EMPTY_TOKEN = 11;
     public static int TYPPE_ERROR_TOKEN = 12;
+    public static int TYPPE_BUY_ZUANSHI = 13;
 
     Text mDes;
     Text mButtonDec,mLeftDec,mRightDec;
@@ -167,7 +168,16 @@ public class LuiHuiTips : UiControlBase
             buttonList.transform.localScale = new Vector2(0, 0);
             mButtonDec.text = "确定";
         }
-    
+        else if (type == TYPPE_BUY_ZUANSHI)
+        {
+
+            mSure.transform.localScale = new Vector2(0, 0);
+            buttonList.transform.localScale = new Vector2(1, 1);
+            mLeftDec.text = "取消";
+            mRightDec.text = "确认";
+
+        }
+
         mDes.alignment = TextAnchor.UpperLeft;
     }
     VocationDecBean mVocationBean = null;
@@ -402,6 +412,11 @@ public class LuiHuiTips : UiControlBase
                 SQLHelper.getIntance().mToken = "";
                 GameObject.Find("reload").GetComponent<ReloadControl>().reload(true);
                 Time.timeScale = mTimeScale;
+            }
+            else if (mType == TYPPE_BUY_ZUANSHI)
+            {
+                GameObject.Find("shop_root").GetComponentInChildren<ShopViewControl>().showView(ShopViewControl.SHOW_ZUANSHI);
+
             }
 
 
