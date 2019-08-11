@@ -133,7 +133,7 @@ public class UiControlManager
         addAllUi(iver, 2, TYPE_AD);
         iver = GameObject.Find("shop_root").GetComponentInChildren<ShopViewControl>();
         addAllUi(iver, 2, TYPE_SHOP);
-        iver = GameObject.Find("vip_show_view").GetComponentInChildren<ShopViewControl>();
+        iver = GameObject.Find("vip_show_view").GetComponentInChildren<VipViewControl>();
         addAllUi(iver, 2, TYPE_VIP);
 
 

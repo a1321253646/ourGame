@@ -98,7 +98,40 @@ public class InventoryHalper
         SQLHelper.getIntance().ChangeGoodExtra(bean);
     }
 
-    public bool addInventory(long id, int count)
+    public void rebuild(PlayerBackpackBean bean) {
+        long id = bean.goodId;
+        long sql = bean.sqlGoodId;
+        long level = 0;
+        long rebuild = bean.reBuildCount;
+        Debug.Log("rebuild  rebuild=" + rebuild);
+        foreach (PlayerAttributeBean b in bean.attributeList)
+        {
+            if (b.type == 10001)
+            {
+                level = (long)b.value;
+                break;
+            }
+        }
+        deleteIventory(bean, (int)1);
+        addInventory(id, 1, sql);
+        for (int goodListIndex = 0; goodListIndex < mList.Count; goodListIndex++)
+        {
+            if (sql == mList[goodListIndex].sqlGoodId)
+            {
+                bean = mList[goodListIndex];
+                break;
+            }
+        }
+        bean.isShowPoint = 2;
+        bean.reBuildCount = ++rebuild;
+        Debug.Log("rebuild  bean.reBuildCount=" + bean.reBuildCount);
+        updateZhuangbei(bean, level, true,false);
+    }
+
+    public bool addInventory(long id, int count) {
+        return addInventory(id, count, -1);
+    }
+    public bool addInventory(long id, int count,long sql)
     {
         bool isNew = true;
         PlayerBackpackBean bean = null;
@@ -218,7 +251,13 @@ public class InventoryHalper
                 }
             }
             Debug.Log("=======================goodId" + newBean.goodId+"================================");
-            newBean.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();          
+            if (sql == -1) {
+                newBean.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();
+            }
+            else {
+                newBean.sqlGoodId = sql;
+            }
+                     
             SQLHelper.getIntance().addGood(newBean);
             return true;
         }
@@ -286,9 +325,16 @@ public class InventoryHalper
         return mHaveBookId;
     }
 
-    public void updateZhuangbei(PlayerBackpackBean bean, long level,bool isSave)
+    public void updateZhuangbei(PlayerBackpackBean bean, long level, bool isSave) {
+        updateZhuangbei(bean, level, isSave,true);
+    }
+
+    public void updateZhuangbei(PlayerBackpackBean bean, long level,bool isSave, bool isAddLevel)
     {
-        level = level + 1;
+        if (isAddLevel) {
+            level = level + 1;
+        }
+        
        string extan =  SQLHelper.getGoodExtra(bean);
         AccouterJsonBean ac = JsonUtils.getIntance().getAccouterInfoById(bean.goodId);
         foreach (PlayerAttributeBean p in bean.attributeList){
@@ -450,7 +496,7 @@ public class InventoryHalper
     public void deleteIventory(PlayerBackpackBean bean, int count) {
         PlayerBackpackBean target = null;
         foreach (PlayerBackpackBean tmp in mList) {
-            Debug.Log("deleteIventory (bean.sqlGoodId= " + bean.sqlGoodId+ "  tmp.sqlGoodId=" + tmp.sqlGoodId);
+   //         Debug.Log("deleteIventory (bean.sqlGoodId= " + bean.sqlGoodId+ "  tmp.sqlGoodId=" + tmp.sqlGoodId)/;
             if (bean.sqlGoodId == tmp.sqlGoodId) {
                 Debug.Log("tmp.goodId= " + tmp.goodId );
                 target = tmp;

@@ -634,6 +634,10 @@ public class SQLHelper
                     {
                         bean.tabId = int.Parse(ss[1]);
                     }
+                    else if (ss[0].Equals("reBuildCount"))
+                    {
+                        bean.reBuildCount = int.Parse(ss[1]);
+                    }
                     else if (ss[0].Equals("showPoint")) {
                         bean.isShowPoint = int.Parse(ss[1]);
                     }
@@ -845,6 +849,7 @@ public class SQLHelper
         value = value + "sortID," + good.sortID + ";";
         value = value + "tabId," + good.tabId + ";";
         value = value + "showPoint," + good.isShowPoint + ";";
+        value = value + "reBuildCount," + good.reBuildCount + ";";
         return value;
     }
 

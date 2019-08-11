@@ -15,6 +15,7 @@ public class CardShowControl : UiControlBase
     CardUserOrUnUserControl[] mUserArray;
     GoodControl[] mBackArray;
     public GameObject CardObject;
+    public GameObject DoubleCardObject;
     private int USER_LINE_COUNT = 4;
     private int BACK_LINE_COUNT = 4;
 
@@ -33,8 +34,8 @@ public class CardShowControl : UiControlBase
 
     LevelManager mLevelManager;
     Text mUserCount ;
-    ScrollRect mUserScroll;
-    ScrollRect mBackScroll;
+    //ScrollRect mUserScroll;
+    //ScrollRect mBackScroll;
     Transform mRoot;
 
     private long mAllUserListCount = 0;
@@ -127,7 +128,7 @@ public class CardShowControl : UiControlBase
                 ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
 //                good.transform.GetChild(0).Translate(Vector2.down * (10));
             }
-            SetGridHeight(mBackListGl, 2, mBackListGb.Count, 8);
+            SetGridHeight(mBackListGl, 1, mBackListGb.Count, mBackListGb.Count/2);
         }
         List<PlayerBackpackBean> list =  InventoryHalper.getIntance().getInventorys();
         foreach (PlayerBackpackBean bean in list) {
@@ -347,8 +348,8 @@ public class CardShowControl : UiControlBase
         mBackListGl = GameObject.Find("cardList").GetComponent<GridLayoutGroup>();
         mUserCount = GameObject.Find("title01").GetComponent<Text>();
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
-        mUserScroll = GameObject.Find("user_card_list_root").GetComponent<ScrollRect>();
-        mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
+   //     mUserScroll = GameObject.Find("user_card_list_root").GetComponent<ScrollRect>();
+   //     mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
         mRoot = GameObject.Find("Canvas").GetComponent<Transform>();
         mClose = GameObject.Find("close").GetComponent<Button>();
         mClose.onClick.AddListener(() => {
