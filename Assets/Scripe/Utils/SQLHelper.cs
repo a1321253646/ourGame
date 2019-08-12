@@ -954,8 +954,7 @@ public class SQLHelper
         }
         mNetLevel = level;
     }
-
-
+    
     public void updateName(string newName)
     {
         Debug.Log("sqlhelper  updateName newName = " + newName);

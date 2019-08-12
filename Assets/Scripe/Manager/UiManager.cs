@@ -55,6 +55,7 @@ public class UiManager
         mCardUiPoint = GameObject.Find ("skilcard_ui_point").GetComponent<Image> ();
         mSettingButton = GameObject.Find("setting_button").GetComponent<Button>();
         mRankingButton = GameObject.Find("ranking_list_button").GetComponent<Button>();
+
         mShop = GameObject.Find("shop_bt").GetComponent<Button>();
 
         mSpeedTestBt = GameObject.Find("speed_setting").GetComponent<Button>();
@@ -161,6 +162,8 @@ public class UiManager
             UiControlManager.getIntance().show(UiControlManager.TYPE_RANKING);
             GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
         });
+
+
 
 
         mRoleUiShow.onClick.AddListener(() => {

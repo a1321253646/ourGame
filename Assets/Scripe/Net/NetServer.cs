@@ -204,6 +204,73 @@ public class NetServer
             return false;
         }
     }
+
+    public void getGif(string code) {
+        if (GameManager.isTestVersion)
+        {
+            return;
+        }
+        gifCode = "http://www.milihuyu.com/game/randnum.php?awardCode="+ code;
+        Debug.Log("NetServer  getRanking");
+        Thread th1 = new Thread(getGifDeal);
+        th1.Start();
+    }
+
+    private void getGifDeal(object obj)
+    {
+         if (!string.IsNullOrEmpty(gifCode))
+        {
+            WWW result = new WWW(gifCode);
+
+          //  yield return result;
+
+            if (result.error != null)
+            {
+                GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("兑换失败，请检查网络", LuiHuiTips.TYPPE_EMPTY_TOKEN);
+                GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(result.text))
+                {
+                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("兑换失败，请检查网络", LuiHuiTips.TYPPE_EMPTY_TOKEN);
+                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+
+                }
+                else
+                {
+                    JObject jb2 = JObject.Parse(result.text);
+                    int status = jb2.Value<int>("status");
+                    if (status == 1) {
+                        GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("兑换成功，获得10K的魂晶", LuiHuiTips.TYPPE_EMPTY_TOKEN);
+                        GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+
+                        GameManager.getIntance().mCurrentCrystal = BigNumber.add(GameManager.getIntance().mCurrentCrystal,
+                            BigNumber.getBigNumForString("10000"));
+                        GameManager.getIntance().updataGasAndCrystal();
+                    }
+                    else if(status == 0){
+                        GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("该兑换码已兑换", LuiHuiTips.TYPPE_EMPTY_TOKEN);
+                        GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+                    }
+                    else{
+                        GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("无效兑换码", LuiHuiTips.TYPPE_EMPTY_TOKEN);
+                        GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
+                    }
+
+                }
+
+            }
+        }
+        else
+        {
+            Debug.LogError("URL不能为空");
+        }
+    }
+
+    string gifCode = "";
+
+
     public void getRanking()
     {
         if (GameManager.isTestVersion)
