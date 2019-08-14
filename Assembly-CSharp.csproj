@@ -252,6 +252,7 @@
     <Compile Include="Assets\Scripe\SkillPakeger\card\BossCardControl.cs" />
     <Compile Include="Assets\Scripe\SkillPakeger\card\BossCardManager.cs" />
     <Compile Include="Assets\Scripe\SkillPakeger\card\CardControl.cs" />
+    <Compile Include="Assets\Scripe\SkillPakeger\card\CardControlCardView.cs" />
     <Compile Include="Assets\Scripe\SkillPakeger\card\CardItemControl.cs" />
     <Compile Include="Assets\Scripe\SkillPakeger\card\CardManagerBase.cs" />
     <Compile Include="Assets\Scripe\SkillPakeger\card\CardUiControl.cs" />

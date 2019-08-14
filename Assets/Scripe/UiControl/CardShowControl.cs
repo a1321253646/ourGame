@@ -26,7 +26,7 @@ public class CardShowControl : UiControlBase
             CardUiControl ui = mBackListGb[i].GetComponent<CardUiControl>();
             if (ui.mCardId == value)
             {
-                GameManager.getIntance().getGuideManager().ShowGuideGrideLayoutInScroll(mBackListGb[i], mBackScroll, mBackListGl, i, 10);
+               // GameManager.getIntance().getGuideManager().ShowGuideGrideLayoutInScroll(mBackListGb[i], mBackScroll, mBackListGl, i, 10);
                 break;
             }
         }
@@ -67,11 +67,12 @@ public class CardShowControl : UiControlBase
             GameObject good = GameObject.Instantiate(CardObject,
                   new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             CardUiControl ui = good.GetComponent<CardUiControl>();
-
+          
             good.transform.parent = mUserListGl.transform;
             good.transform.localScale = Vector2.one;
+
             good.AddComponent<ItemOnDrag>();
-            good.GetComponent<ItemOnDrag>().init(mUserScroll);
+            good.GetComponent<ItemOnDrag>().init();
             mUserListGb.Add(good);
             ui.init(-1, 105, 143);
             ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
@@ -112,20 +113,17 @@ public class CardShowControl : UiControlBase
         clearBackUi();
         if (mBackListGb.Count == 0)
         {
-            for (int i = 0; i < 16; i++)
+            for (int i = 0; i < 7; i++)
             {
-                GameObject good = GameObject.Instantiate(CardObject,
+                GameObject good = GameObject.Instantiate(DoubleCardObject,
                       new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-                CardUiControl ui = good.GetComponent<CardUiControl>();
+                CardDoubleUiControl ui = good.GetComponent<CardDoubleUiControl>();
 
-                good.AddComponent<ItemOnDrag>();
-                good.GetComponent<ItemOnDrag>().init(mBackScroll);
-
+               
                 good.transform.parent = mBackListGl.transform;
                 good.transform.localScale = Vector2.one; ;
                 mBackListGb.Add(good);
-                ui.init(-1, 91, 125);
-                ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
+                ui.init(mLevelManager);
 //                good.transform.GetChild(0).Translate(Vector2.down * (10));
             }
             SetGridHeight(mBackListGl, 1, mBackListGb.Count, mBackListGb.Count/2);
@@ -167,7 +165,7 @@ public class CardShowControl : UiControlBase
                 // item.init(id, 113, 166);
                 ItemOnDrag item = mUserListGb[i].GetComponent<ItemOnDrag>();
                 item.mBean = card;
-                item.init(mLevelManager.mPlayerControl.mCardManager, card.goodId, false, mLevelManager.mPlayerControl.mCardManager.card, mRoot, mUserScroll);
+                item.init(mLevelManager.mPlayerControl.mCardManager, card.goodId, false, mLevelManager.mPlayerControl.mCardManager.card, mRoot);
                 
                 break;
             }
@@ -197,49 +195,27 @@ public class CardShowControl : UiControlBase
         bool isAdd = false;
         for (; count < mBackListGb.Count; count++)
         {
-            
-            CardUiControl ui = mBackListGb[count].GetComponent<CardUiControl>();
-            if (ui.mCardId == -1)
-            {
+
+            CardDoubleUiControl ui = mBackListGb[count].GetComponent<CardDoubleUiControl>();
+
+            if (ui.init(bean, 91, 125, mLevelManager, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl, mRoot)) {
                 isAdd = true;
-                ui.init(bean.goodId, 91, 125);
-                ui.init(bean.goodId, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
-                ItemOnDrag item = mBackListGb[count].GetComponent<ItemOnDrag>();
-                item.mBean = bean;
-                item.init(mLevelManager.mPlayerControl.mCardManager, bean.goodId, true, mLevelManager.mPlayerControl.mCardManager.card, mRoot, mBackScroll);
-                
                 break;
-            }
-            else if(ui.mCardId == bean.goodId){
-                ui.addCount();
-                break;
-            }            
+            }          
         }
         Debug.Log("addBackUi = " + count+ "=================================");
-        if (count > 8) {
-            count = count / 8 + 1;
-            count = (count+1) * 8;
-        }
-        Debug.Log("=================================addBackUi = " + count);
+        if (!isAdd) {
+            GameObject good = GameObject.Instantiate(DoubleCardObject,
+                new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            CardDoubleUiControl ui = good.GetComponent<CardDoubleUiControl>();
 
-        if (count > mBackListGb.Count) {
-            for (int i = 0; i < count- mBackListGb.Count; i++)
-            {
-                GameObject good = GameObject.Instantiate(CardObject,
-                      new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
-                CardUiControl ui = good.GetComponent<CardUiControl>();
 
-                good.AddComponent<ItemOnDrag>();
-                good.GetComponent<ItemOnDrag>().init(mBackScroll);
-
-                good.transform.parent = mBackListGl.transform;
-                good.transform.localScale = Vector2.one; ;
-                mBackListGb.Add(good);
-                ui.init(-1, 91, 125);
-                ui.init(-1, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl);
-//                good.transform.GetChild(0).Translate(Vector2.down * (10));
-            }
-            SetGridHeight(mBackListGl, 2, mBackListGb.Count, 8);
+            good.transform.parent = mBackListGl.transform;
+            good.transform.localScale = Vector2.one; ;
+            mBackListGb.Add(good);
+            ui.init(mLevelManager);
+            SetGridHeight(mBackListGl, 1, mBackListGb.Count, mBackListGb.Count / 2);
+            ui.init(bean, 91, 125, mLevelManager, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl, mRoot);
         }
     }
 

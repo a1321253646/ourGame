@@ -9,7 +9,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     // 实例化的新item
     public GameObject mNewItem;
     public Transform mNewItemRoot;
-    public ScrollRect mScrollRect;
+  //  public ScrollRect mScrollRect;
     public PlayerBackpackBean mBean;
     // 是否按下
     public bool mIsDown = false;
@@ -38,7 +38,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
         if (mIsDown)
         {
             mCurTime += Time.deltaTime * 1;
-            if (mCurTime >= JsonUtils.getIntance().getConfigValueForId(100020)/1000)
+            if (mCurTime >= 0)
             {
                 if (Vector3.Distance(mPrevPos, mCurPos) > mBorderDis)
                 {
@@ -88,7 +88,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
          //   
         }
         GameObject.Find("kapai_click").GetComponent<CardDetailShowControl>().remove();
-        mScrollRect.OnEndDrag(eventData);
+      //  mScrollRect.OnEndDrag(eventData);
         bool isWork = false;
         mIsDown = false;
         mIsOndragDown = false;
@@ -151,7 +151,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     public void OnBeginDrag(PointerEventData eventData)
     {
 
-        mScrollRect.OnBeginDrag(eventData);
+      //  mScrollRect.OnBeginDrag(eventData);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -159,7 +159,7 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
 
         mCurPos = eventData.position;
         if (!mIsOndragDown) {
-            mScrollRect.OnDrag(eventData);
+          //  mScrollRect.OnDrag(eventData);
         }
         else
         {            
@@ -196,22 +196,22 @@ public class ItemOnDrag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
 
         mNewDrag = null;
         mIsOndragDown = false;
-        mScrollRect.OnEndDrag(eventData);
+      //  mScrollRect.OnEndDrag(eventData);
     }
     private CardManagerBase mManager;
     private bool isUser;
     private bool isInit = false;
     private CardJsonBean mCard;
     private SkillJsonBean mSkill;
-    public void init(ScrollRect scrollRect) {
-        mScrollRect = scrollRect;
+    public void init() {
+    //    mScrollRect = scrollRect;
     }
 
-    public void init(CardManagerBase manage, long cardId, bool isUser, GameObject newItem, Transform newItemRoot, ScrollRect scrollRect)
+    public void init(CardManagerBase manage, long cardId, bool isUser, GameObject newItem, Transform newItemRoot)
     {
         mNewItem = newItem;
         mNewItemRoot = newItemRoot;
-        mScrollRect = scrollRect;
+     //   mScrollRect = scrollRect;
         this.isUser = isUser;
         Debug.Log("init card id =" + cardId);
         mManager = manage;
