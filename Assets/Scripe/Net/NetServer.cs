@@ -221,9 +221,14 @@ public class NetServer
          if (!string.IsNullOrEmpty(gifCode))
         {
             WWW result = new WWW(gifCode);
+            while (!result.isDone)
+            {
+                Thread.Sleep(100);
+            }
+            //  yield return result;
 
-          //  yield return result;
-
+            Debug.Log("getGifDeal  result.error="+ result.error);
+            Debug.Log("getGifDeal  result.text=" + result.text);
             if (result.error != null)
             {
                 GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("兑换失败，请检查网络", LuiHuiTips.TYPPE_EMPTY_TOKEN);
@@ -231,6 +236,7 @@ public class NetServer
             }
             else
             {
+                Debug.Log("getGifDeal  result.text="+ result.text);
                 if (string.IsNullOrEmpty(result.text))
                 {
                     GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("兑换失败，请检查网络", LuiHuiTips.TYPPE_EMPTY_TOKEN);
