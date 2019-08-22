@@ -9,7 +9,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000001",
     "skill_id": 100001,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000002,
@@ -21,7 +23,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000002",
     "skill_id": 100008,
-    "cost": 2
+    "cost": 2,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000003,
@@ -33,19 +37,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000003",
     "skill_id": 100004,
-    "cost": 5
-  },
-  {
-    "id": 3000004,
-    "name": "灵魂痛击",
-    "stacking": 1,
-    "tabid": 3,
-    "sortID": 3000004,
-    "icon": "card_3000004",
-    "top_resource": "kapai",
-    "center_resource": "card_skill_3000004",
-    "skill_id": 100005,
-    "cost": 5
+    "cost": 5,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000005,
@@ -57,19 +51,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000005",
     "skill_id": 100006,
-    "cost": 3
-  },
-  {
-    "id": 3000006,
-    "name": "引爆",
-    "stacking": 1,
-    "tabid": 3,
-    "sortID": 3000006,
-    "icon": "card_3000006",
-    "top_resource": "kapai",
-    "center_resource": "card_skill_3000006",
-    "skill_id": 100007,
-    "cost": 5
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000007,
@@ -81,7 +65,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000007",
     "skill_id": 300001,
-    "cost": 0
+    "cost": 0,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000008,
@@ -93,7 +79,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000008",
     "skill_id": 100009,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000009,
@@ -105,7 +93,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000009",
     "skill_id": 100003,
-    "cost": 2
+    "cost": 2,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000010,
@@ -117,7 +107,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000010",
     "skill_id": 100010,
-    "cost": 4
+    "cost": 4,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000011,
@@ -129,7 +121,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000011",
     "skill_id": 100011,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000012,
@@ -141,31 +135,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000012",
     "skill_id": 100012,
-    "cost": 3
-  },
-  {
-    "id": 3000013,
-    "name": "粉碎之锤",
-    "stacking": 1,
-    "tabid": 3,
-    "sortID": 3000014,
-    "icon": "card_3000014",
-    "top_resource": "kapai",
-    "center_resource": "card_skill_3000013",
-    "skill_id": 100013,
-    "cost": 4
-  },
-  {
-    "id": 3000014,
-    "name": "渴血",
-    "stacking": 1,
-    "tabid": 3,
-    "sortID": 3000015,
-    "icon": "card_3000015",
-    "top_resource": "kapai",
-    "center_resource": "card_skill_3000014",
-    "skill_id": 200003,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000015,
@@ -177,7 +149,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000015",
     "skill_id": 100014,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000016,
@@ -189,7 +163,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000016",
     "skill_id": 100015,
-    "cost": 2
+    "cost": 2,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000017,
@@ -201,7 +177,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000017",
     "skill_id": 100016,
-    "cost": 2
+    "cost": 2,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000018,
@@ -213,7 +191,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000018",
     "skill_id": 100017,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000019,
@@ -225,7 +205,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000019",
     "skill_id": 100018,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000020,
@@ -237,7 +219,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000020",
     "skill_id": 100019,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000021,
@@ -249,7 +233,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000021",
     "skill_id": 100020,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000022,
@@ -261,31 +247,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000022",
     "skill_id": 100021,
-    "cost": 2
-  },
-  {
-    "id": 3000023,
-    "name": "搏命一击",
-    "stacking": 10,
-    "tabid": 3,
-    "sortID": 3000024,
-    "icon": "card_3000010",
-    "top_resource": "kapai",
-    "center_resource": "card_skill_3000023",
-    "skill_id": 100022,
-    "cost": 5
-  },
-  {
-    "id": 3000024,
-    "name": "生命绽放",
-    "stacking": 11,
-    "tabid": 3,
-    "sortID": 3000025,
-    "icon": "card_3000011",
-    "top_resource": "kapai",
-    "center_resource": "card_skill_3000024",
-    "skill_id": 100023,
-    "cost": 5
+    "cost": 2,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000025,
@@ -297,7 +261,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000025",
     "skill_id": 100024,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000026,
@@ -309,7 +275,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000026",
     "skill_id": 100025,
-    "cost": 3
+    "cost": 3,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000027,
@@ -321,7 +289,9 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000027",
     "skill_id": 100026,
-    "cost": 4
+    "cost": 4,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   },
   {
     "id": 3000028,
@@ -333,6 +303,8 @@
     "top_resource": "kapai",
     "center_resource": "card_skill_3000028",
     "skill_id": 100027,
-    "cost": 4
+    "cost": 4,
+    "card_huishou": 100,
+    "card_update_cost": 1000
   }
 ]

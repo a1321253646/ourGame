@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CardJsonBean
+public class YongjiuCardBean 
 {
     public long id;
     public string name;
@@ -13,7 +13,6 @@ public class CardJsonBean
     public string center_resource;
     public long skill_id;
     public long cost;
-    public string describe;
-    public long card_huishou;
-    public long card_update_cost;
+    public string jihuo_card_group;
+    public long card_up_cost;
 }

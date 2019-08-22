@@ -22,7 +22,7 @@ public class SkillJsonBean : MonoBehaviour
     public float leng;
     public float wight;
     public long point_type;
-    public List<float> specialParameterValue;
+    public List<float> specialParameterValue = new List<float>();
     public List<float> effectsParameterValue;
     public List<long> nextSkillList;
 
@@ -43,18 +43,28 @@ public class SkillJsonBean : MonoBehaviour
         return effectsParameterValue;
     }
 
-
     public List<float> getSpecialParameterValue() {
-        if (specialParameterValue == null && special_parameter_value != null) {
-            specialParameterValue = new List<float>();
+       // if (specialParameterValue == null && special_parameter_value != null) {
+            specialParameterValue.Clear();
             string[] strs = special_parameter_value.Split(',');
             foreach (string str in strs) {
                 if (str != null && str.Length > 0) {
-                    float tmp = float.Parse(str);
+                    float tmp = 0;
+                    if (str.Contains("L"))
+                    {
+                        long l = SQLHelper.getIntance().getCardLevel(id);
+                        Debug.Log("l = " + l);
+                        string s = new string(str.Replace("L", "" + l).ToCharArray());
+                        CalculatorUtil ca =  new CalculatorUtil(s,null,id);
+                        tmp = ((float)ca.getValue(null,null));
+                    }
+                    else {
+                        tmp = float.Parse(str);
+                    }
                     specialParameterValue.Add(tmp);
                 }
             }
-        }
+        //}
         return specialParameterValue;
     }
     public void  setSpecialParameterValue(List<float> list) {

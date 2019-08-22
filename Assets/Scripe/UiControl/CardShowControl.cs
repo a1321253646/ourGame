@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class CardShowControl : UiControlBase
+public class CardShowControl : MonoBehaviour
 {
 
-    private Button mClose;    
+    private Button mClose,mLeftUp,mLeftDown,mRightUp,mRightDown;    
     private int mUserUiCount = 0;
     GridLayoutGroup  mBackListGl;
     GridLayoutGroup mUserListGl;
@@ -16,6 +16,8 @@ public class CardShowControl : UiControlBase
     GoodControl[] mBackArray;
     public GameObject CardObject;
     public GameObject DoubleCardObject;
+    public GameObject mUserShow;
+    public GameObject mBackShow;
     private int USER_LINE_COUNT = 4;
     private int BACK_LINE_COUNT = 4;
 
@@ -41,6 +43,10 @@ public class CardShowControl : UiControlBase
     private long mAllUserListCount = 0;
 
     public void upDateUi() {
+        if (mUserListGl == null)
+        {
+            return;
+        }
         updateBackCard();
         updateUserd();
     }
@@ -60,6 +66,10 @@ public class CardShowControl : UiControlBase
         }
     }
     public void upDataCardCount() {
+        if (mUserListGl == null)
+        {
+            return;
+        }
         long count =  getCardCount();
         long oldCount = mUserListGb.Count;
         for (int i = 0; i < count - oldCount; i++)
@@ -120,13 +130,14 @@ public class CardShowControl : UiControlBase
                 CardDoubleUiControl ui = good.GetComponent<CardDoubleUiControl>();
 
                
-                good.transform.parent = mBackListGl.transform;
+                good.transform.parent =
+                    mBackListGl.transform;
                 good.transform.localScale = Vector2.one; ;
                 mBackListGb.Add(good);
                 ui.init(mLevelManager);
 //                good.transform.GetChild(0).Translate(Vector2.down * (10));
             }
-            SetGridHeight(mBackListGl, 1, mBackListGb.Count, mBackListGb.Count/2);
+          //  SetGridHeight(mBackListGl, 1, mBackListGb.Count, mBackListGb.Count/2);
         }
         List<PlayerBackpackBean> list =  InventoryHalper.getIntance().getInventorys();
         foreach (PlayerBackpackBean bean in list) {
@@ -152,6 +163,8 @@ public class CardShowControl : UiControlBase
             Destroy(goj);
         }
     }
+
+    private int mUserCardCount = 0;
     private void addUserUi(PlayerBackpackBean card)
     {
         mUserUiCount += 1;       
@@ -166,7 +179,7 @@ public class CardShowControl : UiControlBase
                 ItemOnDrag item = mUserListGb[i].GetComponent<ItemOnDrag>();
                 item.mBean = card;
                 item.init(mLevelManager.mPlayerControl.mCardManager, card.goodId, false, mLevelManager.mPlayerControl.mCardManager.card, mRoot);
-                
+                mUserCardCount = i + 1;
                 break;
             }
         }
@@ -214,7 +227,7 @@ public class CardShowControl : UiControlBase
             good.transform.localScale = Vector2.one; ;
             mBackListGb.Add(good);
             ui.init(mLevelManager);
-            SetGridHeight(mBackListGl, 1, mBackListGb.Count, mBackListGb.Count / 2);
+            SetGridHeight(mBackListGl, 1, mBackListGb.Count, mBackListGb.Count );
             ui.init(bean, 91, 125, mLevelManager, CardUiControl.TYPE_CARD_PLAY, mLevelManager.mPlayerControl, mRoot);
         }
     }
@@ -257,22 +270,13 @@ public class CardShowControl : UiControlBase
     private float mGridHeight = 0;
     private void SetGridHeight(GridLayoutGroup grid, int minLine,int count,int lineCount)     //每行Cell的个数
     {
-        int line = 0;
-        if (count % lineCount != 0)
-        {
-            line = 1;
-        }
-        line += count / lineCount;
-        if (line < minLine)
-        {
-            line = minLine;
-        }
-        float height = line * grid.cellSize.y;  //行数乘以Cell的高度，3.0f是微调
-        height += (line - 1) * grid.spacing.y;     //每行之间有间隔
-        grid.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+
+        float height = lineCount * grid.cellSize.x;  //行数乘以Cell的高度，3.0f是微调
+        height += lineCount * grid.spacing.x;     //每行之间有间隔
+        grid.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, height);
         if (mGridHeight != height) {
             mGridHeight = height;
-            grid.transform.Translate(Vector2.down * (height));
+         //   grid.transform.Translate(Vector2.down * (height));
         }
       
     }
@@ -317,9 +321,8 @@ public class CardShowControl : UiControlBase
         }
     }
 
-    public override void init()
+    public void init()
     {
-        mControlType = UiControlManager.TYPE_CARD;
         mUserListGl = GameObject.Find("user_card_list").GetComponent<GridLayoutGroup>();
         mBackListGl = GameObject.Find("cardList").GetComponent<GridLayoutGroup>();
         mUserCount = GameObject.Find("title01").GetComponent<Text>();
@@ -327,16 +330,141 @@ public class CardShowControl : UiControlBase
    //     mUserScroll = GameObject.Find("user_card_list_root").GetComponent<ScrollRect>();
    //     mBackScroll = GameObject.Find("back_card_list_root").GetComponent<ScrollRect>();
         mRoot = GameObject.Find("Canvas").GetComponent<Transform>();
-        mClose = GameObject.Find("close").GetComponent<Button>();
+        mClose = GameObject.Find("card_show_card_close").GetComponent<Button>();
+       
         mClose.onClick.AddListener(() => {
-            toremoveUi();
+            UiControlManager.getIntance().remove(UiControlManager.TYPE_CARD);
         });
+
+        mRightDown = GameObject.Find("card2_right_down").GetComponent<Button>();
+        mRightUp = GameObject.Find("card2_right_up").GetComponent<Button>();
+        mLeftDown = GameObject.Find("card2_left_down").GetComponent<Button>();
+        mLeftUp = GameObject.Find("card2_left_up").GetComponent<Button>();
+
+        mLeftDown.onClick.AddListener(() => {
+            Debug.Log("move mRightDown");
+            if (7 > mBackListGb.Count || downMove == 0)
+            {
+                return;
+            }
+            if (downMove > 7)
+            {
+                move(false, mBackListGl, mBackShow, 7);
+                downMove -= 7;
+            }
+            else
+            {
+                move(false, mBackListGl, mBackShow, downMove);
+                downMove = 0;
+            }
+
+        });
+        mRightDown.onClick.AddListener(() => {
+            Debug.Log("move mLeftUp");
+            if (7 >= mBackListGb.Count || mBackListGb.Count - downMove == 7)
+            {
+                return;
+            }
+            if (mBackListGb.Count - downMove - 7 > 7)
+            {
+                move(true, mBackListGl, mBackShow, 7);
+                downMove += 7;
+            }
+            else
+            {
+                move(true, mBackListGl, mBackShow, mBackListGb.Count - 7 - downMove);
+                downMove = mBackListGb.Count - 7;
+            }
+        });
+        mLeftUp.onClick.AddListener(() => {
+            Debug.Log("move mRightUp upMove="+ upMove);
+            if (6 >= mUserCardCount || upMove == 0)
+            {
+                return;
+            }
+            if ( upMove > 6)
+            {
+                move(false, mUserListGl, mUserShow, 6);
+                upMove -= 6;
+            }
+            else
+            {
+                move(false, mUserListGl, mUserShow,  upMove);
+                upMove = 0;
+            }
+
+
+        });
+        mRightUp.onClick.AddListener(() => {
+            Debug.Log("move mLeftUp");
+            if (6 >= mUserCardCount || mUserListGb.Count - upMove == 6)
+            {
+                return;
+            }
+            if (mUserListGb.Count -6 - upMove > 6)
+            {
+                move(true, mUserListGl, mUserShow, 6);
+                upMove += 6;
+            }
+            else
+            {
+                move(true, mUserListGl, mUserShow, mUserListGb.Count - 6 - upMove);
+                upMove = mUserListGb.Count - 6;
+            }
+        });
+
+
+
+    }
+    int upMove = 0;
+    int downMove = 0;
+    private void move(bool isLeft , GridLayoutGroup grid,GameObject show, int count) {
+
+        Debug.Log("move show.gameObject.GetComponent<RectTransform>().rect.width / 2 = "+ show.gameObject.GetComponent<RectTransform>().rect.width / 2);
+        Debug.Log("move grid.gameObject.transform.position.x = " + grid.gameObject.transform.position.x);
+        Debug.Log("move grid.gameObject.GetComponent<RectTransform>().rect.width / 2= " + grid.gameObject.GetComponent<RectTransform>().rect.width / 2);
+
+
+        Debug.Log("move GameCamera.SCREEN_BILI= " + myBili);
+
+        if (!isLeft)
+        {
+            float distance2 = grid.cellSize.x * count + grid.spacing.x * count;
+            Debug.Log("move distance2= " + distance2);
+            distance2 = distance2* myBili;
+
+            Debug.Log("move distance2= " + distance2);
+            grid.transform.Translate(Vector2.right * distance2);
+        }
+        else {
+
+
+            float distance3 = grid.cellSize.x * count + grid.spacing.x * count;
+            Debug.Log("move distance3= " + distance3);
+            distance3 = distance3 * myBili;
+            Debug.Log("move distance3= " + distance3);
+           // grid.transform.SetPositionAndRotation(new  Vector2(grid.transform.position.x - distance, grid.transform.position.y), grid.transform.rotation);
+            //grid.transform.position.x = grid.transform.position.x - distance;
+            grid.transform.Translate(Vector2.left * distance3);
+        }
+    }
+    float myBili = 0;
+    private void Start()
+    {
+        float x = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.x;
+        myBili = Screen.width / x;
+    }
+    public void show()
+    {
+        if (mUserListGl == null) {
+            init();
+        }
+        gameObject.transform.localScale = new Vector2(1, 1);
+        upDateUi();
+       // GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD);
+    }
+    public void disShow() {
+        gameObject.transform.localScale = new Vector2(0, 0);
     }
 
-    public override void show()
-    {
-        gameObject.transform.localPosition = new Vector2(0, 0);
-        upDateUi();
-        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD);
-    }
 }

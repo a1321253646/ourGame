@@ -257,6 +257,22 @@ public class LuiHuiTips : UiControlBase
 
         SQLHelper.getIntance().updateIsLunhuiValue((long)speedLevel);
 
+        long cardMoney = 0;
+        foreach (PlayerBackpackBean bean in SQLHelper.getIntance().getAllGood()) {
+            if (bean.goodType == SQLDate.GOOD_TYPE_CARD || bean.goodType == SQLDate.GOOD_TYPE_USER_CARD) {
+                if (bean.isClean == 1) {
+                    cardMoney += JsonUtils.getIntance().getCardInfoById(bean.goodId).card_huishou;
+                }
+            }
+        }
+        if (SQLHelper.getIntance().mCardMoney == -1) {
+            SQLHelper.getIntance().updateCardMoney(cardMoney);
+        }
+        else {
+            SQLHelper.getIntance().mCardMoney += cardMoney;
+            SQLHelper.getIntance().updateCardMoney(SQLHelper.getIntance().mCardMoney);
+
+        }
        
         long oldLevel =BaseDateHelper.decodeLong( GameManager.getIntance().mCurrentLevel);
         InventoryHalper.getIntance().dealClear();
@@ -330,6 +346,11 @@ public class LuiHuiTips : UiControlBase
 
         SQLHelper.getIntance().mGameLevel = BaseDateHelper.encodeLong(-9999L);
         SQLHelper.getIntance().updateGameLevel(BaseDateHelper.encodeLong(newLevel));
+
+        GameObject.Find("card_up_list").GetComponent<CardUpdateListControl>().isInit = false;
+        GameObject.Find("card_up_list").GetComponent<CardUpdateListControl>().init();
+        GameObject.Find("Card2").GetComponent<CardShowControl>().upDateUi();
+
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
         SQLHelper.getIntance().addHadLunhui();
 

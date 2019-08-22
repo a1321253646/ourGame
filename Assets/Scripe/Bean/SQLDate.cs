@@ -51,6 +51,7 @@ public class SQLDate
                id == SQLHelper.GAME_ID_BUY_DAY ||
                id == SQLHelper.GAME_ID_VIP_DAY ||
                id == SQLHelper.GAME_ID_GET_DAY ||
+               id == SQLHelper.GAME_ID_CARD_MONEY ||
                id == SQLHelper.GAME_ID_VIP_DATE ||
                id == SQLHelper.GAME_ID_HAD_LUNHUI)
             {

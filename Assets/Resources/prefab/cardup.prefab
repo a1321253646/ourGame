@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 1475866290112861488}
   - component: {fileID: 1656160079601599246}
   - component: {fileID: 62669350499692010}
+  - component: {fileID: 4281619807752029307}
   m_Layer: 5
   m_Name: cardup
   m_TagString: Untagged
@@ -264,6 +265,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff03ec8cf3cb0e24f9b50d0812f29273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mLevelTx: {fileID: 1687957405324987448}
+  mUpdateBt: {fileID: 1687957404898806641}
+  mUpCost: {fileID: 1687957405801776301}
+  mUnLiveText: {fileID: 0}
+  mGreyMeteril: {fileID: 2100000, guid: 86f55f4b94ca428419538a55fde256c6, type: 2}
+  control1: {fileID: 4281619807752029307}
+--- !u!114 &4281619807752029307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686816298377834462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd99a70831688ae46a1c8c54f0a86b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mSkill: {fileID: 0}
+  mCardId: -1
+  mCostCount: {fileID: 0}
+  mSkillName: {fileID: 0}
+  mCardCount: {fileID: 0}
+  count: 1
 --- !u!1 &1686942431177017342
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +743,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1687957404898806646}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 62669350499692010}
+        m_MethodName: clickUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1687957405324987429

@@ -214,9 +214,17 @@ public class TipControl : UiControlBase
         //         Load("backpackIcon/" + img, typeof(Sprite)) as Sprite;
         //mTipImage.color = Color.white;
         mBean.tabId = tabID;
-
-        rebuild_cost.text = JsonUtils.getIntance().getConfigValueForId(100060) + mBean.reBuildCount * JsonUtils.getIntance().getConfigValueForId(100061)+"";
-
+        long cost = (long)(JsonUtils.getIntance().getConfigValueForId(100060) + mBean.reBuildCount * JsonUtils.getIntance().getConfigValueForId(100061));
+        rebuild_cost.text =BigNumber.getBigNumForString(cost+"").toStringWithUnit();
+        Debug.Log(" cost = "+ cost+ " SQLHelper.getIntance().mZuanshi="+ SQLHelper.getIntance().mZuanshi.toString());
+        if (SQLHelper.getIntance().mZuanshi.isEmpty() ||  BigNumber.getBigNumForString(cost + "").ieEquit(SQLHelper.getIntance().mZuanshi) == -1)
+        {
+            reBuild.interactable = false;
+        }
+        else {
+            reBuild.interactable = true;
+           
+        }
 
     }
 
@@ -309,7 +317,7 @@ public class TipControl : UiControlBase
             Debug.Log(" SkillJsonBean.describe = " + sj.skill_describe);
             if (str.Contains("&n")) {
                 Debug.Log(" str.Contains" );
-                CalculatorUtil calcuator = new CalculatorUtil(sj.calculator,sj.effects_parameter);
+                CalculatorUtil calcuator = new CalculatorUtil(sj.calculator,sj.effects_parameter, sj.id);
                 double value = calcuator.getValue(mLevelManager.mPlayerControl, null);
                 str = str.Replace("&n", "" + value);
             }

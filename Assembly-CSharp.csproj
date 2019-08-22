@@ -69,6 +69,7 @@
     <Compile Include="Assets\CardUpdateItemControl.cs" />
     <Compile Include="Assets\CardUpdateListControl.cs" />
     <Compile Include="Assets\CardUpUiControl.cs" />
+    <Compile Include="Assets\CardViewContolRoot.cs" />
     <Compile Include="Assets\ChangeNameTipControl.cs" />
     <Compile Include="Assets\DiaoluoDonghuaControl.cs" />
     <Compile Include="Assets\EndUiObjectControl.cs" />
@@ -142,6 +143,8 @@
     <Compile Include="Assets\Scripe\Bean\SqlNetDate.cs" />
     <Compile Include="Assets\Scripe\Bean\StringJsonBean.cs" />
     <Compile Include="Assets\Scripe\Bean\VocationDecBean.cs" />
+    <Compile Include="Assets\Scripe\Bean\YongjiuCardBean.cs" />
+    <Compile Include="Assets\Scripe\CardViewUpdateControl.cs" />
     <Compile Include="Assets\Scripe\ClickCardControl.cs" />
     <Compile Include="Assets\Scripe\ComposeControl.cs" />
     <Compile Include="Assets\Scripe\ComposeEquipListControl.cs" />
@@ -339,6 +342,7 @@
     <Compile Include="Assets\VocationSilderControl.cs" />
     <Compile Include="Assets\ZhuangBeiItemShowControl.cs" />
     <None Include="Assets\Resources\icon\itemicon\新建文本文档 1.txt" />
+    <None Include="Assets\Metarial\ImageGreyShader.shader" />
     <None Include="Assets\Resources\icon\vocation\新建文本文档.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/unityProject/ourGame/ourGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

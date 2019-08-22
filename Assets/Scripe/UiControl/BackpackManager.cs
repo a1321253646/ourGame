@@ -74,7 +74,6 @@ public class BackpackManager
         mSamsaraTranform = GameObject.Find("lunhui").GetComponent<RectTransform>();
         mSamsaraControl = GameObject.Find("lunhui").GetComponent<SamsaraManage>();
         mCardControl = GameObject.Find("Card2").GetComponent<CardShowControl>();
-
         mZhuangbeiShowControl = GameObject.Find("jineng").GetComponent<ZhuangbeiUpdateControl>();
     }
 
@@ -321,10 +320,12 @@ public class BackpackManager
         mLevel.upLunhui();
         mSamsaraControl.updata();
     }
-
     public void addGoods(long id, int count) {
+        addGoods(id, count, false);
+    }
+    public void addGoods(long id, int count,bool isYongjiu) {
         Debug.Log("addGoods id=" + id + " count=" + count);
-        bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count);
+        bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count,isYongjiu);
         Debug.Log("isAddNiew =" + isAddNiew);
         mInvertoryControl.update();
         upDataComposeControl();

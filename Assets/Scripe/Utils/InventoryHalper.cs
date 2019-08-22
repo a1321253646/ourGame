@@ -127,13 +127,19 @@ public class InventoryHalper
         Debug.Log("rebuild  bean.reBuildCount=" + bean.reBuildCount);
         updateZhuangbei(bean, level, true,false);
     }
-
     public bool addInventory(long id, int count) {
-        return addInventory(id, count, -1);
+        return addInventory(id, count, false);
     }
-    public bool addInventory(long id, int count,long sql)
+    public bool addInventory(long id, int count, bool isYongjiu) {
+        return addInventory(id, count, -1, isYongjiu);
+    }
+    public bool addInventory(long id, int count, long sql) {
+        return addInventory(id, count, sql, false);
+    }
+    public bool addInventory(long id, int count,long sql, bool isYongjiu)
     {
         bool isNew = true;
+        bool isCard = false;
         PlayerBackpackBean bean = null;
         if (id <= TABID_2_START_ID )
         {
@@ -211,6 +217,7 @@ public class InventoryHalper
                 newBean.tabId = cj.tabid;           
                 newBean.isShowPoint = 1;
                 newBean.goodType = SQLDate.GOOD_TYPE_CARD;
+                isCard = true;
             }
             else if (id > TABID_4_START_ID && id < TABID_5_START_ID)
             {
@@ -257,8 +264,16 @@ public class InventoryHalper
             else {
                 newBean.sqlGoodId = sql;
             }
-                     
+            if (isYongjiu) {
+                newBean.isClean = 2;
+            }        
             SQLHelper.getIntance().addGood(newBean);
+            if (isCard) {
+                
+                GameObject.Find("card_up_list").GetComponent<CardUpdateListControl>().upDateUi(newBean.goodId);
+                GameObject.Find("Card2").GetComponent<CardShowControl>().upDateUi();
+            }
+            
             return true;
         }
         else {
@@ -316,7 +331,7 @@ public class InventoryHalper
             mDropDeviceUsed.Add(id,  1);
             SQLHelper.getIntance().addDrop(id, mDropDeviceUsed[id]);
         }
-        Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
+     //   Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
 
         
     }

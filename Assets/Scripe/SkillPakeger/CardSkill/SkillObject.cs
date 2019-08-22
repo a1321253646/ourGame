@@ -46,7 +46,7 @@ public abstract class SkillObject : MonoBehaviour
         mAttacker = attacker;
 
         initEnd();
-        calcuator = new CalculatorUtil(mBean.calculator, mBean.effects_parameter);
+        calcuator = new CalculatorUtil(mBean.calculator, mBean.effects_parameter, mBean.id);
         
         isInit = true;
     }

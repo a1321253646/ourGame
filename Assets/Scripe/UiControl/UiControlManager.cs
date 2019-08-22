@@ -123,7 +123,7 @@ public class UiControlManager
         addAllUi(iver, 2, TYPE_SETTING);
         iver = GameObject.Find("lunhui").GetComponentInChildren<SamsaraManage>();
         addAllUi(iver, 2, TYPE_SAMSARA);
-        iver = GameObject.Find("Card2").GetComponentInChildren<CardShowControl>();
+        iver = GameObject.Find("card_view_new_control").GetComponentInChildren<CardViewContolRoot>();
         addAllUi(iver, 2, TYPE_CARD);
         iver = GameObject.Find("pet").GetComponentInChildren<PetControl>();
         addAllUi(iver, 2, TYPE_PET);

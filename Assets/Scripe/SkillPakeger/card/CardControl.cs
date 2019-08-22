@@ -61,8 +61,8 @@ public class CardControl : MonoBehaviour
         }
         else if (STATUE_CARP_UP == mStatue)
         {
-            Debug.Log(" mManager=   " + mManager);
-            Debug.Log(" mManager.getLocalManager()=   " + mManager.getLocalManager());
+          //  Debug.Log(" mManager=   " + mManager);
+          //  Debug.Log(" mManager.getLocalManager()=   " + mManager.getLocalManager());
 
             LocalBean mLocalLink = mManager.getLocalManager().mLocalLink;
             SkillLocalBean bean = new SkillLocalBean();
@@ -300,7 +300,7 @@ public class CardControl : MonoBehaviour
     }
 
     public void init(int index, CardManagerBase manage,long cardId) {
-        Debug.Log("init card id =" + cardId);
+//        Debug.Log("init card id =" + cardId);
         CardJsonBean card = JsonUtils.getIntance().getCardInfoById(cardId);
         isInit = true;
         mManager = manage;
