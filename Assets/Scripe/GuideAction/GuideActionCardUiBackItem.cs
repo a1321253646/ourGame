@@ -25,6 +25,7 @@ public class GuideActionCardUiBackItem : GuideActionItem
     public override void start()
     {
         GameManager.getIntance().isGuide = true;
+        Debug.Log("guideBack  GuideActionCardUiBackItem ");
         GameObject.Find("Card2").GetComponent<CardShowControl>().guideBack(mTarget.value);
         mManager.showGuideDec(mTargetX, mTargetY, mDecX, mDecY, mDec);
     }

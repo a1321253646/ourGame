@@ -22,6 +22,20 @@ public class CardDoubleUiControl : MonoBehaviour
 
 
 
+    public GameObject getCardObjectById(long id) {
+        if (control1.mCardId == id)
+        {
+            return control1.gameObject;
+        }
+        else if (control2.mCardId == id)
+        {
+            return control2.gameObject;
+        }
+        else {
+            return null;
+        }
+    }
+
 
     public bool init(PlayerBackpackBean bean,float x,float y, LevelManager level, int type, Attacker hero, Transform root) {
         if (control1.mCardId == -1)

@@ -40,6 +40,9 @@ public class CardViewContolRoot : UiControlBase
             });
             isShowEd = true;
         }
+        
+
         gameObject.transform.localPosition = new Vector2(0, 0);
+        GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_SHOW, GuideManager.SHOW_CARD);
     }
 }

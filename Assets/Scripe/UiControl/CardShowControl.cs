@@ -23,12 +23,15 @@ public class CardShowControl : MonoBehaviour
 
     public void guideBack(long value)
     {
+        Debug.Log("guideBack  mBackListGb.Coun =" + mBackListGb.Count);
         for (int i = 0; i < mBackListGb.Count; i++)
         {
-            CardUiControl ui = mBackListGb[i].GetComponent<CardUiControl>();
-            if (ui.mCardId == value)
+            CardDoubleUiControl ui = mBackListGb[i].GetComponent<CardDoubleUiControl>();
+            GameObject ob = ui.getCardObjectById(value);
+            if (ob != null)
             {
-               // GameManager.getIntance().getGuideManager().ShowGuideGrideLayoutInScroll(mBackListGb[i], mBackScroll, mBackListGl, i, 10);
+                GameManager.getIntance().getGuideManager().ShowGuideNormalObject(GameObject.Find("card_guide_object"));
+
                 break;
             }
         }
@@ -292,7 +295,7 @@ public class CardShowControl : MonoBehaviour
     {
         int count = 0;
         foreach (GameObject good in mBackListGb) {
-            if (good.GetComponent<CardUiControl>().mCardId != -1)
+            if (good.GetComponent<CardUiControl>() != null && good.GetComponent<CardUiControl>().mCardId != -1)
             {
                 count += 1;
             }

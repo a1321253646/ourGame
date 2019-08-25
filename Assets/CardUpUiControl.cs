@@ -12,6 +12,7 @@ public class CardUpUiControl : MonoBehaviour
 
 
     public CardUiControl control1 = null;
+    public ItemOnDragUpCard mItemUp = null;
     public long mId = -1;
     long mLevel = 0;
     CardJsonBean mbean = null;
@@ -23,6 +24,7 @@ public class CardUpUiControl : MonoBehaviour
     {
         mId = id;
         control1.init(id, 107, 146);
+        mItemUp.init(id);
         mIsYongjiu = isYongjiu;
         if (isYongjiu)
         {
@@ -104,6 +106,7 @@ public class CardUpUiControl : MonoBehaviour
             mUpdateBt.interactable = false;
             mUpCost.text = "未激活";
             mUpCost.color = Color.red;
+            mItemUp.init(-1);
 
         }
         else

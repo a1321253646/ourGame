@@ -217,7 +217,7 @@ public class TipControl : UiControlBase
         long cost = (long)(JsonUtils.getIntance().getConfigValueForId(100060) + mBean.reBuildCount * JsonUtils.getIntance().getConfigValueForId(100061));
         rebuild_cost.text =BigNumber.getBigNumForString(cost+"").toStringWithUnit();
         Debug.Log(" cost = "+ cost+ " SQLHelper.getIntance().mZuanshi="+ SQLHelper.getIntance().mZuanshi.toString());
-        if (SQLHelper.getIntance().mZuanshi.isEmpty() ||  BigNumber.getBigNumForString(cost + "").ieEquit(SQLHelper.getIntance().mZuanshi) == -1)
+        if (SQLHelper.getIntance().mZuanshi.isEmpty() ||  BigNumber.getBigNumForString(cost + "").ieEquit(SQLHelper.getIntance().mZuanshi) != -1)
         {
             reBuild.interactable = false;
         }

@@ -2790,15 +2790,6 @@
     "dropCount": 1
   },
   {
-    "id": 2000014,
-    "itemID": 3000014,
-    "name": "渴血",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
     "id": 2000015,
     "itemID": 3000001,
     "name": "火柱",
@@ -2865,15 +2856,6 @@
     "id": 2000017,
     "itemID": 3000007,
     "name": "祭品",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 1000,
-    "dropCount": 1
-  },
-  {
-    "id": 2000018,
-    "itemID": 3000014,
-    "name": "渴血",
     "minCount": 1,
     "maxCount": 1,
     "weight": 1000,
@@ -2997,24 +2979,6 @@
     "dropCount": 1
   },
   {
-    "id": 2000028,
-    "itemID": 3000023,
-    "name": "搏命一击",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 2000029,
-    "itemID": 3000024,
-    "name": "生命绽放",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
     "id": 2000030,
     "itemID": 3000025,
     "name": "卡牌重击",
@@ -3072,33 +3036,6 @@
     "id": 4000001,
     "itemID": 3000003,
     "name": "百裂斩",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 4000001,
-    "itemID": 3000004,
-    "name": "灵魂痛击",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 4000001,
-    "itemID": 3000005,
-    "name": "痛击",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 4000001,
-    "itemID": 3000006,
-    "name": "压制",
     "minCount": 1,
     "maxCount": 1,
     "weight": 10000,
@@ -3232,24 +3169,6 @@
   },
   {
     "id": 4000002,
-    "itemID": 3000023,
-    "name": "搏命一击",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 4000002,
-    "itemID": 3000024,
-    "name": "生命绽放",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 4000002,
     "itemID": 3000025,
     "name": "卡牌重击",
     "minCount": 1,
@@ -3279,33 +3198,6 @@
     "id": 4000002,
     "itemID": 3000028,
     "name": "魔术·恢复",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 4000003,
-    "itemID": 3000013,
-    "name": "手雷",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 4000003,
-    "itemID": 3000014,
-    "name": "渴血",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 4000003,
-    "itemID": 3000024,
-    "name": "生命绽放",
     "minCount": 1,
     "maxCount": 1,
     "weight": 10000,

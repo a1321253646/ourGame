@@ -10,7 +10,7 @@
     "center_resource": "card_skill_3000004",
     "skill_id": 100005,
     "cost": 5,
-    "jihuo_card_group": "3000001,3000002,3000003,3000009",
+    "jihuo_card_group": "3000001,3000002,3000003",
     "card_up_cost": 5000
   },
   {
@@ -24,7 +24,7 @@
     "center_resource": "card_skill_3000006",
     "skill_id": 100007,
     "cost": 5,
-    "jihuo_card_group": "3000005,3000010,3000011,3000012",
+    "jihuo_card_group": "3000005,3000010,3000012",
     "card_up_cost": 5000
   },
   {
@@ -38,7 +38,7 @@
     "center_resource": "card_skill_3000013",
     "skill_id": 100013,
     "cost": 4,
-    "jihuo_card_group": "3000018,3000019,3000020,3000021",
+    "jihuo_card_group": "3000018,3000019,3000020",
     "card_up_cost": 5000
   },
   {
@@ -66,7 +66,7 @@
     "center_resource": "card_skill_3000023",
     "skill_id": 100022,
     "cost": 5,
-    "jihuo_card_group": "3000016,3000022,3000025,3000026",
+    "jihuo_card_group": "3000009,3000016,3000022",
     "card_up_cost": 5000
   },
   {
@@ -80,7 +80,7 @@
     "center_resource": "card_skill_3000024",
     "skill_id": 100023,
     "cost": 5,
-    "jihuo_card_group": "3000002,3000011,3000017,3000028",
+    "jihuo_card_group": "3000021,3000025,3000026",
     "card_up_cost": 5000
   }
 ]
