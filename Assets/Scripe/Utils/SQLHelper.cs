@@ -1229,23 +1229,20 @@ public class SQLHelper
         SQLManager.getIntance().InsertDataToSQL(date);
         // addGame(GAME_ID_GUIDE, value);
     }
-    public void changeCardLeveL(long id,long level,bool yongjiu)
+    public void changeCardLeveL(long id,long level)
     {
 
         SQLDate date = new SQLDate();
         date.extan = ""+ level;
         date.type = TYPE_CARD_LEVEL;
         date.id = id;
-        date.getClean();
-        if (mCardLevelList.ContainsKey(id))
+        date.isClean = SQLDate.CLEAR_NO;
+        if (mCardLevelList.ContainsKey(id) && level != 0)
         {
             mCardLevelList[id] = level;
             SQLManager.getIntance().changeCardLevel(date);
         }
         else {
-            if (yongjiu) {
-                date.isClean = SQLDate.CLEAR_NO;
-            }
             mCardLevelList.Add(id, level);
             SQLManager.getIntance().InsertDataToSQL(date);
         }
@@ -1770,7 +1767,7 @@ public class SQLHelper
             return mCardLevelList[id];
         }
         else{
-            return 0;
+            return -1;
         }
     }
     

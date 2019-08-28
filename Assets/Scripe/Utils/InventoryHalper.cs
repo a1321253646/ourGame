@@ -269,7 +269,7 @@ public class InventoryHalper
             }        
             SQLHelper.getIntance().addGood(newBean);
             if (isCard) {
-                
+                SQLHelper.getIntance().changeCardLeveL(newBean.goodId, 0);
                 GameObject.Find("card_up_list").GetComponent<CardUpdateListControl>().upDateUi(newBean.goodId);
                 GameObject.Find("Card2").GetComponent<CardShowControl>().upDateUi();
             }

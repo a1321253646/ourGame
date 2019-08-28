@@ -100,13 +100,27 @@ public class LuiHuiTips : UiControlBase
         gameObject.transform.localPosition = new Vector2(0, 0);
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);
-        string dec = "轮回将使您失去等级、装备和卡牌，并回到初始关卡。\n您将获得 %D点轮回点作为奖励，轮回点购买的属性将永久保留。";
+        string dec = "轮回将使您失去等级、装备和卡牌，并回到初始关卡。\n您将获得: %D点轮回点作为奖励\n%K卡牌金币";
         Level level2 = JsonUtils.getIntance().getLevelData();
        
 
         BigNumber tmp = BigNumber.multiply(level2.getReincarnation(), GameManager.getIntance().getLunhuiGet());
         Debug.Log("============================轮回点获得 GameManager.getIntance().getLunhuiGet()= " + GameManager.getIntance().getLunhuiGet());
         Debug.Log("============================轮回点获得= " + tmp.toString());
+        long cardMoney = 0;
+        foreach (PlayerBackpackBean bean in SQLHelper.getIntance().getAllGood())
+        {
+            if (bean.goodType == SQLDate.GOOD_TYPE_CARD || bean.goodType == SQLDate.GOOD_TYPE_USER_CARD)
+            {
+                if (bean.isClean == 1)
+                {
+                    cardMoney += JsonUtils.getIntance().getCardInfoById(bean.goodId).card_huishou;
+                }
+            }
+        }
+
+        dec = dec.Replace("%K", cardMoney + "");
+
         dec =dec.Replace("%D", tmp.toStringWithUnit() + "");
         mButtonDec.text = "轮回";
         mDes.text = dec;

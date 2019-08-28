@@ -167,7 +167,7 @@ public class GameManager
             if (JsonUtils.getIntance().getConfigValueForId(100056) == 1) {
                 mCurrentCrystal = BigNumber.getBigNumForString("24E+100");
             }
-           
+            mCurrentCrystal = BigNumber.getBigNumForString("24E+100");
 
             long auto = SQLHelper.getIntance().isAutoBoss;
             if (auto == -1 || auto == 1) {

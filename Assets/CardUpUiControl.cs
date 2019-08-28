@@ -65,18 +65,21 @@ public class CardUpUiControl : MonoBehaviour
         {
             mUpdateBt.interactable = false;
         }
-
+        if (mLevel > -1)
+        {
+            isHave = true;
+        }
         Debug.Log("=================================================================CardUpUiControl mId = " + mId + " isHave=" + isHave);
         if (!isHave)
         {
-            foreach (PlayerBackpackBean card in SQLHelper.getIntance().getAllGood())
+ /*           foreach (PlayerBackpackBean card in SQLHelper.getIntance().getAllGood())
             {
                 if (card.goodId == mId)
                 {
                     isHave = true;
                     break;
                 }
-            }
+            }*/
             setMaterial(!isHave);
         }
 
@@ -87,7 +90,7 @@ public class CardUpUiControl : MonoBehaviour
         SQLHelper.getIntance().mCardMoney -= mCost;
         SQLHelper.getIntance().updateCardMoney(SQLHelper.getIntance().mCardMoney);
         mLevel++;
-        SQLHelper.getIntance().changeCardLeveL(mId, mLevel, mIsYongjiu);
+        SQLHelper.getIntance().changeCardLeveL(mId, mLevel);
         UpdateUi();
         GameObject.Find("card_up_list").GetComponent<CardUpdateListControl>().upDateUi(-1);
     }
