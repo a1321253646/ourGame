@@ -1237,10 +1237,13 @@ public class SQLHelper
         date.type = TYPE_CARD_LEVEL;
         date.id = id;
         date.isClean = SQLDate.CLEAR_NO;
-        if (mCardLevelList.ContainsKey(id) && level != 0)
+        if (mCardLevelList.ContainsKey(id))
         {
-            mCardLevelList[id] = level;
-            SQLManager.getIntance().changeCardLevel(date);
+            if (level != 1) {
+                mCardLevelList[id] = level;
+                SQLManager.getIntance().changeCardLevel(date);
+            }
+
         }
         else {
             mCardLevelList.Add(id, level);

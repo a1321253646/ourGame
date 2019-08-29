@@ -141,6 +141,9 @@ public class CalculatorUtil
                 if (str.Contains("L"))
                 {
                     long l = SQLHelper.getIntance().getCardLevel(mId);
+                    if (l == -1) {
+                        l = 1;
+                    }
                     Debug.Log("l = " + l);
                     string s = new string(str.Replace("L", "" + l).ToCharArray());
                     Debug.Log("tmp=" + s + "*");

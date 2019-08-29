@@ -53,6 +53,10 @@ public class SkillJsonBean : MonoBehaviour
                     if (str.Contains("L"))
                     {
                         long l = SQLHelper.getIntance().getCardLevel(id);
+                        if (l == -1)
+                        {
+                            l = 1;
+                        }
                         Debug.Log("l = " + l);
                         string s = new string(str.Replace("L", "" + l).ToCharArray());
                         CalculatorUtil ca =  new CalculatorUtil(s,null,id);
