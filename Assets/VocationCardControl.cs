@@ -101,11 +101,11 @@ public class VocationCardControl : MonoBehaviour {
             SkillJsonBean skillBean = JsonUtils.getIntance().getSkillInfoById(mBean.skill);
             string dec = skillBean.skill_describe;
             if (skillBean.getSpecialParameterValue() != null && skillBean.getSpecialParameterValue().Count > 0) {
-                int parameIndex = 1;
-                foreach (float a in skillBean.getSpecialParameterValue()) {
-                    dec =dec.Replace("S" + parameIndex, "" + skillBean.getSpecialParameterValue()[parameIndex - 1]);
-                    parameIndex++;
+                for (int i = 0; i < skillBean.getSpecialParameterValue().Count; i++) {
+                    dec = dec.Replace("S" + (i+1), "" + skillBean.getSpecialParameterValue()[i]);
+    
                 }
+
             }
             mSkillDec.text = dec;
             mButton.interactable = true;

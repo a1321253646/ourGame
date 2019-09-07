@@ -27,7 +27,7 @@ public class AttackSkill200001 : EventAttackSkill
             value = 1;
         }
         
-        calcuator = new CalculatorUtil(mSkillJson.calculator, mSkillJson.effects_parameter);
+        calcuator = new CalculatorUtil(mSkillJson.calculator, mSkillJson.effects_parameter, mSkillJson.id);
         calcuator.setSkill(this);
         mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_ALL_HURT, this);
 

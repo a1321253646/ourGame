@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1001,
+    "itemtype": 1,
+    "parameter": "500,50,30",
+    "costtype": 1,
+    "price": 68,
+    "sku": "hero_support"
+  },
+  {
+    "id": 2001,
+    "itemtype": 2,
+    "parameter": "50",
+    "costtype": 1,
+    "price": 6,
+    "sku": "diamond_bag_small"
+  },
+  {
+    "id": 2002,
+    "itemtype": 2,
+    "parameter": "300",
+    "costtype": 1,
+    "price": 30,
+    "sku": "diamond_bag_middle"
+  },
+  {
+    "id": 2003,
+    "itemtype": 2,
+    "parameter": "3500",
+    "costtype": 1,
+    "price": 120,
+    "sku": "diamond_bag_big"
+  },
+  {
+    "id": 2004,
+    "itemtype": 2,
+    "parameter": "8000",
+    "costtype": 1,
+    "price": 328,
+    "sku": "diamond_bag_super"
+  },
+  {
+    "id": 3001,
+    "itemtype": 3,
+    "parameter": "5",
+    "costtype": 2,
+    "price": 10,
+    "sku": ""
+  },
+  {
+    "id": 3002,
+    "itemtype": 3,
+    "parameter": "30",
+    "costtype": 2,
+    "price": 50,
+    "sku": ""
+  },
+  {
+    "id": 3003,
+    "itemtype": 3,
+    "parameter": "70",
+    "costtype": 2,
+    "price": 100,
+    "sku": ""
+  },
+  {
+    "id": 3004,
+    "itemtype": 3,
+    "parameter": "150",
+    "costtype": 2,
+    "price": 200,
+    "sku": ""
+  },
+  {
+    "id": 4001,
+    "itemtype": 4,
+    "parameter": "5",
+    "costtype": 2,
+    "price": 10,
+    "sku": ""
+  },
+  {
+    "id": 4002,
+    "itemtype": 4,
+    "parameter": "30",
+    "costtype": 2,
+    "price": 50,
+    "sku": ""
+  },
+  {
+    "id": 4003,
+    "itemtype": 4,
+    "parameter": "70",
+    "costtype": 2,
+    "price": 100,
+    "sku": ""
+  },
+  {
+    "id": 4004,
+    "itemtype": 4,
+    "parameter": "150",
+    "costtype": 2,
+    "price": 200,
+    "sku": ""
+  }
+]

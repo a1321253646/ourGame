@@ -109,6 +109,23 @@ public class GuideManager : MonoBehaviour {
         }else if (mGuideList.Count > 0) {
   //          Debug.Log("notificationDeal mCurrentGuide == null");
             foreach (GuideControl c in mGuideList) {
+                if (c.mData.guideId == 4) {
+                    List<PlayerBackpackBean> list =   SQLHelper.getIntance().getUserd();
+                    if (list == null || list.Count == 0)
+                    {
+                        continue;
+                    }
+                    bool isHave = false;
+                    for (int i = 0; i < list.Count; i++) {
+                        if (list[i].goodId == 2041001) {
+                            isHave = true;
+                            break;
+                        }
+                    }
+                    if (!isHave) {
+                        continue;
+                    }
+                }
                 back = c.notificationDeal(eventID, eventValue);
 //                Debug.Log("notificationDeal back == "+ back);
                 if (back != -1) {
@@ -139,7 +156,6 @@ public class GuideManager : MonoBehaviour {
             bool isGuide = false;
             if (g.level != -100 && level > g.level)
             {
-                SQLHelper.getIntance().addGuide(g.id);
                 continue;
             }
             if (guide.Count > 0) {
@@ -167,45 +183,30 @@ public class GuideManager : MonoBehaviour {
         myBili = Screen.height / y;
         mxBili = Screen.width / x;
     }
-    public void ShowGuideGrideLayoutInScroll(GameObject ob, ScrollRect mBackScroll, GridLayoutGroup mBackListGl, int item, int hengCount)
+    public void ShowGuideGrideLayoutInScroll(GameObject ob, GameObject mBackScroll, GridLayoutGroup mBackListGl, int item, int hengCount)
     {
         Transform tf = ob.transform;
         float sx = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.x;
         float sy = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.y;
-
-        float x = mBackScroll.transform.position.x - (mBackScroll.GetComponent<RectTransform>().rect.width / 2) * mxBili;
-        float y = mBackScroll.transform.position.y + (mBackScroll.GetComponent<RectTransform>().rect.height / 2) * myBili * GameCamera.SCREEN_BILI;
+        float x = 0, y = 0;
+        if (mBackScroll != null) {
+            x = mBackScroll.transform.position.x -  (mBackScroll.GetComponent<RectTransform>().rect.width / 2) * mxBili;
+            y = mBackScroll.transform.position.y + (mBackScroll.GetComponent<RectTransform>().rect.height / 2) * myBili * GameCamera.SCREEN_BILI;
+        }
+        Debug.Log(" x = " + mBackScroll.transform.position.x + " y=" + mBackScroll.transform.position.y);
 
         int heng = item / hengCount;
         int lie = item % hengCount;
-
+        Debug.Log(" heng = " + heng + " lie=" + lie);
         x = x + (mBackListGl.padding.left + mBackListGl.cellSize.x * lie + mBackListGl.spacing.x * lie) * mxBili ;
         y = y - (mBackListGl.padding.top - mBackListGl.cellSize.y * heng - mBackListGl.spacing.y * heng) * myBili * GameCamera.SCREEN_BILI;
-
+        Debug.Log(" x = " + mBackScroll.transform.position.x + " y=" + mBackScroll.transform.position.y);
         Vector2 lu = new Vector2(x, y);
         Vector2 rd = new Vector2(x + mBackListGl.cellSize.x * mxBili, y - mBackListGl.cellSize.y * myBili * GameCamera.SCREEN_BILI);
 
         showGuide(ob, lu, rd);
     }
-    /*public void ShowGuideHorizontalLayoutGroupInScroll(GameObject ob, ScrollRect mBackScroll, HorizontalLayoutGroup mBackListGl,int item) {
-        Transform tf = ob.transform;
-        float sx = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.x;
-        float sy = GameObject.Find("Canvas").GetComponent<CanvasScaler>().referenceResolution.y;
 
-        Debug.Log(" sw = " + mBackScroll.GetComponent<RectTransform>().rect.width + " sh=" + mBackScroll.GetComponent<RectTransform>().rect.height);
-        Debug.Log(" x = " + mBackScroll.transform.position.x + " y=" + mBackScroll.transform.position.y);
-        float x = mBackScroll.transform.position.x - (mBackScroll.GetComponent<RectTransform>().rect.width / 2) * mxBili;
-        float y = mBackScroll.transform.position.y + (mBackScroll.GetComponent<RectTransform>().rect.height / 2) * myBili;
-        x = x + (mBackListGl.padding.left + ob.GetComponent<RectTransform>().rect.width * item + mBackListGl.spacing* item) * mxBili;
-        y = y - (mBackListGl.padding.top) * myBili;
-        
-        Vector2 lu = new Vector2(x, y);
-
-        Vector2 rd = new Vector2(x + ob.GetComponent<RectTransform>().rect.width * mxBili, y - ob.GetComponent<RectTransform>().rect.height * myBili);
-        Debug.Log(" lu x = " + lu.x + " lu y=" + lu.y);
-        Debug.Log(" rd x = " + rd.x + " rd y=" + rd.y);
-        showGuide(ob, lu, rd);
-    }*/
     public void ShowGuideHorizontalLayoutGroupInScroll(GameObject ob, ScrollRect mBackScroll, HorizontalLayoutGroup mBackListGl, int item,int childindex)
     {
         Transform tf = ob.transform;
@@ -240,18 +241,35 @@ public class GuideManager : MonoBehaviour {
     }
     public void ShowGuideNormalObject(GameObject ob)
     {
+            Transform tf = ob.GetComponent<RectTransform>().transform;
+            float w = ob.GetComponent<RectTransform>().rect.width * ob.transform.localScale.x * myBili * GameCamera.SCREEN_BILI;
+            float h = ob.GetComponent<RectTransform>().rect.height * ob.transform.localScale.y * myBili * GameCamera.SCREEN_BILI;
+            Debug.Log(" x = " + tf.position.x + " y=" + tf.position.y);
+            Debug.Log(" w = " + w + " y=" + h);
+            Vector2 lu = new Vector2(ob.transform.position.x - w / 2, ob.transform.position.y + h / 2);
+            Vector2 rd = new Vector2(ob.transform.position.x + w / 2, ob.transform.position.y - h / 2);
+            Debug.Log(" lu x = " + lu.x + " lu y=" + lu.y);
+            Debug.Log(" rd x = " + rd.x + " rd y=" + rd.y);
+            GameManager.getIntance().getGuideManager().showGuide(ob, lu, rd);
+    }
+    public void ShowGuideVertorGameObject(Vector2 v, GameObject ob) {
+        float x = 0, y = 0;
         Transform tf = ob.GetComponent<RectTransform>().transform;
         float w = ob.GetComponent<RectTransform>().rect.width * ob.transform.localScale.x * myBili * GameCamera.SCREEN_BILI;
         float h = ob.GetComponent<RectTransform>().rect.height * ob.transform.localScale.y * myBili * GameCamera.SCREEN_BILI;
         Debug.Log(" x = " + tf.position.x + " y=" + tf.position.y);
         Debug.Log(" w = " + w + " y=" + h);
-        Vector2 lu = new Vector2(ob.transform.position.x - w / 2, ob.transform.position.y + h / 2);
-        Vector2 rd = new Vector2(ob.transform.position.x + w / 2, ob.transform.position.y - h / 2);
+
+            x = v.x;
+            y = v.y;
+    
+        Vector2 lu = new Vector2(x - w / 2,y+ h / 2);
+        Vector2 rd = new Vector2(x + w / 2,y - h / 2);
         Debug.Log(" lu x = " + lu.x + " lu y=" + lu.y);
         Debug.Log(" rd x = " + rd.x + " rd y=" + rd.y);
         GameManager.getIntance().getGuideManager().showGuide(ob, lu, rd);
-
     }
+
     public void showGuide(GameObject go, Vector2 lefUp, Vector2 rightBottom) {
 //        Debug.Log("================================showGuide  mTop ==" + mTop);
         if (mTop == null)

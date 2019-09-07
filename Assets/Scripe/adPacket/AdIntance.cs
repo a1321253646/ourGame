@@ -32,6 +32,7 @@ public class AdIntance
         return mTime;
     }
 
+
     public string getBannerPoint() {
         Vector3[] corners = new Vector3[4];
         GameObject.Find("AdBanner").GetComponent<RectTransform>().GetWorldCorners(corners);
@@ -40,6 +41,7 @@ public class AdIntance
         float b = corners[1].y;
         string value = a+","+b;
         Debug.Log("corners[0].y=" + corners[0].y + " corners[1].y=" + corners[1].y + " corners[0].x=" + corners[0].x + " corners[4].x" + corners[3].x);
+
         Debug.Log("getBannerPoint value=" + value);
         return value;
     }

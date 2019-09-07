@@ -469,7 +469,7 @@ public class SQLManager
             mConnet.Open();
         }
         using (reader) {
-            Debug.Log("ExecuteSQLCommand queryString="+ queryString);
+//            Debug.Log("ExecuteSQLCommand queryString="+ queryString);
             
             SqliteCommand command = mConnet.CreateCommand();
             command.CommandText = queryString;
@@ -607,6 +607,17 @@ public class SQLManager
         //   ExecuteSQLCommand(commPath);
       //  mNetHelper.changeInto(date);
     }
+
+    public void changeCardLevel(SQLDate date) {
+        string commPath = "UPDATE " + tabName + " SET ISNET=1, EXTAN='" + date.extan+"'";
+        commPath += " WHERE  TYPE=" + date.type + " AND ID=" + date.id + " AND ISDELETE=1";
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 4;
+        bean.date = date;
+        bean.command = commPath;
+        addList(bean);
+    }
+
     public void updateIdAndType(SQLDate date)
     {
         string commPath = "UPDATE " + tabName + " SET ISNET=1, EXTAN='" + date.extan + "'";

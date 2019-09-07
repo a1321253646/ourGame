@@ -38,13 +38,5 @@
     "guideTarget": "2,3000001",
     "str": "点击卡牌，查看拥有的卡牌|长按卡牌将其选中|将卡牌拖动到上方区域，即可装备卡牌",
     "level": -8
-  },
-  {
-    "id": 6,
-    "guideId": 6,
-    "qualification": "5,5",
-    "guideTarget": "",
-    "str": "点击转职图标",
-    "level": -100
   }
 ]

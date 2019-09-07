@@ -20,8 +20,8 @@ public class TipControl : UiControlBase
     AccouterJsonBean mAccouter = null;
     GoodJsonBean mGoodJson = null;
     CardJsonBean mCardJson = null;
-    private Button mClose, mClickList1Click1, mClickList1Click2;
-    private Text mClickList1Text1;
+    private Button mClose, mClickList1Click1, mClickList1Click2,reBuild;
+    private Text mClickList1Text1, rebuild_cost;
     private Text mClickList1Text2;
     public static int COMPOSE_TYPE = 1;
     public static int USE_TYPE = 2;
@@ -32,6 +32,7 @@ public class TipControl : UiControlBase
     public static int SHOW_COMPOSE_TYPE = 7;
     public static int SALE_TYPE = 8;
     public static int SALE_ALL_TYPE = 9;
+    public static int GOOD_REBUILD = 10;
 
     public long mCardId = -1;
     LevelManager mLevelManager;
@@ -44,9 +45,11 @@ public class TipControl : UiControlBase
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mClickList1Click1 = GameObject.Find("tip_button_list1_1").GetComponent<Button>();
         mClickList1Click2 = GameObject.Find("tip_button_list1_2").GetComponent<Button>();
+        reBuild = GameObject.Find("rebuilde").GetComponent<Button>();
         mClose = GameObject.Find("tip_close").GetComponent<Button>();
         mClickList1Text1 = GameObject.Find("tip_button_list1_1").GetComponentInChildren<Text>();
         mClickList1Text2 = GameObject.Find("tip_button_list1_2").GetComponentInChildren<Text>();
+        rebuild_cost = GameObject.Find("rebuild_cost").GetComponentInChildren<Text>();
         mTipName = GameObject.Find("tipName").GetComponent<Text>();
         mButtonList1 = GameObject.Find("tip_button_list1");
         mClickList1Click2.onClick.AddListener(() =>
@@ -59,6 +62,34 @@ public class TipControl : UiControlBase
             //  GameManager.getIntance().getGuideManager().eventNotification(GuideManager.EVENT_CLICK_BUTTON, GuideManager.BUTTON_CLICK_TIP_SURE);
             sale();
         });
+        reBuild.onClick.AddListener(() =>
+        {
+            long cost = (long)(JsonUtils.getIntance().getConfigValueForId(100060) + mBean.reBuildCount * JsonUtils.getIntance().getConfigValueForId(100061));
+            if (SQLHelper.getIntance().mZuanshi.isEmpty() || BigNumber.getBigNumForString(cost + "").ieEquit(SQLHelper.getIntance().mZuanshi) != -1)
+            {
+                GameObject obj = Resources.Load<GameObject>("prefab/tip_text");
+                Vector3 v1 = reBuild.gameObject.transform.position;
+                GameObject text = GameObject.Instantiate(obj,
+                    new Vector2(v1.x, v1.y), Quaternion.identity);
+                Transform hp = GameObject.Find("Canvas").transform;
+                text.transform.SetParent(hp);
+                text.transform.localScale = new Vector3(1, 1, 1);
+                Text tv = text.GetComponent<Text>();
+                tv.text = "钻石不足";
+                tv.color = Color.red;
+                UiManager.FlyTo(tv, UiManager.FLY_UP);
+            }
+            else
+            {
+                SQLHelper.getIntance().mZuanshi = BigNumber.minus(SQLHelper.getIntance().mZuanshi, BigNumber.getBigNumForString(cost + ""));
+                SQLHelper.getIntance().updateZuanshiValue(SQLHelper.getIntance().mZuanshi);
+                GameManager.getIntance().updateZuanshi();
+                rebuild();
+
+            }
+           
+        });
+
         mClose.onClick.AddListener(() =>
         {
             toremoveUi();
@@ -75,6 +106,23 @@ public class TipControl : UiControlBase
         GameManager.getIntance().showDIaoLuo(mClickList1Click1.transform.position, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", 0,-1,true);
         BackpackManager.getIntance().use(mBean, count, SALE_TYPE);
         toremoveUi();
+    }
+    private void rebuild() {
+        // GameManager.getIntance().showDIaoLuo(mClickList1Click1.transform.position, DiaoluoDonghuaControl.SHUIJI_DIAOLUO_TYPE, "", 0,-1,true);
+         BackpackManager.getIntance().use(mBean, count, GOOD_REBUILD);
+        // toremoveUi();
+
+        long sql = mBean.sqlGoodId;
+        List<PlayerBackpackBean> list = InventoryHalper.getIntance().getInventorys();
+        for (int goodListIndex = 0; goodListIndex < list.Count; goodListIndex++)
+        {
+            if (sql == list[goodListIndex].sqlGoodId)
+            {
+                mBean = list[goodListIndex];
+                break;
+            }
+        }
+        setShowData(mBean, count, mCurrentType);
     }
 
     private void use()
@@ -189,6 +237,11 @@ public class TipControl : UiControlBase
         //         Load("backpackIcon/" + img, typeof(Sprite)) as Sprite;
         //mTipImage.color = Color.white;
         mBean.tabId = tabID;
+        long cost = (long)(JsonUtils.getIntance().getConfigValueForId(100060) + mBean.reBuildCount * JsonUtils.getIntance().getConfigValueForId(100061));
+        rebuild_cost.text =BigNumber.getBigNumForString(cost+"").toStringWithUnit();
+        Debug.Log(" cost = "+ cost+ " SQLHelper.getIntance().mZuanshi="+ SQLHelper.getIntance().mZuanshi.toString());
+
+
     }
 
     private void updataUi() {               
@@ -280,7 +333,7 @@ public class TipControl : UiControlBase
             Debug.Log(" SkillJsonBean.describe = " + sj.skill_describe);
             if (str.Contains("&n")) {
                 Debug.Log(" str.Contains" );
-                CalculatorUtil calcuator = new CalculatorUtil(sj.calculator,sj.effects_parameter);
+                CalculatorUtil calcuator = new CalculatorUtil(sj.calculator,sj.effects_parameter, sj.id);
                 double value = calcuator.getValue(mLevelManager.mPlayerControl, null);
                 str = str.Replace("&n", "" + value);
             }

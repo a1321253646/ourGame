@@ -49,7 +49,7 @@ public class CardDetailShowControl : MonoBehaviour {
         mCostCount.text = card1.cost + "";
         mSkillName.text = card1.name;
         mSkillDec.text = mSkill.skill_describe;
-        calcuator = new CalculatorUtil(mSkill.calculator, mSkill.effects_parameter);
+        calcuator = new CalculatorUtil(mSkill.calculator, mSkill.effects_parameter, card1.skill_id);
         update(hero);
         transform.position = new Vector2(x, y);
     }

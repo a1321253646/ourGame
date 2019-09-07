@@ -12,6 +12,8 @@ public class PlayerBackpackBean
     public long sqlGoodId;
     public long goodType;
     public long isShowPoint; //1 为显示，2为不显示
+    public long reBuildCount;
+    public long isClean = 1;
     public string toString() {
         return "sortID = " + sortID + " goodId=" + goodId + " count" + count + " tabId=" + tabId + " sqlGoodId="+ sqlGoodId+ " goodType="+ goodType;
     }

@@ -74,7 +74,6 @@ public class BackpackManager
         mSamsaraTranform = GameObject.Find("lunhui").GetComponent<RectTransform>();
         mSamsaraControl = GameObject.Find("lunhui").GetComponent<SamsaraManage>();
         mCardControl = GameObject.Find("Card2").GetComponent<CardShowControl>();
-
         mZhuangbeiShowControl = GameObject.Find("jineng").GetComponent<ZhuangbeiUpdateControl>();
     }
 
@@ -177,9 +176,31 @@ public class BackpackManager
             mHeroControl.upDateUi();
             updateZhuangbeiItem(true);
         }
-        else if (type == TipControl.COMPOSE_TYPE)
+        else if (type == TipControl.GOOD_REBUILD)
         {
-            //     composeUiShowClick();
+            bool isZhuangbei = false;
+            if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI)
+            {
+                InventoryHalper.getIntance().unUse(bean.sqlGoodId);
+                mInvertoryControl.update();
+                mLevel.ChangeEquip(bean, false);
+                mHeroControl.upDateUi();
+                updateZhuangbeiItem(true);
+                isZhuangbei = true;
+            }
+            InventoryHalper.getIntance().rebuild(bean);
+            if (isZhuangbei) {
+                bool isUsed = InventoryHalper.getIntance().use(bean);
+                if (!isUsed)
+                {
+                    return false;
+                }
+                mInvertoryControl.update();
+                Debug.Log("TipControl.USE_TYPE");
+                mLevel.ChangeEquip(bean, true);
+                mHeroControl.upDateUi();
+                updateZhuangbeiItem(true);
+            }
         }
         else if (type == TipControl.BOOK_TYPE)
         {
@@ -299,10 +320,12 @@ public class BackpackManager
         mLevel.upLunhui();
         mSamsaraControl.updata();
     }
-
     public void addGoods(long id, int count) {
+        addGoods(id, count, false);
+    }
+    public void addGoods(long id, int count,bool isYongjiu) {
         Debug.Log("addGoods id=" + id + " count=" + count);
-        bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count);
+        bool isAddNiew = InventoryHalper.getIntance().addInventory(id, count,isYongjiu);
         Debug.Log("isAddNiew =" + isAddNiew);
         mInvertoryControl.update();
         upDataComposeControl();

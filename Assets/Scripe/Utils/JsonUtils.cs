@@ -38,7 +38,8 @@ public class JsonUtils
     private string petFile = "pet.json";
     private string vocationFile = "vocation.json";
     private string cardListFile = "bosscard.json";
-
+    private string shopListFile = "shop.json";
+    private string cardYongjiuFile = "yongjiukapai.json";
 
     /*private string levelFile = "level";
         private string heroFile = "hero";
@@ -76,9 +77,11 @@ public class JsonUtils
     List<SpeedValueJsonBean> mSpeedValue;
     List<SkillJsonBean> mSkillDate;
     List<CardJsonBean> mCardDate;
+    List<YongjiuCardBean> mYongjiuCard;
     List<AffixJsonBean> mAffixDate;
     List<MapConfigBean> mMapDate;
     List<GuideJsonBean> mguideDate;
+    List<ShopJsonBean> mShopList;
     List<StringJsonBean> mStringDate;
     List<PetJsonBean> mPetDate;
     List<BossCardJsonBean> mBossCardDate;
@@ -128,6 +131,7 @@ public class JsonUtils
         guideFile = "guide";
         petFile = "pet";
         cardListFile = "bosscard";
+        shopListFile = "shop";
 #endif
 #if UNITY_STANDALONE
         heroFile = heroFile + ".json";
@@ -234,6 +238,7 @@ public class JsonUtils
         readString();
         GameManager.getIntance().mInitDec = getStringById(100006);
         readGuideFile();
+        reaShopFile();
         GameManager.getIntance().mInitDec = getStringById(100007);
         readMapInfoInfo();
         GameManager.getIntance().mInitDec = getStringById(100008);
@@ -257,7 +262,22 @@ public class JsonUtils
         GameManager.getIntance().mInitDec = getStringById(100019);
         readSkillInfo();
         GameManager.getIntance().mInitDec = getStringById(100020);
+        readYongjiuCardInfo();
         readCardInfo();
+        foreach(YongjiuCardBean yc in mYongjiuCard) {
+            CardJsonBean cb = new CardJsonBean();
+            cb.id = yc.id;
+            cb.name = yc.name;
+            cb.stacking = yc.stacking;
+            cb.tabid = yc.tabid;
+            cb.icon = yc.icon;
+            cb.top_resource = yc.top_resource;
+            cb.center_resource = yc.center_resource;
+            cb.skill_id = yc.skill_id;
+            cb.cost = yc.cost;
+            cb.card_update_cost = yc.card_up_cost;
+            mCardDate.Add(cb);
+        }
         GameManager.getIntance().mInitDec = getStringById(100021);
         readSamsaraInfo();
         GameManager.getIntance().mInitDec = getStringById(100022);
@@ -336,6 +356,15 @@ public class JsonUtils
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(cardFile));
         mCardDate = arrdata.ToObject<List<CardJsonBean>>();
     }
+    private void readYongjiuCardInfo()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(cardYongjiuFile));
+        mYongjiuCard = arrdata.ToObject<List<YongjiuCardBean>>();
+        Debug.Log(" mYongjiuCard=" + mYongjiuCard);
+        if (mYongjiuCard != null) {
+            Debug.Log(" mYongjiuCard size=" + mYongjiuCard.Count);
+        }
+    }
     private void readSamsaraInfo() {
         var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(samsaraFile));
         List<SamsaraJsonBean> list = arrdata.ToObject<List<SamsaraJsonBean>>();
@@ -413,6 +442,8 @@ public class JsonUtils
         }
         return null;
     }
+
+
 
 
     public SamsaraJsonBean getSamsaraInfoById(long id) {
@@ -679,6 +710,12 @@ public class JsonUtils
         mguideDate = arrdata.ToObject<List<GuideJsonBean>>();
     }
 
+    private void reaShopFile()
+    {
+        var arrdata = Newtonsoft.Json.Linq.JArray.Parse(readFile(shopListFile));
+        mShopList =arrdata.ToObject<List<ShopJsonBean>>(); ;
+    }
+
     private void readHeroData(){
 		var arrdata = Newtonsoft.Json.Linq.JArray.Parse (readFile (heroFile));
         List<Hero> list  = arrdata.ToObject<List<Hero>> ();
@@ -688,6 +725,27 @@ public class JsonUtils
         }
         
 
+    }
+    public ShopJsonBean getShopItemById(long id)
+    {
+        foreach (ShopJsonBean bean in mShopList)
+        {
+            if (bean.id == id)
+            {
+                return bean;
+            }
+        }
+        return null;
+    }
+
+    public List<ShopJsonBean> getShopList()
+    {
+        if (mShopList == null)
+        {
+            reaShopFile();
+        }
+        Debug.Log("mShopList= " + mShopList.Count);
+        return mShopList;
     }
 
 
@@ -784,6 +842,21 @@ public class JsonUtils
         }
         return null;
     }
+    public List<YongjiuCardBean> getYongjiuCardInfos() {
+        return mYongjiuCard;
+    }
+
+    public YongjiuCardBean getYongjiuCardInfoById(long id)
+    {
+        foreach (YongjiuCardBean note in mYongjiuCard)
+        {
+            if (note.id == id)
+            {
+                return note;
+            }
+        }
+        return null;
+    }
 
     public GoodJsonBean getGoodInfoById(long id)
     {
@@ -860,7 +933,7 @@ public class JsonUtils
 	}
 	public  Level getLevelData(long id){
 
-        Debug.Log("getLevelData  id =" + id);
+//        Debug.Log("getLevelData  id =" + id);
 
         foreach (Level level in levelData) {
 //            Debug.Log("level  id =" + level.id);

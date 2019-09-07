@@ -14,4 +14,6 @@ public class CardJsonBean
     public long skill_id;
     public long cost;
     public string describe;
+    public long card_huishou;
+    public long card_update_cost;
 }

@@ -98,9 +98,48 @@ public class InventoryHalper
         SQLHelper.getIntance().ChangeGoodExtra(bean);
     }
 
-    public bool addInventory(long id, int count)
+    public void rebuild(PlayerBackpackBean bean) {
+        long id = bean.goodId;
+        long sql = bean.sqlGoodId;
+        long level = 0;
+        long rebuild = bean.reBuildCount;
+        Debug.Log("rebuild  rebuild=" + rebuild);
+        foreach (PlayerAttributeBean b in bean.attributeList)
+        {
+            if (b.type == 10001)
+            {
+                level = (long)b.value;
+                break;
+            }
+        }
+        deleteIventory(bean, (int)1);
+        addInventory(id, 1, sql);
+        for (int goodListIndex = 0; goodListIndex < mList.Count; goodListIndex++)
+        {
+            if (sql == mList[goodListIndex].sqlGoodId)
+            {
+                bean = mList[goodListIndex];
+                break;
+            }
+        }
+        bean.isShowPoint = 2;
+        bean.reBuildCount = ++rebuild;
+        Debug.Log("rebuild  bean.reBuildCount=" + bean.reBuildCount);
+        updateZhuangbei(bean, level, true,false);
+    }
+    public bool addInventory(long id, int count) {
+        return addInventory(id, count, false);
+    }
+    public bool addInventory(long id, int count, bool isYongjiu) {
+        return addInventory(id, count, -1, isYongjiu);
+    }
+    public bool addInventory(long id, int count, long sql) {
+        return addInventory(id, count, sql, false);
+    }
+    public bool addInventory(long id, int count,long sql, bool isYongjiu)
     {
         bool isNew = true;
+        bool isCard = false;
         PlayerBackpackBean bean = null;
         if (id <= TABID_2_START_ID )
         {
@@ -178,6 +217,7 @@ public class InventoryHalper
                 newBean.tabId = cj.tabid;           
                 newBean.isShowPoint = 1;
                 newBean.goodType = SQLDate.GOOD_TYPE_CARD;
+                isCard = true;
             }
             else if (id > TABID_4_START_ID && id < TABID_5_START_ID)
             {
@@ -218,8 +258,22 @@ public class InventoryHalper
                 }
             }
             Debug.Log("=======================goodId" + newBean.goodId+"================================");
-            newBean.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();          
+            if (sql == -1) {
+                newBean.sqlGoodId = SQLHelper.getIntance().getCurrentGoodId();
+            }
+            else {
+                newBean.sqlGoodId = sql;
+            }
+            if (isYongjiu) {
+                newBean.isClean = 2;
+            }        
             SQLHelper.getIntance().addGood(newBean);
+            if (isCard) {
+                SQLHelper.getIntance().changeCardLeveL(newBean.goodId, 1);
+                GameObject.Find("card_up_list").GetComponent<CardUpdateListControl>().upDateUi(newBean.goodId);
+                GameObject.Find("Card2").GetComponent<CardShowControl>().upDateUi();
+            }
+            
             return true;
         }
         else {
@@ -277,7 +331,7 @@ public class InventoryHalper
             mDropDeviceUsed.Add(id,  1);
             SQLHelper.getIntance().addDrop(id, mDropDeviceUsed[id]);
         }
-        Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
+     //   Debug.Log("addDropDeviceUseCount id = " + id + " value = " + mDropDeviceUsed[id]);
 
         
     }
@@ -286,9 +340,16 @@ public class InventoryHalper
         return mHaveBookId;
     }
 
-    public void updateZhuangbei(PlayerBackpackBean bean, long level,bool isSave)
+    public void updateZhuangbei(PlayerBackpackBean bean, long level, bool isSave) {
+        updateZhuangbei(bean, level, isSave,true);
+    }
+
+    public void updateZhuangbei(PlayerBackpackBean bean, long level,bool isSave, bool isAddLevel)
     {
-        level = level + 1;
+        if (isAddLevel) {
+            level = level + 1;
+        }
+        
        string extan =  SQLHelper.getGoodExtra(bean);
         AccouterJsonBean ac = JsonUtils.getIntance().getAccouterInfoById(bean.goodId);
         foreach (PlayerAttributeBean p in bean.attributeList){
@@ -450,7 +511,7 @@ public class InventoryHalper
     public void deleteIventory(PlayerBackpackBean bean, int count) {
         PlayerBackpackBean target = null;
         foreach (PlayerBackpackBean tmp in mList) {
-            Debug.Log("deleteIventory (bean.sqlGoodId= " + bean.sqlGoodId+ "  tmp.sqlGoodId=" + tmp.sqlGoodId);
+   //         Debug.Log("deleteIventory (bean.sqlGoodId= " + bean.sqlGoodId+ "  tmp.sqlGoodId=" + tmp.sqlGoodId)/;
             if (bean.sqlGoodId == tmp.sqlGoodId) {
                 Debug.Log("tmp.goodId= " + tmp.goodId );
                 target = tmp;

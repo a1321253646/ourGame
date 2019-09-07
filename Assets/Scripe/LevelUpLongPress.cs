@@ -61,6 +61,7 @@ public class LevelUpLongPress : MonoBehaviour
         }
         else
         {
+            GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
             if (!GameManager.getIntance().isEnd && GameManager.getIntance().mHeroIsAlive)
             {
                 saveDate();
@@ -70,7 +71,8 @@ public class LevelUpLongPress : MonoBehaviour
         }
     }
     private void saveDate() {
-//        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>英雄入库等级=" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        //        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>英雄入库等级=" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        
         SQLHelper.getIntance().updateHeroLevel(GameManager.getIntance().mHeroLv);
         SQLHelper.getIntance().updateHunJing(GameManager.getIntance().mCurrentCrystal);
     }

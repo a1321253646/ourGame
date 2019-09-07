@@ -22,10 +22,35 @@ public class CalculatorUtil
     {
         this.attackSkill2 = attackSkill;
     }
-
+    long mId = -1;
     public CalculatorUtil(string str, string parStr) {
+        creatThis(str, parStr, -1);
+    }
+    public CalculatorUtil(string str, string parStr, long id)
+    {
+        creatThis(str, parStr, id);
+    }
+    private void creatThis(string str, string parStr,long id) {
         mStr = str;
         mParameter = parStr;
+        bool isDeal = false;
+        foreach (CardJsonBean c in JsonUtils.getIntance().getCardInfos()) {
+            if (c.skill_id == id) {
+                mId = c.id;
+                isDeal = true;
+            }
+        }
+        if (!isDeal) {
+            foreach (YongjiuCardBean c in JsonUtils.getIntance().getYongjiuCardInfos())
+            {
+                if (c.skill_id == id)
+                {
+                    mId = c.id;
+                    isDeal = true;
+                }
+            }
+        }
+
         getParList();
         if (mStr != null && mStr.Length > 0) {
             string[] strs = mStr.Split('|');
@@ -50,6 +75,8 @@ public class CalculatorUtil
         this.firer = firer;
         this.target = target;
         double value = -1;
+        getParList();
+        Debug.Log("CalculatorUtil bean = " + mBean.Count);
         foreach (CalculatorUtilBean bean in mBean) {
             if (bean == null)
             {
@@ -61,7 +88,7 @@ public class CalculatorUtil
             }
 
             value = getValue(bean);
-//            Debug.Log("float value = " + value);
+            Debug.Log("float value = " + value);
             if (value <= 0)
             {
                 continue;
@@ -77,7 +104,9 @@ public class CalculatorUtil
         //Debug.Log("mStr ="+ mStr);
         char[] chars = str.ToCharArray();
         CalculatorUtilBean bean = new CalculatorUtilBean();
-        if (getListBean(chars, bean, 0) == -1)
+        long back = getListBean(chars, bean, 0);
+
+        if (back == -1)
         {
             bean = null;
             //Debug.Log("getListBean == null");
@@ -99,14 +128,36 @@ public class CalculatorUtil
         }
     }
     private void getParList() {
+        Debug.Log("mId = " + mId);
         if (mParameter != null && mParameter.Length > 0) {
+            parameter.Clear();
             string[] strs = mParameter.Split(',');
             for (int i = 0; i < strs.Length; i++) {
                 if (strs[i] == null || strs[i].Length == 0) {
                     continue;
                 }
-                parameter.Add("a" + (i + 1), double.Parse(strs[i]));
-             //   Debug.Log("a" + (i + 1) + "=" + parameter["a" + (i + 1)]);
+                string str = strs[i];
+                double tmp = 0;
+                if (str.Contains("L"))
+                {
+                    long l = SQLHelper.getIntance().getCardLevel(mId);
+                    if (l == -1) {
+                        l = 1;
+                    }
+                    Debug.Log("l = " + l);
+                    string s = new string(str.Replace("L", "" + l).ToCharArray());
+                    Debug.Log("tmp=" + s + "*");
+                    CalculatorUtil ca = new CalculatorUtil(s, null);
+                    tmp = ca.getValue(null, null);
+                    Debug.Log("tmp=" + tmp);
+                }
+                else
+                {
+                    tmp = double.Parse(str);
+                }
+
+                parameter.Add("a" + (i + 1), tmp);
+                Debug.Log("a" + (i + 1) + "=" + parameter["a" + (i + 1)]);
 
             }
         }
@@ -116,6 +167,7 @@ public class CalculatorUtil
         if (mBean == null) {
             return -1;
         }
+        getParList();
         CalculatorUtilBean value = new CalculatorUtilBean();
         getValueForBean(bean.list[0]);
         value.bean = bean.list[0].bean;
@@ -291,7 +343,7 @@ public class CalculatorUtil
             root.list = new List<CalculatorUtilBean>();
         }
         for (; index < chars.Length;) {
-   //         Debug.Log("chars[" + index + "]=" + chars[index]);
+            Debug.Log("chars[" + index + "]=" + chars[index]);
             CalculatorUtilBean bean = new CalculatorUtilBean();
             root.list.Add(bean);
             if (chars[index] == '(')
@@ -403,7 +455,7 @@ public class CalculatorUtil
 
                 while (index < chars.Length && ((chars[index] >= '0' && chars[index] <= '9') || chars[index] == '.'))
                 {
-                   // Debug.Log("chars[" + index + "]=" + chars[index]);
+//                    Debug.Log("chars[" + index + "]=" + chars[index]);
                     if (!isXiaoshu)
                     {
                         if (chars[index] == '.')
@@ -446,7 +498,7 @@ public class CalculatorUtil
                     }
                 }
                 bean.bean = value1 + value2;
-               // Debug.Log("value1 =" + value1+" value2"  + value2+ " index="+ index+ "  chars.Length=" + chars.Length);
+                Debug.Log("value1 =" + value1+" value2"  + value2+ " index="+ index+ "  chars.Length=" + chars.Length);
                 if (index == chars.Length)
                 {
                     return index;
@@ -454,6 +506,7 @@ public class CalculatorUtil
                 else
                 {
                     int type = getType(chars[index]);
+                    Debug.Log("type=" + type);
                     if (type == -1)
                     {
                         return -1;
@@ -469,7 +522,7 @@ public class CalculatorUtil
                 return -1;
             }
         }
-        return -1;
+        return index;
     }
     private static int getType(char c) {
         if (c == '+')
