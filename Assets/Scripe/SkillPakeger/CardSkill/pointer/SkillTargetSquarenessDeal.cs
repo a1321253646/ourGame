@@ -44,11 +44,11 @@ public class SkillTargetSquarenessDeal
 
     static bool isOverlap(float maxX, float minX, float maxY, float minY, LocalBean tmp)
     {
-        Debug.Log("maxX = " + maxX+ " maxX2 = " + (tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x - tmp.mAttacker.resourceData.getTargetBorder()[0]));
-        Debug.Log("minX = " + minX + " minX2 = " + (tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x + tmp.mAttacker.resourceData.getTargetBorder()[1]));
-        Debug.Log("maxY = " + maxY + " maxY2 = " + (tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y + tmp.mAttacker.resourceData.getTargetBorder()[2]));
-        Debug.Log("minY = " + minY + " minY2 = " + (tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y));
-        Debug.Log("=============================================");
+      //  Debug.Log("maxX = " + maxX+ " maxX2 = " + (tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x - tmp.mAttacker.resourceData.getTargetBorder()[0]));
+       // Debug.Log("minX = " + minX + " minX2 = " + (tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x + tmp.mAttacker.resourceData.getTargetBorder()[1]));
+        //Debug.Log("maxY = " + maxY + " maxY2 = " + (tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y + tmp.mAttacker.resourceData.getTargetBorder()[2]));
+        //Debug.Log("minY = " + minY + " minY2 = " + (tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y));
+        //Debug.Log("=============================================");
 
         if (maxX < tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x - tmp.mAttacker.resourceData.getTargetBorder()[0] ||
             minX > tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x + tmp.mAttacker.resourceData.getTargetBorder()[1] ||

@@ -21,6 +21,7 @@ public class LuiHuiTips : UiControlBase
     public static int TYPPE_QIANGZHI_LUNHUI = 10;
     public static int TYPPE_EMPTY_TOKEN = 11;
     public static int TYPPE_ERROR_TOKEN = 12;
+    public static int TYPPE_BUY_ZUANSHI = 13;
 
     Text mDes;
     Text mButtonDec,mLeftDec,mRightDec;
@@ -99,13 +100,27 @@ public class LuiHuiTips : UiControlBase
         gameObject.transform.localPosition = new Vector2(0, 0);
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);
-        string dec = "轮回将使您失去等级、装备和卡牌，并回到初始关卡。\n您将获得 %D点轮回点作为奖励，轮回点购买的属性将永久保留。";
+        string dec = "轮回将使您失去等级、装备和卡牌，并回到初始关卡。\n您将获得: %D点轮回点作为奖励\n%K卡牌金币";
         Level level2 = JsonUtils.getIntance().getLevelData();
        
 
         BigNumber tmp = BigNumber.multiply(level2.getReincarnation(), GameManager.getIntance().getLunhuiGet());
         Debug.Log("============================轮回点获得 GameManager.getIntance().getLunhuiGet()= " + GameManager.getIntance().getLunhuiGet());
         Debug.Log("============================轮回点获得= " + tmp.toString());
+        long cardMoney = 0;
+        foreach (PlayerBackpackBean bean in SQLHelper.getIntance().getAllGood())
+        {
+            if (bean.goodType == SQLDate.GOOD_TYPE_CARD || bean.goodType == SQLDate.GOOD_TYPE_USER_CARD)
+            {
+                if (bean.isClean == 1)
+                {
+                    cardMoney += JsonUtils.getIntance().getCardInfoById(bean.goodId).card_huishou;
+                }
+            }
+        }
+
+        dec = dec.Replace("%K", cardMoney + "");
+
         dec =dec.Replace("%D", tmp.toStringWithUnit() + "");
         mButtonDec.text = "轮回";
         mDes.text = dec;
@@ -115,7 +130,7 @@ public class LuiHuiTips : UiControlBase
     public void showUi(string str,int type) {
         mType = type;
         mDes.text = str;
-        if (type == TYPPE_RETURN_START || type == TYPPE_ERROR_DATE|| type == TYPPE_EMPTY_TOKEN) 
+        if (type == TYPPE_RETURN_START  || type == TYPPE_EMPTY_TOKEN)
         {
             mSure.transform.localScale = new Vector2(1, 1);
             buttonList.transform.localScale = new Vector2(0, 0);
@@ -138,7 +153,8 @@ public class LuiHuiTips : UiControlBase
                 mTimeScale = Time.timeScale;
                 Time.timeScale = 0;
             }
-            else {
+            else
+            {
                 mSure.transform.localScale = new Vector2(0, 0);
                 buttonList.transform.localScale = new Vector2(1, 1);
                 mLeftDec.text = "暂不升级";
@@ -157,8 +173,25 @@ public class LuiHuiTips : UiControlBase
             mRightDec.text = "创建新号";
             mTimeScale = Time.timeScale;
             Time.timeScale = 0;
-            
+
         }
+        else if ( type == TYPPE_ERROR_DATE) {
+            Time.timeScale = 0;
+            GameManager.getIntance().isQuiteGame = true;
+            mSure.transform.localScale = new Vector2(1, 1);
+            buttonList.transform.localScale = new Vector2(0, 0);
+            mButtonDec.text = "确定";
+        }
+        else if (type == TYPPE_BUY_ZUANSHI)
+        {
+
+            mSure.transform.localScale = new Vector2(0, 0);
+            buttonList.transform.localScale = new Vector2(1, 1);
+            mLeftDec.text = "取消";
+            mRightDec.text = "确认";
+
+        }
+
         mDes.alignment = TextAnchor.UpperLeft;
     }
     VocationDecBean mVocationBean = null;
@@ -238,6 +271,22 @@ public class LuiHuiTips : UiControlBase
 
         SQLHelper.getIntance().updateIsLunhuiValue((long)speedLevel);
 
+        long cardMoney = 0;
+        foreach (PlayerBackpackBean bean in SQLHelper.getIntance().getAllGood()) {
+            if (bean.goodType == SQLDate.GOOD_TYPE_CARD || bean.goodType == SQLDate.GOOD_TYPE_USER_CARD) {
+                if (bean.isClean == 1) {
+                    cardMoney += JsonUtils.getIntance().getCardInfoById(bean.goodId).card_huishou;
+                }
+            }
+        }
+        if (SQLHelper.getIntance().mCardMoney == -1) {
+            SQLHelper.getIntance().updateCardMoney(cardMoney);
+        }
+        else {
+            SQLHelper.getIntance().mCardMoney += cardMoney;
+            SQLHelper.getIntance().updateCardMoney(SQLHelper.getIntance().mCardMoney);
+
+        }
        
         long oldLevel =BaseDateHelper.decodeLong( GameManager.getIntance().mCurrentLevel);
         InventoryHalper.getIntance().dealClear();
@@ -311,6 +360,11 @@ public class LuiHuiTips : UiControlBase
 
         SQLHelper.getIntance().mGameLevel = BaseDateHelper.encodeLong(-9999L);
         SQLHelper.getIntance().updateGameLevel(BaseDateHelper.encodeLong(newLevel));
+
+        GameObject.Find("card_up_list").GetComponent<CardUpdateListControl>().isInit = false;
+        GameObject.Find("card_up_list").GetComponent<CardUpdateListControl>().init();
+        GameObject.Find("Card2").GetComponent<CardShowControl>().upDateUi();
+
         GameObject.Find("qiehuanchangjing").GetComponent<QieHuangChangJing>().run(3);
         SQLHelper.getIntance().addHadLunhui();
 
@@ -394,6 +448,11 @@ public class LuiHuiTips : UiControlBase
                 GameObject.Find("reload").GetComponent<ReloadControl>().reload(true);
                 Time.timeScale = mTimeScale;
             }
+            else if (mType == TYPPE_BUY_ZUANSHI)
+            {
+                GameObject.Find("shop_root").GetComponentInChildren<ShopViewControl>().showView(ShopViewControl.SHOW_ZUANSHI);
+
+            }
 
 
             if (isShowSelf)
@@ -407,11 +466,13 @@ public class LuiHuiTips : UiControlBase
 
         mSure.onClick.AddListener(() =>
         {
-            if (mType == TYPPE_LUIHUI )
+            if (mType == TYPPE_LUIHUI)
             {
 
                 sure();
-            }else if (mType == TYPPE_LUIHUI_NEED) {
+            }
+            else if (mType == TYPPE_LUIHUI_NEED)
+            {
                 Time.timeScale = 1;
                 toremoveUi();
                 GameObject.Find("lunhui_tips_back").transform.localScale = new Vector2(0, 0);
@@ -419,12 +480,12 @@ public class LuiHuiTips : UiControlBase
                 {
 
                     SQLHelper.getIntance().updateVersionCode(GameManager.mVersionCode);
-                    sure(mLuiHui,false);
-                    
-                   
+                    sure(mLuiHui, false);
+
+
                 }
             }
-            else if (mType == TYPPE_TIP|| mType == TYPPE_EMPTY_TOKEN)
+            else if (mType == TYPPE_TIP || mType == TYPPE_EMPTY_TOKEN)
             {
                 if (isShowSelf)
                 {

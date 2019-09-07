@@ -37,7 +37,7 @@ public class CardUiControl : MonoBehaviour {
         }
         
         firer = hero;
-        Debug.Log("cardId = " + cardId);
+//        Debug.Log("cardId = " + cardId);
         CardJsonBean card1 = JsonUtils.getIntance().getCardInfoById(cardId);
         mCard = card1;
          mSkill = JsonUtils.getIntance().getSkillInfoById(mCard.skill_id);
@@ -68,6 +68,9 @@ public class CardUiControl : MonoBehaviour {
         mOldScale = new Vector3(x / x1, y / y1, 1);
         transform.GetChild(0).localScale = mOldScale;
         transform.GetChild(1).localScale = mOldScale;
+        if (cardId != -1) {
+            showCard();
+        }
 
     }
 

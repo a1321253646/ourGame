@@ -28,7 +28,7 @@ public class GuideActionUserCard : GuideActionItem
     public override void start()
     {
         Time.timeScale = 0;
-        GameObject ob = GameObject.Find("user_card_list_root");
+        GameObject ob = GameObject.Find("card2_user_show");
         mManager.ShowGuideNormalObject(ob);
         mManager.showGuideDec(mTargetX, mTargetY, mDecX, mDecY, mDec);
     }

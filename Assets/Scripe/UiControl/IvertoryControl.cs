@@ -123,7 +123,7 @@ public class IvertoryControl : UiControlBase
             GoodControl gc = mGoodsGameObject[i].GetComponent<GoodControl>();
             if (gc != null && gc.id == target)
             {
-                GameManager.getIntance().getGuideManager().ShowGuideGrideLayoutInScroll(mGoodsGameObject[i], mScroll, mGrilLayout, i, 9);
+                GameManager.getIntance().getGuideManager().ShowGuideGrideLayoutInScroll(mGoodsGameObject[i], mScroll.gameObject, mGrilLayout, i, 9);
                 break;
             }
         }

@@ -32,7 +32,7 @@ public class SkillObject100011 : SkillObject
                 double blood = attack.mBloodVolume;
                 attack.skillAttack( hurt, mAttacker);
                 if (attack.getStatus() == ActionFrameBean.ACTION_DIE) {
-                    mAttacker.AddBlood(mAttacker.mAttribute.aggressivity * 3);
+                    mAttacker.AddBlood(mAttacker.mAttribute.aggressivity * mBean.getSpecialParameterValue()[1]);
                 }
             }
 

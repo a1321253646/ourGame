@@ -24,7 +24,7 @@ public class PlayControl : Attacker
         mFightManager = mLevelManager.getFightManager();
         
         toString("Play");
-        int count = 1;
+        int count = 6;
         GameObject.Find("Manager").GetComponent<PetManager>().init();
         resetHero();
         
@@ -63,9 +63,6 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(3000028, count);
 
             BackpackManager.getIntance().addGoods(4000001, count);
-            BackpackManager.getIntance().addGoods(4000002, count);
-            BackpackManager.getIntance().addGoods(4000003, count);
-
         }
         getOutLine();
         if (AdIntance.getIntance().getType() != -1)
@@ -200,6 +197,9 @@ public class PlayControl : Attacker
                 if (old2 > JsonUtils.getIntance().getConfigValueForId(100032) && SQLHelper.getIntance().mVersionCode >= GameManager.mVersionCode)
                 {
                     BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "", "" + outGet.toStringWithUnit());
+                }
+                else {
+                    GameManager.getIntance().isHaveOutGet = true;
                 }
             }
             Debug.Log("============ 大年30修bug  ==================== updateOutTime getOutLine");
@@ -615,7 +615,7 @@ public class PlayControl : Attacker
             bloodBili = -1;
             bloodDistance = 0;
         }
-        Debug.Log("before hero mBaseAttribute= " + mBaseAttribute.toString());
+//        Debug.Log("before hero mBaseAttribute= " + mBaseAttribute.toString());
         Hero mHero = JsonUtils.getIntance().getHeroData();
         if (resourceData == null) {
             mVoication = SQLHelper.getIntance().mCurrentVocation;
@@ -652,10 +652,10 @@ public class PlayControl : Attacker
 //        Debug.Log("===============英雄mHero.dod = " + mHero.dod);
         mBaseAttribute.attackSpeed = mHero.attack_speed;
         //        Debug.Log("===============英雄攻速 = " + mBaseAttribute.attackSpeed);
-        Debug.Log("hero mBaseAttribute= " + mBaseAttribute.toString());
+//        Debug.Log("hero mBaseAttribute= " + mBaseAttribute.toString());
         mLocalBean = new LocalBean (transform.position.x, transform.position.y,mAttackLeng,true,this);
 		mState = new HeroState (this);
-        Debug.Log("setHeroData");
+//        Debug.Log("setHeroData");
         getAttribute(false);
     }
 

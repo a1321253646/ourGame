@@ -169,10 +169,11 @@ public class LevelManager : MonoBehaviour {
             SQLHelper.getIntance().updateOutTime();
             mOld = TimeUtils.GetTimeStamp();
         }
-        else if(!GameManager.getIntance().isHaveOutGet)
+        else if(GameManager.getIntance().isHaveOutGet)
         {
             if (mOld != -1)
             {
+                GameManager.getIntance().isHaveOutGet = false;
                 long old = TimeUtils.GetTimeStamp() - mOld;
                 long outTime = TimeUtils.getTimeDistanceMin(mOld);
 
@@ -188,6 +189,10 @@ public class LevelManager : MonoBehaviour {
                 if (outTime > JsonUtils.getIntance().getConfigValueForId(100032) && SQLHelper.getIntance().mVersionCode >= GameManager.mVersionCode)
                 {
                     BackpackManager.getIntance().showMessageTip(OutLineGetMessage.TYPPE_OUT_LINE, "", "" + outGet.toStringWithUnit());
+                }
+                else
+                {
+                    GameManager.getIntance().isHaveOutGet = true;
                 }
                 Debug.Log("============ 大年30修bug  ====================OnApplicationPause 返回屏幕 " );
 

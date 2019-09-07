@@ -57,8 +57,8 @@ public class GameManager
     public static bool isTest = false;
 
 
-    public static long mVersionCode =5300;
-    public static long mAPKVersionCode = 53;
+    public static long mVersionCode =5600;
+    public static long mAPKVersionCode = 57;
     public static long mSqlVersion = 1;
     public  long mNewAPKVersionCode = -1;
     public  long mCurrentSqlVersion = 0;
@@ -75,6 +75,8 @@ public class GameManager
     public  bool mIsNeedToReReadAboutLevel = false;
 
     public string mGameErrorString = "";
+
+    public bool isQuiteGame = false;
 
     public long mTestSpeed = -1;
     public bool isOpenStop = false;
@@ -165,7 +167,6 @@ public class GameManager
             if (JsonUtils.getIntance().getConfigValueForId(100056) == 1) {
                 mCurrentCrystal = BigNumber.getBigNumForString("24E+100");
             }
-           
 
             long auto = SQLHelper.getIntance().isAutoBoss;
             if (auto == -1 || auto == 1) {
@@ -178,7 +179,7 @@ public class GameManager
             {
                 mReincarnation = BigNumber.getBigNumForString("2.1E+40");
             }
-            
+           
             else
             {
                 mReincarnation = SQLHelper.getIntance().mLunhuiValue;
@@ -187,7 +188,7 @@ public class GameManager
             {
                 mReincarnation = BigNumber.getBigNumForString("2.1E+40");
             }
-           
+
             isShowPlayerPoint = SQLHelper.getIntance().isShowPlayerPoint;
             isShowBackpackPoint = SQLHelper.getIntance().isShowBackpackPoint;
             isShowLuihuiPoint = SQLHelper.getIntance().isShowLuihuiPoint;
@@ -492,6 +493,15 @@ public class GameManager
             SQLHelper.getIntance().updateIsVoice(isVoice ? 1 : 2);
         }
     }
+
+    public void updateZuanshi()
+    {
+        if (uiManager != null)
+        {
+            uiManager.updateZuanshi();
+        }
+    }
+
     public UiManager getUiManager() {
         return uiManager;
     }

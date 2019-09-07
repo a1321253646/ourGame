@@ -30,6 +30,7 @@ public class SkillObject100025 : SkillObject
             }
             long count = mAttacker.mCardManager.giveupCard(CardManagerBase.GIVEUP_CARD_MIX);
             foreach (Attacker attack in mTargetList) {
+                Debug.Log("========================fightEcent count=" + count);
                 double hurt =  calcuator.getValue(mAttacker, attack)* count;
                 Debug.Log("========================fightEcent hurt="+ hurt);
                 attack.skillAttack( hurt, mAttacker);

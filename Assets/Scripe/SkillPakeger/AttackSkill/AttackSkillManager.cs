@@ -281,7 +281,7 @@ public class AttackSkillManager
             endSkill(mPetSkill[pet]);
             mPetSkill.Remove(pet);
         }
-        Debug.Log("addSkill PetJsonBean");
+//        Debug.Log("addSkill PetJsonBean");
         mAttack.getAttribute(true);
     }
     public void removeSkill(PlayerBackpackBean bean)
@@ -302,7 +302,7 @@ public class AttackSkillManager
         List<AttackerSkillBase> list = new List<AttackerSkillBase>();
         foreach (PlayerAttributeBean bean in affixList)
         {
-            Debug.Log("creatSkillByAffix  bean.type=" + bean.type + " bean.value=" + bean.value);
+//            Debug.Log("creatSkillByAffix  bean.type=" + bean.type + " bean.value=" + bean.value);
             if (bean.type < 1000)
             {
                 if (mAttack is PlayControl) {

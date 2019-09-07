@@ -23,7 +23,7 @@ public abstract class AnimalAttackSkillBase : TimeAttackSkillBase
         mParam = value;
         endInitSkill();
         isInit = true;
-        mCalcuator = new CalculatorUtil(mSkillJson.calculator, mSkillJson.effects_parameter);
+        mCalcuator = new CalculatorUtil(mSkillJson.calculator, mSkillJson.effects_parameter, skillId);
 
         mCalcuator.setSkill(this);
         mAnimal.start();

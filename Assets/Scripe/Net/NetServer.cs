@@ -19,6 +19,7 @@ public class NetServer
 
    //private static string URL_ROOT =  "http://120.79.249.55:8889";
     private static string URL_ROOT = "http://120.79.249.55:8809";
+    //private static string URL_ROOT = "http://120.79.249.55:9008";
 
     public void updateNet(List<SqlNetDate> list) {
         if (GameManager.isTestVersion)
@@ -66,7 +67,7 @@ public class NetServer
             }
             
         };
-        Debug.Log("NetServer  updateNet json = "+ json.ToString());
+        Debug.Log(" url = " + json.ToString());
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
      //   dir.Add("Connection", "close");
@@ -79,7 +80,7 @@ public class NetServer
 
         if (www.error == null) 
         {
-            Debug.Log("Upload complete! "+ www.text);
+            Debug.Log("url www.text =" + www.text);
             if (www.text != null && www.text.Length > 0)
             {
                 JObject jb = JObject.Parse(www.text);
@@ -163,6 +164,7 @@ public class NetServer
         json.Add("date", array);
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
+        Debug.Log(" url = " + json.ToString());
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
@@ -173,8 +175,8 @@ public class NetServer
         }
         if (www.error == null )
         {
-            Debug.Log("Upload complete! www.text ="+ www.text);
-           
+            Debug.Log("url www.text =" + www.text);
+
             if (www.text != null && www.text.Length > 0 && !www.text.Equals("error"))
             {
                 JObject jb2 = JObject.Parse(www.text);
@@ -250,6 +252,7 @@ public class NetServer
         json.Add("date", array);
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
+        Debug.Log(" url = " + json.ToString());
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
@@ -260,7 +263,7 @@ public class NetServer
         }
         if (www.error == null)
         {
-            Debug.Log("Upload complete! www.text =" + www.text);
+            Debug.Log("url www.text =" + www.text);
 
             if (www.text != null && www.text.Length > 0)
             {
@@ -305,6 +308,7 @@ public class NetServer
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
         //   dir.Add("Connection", "close");
+        Debug.Log(" url = " + json.ToString());
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
         WWW www = new WWW(URL_ROOT + "/ourgame", pData, dir);
@@ -314,7 +318,7 @@ public class NetServer
         }
         if (www.error == null)
         {
-            Debug.Log("Upload complete! www.text =" + www.text);
+            Debug.Log("url www.text =" + www.text);
 
             if (www.text != null && www.text.Length > 0)
             {
@@ -328,9 +332,7 @@ public class NetServer
                 {
                     
                     SQLManager.getIntance().saveLocal("");
-                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showUi("已经为你清空全部数据，将退出游戏重新开始", LuiHuiTips.TYPPE_ERROR_DATE);
-                    GameObject.Find("lunhui_tips").GetComponent<LuiHuiTips>().showSelf();
-                    Time.timeScale = 0;
+                    Application.Quit();
                     return;
                 }
             }
@@ -368,6 +370,7 @@ public class NetServer
         json.Add("date", array);
         Dictionary<string, string> dir = new Dictionary<string, string>();
         dir.Add("Content-Type", "application/json");
+        Debug.Log(" url = " + json.ToString());
         //   dir.Add("Connection", "close");
         byte[] pData = System.Text.Encoding.UTF8.GetBytes(json.ToString().ToCharArray());
 
@@ -378,7 +381,7 @@ public class NetServer
         }
         if (www.error == null)
         {
-            Debug.Log("Upload complete! www.text =" + www.text);
+            Debug.Log("url www.text =" + www.text);
 
             if (www.text != null && www.text.Length > 0)
             {
