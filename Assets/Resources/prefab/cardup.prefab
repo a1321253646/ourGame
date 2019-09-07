@@ -268,9 +268,10 @@ MonoBehaviour:
   mLevelTx: {fileID: 1687957405324987448}
   mUpdateBt: {fileID: 1687957404898806641}
   mUpCost: {fileID: 1687957405801776301}
-  mUnLiveText: {fileID: 0}
-  mGreyMeteril: {fileID: 2100000, guid: 86f55f4b94ca428419538a55fde256c6, type: 2}
   control1: {fileID: 4281619807752029307}
+  mItemUp: {fileID: 0}
+  mId: -1
+  isHave: 0
 --- !u!114 &4281619807752029307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,7 +831,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 224
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

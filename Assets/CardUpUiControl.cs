@@ -43,27 +43,32 @@ public class CardUpUiControl : MonoBehaviour
         {
             return;
         }
+        long level = mLevel;
         mLevel = SQLHelper.getIntance().getCardLevel(mId);
         if (mLevel > 0)
         {
             mLevelTx.text = "Lv." + mLevel;
+           
         }
         else
         {
             mLevelTx.text = "";
         }
-
+        
         long eachCost = mIsYongjiu ? mYongjiuBean.card_up_cost : mbean.card_update_cost;
-        mCost = eachCost * (mLevel + 1);
+        mCost = eachCost * mLevel;
         mUpCost.text = BigNumber.getBigNumForString(mCost + "").toStringWithUnit();
 
         if (SQLHelper.getIntance().mCardMoney >= mCost)
         {
             mUpdateBt.interactable = true;
+            mUpCost.color = new Color(255, 249, 240, 255);
+         
         }
         else
         {
             mUpdateBt.interactable = false;
+            mUpCost.color = Color.red;
         }
         if (mLevel > -1)
         {
@@ -72,16 +77,17 @@ public class CardUpUiControl : MonoBehaviour
         Debug.Log("=================================================================CardUpUiControl mId = " + mId + " isHave=" + isHave);
         if (!isHave)
         {
- /*           foreach (PlayerBackpackBean card in SQLHelper.getIntance().getAllGood())
-            {
-                if (card.goodId == mId)
-                {
-                    isHave = true;
-                    break;
-                }
-            }*/
+            /*           foreach (PlayerBackpackBean card in SQLHelper.getIntance().getAllGood())
+                       {
+                           if (card.goodId == mId)
+                           {
+                               isHave = true;
+                               break;
+                           }
+                       }*/
             setMaterial(!isHave);
         }
+        
 
     }
 
@@ -109,7 +115,7 @@ public class CardUpUiControl : MonoBehaviour
             mUpdateBt.interactable = false;
             mUpCost.text = "未激活";
             mUpCost.color = Color.red;
-            mItemUp.init(-1);
+       
 
         }
         else

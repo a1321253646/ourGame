@@ -64,7 +64,30 @@ public class TipControl : UiControlBase
         });
         reBuild.onClick.AddListener(() =>
         {
-            rebuild();
+            long cost = (long)(JsonUtils.getIntance().getConfigValueForId(100060) + mBean.reBuildCount * JsonUtils.getIntance().getConfigValueForId(100061));
+            if (SQLHelper.getIntance().mZuanshi.isEmpty() || BigNumber.getBigNumForString(cost + "").ieEquit(SQLHelper.getIntance().mZuanshi) != -1)
+            {
+                GameObject obj = Resources.Load<GameObject>("prefab/tip_text");
+                Vector3 v1 = reBuild.gameObject.transform.position;
+                GameObject text = GameObject.Instantiate(obj,
+                    new Vector2(v1.x, v1.y), Quaternion.identity);
+                Transform hp = GameObject.Find("Canvas").transform;
+                text.transform.SetParent(hp);
+                text.transform.localScale = new Vector3(1, 1, 1);
+                Text tv = text.GetComponent<Text>();
+                tv.text = "钻石不足";
+                tv.color = Color.red;
+                UiManager.FlyTo(tv, UiManager.FLY_UP);
+            }
+            else
+            {
+                SQLHelper.getIntance().mZuanshi = BigNumber.minus(SQLHelper.getIntance().mZuanshi, BigNumber.getBigNumForString(cost + ""));
+                SQLHelper.getIntance().updateZuanshiValue(SQLHelper.getIntance().mZuanshi);
+                GameManager.getIntance().updateZuanshi();
+                rebuild();
+
+            }
+           
         });
 
         mClose.onClick.AddListener(() =>
@@ -217,14 +240,7 @@ public class TipControl : UiControlBase
         long cost = (long)(JsonUtils.getIntance().getConfigValueForId(100060) + mBean.reBuildCount * JsonUtils.getIntance().getConfigValueForId(100061));
         rebuild_cost.text =BigNumber.getBigNumForString(cost+"").toStringWithUnit();
         Debug.Log(" cost = "+ cost+ " SQLHelper.getIntance().mZuanshi="+ SQLHelper.getIntance().mZuanshi.toString());
-        if (SQLHelper.getIntance().mZuanshi.isEmpty() ||  BigNumber.getBigNumForString(cost + "").ieEquit(SQLHelper.getIntance().mZuanshi) != -1)
-        {
-            reBuild.interactable = false;
-        }
-        else {
-            reBuild.interactable = true;
-           
-        }
+
 
     }
 

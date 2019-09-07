@@ -8,8 +8,8 @@ public class ItemOnDragUpCard : MonoBehaviour, IPointerDownHandler, IPointerUpHa
 
     float myBili = 0;
     private CardManagerBase mManager;
-    long mCardId = -1;
-    bool isDown = false;
+    public long mCardId = -1;
+    public bool isDown = false;
     public void OnPointerDown(PointerEventData eventData)
     {
         if (mCardId == -1 || isDown) {

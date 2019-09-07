@@ -2700,27 +2700,9 @@
     "dropCount": 1
   },
   {
-    "id": 2000004,
-    "itemID": 3000004,
-    "name": "灵魂痛击",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
     "id": 2000005,
     "itemID": 3000005,
     "name": "痛击",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 2000006,
-    "itemID": 3000006,
-    "name": "压制",
     "minCount": 1,
     "maxCount": 1,
     "weight": 10000,
@@ -2781,15 +2763,6 @@
     "dropCount": 1
   },
   {
-    "id": 2000013,
-    "itemID": 3000013,
-    "name": "手雷",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
     "id": 2000015,
     "itemID": 3000001,
     "name": "火柱",
@@ -2818,26 +2791,8 @@
   },
   {
     "id": 2000016,
-    "itemID": 3000004,
-    "name": "灵魂痛击",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 1000,
-    "dropCount": 1
-  },
-  {
-    "id": 2000016,
     "itemID": 3000005,
     "name": "痛击",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 1000,
-    "dropCount": 1
-  },
-  {
-    "id": 2000016,
-    "itemID": 3000006,
-    "name": "压制",
     "minCount": 1,
     "maxCount": 1,
     "weight": 1000,
@@ -2865,15 +2820,6 @@
     "id": 2000018,
     "itemID": 3000011,
     "name": "汲魂",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 1000,
-    "dropCount": 1
-  },
-  {
-    "id": 2000018,
-    "itemID": 3000013,
-    "name": "手雷",
     "minCount": 1,
     "maxCount": 1,
     "weight": 1000,

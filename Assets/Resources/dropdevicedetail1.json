@@ -2763,15 +2763,6 @@
     "dropCount": 1
   },
   {
-    "id": 2000014,
-    "itemID": 3000014,
-    "name": "渴血",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
     "id": 2000015,
     "itemID": 3000001,
     "name": "火柱",
@@ -2829,15 +2820,6 @@
     "id": 2000018,
     "itemID": 3000014,
     "name": "渴血",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 1000,
-    "dropCount": 1
-  },
-  {
-    "id": 2000018,
-    "itemID": 3000011,
-    "name": "汲魂",
     "minCount": 1,
     "maxCount": 1,
     "weight": 1000,
@@ -2937,15 +2919,6 @@
     "id": 2000027,
     "itemID": 3000022,
     "name": "血溅五步",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 2000029,
-    "itemID": 3000024,
-    "name": "生命绽放",
     "minCount": 1,
     "maxCount": 1,
     "weight": 10000,
@@ -3144,15 +3117,6 @@
     "id": 4000002,
     "itemID": 3000022,
     "name": "血溅五步",
-    "minCount": 1,
-    "maxCount": 1,
-    "weight": 10000,
-    "dropCount": 1
-  },
-  {
-    "id": 4000002,
-    "itemID": 3000023,
-    "name": "搏命一击",
     "minCount": 1,
     "maxCount": 1,
     "weight": 10000,
