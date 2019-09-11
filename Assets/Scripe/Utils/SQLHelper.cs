@@ -1623,10 +1623,13 @@ public class SQLHelper
         mVipGetDate = value;
     }
     public bool isNoGetVip() {
-        if (mVipGetDate == 0) {
+        Debug.Log("mVipGetDate=" + mVipGetDate);
+        
+        if (mVipGetDate <= 0) {
             return true;
         }
         long day = getDayToLong();
+        Debug.Log("day=" + day);
         if (day != mVipGetDate) {
             return true;
         }
@@ -1773,5 +1776,9 @@ public class SQLHelper
             return -1;
         }
     }
-    
+    public Dictionary<long, long> getCardLevel()
+    {
+        return mCardLevelList;
+    }
+
 }

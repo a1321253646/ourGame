@@ -100,7 +100,7 @@ public class LuiHuiTips : UiControlBase
         gameObject.transform.localPosition = new Vector2(0, 0);
         int level = GameManager.getIntance().getUiLevel();
         gameObject.transform.SetSiblingIndex(level);
-        string dec = "轮回将使您失去等级、装备和卡牌，并回到初始关卡。\n您将获得: %D点轮回点作为奖励\n%K卡牌金币";
+        string dec = "轮回将使您失去等级、装备和卡牌，并回到初始关卡。\n您将获得:\n%D轮回点\n%K卡牌金币";
         Level level2 = JsonUtils.getIntance().getLevelData();
        
 

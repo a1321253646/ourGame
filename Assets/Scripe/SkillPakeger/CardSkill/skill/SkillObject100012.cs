@@ -27,14 +27,14 @@ public class SkillObject100012 : SkillObject
     public override void dealNextSkillForEach(SkillJsonBean skill, Attacker a)
     {
         float count = 0;
-        Debug.Log("dealNextSkillForEach count= ");
+
         AttackerSkillBase skillGet = a.mSkillManager.getAttackerById(skill.id);
         if (skillGet != null) {
             count = skillGet.value;
         }
         if (count != 0) {
             List<float> vals = new List<float>();
-            vals.Add(count*(mBean.getSpecialParameterValue()[0]-1));
+            vals.Add(count+(mBean.getSpecialParameterValue()[0]));
             skill.setSpecialParameterValue(vals);
         }
     }

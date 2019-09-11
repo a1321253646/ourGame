@@ -34,16 +34,17 @@ public class AdIntance
 
 
     public string getBannerPoint() {
-        Vector3[] corners = new Vector3[4];
-        GameObject.Find("AdBanner").GetComponent<RectTransform>().GetWorldCorners(corners);
-        
-        float a = corners[3].x - corners[0].x;
-        float b = corners[1].y;
-        string value = a+","+b;
-        Debug.Log("corners[0].y=" + corners[0].y + " corners[1].y=" + corners[1].y + " corners[0].x=" + corners[0].x + " corners[4].x" + corners[3].x);
+        /*    Vector3[] corners = new Vector3[4];
+            GameObject.Find("AdBanner").GetComponent<RectTransform>().GetWorldCorners(corners);
 
-        Debug.Log("getBannerPoint value=" + value);
-        return value;
+            float a = corners[3].x - corners[0].x;
+            float b = corners[1].y;
+            string value = a+","+b;
+            Debug.Log("corners[0].y=" + corners[0].y + " corners[1].y=" + corners[1].y + " corners[0].x=" + corners[0].x + " corners[4].x" + corners[3].x);
+
+            Debug.Log("getBannerPoint value=" + value);
+            return value;*/
+        return "0,0";
     }
 
     public static bool isInit = false;

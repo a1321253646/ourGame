@@ -43,39 +43,23 @@ public class VipViewControl : UiControlBase
 
     public void updateView()
     {
-        if (!SQLHelper.getIntance().isVipDate())
+        mSureTx.text = "领取";
+        if (SQLHelper.getIntance().isVipDate())
         {
-        //    if (GameManager.getIntance().mSkusList == null || GameManager.getIntance().mSkusList.Count == 0)
-        //    {
-        //        GameObject.Find("shop_vip_google_connet").transform.localScale = new Vector2(1, 1);
-        //        mSure.interactable = false ; 
-        //    }
-        //    else
-        //    {
-                GameObject.Find("shop_vip_google_connet").transform.localScale = new Vector2(0, 0);
-                ShopJsonBean item = JsonUtils.getIntance().getShopItemById(1001);
-        //        foreach (SkuJsonBean sku in GameManager.getIntance().mSkusList)
-        //        {
-        //            if (item.sku.Equals(sku.sku))
-        //            {
-        //                mSureTx.text = sku.price;
-        //                mSure.interactable = true;
-        //                break;
-        //            }
-        //        }
-
-         //   }
-
-        }
-        else if (SQLHelper.getIntance().isNoGetVip())
-        {
-            mSureTx.text = "领取";
-            mSure.interactable = true;
+            if (SQLHelper.getIntance().isNoGetVip())
+            {
+                mSure.interactable = true;
+            }
+            else {
+                mSure.interactable = false;
+            }
         }
         else
         {
             mSure.interactable = false;
         }
+
+        
         int day = SQLHelper.getIntance().vipLeftDay();
         mLeftDay.text = day + "";
 
@@ -137,6 +121,21 @@ public class VipViewControl : UiControlBase
         }
         else if (SQLHelper.getIntance().isNoGetVip())
         {
+            if (Application.internetReachability == NetworkReachability.NotReachable) {
+                GameObject obj = Resources.Load<GameObject>("prefab/tip_text");
+                Vector3 v1 = gameObject.transform.position;
+                GameObject text = GameObject.Instantiate(obj,
+                    new Vector2(v1.x, v1.y), Quaternion.identity);
+                Transform hp = GameObject.Find("Canvas").transform;
+                text.transform.SetParent(hp);
+                text.transform.localScale = new Vector3(1, 1, 1);
+                Text tv = text.GetComponent<Text>();
+                tv.text = "网络异常，请稍后重试";
+                tv.color = Color.red;
+                UiManager.FlyTo(tv, UiManager.FLY_UP);
+                return;
+            }
+
 
             SQLHelper.getIntance().updateVipGetValue();
             BigNumber zuanshi2 = SQLHelper.getIntance().mZuanshi;

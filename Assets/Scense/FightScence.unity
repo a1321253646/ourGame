@@ -1341,7 +1341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &60811219
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1720,7 +1720,7 @@ PrefabInstance:
     - target: {fileID: 552114308376851544, guid: 0922ffbbf12c89543b013837ff7e29c2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -49911.883
+      value: -96396.91
       objectReference: {fileID: 0}
     - target: {fileID: 339893087524024805, guid: 0922ffbbf12c89543b013837ff7e29c2,
         type: 3}
@@ -3448,7 +3448,7 @@ GameObject:
   - component: {fileID: 142136844}
   - component: {fileID: 142136843}
   m_Layer: 5
-  m_Name: "\u62C9\u53D6\u9762\u677F"
+  m_Name: get_local_input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3463,7 +3463,7 @@ RectTransform:
   m_GameObject: {fileID: 142136841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children:
   - {fileID: 190281882}
   - {fileID: 13617643}
@@ -3474,7 +3474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 833.45, y: -819}
+  m_AnchoredPosition: {x: 7, y: 241}
   m_SizeDelta: {x: 527, y: 137}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &142136843
@@ -3486,7 +3486,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 142136841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7970bcc3fe3d0634699a1ec5b43b0ba6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e6219762ac84344bab98c9a1dd4c733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &142136844
@@ -4463,7 +4463,7 @@ GameObject:
   - component: {fileID: 190281884}
   - component: {fileID: 190281883}
   m_Layer: 5
-  m_Name: change_name_tip_sure111
+  m_Name: get_local_date_sure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10671,7 +10671,7 @@ GameObject:
   - component: {fileID: 502516732}
   - component: {fileID: 502516731}
   m_Layer: 5
-  m_Name: change_name_input111
+  m_Name: get_local_date_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10747,7 +10747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8F93\u5165\u5B58\u6863\u7F16\u7801"
+  m_Text: 
 --- !u!222 &502516733
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11027,8 +11027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83dc1d9eca0f654c8953c8459a4da4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sqlName: local1001
-  tabName: local1001
+  sqlName: local1202
+  tabName: local1202
 --- !u!1001 &528136680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11856,10 +11856,10 @@ RectTransform:
   m_Father: {fileID: 944965924}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1401, y: -299}
-  m_SizeDelta: {x: -1199.9, y: -668.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 725, y: 963}
+  m_SizeDelta: {x: 77.69995, y: 57.700012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &565061856
 MonoBehaviour:
@@ -28750,7 +28750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -343, y: -74}
+  m_AnchoredPosition: {x: -345, y: -79}
   m_SizeDelta: {x: 67, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1344556261
@@ -41066,7 +41066,7 @@ GameObject:
   - component: {fileID: 1876904925}
   - component: {fileID: 1876904924}
   m_Layer: 5
-  m_Name: shop_bt (1)
+  m_Name: shop_bt_test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41088,7 +41088,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 891, y: 1038}
+  m_AnchoredPosition: {x: 957, y: 974}
   m_SizeDelta: {x: -1199.9, y: -668.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876904924
@@ -42852,6 +42852,7 @@ GameObject:
   - component: {fileID: 1919508326}
   - component: {fileID: 1919508325}
   - component: {fileID: 1919508324}
+  - component: {fileID: 1919508327}
   m_Layer: 5
   m_Name: "\u6E05\u9664\u5B58\u6863"
   m_TagString: Untagged
@@ -42916,7 +42917,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 502516732}
-  m_TextComponent: {fileID: 0}
+  m_TextComponent: {fileID: 502516732}
   m_Placeholder: {fileID: 0}
   m_ContentType: 0
   m_InputType: 0
@@ -42980,6 +42981,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1919508322}
   m_CullTransparentMesh: 0
+--- !u!114 &1919508327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919508322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 933593803}
+          m_MethodName: OnPointerClick
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1919919829
 GameObject:
   m_ObjectHideFlags: 0
@@ -45706,7 +45738,7 @@ GameObject:
   - component: {fileID: 2042083617}
   - component: {fileID: 2042083616}
   m_Layer: 5
-  m_Name: change_name_close111
+  m_Name: get_local_date_close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,6 +9,7 @@ public class UiManager
 	Text mHeroLvTv,mGameLevelTv,mCurrentCrystalTv,mLvUpCrystalTv,mHpTv,mGasTv,mBossHpTv,mSpeedTestSet, mZuanshiCount;
 	Slider mHpSl,mStartBossGasSl,mBossHpSl;
 	Button mStartBossBt,mRoleUiShow,mPackUiShow,mHeChengUiShow,mSamsaraUiShow,mCardUiShow,mAutoBoss/*,mVoiceButton*/,mSettingButton,mRankingButton,mShop,mSpeedTestBt,mVip;
+    Button mShopTest;
     public Button mLvUpBt;
     Image autoBack;
     Image mCardUiPoint,mRoleUiPoint,mPackUiPoint,mSamsaraUiPoint/*,mVoiceImage*/;
@@ -59,9 +60,10 @@ public class UiManager
         mShop = GameObject.Find("shop_bt").GetComponent<Button>();
         mVip = GameObject.Find("vip_bt").GetComponent<Button>();
         mSpeedTestBt = GameObject.Find("speed_setting").GetComponent<Button>();
+        mShopTest = GameObject.Find("shop_bt_test").GetComponent<Button>();
         mSpeedTestSet = GameObject.Find("speed_setting_tx").GetComponent<Text>();
 
-       /* mSpeedTestBt.onClick.AddListener(() =>
+ /*       mSpeedTestBt.onClick.AddListener(() =>
         {
             if (GameManager.getIntance().mTestSpeed == -1)
             {
@@ -78,8 +80,11 @@ public class UiManager
             mSpeedTestSet.text = "X" + GameManager.getIntance().mTestSpeed;
             Time.timeScale = GameManager.getIntance().mTestSpeed;
 
+        });
+        mShopTest.onClick.AddListener(() =>
+        {
+            GameObject.Find("vip_show_view").GetComponent<VipViewControl>().buyVipSuccess();
         });*/
-
         mBossUiRoot = GameObject.Find("boss_info");
         mGasUiRoot = GameObject.Find("moqi_root");
         mBossHpTv = GameObject.Find("boss_hp_show").GetComponent<Text>();
@@ -160,7 +165,7 @@ public class UiManager
         mRankingButton.onClick.AddListener(() =>
         {
             UiControlManager.getIntance().show(UiControlManager.TYPE_RANKING);
-            GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
+         //   GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
         });
 
 

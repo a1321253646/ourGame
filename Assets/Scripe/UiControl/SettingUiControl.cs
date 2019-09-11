@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SettingUiControl : UiControlBase
@@ -74,5 +75,12 @@ public class SettingUiControl : UiControlBase
         }
         Debug.Log("setTokenId mToken = " + SQLHelper.getIntance().mToken);
         mLocalIdText.text = "编码:"+SQLHelper.getIntance().mToken;
+    }
+
+
+    public void OnPointerClick(BaseEventData eventData)
+    {
+        GameObject.Find("get_local_input").GetComponent<GetLocalDateTipControl>().startEdit();
+
     }
 }

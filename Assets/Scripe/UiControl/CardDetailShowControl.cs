@@ -15,8 +15,10 @@ public class CardDetailShowControl : MonoBehaviour {
     {
         mfri = transform.position;
     }
-
     public void remove() {
+        if (!isInit) {
+            return;
+        }
         isInit = false;
         transform.position = mfri;
     }

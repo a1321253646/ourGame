@@ -112,6 +112,14 @@ public class CardViewUpdateControl : MonoBehaviour {
     }
     public void updateItem(long id)
     {
+        if (id == -1) {
+            foreach (CardUpdateItemControl item in mItems)
+            {
+                item.updateItem(id);
+            }
+            return;
+        }
+
         Debug.Log("================================================CardViewUpdateControl add card =" + id);
         foreach (CardUpdateItemControl item in mItems) {
             if (item.updateItem(id)) {

@@ -269,7 +269,38 @@ public class InventoryHalper
             }        
             SQLHelper.getIntance().addGood(newBean);
             if (isCard) {
+
                 SQLHelper.getIntance().changeCardLeveL(newBean.goodId, 1);
+
+                Dictionary<long, long> list = SQLHelper.getIntance().getCardLevel();
+                List<YongjiuCardBean> cards = JsonUtils.getIntance().getYongjiuCardInfos();
+                for (int i = 0; i < cards.Count; i++)
+                {
+                    YongjiuCardBean card = cards[i];
+                    if (newBean.goodId == card.id)
+                    {
+                        break;
+                    }
+                    if (list.ContainsKey(card.id))
+                    {
+                        continue;
+                    }
+                    List<long> ids = card.getJihuoCardList();
+                    bool isJihuo = true;
+                    for (int ii = 0; ii < ids.Count; ii++)
+                    {
+                        if (ids[ii] != newBean.goodId && !list.ContainsKey(ids[ii]))
+                        {
+                            isJihuo = false;
+                        }
+                    }
+                    if (isJihuo)
+                    {
+                        BackpackManager.getIntance().addGoods(card.id, 1, true);
+                    }
+                }
+
+
                 GameObject.Find("card_up_list").GetComponent<CardUpdateListControl>().upDateUi(newBean.goodId);
                 GameObject.Find("Card2").GetComponent<CardShowControl>().upDateUi();
             }

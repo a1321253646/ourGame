@@ -27,6 +27,13 @@ public class UiControlManager
     public Dictionary<long, UiControlBean> mAllUi = new Dictionary<long, UiControlBean>();
 
     public void show(long type) {//先不考虑英雄宠物界面
+
+        Debug.Log("UiControlManager show type=" + type);
+        foreach (int key in mAllUi.Keys) {
+            Debug.Log("mAllUi have type=" + key);
+        }
+
+
         removeAllTip();
         UiControlBean bean = mAllUi[type];
         if (bean.isShow)
@@ -139,6 +146,7 @@ public class UiControlManager
 
     }
     private void addAllUi(UiControlBase control, long type,long controlType) {
+        control.init();
         UiControlBean bean  = new UiControlBean();
         bean.mControl = control;
         bean.mType = type;

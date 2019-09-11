@@ -28,6 +28,13 @@ public class CardUpdateItemControl : MonoBehaviour
     }
 
     public bool updateItem(long id) {
+        if (id == -1) {
+            foreach (CardUpUiControl cc in list)
+            {
+                cc.UpdateUi();
+            }
+            return true;
+        }
         bool isUpdate = false;
         bool isHave = false;
         foreach(CardUpUiControl cc in list){

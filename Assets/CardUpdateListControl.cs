@@ -26,9 +26,6 @@ public class CardUpdateListControl : MonoBehaviour
 
         Debug.Log("================================================ add card =" + id);
         mCardMoeny.text = BigNumber.getBigNumForString("" + SQLHelper.getIntance().mCardMoney).toStringWithUnit();
-        if (id == -1) {
-            return;
-        }
         mListControl.updateItem(id);
 
     }

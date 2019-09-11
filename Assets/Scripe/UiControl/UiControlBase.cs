@@ -16,7 +16,7 @@ public abstract class UiControlBase : MonoBehaviour
     private void Start()
     {
         mFri = gameObject.transform.localPosition;
-        init();
+       // init();
         isInit = true;
     }
 

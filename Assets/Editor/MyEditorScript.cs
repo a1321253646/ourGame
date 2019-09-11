@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using UnityEditor.Build.Reporting;
 
 public class MyEditorScript : Editor
 {
@@ -38,7 +39,7 @@ public class MyEditorScript : Editor
         str = Resources.Load<TextAsset>("company").text;
 #endif
 #if UNITY_STANDALONE
-        str = loadFile(Application.dataPath + "/Resources", "company.json");
+  //      str = loadFile(Application.dataPath + "/Resources", "company.json");
 #endif
         //string str = loadFile(Application.dataPath + "/Resources", fileName);
         //string str = Resources.Load<TextAsset>(  fileName).text;
@@ -88,14 +89,15 @@ public class MyEditorScript : Editor
         // 切换到 Android 平台
         EditorUserBuildSettings.SwitchActiveBuildTarget(buildTarget);
 
+
         // 打包出 APK 名
         string apkName = string.Format("{0}.apk", buildConfig.apkName);
         // 执行打包
-        string res = BuildPipeline.BuildPlayer(levels.ToArray(), apkName, buildTarget, BuildOptions.None);
+        BuildReport res = BuildPipeline.BuildPlayer(levels.ToArray(), apkName, buildTarget, BuildOptions.None);
 
-        if (res.Length > 0)
+        if (res != null)
         {
-            throw new Exception("BuildPlayer failure: " + res);
+            Debug.Log("res.strippingInfo : " + res.strippingInfo);
         }
 
         AssetDatabase.Refresh();

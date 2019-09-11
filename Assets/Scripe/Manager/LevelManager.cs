@@ -59,8 +59,8 @@ public class LevelManager : MonoBehaviour {
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
 
-     //   GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
-     //   GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
+        GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
+//        GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
 
         creaPlay(yBase);
         //  creatEnemyFactory(cardTop);
@@ -78,8 +78,10 @@ public class LevelManager : MonoBehaviour {
         isInit = true;
 
         GameManager.getIntance().isLuihuiIng = false;
-        
-       // GameObject.Find("uid_test").GetComponent<Text>().text = SystemInfo.deviceUniqueIdentifier;
+       
+   //     GameObject.Find("uid_test").GetComponent<Text>().text = SystemInfo.deviceUniqueIdentifier+"token = "+SQLHelper.getIntance().mToken+"\n"+
+     //       " Application.internetReachability == NetworkReachability.NotReachable"+ (Application.internetReachability == NetworkReachability.NotReachable)+"\n"
+       //     + "System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable()="+ System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable();
        //  SQLHelper.getIntance().updateOutTime();
 
 
@@ -122,10 +124,10 @@ public class LevelManager : MonoBehaviour {
             Time.timeScale = 1;
             GameObject.Find("jiasu_tip").transform.localScale = new Vector2(0, 0);
         }
-      //      if (GameManager.getIntance().mTestSpeed != -1)
-      //      {
-      //          Time.timeScale = GameManager.getIntance().mTestSpeed;
-      //      }
+ /*           if (GameManager.getIntance().mTestSpeed != -1)
+            {
+                Time.timeScale = GameManager.getIntance().mTestSpeed;
+            }*/
         Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
         " level==" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "SQLHelper.getIntance().mVocationCount = " + SQLHelper.getIntance().mVocationCount +
         "  level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount=" +
@@ -158,6 +160,7 @@ public class LevelManager : MonoBehaviour {
     private long mOld = -1;
     private void OnApplicationPause(bool pause)
     {
+        GameObject.Find("kapai_click").GetComponent<CardDetailShowControl>().remove();
         if (GameManager.getIntance().isHaveOutGet) {
             return;
         }

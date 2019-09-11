@@ -74,6 +74,8 @@ public class AdUiControl : UiControlBase
         BigNumber adLunhui = null;
         Debug.Log("SQLHelper.getIntance().mMaxLevel= " + BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel));
         long current = BaseDateHelper.decodeLong(SQLHelper.getIntance().mGameLevel);
+        Debug.Log("getAdValue current = "+ current);
+        Level level = null;
         if (SQLHelper.getIntance().mMaxLevel != BaseDateHelper.encodeLong(-1))
         {
             long maxLevel = BaseDateHelper.decodeLong(SQLHelper.getIntance().mMaxLevel);
@@ -97,20 +99,30 @@ public class AdUiControl : UiControlBase
             {
                 gameindex = (current - 1) / 1000 + 1;
             }
-
+            Debug.Log("getAdValue maxIndex = " + maxIndex + " maxLevel=" + maxLevel+ " gameindex="+ gameindex);
             if (gameindex < maxIndex)
             {
-                Debug.Log("getAdValue maxIndex = " + maxIndex + " maxLevel=" + maxLevel);
+                
                 adLunhui = JsonUtils.getIntance().readMaxLevelLunhuiAdValue(maxIndex, maxLevel);
+                return adLunhui;
 
             }
             else
             {
+                level = JsonUtils.getIntance().getLevelData(maxLevel);
+                if (level == null) {
+                    return new BigNumber();
+                }
                 adLunhui = JsonUtils.getIntance().getLevelData(maxLevel).getAdLunhui();
             }
 
         }
         else {
+            level = JsonUtils.getIntance().getLevelData(current);
+            if (level == null)
+            {
+                return new BigNumber();
+            }
             adLunhui = JsonUtils.getIntance().getLevelData(current).getAdLunhui();
         }
         

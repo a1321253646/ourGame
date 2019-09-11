@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GetLocalDateTipControl : MonoBehaviour {
@@ -25,11 +26,14 @@ public class GetLocalDateTipControl : MonoBehaviour {
         });
 
     }
+
+
     private float mOldTimeScale = -1;
     public void startEdit() {
         mOldTimeScale = Time.timeScale;
         gameObject.transform.SetSiblingIndex(GameManager.getIntance().getUiLevel());
         Time.timeScale = 0;
+        //gameObject.transform.position = new Vector2(0, 0);
         transform.localScale = new Vector2(1, 1);
     }
 
@@ -55,7 +59,7 @@ public class GetLocalDateTipControl : MonoBehaviour {
         NetServer.getIntance().getLocl(newId, true,false);
     }
 
-    private void endEdit() {
+    public void endEdit() {
         mInputName.text = "";
         Time.timeScale = mOldTimeScale;
         transform.localScale = new Vector2(0, 0);

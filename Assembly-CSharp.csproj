@@ -339,6 +339,11 @@
     <Compile Include="Assets\ShuoMingControl.cs" />
     <Compile Include="Assets\SkillObjectControl.cs" />
     <Compile Include="Assets\TestControl.cs" />
+    <Compile Include="Assets\TGSDK\Example\ExampleScript.cs" />
+    <Compile Include="Assets\TGSDK\TGGameObject.cs" />
+    <Compile Include="Assets\TGSDK\TGPostProcess.cs" />
+    <Compile Include="Assets\TGSDK\TGSDK.cs" />
+    <Compile Include="Assets\TGSDK\TGSDKVersion.cs" />
     <Compile Include="Assets\TypewriterEffect.cs" />
     <Compile Include="Assets\VocationCardControl.cs" />
     <Compile Include="Assets\VocationSilderControl.cs" />

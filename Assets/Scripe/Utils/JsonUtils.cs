@@ -132,6 +132,7 @@ public class JsonUtils
         petFile = "pet";
         cardListFile = "bosscard";
         shopListFile = "shop";
+        cardYongjiuFile = "yongjiukapai";
 #endif
 #if UNITY_STANDALONE
         heroFile = heroFile + ".json";
