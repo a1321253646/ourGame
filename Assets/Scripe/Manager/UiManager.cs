@@ -148,7 +148,7 @@ public class UiManager
 		mStartBossGasSl.maxValue = GameManager.getIntance ().startBossGas;
 		mStartBossGasSl.value = 0;
 
-		mStartBossBt.interactable = false;
+	//	mStartBossBt.interactable = false;
 
 
 		mStartBossBt.onClick.AddListener (() => {
@@ -254,7 +254,7 @@ public class UiManager
         mStartBossGasSl.maxValue = GameManager.getIntance().startBossGas;
         mStartBossGasSl.value = 0;
 
-        mStartBossBt.interactable = false;
+        mStartBossBt.interactable = true;
         showGasUi();
     }
 
@@ -446,7 +446,7 @@ public class UiManager
             mGasTv.text = GameManager.getIntance().mCurrentGas + "/" + GameManager.getIntance().startBossGas;
             mStartBossGasSl.value = GameManager.getIntance().mCurrentGas;
         }
-        if (!mStartBossBt.IsInteractable() && GameManager.getIntance().mCurrentGas >= GameManager.getIntance().startBossGas)
+ /*       if (!mStartBossBt.IsInteractable() && GameManager.getIntance().mCurrentGas >= GameManager.getIntance().startBossGas)
         {
             mStartBossBt.interactable = true;
             if (!isGuide)
@@ -458,7 +458,7 @@ public class UiManager
             {
                 startBoss();
             }
-        }
+        }*/
     }
 
     public static int FLY_RIGHT = 1;

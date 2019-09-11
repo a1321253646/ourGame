@@ -771,6 +771,9 @@ public class PlayControl : Attacker
         
 	}
 	public override double BeAttack(HurtStatus status,Attacker hurter){
+        if (hurter.mAttackType == Attacker.ATTACK_TYPE_ENEMY) {
+            return 0;
+        }
         status.blood = status.blood * hurter.mSkillManager.getHurtPre();
 		return allHurt(status, hurter);
 	}
