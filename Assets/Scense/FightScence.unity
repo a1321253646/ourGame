@@ -1720,7 +1720,7 @@ PrefabInstance:
     - target: {fileID: 552114308376851544, guid: 0922ffbbf12c89543b013837ff7e29c2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -49911.883
+      value: -51930.035
       objectReference: {fileID: 0}
     - target: {fileID: 339893087524024805, guid: 0922ffbbf12c89543b013837ff7e29c2,
         type: 3}
@@ -4678,7 +4678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.0000242893}
+  m_AnchoredPosition: {x: 0, y: 0.000009030511}
   m_SizeDelta: {x: 640, y: 364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &216154750
@@ -11027,8 +11027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83dc1d9eca0f654c8953c8459a4da4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sqlName: local1001
-  tabName: local1001
+  sqlName: local1002
+  tabName: local1002
 --- !u!1001 &528136680
 PrefabInstance:
   m_ObjectHideFlags: 0
