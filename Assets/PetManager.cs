@@ -57,6 +57,7 @@ public class PetManager : MonoBehaviour {
     }
     public void reInit() {
         mZIdex.Clear();
+  
         mZIdex.Add(-0.2f);
         mZIdex.Add(-0.4f);
         mZIdex.Add(-0.6f);
@@ -69,10 +70,13 @@ public class PetManager : MonoBehaviour {
         mZIdex.Add(-2f);
         mZIdex.Add(-2.2f);
         mZIdex.Add(-2.4f);
-        List<PlayerBackpackBean> list = InventoryHalper.getIntance().getPet();
+        List<PlayerBackpackBean> list = SQLHelper.getIntance().getPet();
+
         foreach (PlayerBackpackBean b in list)
         {
+            Debug.Log("PlayerBackpackBean goodId=" + b.goodId + " goodType=" + b.goodType + " mPetCount=" + mPetCount);
             petReset(b.goodId);
+            
             if (b.goodType == SQLDate.GOOD_TYPE_USER_PET)
             {                
                 petFight(b.goodId);
