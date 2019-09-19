@@ -31,7 +31,7 @@ public class PlayControl : Attacker
         mLevelAnimalControl = new HeroLevelUpAnimal(mLevelAnimal, JsonUtils.getIntance().getEnemyResourceData(40002), this);
         if (GameManager.isAdd)
         {
-            GameManager.isAdd = false;
+          //  GameManager.isAdd = false;
             GameManager.getIntance().isAddGoodForTest = true;
             /*
                         BackpackManager.getIntance().addGoods(3000001, count);
@@ -64,7 +64,7 @@ public class PlayControl : Attacker
                         BackpackManager.getIntance().addGoods(3000028, count);
 
                         BackpackManager.getIntance().addGoods(4000001, count);*/
-            BackpackManager.getIntance().addGoods(4000001, count);
+/*            BackpackManager.getIntance().addGoods(4000001, count);
             BackpackManager.getIntance().addGoods(4000002, count);
             BackpackManager.getIntance().addGoods(4000003, count);
             BackpackManager.getIntance().addGoods(4000004, count);
@@ -77,7 +77,8 @@ public class PlayControl : Attacker
             BackpackManager.getIntance().addGoods(4000011, count);
             BackpackManager.getIntance().addGoods(4000012, count);
             BackpackManager.getIntance().addGoods(4000013, count);
-            BackpackManager.getIntance().addGoods(4000014, count);
+            BackpackManager.getIntance().addGoods(4000014, count);*/
+                BackpackManager.getIntance().addGoods(3000013, 1);
 
         }
         getOutLine();

@@ -617,6 +617,16 @@ public class SQLManager
         bean.command = commPath;
         addList(bean);
     }
+    public void changeRecordLevel(SQLDate date)
+    {
+        string commPath = "UPDATE " + tabName + " SET ISNET=1, EXTAN='" + date.extan + "'";
+        commPath += " WHERE  TYPE=" + date.type + " AND ID=" + date.id + " AND ISDELETE=1";
+        SqlWaitListAddBean bean = new SqlWaitListAddBean();
+        bean.action = 4;
+        bean.date = date;
+        bean.command = commPath;
+        addList(bean);
+    }
 
     public void updateIdAndType(SQLDate date)
     {
@@ -1053,6 +1063,7 @@ public class SQLManager
             mConnet = new SqliteConnection(getSqlPath());
             mConnet.Open();
         }
+
       
 //        using (SqliteConnection cnn =)
         using (reader)

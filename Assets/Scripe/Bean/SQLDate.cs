@@ -53,6 +53,8 @@ public class SQLDate
                id == SQLHelper.GAME_ID_GET_DAY ||
                id == SQLHelper.GAME_ID_CARD_MONEY ||
                id == SQLHelper.GAME_ID_VIP_DATE ||
+               id == SQLHelper.GAME_ID_FRIST_VERSION ||
+               id == SQLHelper.GAME_ID_FRIST_RECORD ||
                id == SQLHelper.GAME_ID_HAD_LUNHUI)
             {
                 isClean = SQLDate.CLEAR_NO;

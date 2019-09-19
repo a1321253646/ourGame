@@ -54,6 +54,11 @@ public class SQLHelper
 
     public BigNumber mOutLineGet = null;
 
+    public bool isRecordUser = false;
+    public long mFristVersin = 0;
+    public long mFristDay = 0;
+    public long mLastDay = 0;
+
     public static long GAME_ID_LEVEL = 1;
     public static long GAME_ID_HERO = 2;
     public static long GAME_ID_AUTO = 3;
@@ -105,6 +110,8 @@ public class SQLHelper
     public static long GAME_ID_ZUANSHI= 47;
     public static long GAME_ID_GET_DAY = 49;
     public static long GAME_ID_CARD_MONEY = 50;
+    public static long GAME_ID_FRIST_VERSION = 51;
+    public static long GAME_ID_FRIST_RECORD = 52;
 
     public static long ACTIVITY_BUTTON_VOCATION = 1;
     public static long GAME_ID_PLAYER_AD = 2;
@@ -121,6 +128,7 @@ public class SQLHelper
     public static long TYPE_ENCODE_VERSION = 10;
     public static long TYPE_CLEAN_NET = 11;
     public static long TYPE_CARD_LEVEL = 12;
+    public static long TYPE_RECORD_LEVEL = 13;
     public long mCurrentVocation = -1;
     public Dictionary<long, long>  mPlayVocation = new Dictionary<long, long>();
 
@@ -130,6 +138,7 @@ public class SQLHelper
     List<ActiveButtonBean> mActiveList = new List<ActiveButtonBean>();
     List<PlayerBackpackBean> mUser = new List<PlayerBackpackBean>();
     List<PlayerBackpackBean> mCard = new List<PlayerBackpackBean>();
+    List<PlayerBackpackBean> mAllCard = new List<PlayerBackpackBean>();
     List<PlayerBackpackBean> mPet = new List<PlayerBackpackBean>();
     Dictionary<long,long> mLunhuui = new Dictionary<long, long>();
     Dictionary<long,long> mDropDeviceCount = new Dictionary<long, long>();
@@ -155,6 +164,7 @@ public class SQLHelper
         mALLGood.Clear();
         mUser.Clear();
         mCard.Clear();
+        mAllCard.Clear();
         mBook.Clear();
         mPet.Clear();
         mDropDeviceCount.Clear();
@@ -194,6 +204,9 @@ public class SQLHelper
     //    isUpdate = -1;
         mPlayName = null;
         mToken = "";
+        mFristVersin = 0;
+        mFristDay = 0;
+        mLastDay = 0;
         int goodListIndex = 0;
         long maxGoodIdTmp = -1;
 
@@ -244,6 +257,13 @@ public class SQLHelper
                         mDropDeviceCount.Add(date.id, long.Parse(date.extan));
                     }
                     //                    Debug.Log("读取数据库  掉落器 id= " + date.id + " count =" + mDropDeviceCount[date.id]);
+                }
+                else if (date.type == TYPE_RECORD_LEVEL)
+                {
+                    long day = date.id;
+                    if (day > mLastDay) {
+                        mLastDay = day;
+                    }
                 }
                 else if (date.type == TYPE_GOOD)
                 {
@@ -409,6 +429,16 @@ public class SQLHelper
                         isVoice = long.Parse(date.extan);
                         //                       Debug.Log("读取数据库 是否开启音量 " + isVoice);
                     }
+                    else if (date.id == GAME_ID_FRIST_VERSION)
+                    {
+                        mFristVersin = long.Parse(date.extan);
+                        //                       Debug.Log("读取数据库 是否开启音量 " + isVoice);
+                    }
+                    else if (date.id == GAME_ID_FRIST_RECORD)
+                    {
+                        mFristDay = long.Parse(date.extan);
+                        //                       Debug.Log("读取数据库 是否开启音量 " + isVoice);
+                    }
                     else if (date.id == GAME_ID_LUNHUI_DEAL)
                     {
                         isLuiHuiDeal = long.Parse(date.extan);
@@ -558,7 +588,7 @@ public class SQLHelper
                     {
                         Debug.Log("读取数据库 重复ID " + bean.toString());
                         long oldId = bean.sqlGoodId;
-
+                       
                         mMaxGoodId++;
                         bean.sqlGoodId = mMaxGoodId;
                         changeGoodSqlId(bean, oldId);
@@ -570,10 +600,14 @@ public class SQLHelper
                 }
 
                 Debug.Log("物品  id= " + bean.goodId + " bean.goodType =" + bean.goodType);
-                if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD)
+                if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD || bean.goodType == SQLDate.GOOD_TYPE_CARD)
                 {
-                    mCard.Add(bean);
-                    Debug.Log("读取数据库   添加到使用卡牌中 ");
+                    if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD) {
+                        mCard.Add(bean);
+                        Debug.Log("读取数据库   添加到使用卡牌中 ");
+                    }
+                    mAllCard.Add(bean);
+
                 }
                 else if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI)
                 {
@@ -628,6 +662,35 @@ public class SQLHelper
             {
                 updateGame(GAME_ID_GOOD_MAXID, mMaxGoodId);
             }
+            mMaxGoodId++;
+            Debug.Log("=======================mysql 补充缺少的卡牌================================");
+            if (mCardLevelList != null && mCardLevelList.Count > 0) {
+                foreach (long cid in mCardLevelList.Keys) {
+                    bool isHaveCard = false;
+                    for (int cardInde = 0; cardInde < mAllCard.Count; cardInde++) {
+                        if (cid == mAllCard[cardInde].goodId) {
+                            isHaveCard = true;
+                            break;
+                        }
+                    }
+                    if (!isHaveCard) {
+                        PlayerBackpackBean newBean = new PlayerBackpackBean();
+                        CardJsonBean cj = JsonUtils.getIntance().getCardInfoById(cid);// BackpackManager.getIntance().getCardInfoById(cid);
+                        newBean.goodId = cid;
+                        newBean.sortID = cj.sortID;
+                        newBean.count = 1;
+                        newBean.tabId = cj.tabid;
+                        newBean.isShowPoint = 1;
+                        newBean.goodType = SQLDate.GOOD_TYPE_CARD;
+                        newBean.isClean = 2;
+                        
+                        newBean.sqlGoodId = mMaxGoodId;
+                        mMaxGoodId++;
+                        addGood(newBean);
+                        mALLGood.Add(newBean);
+                    }
+                }
+            }
             Debug.Log("=======================mysql 保存最大id================================");
 #if UNITY_ANDROID || UNITY_IOS
             if (string.IsNullOrEmpty(mPlayName)) {
@@ -641,6 +704,7 @@ public class SQLHelper
             GameManager.getIntance().mInitDec = JsonUtils.getIntance().getStringById(100031);
             JsonUtils.getIntance().reReadAboutLevelFile(BaseDateHelper.decodeLong(mGameLevel));
             Debug.Log("=======================mysql 重读关卡数据================================");
+            
         }
     }
 
@@ -1055,6 +1119,11 @@ public class SQLHelper
             updateGame(GAME_ID_PLAYER_MAX_LEVEL, BaseDateHelper.decodeLong(level));
         }
         mMaxLevel = level;
+        if (isRecordUser) {
+            updateRecordLevel(BaseDateHelper.encodeLong(mMaxLevel));
+        }
+       
+
     }
     private void updateNetLevel(long level)
     {
@@ -1249,6 +1318,28 @@ public class SQLHelper
             mCardLevelList.Add(id, level);
             SQLManager.getIntance().InsertDataToSQL(date);
         }
+    }
+    public void updateRecordLevel(long level)
+    {
+
+        SQLDate date = new SQLDate();
+        date.extan = ""+ level;
+        date.type = TYPE_RECORD_LEVEL;
+        date.id = getPassDay(mFristDay);
+        date.isClean = SQLDate.CLEAR_NO;
+        if (mLastDay == 0)
+        {
+            SQLManager.getIntance().InsertDataToSQL(date);
+        }
+        else if (date.id == mLastDay)
+        {
+            SQLManager.getIntance().changeRecordLevel(date);
+        }
+        else {
+            SQLManager.getIntance().InsertDataToSQL(date);
+        }
+        mLastDay = date.id;
+
     }
 
 
@@ -1523,7 +1614,7 @@ public class SQLHelper
     }
 
 
-    private void updateGame(long id, string value)
+    public void updateGame(long id, string value)
     {
 //                Debug.Log("=================================updateGame value== " + value+ "id="+id);
         SQLDate date = new SQLDate();
@@ -1537,7 +1628,7 @@ public class SQLHelper
      //   }     
 
     }
-    private void addGame(long id, string value)
+    public void addGame(long id, string value)
     {
   //              Debug.Log("==================================addGame value== " + value+ " id="+ id);
         SQLDate date = new SQLDate();
@@ -1646,13 +1737,22 @@ public class SQLHelper
             return true;
         }
     }
-
     public int vipLeftDay() {
-        if (mVipDay == 0 || mVipDate == 0)
+        return getPassDay(-1);
+    }
+    public int getPassDay(long value) {
+        if (value == -1)
         {
+            value = mVipDate;
+            if (mVipDay == 0 || mVipDate == 0)
+            {
+                return 0;
+            }
+        }
+        if (value == 0) {
             return 0;
         }
-        long value = mVipDate;
+
         int day = (int)value % 100;
         value = value / 100;
         int mouth = (int)value % 100;
@@ -1726,7 +1826,7 @@ public class SQLHelper
         SQLManager.getIntance().InsertDataToSQL(date);
     }
 
-    private void updateGame(long id, long value)
+    public void updateGame(long id, long value)
     {
         SQLDate date = new SQLDate();
         date.extan = "" + value;
@@ -1750,7 +1850,7 @@ public class SQLHelper
     }
 
 
-    private long getDayToLong() {
+    public long getDayToLong() {
         long day = System.DateTime.Now.Year;
         day = day *100+ System.DateTime.Now.Month;
         day = day * 100+ System.DateTime.Now.Day;

@@ -58,7 +58,7 @@ public class GameManager
 
 
     public static long mVersionCode =6000;
-    public static long mAPKVersionCode = 60;
+    public static long mAPKVersionCode = 61;
     public static long mSqlVersion = 1;
     public  long mNewAPKVersionCode = -1;
     public  long mCurrentSqlVersion = 0;
@@ -146,6 +146,29 @@ public class GameManager
                     SQLHelper.getIntance().updateGameLevel(GameManager.getIntance().mCurrentLevel);
                 }
             }
+            if (SQLHelper.getIntance().mFristVersin == 0)
+            {
+                if (mCurrentLevel == BaseDateHelper.encodeLong(-(long)JsonUtils.getIntance().getConfigValueForId(100019) + 1))
+                {
+                    SQLHelper.getIntance().mFristVersin = mAPKVersionCode;
+                }
+                else
+                {
+                    SQLHelper.getIntance().mFristVersin = -1;
+                }
+                SQLHelper.getIntance().addGame(SQLHelper.GAME_ID_FRIST_VERSION, SQLHelper.getIntance().mFristVersin+"");
+                SQLHelper.getIntance().addGame(SQLHelper.GAME_ID_FRIST_RECORD, SQLHelper.getIntance().getDayToLong()+"");
+
+            }
+            if (SQLHelper.getIntance().mFristVersin < 0)
+            {
+                SQLHelper.getIntance().isRecordUser = false;
+            }
+            else
+            {
+                SQLHelper.getIntance().isRecordUser = true;
+            }
+
             mHeroLv = BaseDateHelper.encodeLong((long)JsonUtils.getIntance().getConfigValueForId(100011)) ;
             if (mHeroLv == BaseDateHelper.encodeLong(-1))
             {
@@ -187,7 +210,7 @@ public class GameManager
             {
                 mReincarnation = BigNumber.getBigNumForString("2.1E+40");
             }
- 
+
             isShowPlayerPoint = SQLHelper.getIntance().isShowPlayerPoint;
             isShowBackpackPoint = SQLHelper.getIntance().isShowBackpackPoint;
             isShowLuihuiPoint = SQLHelper.getIntance().isShowLuihuiPoint;
