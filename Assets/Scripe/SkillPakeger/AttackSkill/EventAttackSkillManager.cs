@@ -26,7 +26,7 @@ public class EventAttackSkillManager
     public static int EVENT_SKILL_BEFOOR_DIE = 20;
     public static int EVENT_SKILL_PING_A = 21;
 
-    Dictionary<long, EventAttackSkillManagerSingle> mManagerList = new Dictionary<long, EventAttackSkillManagerSingle>();
+    public Dictionary<long, EventAttackSkillManagerSingle> mManagerList = new Dictionary<long, EventAttackSkillManagerSingle>();
     public List<TimeAttackSkillBase> mTimeList = new List<TimeAttackSkillBase>();
     public List<TimeEventAttackSkillBase> mTimeEvemntList = new List<TimeEventAttackSkillBase>();
 

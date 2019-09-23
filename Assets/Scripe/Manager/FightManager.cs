@@ -434,25 +434,46 @@ public class FightManager{
             }
         }
         double hurt = 0;
-        if (isIgnoeDefen)
-        {
-            hurt = attacker.mAttribute.aggressivity;
+        bool isChufacikebaoji = false;
+        if (attacker.mSkillManager.mEventAttackManager.mManagerList.ContainsKey(EventAttackSkillManager.EVENT_SKILL_PING_A)) {
+            List<EventAttackSkill> pingaList = attacker.mSkillManager.mEventAttackManager.mManagerList[EventAttackSkillManager.EVENT_SKILL_PING_A].mList;
+            for (int i = 0; i < pingaList.Count; i++) {
+                EventAttackSkill pinga = pingaList[i];
+                if (pinga is AttackSkill700003) {
+                    isChufacikebaoji = ((AttackSkill700003)pinga).getIsCret();
+                }
+            }
         }
-        else {
-            hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);
-        }
-        float value = attacker.mSkillManager.mEventAttackManager.afterPinga();
-        hurt = hurt * value;
-        bool crt = isCrt(attacker);
         long type = HurtStatus.TYPE_DEFAULT;
-        if (crt)
+        if (isChufacikebaoji)
         {
-            hurt = hurt * 2 + attacker.mAttribute.crtHurt + attacker.mAttribute.readHurt;
             type = HurtStatus.TYPE_CRT;
-        }
-        else {
             hurt = hurt + attacker.mAttribute.readHurt;
         }
+        else {
+            if (isIgnoeDefen)
+            {
+                hurt = attacker.mAttribute.aggressivity;
+            }
+            else
+            {
+                hurt = attacker.mAttribute.aggressivity * attacker.mAttribute.aggressivity / (attacker.mAttribute.aggressivity + beAttacker.mAttribute.defense);
+            }
+            float value = attacker.mSkillManager.mEventAttackManager.afterPinga();
+            hurt = hurt * value;
+            bool crt = isCrt(attacker);
+            
+            if (crt)
+            {
+                hurt = hurt * 2 + attacker.mAttribute.crtHurt + attacker.mAttribute.readHurt;
+                type = HurtStatus.TYPE_CRT;
+            }
+            else
+            {
+                hurt = hurt + attacker.mAttribute.readHurt;
+            }
+        }
+
         
         return new HurtStatus(hurt, type);
 	}
