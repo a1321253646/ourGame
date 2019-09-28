@@ -64,7 +64,7 @@ public class CardControl : MonoBehaviour
           //  Debug.Log(" mManager=   " + mManager);
           //  Debug.Log(" mManager.getLocalManager()=   " + mManager.getLocalManager());
 
-            LocalBean mLocalLink = mManager.getLocalManager().mLocalLink;
+        //    LocalBean mLocalLink = mManager.getLocalManager().mLocalLink;
             SkillLocalBean bean = new SkillLocalBean();
             
             bean.x = mClickV.x;
@@ -84,7 +84,7 @@ public class CardControl : MonoBehaviour
             {
                 targetType = Attacker.CAMP_TYPE_MONSTER;
             }
-            mTargetList = SkillTargetManager.getTargetList(mLocalLink, bean, targetType, true);
+            mTargetList = SkillTargetManager.getTargetList(mManager.getFightManager(), bean, targetType, true);
         }
         else if (mTargetList !=null &&  mTargetList.Count > 0) {
             foreach (Attacker a in mTargetList) {
@@ -134,7 +134,7 @@ public class CardControl : MonoBehaviour
             {
                 if (mTargetList != null && mTargetList.Count > 0)
                 {
-                    mTargetList[0].mSkillManager.addSkill(mSkill.id, mManager.getLocalManager().mLocalLink.mAttacker,
+                    mTargetList[0].mSkillManager.addSkill(mSkill.id, mManager.getFightManager().getHero(),
                     SkillIndexUtil.getIntance().getSkillIndexByCardId(false, mCard.id));
                 }
             }

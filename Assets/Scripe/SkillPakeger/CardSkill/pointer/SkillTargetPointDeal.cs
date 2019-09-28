@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SkillTargetPointDeal
 {
-    public static List<Attacker> getTargetList(LocalBean lives, SkillLocalBean local, int campType,bool isRed)
+    public static List<Attacker> getTargetList(FightManager lives, SkillLocalBean local, int campType,bool isRed)
     {
         List<Attacker> result = new List<Attacker>();
         float maxX = local.x ;
@@ -15,44 +15,46 @@ public class SkillTargetPointDeal
         float minx = 0;
         float maxy = 0;
         float miny = 0;
-        LocalBean tmp = lives;
+        FightManager fit = lives;
         float distance = 9999999999;
         float distance2 = 0;
 
-        while (tmp != null)
+        foreach (Attacker at in fit.mAliveActtackers.Values)
         {
-            if (tmp.mAttacker.mCampType == campType)
+            LocalBean tmp = at.mLocalBean;
+            if (at.mCampType == campType)
             {
-         
+               
                 maxx = tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x + tmp.mAttacker.resourceData.getTargetBorder()[1];
                 minx = tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x - tmp.mAttacker.resourceData.getTargetBorder()[0];
-                miny = tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y ;
-                maxy = miny+ tmp.mAttacker.resourceData.getTargetBorder()[2];
-//                Debug.Log("maxX=" + maxX+ " minX="+ minX+ " maxY=" + maxY + " minY=" + minY +
-//                    " maxx=" + maxx + " minx=" + minx + " miny=" + miny + " maxy=" + maxy);
-                if ((maxX >= minx && maxX <= maxx && maxY >=miny && maxY <= maxy)||
-                    (maxX >= minx && maxX <= maxx && minY >= miny && minY <= maxy)||
-                    (minX >= minx && minX <= maxx && maxY >= miny && maxY <= maxy)||
+                miny = tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y;
+                maxy = miny + tmp.mAttacker.resourceData.getTargetBorder()[2];
+                //                Debug.Log("maxX=" + maxX+ " minX="+ minX+ " maxY=" + maxY + " minY=" + minY +
+                //                    " maxx=" + maxx + " minx=" + minx + " miny=" + miny + " maxy=" + maxy);
+                if ((maxX >= minx && maxX <= maxx && maxY >= miny && maxY <= maxy) ||
+                    (maxX >= minx && maxX <= maxx && minY >= miny && minY <= maxy) ||
+                    (minX >= minx && minX <= maxx && maxY >= miny && maxY <= maxy) ||
                     (minX >= minx && minX <= maxx && minY >= miny && minY <= maxy))
                 {
                     float x = tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x - local.x;
                     float y = tmp.mCurrentY + tmp.mAttacker.resourceData.getHurtOffset().y - local.y;
 
                     distance2 = x * x + y * y;
- //                   Debug.Log("distance2 = " + distance2 + " distance" + distance);
+                    //                   Debug.Log("distance2 = " + distance2 + " distance" + distance);
                     if (distance2 < distance)
                     {
-  
-                       distance = distance2;
 
-                        if (result.Count == 1) {
+                        distance = distance2;
+
+                        if (result.Count == 1)
+                        {
                             result[0].setWhith();
                         }
                         result.Clear();
                         result.Add(tmp.mAttacker);
                     }
-                    else {
-                        tmp = tmp.next;
+                    else
+                    {
                         continue;
                     }
                     if (isRed)
@@ -69,7 +71,6 @@ public class SkillTargetPointDeal
             {
                 tmp.mAttacker.setWhith();
             }
-            tmp = tmp.next;
         }
         if (result.Count == 0)
         {

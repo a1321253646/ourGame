@@ -7,11 +7,17 @@ using UnityEngine.UI;
 public class FightManager{
 
 	private int id = 0;
-	private LocalManager mLocalManager;
+
     public EnemyFactory mEnemyFactory;
     public int mHeroStatus = Attacker.PLAY_STATUS_RUN;
 
 	public Dictionary<int,Attacker> mAliveActtackers = new Dictionary<int,Attacker>();
+
+    public Attacker mHero;
+
+    public Attacker getHero() {
+        return mHero;
+    }
 
     public void reset() {
         id = 0;
@@ -36,30 +42,24 @@ public class FightManager{
 			return false;
 		}
 	}
-	public void setLoaclManager(LocalManager local){
-		mLocalManager = local;
-	}
 
+
+    
 	public void registerAttacker(Attacker attcker){
         if (mAliveActtackers.ContainsKey(attcker.id)) {
-            if (attcker.mLocalBean.mIsHero)
-            {
-                mLocalManager.setHeroLoacl(attcker.mLocalBean);
                 return;
-            }
         }
-        else if (attcker.id != -1) {
-			Debug.Log ("registerAttacker:this attcker is register");
-			return;
-		}
+        if (attcker.mAttackType == Attacker.ATTACK_TYPE_HERO) {
+            mHero = attcker;
+        }
+        else if (attcker.id != -1)
+        {
+            Debug.Log("registerAttacker:this attcker is register");
+            return;
+        }
 		attcker.id = id;
 		id++;
 		mAliveActtackers.Add (attcker.id, attcker);
-		if (attcker.mLocalBean.mIsHero) {
-			mLocalManager.setHeroLoacl (attcker.mLocalBean);
-		} else {
-			mLocalManager.addAttack (attcker.mLocalBean);
-		}
 	}
 	public void unRegisterAttacker(Attacker attcker){
         if (attcker.id == -1 || mAliveActtackers.Count < 1)
@@ -79,12 +79,6 @@ public class FightManager{
             }
         }
         mAliveActtackers.Remove(attcker.id);
-
-        if (attcker is EnemyBase)
-        {
-            mLocalManager.EnemyDeal(attcker);
-
-        }
 
 
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){

@@ -18,7 +18,7 @@ public abstract class SkillObject : MonoBehaviour
     SpriteRenderer mSpriteRender;
     public ResourceBean mResource;
     public CalculatorUtil calcuator;
-    public LocalManager mLocalManager;
+    public FightManager mFightManager;
 
     public AnimalControlBase mAnimalControl;
     public Attacker mAttacker;
@@ -26,10 +26,10 @@ public abstract class SkillObject : MonoBehaviour
     public long mSkillIndex = 0;
     public List<Attacker> mTargetList;
     public bool isBoss = false;
-    public void init(Attacker attacker,LocalManager manage, SkillJsonBean bean, float x, float y,int campType,bool giveup,bool boss, long skillIndex) {
+    public void init(Attacker attacker, FightManager manage, SkillJsonBean bean, float x, float y,int campType,bool giveup,bool boss, long skillIndex) {
         mSkillIndex = skillIndex;
         isGiveUp = giveup;
-        mLocalManager = manage;
+        mFightManager = manage;
         isBoss = boss;
         mBean = bean;
         if (bean.skill_resource > 0) {

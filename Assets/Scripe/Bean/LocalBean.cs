@@ -14,9 +14,6 @@ public class LocalBean
 	public Attacker mAttacker;
 	public bool isInMultiple = false;
 
-	public LocalBean next;
-	public LocalBean previous;
-
 	public LocalBean(float x,float y,float leng,bool hero,Attacker attack){
 		mCurrentX = x;
 		mCurrentY = y;

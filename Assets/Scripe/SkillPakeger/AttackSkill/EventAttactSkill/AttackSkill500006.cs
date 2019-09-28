@@ -4,15 +4,14 @@ using System.Collections.Generic;
 
 public class AttackSkill500006 : EventAttackSkill
 {
-
+    FightManager mFit;
 
     float count1 = 0;
-    LocalManager mLocal = null;
     private double mSkillValue = 1;
     public override void addValueEnd()
     {
 
-        mSkillValue = mFight.getLunhuiValue(500006, 8,0);
+        mSkillValue = mFight.getLunhuiValue(500006, 8, 0);
         addEachAlive(AttributePre.maxBloodVolume);
     }
     public override void debuffLitterMonster(Attacker monster)
@@ -25,16 +24,15 @@ public class AttackSkill500006 : EventAttackSkill
     {
 
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_LITTER_DEBUFF, this);
-        LocalBean list = mLocal.mLocalLink;
-        while (list != null)
-        {
-            if (!list.mIsHero)
-            {
+        mFit = GameObject.Find("Manager").GetComponent<LevelManager>().mFightManager;
 
-                list.mAttacker.mAllAttributePre.updateDebuff(mSkillIndex, AttributePre.maxBloodVolume, 0);
-                list.mAttacker.getAttribute(true);
+        foreach (Attacker at in mFit.mAliveActtackers.Values)
+        {
+            if (at.mAttackType != Attacker.ATTACK_TYPE_BOSS && at.mAttackType != Attacker.ATTACK_TYPE_HERO)
+            {
+                at.mAllAttributePre.updateDebuff(mSkillIndex, AttributePre.maxBloodVolume, 0);
+                at.getAttribute(true);
             }
-            list = list.next;
         }
     }
 
@@ -43,24 +41,24 @@ public class AttackSkill500006 : EventAttackSkill
         mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_LITTER_DEBUFF, this);
         //  if (mValue == 0)
         //  {
-        mSkillValue =  mFight.getLunhuiValue(500006, 8, 0);
+        mSkillValue = mFight.getLunhuiValue(500006, 8, 0);
         //  }
 
         addEachAlive(AttributePre.maxBloodVolume);
 
     }
-    private void addEachAlive(long type) {
-        
-        mLocal = GameObject.Find("Manager").GetComponent<LevelManager>().mLocalManager;
-        LocalBean list = mLocal.mLocalLink;
-        while (list != null)
+    private void addEachAlive(long type)
+    {
+
+        mFit = GameObject.Find("Manager").GetComponent<LevelManager>().mFightManager;
+
+        foreach (Attacker at in mFit.mAliveActtackers.Values)
         {
-            if (!list.mIsHero && list.mAttacker.mAttackType != Attacker.ATTACK_TYPE_BOSS)
+            if (at.mAttackType != Attacker.ATTACK_TYPE_BOSS && at.mAttackType != Attacker.ATTACK_TYPE_HERO)
             {
-                list.mAttacker.mAllAttributePre.updateDebuff(mSkillIndex, type, mSkillValue); ;
-                list.mAttacker.getAttribute(true);
+                at.mAllAttributePre.updateDebuff(mSkillIndex, type, mSkillValue); ;
+                at.getAttribute(true);
             }
-            list = list.next;
         }
     }
 

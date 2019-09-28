@@ -72,18 +72,16 @@ public class EnemyFactory : MonoBehaviour {
 
 		timeCost += Time.deltaTime;
 
-		if (timeCost*1000 > mList[currentCount].time) {
-			long id = mList [currentCount].id;
-		//	Debug.Log ("creat enemey id =" + id);
-			data = JsonUtils.getIntance ().getEnemyById (id);
-			creatEnemy (false);
-			currentCount++;
-			if (currentCount >= mList.Count) {
-                mZPoint = 2;
-				isCreat = false;
-				mList = JsonUtils.getIntance ().getWellenEnemy ();
-			}
-		}
+        for (; currentCount < mList.Count; currentCount++) {
+            long id = mList[currentCount].id;
+            //	Debug.Log ("creat enemey id =" + id);
+            data = JsonUtils.getIntance().getEnemyById(id);
+            creatEnemy(false);
+        }
+
+        mZPoint = 2;
+        isCreat = false;
+        mList = JsonUtils.getIntance().getWellenEnemy();
 
 	}
 	private int currentCount = 0;
@@ -95,10 +93,13 @@ public class EnemyFactory : MonoBehaviour {
 //		Debug.Log ("creatEnemy id ="+data.id);
 		ResourceBean bean = JsonUtils.getIntance ().getEnemyResourceData (data.resource);
 		string res = bean.name;
+        float dely = -(-2L + currentCount % 5L) * 0.5f;
+        float delx = (currentCount/5L) * 0.5f;
+       
+        Debug.Log("currentCount="+ currentCount+" delx =" + delx+ " dely =" + dely);
         GameObject newobj = null;
-
             newobj = GameObject.Instantiate(
-                game, new Vector3(transform.position.x, getYRamdom(isBoss) - bean.idel_y, mZPoint), Quaternion.Euler(0.0f, 0f, 0.0f));
+                game, new Vector3(transform.position.x+ delx, transform.position.y - bean.idel_y+ dely, mZPoint), Quaternion.Euler(0.0f, 0f, 0.0f));
         
         mZPoint -= 0.1f;
         EnemyBase enmey = newobj.GetComponent<EnemyBase> ();

@@ -19,7 +19,7 @@ public class SkillObject100013 : SkillObject
     {
         if (status == ActionFrameBean.ACTION_NONE)
         {
-            mTargetList = SkillTargetManager.getTargetList(mLocalManager.mLocalLink, mLocal, mCamp, false);
+            mTargetList = SkillTargetManager.getTargetList(mFightManager, mLocal, mCamp, false);
         }
     }
 

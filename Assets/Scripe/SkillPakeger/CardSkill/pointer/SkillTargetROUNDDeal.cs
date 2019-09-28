@@ -34,7 +34,6 @@ public class SkillTargetRoundDeal
             {
                 tmp.mAttacker.setWhith();
             }
-            tmp = tmp.next;
         }
         if (result.Count == 0) {
             result = null;

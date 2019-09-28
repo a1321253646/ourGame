@@ -21,7 +21,7 @@ public class SkillObject100011 : SkillObject
         if (status == ActionFrameBean.ACTION_NONE)
         {
             Debug.Log("skill fight event");
-            mTargetList = SkillTargetManager.getTargetList(mLocalManager.mLocalLink, mLocal, mCamp, false);
+            mTargetList = SkillTargetManager.getTargetList(mFightManager, mLocal, mCamp, false);
             Debug.Log("mLocal x="+ mLocal.x+" y="+ mLocal.y);
             if (mTargetList == null || mTargetList.Count < 1) {
                 Debug.Log("getTargetList null");

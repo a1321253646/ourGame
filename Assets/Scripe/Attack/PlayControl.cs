@@ -159,7 +159,6 @@ public class PlayControl : Attacker
         isFristStart = false;
         oldStatus = PLAY_STATUS_RUN;
         if (mLocalBean != null) {
-            mLocalBean.next = null;
             mLocalBean.mTargetX = -999;
             mLocalBean.mTargetY = -999;
         }

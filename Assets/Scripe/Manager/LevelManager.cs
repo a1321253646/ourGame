@@ -12,7 +12,6 @@ public class LevelManager : MonoBehaviour {
 
     public BackgroundManager mBackManager;
 	public FightManager mFightManager;
-	public LocalManager mLocalManager;
     public PlayControl mPlayerControl;
     
     public GuideManager mGuideManager;
@@ -37,8 +36,6 @@ public class LevelManager : MonoBehaviour {
 
         mBackManager = new BackgroundManager();
         mFightManager = new FightManager();
-        mLocalManager = new LocalManager();
-        mFightManager.setLoaclManager(mLocalManager);
 
         mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
         if (JsonUtils.getIntance().getConfigValueForId(100055) == 1) {
@@ -65,7 +62,6 @@ public class LevelManager : MonoBehaviour {
         creaPlay(yBase);
         //  creatEnemyFactory(cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
-        SkillManage.getIntance().setLoclaManager(mLocalManager);
         SkillManage.getIntance().setBackManagerManager(mBackManager);
         BackpackManager.getIntance().init(this);
         UiControlManager.getIntance().init();
@@ -100,7 +96,6 @@ public class LevelManager : MonoBehaviour {
         JsonUtils.getIntance().init();
         // mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
         mFightManager.reset();
-        mLocalManager.reset();
         //GameObject.Find("Role").GetComponent<PlayControl>().resetHero();
 
         mPlayerControl.resetHero();
@@ -220,7 +215,6 @@ public class LevelManager : MonoBehaviour {
                 GameManager.getIntance().isLunhuiWudiIng = false;
             }
         }
-        mLocalManager.upData ();
 		if (!starBoss && GameManager.getIntance ().mStartBoss) {
 			starBoss = true;
 			mBackManager.setBackground (JsonUtils.getIntance ().getLevelData ().boss_bg);
@@ -271,10 +265,6 @@ public class LevelManager : MonoBehaviour {
 	public FightManager getFightManager(){
 		return mFightManager;
 	}
-    public LocalManager getLocalManager()
-    {
-        return mLocalManager;
-    }
 
 
     public void ChangeEquip( PlayerBackpackBean equips, bool isAdd) {

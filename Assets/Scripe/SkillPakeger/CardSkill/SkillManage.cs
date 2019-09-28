@@ -11,7 +11,7 @@ public class SkillManage
 
     List<SkillObject> mSkillList = new List<SkillObject>();
     public GameObject mSkillObject;
-    public LocalManager mLocalManager;
+    public FightManager mFightManager;
     BackgroundManager mBackManager;
     public void addSkill(Attacker attacker, SkillJsonBean skill, float x, float y, int campType, bool isGiveup,bool isBoss, long skillIndex) {
         Debug.Log("addSkill x=" + x + " y = " + y);
@@ -34,7 +34,7 @@ public class SkillManage
     private void dealSkillObject(Attacker attacker, GameObject newobj, SkillJsonBean skill, float x, float y, int campType, bool isGiveup, bool isBoss,long skillIndex) {
         SkillFactory.skillObjectAddComponet(newobj, skill);
         SkillObject skillComponent = newobj.GetComponent<SkillObject>();
-        skillComponent.init(attacker, mLocalManager,skill, x, y, campType,isGiveup, isBoss, skillIndex);
+        skillComponent.init(attacker, mFightManager, skill, x, y, campType,isGiveup, isBoss, skillIndex);
         mSkillList.Add(skillComponent);
     }
 
@@ -66,8 +66,8 @@ public class SkillManage
     public void setSkillPrefer(GameObject ob) {
         mSkillObject = ob;
     }
-    public void setLoclaManager(LocalManager manager) {
-        mLocalManager = manager;
+    public void setLoclaManager(FightManager manager) {
+        mFightManager = manager;
     }
     public void setBackManagerManager(BackgroundManager manager)
     {

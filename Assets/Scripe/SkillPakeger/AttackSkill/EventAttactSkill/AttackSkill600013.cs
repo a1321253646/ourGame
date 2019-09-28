@@ -5,9 +5,8 @@ using System.Collections.Generic;
 public class AttackSkill600013 : EventAttackSkill
 {
 
-
+    FightManager mFit;
     float count1 = 0;
-    LocalManager mLocal = null;
     public override void debuffMonster(Attacker monster)
     {
         monster.mAllAttributePre.minus(mSkillIndex, AttributePre.defense, (long)count1);
@@ -17,17 +16,13 @@ public class AttackSkill600013 : EventAttackSkill
     public override void endSkill()
     {
         mManager.mEventAttackManager.unRegister(EventAttackSkillManager.EVENT_SKILL_MONSTER_DEBUFF, this);
-        LocalBean list = mLocal.mLocalLink;
-        while (list != null)
+        foreach (Attacker at in mFit.mAliveActtackers.Values)
         {
-
-            if (!list.mIsHero)
+            if (at.mAttackType != Attacker.ATTACK_TYPE_HERO)
             {
- 
-                list.mAttacker.mAllAttributePre.add(mSkillIndex, AttributePre.defense, (long)count1);
-                list.mAttacker.getAttribute(true);
+                at.mAllAttributePre.add(mSkillIndex, AttributePre.defense, (long)count1);
+                at.getAttribute(true);
             }
-            list = list.next;
         }
     }
 
@@ -37,14 +32,16 @@ public class AttackSkill600013 : EventAttackSkill
             count1 = mSkillJson.getSpecialParameterValue()[0]*100;
         }
         mManager.mEventAttackManager.register(EventAttackSkillManager.EVENT_SKILL_MONSTER_DEBUFF, this);
-        mLocal =  GameObject.Find("Manager").GetComponent<LevelManager>().mLocalManager;
-        LocalBean list = mLocal.mLocalLink;
-        while (list != null) {
-            if (!list.mIsHero) {
-                list.mAttacker.mAllAttributePre.minus(mSkillIndex, AttributePre.defense, (long)count1);
-                list.mAttacker.getAttribute(true);
+
+        mFit = GameObject.Find("Manager").GetComponent<LevelManager>().mFightManager;
+
+        foreach (Attacker at in mFit.mAliveActtackers.Values)
+        {
+            if (at.mAttackType != Attacker.ATTACK_TYPE_HERO)
+            {
+                at.mAllAttributePre.minus(mSkillIndex, AttributePre.defense, (long)count1);
+                at.getAttribute(true);
             }
-            list = list.next;
         }
     }
 

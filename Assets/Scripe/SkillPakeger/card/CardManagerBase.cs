@@ -38,7 +38,7 @@ public abstract class CardManagerBase : MonoBehaviour {
     public Attacker mAttacker = null;
     public List<CardJsonBean> mCardIdList = new List<CardJsonBean>();
     public GameObject card;
-    public LocalManager mLocalManage;
+    public FightManager mFightManager;
 
     public List<NengliangkuaiControl> mNengLiangKuai = new List<NengliangkuaiControl>();
     public List<GameObject> mCardLoaclList = new List<GameObject>();
@@ -131,13 +131,13 @@ public abstract class CardManagerBase : MonoBehaviour {
         updateEnd();
     }
 
-    public LocalManager getLocalManager()
+    public FightManager getFightManager()
     {
-        if (mLocalManage == null)
+        if (mFightManager == null)
         {
-            mLocalManage = GameObject.Find("Manager").GetComponent<LevelManager>().getLocalManager();
+            mFightManager = GameObject.Find("Manager").GetComponent<LevelManager>().getFightManager();
         }
-        return mLocalManage;
+        return mFightManager;
     }
 
     public class CardUser

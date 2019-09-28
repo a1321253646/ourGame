@@ -16,7 +16,7 @@ public class SkillObject100003 : SkillObject
         mAnimalControl.setEndCallBack(ActionFrameBean.ACTION_NONE, new AnimalStatu.animalEnd(endAnimal));
         v1 = (long)mBean.getSpecialParameterValue()[0];
         v2 = (long)mBean.getSpecialParameterValue()[1];
-        mTargetList = SkillTargetManager.getTargetList(mLocalManager.mLocalLink, mLocal, mCamp, false);
+        mTargetList = SkillTargetManager.getTargetList(mFightManager, mLocal, mCamp, false);
         if (mTargetList != null && mTargetList.Count >= 0)
         {
             foreach (Attacker attack in mTargetList)
@@ -40,7 +40,7 @@ public class SkillObject100003 : SkillObject
 
     void timeCountBack(int count)
     {
-        mTargetList = SkillTargetManager.getTargetList(mLocalManager.mLocalLink, mLocal, mCamp, false);
+        mTargetList = SkillTargetManager.getTargetList(mFightManager, mLocal, mCamp, false);
         if (mTargetList == null || mTargetList.Count == 0) {
             return;
         }

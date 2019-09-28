@@ -89,17 +89,21 @@ public class EnemyBase : Attacker {
     private float xy = 0;
 	public void run(){
 
+       
 
 
-		mLocalBean.mCurrentX = transform.position.x;
+        mLocalBean.mCurrentX = transform.position.x;
 		mLocalBean.mCurrentY = transform.position.y;
         float speedX = 0;
 		if ( mBackManager.isRun) {
-            speedX = mBackManager.moveSpeed;
-         //   transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
+        //    speedX = mBackManager.moveSpeed;
+            transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
          //   mSkillManager.upDateLocal(mBackManager.moveSpeed * Time.deltaTime, 0);
-         //   mState.Update ();
+            mState.Update ();
 		}
+        if (true) {
+            return;
+        }
 		if ((getStatus() != Attacker.PLAY_STATUS_RUN && mLocalBean.mTargetX == -9999  && mLocalBean.mTargetY == -9999)||
             (getStatus() != Attacker.PLAY_STATUS_RUN && mTarger.x == -9999 && mTarger.y == -9999)) {
                transform.Translate (Vector2.left * (speedX * Time.deltaTime));

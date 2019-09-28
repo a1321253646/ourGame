@@ -22,7 +22,7 @@ public class SkillObject100004 : SkillObject
 
     void timeCountBack(int count)
     {
-        mTargetList = SkillTargetManager.getTargetList(mLocalManager.mLocalLink, mLocal, mCamp, false);
+        mTargetList = SkillTargetManager.getTargetList(mFightManager, mLocal, mCamp, false);
         if (mTargetList != null && mTargetList.Count > 0) {
             foreach (Attacker attack in mTargetList)
             {
