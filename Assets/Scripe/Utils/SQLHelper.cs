@@ -602,6 +602,12 @@ public class SQLHelper
                 Debug.Log("物品  id= " + bean.goodId + " bean.goodType =" + bean.goodType);
                 if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD || bean.goodType == SQLDate.GOOD_TYPE_CARD)
                 {
+                    if(bean.isClean == 2 && JsonUtils.getIntance().getYongjiuCardInfoById(bean.goodId) == null) {
+                        bean.isClean = 1;
+                        deleteGood(bean);
+                        addGood(bean);
+                    }
+
                     if (bean.goodType == SQLDate.GOOD_TYPE_USER_CARD) {
                         mCard.Add(bean);
                         Debug.Log("读取数据库   添加到使用卡牌中 ");
@@ -609,10 +615,29 @@ public class SQLHelper
                     mAllCard.Add(bean);
 
                 }
-                else if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI)
+                else if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI || bean.goodType == SQLDate.GOOD_TYPE_BACKPACK)
                 {
-                    mUser.Add(bean);
-                    Debug.Log("读取数据库   添加到使用装备中 ");
+                    if (JsonUtils.getIntance().getAccouterInfoById(bean.goodId) == null) {
+                        AccouterJsonBean acc=  JsonUtils.getIntance().getAccouterInfoBySort(bean.sortID);
+                        if (acc != null)
+                        {
+                            bean.goodId = acc.id;
+                            bean.isClean = 1;
+                            deleteGood(bean);
+                            addGood(bean);
+                        }
+                        else {
+                            deleteGood(bean);
+                            mALLGood.RemoveAt(i);
+                            continue;
+                        }   
+                    }
+
+                    if (bean.goodType == SQLDate.GOOD_TYPE_ZHUANGBEI) {
+                        mUser.Add(bean);
+                        Debug.Log("读取数据库   添加到使用装备中 ");
+                    }
+
                 }
                 else if (bean.goodType == SQLDate.GOOD_TYPE_USER_PET || bean.goodType == SQLDate.GOOD_TYPE_PET)
                 {
@@ -666,14 +691,26 @@ public class SQLHelper
             Debug.Log("=======================mysql 补充缺少的卡牌================================");
             if (mCardLevelList != null && mCardLevelList.Count > 0) {
                 foreach (long cid in mCardLevelList.Keys) {
-                    bool isHaveCard = false;
-                    for (int cardInde = 0; cardInde < mAllCard.Count; cardInde++) {
-                        if (cid == mAllCard[cardInde].goodId) {
-                            isHaveCard = true;
+                    bool isNeedAdd = false;
+                    List<YongjiuCardBean> list =  JsonUtils.getIntance().getYongjiuCardInfos();
+                    for (int cardInde = 0; cardInde < list.Count; cardInde++)
+                    {
+                        if (cid == list[cardInde].id)
+                        {
+                            isNeedAdd = true;
+                            for (int cardInde2 = 0; cardInde2 < mAllCard.Count; cardInde2++)
+                            {
+                                if (cid == mAllCard[cardInde2].goodId)
+                                {
+                                    isNeedAdd = false;
+                                    break;
+                                }
+                            }
                             break;
                         }
                     }
-                    if (!isHaveCard) {
+
+                    if (isNeedAdd) {
                         PlayerBackpackBean newBean = new PlayerBackpackBean();
                         CardJsonBean cj = JsonUtils.getIntance().getCardInfoById(cid);// BackpackManager.getIntance().getCardInfoById(cid);
                         newBean.goodId = cid;

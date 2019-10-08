@@ -58,7 +58,7 @@ public class GameManager
 
 
     public static long mVersionCode =6000;
-    public static long mAPKVersionCode = 61;
+    public static long mAPKVersionCode = 70;
     public static long mSqlVersion = 1;
     public  long mNewAPKVersionCode = -1;
     public  long mCurrentSqlVersion = 0;

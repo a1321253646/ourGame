@@ -816,6 +816,17 @@ public class JsonUtils
         }
         return null;
     }
+    public AccouterJsonBean getAccouterInfoBySort(long sort)
+    {
+        foreach (long id in mAttribute.Keys) {
+            AccouterJsonBean json = mAttribute[id];
+            if (json.sortID == sort) {
+                return json;
+            }
+        }
+        return null;
+    }
+
     public SkillJsonBean getSkillInfoById(long id)
     {
         foreach (SkillJsonBean note in mSkillDate)
