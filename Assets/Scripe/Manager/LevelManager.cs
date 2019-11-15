@@ -19,6 +19,8 @@ public class LevelManager : MonoBehaviour {
     float cardTop = 0;
     public float yBase = 0;
     MapConfigBean mMapConfig = null;
+    
+
     public void init()
     {
         Debug.Log("LevelManager Start");
@@ -57,9 +59,10 @@ public class LevelManager : MonoBehaviour {
         }
 
         GameObject.Find("speed_setting_tx").GetComponent<Text>().text = "X" + Time.timeScale;
-//        GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
+        //        GameManager.getIntance().mTestSpeed = (long)Time.timeScale;
 
         creaPlay(yBase);
+        
         //  creatEnemyFactory(cardTop);
         SkillManage.getIntance().setSkillPrefer(skillObject);
         SkillManage.getIntance().setBackManagerManager(mBackManager);
@@ -286,13 +289,25 @@ public class LevelManager : MonoBehaviour {
 
     private void creaPlay(float cardTop)
     {
+
+        for (int i = 0; i < 5; i++) {
+            float dely = -(-2L + i % 5L) * 0.5f;
+            float delx = (i / 5L) * 0.5f;
+            creatPlayIndex(-7 - delx, cardTop + dely,i);            
+        }
+   
+
+    }
+    private void creatPlayIndex(float x, float y,int index) {
+        Debug.Log("creatPlayIndex= x" + x+"  y="+ y);
         Hero hero = JsonUtils.getIntance().getHeroData();
         long vocation = 1;
         if (SQLHelper.getIntance().mCurrentVocation == -1)
         {
             vocation = 1;
         }
-        else {
+        else
+        {
             vocation = SQLHelper.getIntance().mCurrentVocation;
         }
 
@@ -300,17 +315,23 @@ public class LevelManager : MonoBehaviour {
         Debug.Log(" JsonUtils.getIntance().getVocationById(SQLHelper.getIntance().mPlayVocation).resource= " + JsonUtils.getIntance().getVocationById(vocation).resource);
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(
            JsonUtils.getIntance().getVocationById(vocation).resource);
-       
 
-        GameObject newobj =  GameObject.Instantiate (Player, new Vector3 (-7, 
-            cardTop-bean.idel_y,-1),
-			Quaternion.Euler(0.0f,0.0f,0.0f));
-		newobj.transform.localScale.Set (JsonUtils.getIntance().getConfigValueForId(100005), JsonUtils.getIntance().getConfigValueForId(100005), 1);
-        mPlayerControl = newobj.GetComponent<PlayControl>();
-        mPlayerControl.startGame();
 
+        GameObject newobj = GameObject.Instantiate(Player, new Vector3(x,
+            y - bean.idel_y, -1),
+            Quaternion.Euler(0.0f, 0.0f, 0.0f));
+
+        newobj.transform.localScale.Set(JsonUtils.getIntance().getConfigValueForId(100005), JsonUtils.getIntance().getConfigValueForId(100005), 1);
+        PlayControl play = newobj.GetComponent<PlayControl>();
+        if (index == 0)
+        {
+            mPlayerControl = play;
+            mPlayerControl.isMain = true;
+        }
+        play.startGame();
 
     }
+
 	public void creatEnemyFactory(float x,float y)
     {
 

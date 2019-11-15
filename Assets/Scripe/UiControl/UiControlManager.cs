@@ -28,9 +28,9 @@ public class UiControlManager
 
     public void show(long type) {//先不考虑英雄宠物界面
 
-        Debug.Log("UiControlManager show type=" + type);
+//        Debug.Log("UiControlManager show type=" + type);
         foreach (int key in mAllUi.Keys) {
-            Debug.Log("mAllUi have type=" + key);
+//            Debug.Log("mAllUi have type=" + key);
         }
 
 

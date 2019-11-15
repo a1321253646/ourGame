@@ -9,6 +9,7 @@ public class TrajectoryBase : MonoBehaviour
 	public float speed = 1f;
 	public bool isRUn = false;
 	Attacker mAttacker;
+	Attacker mTarget;
     public SpriteRenderer mSpriteRender;
     AnimalControlBase mAnimalControl;
     private bool isWork = false;
@@ -23,10 +24,12 @@ public class TrajectoryBase : MonoBehaviour
         mAnimalControl.start();
     }
 
-    public void startRun(Attacker attacker,BackgroundManager back,FightResource fight){
+    public void startRun(Attacker attacker,BackgroundManager back,FightResource fight)
+    {
 		mBackManager = back;
 		mAttacker = attacker;
-		mFightResource = fight;
+      //  mTarget = target;
+        mFightResource = fight;
         speed = JsonUtils.getIntance().getConfigValueForId(100001);
 		isRUn = true;
         isWork = true;
@@ -47,13 +50,28 @@ public class TrajectoryBase : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        float sp = speed;
+        if (mBackManager.isRun)
+        {
+            sp = mBackManager.moveSpeed + speed;
+        }
+        float disx = transform.position.x + mFightResource.mTrajectResource.getHurtOffset().x - mAttacker.mAttackerTargets[0].transform.position.x + mAttacker.mAttackerTargets[0].resourceData.getHurtOffset().x;
+        float disy = transform.position.y + mFightResource.mTrajectResource.getHurtOffset().y - mAttacker.mAttackerTargets[0].transform.position.y - mAttacker.mAttackerTargets[0].resourceData.getHurtOffset().y;
+        if (disx <= 0) {
+            mFightResource.trajectoryActionIsEnd();
+            Destroy(gameObject);
+            mAnimalControl.update();
+            return;
+        }
 
-        if (mBackManager.isRun) {
-            gameObject.transform.Translate (Vector2.left * (mBackManager.moveSpeed + speed) * Time.deltaTime);
-		} else {
-            gameObject.transform.Translate (Vector2.left *  speed * Time.deltaTime);
-		}
-		isReach ();
+        float distance = sp * Time.deltaTime;
+        float bili = distance / Mathf.Sqrt(disx * disx + disy * disy);
+        disx = bili * disx;
+        disy = bili * disy;
+        transform.Translate(Vector2.left * disx);
+        transform.Translate(Vector2.down * disy);
+
+		//isReach ();
         mAnimalControl.update();
 
     }
@@ -64,7 +82,7 @@ public class TrajectoryBase : MonoBehaviour
         }
         //  Debug.Log("traject update isReach");
         if (mAttacker.mAttackerTargets.Count > 0 && transform.position.x + mFightResource.mTrajectResource.getHurtOffset().x <=
-            mAttacker.mAttackerTargets[0].transform.position.x+ mAttacker.mAttackerTargets[0].resourceData.getHurtOffset().x) {
+            mAttacker.mAttackerTargets[0].transform.position.x+ mAttacker.mAttackerTargets[0].resourceData.getHurtOffset().x+0.2) {
 			mFightResource.trajectoryActionIsEnd ();
 			Destroy (gameObject);
 		} 

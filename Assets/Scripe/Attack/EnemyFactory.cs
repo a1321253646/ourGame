@@ -45,6 +45,10 @@ public class EnemyFactory : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        if (GameManager.getIntance().isPlayBack) {
+            return;
+        }
+
 		if (startBoss || mIsDeal || GameManager.getIntance().isEnd) {
 			return;
 		}
@@ -96,7 +100,7 @@ public class EnemyFactory : MonoBehaviour {
         float dely = -(-2L + currentCount % 5L) * 0.5f;
         float delx = (currentCount/5L) * 0.5f;
        
-        Debug.Log("currentCount="+ currentCount+" delx =" + delx+ " dely =" + dely);
+//        Debug.Log("currentCount="+ currentCount+" delx =" + delx+ " dely =" + dely);
         GameObject newobj = null;
             newobj = GameObject.Instantiate(
                 game, new Vector3(transform.position.x+ delx, transform.position.y - bean.idel_y+ dely, mZPoint), Quaternion.Euler(0.0f, 0f, 0.0f));

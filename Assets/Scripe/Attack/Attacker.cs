@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -49,7 +50,7 @@ public abstract class Attacker : MonoBehaviour
     public AttributePre mAllAttributePre ;
     
     public LocalBean mLocalBean;
-	public List<Attacker> mAttackerTargets;
+	public List<Attacker> mAttackerTargets = new List<Attacker>();
 	public ResourceBean resourceData;
 
     public Dictionary<long, long> mBuffList = new Dictionary<long, long>();
@@ -58,6 +59,7 @@ public abstract class Attacker : MonoBehaviour
     public SpriteRenderer mSpriteRender;
     public int mAttackType = ATTACK_TYPE_DEFAULT;
     public int mCampType = CAMP_TYPE_DEFAULT;
+    public bool direction = true;
 
     public bool isStop = false;
     public int oldStatus = PLAY_STATUS_STANDY;
@@ -272,6 +274,128 @@ public abstract class Attacker : MonoBehaviour
         }
         return result;
     }
+    //奔跑控制
+    public void runNoTarget()
+    {
+        if (mCampType == Attacker.CAMP_TYPE_PLAYER)
+        {
+            float disx = mRunSpeed * Time.deltaTime;
+            transform.Translate(Vector2.right * (disx));
+            mLocalBean.mCurrentX += disx;
+        }
+    }
+
+    public void runBack(float speed) {
+        float disx = speed * Time.deltaTime;
+        transform.Translate(Vector2.left * disx);
+        mLocalBean.mCurrentX -= disx;
+
+        mSkillManager.mEventAttackManager.upDateLocal(disx, 0);
+    }
+
+    public void runToTarget()
+    {
+
+        mAttackerTargets.Clear();
+
+        MinTargetBean bean = getTarget();
+        
+        if (!mFightManager.mAliveActtackers.ContainsKey(bean.id))
+        {
+            return;
+        }
+        Attacker target = mFightManager.mAliveActtackers[bean.id];
+        LocalBean local = target.mLocalBean;
+        changeDirection(local);
+        if (bean.distance <= mAttackLeng)
+        {
+            mAttackerTargets.Add(target);
+            Fight();
+            return;
+        }
+        float disx = local.mCurrentX- mLocalBean.mCurrentX  ;
+        float disy = local.mCurrentY-mLocalBean.mCurrentY;
+        float distance = mRunSpeed * Time.deltaTime;
+        float bili = distance / bean.distance;
+        disx = bili * disx;
+        disy = bili * disy;
+        transform.Translate(Vector2.right * disx);
+        transform.Translate(Vector2.up * disy);
+      
+        mLocalBean.mCurrentX += disx;
+        mLocalBean.mCurrentY += disy;
+        mSkillManager.mEventAttackManager.upDateLocal(-disx, disy);
+
+    }
+
+    private void changeDirection(LocalBean local)
+    {
+
+        if (mLocalBean.mCurrentX < local.mCurrentX && !direction)
+        {
+            Debug.Log("id = " + id + " direction=" + direction + " mLocalBean.mCurrentX= " + mLocalBean.mCurrentX + " local.mCurrentX=" + local.mCurrentX);
+            transform.SetPositionAndRotation(transform.position, new Quaternion(0, 0, 0, 1));
+            direction = true;
+            transform.Translate(Vector2.left * (2 * resourceData.getHurtOffset().x));
+            mLocalBean.mCurrentX -= 2 * resourceData.getHurtOffset().x;
+
+        }
+        else if (mLocalBean.mCurrentX > local.mCurrentX && direction)
+        {
+            Debug.Log("id = " + id + " direction=" + direction + " mLocalBean.mCurrentX= " + mLocalBean.mCurrentX + " local.mCurrentX=" + local.mCurrentX);
+            transform.SetPositionAndRotation(transform.position, new Quaternion(0, 180, 0, 1));
+            direction = false;
+            transform.Translate(Vector2.right * (2 * resourceData.getHurtOffset().x));
+            mLocalBean.mCurrentX += 2 * resourceData.getHurtOffset().x;
+        }
+    }
+
+    //获取目标
+    public MinTargetBean getTarget()
+    {
+        Dictionary<int, Attacker> dic = mFightManager.mAliveActtackers;
+        float tmpDistance = 0;
+        MinTargetBean bean = new MinTargetBean();
+        bean.distance = 99999999999999999;
+        foreach (int tmpid in dic.Keys)
+        {
+            Attacker a = dic[tmpid];
+            if (tmpid == id)
+            {
+                continue;
+            }
+            if (a.mCampType == mCampType)
+            {
+                continue;
+            }
+            tmpDistance = getDistance(a);
+            if (tmpDistance < bean.distance)
+            {
+                bean.id = tmpid;
+                bean.distance = tmpDistance;
+            }
+        }
+        return bean;
+    }
+
+    private float getDistance(Attacker a)
+    {
+        float disx = mLocalBean.mCurrentX - a.mLocalBean.mCurrentX;
+        float disy = mLocalBean.mCurrentY - a.mLocalBean.mCurrentY;
+        float distance = (disx * disx) + (disy * disy);
+        distance = (float)Math.Sqrt(distance);
+
+        return distance;
+    }
+
+    public class MinTargetBean
+    {
+        public float distance;
+        public int id;
+    }
+
+
+
 
 }
 

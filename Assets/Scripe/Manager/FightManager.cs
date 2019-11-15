@@ -35,12 +35,14 @@ public class FightManager{
     }
 
     public bool isEmptyEnemy(){
-		//Debug.Log ("mAliveActtackers.Count =" + mAliveActtackers.Count);
-		if (mAliveActtackers.Count < 2) {
-			return true;
-		} else {
-			return false;
-		}
+        //Debug.Log ("mAliveActtackers.Count =" + mAliveActtackers.Count);
+        
+        foreach (int id in mAliveActtackers.Keys) {
+            if (mAliveActtackers[id].mCampType == Attacker.CAMP_TYPE_MONSTER) {
+                return false;
+            }
+        }
+        return true;
 	}
 
 
@@ -59,7 +61,7 @@ public class FightManager{
         }
 		attcker.id = id;
 		id++;
-		mAliveActtackers.Add (attcker.id, attcker);
+        mAliveActtackers.Add (attcker.id, attcker);
 	}
 	public void unRegisterAttacker(Attacker attcker){
         if (attcker.id == -1 || mAliveActtackers.Count < 1)
@@ -79,7 +81,9 @@ public class FightManager{
             }
         }
         mAliveActtackers.Remove(attcker.id);
-
+        if (isEmptyEnemy() && attcker.mAttackType == Attacker.ATTACK_TYPE_ENEMY && !GameManager.getIntance().isEnd) {
+            GameManager.getIntance().isPlayBack = true;
+        }
 
         if (attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
           //  GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();

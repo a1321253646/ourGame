@@ -29,6 +29,10 @@ public class BackgroundManager{
 	public void move(){
 		isRun = true;
 	}
+    public bool isDouble = false;
+    public void isDoublemove() {
+        isDouble = true;
+    }
 	private void creatBackgroup(){
 	/*	GameObject newobj =  GameObject.Instantiate (BgType, new Vector2 (3.454f,-0.009f),Quaternion.Euler(0.0f,0.0f,0.0f));
 	//	newobj.transform.localScale.Set (2.769776f, 5.359474f, 1);

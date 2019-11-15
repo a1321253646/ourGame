@@ -16,8 +16,9 @@ public class PlayControl : Attacker
     private Vector2 mFirVetor;
 
     void Start() {
+        direction = true;
         mFirVetor = transform.position;
-        
+        mRunSpeed = JsonUtils.getIntance().getConfigValueForId(100057);
         mCampType = CAMP_TYPE_PLAYER;
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
         mBackManager = mLevelManager.getBackManager();
@@ -178,7 +179,7 @@ public class PlayControl : Attacker
             JsonUtils.getIntance().getLevelData().map);
         float yBase = mMapConfig.y_base;
         yBase = cardTop + mMapConfig.y_base;
-        transform.position = new Vector2(transform.position.x,yBase- resourceData.idel_y) ;
+        //transform.position = new Vector2(transform.position.x,yBase- resourceData.idel_y) ;
         GameObject.Find("hero").GetComponent<HeroRoleControl>().upDateUi();
     }
 
@@ -648,7 +649,10 @@ public class PlayControl : Attacker
             initAnimalEvent();
             VocationDecBean bean = JsonUtils.getIntance().getVocationById(mVoication);
             mAttackLeng = bean.attack_range * resourceData.zoom;
-            GameObject.Find("hero").GetComponent<HeroRoleControl>().vocation();
+            if (isMain) {
+                GameObject.Find("hero").GetComponent<HeroRoleControl>().vocation();
+            }
+            
         }
         double mMaxTmp = mBaseAttribute.maxBloodVolume;
         if (mBloodVolume < 0) {
@@ -703,8 +707,33 @@ public class PlayControl : Attacker
                 }
             }
         }
+        if (GameManager.getIntance().isPlayBack)
+        {
+            if (mBackManager.isDouble == false)
+            {
+                setStatus(PLAY_STATUS_RUN);
+            }
+            if (isMain) {
+                if (JsonUtils.getIntance().getConfigValueForId(100003) >= transform.position.x)
+                {
+                    mBackManager.stop();
+                    mBackManager.isDouble = false;
+                    GameManager.getIntance().isPlayBack = false;
+                    return;
+                }
 
-
+                if (mBackManager.isDouble == false)
+                {
+                    mBackManager.isDouble = true;
+                    mBackManager.move();
+                }
+            }
+            runBack(mBackManager.moveSpeed);
+            mSkillManager.upDate();
+            mAnimalControl.update();
+            mLevelAnimalControl.updateAnimal();
+            return;
+        }
         if (isWin)
         {
             if (GameManager.getIntance().isGuide) {
@@ -714,7 +743,10 @@ public class PlayControl : Attacker
             if (!isShowGuoChang && transform.position.x > 0)
             {
                 isShowGuoChang = true;
-                mFightManager.dieOrWin(true,true);
+                if (isMain) {
+                    mFightManager.dieOrWin(true, true);
+                }
+                   
             }
             // return;
         }
@@ -723,16 +755,20 @@ public class PlayControl : Attacker
             winrun();
             if (transform.position.x > JsonUtils.getIntance().getConfigValueForId(100003))
             {
-                isStart = false;              
-                mBackManager.move();
-                mLocalBean = new LocalBean(transform.position.x, transform.position.y, mAttackLeng, true, this);
+                isStart = false;
                 mFightManager.registerAttacker(this);
-                mLevelManager.creatEnemyFactory(transform.position.x, transform.position.y+resourceData.idel_y);
-                getOutLine();
-                GameObject.Find("Manager").GetComponent<AdManager>().initAd();
+                mLocalBean = new LocalBean(transform.position.x, transform.position.y, mAttackLeng, true, this);
+                if (isMain) {
+                    mBackManager.move();
+                    mLevelManager.creatEnemyFactory(transform.position.x, transform.position.y + resourceData.idel_y);
+                    mBackManager.stop();
+                    getOutLine();
+                    GameObject.Find("Manager").GetComponent<AdManager>().initAd();
+                }
+
             }
         }
-        else if (getStatus() != mFightManager.mHeroStatus && getStatus() != Attacker.PLAY_STATUS_STANDY)
+/*        else if (getStatus() != mFightManager.mHeroStatus && getStatus() != Attacker.PLAY_STATUS_STANDY)
         {
             setStatus(mFightManager.mHeroStatus);
             if (getStatus() == Attacker.PLAY_STATUS_FIGHT)
@@ -746,14 +782,15 @@ public class PlayControl : Attacker
                 Run();
                 mBackManager.move();
             }
-        }
+        }*/
         if (getStatus() == Attacker.PLAY_STATUS_RUN && !mBackManager.isRun && !isStart) {
-            mBackManager.move();
+            runToTarget();
         }
 //        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
         mSkillManager.upDate();
         mAnimalControl.update();
         mLevelAnimalControl.updateAnimal();
+
     }
     private bool isWin = false;
     private bool isWinEnd = false;
@@ -761,9 +798,14 @@ public class PlayControl : Attacker
     {
         Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>win<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         isWin = true;
-        mBackManager.stop();
+        if (isMain) {
+            mBackManager.stop();
+        }
+       
         setStatus(Attacker.PLAY_STATUS_WIN);
     }
+    public bool isMain = false;
+
     private bool isStart = false;
     public void startGame() {
         if(mAllAttributePre == null) {
@@ -782,7 +824,8 @@ public class PlayControl : Attacker
         //      Debug.Log(" run ");
   //      Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>run<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         if (isWinEnd || isStart) {
-            transform.Translate(Vector2.right * (JsonUtils.getIntance().getConfigValueForId(100057) * Time.deltaTime));
+            mLocalBean.mCurrentX += mRunSpeed * Time.deltaTime;
+            transform.Translate(Vector2.right * (mRunSpeed  * Time.deltaTime));
         }
         
 	}

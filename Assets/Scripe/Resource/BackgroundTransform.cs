@@ -14,7 +14,7 @@ public class BackgroundTransform : MonoBehaviour {
 		if (!mBackManager.isRun) {
 			return;
 		}
-		transform.Translate (Vector2.left * mBackManager.moveSpeed * Time.deltaTime);
+		transform.Translate (Vector2.left *(mBackManager.isDouble ? 2:1)* mBackManager.moveSpeed * Time.deltaTime);
 		Vector2 postion = transform.position;
 		if (postion.x <= 0f-20.22f) {
 			transform.position = new Vector2 (transform.position.x+20.22f+20.22f, postion.y);

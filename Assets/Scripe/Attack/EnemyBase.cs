@@ -18,6 +18,7 @@ public class EnemyBase : Attacker {
     }
 
 	void Start () {
+        direction = false;
         startComment();
         mBackManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getBackManager ();
 		mFightManager = GameObject.Find ("Manager").GetComponent<LevelManager> ().getFightManager (); 
@@ -33,10 +34,13 @@ public class EnemyBase : Attacker {
         mAnimalControl.setStatueDelayStatue(ActionFrameBean.ACTION_ATTACK, ActionFrameBean.ACTION_STANDY);
         mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_ATTACK, (int)resourceData.attack_framce, new AnimalStatu.animalIndexCallback(fightEcent));
         mAnimalControl.addIndexCallBack(ActionFrameBean.ACTION_DIE, (int)resourceData.attack_framce, new AnimalStatu.animalIndexCallback(dieEcent));
+        mAnimalControl.setPri();
         mAnimalControl.start();
     }
     void fightEcent(int status)
     {
+
+//        Debug.Log("fightEcent mAttackerTargets.Count"+ mAttackerTargets.Count);
         if (mAttackerTargets == null || mAttackerTargets.Count < 1)
         {
             setStatus(Attacker.PLAY_STATUS_RUN);
@@ -65,9 +69,11 @@ public class EnemyBase : Attacker {
     private float mTime = 0;
 	void Update () {
         //      timeTest += Time.deltaTime;
-        run ();
+        
         mAnimalControl.update();
         mSkillManager.upDate();
+        run();
+
     }
     public void endDieNoshow()
     {
@@ -88,19 +94,18 @@ public class EnemyBase : Attacker {
 
     private float xy = 0;
 	public void run(){
-
-       
-
-
         mLocalBean.mCurrentX = transform.position.x;
 		mLocalBean.mCurrentY = transform.position.y;
         float speedX = 0;
-		if ( mBackManager.isRun) {
-        //    speedX = mBackManager.moveSpeed;
-            transform.Translate (Vector2.left * (mBackManager.moveSpeed * Time.deltaTime));
-         //   mSkillManager.upDateLocal(mBackManager.moveSpeed * Time.deltaTime, 0);
-            mState.Update ();
-		}
+        mState.Update();
+
+        if (mBackManager.isRun) {
+            transform.Translate(Vector2.left *( (mBackManager.isDouble?2:1)*mBackManager.moveSpeed*Time.deltaTime));
+            return;
+        }
+        if (status != ActionFrameBean.ACTION_ATTACK) {
+            runToTarget();
+        }
         if (true) {
             return;
         }

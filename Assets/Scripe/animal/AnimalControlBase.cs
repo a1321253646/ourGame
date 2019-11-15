@@ -154,18 +154,20 @@ public class AnimalControlBase
         mCurrentAnimalStatu = statue;
         mCurrentAnimalStatu.initAnimal();
     }
-
+    bool isPri = false;
+    public void setPri() {
+        isPri = true;
+    }
     public void update() {
+        
         if (!isStart) {
             return;
         }
         mAnimalTime += Time.deltaTime;
-
         if (mCurrentAnimalStatu == mDelayAnimalStatu && mAnimalTime > mShowAnimalStatu.loopDelayTime)
         {
             changeStatue(mShowAnimalStatu);
         }
-
         if (mCurrentAnimalStatu != null) {
             mCurrentAnimalStatu.upDateTime();
         }

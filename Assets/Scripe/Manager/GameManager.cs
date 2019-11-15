@@ -75,8 +75,8 @@ public class GameManager
     public  bool mIsNeedToReReadAboutLevel = false;
 
     public string mGameErrorString = "";
-
-   // public long mTestSpeed = -1;
+    public bool isPlayBack = false;
+    // public long mTestSpeed = -1;
     public bool isQuiteGame = false;
 
     public bool isOpenStop = false;
