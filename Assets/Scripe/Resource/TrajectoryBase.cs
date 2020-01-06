@@ -43,7 +43,7 @@ public class TrajectoryBase : MonoBehaviour
   //      Debug.Log("traject update isdun"+isRUn);
 		if (!isRUn)
 			return;
-        if (GameManager.getIntance().isEnd)
+        if (GameManager.getIntance().isEnd || mAttacker.mAttackerTargets.Count==0)
         {
             isRUn = false;
             isWork = false;
@@ -57,7 +57,7 @@ public class TrajectoryBase : MonoBehaviour
         }
         float disx = transform.position.x + mFightResource.mTrajectResource.getHurtOffset().x - mAttacker.mAttackerTargets[0].transform.position.x + mAttacker.mAttackerTargets[0].resourceData.getHurtOffset().x;
         float disy = transform.position.y + mFightResource.mTrajectResource.getHurtOffset().y - mAttacker.mAttackerTargets[0].transform.position.y - mAttacker.mAttackerTargets[0].resourceData.getHurtOffset().y;
-        if (disx <= 0) {
+        if (disx < 0.1f && disx > -0.1f) {
             mFightResource.trajectoryActionIsEnd();
             Destroy(gameObject);
             mAnimalControl.update();

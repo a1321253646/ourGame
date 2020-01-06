@@ -19,12 +19,13 @@ public class SkillTargetPointDeal
         float distance = 9999999999;
         float distance2 = 0;
 
-        foreach (Attacker at in fit.mAliveActtackers.Values)
+        foreach (int id in fit.mAliveActtackers.Keys)
         {
+            Attacker at = fit.mAliveActtackers[id];
             LocalBean tmp = at.mLocalBean;
-            if (at.mCampType == campType)
+            if (at.mCampType != campType)
             {
-               
+                Debug.Log("==========================================SkillTargetPointDeal campType =" + campType + " id =" + at.id + " at type=" + at.mCampType);
                 maxx = tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x + tmp.mAttacker.resourceData.getTargetBorder()[1];
                 minx = tmp.mCurrentX + tmp.mAttacker.resourceData.getHurtOffset().x - tmp.mAttacker.resourceData.getTargetBorder()[0];
                 miny = tmp.mCurrentY + tmp.mAttacker.resourceData.idel_y;
@@ -50,6 +51,7 @@ public class SkillTargetPointDeal
                         {
                             result[0].setWhith();
                         }
+                        Debug.Log("==========================================SkillTargetPointDeal campType =" + campType + " id =" + tmp.mAttacker.id + " at type=" + tmp.mAttacker.mCampType);
                         result.Clear();
                         result.Add(tmp.mAttacker);
                     }
@@ -76,6 +78,7 @@ public class SkillTargetPointDeal
         {
             result = null;
         }
+
         return result;
     }
 }

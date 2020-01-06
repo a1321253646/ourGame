@@ -14,7 +14,7 @@ public class SkillManage
     public FightManager mFightManager;
     BackgroundManager mBackManager;
     public void addSkill(Attacker attacker, SkillJsonBean skill, float x, float y, int campType, bool isGiveup,bool isBoss, long skillIndex) {
-        Debug.Log("addSkill x=" + x + " y = " + y);
+//        Debug.Log("addSkill x=" + x + " y = " + y);
         ResourceBean bean = JsonUtils.getIntance().getEnemyResourceData(skill.skill_resource);
         GameObject newobj = GameObject.Instantiate(
                 mSkillObject, new Vector2(x - bean.getHurtOffset().x, y - bean.getHurtOffset().y), Quaternion.Euler(0.0f, 0f, 0.0f));

@@ -85,7 +85,7 @@ public class FightManager{
             GameManager.getIntance().isPlayBack = true;
         }
 
-        if (attcker.mAttackType == Attacker.ATTACK_TYPE_HERO){
+        if (attcker.mAttackType == Attacker.ATTACK_TYPE_HERO &&((PlayControl)attcker).isMain){
           //  GameObject.Find("Manager").GetComponent<AdManager>().showInersAd();
             GameObject.Find("boss_info").GetComponent<BossCardManager>().disShow();
             GameManager.getIntance ().mHeroIsAlive = false;
@@ -349,7 +349,7 @@ public class FightManager{
         float hurt = 0;
 		Attacker attacker = getAttackerById (id);
 		if (attacker!= null && attacker.mAttackerTargets != null && attacker.mAttackerTargets.Count > 0) {
-			if (attacker is EnemyBase) {//enemy only one target
+			//if (attacker is EnemyBase) {//enemy only one target
 				FightResource resouce = new FightResource (attacker, mEnemyFactory);
 //                Debug.Log("attackBllod");
                 hurtBlood = attackBllod(attacker, attacker.mAttackerTargets[0]);
@@ -372,8 +372,8 @@ public class FightManager{
                     return 0;
                 }
                 
-            }
-			for (int i = 0; i < attacker.mAttackerTargets.Count; ) {
+            //}
+			/*for (int i = 0; i < attacker.mAttackerTargets.Count; ) {
                 int size = attacker.mAttackerTargets.Count;
                 Attacker tager = attacker.mAttackerTargets [i];
 				hurtBlood = attackBllod (attacker, tager);
@@ -398,7 +398,7 @@ public class FightManager{
              //   if (size == attacker.mAttackerTargets.Count) {
                     
              //   }
-			}
+			}*/
 			return hurtBloodAll;
 		}
 

@@ -59,7 +59,7 @@ public class SkillJsonBean : MonoBehaviour
                         {
                             l = 1;
                         }
-                        Debug.Log("l = " + l);
+//                        Debug.Log("l = " + l);
                         string s = new string(str.Replace("L", "" + l).ToCharArray());
                         CalculatorUtil ca = new CalculatorUtil(s, null, id);
                         tmp = ((float)ca.getValue(null, null));

@@ -15,7 +15,7 @@ public class SkillTargetEllipseDeal
         LocalBean tmp=  lives;
         while (tmp != null) {
             count++;
-            if (tmp.mAttacker.mCampType == campType)
+            if (tmp.mAttacker.mCampType != campType)
             {
 
                 float x = tmp.mCurrentX+tmp.mAttacker.resourceData.getHurtOffset().x - local.x;

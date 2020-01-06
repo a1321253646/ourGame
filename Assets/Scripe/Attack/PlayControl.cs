@@ -13,11 +13,15 @@ public class PlayControl : Attacker
     private LevelManager mLevelManager;
     HeroLevelUpAnimal mLevelAnimalControl;
 
-    private Vector2 mFirVetor;
+    public long trajectory_resource;
+    public long hit_resource;
+
+    private Vector3 mFirVetor;
 
     void Start() {
         direction = true;
         mFirVetor = transform.position;
+     //   Debug.Log("=============================================transform.position x=" + transform.position.x + " transform.position y=" + transform.position.y + " transform.position z=" + transform.position.z);
         mRunSpeed = JsonUtils.getIntance().getConfigValueForId(100057);
         mCampType = CAMP_TYPE_PLAYER;
         mLevelManager = GameObject.Find("Manager").GetComponent<LevelManager>();
@@ -89,6 +93,8 @@ public class PlayControl : Attacker
 
             GameObject.Find("active_button_list").GetComponent<ActiveListControl>().showAd(type, true);
         }
+  //      Debug.Log("=============================================transform.position x=" + transform.position.x + " transform.position y=" + transform.position.y + " transform.position z=" + transform.position.z);
+
     }
 
     private bool isFristStart = true;
@@ -112,7 +118,7 @@ public class PlayControl : Attacker
         //   status = PLAY_STATUS_RUN;
         id = -1;
         mBloodVolume = 0;
-        mAttackLeng = 1;
+ //       mAttackLeng = 1;
         mDieGas = 0;
         bloodBili = -1;
         bloodDistance = -1;
@@ -179,8 +185,8 @@ public class PlayControl : Attacker
             JsonUtils.getIntance().getLevelData().map);
         float yBase = mMapConfig.y_base;
         yBase = cardTop + mMapConfig.y_base;
-        //transform.position = new Vector2(transform.position.x,yBase- resourceData.idel_y) ;
         GameObject.Find("hero").GetComponent<HeroRoleControl>().upDateUi();
+        direction = true;
     }
 
 
@@ -237,7 +243,11 @@ public class PlayControl : Attacker
     }
     void faileEnd(int status)
     {
-        mFightManager.dieOrWin(false, false);
+        if (isMain)
+        {
+            mFightManager.dieOrWin(false, false);
+        }
+        
     }
     void winEnd(int status) {
         Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>winEnd<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
@@ -255,7 +265,40 @@ public class PlayControl : Attacker
         //mFightManager.dieOrWin(true, false);
     }
 
+    public void userCard() {
+        if (mPlayerSkill.Count > 0) {
+            for (int i = 0; i < mPlayerSkill.Count; i++) {
+                PlayerSkillBean bean = mPlayerSkill[i];
+                if (bean.isDeal()) {
+                    CardJsonBean card = JsonUtils.getIntance().getCardInfoById(bean.id);
+                    SkillJsonBean skill = JsonUtils.getIntance().getSkillInfoById(card.skill_id);
+                    if (skill.shape_type == 4 && mAttackerTargets != null && mAttackerTargets.Count > 0)
+                    {
+                        mAttackerTargets[0].mSkillManager.addSkill(skill.id, mAttackerTargets[0],
+                        SkillIndexUtil.getIntance().getSkillIndexByCardId(false, bean.id));
+                        bean.deal();
+                    }
+                    else if (skill.shape_type == 6)
+                    {
+                        mSkillManager.addSkill(skill.id,this,
+                            SkillIndexUtil.getIntance().getSkillIndexByCardId(false, bean.id));
+                        bean.deal();
+                    }
+                    else if (mAttackerTargets != null && mAttackerTargets.Count > 0)
+                    {
+                        SkillManage.getIntance().bossAddSkill(this, mAttackerTargets[0], skill,
+                             mCampType, SkillIndexUtil.getIntance().getSkillIndexByCardId(true, bean.id));
+                        bean.deal();
+                    }
+
+                    return;
+                }
+            }
+        }
+    }
+
     void fightEcent(int status) {
+        userCard();
         if (mAttackerTargets == null || mAttackerTargets.Count < 1) {
             setStatus(Attacker.PLAY_STATUS_RUN);
             mFightManager.mHeroStatus = Attacker.PLAY_STATUS_RUN;
@@ -648,7 +691,10 @@ public class PlayControl : Attacker
             vocationDealSkill();
             initAnimalEvent();
             VocationDecBean bean = JsonUtils.getIntance().getVocationById(mVoication);
-            mAttackLeng = bean.attack_range * resourceData.zoom;
+            if (mAttackLeng <= 1) {
+                mAttackLeng = bean.attack_range * resourceData.zoom;
+            }
+           
             if (isMain) {
                 GameObject.Find("hero").GetComponent<HeroRoleControl>().vocation();
             }
@@ -684,6 +730,10 @@ public class PlayControl : Attacker
 	private float mTime = 0;
     private bool isShowGuoChang = false;
 	void Update () {
+    //    Debug.Log(id+"=============================================transform.position x=" + transform.position.x + " transform.position y=" + transform.position.y + " transform.position z=" + transform.position.z);
+
+        updataLocal();
+
         mTime += Time.deltaTime;
 
         //        Debug.Log(" isWin  ="+ isWin);
@@ -714,24 +764,28 @@ public class PlayControl : Attacker
                 setStatus(PLAY_STATUS_RUN);
             }
             if (isMain) {
-                if (JsonUtils.getIntance().getConfigValueForId(100003) >= transform.position.x)
-                {
-                    mBackManager.stop();
-                    mBackManager.isDouble = false;
-                    GameManager.getIntance().isPlayBack = false;
-                    return;
-                }
 
                 if (mBackManager.isDouble == false)
                 {
                     mBackManager.isDouble = true;
                     mBackManager.move();
+                }else if (JsonUtils.getIntance().getConfigValueForId(100003) >= transform.position.x)
+                {
+                    mBackManager.stop();
+                    mBackManager.isDouble = false;
+                    GameManager.getIntance().isPlayBack = false;
                 }
+
+
             }
             runBack(mBackManager.moveSpeed);
             mSkillManager.upDate();
             mAnimalControl.update();
             mLevelAnimalControl.updateAnimal();
+            if (status == ActionFrameBean.ACTION_DIE)
+            {
+                transform.Translate(Vector2.left * (mBackManager.isDouble ? 2 : 1) * mBackManager.moveSpeed * Time.deltaTime);
+            }
             return;
         }
         if (isWin)
@@ -786,11 +840,10 @@ public class PlayControl : Attacker
         if (getStatus() == Attacker.PLAY_STATUS_RUN && !mBackManager.isRun && !isStart) {
             runToTarget();
         }
-//        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
+        //        Debug.Log("================== getStatus()  =" +getStatus()+ " mFightManager.mHeroStatus="+ mFightManager.mHeroStatus);
         mSkillManager.upDate();
         mAnimalControl.update();
         mLevelAnimalControl.updateAnimal();
-
     }
     private bool isWin = false;
     private bool isWinEnd = false;
@@ -824,7 +877,6 @@ public class PlayControl : Attacker
         //      Debug.Log(" run ");
   //      Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>run<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         if (isWinEnd || isStart) {
-            mLocalBean.mCurrentX += mRunSpeed * Time.deltaTime;
             transform.Translate(Vector2.right * (mRunSpeed  * Time.deltaTime));
         }
         
@@ -848,8 +900,9 @@ public class PlayControl : Attacker
         {
             if (JsonUtils.getIntance().getConfigValueForId(100007) != 1)
             {
-                mFightManager.unRegisterAttacker(this);
                 Die();
+                mFightManager.unRegisterAttacker(this);
+                
             }
         }
         

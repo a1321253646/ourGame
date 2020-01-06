@@ -69,7 +69,7 @@ public class EnemyBase : Attacker {
     private float mTime = 0;
 	void Update () {
         //      timeTest += Time.deltaTime;
-        
+        updataLocal();
         mAnimalControl.update();
         mSkillManager.upDate();
         run();
@@ -94,8 +94,6 @@ public class EnemyBase : Attacker {
 
     private float xy = 0;
 	public void run(){
-        mLocalBean.mCurrentX = transform.position.x;
-		mLocalBean.mCurrentY = transform.position.y;
         float speedX = 0;
         mState.Update();
 

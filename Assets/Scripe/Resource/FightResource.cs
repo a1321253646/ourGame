@@ -14,9 +14,17 @@ public class FightResource
         mFactory = factory;
         mAttacker = attacker;
 		mFightResource = mAttacker.resourceData;
-		if (mAttacker is EnemyBase) {
-			mTrajectoryId = ((EnemyBase)mAttacker).mData.trajectory_resource;
-			mHitId = ((EnemyBase)mAttacker).mData.hit_resource;
+        if (mAttacker is EnemyBase)
+        {
+            mTrajectoryId = ((EnemyBase)mAttacker).mData.trajectory_resource;
+            mHitId = ((EnemyBase)mAttacker).mData.hit_resource;
+            mHitResource = JsonUtils.getIntance().getEnemyResourceData(mHitId);
+            mTrajectResource = JsonUtils.getIntance().getEnemyResourceData(mTrajectoryId);
+        }
+        else if(mAttacker is PlayControl)
+        {
+            mTrajectoryId = ((PlayControl)mAttacker).trajectory_resource;
+            mHitId = ((PlayControl)mAttacker).hit_resource;
             mHitResource = JsonUtils.getIntance().getEnemyResourceData(mHitId);
             mTrajectResource = JsonUtils.getIntance().getEnemyResourceData(mTrajectoryId);
         }

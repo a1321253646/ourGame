@@ -43,7 +43,8 @@ public class EnemyFactory : MonoBehaviour {
         mHeroY = y;
     }
 
-	// Update is called once per frame
+    // Update is called once per frame
+    int creatCount = 0;
 	void Update () {
         if (GameManager.getIntance().isPlayBack) {
             return;
@@ -59,7 +60,9 @@ public class EnemyFactory : MonoBehaviour {
 			//int bossId = JsonUtils.getIntance ().getLevelData ().boss_DI;
 			//Debug.Log ("start creat boss id ="+bossId);
 			data = JsonUtils.getIntance ().getEnemyById (GameManager.getIntance().mBossId);
-			creatEnemy (true);
+            creatCount = 0;
+
+            creatEnemy (true);
 			return;
 		}
 
@@ -93,9 +96,33 @@ public class EnemyFactory : MonoBehaviour {
 	public void initFactory(int level){
 		mLevel = level;
 	}
-	void creatEnemy(bool isBoss){	
-//		Debug.Log ("creatEnemy id ="+data.id);
-		ResourceBean bean = JsonUtils.getIntance ().getEnemyResourceData (data.resource);
+	void creatEnemy(bool isBoss){
+        //		Debug.Log ("creatEnemy id ="+data.id);
+        if (!isBoss) {
+            if (creatCount == 0 || creatCount == 1)
+            {
+                if (data.trajectory_resource != 0)
+                {
+                    GameManager.getIntance().mAliveEnemy++;
+                    return;
+                }
+            }
+            else if (creatCount == 2 || creatCount == 3 || creatCount == 4)
+            {
+                if (data.trajectory_resource == 0)
+                {
+                    GameManager.getIntance().mAliveEnemy++;
+                    return;
+                }
+            }
+            else if (creatCount >= 5){
+                GameManager.getIntance().mAliveEnemy++;
+                return;
+            }
+            creatCount++;
+        }
+       
+        ResourceBean bean = JsonUtils.getIntance ().getEnemyResourceData (data.resource);
 		string res = bean.name;
         float dely = -(-2L + currentCount % 5L) * 0.5f;
         float delx = (currentCount/5L) * 0.5f;

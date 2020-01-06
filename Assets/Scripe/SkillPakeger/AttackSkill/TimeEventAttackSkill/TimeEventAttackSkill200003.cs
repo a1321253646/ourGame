@@ -26,7 +26,10 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
     }
     void endAnimal(int status)
     {
-        mSpriteRender.transform.localScale = new Vector2(0,0);
+        if (mSpriteRender.enabled) {
+            mSpriteRender.transform.localScale = new Vector2(0, 0);
+        }
+
     }
     float count1 = 0;
     public override void endHurt( HurtStatus hurt, Attacker attacker)
@@ -76,7 +79,10 @@ public class TimeEventAttackSkill200003 : TimeEventAttackSkillBase
     }
     public override void addValueEnd()
     {
-        mSpriteRender.transform.localScale = new Vector2(1, 1);
-        mAnimal.reStart();
+        if (mSpriteRender.isVisible) {
+            mSpriteRender.transform.localScale = new Vector2(1, 1);
+            mAnimal.reStart();
+        }
+
     }
 }

@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour {
     public BackgroundManager mBackManager;
 	public FightManager mFightManager;
     public PlayControl mPlayerControl;
+    public List<PlayControl> mPlayerControls = new List<PlayControl>();
     
     public GuideManager mGuideManager;
     private bool isInit = false;
@@ -100,10 +101,12 @@ public class LevelManager : MonoBehaviour {
         // mBackManager.init(BackgroupObject, JsonUtils.getIntance().getLevelData().map, cardTop);
         mFightManager.reset();
         //GameObject.Find("Role").GetComponent<PlayControl>().resetHero();
+        foreach (PlayControl p in mPlayerControls) {
+            p.resetHero();
 
-        mPlayerControl.resetHero();
+            p.mCardManager.reset();
+        }
 
-        mPlayerControl.mCardManager.reset();
         BackpackManager.getIntance().updateZhuangbeiItem(true);
         GameManager.getIntance().isEnd = false;
         //GameObject.Find("")
@@ -289,16 +292,27 @@ public class LevelManager : MonoBehaviour {
 
     private void creaPlay(float cardTop)
     {
+        PlayControl play = null;
+        play = creatPlayIndex(-7 , cardTop + 0.5f, 0);
 
-        for (int i = 0; i < 5; i++) {
-            float dely = -(-2L + i % 5L) * 0.5f;
-            float delx = (i / 5L) * 0.5f;
-            creatPlayIndex(-7 - delx, cardTop + dely,i);            
-        }
-   
+        play = creatPlayIndex(-7 , cardTop - 0.5f, 1);
+
+        play =creatPlayIndex(-7-1f , cardTop +1f, 2);
+        play.trajectory_resource = 30001;
+        play.hit_resource = 30002;
+        play.mAttackLeng = 7;
+        play =creatPlayIndex(-7-1f , cardTop, 3);
+        play.trajectory_resource = 30001;
+        play.hit_resource = 30002;
+        play.mAttackLeng = 7;
+        play =creatPlayIndex(-7-1f , cardTop-1f, 4);
+        play.trajectory_resource = 30001;
+        play.hit_resource = 30002;
+        play.mAttackLeng = 7;
+
 
     }
-    private void creatPlayIndex(float x, float y,int index) {
+    private PlayControl creatPlayIndex(float x, float y,int index) {
         Debug.Log("creatPlayIndex= x" + x+"  y="+ y);
         Hero hero = JsonUtils.getIntance().getHeroData();
         long vocation = 1;
@@ -318,7 +332,7 @@ public class LevelManager : MonoBehaviour {
 
 
         GameObject newobj = GameObject.Instantiate(Player, new Vector3(x,
-            y - bean.idel_y, -1),
+            y - bean.idel_y, 1-index*0.1f),
             Quaternion.Euler(0.0f, 0.0f, 0.0f));
 
         newobj.transform.localScale.Set(JsonUtils.getIntance().getConfigValueForId(100005), JsonUtils.getIntance().getConfigValueForId(100005), 1);
@@ -328,8 +342,17 @@ public class LevelManager : MonoBehaviour {
             mPlayerControl = play;
             mPlayerControl.isMain = true;
         }
+        
         play.startGame();
+        if (index != 2) {
+            play.mPlayerSkill.Add(new PlayerSkillBean(3000001 + index * 3, 5000, 4000));
+        }
+        
+        play.mPlayerSkill.Add(new PlayerSkillBean(3000002 + index * 3, 5000, 5000));
+        play.mPlayerSkill.Add(new PlayerSkillBean(3000003 + index * 3, 2000, 0));
 
+        mPlayerControls.Add(play);
+        return play;
     }
 
 	public void creatEnemyFactory(float x,float y)

@@ -11,15 +11,20 @@ public class SkillTargetSquarenessDeal
         float minX = local.x  - local.leng / 2;
         float maxY = local.y + local.wight / 2;
         float minY = local.y  - local.wight / 2;
-        FightManager fit = lives;
-        foreach (Attacker at in fit.mAliveActtackers.Values)
+        FightManager fit = GameObject.Find("Manager").GetComponent<LevelManager>().getFightManager();
+        
+        foreach (int id in fit.mAliveActtackers.Keys)
         {
+            Attacker at = fit.mAliveActtackers[id];
             LocalBean tmp = at.mLocalBean;
-            if (tmp.mAttacker.mCampType == campType)
+            if (tmp.mAttacker.mCampType != campType)
             {
+                //Debug.Log("==========================================SkillTargetSquarenessDeal at.id  =" + at.id);
                 if (isOverlap(maxX, minX, maxY, minY, tmp))
                 {
+                    
                     result.Add(tmp.mAttacker);
+                  //  Debug.Log("==========================================SkillTargetSquarenessDeal campType =" + campType + " id =" + at.id + " at type=" + at.mCampType);
                     if (isRed)
                     {
                         tmp.mAttacker.setRed();

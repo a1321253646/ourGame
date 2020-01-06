@@ -211,10 +211,10 @@ public class UiManager
         isAuto = GameManager.getIntance().gettIsAutoBoss();
         clickAuto();
         initPoint();
-             Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
-            " level==" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "SQLHelper.getIntance().mVocationCount = "+ SQLHelper.getIntance().mVocationCount+ 
-            "  level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount="+
-            (BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount));
+         //    Debug.Log("=================================JsonUtils.getIntance().getConfigValueForId(100044) ==  " + JsonUtils.getIntance().getConfigValueForId(100044) +
+         //   " level==" + BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) + "SQLHelper.getIntance().mVocationCount = "+ SQLHelper.getIntance().mVocationCount+ 
+         //   "  level / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount="+
+     //       (BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount));
 
         mActiveListControl = GameObject.Find("active_button_list").GetComponent<ActiveListControl>();
         if (BaseDateHelper.decodeLong(GameManager.getIntance().mHeroLv) / (long)JsonUtils.getIntance().getConfigValueForId(100044) > SQLHelper.getIntance().mVocationCount)

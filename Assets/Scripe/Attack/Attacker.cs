@@ -63,6 +63,9 @@ public abstract class Attacker : MonoBehaviour
 
     public bool isStop = false;
     public int oldStatus = PLAY_STATUS_STANDY;
+
+    public List<PlayerSkillBean> mPlayerSkill = new List<PlayerSkillBean>();
+
     public void setStop() {
         oldStatus = status;
         setStatus(PLAY_STATUS_STANDY);
@@ -102,17 +105,20 @@ public abstract class Attacker : MonoBehaviour
     }
 
     public void setStatus(int status) {
-//        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setStatus"+ status + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        //        Debug.Log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>setStatus"+ status + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
         //    if (GameManager.getIntance().isEnd && status == ActionFrameBean.ACTION_ATTACK) {
         //        return;
         //    }
+        if (this.status == ActionFrameBean.ACTION_DIE ) {
+            return;
+        }
         if (isStop)
         {
             if (status == ActionFrameBean.ACTION_WIN)
             {
                 isStop = false;
             }
-            else if(isStop && status != ActionFrameBean.ACTION_DIE)
+            else if( status != ActionFrameBean.ACTION_DIE)
             {
                 return;
             }
@@ -281,14 +287,13 @@ public abstract class Attacker : MonoBehaviour
         {
             float disx = mRunSpeed * Time.deltaTime;
             transform.Translate(Vector2.right * (disx));
-            mLocalBean.mCurrentX += disx;
+
         }
     }
 
     public void runBack(float speed) {
         float disx = speed * Time.deltaTime;
         transform.Translate(Vector2.left * disx);
-        mLocalBean.mCurrentX -= disx;
 
         mSkillManager.mEventAttackManager.upDateLocal(disx, 0);
     }
@@ -309,6 +314,9 @@ public abstract class Attacker : MonoBehaviour
         changeDirection(local);
         if (bean.distance <= mAttackLeng)
         {
+            if (id == 2 || id == 3 || id == 4) {
+                Debug.Log(id + " mAttackLeng=" + mAttackLeng);
+            }
             mAttackerTargets.Add(target);
             Fight();
             return;
@@ -322,22 +330,21 @@ public abstract class Attacker : MonoBehaviour
         transform.Translate(Vector2.right * disx);
         transform.Translate(Vector2.up * disy);
       
-        mLocalBean.mCurrentX += disx;
-        mLocalBean.mCurrentY += disy;
         mSkillManager.mEventAttackManager.upDateLocal(-disx, disy);
 
     }
 
     private void changeDirection(LocalBean local)
     {
-
+        if (GameManager.getIntance().isEnd) {
+            return;
+        }
         if (mLocalBean.mCurrentX < local.mCurrentX && !direction)
         {
             Debug.Log("id = " + id + " direction=" + direction + " mLocalBean.mCurrentX= " + mLocalBean.mCurrentX + " local.mCurrentX=" + local.mCurrentX);
             transform.SetPositionAndRotation(transform.position, new Quaternion(0, 0, 0, 1));
             direction = true;
             transform.Translate(Vector2.left * (2 * resourceData.getHurtOffset().x));
-            mLocalBean.mCurrentX -= 2 * resourceData.getHurtOffset().x;
 
         }
         else if (mLocalBean.mCurrentX > local.mCurrentX && direction)
@@ -346,7 +353,6 @@ public abstract class Attacker : MonoBehaviour
             transform.SetPositionAndRotation(transform.position, new Quaternion(0, 180, 0, 1));
             direction = false;
             transform.Translate(Vector2.right * (2 * resourceData.getHurtOffset().x));
-            mLocalBean.mCurrentX += 2 * resourceData.getHurtOffset().x;
         }
     }
 
@@ -393,7 +399,10 @@ public abstract class Attacker : MonoBehaviour
         public float distance;
         public int id;
     }
-
+    public void updataLocal() {
+        mLocalBean.mCurrentX = transform.position.x +resourceData.getFightOffset().x;
+        mLocalBean.mCurrentY = transform.position.y + resourceData.idel_y;
+    }
 
 
 
